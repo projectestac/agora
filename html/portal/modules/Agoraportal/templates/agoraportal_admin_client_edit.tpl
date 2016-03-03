@@ -1,13 +1,22 @@
+{adminheader}
+
 {include file="agoraportal_admin_menu.tpl"}
+
 <h3>{gt text="Edita el client"}</h3>
 <form id="editService" class="form-horizontal" action="{modurl modname='Agoraportal' type='admin' func='updateClient'}" method="post" enctype="application/x-www-form-urlencoded">
     <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
     <input type="hidden" name="clientId" value="{$client->clientId}" />
     <input type="hidden" name="onlyClient" value="1" />
     <div class="form-group">
-        <label class="col-sm-4 control-label" for="clientCode">{gt text="Codi"}:</label>
+        <label class="col-sm-4 control-label" for="clientCode">{gt text="Codi de centre"}:</label>
         <div class="col-sm-8">
             <input class="form-control" id="clientCode" type="text" name="clientCode" size="15" maxlength="15" value="{$client->clientCode}" disabled/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4 control-label" for="clientName">{gt text="Nom del client"}:</label>
+        <div class="col-sm-8">
+            <input class="form-control" id="clientName" type="text" name="clientName" size="15" maxlength="50" value="{$client->clientName}"/>
         </div>
     </div>
     <div class="form-group">
@@ -17,9 +26,9 @@
         </div>
     </div>
     <div class="form-group">
-        <label class="col-sm-4 control-label" for="clientName">{gt text="Nom client"}:</label>
+        <label class="col-sm-4 control-label" for="clientOldDNS">{gt text="Nom propi antic"}:</label>
         <div class="col-sm-8">
-            <input class="form-control" id="clientName" type="text" name="clientName" size="15" maxlength="50" value="{$client->clientName}"/>
+            <input class="form-control" id="clientOldDNS" type="text" name="clientOldDNS" size="15" maxlength="50" value="{$client->clientOldDNS}"/>
         </div>
     </div>
     <div class="form-group">
@@ -63,10 +72,10 @@
         </div>
     </div>
     <div class="form-group">
-        <label class="col-sm-4 control-label" for="extraFunc">{gt text="Plantilla del servei"}:</label>
+        <label class="col-sm-4 control-label" for="extraFunc">{gt text="Plantilla de Nodes"}:</label>
         <div class="col-sm-8">
             <select class="form-control" id="extraFunc" name="extraFunc">
-            <option value="0">{gt text="Tria un tipus de plantilla..."}</option>
+            <option value="0">{gt text="Tria una plantilla..."}</option>
             {foreach item=template key=code from=$templates}
                 <option {if $client->extraFunc eq $code}selected{/if} value="{$code}">{$template}</option>
             {/foreach}
@@ -109,8 +118,10 @@
         <button class="btn btn-success" title="Desa" type="submit">
             <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> {gt text="Desa"}
         </button>
-        <a class="btn btn-danger" title="Cancel·la" href="{modurl modname='Agoraportal' type='admin' func='main'}">
+        <a class="btn btn-danger" title="Cancel·la" href="{modurl modname='Agoraportal' type='admin' func='clientsList'}">
             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> {gt text="Cancel·la"}
         </a>
     </div>
 </form>
+
+{adminfooter}

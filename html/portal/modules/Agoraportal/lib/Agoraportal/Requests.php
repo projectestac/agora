@@ -66,8 +66,8 @@ class Requests {
      */
     private static function get_service_join() {
         return array('join_table' => Service::TABLE,
-            'join_field' => array('clientServiceId', 'serviceId', 'clientId', 'serviceDB', 'description','state','activedId','contactName','contactProfile','timeCreated','observations','annotations','diskSpace','timeEdited','timeRequested', 'diskConsume'),
-            'object_field_name' => array('clientServiceId', 'serviceId', 'clientId', 'serviceDB', 'description','state','activedId','contactName','contactProfile','timeCreated','observations','annotations','diskSpace','timeEdited','timeRequested', 'diskConsume'),
+            'join_field' => array('clientServiceId', 'serviceId', 'clientId', 'dbHost', 'serviceDB', 'description','state','activedId','contactName','contactProfile','timeCreated','observations','annotations','diskSpace','timeEdited','timeRequested', 'diskConsume'),
+            'object_field_name' => array('clientServiceId', 'serviceId', 'clientId', 'dbHost', 'serviceDB', 'description','state','activedId','contactName','contactProfile','timeCreated','observations','annotations','diskSpace','timeEdited','timeRequested', 'diskConsume'),
             'compare_field_table' => 'serviceId',
             'compare_field_join' => 'serviceId');
     }
@@ -130,7 +130,7 @@ class Requests {
      * @return array of Request
      */
     public static function search_by($search, $init = -1, $rpp = 15) {
-        $where = self::get_search_by($search);
+        $where = 'd.' . self::get_search_by($search);
 
         $joins = array(self::get_client_join(), self::get_requeststype_join(), self::get_service_join(), self::get_servicetype_join());
 

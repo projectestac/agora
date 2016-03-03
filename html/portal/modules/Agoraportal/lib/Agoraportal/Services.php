@@ -5,7 +5,6 @@
  * This class manages bunches of services
  */
 class Services {
-
     /**
      * Retrieves all activeId for the selected serviceId's
      * @param $serviceId
@@ -13,7 +12,7 @@ class Services {
      */
     public static function get_activeId_by_serviceid($serviceId) {
         if (is_array($serviceId)) {
-            $serviceselect = "serviceId IN (".implode(',',$serviceId).")";
+            $serviceselect = "serviceId IN (" . implode(',', $serviceId) . ")";
         } else {
             $serviceselect = "serviceId = $serviceId";
         }
@@ -76,7 +75,7 @@ class Services {
      */
     public static function get_portal_service() {
         $classname = 'Service_portal';
-        if (file_exists('modules/Agoraportal/lib/Agoraportal/'.$classname.'.php')) {
+        if (file_exists('modules/Agoraportal/lib/Agoraportal/' . $classname . '.php')) {
             require_once('modules/Agoraportal/lib/Agoraportal/' . $classname . '.php');
         } else {
             return false;
@@ -85,19 +84,20 @@ class Services {
     }
 
     /**
-     * Returns all Services related to a ServiceType
+     * Returns all active services related to a ServiceType
+     *
      * @param $serviceId
      * @param string $index, which field must be the key of the array
      * @return array|bool
      */
     public static function get_enabled_by_serviceid($serviceId, $index = 'clientServiceId') {
         $servicetype = ServiceType::get_by_id($serviceId);
-        if(!$servicetype) {
+        if (!$servicetype) {
             return false;
         }
 
-        $classname = 'Service_'.$servicetype->serviceName;
-        if (file_exists('modules/Agoraportal/lib/Agoraportal/'.$classname.'.php')) {
+        $classname = 'Service_' . $servicetype->serviceName;
+        if (file_exists('modules/Agoraportal/lib/Agoraportal/' . $classname . '.php')) {
             require_once('modules/Agoraportal/lib/Agoraportal/' . $classname . '.php');
         } else {
             $classname = 'Service';
@@ -120,12 +120,12 @@ class Services {
      */
     public static function get_enabled_by_serviceid_full($serviceId) {
         $servicetype = ServiceType::get_by_id($serviceId);
-        if(!$servicetype) {
+        if (!$servicetype) {
             return false;
         }
 
-        $classname = 'Service_'.$servicetype->serviceName;
-        if (file_exists('modules/Agoraportal/lib/Agoraportal/'.$classname.'.php')) {
+        $classname = 'Service_' . $servicetype->serviceName;
+        if (file_exists('modules/Agoraportal/lib/Agoraportal/' . $classname . '.php')) {
             require_once('modules/Agoraportal/lib/Agoraportal/' . $classname . '.php');
         } else {
             $classname = 'Service';
@@ -181,14 +181,14 @@ class Services {
         }
 
         foreach ($search as $key => $value) {
-            switch($key) {
+            switch ($key) {
                 case 'state':
                     if ($value != -1) {
                         $wheres[] = "$key = $value";
                     }
                     break;
                 case 'serviceId' :
-                    $key = 'tbl.'.$key;
+                    $key = 'tbl.' . $key;
                 case 'locationId':
                 case 'typeId':
                     if ($value != 0) {
@@ -215,12 +215,12 @@ class Services {
      * @param int $rpp
      * @return array
      */
-    public static function search_by_full($search = array(), $orderby, $init = -1, $rpp = 15) {
+    public static function search($search = array(), $orderby, $init = -1, $rpp = 15) {
 
         $where = self::get_search_full($search);
         $joins = array(self::get_client_join(), self::get_servicetype_join());
 
-        switch($orderby) {
+        switch ($orderby) {
             case 1:
                 $orderby = "a.clientName, a.clientDNS, tbl.serviceId";
                 break;
@@ -239,13 +239,14 @@ class Services {
         }
 
         $rows = DBUtil::selectExpandedObjectArray(Service::TABLE, $joins, $where, $orderby, $init, $rpp, 'clientServiceId');
+
         $services = array();
         foreach ($rows as $key => $row) {
             $client = new Client($row);
             $servicetype = new ServiceType($row);
 
-            $classname = 'Service_'.$servicetype->serviceName;
-            if (file_exists('modules/Agoraportal/lib/Agoraportal/'.$classname.'.php')) {
+            $classname = 'Service_' . $servicetype->serviceName;
+            if (file_exists('modules/Agoraportal/lib/Agoraportal/' . $classname . '.php')) {
                 require_once('modules/Agoraportal/lib/Agoraportal/' . $classname . '.php');
             } else {
                 $classname = 'Service';
@@ -286,13 +287,14 @@ class Service extends AgoraBase {
     const STATUS_WITHDRAWN = -3;
     const STATUS_DISABLED = -4;
 
-    protected $clientServiceId; //Id
-    protected $serviceId; //ServiceTypeId
+    protected $clientServiceId; // Id
+    protected $serviceId; // ServiceTypeId
     protected $clientId;
-    protected $serviceDB; // Can be dbhost or oracle instance
+    protected $dbHost;
+    protected $serviceDB;
     protected $description;
     protected $state;
-    protected $activedId; // ID of the database to connect
+    protected $activedId; // ID of the database or schema to connect
     protected $contactName; // Username of the contact that requested the service
     protected $contactProfile; // Profile of the contact that requested the service
     protected $observations;
@@ -315,7 +317,7 @@ class Service extends AgoraBase {
      * @param null $servicetype if known, the servicetype related to the Service
      * @param null $client if known, the Client related to the Service
      */
-    public function __construct($array, $servicetype = null, $client= null) {
+    public function __construct($array, $servicetype = null, $client = null) {
         $this->set_array($array);
         $this->servicetype = $servicetype;
         $this->client = $client;
@@ -338,9 +340,9 @@ class Service extends AgoraBase {
             return false;
         }
         $service = ServiceType::get_by_id($row['serviceId']);
-        $classname = 'Service_'.$service->serviceName;
-        if (file_exists('modules/Agoraportal/lib/Agoraportal/'.$classname.'.php')) {
-            require_once('modules/Agoraportal/lib/Agoraportal/'.$classname.'.php');
+        $classname = 'Service_' . $service->serviceName;
+        if (file_exists('modules/Agoraportal/lib/Agoraportal/' . $classname . '.php')) {
+            require_once('modules/Agoraportal/lib/Agoraportal/' . $classname . '.php');
             return new $classname($row, $service);
         }
         return new Service($row);
@@ -461,7 +463,8 @@ class Service extends AgoraBase {
         $where = "clientServiceId = $this->clientServiceId";
         $this->timeEdited = time();
         $item = $this->get_array();
-        return DBUTil::updateObject($item, self::TABLE, $where);
+
+        return DBUtil::updateObject($item, self::TABLE, $where, $this->clientServiceId);
     }
 
     /**
@@ -476,7 +479,7 @@ class Service extends AgoraBase {
         }
 
         if (!DBUtil::deleteObjectByID(self::TABLE, $id, 'clientServiceId')) {
-            return LogUtil::registerError('No s\'ha pogut esborrar l\'element de '.self::TABLE);
+            return LogUtil::registerError('No s\'ha pogut esborrar l\'element de ' . self::TABLE);
         }
         return true;
     }
@@ -518,7 +521,7 @@ class Service extends AgoraBase {
      * @return float
      */
     public function get_disk_percentage() {
-        // diskSpace is in Mb and diskConsume in Kb
+        // diskSpace is in MB and diskConsume in KB
         return ($this->diskSpace > 0) ? round(($this->diskConsume * 100) / ($this->diskSpace * 1024), 2) : 0;
     }
 
@@ -540,17 +543,16 @@ class Service extends AgoraBase {
 
             return 'danger';
         }
-        return "";
+        return '';
     }
 
     /**
      * Prints a resume of du -skh command over the datadir of the service
      * @return bool
      */
-    public function printDataDirs() {
+    public function printDataDir($dataDir) {
         global $agora;
 
-        $dataDir = $this->getDataDirectory();
         if (filetype($dataDir) == 'dir') {
             echo '<h3>' . $agora['server']['userprefix'] . $this->activedId . ': ' . exec("du -skh $dataDir") . '</h3>';
             if ($dh2 = opendir($dataDir)) {
@@ -564,15 +566,6 @@ class Service extends AgoraBase {
             return true;
         }
         return false;
-    }
-
-    /**
-     * Returns the fullpath of the datadir
-     * @return string
-     */
-    public function getDataDirectory() {
-        $service = $this->get_servicetype();
-        return $service->getDataDirectoryFull() . $this->activedId;
     }
 
     /**
@@ -618,19 +611,19 @@ class Service extends AgoraBase {
      * Executes command du -sk to get the used space and saves it
      * @return bool|mixed
      */
-    public function calcUsedSpace() {
-        $dir = $this->getDataDirectory();
+    public static function calcUsedSpace($service) {
+        $dir = $service->getDataDirectory();
         if (!is_dir($dir)) {
             LogUtil::registerError('No s\'ha trobat el directori ' . $dir);
             return false;
         }
 
-        $sumatory = exec("du -sk " . $dir);
-        preg_match("/^[0-9]*/", $sumatory, $sumatoryString);
-        $this->diskConsume = reset($sumatoryString);
-        $this->save();
+        $sum = exec("du -sk " . $dir);
+        preg_match("/^[0-9]*/", $sum, $sumString);
+        $service->diskConsume = reset($sumString);
+        $service->save();
 
-        return $this->diskConsume;
+        return $service->diskConsume;
     }
 
     /**
@@ -652,13 +645,13 @@ class Service extends AgoraBase {
      * @param string $template In case of nodes, the name of the template
      * @return bool
      */
-    public static function request_service($serviceId, $clientId, $contactProfile, $template = "") {
+    public static function request_service($serviceId, $clientId, $contactProfile, $template = '') {
         // Check for nodes
         $serviceName = ServiceType::get_name($serviceId);
         if ($serviceName == 'nodes') {
             $observations = ServiceTemplates::get_template_description($template);
         } else {
-            $observations = "";
+            $observations = '';
         }
 
         // Insert service in database
@@ -689,7 +682,7 @@ class Service extends AgoraBase {
         $serviceName = $this->get_servicetype_name();
 
         $return = true;
-        switch($newState) {
+        switch ($newState) {
             case self::STATUS_TOREVISE:
                 $this->state = $newState;
                 break;
@@ -699,20 +692,23 @@ class Service extends AgoraBase {
                     if ($return) {
                         $this->add_log(ClientLog::CODE_MODIFY, 'S\'ha aprovat la sol·licitud d\'alta del servei ' . $serviceName);
                     }
+                } else {
+                    // If the service has an activedId, only change the state
+                    $this->state = $newState;
                 }
                 break;
             case Service::STATUS_DENIED:
                 $this->state = $newState;
-                $this->add_log(ClientLog::CODE_MODIFY, 'S\'ha denegat el servei '.$serviceName);
+                $this->add_log(ClientLog::CODE_MODIFY, 'S\'ha denegat el servei ' . $serviceName);
                 break;
             case Service::STATUS_WITHDRAWN:
                 $this->activedId = 0;
                 $this->state = $newState;
-                $this->add_log(ClientLog::CODE_MODIFY, 'S\'ha donat de baixa el servei '.$serviceName);
+                $this->add_log(ClientLog::CODE_MODIFY, 'S\'ha donat de baixa el servei ' . $serviceName);
                 break;
             case Service::STATUS_DISABLED:
                 $this->state = $newState;
-                $this->add_log(ClientLog::CODE_MODIFY, 'S\'ha desactivat el servei '.$serviceName);
+                $this->add_log(ClientLog::CODE_MODIFY, 'S\'ha desactivat el servei ' . $serviceName);
                 break;
         }
         return $return;
@@ -726,15 +722,17 @@ class Service extends AgoraBase {
         $previous = $this->get_array();
 
         // Get the current Id
-        if(!$this->calculateActiveId()){
+        $dbid = $this->getDBId();
+        if (!$dbid) {
             $this->activedId = $previous['activedId'];
             $this->save();
             return false;
         }
-
+        $this->activedId = $dbid;
 
         $this->state = self::STATUS_ENABLED;
-        $this->timeCreated  = time();
+        $this->timeCreated = time();
+
         if (!$this->save()) {
             return LogUtil::registerError('Error en l\'edició del registre');
         }
@@ -743,7 +741,7 @@ class Service extends AgoraBase {
         $result = $this->enable_service($password);
 
         if (!$result) {
-            // Fallback (put it to the last state)
+            // Fallback (put it to the previous state)
             $this->state = $previous['state'];
             $this->timeCreated = $previous['timeCreated'];
             $this->activedId = $previous['activedId'];
@@ -751,10 +749,7 @@ class Service extends AgoraBase {
             return false;
         }
 
-        $this->set_serviceDB($result['serviceDB']);
-        $this->save();
-
-        $this->add_log(ClientLog::CODE_ADMIN, 'Paraula de pas d\'administració per '.$this->get_servicetype_name() .': '. $password);
+        $this->add_log(ClientLog::CODE_ADMIN, 'Contrasenya d\'administració per ' . $this->get_servicetype_name() . ': ' . $password);
 
         return $password;
     }
@@ -773,22 +768,21 @@ class Service extends AgoraBase {
      * Calculate the next free ActiveId/DB identifier
      * @return bool|false
      */
+    /*
     private function calculateActiveId() {
         $ret = $this->getDBId();
         if (!$ret) {
-            return LogUtil::registerError($this->__('No queda cap base de dades lliure'));
+            return LogUtil::registerError(__('No queda cap base de dades lliure'));
         }
-        LogUtil::registerStatus('Base de dades seleccionada '.$this->activedId);
+        LogUtil::registerStatus('Base de dades seleccionada ' . $this->activedId);
         return true;
     }
-
+*/
     /**
      * Returns the DB identifier, needs to be overwritten
      * @return bool
      */
     protected function getDBId() {
-        $this->activedId = 1;
-        $this->serviceDB = "";
         return true;
     }
 
@@ -802,26 +796,6 @@ class Service extends AgoraBase {
         return true;
     }
 
-    // REQUESTS FUNCTIONS
-    /**
-     * Returns the list of Requests related to the service
-     * @return array
-     */
-    public function get_requests() {
-        return Requests::get_service_requests($this->serviceId, $this->clientId);
-    }
-
-    /**
-     * Adds a new Request to the Service
-     * @param $typeId
-     * @param $comments
-     * @return false|Request
-     */
-    public function add_request($typeId, $comments) {
-        return Request::add($this->serviceId, $this->clientId, $typeId, $comments);
-    }
-
-    // SQL
     /**
      * Retrieves the connection to the database
      * @return bool
@@ -836,11 +810,12 @@ class Service extends AgoraBase {
             return $this->connect;
         }
 
-        $this->connect = $this->getDBConnection($this->serviceDB, $this->activedId);
+        $this->connect = $this->getDBConnection($this->dbHost, $this->serviceDB, $this->activedId);
         if (!$this->connect) {
             $servicename = $this->servicetype->serviceName;
-            throw new Exception("No s'ha pogut connectar al servei <strong>$servicename</strong>. Paràmetres de depuració: host: $this->serviceDB, dbid: $this->activedId");
+            throw new Exception("No s'ha pogut connectar al servei <strong>$servicename</strong>. Paràmetres de depuració: dbHost: $this->dbHost, serviceDB: $this->serviceDB, dbid: $this->activedId");
         }
+
         return $this->connect;
     }
 
@@ -863,18 +838,23 @@ class Service extends AgoraBase {
      */
     public function executeSQL($sql, $keepalive = false) {
         $connect = $this->connectDB();
-        return $this->sql($sql, $connect, $keepalive);
+        $values = $this->sql($sql, $connect);
+
+        if (!$keepalive) {
+            self::disconnectDB($connect);
+        }
+
+        return $values;
     }
 
     /**
      * Executes a sql into the connection given (static method)
      * @param $sql
      * @param bool|false $connect
-     * @param bool|false $keepalive
      * @return array|bool
      * @throws Exception
      */
-    public static function sql($sql, $connect = false, $keepalive = false) {
+    public static function sql($sql, $connect = false) {
         if (!$connect) {
             return false;
         }
@@ -886,15 +866,12 @@ class Service extends AgoraBase {
 
         $values = array();
         if (strtolower(substr(trim($sql), 0, 6)) == 'select') {
-            // return rows
+            // Rows to return
             while ($row = $results->fetch_assoc()) {
                 $values[] = $row;
             }
         }
 
-        if (!$keepalive) {
-            self::disconnectDB($connect);
-        }
         return $values;
     }
 
@@ -902,10 +879,12 @@ class Service extends AgoraBase {
      * Retrieves the dbConnection, needs to be overwritten
      * @param $host
      * @param $dbid
+     * @param $host
+     * @param $serviceDB
      * @param bool|false $createDB if the database does not exists, created it
      * @return bool
      */
-    public static function getDBConnection($host, $dbid, $createDB = false) {
+    public static function getDBConnection($host, $serviceDB, $dbid, $createDB = false) {
         return false;
     }
 
@@ -926,7 +905,7 @@ class Service extends AgoraBase {
      * @param int $priority
      * @return Agora_Queues_Operation|false
      */
-    public function addOperation($name, $params = "", $priority = 0) {
+    public function addOperation($name, $params = '', $priority = 0) {
         return Agora_Queues_Operation::add($name, $this->clientId, $this->serviceId, $params, $priority);
     }
 
@@ -937,11 +916,10 @@ class Service extends AgoraBase {
      * @param int $priority
      * @return Agora_Queues_Operation|bool|false
      */
-    public function addExecuteOperation($name, $params = "", $priority = 0) {
+    public function addExecuteOperation($name, $params = '', $priority = 0) {
         return Agora_Queues_Operation::addExecute($name, $this->clientId, $this->serviceId, $params, $priority);
     }
 
-    //Actions
     /**
      * Execute an action into the service (it needs a 3rd function)
      * @param $action
@@ -951,9 +929,9 @@ class Service extends AgoraBase {
         if (empty($action)) {
             return LogUtil::registerError('Acció buida');
         }
-        $method = 'action_'.$action;
+        $method = 'action_' . $action;
         if (!method_exists($this, $method)) {
-            return LogUtil::registerError('Acció no vàlida: '.$action);
+            return LogUtil::registerError('Acció no vàlida: ' . $action);
         }
         return $this->$method();
     }
@@ -998,15 +976,11 @@ class Service extends AgoraBase {
             $databaseIds = Services::get_activeId_by_serviceid(array($nodes->serviceId, $intranet->serviceId));
         }
 
-        if (empty($databaseIds)) {
-            $databaseIds = array();
-        }
-
         $i = 1;
         $free = false;
         // First, look for a free database (a gap in the list)
-        foreach($databaseIds as $activeId) {
-            if($activeId != $i) {
+        foreach ($databaseIds as $activeId) {
+            if ($activeId != $i) {
                 $free = $i;
                 break;
             }
@@ -1021,12 +995,12 @@ class Service extends AgoraBase {
         // Get info of the service from its ID
         $service = $this->get_servicetype();
         $createDB = ModUtil::getVar('Agoraportal', 'createDB');
-        $connects = $service->testConnection($this->serviceDB, $free, $createDB);
+        $connects = $service->testConnection($this->dbHost, $this->serviceDB, $free, $createDB);
 
         if (!$connects) {
             LogUtil::registerError('No s\'ha pogut connectar a la base de dades. '
-                . 'Paràmetres passats a connectDB: servicename: '
-                . $serviceName . ', database: ' . $free . ', host: ' . $this->serviceDB);
+                . 'Paràmetres passats a testConnection: servicename: '
+                . $serviceName . ', database: ' . $free . ', dbHost: ' . $this->dbHost . ', serviceDB: ' . $this->serviceDB);
             return false;
         }
 

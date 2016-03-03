@@ -21,13 +21,12 @@ function smarty_function_AgoraportalMenuLinks($params, &$smarty) {
     // Administrator menu
     if ($isAdmin) {
         $menu = '<ul class="nav nav-pills">';
-        $menu .= ' <li role="presentation"><a href="' . DataUtil::formatForDisplayHTML(ModUtil::url('Agoraportal', 'admin', 'main')) . '"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> ' . __('Llista de serveis') . '</a> ';
-        $menu .= ' <li role="presentation"><a href="' . DataUtil::formatForDisplayHTML(ModUtil::url('Agoraportal', 'admin', 'clientsList')) . '"><span class="glyphicon glyphicon-education" aria-hidden="true"></span> ' . __('Llista de clients') . '</a> ';
+        $menu .= ' <li role="presentation"><a href="' . DataUtil::formatForDisplayHTML(ModUtil::url('Agoraportal', 'admin', 'main')) . '"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> ' . __('Serveis') . '</a> ';
+        $menu .= ' <li role="presentation"><a href="' . DataUtil::formatForDisplayHTML(ModUtil::url('Agoraportal', 'admin', 'clientsList')) . '"><span class="glyphicon glyphicon-education" aria-hidden="true"></span> ' . __('Clients') . '</a> ';
         $menu .= ' <li role="presentation"><a href="' . DataUtil::formatForDisplayHTML(ModUtil::url('Agoraportal', 'admin', 'requestsList')) . '"><span class="glyphicon glyphicon-flag" aria-hidden="true"></span> ' . __('Sol·licituds') . '</a> ';
         $menu .= ' <li role="presentation"><a href="' . DataUtil::formatForDisplayHTML(ModUtil::url('Agoraportal', 'admin', 'stats')) . '"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span> ' . __('Estadístiques') . '</a> ';
         $menu .= ' <li role="presentation"><a href="' . DataUtil::formatForDisplayHTML(ModUtil::url('Files', 'user', 'main')) . '"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> ' . __('Fitxers') . '</a> ';
         $menu .= ' <li role="presentation"><a href="' . DataUtil::formatForDisplayHTML(ModUtil::url('Agoraportal', 'admin', 'sql')) . '"><span class="glyphicon glyphicon-flash" aria-hidden="true"></span> ' . __('Execució d\'SQL') . '</a> ';
-        $menu .= ' <li role="presentation"><a href="' . DataUtil::formatForDisplayHTML(ModUtil::url('Agoraportal', 'admin', 'advices')) . '"><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> ' . __('Enviament d\'avisos') . '</a> ';
         $menu .= ' <li role="presentation"><a href="' . DataUtil::formatForDisplayHTML(ModUtil::url('Agoraportal', 'admin', 'operations')) . '"><span class="glyphicon glyphicon-transfer" aria-hidden="true"></span> ' . __('Operacions') . '</a> ';
         $menu .= ' <li role="presentation"><a href="' . DataUtil::formatForDisplayHTML(ModUtil::url('Agoraportal', 'admin', 'queues')) . '"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> ' . __('Cues') . '</a> ';
         if ( $agora['server']['enviroment'] != 'PRO' ) {
@@ -40,11 +39,7 @@ function smarty_function_AgoraportalMenuLinks($params, &$smarty) {
     // Get client services information
     if (!$isAdmin || $clientCode) {
         $clientCode = AgoraPortal_Util::getClientCodeFromUser($clientCode);
-        if ($isAdmin) {
-            $params = array('clientCode' => $clientCode);
-        } else {
-            $params = array();
-        }
+        $params = ($isAdmin) ? array('clientCode' => $clientCode) : array() ;
 
         $menu .= '<ul class="nav nav-pills">';
         $menu .= ' <li role="presentation"><a href="' . DataUtil::formatForDisplayHTML(ModUtil::url('Agoraportal', 'user', 'myAgora', $params)) . '"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> ' . __('Serveis') . "</a> ";
@@ -77,7 +72,7 @@ function smarty_function_AgoraportalMenuLinks($params, &$smarty) {
             }
         }
         $menu .= ' <li role="presentation"><a href="' . DataUtil::formatForDisplayHTML(ModUtil::url('Agoraportal', 'user', 'managers', $params)) . '"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> ' . __('Gestors') . "</a> ";
-        $menu .= ' <li role="presentation"><a href="' . DataUtil::formatForDisplayHTML(ModUtil::url('Agoraportal', 'user', 'logs', $params)) . '"><span class="glyphicon glyphicon-inbox" aria-hidden="true"></span> ' . __('Accions fetes') . "</a> ";
+        $menu .= ' <li role="presentation"><a href="' . DataUtil::formatForDisplayHTML(ModUtil::url('Agoraportal', 'user', 'logs', $params)) . '"><span class="glyphicon glyphicon-inbox" aria-hidden="true"></span> ' . __('Registre d\'accions') . "</a> ";
         $menu .= '</ul>';
     }
 

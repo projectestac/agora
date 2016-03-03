@@ -21,57 +21,6 @@ require_once('modules/Agoraportal/lib/Agoraportal/SQLCommands.php');
 class AgoraPortal_Util {
 
     /**
-     * Sends a mail
-     * @param $subject
-     * @param $mailContent
-     * @param $toname to be used in TO field
-     * @param $toUsers
-     * @param array $bccUsers
-     * @return bool|mixed
-     */
-    public static function send_mail($subject, $mailContent, $toname, $toUsers, $bccUsers = array()) {
-        $mailer = self::isMailerAvalaible();
-        if(!$mailer) {
-            return true;
-        }
-
-        // Send the e-mail (BCC to site e-mail)
-        return ModUtil::apiFunc('Mailer', 'user', 'sendmessage',
-            array('toname' => $toname,
-                'toaddress' => $toUsers,
-                'subject' => $subject,
-                'bcc' => $bccUsers,
-                'body' => $mailContent,
-                'html' => 1));
-    }
-
-    /**
-     * Send mail to admins of the platform (warningMailsTo)
-     * @param $subject
-     * @param $mailContent
-     * @return bool|mixed
-     */
-    public static function send_mail_to_admins($subject, $mailContent) {
-
-        $mailer = self::isMailerAvalaible();
-        if(!$mailer) {
-            return true;
-        }
-
-        $adminemails = ModUtil::getVar('Agoraportal', 'warningMailsTo');
-        $adminemails = explode(',', $adminemails);
-
-        // Send the e-mail
-        $toname = __('Agoraportal admin');
-        $sendMail = self::send_mail($subject, $mailContent, $toname, $adminemails);
-        if ($sendMail) {
-            LogUtil::registerStatus(__('S\'ha enviat un missatge de correu electrònic informatiu als administradors del portal'));
-        }
-        return $sendMail;
-    }
-
-
-    /**
      * Returns the email for a given username
      * @param $username
      * @return bool
@@ -92,10 +41,11 @@ class AgoraPortal_Util {
      * @return bool|false
      */
     public static function add_user_to_group($groupname, $username = false) {
-        $groupid = UserUtil::getGroupIdList("name='$groupname'");
-        if (!$groupid) {
+        $gid = UserUtil::getGroupIdList("name='$groupname'");
+        if (!$gid) {
             return LogUtil::registerError("El grup $groupname no existeix");
         }
+
         if ($username) {
             $uid = UserUtil::getIdFromName($username);
             if (!$uid) {
@@ -106,25 +56,36 @@ class AgoraPortal_Util {
             $uid = UserUtil::getVar('uid');
         }
 
-        if (!ModUtil::apiFunc('Groups', 'user', 'isgroupmember', array('gid' => $groupid, 'uid' => $uid))) {
-            if (!ModUtil::apiFunc('Groups', 'admin', 'adduser', array('gid' => $groupid, 'uid' => $uid))) {
+        // Verify if the user is already a member of this group
+        $is_member = ModUtil::apiFunc('Groups', 'user', 'isgroupmember', array('gid' => $gid, 'uid' => $uid));
+
+        // Add the user to the group if it is not a member
+        if (!$is_member) {
+            $obj = array(
+                'gid' => $gid,
+                'uid' => $uid
+            );
+            $result = DBUtil::insertObject($obj, 'group_membership');
+            if (!$result) {
                 return LogUtil::registerError("No s'ha pogut afegir l'usuari al grup $groupname");
             }
         }
+
         return true;
     }
 
     /**
      * Removes a user from a group
-     * @param $groupname where to remove
+     * @param string $groupname where to remove
      * @param bool|false $username if not provided, use current user
      * @return bool|false
      */
     public static function remove_user_from_group($groupname, $username = false) {
-        $groupid = UserUtil::getGroupIdList("name='$groupname'");
-        if (!$groupid) {
+        $gid = UserUtil::getGroupIdList("name='$groupname'");
+        if (!$gid) {
             return true;
         }
+
         if ($username) {
             $uid = UserUtil::getIdFromName($username);
             if (!$uid) {
@@ -135,11 +96,17 @@ class AgoraPortal_Util {
             $uid = UserUtil::getVar('uid');
         }
 
-        if (ModUtil::apiFunc('Groups', 'user', 'isgroupmember', array('gid' => $groupid, 'uid' => $uid))) {
-            if (!ModUtil::apiFunc('Groups', 'admin', 'removeuser', array('gid' => $groupid, 'uid' => $uid))) {
-                return LogUtil::registerError(_('El client no s\'ha pogut posar al grup de clients.'));
-            }
-        }
+        // Get database info
+        $dbtable = DBUtil::getTables();
+        $groupmembershipcolumn = $dbtable['group_membership_column'];
+
+        // Set condition
+        $where = "WHERE $groupmembershipcolumn[gid] = '" . (int)DataUtil::formatForStore($gid) . "'
+              AND $groupmembershipcolumn[uid] = '" . (int)DataUtil::formatForStore($uid) . "'";
+
+        // Remove silently. If operation is unsuccessful, don't say anything
+        DBUtil::deleteWhere('group_membership', $where);
+
         return true;
     }
 
@@ -218,7 +185,7 @@ class AgoraPortal_Util {
      * @param bool|false $javascript
      * @return array|bool
      */
-    public static function pager($total, $urltemplate, $init = -1, $rpp = 10, $javascript = false) {
+    public static function pager($total, $urltemplate, $init = -1, $rpp = 15, $javascript = false) {
         if ($total <= $rpp) {
             return false;
         }
@@ -289,34 +256,11 @@ class AgoraPortal_Util {
     }
 
     /**
-     * Returns a Form var, returning default if not provided
-     * @param $args where to get the default value
-     * @param $varname name of the var to be returned
-     * @param null $default default, if not in args or form
-     * @param string $method where to get the var form from
-     * @return mixed
-     */
-    public static function getFormVar($args, $varname, $default = null, $method = 'GETPOST') {
-        $value = isset($args[$varname]) ? $args[$varname] : $default;
-        return FormUtil::getPassedValue($varname, $value, $method);
-    }
-
-    //PERMISSION FUNCTIONS
-    /**
-     * Checks if a Permission is available
-     * @param $perm
-     * @return bool
-     */
-    private static function checkPermission($perm) {
-        return SecurityUtil::checkPermission('Agoraportal::', "::", $perm) ? true: false;
-    }
-
-    /**
      * Checks if is a normal user
      * @return bool
      */
     public static function isUser() {
-        return self::checkPermission(ACCESS_READ);
+        return SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ) ? true: false;
     }
 
     /**
@@ -334,7 +278,7 @@ class AgoraPortal_Util {
      * @return bool
      */
     public static function isClient() {
-        return self::checkPermission(ACCESS_COMMENT);
+        return SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_COMMENT) ? true: false;
     }
 
     /**
@@ -352,7 +296,7 @@ class AgoraPortal_Util {
      * @return bool
      */
     public static function isManager() {
-        return self::checkPermission(ACCESS_ADD);
+        return SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADD) ? true: false;
     }
 
     /**
@@ -370,7 +314,7 @@ class AgoraPortal_Util {
      * @return bool
      */
     public static function isAdmin() {
-        return self::checkPermission(ACCESS_ADMIN);
+        return SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN) ? true: false;
     }
 
     /**
@@ -404,6 +348,18 @@ class AgoraPortal_Util {
             return 'user';
         }
         return false;
+    }
+
+    /**
+     * Return global Àgora vars for a given service
+     *
+     * @author Toni Ginard
+     * @return Array
+     */
+    public static function getGlobalAgoraVars() {
+        global $agora;
+
+        return $agora;
     }
 }
 
@@ -480,7 +436,6 @@ class AgoraBase {
 
         $this->$name = $value;
     }
-
 
     /**
      * Converts object to array

@@ -1,7 +1,10 @@
+{adminheader}
+
 {include file="agoraportal_admin_menu.tpl"}
+
 <h3>{gt text="Cues"}</h3>
 <div class="panel panel-default">
-    <div class="panel-heading">{gt text="Filtra"} <span id="reload"></span></div>
+    <div class="panel-heading">{gt text="Cercador"} <span id="reload"></span></div>
     <div class="panel-body">
         <form class="form-inline" name="serviceForm" action="index.php?module=Agoraportal&type=admin&func=queues" method="POST">
             <div class="form-group">
@@ -9,7 +12,7 @@
                 <input class="form-control" name="operation_filter" id="operation_filter" value="{$operation_filter}"/>
             </div>
             <div class="form-group">
-                <label for="client_type">Filtra centre per: </label>
+                <label for="client_type">Cerca centres per: </label>
                 <select class="form-control" name="client_type" id="client_type">
                     <option {if $client_type === "clientCode"}selected{/if} value="clientCode">{gt text="Codi"}</option>
                     <option {if $client_type === "clientName"}selected{/if} value="clientName">{gt text="Nom client"}</option>
@@ -72,7 +75,8 @@
                 </select><br/>
             </div>
             <button type="submit" class="btn btn-primary">
-            <span class="glyphicon glyphicon-filter" aria-hidden="true"></span> Filtra</button>
+                <span class="glyphicon glyphicon-filter" aria-hidden="true"></span> {gt text="Cerca"}
+            </button>
         </form>
     </div>
 </div>
@@ -304,3 +308,4 @@
     </table>
 </div>
 
+{adminfooter}

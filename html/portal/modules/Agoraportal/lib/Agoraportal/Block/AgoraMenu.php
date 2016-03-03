@@ -66,7 +66,7 @@ class Agoraportal_Block_AgoraMenu extends Zikula_Controller_AbstractBlock {
         $view->assign('allowedAccessRequest', $allowedAccessRequest);
         $view->assign('uname', UserUtil::getVar('uname'));
 
-        $blockinfo['content'] = $view->fetch('block_agoraMenu.tpl');
+        $blockinfo['content'] = $view->fetch('agoraportal_block_agoraMenu.tpl');
 
         return BlockUtil::themeBlock($blockinfo);
     }

@@ -1,4 +1,7 @@
+{adminheader}
+
 {include file="agoraportal_admin_menu.tpl"}
+
 <h3>{gt text="Executa una SQL"}</h3>
     <form name="sqlForm" id="sqlForm" action="index.php?module=Agoraportal&type=admin&func=sql" method="POST">
         <div class="container-fluid">
@@ -33,6 +36,7 @@
                                 <option value="UPDATE">UPDATE</option>
                                 <option value="DELETE">DELETE</option>
                                 <option value="ALTER">ALTER</option>
+                                <option value="DROP">DROP</option>
                             </select>
                             <span id="sqlexample"></span>
                         </div>
@@ -54,6 +58,7 @@
                                         <option value="update">UPDATE</option>
                                         <option value="delete">DELETE</option>
                                         <option value="alter">ALTER</option>
+                                        <option value="drop">DROP</option>
                                     </select>
                                 </div>
                                 <input id="commandId" type="hidden" value="" />
@@ -78,8 +83,9 @@
                                     <li id="tab_update" role="presentation" class=""><a href="#msg" onclick="sqlComandsUpdateTab('update');">UPDATE</a></li>
                                     <li id="tab_delete" role="presentation" class=""><a href="#msg" onclick="sqlComandsUpdateTab('delete');">DELETE</a></li>
                                     <li id="tab_alter" role="presentation" class=""><a href="#msg" onclick="sqlComandsUpdateTab('alter');">ALTER</a></li>
+                                    <li id="tab_drop" role="presentation" class=""><a href="#msg" onclick="sqlComandsUpdateTab('drop');">DROP</a></li>
                                 </ul>
-                                <div id="commandList" style="max-height:250px; width:100%; overflow:auto;">{$comands}</div>
+                                <div id="commandList" style="max-height:450px; overflow:auto;">{$comands}</div>
                             </div>
                         </div>
                     </div>
@@ -90,3 +96,5 @@
             </div>
     </div>
 </form>
+
+{adminfooter}

@@ -15,20 +15,19 @@ define('DEBUG_ENABLED', $debugenabled);
 xtec_debug("DEBUG ENABLED: $debugenabled");
 
 // Retrieve info
-$allschools = getAllSchoolsDBInfo();
-
-if (empty($allschools)) {
+$services = getServices();
+if (empty($services)) {
     exit(0);
 }
 
 // Match info per schools
 $schools = array();
-foreach ($allschools as $school) {
+foreach ($services as $school) {
     $dns     = $school['dns'];
     $service = $school['service'];
 
     $schools[$dns]['id_'.$service]          = $school['id'];
-    $schools[$dns]['dbhost_'.$service]      = $school['database']; // Deprecated
+    $schools[$dns]['dbhost_'.$service]      = $school['dbhost'];
     $schools[$dns]['database_'.$service]    = $school['database'];
     $schools[$dns]['diskPercent_'.$service] = $school['diskPercent'];
 
@@ -54,10 +53,10 @@ foreach ($schools as $dns => $school) {
 }
 $schoolstr .= ');';
 
-$filename   = 'allSchools.php';;
+$filename   = 'allSchools.php';
 
 // Show file in browser
-if (isset($args["print"]) && $args["print"]) {
+if (isset($args['print']) && $args['print']) {
     echo '<h2>File: '.$filename.'</h2>';
     echo '<pre>'.$schoolstr.'</pre>';
 }

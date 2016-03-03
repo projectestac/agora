@@ -1,4 +1,7 @@
+{adminheader}
+
 {include file="agoraportal_admin_menu.tpl"}
+
 <h3>{gt text="Creació Massiva"}</h3>
 <div class="alert">
     <p>Aquest script crea el servei per als codis de centre que s'indiquin. Punts a tenir en compte:</p>
@@ -8,10 +11,9 @@
         <li>Es buscarà la propera BD lliure (sense servei activat)</li>
     </ul>
 </div>
+
 <form id="createBatchForm"  class="form-horizontal" action="{modurl modname='Agoraportal' type='admin' func='createBatch_exec'}" method="post" enctype="application/x-www-form-urlencoded">
     <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
-    <input type="hidden" name="service" value="{$service}" />
-    <input type="hidden" name="stateFilter" value="{$stateFilter}" />
     <div class="panel panel-default">
         <div class="panel-body">
             <div class="form-group">
@@ -23,7 +25,7 @@
             <div class="form-group">
                 <label class="col-sm-4 control-label" for="service_sel">{gt text="Servei"}:</label>
                 <div class="col-sm-8">
-                    <select  class="form-control" id="service_sel" name="service_sel">
+                    <select class="form-control" id="service_sel" name="service_sel">
                         {foreach item=service from=$services}
                             <option value="{$service->serviceId}" {if $service_sel eq $service->serviceId}selected="selected"{/if}>{$service->serviceName}</option>
                         {/foreach}
@@ -31,16 +33,16 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-4 control-label" for="serviceDB">{gt text="Base de dades (només per intranet i nodes) [opcional]"}:</label>
+                <label class="col-sm-4 control-label" for="dbHost">{gt text="Base de dades (només per intranet i nodes) [opcional]"}:</label>
                 <div class="col-sm-8">
-                    <input class="form-control" id="serviceDB" type="text" name="serviceDB" size="30" maxlength="30" value="{$serviceDB}" />
+                    <input class="form-control" id="dbHost" type="text" name="dbHost" size="30" maxlength="30" value="{$sdbHost}" />
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-4 control-label" for="template">{gt text="Plantilla del servei (només nodes)"}:</label>
+                <label class="col-sm-4 control-label" for="template">{gt text="Plantilla de Nodes"}:</label>
                 <div class="col-sm-8">
                     <select class="form-control" id="template" name="template">
-                        <option value="0">{gt text="Tria un tipus de plantilla..."}</option>
+                        <option value="0">{gt text="Tria una plantilla..."}</option>
                         {foreach item=templ key=code from=$templates}
                             <option {if $template eq $code}selected{/if} value="{$code}">{$templ}</option>
                         {/foreach}
@@ -66,3 +68,5 @@
         </div>
     </div>
 </form>
+                
+{adminfooter}

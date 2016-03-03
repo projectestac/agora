@@ -69,10 +69,16 @@ class ServiceType extends AgoraBase {
      * @return bool|ServiceType
      */
     public static function get_by_id($id) {
+        // Exception for "portal" which is not a real service
+        if ($id < 1) {
+            return false;
+        }
+
         $row = DBUtil::selectObjectByID(self::TABLE, $id, 'serviceId');
         if (!$row) {
             return false;
         }
+
         return new ServiceType($row);
     }
 
@@ -133,7 +139,6 @@ class ServiceType extends AgoraBase {
         return '<span class="serviceLogo">' . $logo . '</span>';
     }
 
-
     /**
      * Returns the support URL of the
      * @return bool|string
@@ -148,31 +153,6 @@ class ServiceType extends AgoraBase {
                 return 'http://agora.xtec.cat/moodle/moodle/mod/forum/view.php?id=1161';
         }
         return false;
-    }
-
-    /**
-     * Returns the data directory for the service
-     * @return bool
-     */
-    public function getDataDirectory() {
-        return $this->getAgoraVars('datadir');
-    }
-
-    /**
-     * Returns the Service parent data directory
-     * @return string
-     */
-    public function getParentDataDirectory() {
-        global $agora;
-        return $agora['server']['root'] . $this->getDataDirectory();
-    }
-
-    /**
-     * Returns the full Service Data Directory to attach the activedId
-     * @return string
-     */
-    public function getDataDirectoryFull() {
-        return $this->getParentDataDirectory() . $this->getAgoraVars('userprefix');
     }
 
     /**
@@ -257,21 +237,26 @@ class ServiceType extends AgoraBase {
      * @param bool|false $createDB
      * @return bool|false
      */
-    public function testConnection($host, $dbid, $createDB = false) {
+    public function testConnection($host, $serviceDB, $dbid, $createDB = false) {
         $classname = 'Service_'.$this->serviceName;
         if (!file_exists('modules/Agoraportal/lib/Agoraportal/'.$classname.'.php')) {
             return false;
         }
 
-        require_once('modules/Agoraportal/lib/Agoraportal/'.$classname.'.php');
+        require_once('modules/Agoraportal/lib/Agoraportal/' . $classname . '.php');
         $createDB = $createDB && $this->serviceName == 'nodes';
-        $connect = $classname::getDBConnection($host, $dbid, $createDB);
-        $works = $connect ? true: false;
-        $classname::disconnectDB($connect);
+
+        $connect = $classname::getDBConnection($host, $serviceDB, $dbid, $createDB);
+        $works = false;
+        if ($connect) {
+            $works = true;
+            $classname::disconnectDB($connect);
+        }
 
         if (!$works) {
-            return LogUtil::registerError('connectDB: No s\'ha pogut connectar al servei <strong>%s</strong>. Paràmetres de depuració: host: %s, dbid: %s', array($this->servicetype->serviceName, $this->serviceDB, $this->activedId));
+            LogUtil::registerError(__f("getDBConnection: No s'ha pogut connectar al servei <strong>%s</strong>. Paràmetres de depuració: host: %s, dbid: %s", array($this->serviceName, $host, $dbid)));
         }
+
         return $works;
     }
 }

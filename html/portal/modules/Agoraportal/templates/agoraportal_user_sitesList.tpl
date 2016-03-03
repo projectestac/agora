@@ -1,4 +1,5 @@
 {ajaxheader modname=Agoraportal filename=Agoraportal.js}
+
 {insert name="getstatusmsg"}
 
 <script>
@@ -10,7 +11,7 @@
 
 <h3>{gt text="Llista d'espais actius"}</h3>
 <div class="panel panel-default">
-    <div class="panel-heading">{gt text="Filtra"} <span id="reload"></span></div>
+    <div class="panel-heading">{gt text="Cercador"} <span id="reload"></span></div>
     <div class="panel-body">
         <form class="form-inline form-inline-multiline" name="filterForm" id="filterForm" onsubmit="return submitform();">
             <div class="form-group">
@@ -54,7 +55,7 @@
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">
-                <span class="glyphicon glyphicon-filter" aria-hidden="true"></span> Filtra
+                <span class="glyphicon glyphicon-filter" aria-hidden="true"></span> Cerca
             </button>
         </form>
     </div>

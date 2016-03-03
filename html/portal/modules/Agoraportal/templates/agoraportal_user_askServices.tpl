@@ -1,4 +1,5 @@
 {include file="agoraportal_user_menu.tpl" askServices=true clientCode=$client->clientCode}
+
 <h3>{gt text="Sol·licita el servei"} <strong>{$service->serviceName|capitalize}</strong></h3>
 <div class="serviceInfo">
     <form action="{modurl modname='Agoraportal' type='user' func='updateAskService'}" method="post" enctype="application/x-www-form-urlencoded">
@@ -10,7 +11,7 @@
                 <img src="modules/Agoraportal/images/{$service->serviceName}.gif" alt="{$service->serviceName}" title="{$service->serviceName}" align="middle" />
             </div>
             <div class="panel-body">
-                <p><strong>Descripció del servei:</strong> {$service->description}</p>
+                <p><strong>{gt text="Descripció del servei:"}</strong> {$service->description}</p>
                 {if $service->serviceName == 'nodes'}
                     <strong>{gt text="Indica la plantilla que vols fer servir:"}</strong>
                     <div style="margin: 5px 0px 20px 15px;">
@@ -28,10 +29,11 @@
         </div>
         <div class="form-group">
             <label class="control-label" for="contactProfile">{gt text="Càrrec en el centre"}:</label>
-            <input class="form-control" type="text" id="contactProfile" name="contactProfile" size="30" maxlength="50" value="{$contactProfile}"/>
+            <input class="" style="width:500px" type="text" id="contactProfile" name="contactProfile" maxlength="50" value="{$contactProfile}"/>
         </div>
+
         {if $accessLevel neq 'admin'}
-            <h4>Condicions d'ús del servei Àgora</h4>
+            <h4>{gt text="Condicions d'ús del servei Àgora"}</h4>
             <div class="form-group">
                 <article class="useTerms">
                     {include file="agoraportal_user_terms.tpl"}
@@ -42,6 +44,7 @@
                 <label for="userTerms">{gt text="En nom del centre <strong>%s</strong> accepto les condicions d'ús del servei." tag1=$client->clientName}</label>
         </div>
         {/if}
+
         <div class="text-center">
             <button type="submit" class="btn btn-success">
                 <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> {gt text="Envia"}
@@ -51,4 +54,5 @@
             </a>
         </div>
     </form>
-    </div>
+</div>
+

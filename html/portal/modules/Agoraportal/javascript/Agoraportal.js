@@ -1,11 +1,11 @@
-function servicesList(service, stateFilter, search, searchText, order, init, rpp) {
-    var pars = "func=servicesList&service=" + service + "&stateFilter=" + stateFilter + "&search=" + search + "&searchText=" + searchText + "&order=" + order + "&init=" + init + "&rpp=" + rpp;
-    return ajax_get(pars, servicesList_response);
+function listServices(service, stateFilter, search, searchText, order, init, rpp) {
+    var pars = "func=listServices&service=" + service + "&stateFilter=" + stateFilter + "&search=" + search + "&searchText=" + searchText + "&order=" + order + "&init=" + init + "&rpp=" + rpp;
+    return ajax_get(pars, listServices_response);
 }
 
-function servicesList_response(req) {
+function listServices_response(req) {
     var json = pndejsonize(req.responseText);
-    Element.update('servicesListContent', json.content);
+    Element.update('listServicesContent', json.content);
 }
 
 function getServiceActions() {
@@ -70,10 +70,11 @@ function requestsList_response(req) {
     Element.update('requestListContent', json.content);
 }
 
-function filter_servicesList() {
-
+function filter_listServices() {
     var which = document.getElementById("which").value;
     var service = document.getElementById("service_sel").value;
+
+    // Check if there is a list with all the services on the screen (which is "selected")
     if (which == "selected" && service != 0) {
         var search = document.getElementById('search').value;
         var searchText = document.getElementById('valueToSearch').value;
@@ -82,21 +83,21 @@ function filter_servicesList() {
         var include = document.getElementById("pilot") ? document.getElementById("include").value : 1;
         var clients = get_clients_selected();
 
-        var pars = "func=filter_servicesList&service=" + service + "&search=" + search + "&searchText=" + searchText + "&order=" + order + "&pilot=" + pilot + "&include=" + include + "&clients=" + clients;
-        ajax_get(pars, filter_servicesList_response);
+        var pars = "func=filter_listServices&service=" + service + "&search=" + search + "&searchText=" + searchText + "&order=" + order + "&pilot=" + pilot + "&include=" + include + "&clients=" + clients;
+        ajax_get(pars, filter_listServices_response);
     } else {
-        document.getElementById("servicesListContent").className = "hidden";
+        document.getElementById("listServicesContent").className = "hidden";
         document.getElementById("cerca").className = "hidden";
     }
 
     return false;
 }
 
-function filter_servicesList_response(req) {
+function filter_listServices_response(req) {
     var json = pndejsonize(req.responseText);
-    Element.update('servicesListContent', json.content);
+    Element.update('listServicesContent', json.content);
 
-    document.getElementById("servicesListContent").className = "visible";
+    document.getElementById("listServicesContent").className = "visible";
     document.getElementById("cerca").className = "visible";
 }
 
@@ -121,7 +122,7 @@ function getServiceStats_response(req) {
     Element.update('stats', text);
 }
 
-function statsGetStatistics(orderby, clientDNS){
+function statsGetStatistics(orderby){
 
     var service = document.getElementById("service_sel").value;
     var stats = document.getElementById("stats").value;
@@ -149,20 +150,18 @@ function statsGetStatistics(orderby, clientDNS){
     }
 
     if (!date_start || !date_stop) {
-        Element.update('resultsContent', 'Dates incorrectes');
+        Element.update('resultsContent', "Falta la data d'inici o la de finalització");
         return;
     }
     if (date_stop < date_start) {
-        Element.update('resultsContent', "Les dates no tenen l'ordre correcte");
+        Element.update('resultsContent', "Les data d'inici no pot ser posterior a la finalització");
         return;
     }
 
     var which = document.getElementById("which").value;
+
     var clients = "";
-    if (clientDNS) {
-        clients = clientDNS;
-        which = "selected";
-    } else if (which == "selected") {
+    if (which == "selected") {
         clients = get_clients_selected();
     }
 
@@ -191,10 +190,8 @@ function statsGetStatisticsGraphs(clientDNS, column){
 
     var which = document.getElementById("which").value;
     var clients = "";
-    if (clientDNS) {
-        clients = clientDNS;
-        which = "selected";
-    } else if (which == "selected") {
+
+    if (which == "selected") {
         clients = get_clients_selected();
     }
 
@@ -227,32 +224,6 @@ function statsGraph_failure() {
     Element.update('graphsContent','Error en descarregar les dades');
 }
 
-function statsGenerateStatistics(date){
-    if (!date) {
-        Element.update('generate', 'Data incorrecta');
-    }
-
-    var day = date.substr(8,2);
-    var month = date.substr(5,2);
-    var year = date.substr(0,4);
-    var pars = "day="+day+"&month="+month+"&year="+year;
-    Element.update('generate', 'Generant...');
-    var myAjax = new Ajax.Request("../config/statistics.php",
-    {
-        method: 'get',
-        parameters: pars,
-        onComplete: statsGenerateStatistics_response,
-        onFailure: statsGenerateStatistics_failure
-    });
-}
-function statsGenerateStatistics_response(req) {
-    Element.update('generate','OK');
-}
-
-function statsGenerateStatistics_failure() {
-    Element.update('generate','Error');
-}
-
 function sqlExampleUpdate() {
     var operation = document.getElementById('sqloperation').value;
     switch(operation){
@@ -270,6 +241,9 @@ function sqlExampleUpdate() {
             break;
         case "ALTER":
             Element.update('sqlexample','ALTER TABLE [taula] [ADD | ALTER COLUMN] [columna] [tipus]');
+            break;
+        case "DROP":
+            Element.update('sqlexample','DROP TABLE [IF EXISTS] [taula]');
             break;
         default:
             Element.update('sqlexample',"");
@@ -310,7 +284,7 @@ function editService_response(req) {
 }
 
 function updateService(serviceId) {
-    var f = document.forms.servicesList;
+    var f = document.forms.listServices;
     var pars = "func=updateService&serviceId=" + serviceId + "&serviceName=" + eval('f.serviceName_' + serviceId + '.value') + "&URL=" + eval('f.URL_' + serviceId + '.value') + "&description=" + eval('f.description_' + serviceId + '.value') + "&hasDB=" + eval('f.hasDB_' + serviceId + '.value') + "&allowedClients=" + eval('f.allowedClients_' + serviceId + '.value') + "&defaultDiskSpace=" + eval('f.defaultDiskSpace_' + serviceId + '.value');
     return ajax_get(pars, updateService_response);
 }
@@ -422,6 +396,7 @@ function autoActionsRequests() {
 function addManager() {
     var f = document.forms["addManager"];
     var error = false;
+
     if (f.managerUName.value == '') {
         alert(_AGORAPORTALNOTUSERNAME);
         error = true;
@@ -430,7 +405,12 @@ function addManager() {
         alert(_AGORAPORTALUSERNAMENOTVALID);
         error = true;
     }
-    return !error;
+    if (!error) {
+        document.getElementById("confirm").value = 1;
+        return true;
+    }
+
+    return false;
 }
 
 function logs(clientCode, actionCode, fromDate, toDate, uname, init) {
@@ -515,6 +495,7 @@ function sqlDelete(commandId){
 function sqlComandsUpdateTab(commandtype){
     var serviceId = document.getElementById("service_sel").value;
     var pars = "func=sqlCommandsUpdateTab&serviceId="+serviceId+"&commandtype="+commandtype;
+
     return ajax_get(pars, sqlCommandsUpdateTab_response, sqlCommandsUpdate_failure);
 }
 
@@ -523,8 +504,8 @@ function sqlCommandsUpdateTab_response(req) {
     Element.update('commandList', json.content);
 
     var selected_tab = document.getElementById('selected_tab').value;
-    document.getElementById('tab_'+selected_tab).className = "";
-    document.getElementById('tab_'+json.commandtype).className = 'tab_select';
+    document.getElementById('tab_'+selected_tab).className = '';
+    document.getElementById('tab_'+json.commandtype).className = 'active';
     document.getElementById('selected_tab').value = json.commandtype;
     document.getElementById('commandId').value = '';
     document.getElementById('description').value = '';
@@ -584,6 +565,7 @@ function sqlShowDescription() {
     else if(sql_function.search(/update/i) != -1) command_type.value = 'update';
     else if(sql_function.search(/delete/i) != -1) command_type.value = 'delete';
     else if(sql_function.search(/alter/i) != -1) command_type.value = 'alter';
+    else if(sql_function.search(/drop/i) != -1) command_type.value = 'drop';
 
     document.getElementById('description').focus();
 }

@@ -1,4 +1,5 @@
 {include file="agoraportal_user_menu.tpl"}
+
 <h3>{gt text="Gestors del centre"}&nbsp;{$client->clientName}</h3>
 <div class="alert alert-info">
     {gt text='Els centres docents poden designar fins a <strong>quatre persones</strong> com a gestores dels serveis d\'Àgora del centre. En tot moment podran consultar la llista de gestors, així com l\'estat dels serveis sol·licitats.'}
@@ -47,6 +48,7 @@
             <form id="addManager" class="form-horizontal" action="{modurl modname='Agoraportal' type='user' func='addManager'}" method="post" enctype="application/x-www-form-urlencoded" onsubmit="addManager();">
                 <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
                 <input type="hidden" name="clientCode" value="{$client->clientCode}" />
+                <input type="hidden" name="confirm" id="confirm" value="0" />
                 <div class="form-group">
                     <label class="col-sm-4 control-label" for="managerUName">{gt text="Nom d'usuari <em>XTEC</em> del gestor"}:</label>
                     <div class="col-sm-8">
@@ -65,6 +67,6 @@
 
 <script>
     var _AGORAPORTALCONFIRMMANAGERDELETION = "{{gt text='Confirmeu que voleu esborrar el gestor.'}}";
-    var _AGORAPORTALNOTUSERNAME = "{{gt text='No heu escrit el nom d\'usuari XTEC.'}}";
+    var _AGORAPORTALNOTUSERNAME = "{{gt text='No heu escrit el nom d\'usuari.'}}";
     var _AGORAPORTALUSERNAMENOTVALID = "{{gt text='No heu escrit un nom d\'usuari XTEC vàlid.'}}";
 </script>

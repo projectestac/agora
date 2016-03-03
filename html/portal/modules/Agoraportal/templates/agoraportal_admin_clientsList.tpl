@@ -1,3 +1,5 @@
+{adminheader}
+
 {include file="agoraportal_admin_menu.tpl"}
 
 <script>
@@ -9,7 +11,7 @@
 
 <h3>{gt text="Llista de clients"}</h3>
 <div class="panel panel-default">
-    <div class="panel-heading">{gt text="Filtra"} <span id="reload"></span></div>
+    <div class="panel-heading">{gt text="Cercador"} <span id="reload"></span></div>
     <div class="panel-body">
         <form class="form-inline form-inline-multiline" name="filterForm" id="filterForm" onsubmit="return submitform();">
             <div class="form-group">
@@ -34,7 +36,7 @@
                     <option {if $rpp eq 500}selected{/if} value="500">500</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-filter" aria-hidden="true"></span> Filtra</button>
+            <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-filter" aria-hidden="true"></span> Cerca</button>
         </form>
     </div>
 </div>
@@ -43,3 +45,5 @@
 <div id="clientsListContent" name="clientsListContent">
     {$clientsListContent}
 </div>
+
+{adminfooter}

@@ -63,7 +63,7 @@ if ($isBigIP) {
 foreach ($nodesToTest as $schoolid => $dbhost) {
     if (!checkNodesDatabase(array('id' => $schoolid, 'dbhost' => $dbhost))) {
         $isok = false;
-        $state .= '<br>El servidor MySQL "' . $data['dbhost'] . '" no funciona correctament.<br>';
+        $state .= '<br>El servidor MySQL "' . $dbhost . '" no funciona correctament.<br>';
     } elseif ($isBigIP) {
         $nodeok = true;
         break;
@@ -202,7 +202,7 @@ function checkNodesDatabase($school) {
 
         $con->close();
     } else {
-        $state .= '<br>No s\'ha pogut connectar a la bases de dades ' . $agora['nodes']['userprefix'] . $school['id'] . '.';
+        $state .= '<br>No s\'ha pogut connectar a la base de dades ' . $agora['nodes']['userprefix'] . $school['id'] . '.';
     }
 
     return $isok;

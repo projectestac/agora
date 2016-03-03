@@ -41,7 +41,7 @@
         <header>
             <h1><a href="{homepage}">{$modvars.ZConfig.sitename}</a></h1>
         </header>
-        <div class="container-fluid">
+        <div id="z-maincontent" class="container-fluid">
             {$maincontent}
         </div>
         <footer>

@@ -86,7 +86,7 @@ class Stats {
      * @param bool|false $show_totals if totals or dates are needed
      * @return array|bool
      */
-    public static function getStats($serviceid, $stat, $start, $stop, $order, $clients = "", $columns = null, $show_totals = false) {
+    public static function getStats($serviceid, $stat, $start, $stop, $order, $clients = '', $columns = null, $show_totals = false) {
 
         $servicetype = ServiceType::get_by_id($serviceid);
 
@@ -97,14 +97,13 @@ class Stats {
             return false;
         }
 
-
         // data format conversion
         $start = str_replace('-', "", $start);
         $stop = str_replace('-', "", $stop);
         $start = date('Ymd', strtotime($start));
         $stop = date('Ymd', strtotime($stop));
 
-        if ($stat == 'month') {
+        if (($stat == 'month') || ($servicetype->serviceName == 'intranet')) {
             $start = substr($start, 0, 6);
             $stop = substr($stop, 0, 6);
             $datefield = 'yearmonth';
@@ -121,7 +120,10 @@ class Stats {
 
         if (!empty($clients)) {
             $clients_ar = explode(",", $clients);
-            $clients_text = implode("','", $clients_ar);
+            foreach ($clients_ar as $client_id) {
+                $clients_dns[] = Client::get_by_id($client_id)->clientDNS;
+            }
+            $clients_text = implode("','", $clients_dns);
             $clients = "tbl.clientDNS IN ('$clients_text') AND ";
         }
 
@@ -164,7 +166,7 @@ class Stats {
      * @param string $clients to be shown, null for all
      * @return array|bool
      */
-    public static function getResults($serviceid, $stat, $start, $stop, $order, $clients = "") {
+    public static function getResults($serviceid, $stat, $start, $stop, $order, $clients = '') {
         $items = self::getStats($serviceid, $stat, $start, $stop, $order, $clients);
         if ($items === false) {
             return false;

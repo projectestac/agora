@@ -1,4 +1,5 @@
 {include file="agoraportal_admin_menu.tpl"}
+
 <h3>{gt text="Crea un client nou"}</h3>
 <form class="form-horizontal" action="{modurl modname='Agoraportal' type='admin' func='createClient'}" method="post" enctype="application/x-www-form-urlencoded">
     <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
@@ -18,6 +19,12 @@
         <label class="col-sm-4 control-label" for="clientDNS">{gt text="Nom propi"}:</label>
         <div class="col-sm-8">
             <input class="form-control" id="clientDNS" name="clientDNS" type="text" size="20" maxlength="50" value="{$client.clientDNS}"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4 control-label" for="clientOldDNS">{gt text="Nom propi antic"}:</label>
+        <div class="col-sm-8">
+            <input class="form-control" id="clientOldDNS" name="clientOldDNS" type="text" size="20" maxlength="50" value="{$client.clientOldDNS}"/>
         </div>
     </div>
     <div class="form-group">
@@ -54,7 +61,7 @@
         <button type="submit" class="btn btn-success">
             <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  {gt text="Crea"}
         </button>
-        <a class="btn btn-danger" href="{modurl modname='Agoraportal' type='admin' func='main'}">
+        <a class="btn btn-danger" href="{modurl modname='Agoraportal' type='admin' func='clientsList'}">
             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>  {gt text="Cancel·la"}
         </a>
     </div>

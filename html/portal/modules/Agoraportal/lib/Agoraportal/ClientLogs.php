@@ -114,7 +114,7 @@ class ClientLog extends AgoraBase {
             'time' => DataUtil::formatForStore(time()),
         );
 
-        if (!DBUTil::insertObject($item, self::TABLE, 'logId')) {
+        if (!DBUtil::insertObject($item, self::TABLE, 'logId')) {
             return LogUtil::registerError('No ha estat possible crear el registre a la base de dades.');
         }
 

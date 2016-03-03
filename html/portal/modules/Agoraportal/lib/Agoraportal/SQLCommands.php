@@ -24,6 +24,7 @@ class SQLCommands {
             $command = new SQLCommand($row);
             $commands[$command->comandId] = $command;
         }
+
         return $commands;
     }
 
@@ -35,7 +36,7 @@ class SQLCommands {
     public static function get_command_typeId($type) {
         if (!is_numeric($type)) {
             $type = strtolower($type);
-            $commands = array('all', 'select', 'insert', 'update', 'delete', 'alter');
+            $commands = array('all', 'select', 'insert', 'update', 'delete', 'alter', 'drop');
             $commands = array_flip($commands);
             return $commands[$type];
         }
@@ -58,6 +59,7 @@ class SQLCommand extends AgoraBase {
     const COMMAND_TYPE_UPDATE = 2;
     const COMMAND_TYPE_DELETE = 3;
     const COMMAND_TYPE_ALTER = 4;
+    const COMMAND_TYPE_DROP = 5;
 
     protected $comandId;
     protected $serviceId;
@@ -141,7 +143,7 @@ class SQLCommand extends AgoraBase {
      * @return string typename
      */
     public function get_typename() {
-        $commands = array('all', 'select', 'insert', 'update', 'delete', 'alter');
+        $commands = array('all', 'select', 'insert', 'update', 'delete', 'alter', 'drop');
         return $commands[$this->type];
     }
 

@@ -92,7 +92,6 @@ class Clients {
         return count($rows);
     }
 
-
     /**
      * Generates the where sentence to search
      * @param string $by key to look
@@ -184,6 +183,7 @@ class Clients {
         $rpp = (isset($search['rpp']) && $search['rpp'] > 0) ? $search['rpp'] : '-1';
         $init = (isset($search['init']) && $search['init'] != 0) ? $search['init'] - 1 : '-1';
         $orderby = (isset($search['orderby']) && !empty($search['orderby'])) ? $search['orderby'] : "clientId";
+
         return DBUtil::selectExpandedObjectArray(Client::TABLE, $joins, $where, $orderby, $init, $rpp, 'clientId');
     }
 
@@ -236,6 +236,15 @@ class Client extends AgoraBase {
     protected $extraFunc;
     // If the client is using the educat1x1 network
     protected $educat;
+
+
+    /**
+     * Set extraFunc value
+     * @param $value
+     */
+    public function set_extraFunc($value) {
+        $this->extraFunc = $value;
+    }
 
     /**
      * Gets a Client by clientCode
@@ -310,7 +319,7 @@ class Client extends AgoraBase {
     public function save() {
         $where = "clientId = $this->clientId";
         $item = $this->get_array();
-        return DBUTil::updateObject($item, self::TABLE, $where);
+        return DBUtil::updateObject($item, self::TABLE, $where);
     }
 
     /**
@@ -375,7 +384,7 @@ class Client extends AgoraBase {
      */
     public function get_template_name() {
         if (!$this->extraFunc) {
-            return "";
+            return '';
         }
         return ServiceTemplates::get_template_description($this->extraFunc);
     }
@@ -416,20 +425,6 @@ class Client extends AgoraBase {
      */
     public function has_service($serviceId) {
         return Service::get_by_client_and_service($this->clientId, $serviceId) ? true : false;
-    }
-
-    /**
-     * Adds a service to the client
-     * @param $serviceId
-     * @param $contactProfile
-     * @param string $observations
-     * @return bool
-     */
-    public function request_service($serviceId, $contactProfile, $observations = "") {
-        if (!$this->has_service($serviceId)) {
-            return Service::request_service($serviceId, $this->clientId, $contactProfile, $observations);
-        }
-        return true;
     }
 
     /**
@@ -503,6 +498,7 @@ class Client extends AgoraBase {
     }
 
     // LOGS RELATED FUNCTIONS
+
     /**
      * Add a log to the client
      * @param $actionCode, use ClientLogs constants
@@ -529,7 +525,7 @@ class Client extends AgoraBase {
      */
     public function get_logos() {
         $services = Services::get_enabled_client_services($this->clientId);
-        $logos = "";
+        $logos = '';
         foreach($services as $service) {
             $logos .= $service->get_logo_with_link();
         }
@@ -555,15 +551,14 @@ class Client extends AgoraBase {
      */
     public function send_mail($subject, $mailContent, $sendtoclient = true, $sendtomanagers = true, $adminbcc = true) {
 
-        $mailer = self::isMailerAvalaible();
-        if(!$mailer) {
+        if(!AgoraPortal_Util::isMailerAvalaible()) {
             return true;
         }
 
-        $who = "";
+        $who = '';
         $toUsers = array();
         if ($sendtoclient) {
-            // Send e-mail to client code (a8000001@xtec.cat)
+            // Send e-mail to e-mail address associated to user in table 'users'. It will usually have the form of a8000000@xtec.cat
             $toUsers[] = $this->get_client_mail();
             $who = 'al centre';
         }
@@ -590,10 +585,19 @@ class Client extends AgoraBase {
         }
 
         // Send the e-mail
-        $sendMail = self::send_mail($subject, $mailContent, $this->clientCode, $toUsers, $bccUsers);
+        $sendMail = ModUtil::apiFunc('Mailer', 'user', 'sendmessage', array(
+            'toname' => array($this->clientName),
+            'toaddress' => $toUsers,
+            'subject' => $subject,
+            'bcc' => $bccUsers,
+            'body' => $mailContent,
+            'html' => 1
+        ));
+
         if ($sendMail) {
-            LogUtil::registerStatus(__('S\'ha enviat un missatge de correu electrònic informatiu '.$who));
+            LogUtil::registerStatus(__('S\'ha enviat un missatge de correu electrònic informatiu ' . $who));
         }
+
         return $sendMail;
     }
 

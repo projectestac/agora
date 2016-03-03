@@ -4,8 +4,8 @@
 <div class="panel panel-info">
     <div class="panel-heading clearfix">
         {$servicetype->logo}
-        {gt text="Funció a executar"}
-        <form class="pull-right" name="sqlForm" id="sqlForm" action="index.php?module=Agoraportal&type=admin&func=sql" method="POST">
+        {gt text="Sentència a executar"}
+        <form class="pull-right" name="sqlForm" id="sqlForm" action="{modurl modname='Agoraportal' type='admin' func='sql'}" method="POST">
         <div class="hidden">
             <input type="hidden" name="which" value="{$which}">
             <input name="service_sel" type="hidden" value={$servicetype->serviceId} />

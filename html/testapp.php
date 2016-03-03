@@ -5,7 +5,7 @@ require_once('testlib/testlib.php');
 require_once('config/dblib-mysql.php');
 
 // Find school with Moodle and Nodes, to check Oracle and MySQL connection
-$schools = getAllSchoolsDBInfo();
+$schools = getServices();
 foreach ($schools as $school) {
     if ($school['service'] === 'moodle2') {
     	foreach ($schools as $nodes_school) {

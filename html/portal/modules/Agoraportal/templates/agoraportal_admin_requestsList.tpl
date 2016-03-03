@@ -1,3 +1,5 @@
+{adminheader}
+
 {include file="agoraportal_admin_menu.tpl"}
 
 <script>
@@ -15,20 +17,20 @@
 
 <h3>{gt text="Llista de sol·licituds dels clients"}</h3>
 <div class="panel panel-default">
-    <div class="panel-heading">{gt text="Filtra"} <span id="reload"></span></div>
+    <div class="panel-heading">{gt text="Cercador"} <span id="reload"></span></div>
     <div class="panel-body">
         <form class="form-inline form-inline-multiline" name="filterForm" id="filterForm" onsubmit="return submitform();">
             <div class="form-group">
-                <label for="service">{gt text="Servei"}</label>&nbsp;
+                <label for="service">{gt text="Servei"}</label>
                 <select class="form-control" name="service" id="service" onchange="return submitform();">
                     <option value="0">{gt text="Tots els serveis"}</option>
-                    {foreach item=serviceItem from=$services}
-                        <option {if $serviceItem->serviceId eq $service}selected{/if} value="{$serviceItem->serviceId}">{$serviceItem->serviceName}</option>
+                    {foreach item=servicetype from=$servicetypes}
+                        <option {if $servicetype->serviceId eq $service}selected{/if} value="{$servicetype->serviceId}">{$servicetype->serviceName}</option>
                     {/foreach}
                 </select>
             </div>
             <div class="form-group">
-                <label for="stateFilter">{gt text="Estat"}</label>&nbsp;
+                <label for="stateFilter">{gt text="Estat"}</label>
                 <select class="form-control" name="stateFilter" id="stateFilter" onchange="return submitform();">
                     <option {if $stateFilter eq -1}selected{/if} value="-1">{gt text="Tots els estats"}</option>
                     {foreach item=statename key=state from=$requestsstates}
@@ -65,10 +67,12 @@
                     <option {if $rpp eq 500}selected{/if} value="500">500</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-filter" aria-hidden="true"></span> Filtra</button>
+            <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-filter" aria-hidden="true"></span> Cerca</button>
         </form>
     </div>
 </div>
 <div id="requestListContent" name="requestListContent">
     {$requestListContent}
 </div>
+
+{adminfooter}

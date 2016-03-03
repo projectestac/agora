@@ -1,4 +1,7 @@
+{adminheader}
+
 {include file="agoraportal_admin_menu.tpl"}
+
 <h3>{gt text="Edita el servei"}</h3>
 <form id="editClientServiceForm" class="form-horizontal" action="{modurl modname='Agoraportal' type='admin' func='updateService'}" method="post" enctype="application/x-www-form-urlencoded">
     <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
@@ -43,10 +46,10 @@
             </div>
             {if $serviceName eq 'nodes'}
                 <div class="form-group">
-                    <label class="col-sm-4 control-label" for="extraFunc">{gt text="Plantilla del servei"}:</label>
+                    <label class="col-sm-4 control-label" for="extraFunc">{gt text="Plantilla de Nodes"}:</label>
                     <div class="col-sm-8">
                         <select class="form-control" id="extraFunc" name="extraFunc">
-                            <option value="0">{gt text="Tria un tipus de plantilla..."}</option>
+                            <option value="0">{gt text="Tria una plantilla..."}</option>
                             {foreach item=template key=code from=$templates}
                                 <option {if $client->extraFunc eq $code}selected{/if} value="{$code}">{$template}</option>
                             {/foreach}
@@ -59,23 +62,33 @@
                     {if $mailer}
                         <label class="control-label" for="sendMail">
                             <input id="sendMail" type="checkbox" name="sendMail" value="1" />
-                            {gt text="Envia un correu al centre i a la persona que ha sol·licitat l'activació en cas de canvis"}
+                            {gt text="Envia un missatge al centre i al gestor que ha sol·licitat l'activació en cas de canvis"}
                         </label>
+                        <input type="hidden" name="stateOriginal" value="{$service->state}"/>
                     {else}
                         <span class="alert alert-danger">
-                            {gt text="El Mailer no està operatiu"}
+                            {gt text="El mòdul Mailer no està actiu"}
                         </span>
+                        <input id="sendMail" type="checkbox" name="sendMail" value="0"/>
                     {/if}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label" for="dbHost">{gt text="Servidor de base de dades"}:</label>
+                <div class="col-sm-8">
+                    <input class="form-control" id="dbHost" type="text" name="dbHost" size="30" maxlength="30" value="{$service->dbHost}" />
+                    <span style="font-style:italic; color:grey;">{gt text="Necessari per al MySQL (Nodes). No es fa servir a l'Oracle (Moodle)"}</span>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-4 control-label" for="serviceDB">{gt text="Base de dades"}:</label>
                 <div class="col-sm-8">
                     <input class="form-control" id="serviceDB" type="text" name="serviceDB" size="30" maxlength="30" value="{$service->serviceDB}" />
+                    <span style="font-style:italic; color:grey;">{gt text="Si està en blanc, es calcula automàticament"}</span>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-4 control-label" for="diskSpace">{gt text="Espai disc"}:</label>
+                <label class="col-sm-4 control-label" for="diskSpace">{gt text="Espai de disc"}:</label>
                 <div class="col-sm-8">
                     <input class="form-control" id="diskSpace" type="text" name="diskSpace" size="7" maxlength="5" value="{$service->diskSpace}" />
                 </div>
@@ -87,7 +100,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-4 control-label" for="annotations">{gt text="Anotacions (només no veuen els administradors)"}:</label>
+                <label class="col-sm-4 control-label" for="annotations">{gt text="Anotacions (només ho veuen els administradors)"}:</label>
                 <div class="col-sm-8">
                     <textarea class="form-control" rows="5" id="annotations" name="annotations">{$service->annotations}</textarea>
                 </div>
@@ -104,7 +117,9 @@
     </div>
 </form>
 <script>
-    var confirmDischarge = "{{gt text='Estàs a punt de donar de baixa un servei. Aquesta acció no es pot desfer. N\'estàs completament segur/a?'}}";
-    var autoAnnotations = "{{$service->annotations}}{{gt text='Deixa la base de dades:'}}" + " {{$service->serviceDB}}";
+    var confirmDischarge = "{{gt text='Esteu a punt de donar de baixa un servei. Aquesta acció no es pot desfer. N\'esteu completament segurs?'}}";
+    var autoAnnotations = "{{$service->annotations}}{{gt text='Deixa la base de dades:'}}" + " {{$service->serviceDB}} " + "{{gt text='i el servidor:'}}" + " {{$service->dbHost}} ";
     var autoObservations = "{{$service->observations}}{{gt text='Baixa automàtica del servei per inactivitat durant més de 12 mesos.'}}";
 </script>
+
+{adminfooter}

@@ -1,16 +1,18 @@
+{adminheader}
+
 {include file="agoraportal_admin_menu.tpl"}
 
 {if $execOper}
-<script>
-    window.onload = function() {
-        operations_execute({/literal}{$execOper}{literal});
-    };
-</script>
+    <script>
+        window.onload = function() {
+        operations_execute({{$execOper}});
+        };
+    </script>
 {/if}
 
 <script>
     function submitform() {
-        servicesList(document.filterForm.service.value,
+        listServices(document.filterForm.service.value,
                     document.filterForm.stateFilter.value,
                     document.filterForm.search.value,
                     document.filterForm.valueToSearch.value,
@@ -23,7 +25,7 @@
 
 <h3>{gt text="Llista de serveis dels clients"}</h3>
 <div class="panel panel-default">
-    <div class="panel-heading">{gt text="Filtra"} <span id="reload"></span></div>
+    <div class="panel-heading">{gt text="Cercador"} <span id="reload"></span></div>
     <div class="panel-body">
         <form class="form-inline form-inline-multiline" name="filterForm" id="filterForm" onsubmit="return submitform();">
             <div class="form-group">
@@ -78,10 +80,15 @@
                     <option {if $rpp eq 500}selected{/if} value="500">500</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-filter" aria-hidden="true"></span> Filtra</button>
+            <button type="submit" class="btn btn-primary">
+                <span class="glyphicon glyphicon-filter" aria-hidden="true"></span>{gt text="Cerca"}
+            </button>
         </form>
     </div>
 </div>
-<div id="servicesListContent" name="servicesListContent">
-    {$servicesListContent}
+
+<div id="listServicesContent" name="listServicesContent">
+    {$listServicesContent}
 </div>
+
+{adminfooter}

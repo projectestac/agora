@@ -15,7 +15,7 @@
  * @return module tables information
  */
 function Agoraportal_tables() {
-    // Initialise table array
+
     $table = array();
 
     // agoraportal_clients table definition
@@ -37,7 +37,6 @@ function Agoraportal_tables() {
         'extraFunc' => 'extraFunc',
         'educat' => 'educat',
     );
-
     $table['agoraportal_clients_column_def'] = array('clientId' => "I NOTNULL AUTO PRIMARY",
         'clientCode' => "C(15) NOTNULL DEFAULT ''",
         'clientDNS' => "C(50) NOTNULL DEFAULT ''",
@@ -96,7 +95,6 @@ function Agoraportal_tables() {
         'timeRequested' => 'timeRequested',
         'diskConsume' => 'diskConsume',
     );
-
     $table['agoraportal_client_services_column_def'] = array('clientServiceId' => "I NOTNULL AUTO PRIMARY",
         'serviceId' => "I NOTNULL",
         'clientId' => "I NOTNULL",
@@ -120,7 +118,6 @@ function Agoraportal_tables() {
     $table['agoraportal_location'] = DBUtil::getLimitedTablename('agoraportal_location');
     $table['agoraportal_location_column'] = array('locationId' => 'locationId',
         'locationName' => 'locationName');
-
     $table['agoraportal_location_column_def'] = array('locationId' => "I NOTNULL AUTO PRIMARY",
         'locationName' => "C(100) NOTNULL DEFAULT ''");
 
@@ -128,39 +125,8 @@ function Agoraportal_tables() {
     $table['agoraportal_clientType'] = DBUtil::getLimitedTablename('agoraportal_clientType');
     $table['agoraportal_clientType_column'] = array('typeId' => 'typeId',
         'typeName' => 'typeName');
-
     $table['agoraportal_clientType_column_def'] = array('typeId' => "I NOTNULL AUTO PRIMARY",
         'typeName' => "C(100) NOTNULL DEFAULT ''");
-
-    // agoraportal_clientSettings table definition
-    $table['agoraportal_client_settings'] = DBUtil::getLimitedTablename('agoraportal_client_settings');
-    $table['agoraportal_client_settings_column'] = array('settingsId' => 'settingsId',
-        'clientCode' => 'clientCode',
-        'parameter' => 'parameter',
-        'value' => 'value');
-
-    $table['agoraportal_client_settings_column_def'] = array('settingsId' => "I NOTNULL AUTO PRIMARY",
-        'clientCode' => "C(15) NOTNULL DEFAULT ''",
-        'parameter' => "C(100) NOTNULL DEFAULT ''",
-        'value' => "X NOTNULL");
-    // agoraportal_ldap_asynchronous table definition
-    $table['agoraportal_ldap_asynchronous'] = DBUtil::getLimitedTablename('agoraportal_ldap_asynchronous');
-    $table['agoraportal_ldap_asynchronous_column'] = array('ldapId' => 'ldapId',
-        'clientCode' => 'clientCode',
-        'actionType' => 'actionType',
-        'actionResult' => 'actionResult',
-        'valuesLDAP' => 'valuesLDAP',
-        'managerId' => 'managerId',
-        'dateAdded' => 'dateAdded',
-        'lastAttempt' => 'lastAttempt');
-    $table['agoraportal_ldap_asynchronous_column_def'] = array('ldapId' => "I NOTNULL AUTO PRIMARY",
-        'clientCode' => "C(15) NOTNULL DEFAULT ''",
-        'actionType' => "C(15) NOTNULL DEFAULT ''",
-        'actionResult' => "I NOTNULL",
-        'valuesLDAP' => "X NOTNULL",
-        'managerId' => "I NOTNULL",
-        'dateAdded' => "C(20) NOTNULL DEFAULT ''",
-        'lastAttempt' => "C(20) NOTNULL DEFAULT ''");
 
     // agoraportal_client_managers table definition
     $table['agoraportal_client_managers'] = DBUtil::getLimitedTablename('agoraportal_client_managers');
@@ -170,7 +136,8 @@ function Agoraportal_tables() {
     $table['agoraportal_client_managers_column_def'] = array('managerId' => "I NOTNULL AUTO PRIMARY",
         'clientCode' => "C(15) NOTNULL DEFAULT ''",
         'managerUName' => "C(15) NOTNULL DEFAULT ''");
-    //agoraportal_mysql_comands table definition
+
+    // agoraportal_mysql_comands table definition
     $table['agoraportal_mysql_comands'] = DBUtil::getLimitedTablename('agoraportal_mysql_comands');
     $table['agoraportal_mysql_comands_column'] = array('comandId' => 'comandId',
         'serviceId' => 'serviceId',
@@ -183,7 +150,7 @@ function Agoraportal_tables() {
         'description' => "X NOTNULL DEFAULT ''",
         'type' => "I(1) NOTNULL DEFAULT '0'");
 
-    //Statistics
+    // Statistics
     $table['agoraportal_moodle_stats_day'] = DBUtil::getLimitedTablename('agoraportal_moodle_stats_day');
     $table['agoraportal_moodle_stats_day_column'] = array('clientcode' => 'clientcode',
         'clientDNS' => 'clientDNS',
@@ -253,6 +220,7 @@ function Agoraportal_tables() {
         'usersactivelast30days' => 'I DEFAULT 0',
         'diskConsume' => "C(15) NOTNULL DEFAULT '0'",
         );
+
     $table['agoraportal_moodle2_stats_day'] = DBUtil::getLimitedTablename('agoraportal_moodle2_stats_day');
     $table['agoraportal_moodle2_stats_day_column'] = array('clientcode' => 'clientcode',
         'clientDNS' => 'clientDNS',
@@ -429,8 +397,8 @@ function Agoraportal_tables() {
         'total_access' => 'I DEFAULT 0',
         );
 
-    $table['agoraportal_intranet_stats_month'] = DBUtil::getLimitedTablename('agoraportal_intranet_stats_month');
-    $table['agoraportal_intranet_stats_month_column'] = array('clientcode' => 'clientcode',
+    $table['agoraportal_intranet_stats_day'] = DBUtil::getLimitedTablename('agoraportal_intranet_stats_day');
+    $table['agoraportal_intranet_stats_day_column'] = array('clientcode' => 'clientcode',
         'clientDNS' => 'clientDNS',
         'yearmonth' => 'yearmonth',
         'd1' => 'd1',
@@ -465,9 +433,9 @@ function Agoraportal_tables() {
         'd30' => 'd30',
         'd31' => 'd31',
         'total' => 'total',
-        'usersactive' => 'usersactive',
+        'users' => 'users',
         );
-    $table['agoraportal_intranet_stats_month_column_def'] = array('clientcode' => 'C(10) NOT NULL default \'\'',
+    $table['agoraportal_intranet_stats_day_column_def'] = array('clientcode' => 'C(10) NOT NULL default \'\'',
         'clientDNS' => 'C(50) NOTNULL DEFAULT \'\'',
         'yearmonth' => 'INT(6) NOTNULL',
         'd1' => 'I DEFAULT 0',
@@ -502,7 +470,7 @@ function Agoraportal_tables() {
         'd30' => 'I DEFAULT 0',
         'd31' => 'I DEFAULT 0',
         'total' => 'I DEFAULT 0',
-        'usersactive' => 'I DEFAULT 0',
+        'users' => 'I DEFAULT 0',
         );
 
     // agoraportal_requestTypes table definition
@@ -511,7 +479,6 @@ function Agoraportal_tables() {
         'name' => 'name',
         'description' => 'description',
         'userCommentsText' => 'userCommentsText');
-
     $table['agoraportal_requestTypes_column_def'] = array('requestTypeId' => "I NOTNULL AUTO PRIMARY",
         'name' => "C(200) NOTNULL DEFAULT ''",
         'description' => "X NOTNULL DEFAULT ''",
@@ -526,7 +493,6 @@ function Agoraportal_tables() {
         'url' => 'url',
         'dbHost' => 'dbHost'
         );
-
     $table['agoraportal_modelTypes_column_def'] = array('modelTypeId' => "I NOTNULL AUTO PRIMARY",
         'shortcode' => "C(50) NOTNULL DEFAULT ''",
         'description' => "C(255) NOTNULL DEFAULT ''",
@@ -539,7 +505,6 @@ function Agoraportal_tables() {
     $table['agoraportal_requestTypesServices'] = DBUtil::getLimitedTablename('agoraportal_requestTypesServices');
     $table['agoraportal_requestTypesServices_column'] = array('requestTypeId' => 'requestTypeId',
         'serviceId' => 'serviceId');
-
     $table['agoraportal_requestTypesServices_column_def'] = array('requestTypeId' => "I NOTNULL",
         'serviceId' => "I NOTNULL");
 
@@ -556,7 +521,6 @@ function Agoraportal_tables() {
         'requestStateId' => 'requestStateId',
         'timeCreated' => 'timeCreated',
         'timeClosed' => 'timeClosed');
-
     $table['agoraportal_request_column_def'] = array('requestId' => "I NOTNULL AUTO PRIMARY",
         'requestTypeId' => "I NOTNULL",
         'serviceId' => "I NOTNULL",
@@ -578,7 +542,6 @@ function Agoraportal_tables() {
         'action' => 'action',
         'time' => 'time',
     );
-
     $table['agoraportal_logs_column_def'] = array('logId' => "I NOTNULL AUTO PRIMARY",
         'clientCode' => "C(15) NOTNULL DEFAULT ''",
         'uname' => "C(25) NOTNULL DEFAULT ''",
@@ -602,7 +565,6 @@ function Agoraportal_tables() {
         'params' => 'params',
         'logId' => 'logId'
     );
-
     $table['agoraportal_queues_column_def'] = array(
         'id' => "I NOTNULL AUTO PRIMARY",
         'operation' => "C(100) NOTNULL",
@@ -624,7 +586,6 @@ function Agoraportal_tables() {
         'content' => 'content',
         'timeModified' => 'timeModified'
     );
-
     $table['agoraportal_queues_log_column_def'] = array(
         'id' => "I NOTNULL AUTO PRIMARY",
         'content' => "X NOTNULL DEFAULT ''",
@@ -693,7 +654,6 @@ function Agoraportal_tables() {
         'clientDNS' => 'clientDNS',
         'timeCreated' => 'timeCreated'
     );
-
     $table['agoraportal_enable_service_log_column_def'] = array(
         'id' => "I NOTNULL AUTO PRIMARY",
         'clientId' => "I NOTNULL",

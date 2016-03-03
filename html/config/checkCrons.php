@@ -20,8 +20,8 @@ $hostname = getenv('HOSTNAME');
 if (empty($hostname)) {
     $hostname = gethostname();
 }
-$allschools = getAllSchoolsDBInfo(true);
-foreach ($allschools as $school) {
+$services = getServices(true);
+foreach ($services as $school) {
     if (!isset($intranet) && $school['service'] == 'intranet') {
         $intranet = $school;
     }

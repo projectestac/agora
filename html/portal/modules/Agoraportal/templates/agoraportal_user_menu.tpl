@@ -1,8 +1,6 @@
 {ajaxheader modname=Agoraportal filename=Agoraportal.js}
 
-<h2>{gt text="Gestió d'Àgora del centre"}&nbsp;{$client->clientName}</h2>
-
-<nav class="navbar navbar-border">
+<nav class="navbar navbar-border" style="margin-top:10px;">
     <div class="container-fluid">
         {AgoraportalMenuLinks clientCode=$client->clientCode}
     </div>
@@ -10,6 +8,6 @@
 
 {insert name="getstatusmsg"}
 
-{if $isAdmin}
+{if $isAdmin and isset($noclient) and $noclient eq 0}
     {include file="agoraportal_admin_clientInfo.tpl"}
 {/if}

@@ -1,81 +1,107 @@
 <?php
 
 /**
- * Calculate the used disk percentage.
- *
- * @param float $diskConsume
- * @param float $diskSpace
- *
- * @return int disk disk percentage (without decimals)
+ * Check if the specified DNS is valid to avoid security problems
+ * @param type $dns
+ * @return type boolean True if specified DNS is correct; false otherwise
  */
-function getDiskPercent($diskConsume, $diskSpace) {
-    if ($diskSpace != 0) {
-        return round((($diskConsume / 1024) / $diskSpace) * 100);
+function isValidDNS($dns) {
+    if (strlen($dns) > 30 || !preg_match("/^[a-z0-9-_]+$/", $dns)) {
+        return false;
     }
-    return 0;
+    return true;
 }
 
 /**
- * Convert a code starting with a letter to a code starting begining with
- * a number and viceversa.
+ * Check if cookie has been modified by user. This is not allowed and might be
+ *  an attempt of unauthorized access.
  *
- * @param string $clientCode
- * @param string $type
- *
- * @return string Client code transformed
+ * @global type $agora
+ * @param string $cookie
+ * @return boolean
  */
-function transformClientCode($clientCode, $type = 'letter2num') {
-    if ($type == 'letter2num') {
-        $pattern = '/^[abce]\d{7}$/'; // Matches a1234567
-        if (preg_match($pattern, $clientCode)) {
-            // Convert uname begining with a letter to uname begining with a number
-            $search = array('a', 'b', 'c', 'e');
-            $replace = array('0', '1', '2', '4');
-            $clientCode = str_replace($search, $replace, $clientCode);
-        }
-    } elseif ($type == 'num2letter') {
-        $pattern = '/^\d{8}$/'; // Matches 01234567
-        if (preg_match($pattern, $clientCode)) {
-            // Convert first number into a letter
-            switch ($clientCode[0]) {
-                case '0':
-                    $clientCode[0] = 'a';
-                    break;
-                case '1':
-                    $clientCode[0] = 'b';
-                    break;
-                case '2':
-                    $clientCode[0] = 'c';
-                    break;
-                case '4':
-                    $clientCode[0] = 'e';
-                    break;
-            }
-        }
-    }
-    return $clientCode;
+function isValidCookie($cookie) {
+
+    global $agora;
+
+    // Get cookie information
+    $cookie = explode('__h_', $cookie);
+    $cookiedata = $cookie[0];
+    $cookiehash = $cookie[1];
+
+    // Build hash in server side
+    $cookiesalt = $agora['admin']['username'] . substr($agora['admin']['userpwd'], 0, 3);
+    $cookiedata .= $cookiesalt;
+    $serverhash = md5($cookiedata);
+
+    // Compare cookie hash with server hash
+    return ($serverhash == $cookiehash) ? true : false;
 }
 
 /**
- * Get all schools database information needed to connect
- *
- * @param $codeletter: false means code will be 08000000
- *                     true  means code will be a8000000
- *
- * @return Array with the schools information
+ * Check if the center is a "servei educatiu"
+ * @return bool
  */
-function getAllSchoolsDBInfo($codeletter = false) {
-    $sql = 'SELECT c.clientId, c.clientCode, cs.activedId, cs.serviceDB, c.clientDNS, s.serviceName, c.clientOldDNS, c.typeId, cs.diskSpace, cs.diskConsume
-			FROM agoraportal_clients c, agoraportal_client_services cs, agoraportal_services s
-			WHERE c.clientId = cs.clientId AND cs.serviceId = s.serviceId AND cs.state = "1"
-			ORDER BY c.clientDNS';
+function isServeiEducatiu() {
+    global $school_info;
+
+    if (!$school_info) {
+        getSchoolInfo('nodes');
+    }
+
+    return (isset($school_info['type']) && $school_info['type'] == SERVEI_EDUCATIU_ID) ? true : false;
+}
+
+/**
+ * Returns if the current URL is in the selected domain
+ * @param $domain to compare
+ * @return bool
+ */
+function is_in_domain($domain) {
+    $length = strlen($_SERVER['HTTP_HOST']);
+    $start = $length * -1; // negative
+    return substr($domain, $start) === $_SERVER['HTTP_HOST'];
+}
+
+/**
+ * Get an array with all the
+ *
+ * @param bool $codeletter: false means code will be 08000000
+ *                          true  means code will be a8000000
+ * @param string $order
+ * @param string $desc
+ * @param string $service
+ * @param string $state
+ *
+ * @return array|bool
+ */
+function getServices($codeletter = false, $order = 'clientDNS', $desc = 'asc', $service = 'all', $state = 'all') {
+
+    $values = $conditions = array();
+
+    if ($service != 'all') {
+        $conditions[] = "serviceName='$service'";
+    }
+
+    if ($state != 'all') {
+        $conditions[] = "state='$state'";
+    }
+
+    $where = (empty($conditions)) ? '' : 'WHERE ' . implode(' AND ', $conditions);
+
+    $sql = "SELECT cs.activedId, cs.serviceDB, cs.dbHost, cs.diskSpace, cs.diskConsume, c.clientId, c.clientCode, c.clientDNS, c.clientOldDNS, s.serviceName, c.typeId
+            FROM agoraportal_client_services cs
+            LEFT JOIN agoraportal_clients c ON cs.clientID = c.clientID
+            LEFT JOIN agoraportal_clientType t ON c.typeId = t.typeID
+            LEFT JOIN agoraportal_services s ON s.serviceId = cs.serviceId
+            $where
+            ORDER BY $order $desc";
 
     $results = get_rows_from_db($sql);
     if (!$results) {
         return false;
     }
 
-    $values = array();
     foreach ($results as $row) {
 
         $diskPercent = getDiskPercent($row->diskConsume, $row->diskSpace);
@@ -90,7 +116,7 @@ function getAllSchoolsDBInfo($codeletter = false) {
         $values[] = array(
             'id' => $row->activedId,
             'code' => $clientCode,
-            'dbhost' => $row->serviceDB,
+            'dbhost' => $row->dbHost,
             'database' => $row->serviceDB,
             'dns' => $row->clientDNS,
             'type' => $row->typeId,
@@ -103,107 +129,240 @@ function getAllSchoolsDBInfo($codeletter = false) {
 }
 
 /**
- * Get school info from adminagora tables
+ * Gets one Nodes or Moodle per database server. Returns the lowest ID.
  *
- * @author aregi
+ * @author aginard
  *
- * @param order     ordenation parameter of the result
- * @param desc      ordenation of the result
- * @param service   service information requested
- * @param state     state of service requested
+ * @param string $service: the name of the service (nodes or moodle2)
  *
- * @return school        Array with the schools information (database)
+ * @return array list of schools
  */
-function getAllSchools($order = 'school_id', $desc = 'asc', $service='all', $state='all') {
+function getServicesToTest($service) {
 
-    require_once('env-config.php');
+    $schools = array();
+    if ($service == 'nodes') {
+        // Get the list of Nodes to test
+        $sql = 'SELECT dbHost, min(activedId) as id
+                FROM `agoraportal_client_services` c
+                LEFT JOIN `agoraportal_services` s ON c.serviceId = s.serviceId
+                WHERE serviceName = \'' . $service . '\'
+                AND activedId !=0 AND c.state=1
+                GROUP BY serviceDB';
 
-    $values = array();
-    if (!isset($order) || $order == '') {
-        $order = 'school_id';
-    }
-    if (!isset($desc) || $desc == '') {
-        $desc = 'asc';
-    }
-    if (!isset($service) || $service == '') {
-        $service = 'all';
-    }
-
-    $serviceSqlText = '';
-    if ($service != 'all') {
-        $serviceSqlText = " serviceName='$service' ";
-    }
-
-    $stateSqlText = '';
-    if ($state != 'all') {
-        if ($serviceSqlText == '') {
-            $stateSqlTex = "state='$state' ";
-        } else {
-            $stateSqlText = " AND state='$state' ";
+        $results = get_rows_from_db($sql);
+        if (!$results) {
+            return false;
         }
-    }
 
-    $sql = "SELECT *
-            FROM `agoraportal_client_services` s
-            LEFT JOIN `agoraportal_clients` c ON s.clientID = c.clientID
-            LEFT JOIN `users` u ON u.uname = c.clientCode
-            LEFT JOIN `agoraportal_location` l ON c.locationId = l.locationId
-            LEFT JOIN `agoraportal_clientType` t ON c.typeId = t.typeID
-            LEFT JOIN `agoraportal_services` k ON k.serviceId = s.serviceId
-            WHERE " . $serviceSqlText . " " . $stateSqlText . "
-            ORDER BY " . $order . " " . $desc;
-
-    $results = get_rows_from_db($sql);
-
-    if (!$results) {
-        return array('msg' => 'No s\'han pogut carregar les dades dels centres.');
-    } else {
         foreach ($results as $row) {
-            $values[$row->activedId] = array(
-                'school_id' => $row->activedId,
-                'school_code' => $row->clientCode,
-                'school_user' => $row->uname,
-                'school_user_profile' => $row->contactProfile,
-                'school_address' => $row->clientAddress,
-                'school_pwd' => $row->pass,
-                'school_city' => $row->clientCity,
-                'school_posta_code' => $row->clientPC,
-                'school_country' => $row->clientCountry,
-                'school_name' => $row->clientName,
-                'school_dns' => $row->clientDNS,
-                'school_typeid' => $row->typeId,
-                'school_typename' => $row->typeName,
-                'school_locationid' => $row->locationId,
-                'school_locationname' => $row->locationName,
-                'dbhost' => $row->serviceDB,
-                'service' => $row->serviceId,
-                'database' => $row->serviceDB,
-                'observations' => $row->observations,
-                'annotations' => $row->annotations,
-                'state' => $row->state,
-                'school_address' => $row->clientAddress,
-                'timecreated' => $row->timeCreated,
-                'timemodified' => $row->timeEdited,
-                'educat' => $row->educat);
+            $schools[$row->id] = $row->dbHost;
+        }
+    } else if ($service == 'moodle2') {
+        // Get the list of Moodles to test
+        $sql = 'SELECT serviceDB, min(activedId) as id
+                FROM `agoraportal_client_services` c
+                LEFT JOIN `agoraportal_services` s ON c.serviceId = s.serviceId
+                WHERE serviceName = \'' . $service . '\'
+                AND activedId !=0 AND c.state=1
+                GROUP BY serviceDB';
+
+        $results = get_rows_from_db($sql);
+        if (!$results) {
+            return false;
+        }
+
+        foreach ($results as $row) {
+            $schools[$row->id] = $row->serviceDB;
         }
     }
-    return $values;
+
+    return $schools;
 }
 
 /**
- * Check if the specified DNS is valid to avoid security problems
- * @param type $dns
- * @return type boolean True if specified DNS is correct; false otherwise
+ * Populates global array school_info with the connection information of the school
+ *
+ * @param $service Name of the service (nodes, moodle2)
+ * @return string Nom propi of the school
  */
-function isValidDNS($dns) {
-    if (strlen($dns) > 30 || !preg_match("/^[a-z0-9-_]+$/", $dns)) {
+function getSchoolInfo($service) {
+
+    global $agora, $school_info;
+    $school_info = array();
+
+    // Debug code
+    $debugenabled = isset($_GET['debug']) ? $_GET['debug'] : 'off';
+    define('DEBUG_ENABLED', $debugenabled);
+    xtec_debug("DEBUG ENABLED: $debugenabled");
+    // End debug
+
+    // Get the "nom propi" of the school from the URL
+    $centre = '';
+    if (isset($_REQUEST['ccentre'])) {
+        $centre = $_REQUEST['ccentre'];
+    } else if (defined('CLI_SCRIPT')) {
+        if (isset($_SERVER['argv'])) {
+            $argvs = $_SERVER['argv'];
+            foreach ($argvs as $arg) {
+                $parts = explode('=', $arg);
+                if ($parts[0] == '--ccentre') {
+                    $centre = $parts[1];
+                }
+            }
+        }
+    }
+
+    // The "nom propi" is mandatory
+    if (empty($centre)) {
+        if (defined('CLI_SCRIPT')) {
+            echo 'Center ' . $centre . ' not found in URL';
+            echo "\nerror\n";
+        } else {
+            header('Location: ' . WWWROOT . 'error.php?s=' . $service . '&dns=' . $centre);
+        }
+        exit(0);
+    }
+
+    // Check the variable received via GET. Ensure it has an allowed value
+    if (!isValidDNS($centre)) {
         return false;
     }
-    return true;
+
+    // Cache level 1: If cookie is present load it and return
+    if (isset($_COOKIE[$agora['server']['cookie']])) {
+        $cookie = $_COOKIE[$agora['server']['cookie']];
+        if (isValidCookie($cookie)) {
+            $data = explode('__', $cookie);
+            if ((count($data) == 15) && ($data[0] == $centre)) {
+                $school_info['clientCode'] = $data[1];
+                $school_info['id_moodle2'] = $data[2];
+                $school_info['database_moodle2'] = $data[3];
+                $school_info['diskPercent_moodle2'] = $data[4];
+                $school_info['id_intranet'] = $data[5];
+                $school_info['database_intranet'] = $data[6];
+                $school_info['dbhost_intranet'] = $data[7];
+                $school_info['diskPercent_intranet'] = $data[8];
+                $school_info['id_nodes'] = $data[9];
+                $school_info['database_nodes'] = $data[10];
+                $school_info['dbhost_nodes'] = $data[11];
+                $school_info['diskPercent_nodes'] = $data[12];
+                $school_info['type'] = $data[13];
+
+                // Debug info
+                $school_info['source'] = 'Cookie';
+            }
+        }
+    }
+
+    // Cache level 2: Load file with connection info of all clients
+    if (empty($school_info) && file_exists($agora['dbsource']['dir'] . 'allSchools.php')) {
+
+        include_once($agora['dbsource']['dir'] . 'allSchools.php');
+
+        if (isset($schools[$centre])) {
+            $school_info = $schools[$centre];
+
+            // Debug info
+            $school_info['source'] = 'allSchools';
+        }
+    }
+
+    // If cache fails, retrieve from Database
+    if (empty($school_info)) {
+        $school_info = getSchoolFromDB($centre);
+
+        // Debug info
+        $school_info['source'] = 'DB';
+    }
+
+    // When loading only an specific service, empty the array if the school has not that service
+    if (isset($service)) {
+        if ($service == 'moodle2' && !isset($school_info['id_moodle2'])) {
+            $school_info = '';
+        } else if ($service == 'intranet' && !isset($school_info['id_intranet']) && !isset($school_info['id_nodes'])) {
+            $school_info = '';
+        } else if ($service == 'nodes' && !isset($school_info['id_nodes'])) {
+            $school_info = '';
+        }
+    }
+
+    // At this point, if there is no school information, abort
+    if (empty($school_info)) {
+        if (defined('CLI_SCRIPT')) {
+            echo 'Center ' . $centre . ' not found in database';
+            echo "\nerror\n";
+        } else {
+            return false;
+        }
+        exit(0);
+    }
+
+    // Redirect to New DNS directly if needed
+    if (!empty($school_info['new_dns'])) {
+        $newDNS = $school_info['new_dns'];
+        if (defined('CLI_SCRIPT')) {
+            echo 'Center ' . $centre . ' has new address: ' . $newDNS;
+            echo "\nerror\n";
+        } else {
+            if (isServeiEducatiu() && isset($agora['server']['se-url'])) {
+                $newaddress = $agora['server']['se-url'] . $agora['server']['base'] . $newDNS . '/';
+            } else {
+                $newaddress = $agora['server']['server'] . $agora['server']['base'] . $newDNS . '/';
+            }
+            if ($service != 'nodes') {
+                $newaddress .= $service . '/';
+            }
+            header('HTTP/1.1 301 Moved Permanently');
+            header('Location: ' . $newaddress);
+        }
+        exit(0);
+    }
+
+    // Set cookie for future requests
+    if (!empty($school_info['id_moodle2']) || !empty($school_info['id_intranet']) || !empty($school_info['id_nodes'])) {
+
+        $bodycookie = $centre
+            . '__' . (isset($school_info['clientCode']) ? $school_info['clientCode'] : '')
+            . '__' . (isset($school_info['id_moodle2']) ? $school_info['id_moodle2'] : '')
+            . '__' . (isset($school_info['database_moodle2']) ? $school_info['database_moodle2'] : '')
+            . '__' . (isset($school_info['diskPercent_moodle2']) ? $school_info['diskPercent_moodle2'] : '')
+            . '__' . (isset($school_info['id_intranet']) ? $school_info['id_intranet'] : '')
+            . '__' . (isset($school_info['database_intranet']) ? $school_info['database_intranet'] : '')
+            . '__' . (isset($school_info['dbhost_intranet']) ? $school_info['dbhost_intranet'] : '')
+            . '__' . (isset($school_info['diskPercent_intranet']) ? $school_info['diskPercent_intranet'] : '')
+            . '__' . (isset($school_info['id_nodes']) ? $school_info['id_nodes'] : '')
+            . '__' . (isset($school_info['database_nodes']) ? $school_info['database_nodes'] : '')
+            . '__' . (isset($school_info['dbhost_nodes']) ? $school_info['dbhost_nodes'] : '')
+            . '__' . (isset($school_info['diskPercent_nodes']) ? $school_info['diskPercent_nodes'] : '')
+            . '__' . (isset($school_info['type']) ? $school_info['type'] : '');
+
+        // Add hash to the text for the cookie
+        $cookiesalt = $agora['admin']['username'] . substr($agora['admin']['userpwd'], 0, 3);
+        $bodycookie .= '__h_' . md5($bodycookie . $cookiesalt);
+
+        setcookie($agora['server']['cookie'], $bodycookie, time() + 10800, '/'); // Cookie expires in 3 hours
+    }
+
+    // Change default URL host for Serveis Educatius
+    if (isServeiEducatiu() && isset($agora['server']['se-url'])) {
+        $agora['server']['server'] = $agora['server']['se-url'];
+        $agora['server']['html'] = $agora['server']['server'] . $agora['server']['base'];
+    }
+
+    // Check if the domain is not the correct one and move if it isn't
+    if (!defined('CLI_SCRIPT') && !is_in_domain($agora['server']['server'])) {
+        header('HTTP/1.1 301 Moved Permanently');
+        header('Location: ' . $agora['server']['server'] . $_SERVER['REQUEST_URI']);
+        exit(0);
+    }
+
+    xtec_debug($school_info['source']);
+
+    return $centre;
 }
 
 /**
- * Get the information of the specified school
+ * Get the information of the specified school from the database
  *
  * @param $dns school dns
  * @param $codeletter: false means code will be 08000000
@@ -211,28 +370,24 @@ function isValidDNS($dns) {
  *
  * @return array with the schools information
  */
-function getSchoolDBInfo($dns, $codeletter = false) {
+function getSchoolFromDB($dns, $codeletter = false) {
 
-    if (!isValidDNS($dns)) {
-        return false;
-    }
-
-    $sql = 'SELECT c.clientId, c.clientCode, cs.activedId, cs.serviceDB, c.typeId, s.serviceName, cs.diskSpace, cs.diskConsume
+    $sql = 'SELECT c.clientId, c.clientCode, cs.activedId, cs.serviceDB, cs.dbHost, c.typeId, s.serviceName, cs.diskSpace, cs.diskConsume
 			FROM agoraportal_clients c, agoraportal_client_services cs, agoraportal_services s
 			WHERE c.clientId = cs.clientId AND cs.serviceId = s.serviceId AND cs.state = "1"
 			AND c.clientDNS = "' . $dns . '"';
 
     $results = get_rows_from_db($sql);
     $value = array();
+
     if ($results) {
-        $clientCode = "";
+        $clientCode = '';
         foreach ($results as $row) {
-            $clientCode = $row->clientCode;
             $diskPercent = getDiskPercent($row->diskConsume, $row->diskSpace);
             $service = $row->serviceName;
 
             $value['id_' . $service] = $row->activedId;
-            $value['dbhost_' . $service] = $row->serviceDB;
+            $value['dbhost_' . $service] = $row->dbHost;
             $value['database_' . $service] = $row->serviceDB;
             $value['diskPercent_' . $service] = $diskPercent;
 
@@ -266,266 +421,6 @@ function getSchoolDBInfo($dns, $codeletter = false) {
     }
 
     return $value;
-}
-
-function getSchoolInfo($service) {
-    global $agora, $school_info;
-
-    // Debug code
-    $debugenabled = isset($_GET['debug']) ? $_GET['debug']: 'off';
-    define('DEBUG_ENABLED', $debugenabled);
-    xtec_debug("DEBUG ENABLED: $debugenabled");
-    // End debug
-
-    // Get info from cookie if exists
-    $iscli = false;
-    $centre = false;
-    if (isset($_REQUEST['ccentre'])) {
-        $centre = $_REQUEST['ccentre'];
-    } else if (defined('CLI_SCRIPT')) {
-        if (isset($_SERVER['argv'])) {
-            $argvs = $_SERVER['argv'];
-            foreach ($argvs as $arg) {
-                $parts = explode('=', $arg);
-                if ($parts[0] == '--ccentre') {
-                    $centre = $parts[1];
-                }
-            }
-        }
-    }
-
-    if (empty($centre)) {
-        school_error($service);
-    }
-
-    $school_info = getSchoolInfoFromFile($centre, 1, $service);
-    if (!$school_info || !isset($school_info['id_'.$service]) || empty($school_info['id_'.$service])) {
-        if (defined('CLI_SCRIPT')) {
-            echo 'Center '.$centre.' not enabled';
-            echo "\nerror\n";
-        } else {
-            if ($service == 'intranet' && isset($school_info['id_nodes']) && !empty($school_info['id_nodes'])) {
-                header('Location: '.WWWROOT.$_REQUEST['ccentre']);
-            } else {
-                header('Location: '.WWWROOT.'error.php?s='.$service.'&dns='.$_REQUEST['ccentre']);
-            }
-        }
-        exit(0);
-    }
-
-    // Overwrite some agora variables for serveis Educatius
-    if (isServeiEducatiu() && isset($agora['server']['se-url'])) {
-        $agora['server']['server'] = $agora['server']['se-url'];
-        $agora['server']['html'] = $agora['server']['server'] . $agora['server']['base'];
-    }
-
-    // Check if the domain is not the correct one and move if it isn't
-    if (!defined('CLI_SCRIPT') && !is_in_domain($agora['server']['server'])) {
-        header ('HTTP/1.1 301 Moved Permanently');
-        header ('Location: '.$agora['server']['server'].$_SERVER['REQUEST_URI']);
-        exit;
-    }
-
-    xtec_debug($school_info['source']);
-
-    return $centre;
-}
-
-/**
- * Returns if the current URL is in the selected domain
- * @param $domain to compare
- * @return bool
- */
-function is_in_domain($domain) {
-    $length = strlen($_SERVER['HTTP_HOST']);
-    $start = $length * -1; // negative
-    return substr($domain, $start) === $_SERVER['HTTP_HOST'];
-}
-
-// Envia a una pàgina d'error
-function school_error($service) {
-    if (defined('CLI_SCRIPT')) {
-        echo 'Center '.$_REQUEST['ccentre'].' not enabled';
-        echo "\nerror\n";
-    } else {
-        header('Location: '.WWWROOT.'error.php?s='.$service.'&dns='.$_REQUEST['ccentre']);
-    }
-    exit(0);
-}
-
-/**
- * Variable $source can manage where to read connection info
- *
- * @param dns
- * @param data source if there's no cookie. Possible values 1 or 2:
- *          1 = From all clients filenamed allSchools (default)
- *          2 = From database (used also in errors)
- *
- * @return array Array with the school information
- */
-function getSchoolInfoFromFile($dns, $source = 1, $service = null) {
-    global $agora, $school_info;
-
-    if (!isValidDNS($dns)) {
-        return false;
-    }
-
-    // If cookie is present load it and return
-    if (isset($_COOKIE[$agora['server']['cookie']])) {
-        $cookie = $_COOKIE[$agora['server']['cookie']];
-        if (isValidCookie($cookie)) {
-            $data = explode('__', $cookie);
-            if (count($data) == 15 && $data[0] == $dns) {
-                $school_info['clientCode'] = $data[1];
-                $school_info['id_moodle2'] = $data[2];
-                $school_info['database_moodle2'] = $data[3];
-                $school_info['diskPercent_moodle2'] = $data[4];
-                $school_info['id_intranet'] = $data[5];
-                $school_info['database_intranet'] = $data[6];
-                $school_info['dbhost_intranet'] = $data[7];
-                $school_info['diskPercent_intranet'] = $data[8];
-                $school_info['id_nodes'] = $data[9];
-                $school_info['database_nodes'] = $data[10];
-                $school_info['dbhost_nodes'] = $data[11];
-                $school_info['diskPercent_nodes'] = $data[12];
-                $school_info['type'] = $data[13];
-
-                // Debug info
-                $school_info['source'] = 'Cookie';
-                return $school_info;
-            }
-        }
-    }
-
-    // If cookie not set or invalid, continue
-    // Load file with connection info of all clients
-    if ($source == 1) {
-        if (file_exists($agora['dbsource']['dir'] . 'allSchools.php')) {
-            include_once($agora['dbsource']['dir'] . 'allSchools.php');
-            if (isset($schools[$dns])) {
-                $school_info = $schools[$dns];
-            }
-        }
-        if (isset($school_info)) {
-            // Redirect to New DNS directly if needed
-            redirectNewDNS($dns, $service);
-
-            // Debug info
-            $school_info['source'] = 'allSchools';
-            if (isset($service)) {
-                if ($service == 'moodle2' && !isset($school_info['id_moodle2'])) {
-                    $school_info = null;
-                } else if ($service == 'intranet' && !isset($school_info['id_intranet']) && !isset($school_info['id_nodes'])) {
-                    $school_info = null;
-                } else if ($service == 'nodes' && !isset($school_info['id_nodes'])) {
-                    $school_info = null;
-                }
-            }
-        }
-    }
-
-    // If error or other source specified, retrieve from Database
-    if (!isset($school_info) || empty($school_info)) {
-        $school_info = getSchoolDBInfo($dns);
-
-        // Redirect to New DNS directly if needed
-        redirectNewDNS($dns, $service);
-
-        // Debug info
-        $school_info['source'] = 'DB';
-    }
-
-    // Set cookie only if there is information (a moodle or a zikula)
-    if (isset($school_info) && ( !empty($school_info['id_moodle2']) ||
-                                 !empty($school_info['id_intranet']) ||
-                                 !empty($school_info['id_nodes'])
-                                )) {
-
-        $bodycookie = $dns
-                . '__' . (isset($school_info['clientCode']) ? $school_info['clientCode'] : '')
-                . '__' . (isset($school_info['id_moodle2']) ? $school_info['id_moodle2'] : '')
-                . '__' . (isset($school_info['database_moodle2']) ? $school_info['database_moodle2'] : '')
-                . '__' . (isset($school_info['diskPercent_moodle2']) ? $school_info['diskPercent_moodle2'] : '')
-                . '__' . (isset($school_info['id_intranet']) ? $school_info['id_intranet'] : '')
-                . '__' . (isset($school_info['database_intranet']) ? $school_info['database_intranet'] : '')
-                . '__' . (isset($school_info['dbhost_intranet']) ? $school_info['dbhost_intranet'] : '')
-                . '__' . (isset($school_info['diskPercent_intranet']) ? $school_info['diskPercent_intranet'] : '')
-                . '__' . (isset($school_info['id_nodes']) ? $school_info['id_nodes'] : '')
-                . '__' . (isset($school_info['database_nodes']) ? $school_info['database_nodes'] : '')
-                . '__' . (isset($school_info['dbhost_nodes']) ? $school_info['dbhost_nodes'] : '')
-                . '__' . (isset($school_info['diskPercent_nodes']) ? $school_info['diskPercent_nodes'] : '')
-                . '__' . (isset($school_info['type']) ? $school_info['type'] : '');
-
-        // Add hash to the text for the cookie
-        $cookiesalt = $agora['admin']['username'] . substr($agora['admin']['userpwd'], 0, 3);
-        $bodycookie .= '__h_' . md5($bodycookie . $cookiesalt);
-
-        //TODO: Mirar si es pot posar un temps de cookie no infinit
-        setcookie($agora['server']['cookie'], $bodycookie, 0, '/');
-    }
-
-    return $school_info;
-}
-
-/**
- * Redirects a service that has changed the DNS (with 301) in CLI case, only notifies and dies
- *
- * @param $oldDNS old DNS (only for CLI)
- * @param $service Service to be able to build the URL
- */
-function redirectNewDNS($oldDNS, $service) {
-    global $agora, $school_info;
-    if (empty($school_info['new_dns'])) {
-        return;
-    }
-    $newDNS = $school_info['new_dns'];
-
-    if (defined('CLI_SCRIPT')) {
-        echo 'Center '.$oldDNS.' has new address: '.$newDNS;
-        echo "\nerror\n";
-    } else {
-        if (isServeiEducatiu() && isset($agora['server']['se-url'])) {
-            $newaddress = $agora['server']['se-url'] . $agora['server']['base'] . $newDNS . '/';
-        } else {
-            $newaddress = $agora['server']['server'] . $agora['server']['base'] . $newDNS . '/';
-        }
-        if ($service != 'nodes') {
-            $newaddress .= $service . '/';
-        }
-        header ('HTTP/1.1 301 Moved Permanently');
-        header ('Location: ' . $newaddress);
-    }
-    exit(0);
-}
-
-/**
- * Check if cookie has been modified by user. This is not allowed and might be
- *  an attempt of unauthorized access.
- *
- * @global type $agora
- * @param string $cookie
- * @return boolean
- */
-function isValidCookie($cookie) {
-
-    global $agora;
-
-    // Get cookie information
-    $cookie = explode('__h_', $cookie);
-    $cookiedata = $cookie[0];
-    $cookiehash = $cookie[1];
-
-    // Build hash in server side
-    $cookiesalt = $agora['admin']['username'] . substr($agora['admin']['userpwd'], 0, 3);
-    $cookiedata .= $cookiesalt;
-    $serverhash = md5($cookiedata);
-
-    // Compare cookie hash with server hash
-    if ($serverhash == $cookiehash) {
-        return true;
-    } else {
-        return false;
-    }
 }
 
 /**
@@ -570,10 +465,9 @@ function getSchoolFromWS($uname) {
             $results['message'] = $schooldata;
         }
     }
-    
+
     return $results;
 }
-
 
 /**
  * Prints a message if DEBUG_ENABLED is on
@@ -589,6 +483,8 @@ function xtec_debug($string) {
  * Get diskConsume and diskSpace
  *
  * @param dns
+ * @param $service
+ * @return array|bool
  */
 function getDiskInfo($dns, $service) {
     if (!isValidDNS($dns)) {
@@ -617,72 +513,18 @@ function getDiskInfo($dns, $service) {
 }
 
 /**
- * Gets one intranet or Moodle per data base server. Returns the lowest ID.
+ * Calculate the used disk percentage.
  *
- * @author aginard
+ * @param float $diskConsume
+ * @param float $diskSpace
  *
- * @param string $service: the name of the service (intranet or moodle2)
- *
- * @return array list of schools
+ * @return int disk disk percentage (without decimals)
  */
-function getServicesToTest($service) {
-
-    $schools = array();
-    if ($service == 'nodes') {
-        // Get the list of intranets to test
-        $sql = 'SELECT dbHost, min(activedId) as id
-                FROM `agoraportal_client_services` c
-                LEFT JOIN `agoraportal_services` s ON c.serviceId = s.serviceId
-                WHERE serviceName = \'' . $service . '\'
-                AND activedId !=0 AND c.state=1
-                GROUP BY dbHost';
-
-        $results = get_rows_from_db($sql);
-        if (!$results) {
-            return false;
-        }
-
-        foreach ($results as $row) {
-            $schools[$row->id] = $row->serviceDB;
-        }
-    } else if ($service == 'moodle2') {
-        // Get the list of Moodles to test
-        $sql = 'SELECT serviceDB, min(activedId) as id
-                FROM `agoraportal_client_services` c
-                LEFT JOIN `agoraportal_services` s ON c.serviceId = s.serviceId
-                WHERE serviceName = \'' . $service . '\'
-                AND activedId !=0 AND c.state=1
-                GROUP BY serviceDB';
-
-        $results = get_rows_from_db($sql);
-        if (!$results) {
-            return false;
-        }
-
-        foreach ($results as $row) {
-            $schools[$row->id] = $row->serviceDB;
-        }
-    } else if ($service == 'intranet') {
-        // DEPRECATED
-        // Get the list of intranets to test
-        $sql = 'SELECT serviceDB, min(activedId) as id
-                FROM `agoraportal_client_services` c
-                LEFT JOIN `agoraportal_services` s ON c.serviceId = s.serviceId
-                WHERE serviceName = \'' . $service . '\'
-                AND activedId !=0 AND c.state=1
-                GROUP BY serviceDB';
-
-        $results = get_rows_from_db($sql);
-        if (!$results) {
-            return false;
-        }
-
-        foreach ($results as $row) {
-            $schools[$row->id] = $row->serviceDB;
-        }
+function getDiskPercent($diskConsume, $diskSpace) {
+    if ($diskSpace != 0) {
+        return round((($diskConsume / 1024) / $diskSpace) * 100);
     }
-
-    return $schools;
+    return 0;
 }
 
 /**
@@ -711,6 +553,7 @@ function checkExtraFunc($clientCode) {
  * Format bytes to human readable
  *
  * @param float $size
+ * @param int $precision Number of digits after the decimal point
  * @return string
  */
 function formatBytes($size, $precision = 2) {
@@ -720,8 +563,90 @@ function formatBytes($size, $precision = 2) {
     return round(pow(1024, $base - floor($base)), $precision) . $suffixes[floor($base)];
 }
 
+/**
+ * Convert a code starting with a letter to a code starting begining with
+ * a number and viceversa.
+ *
+ * @param string $clientCode
+ * @param string $type
+ *
+ * @return string Client code transformed
+ */
+function transformClientCode($clientCode, $type = 'letter2num') {
+    if ($type == 'letter2num') {
+        $pattern = '/^[abce]\d{7}$/'; // Matches a1234567
+        if (preg_match($pattern, $clientCode)) {
+            // Convert uname begining with a letter to uname begining with a number
+            $search = array('a', 'b', 'c', 'e');
+            $replace = array('0', '1', '2', '4');
+            $clientCode = str_replace($search, $replace, $clientCode);
+        }
+    } elseif ($type == 'num2letter') {
+        $pattern = '/^\d{8}$/'; // Matches 01234567
+        if (preg_match($pattern, $clientCode)) {
+            // Convert first number into a letter
+            switch ($clientCode[0]) {
+                case '0':
+                    $clientCode[0] = 'a';
+                    break;
+                case '1':
+                    $clientCode[0] = 'b';
+                    break;
+                case '2':
+                    $clientCode[0] = 'c';
+                    break;
+                case '4':
+                    $clientCode[0] = 'e';
+                    break;
+            }
+        }
+    }
+    return $clientCode;
+}
 
-/* ************ NEW DB MANAGER ************* */
+/**
+ * Calculate filepath for Moodle
+ *
+ * @param string $id_moodle2
+ * @return string instance name
+ */
+function get_filepath_moodle($id_moodle2 = '') {
+    global $agora, $school_info;
+
+    $filepath = $agora['moodle2']['datadir'];
+    $filepath_number = 0;
+    if (array_key_exists('filepath_number', $agora['moodle2'])) {
+        $filepath_number = (int) $agora['moodle2']['filepath_number'];
+        $filepath_start = 1;
+    }
+
+    if (empty($id_moodle2)) {
+        $id_moodle2 = $school_info['id_moodle2'];
+    }
+
+    // If $filepath_number is not set or it is an empty string, at this point its value
+    // will be 0. In that case, no offset is applied
+    if (empty($filepath_number) || (array_key_exists('filepath_lastmoved', $agora['moodle2']) && $agora['moodle2']['filepath_lastmoved'] < $id_moodle2 )  ) {
+        return $filepath . $agora['moodle2']['username'] . $id_moodle2;
+    }
+
+    $offset = floor($id_moodle2 / $filepath_number) + (($id_moodle2% $filepath_number) == 0 ? ($filepath_start - 1) : $filepath_start);
+
+    if ($offset > 0) {
+        $offset = (string) $offset; // Ensure there will not be cast issues
+        $filepath_prefix = 'repo';
+        if (array_key_exists('filepath_prefix', $agora['moodle2'])) {
+            $filepath_prefix = $agora['moodle2']['filepath_prefix'];
+        }
+        $filepath = $filepath . $filepath_prefix .$offset. '/' . $agora['moodle2']['username'] . $id_moodle2;
+    } else {
+        $filepath = $filepath . $agora['moodle2']['username'] . $id_moodle2;
+    }
+
+    return $filepath;
+}
+
+/************* NEW DB MANAGER **************/
 /**
  * Get a DB conection for the specified service
  * @param  string $service  accepted values: admin, nodes, intranet, moodle/moodle2
@@ -729,7 +654,7 @@ function formatBytes($size, $precision = 2) {
  * @param  string $host     host to connect (or db in moodle)
  * @return mixed            created connection already conected
  */
-function get_dbconnection($service, $schoolid = "", $host = "") {
+function get_dbconnection($service, $schoolid = '', $host = '') {
     require_once('env-config.php');
     global $agora;
 
@@ -905,8 +830,10 @@ class agora_dbmanager{
 
     /**
      * Executes a raw query (for inserts and updates)
+     *
      * @param  string $sql query
      * @return mysqli_result with the return
+     * @throws Exception
      */
     public function execute_query($sql) {
         try {
@@ -942,8 +869,7 @@ class agora_dbmanager{
     }
 }
 
-/**** SOME WARPPINGS  ***********/
-
+/************ SOME WRAPPINGS  ***********/
 /**
  * Get rows from Admin database
  * @param  string $sql to execute
@@ -963,7 +889,7 @@ function get_rows_from_db($sql) {
 /**
  * Open a connection to the specified Moodle instance and return it
  *
- * @param school        Array with the school information (id and database)
+ * @param $school Array with the school information (id and database)
  *
  * @return A connection handler or FALSE on error.
  */
@@ -996,7 +922,7 @@ function disconnect_moodle($con) {
  */
 function connect_intranet($school) {
     try {
-        $con = get_dbconnection('intranet', $school['id'], $school['database']);
+        $con = get_dbconnection('intranet', $school['id'], $school['dbhost']);
         return $con;
     } catch (Exception $e) {
         return false;
@@ -1012,60 +938,9 @@ function connect_intranet($school) {
  */
 function connect_nodes($school) {
     try {
-        $con = get_dbconnection('nodes', $school['id'], $school['database']);
+        $con = get_dbconnection('nodes', $school['id'], $school['dbhost']);
         return $con;
     } catch (Exception $e) {
         return false;
     }
-}
-
-/**
- * Check if the center is a "servei educatiu"
- * @return bool
- */
-function isServeiEducatiu()
-{
-    global $school_info;
-
-    if(!$school_info) getSchoolInfo('nodes');
-
-    return isset($school_info['type']) && $school_info['type'] == SERVEI_EDUCATIU_ID ? true : false;
-}
-
-/**
- * Calculate filepath for Moodle
- *
- * @param   int database number
- * @return  string instance name
- */
-function get_filepath_moodle($args) {
-    global $agora, $school_info;
-
-    $filepath = $agora['moodle2']['datadir'];
-    $filepath_number = 0;
-    if (array_key_exists('filepath_number', $agora['moodle2'])) {
-        $filepath_number = (int) $agora['moodle2']['filepath_number'];
-        $filepath_start = 1;
-    }
-
-    // If $filepath_number is not set or it is an empty string, at this point its value
-    // will be 0. In that case, no offset is applied
-    if (empty($filepath_number) || (array_key_exists('filepath_lastmoved', $agora['moodle2']) && $agora['moodle2']['filepath_lastmoved'] < $school_info['id_moodle2'] )  ) {
-        return $filepath . $agora['moodle2']['username'] . $school_info['id_moodle2'];
-    }
-
-    $offset = floor($school_info['id_moodle2'] / $filepath_number) + (($school_info['id_moodle2'] % $filepath_number) == 0 ? ($filepath_start - 1) : $filepath_start);
-
-    if ($offset > 0) {
-        $offset = (string) $offset; // Ensure there will not be cast issues
-        $filepath_prefix = 'repo';
-        if (array_key_exists('filepath_prefix', $agora['moodle2'])) {
-            $filepath_prefix = $agora['moodle2']['filepath_prefix'];
-        }
-        $filepath = $filepath . $filepath_prefix .$offset. '/' . $agora['moodle2']['username'] . $school_info['id_moodle2'];
-    } else {
-        $filepath = $filepath . $agora['moodle2']['username'] . $school_info['id_moodle2'];
-    }
-
-    return $filepath;
 }

@@ -1,5 +1,7 @@
 {include file="agoraportal_admin_menu.tpl"}
+
 <h3>{gt text="Esborra el servei"}</h3>
+
 <form id="deleteClient" class="horizontal-form" action="{modurl modname='Agoraportal' type='admin' func='deleteService'}" method="post" enctype="application/x-www-form-urlencoded">
     {include file="agoraportal_admin_clientInfo.tpl"}
     <h4>{gt text="Servei que serà esborrat"}:</h4>
@@ -14,7 +16,7 @@
         <button class="btn btn-success" title="Esborra" type="submit">
             <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> {gt text="Esborra"}
         </button>
-        <a class="btn btn-danger" title="Cancel·la" href="{modurl modname='Agoraportal' type='admin' func='servicesList'}">
+        <a class="btn btn-danger" title="Cancel·la" href="{modurl modname='Agoraportal' type='admin' func='listServices'}">
             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> {gt text="Cancel·la"}
         </a>
     </div>

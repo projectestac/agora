@@ -1,4 +1,7 @@
+{adminheader}
+
 {include file="agoraportal_admin_menu.tpl"}
+
 <h3>{gt text="Configura"}</h3>
 <form  class="form-horizontal" enctype="application/x-www-form-urlencoded" method="post" name="config" id="config" action="{modurl modname='Agoraportal' type='admin' func='updateConfig'}">
     <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
@@ -12,7 +15,7 @@
     <div class="form-group">
         <label class="col-sm-4 control-label" for="warningMailsTo">{gt text="Adreces de correu a on s'han d'enviar els missatges relatius al consum del disc"}</label>
         <div class="col-sm-8">
-            <textarea class="form-control" id="warningMailsTo" ="warningMailsTo" rows="3">{$warningMailsTo}</textarea>
+            <textarea class="form-control" id="warningMailsTo" rows="3">{$warningMailsTo}</textarea>
             <div class="alert alert-info">
                 {gt text="Separeu la llista d'adreces per comes."}
             </div>
@@ -74,7 +77,7 @@
 <div class="panel panel-primary">
     <div class="panel-heading">{gt text="Tipus de serveis disponibles"} <span id="reload"></span></div>
     <div class="panel-body">
-        <form name="servicesList" id="servicesList">
+        <form name="listServices" id="listServices">
             <table class="table table-hover table-striped">
                 <thead>
                     <tr>
@@ -85,7 +88,6 @@
                         <th>{gt text="Té base de dades"}</th>
                         <th>{gt text="Prefix de la base de dades"}</th>
                         <th>{gt text="Clients permesos *"}</th>
-                        <th>{gt text="Directori base"}</th>
                         <th>{gt text="Espai disc"}</th>
                         <th>&nbsp;</th>
                     </tr>
@@ -94,11 +96,11 @@
                     {foreach item=service key=id from=$services}
                         {assign  var="extra" value=$extras[$id]}
                         <tr id="service{$service->serviceId}">
-                            {include file="config_serviceRow.tpl"}
+                            {include file="agoraportal_admin_config_serviceRow.tpl"}
                         </tr>
                     {foreachelse}
                     <tr>
-                        <td colspan="11">
+                        <td colspan="9">
                             <div class="alert alert-warning">
                                 {gt text="No s'han trobat serveis"}
                             </div>
@@ -297,3 +299,5 @@
         </table>
     </div>
 </div>
+
+{adminfooter}

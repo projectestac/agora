@@ -1,4 +1,7 @@
+{adminheader}
+
 {include file="agoraportal_admin_menu.tpl"}
+
 <h3>{gt text="Edita la sol·licitud"}</h3>
 <form id="editRequestForm" class="form-horizontal" action="{modurl modname='Agoraportal' type='admin' func='updateRequest'}" method="post" enctype="application/x-www-form-urlencoded">
     <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
@@ -48,7 +51,6 @@
             </div>
         </div>
     </div>
-
 
     <div class="panel panel-info">
         <div class="panel-heading">{gt text="Resposta a la sol·licitud"}</div>
@@ -102,3 +104,5 @@
         </a>
     </div>
 </form>
+
+{adminfooter}

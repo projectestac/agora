@@ -30,16 +30,12 @@ class Service_moodle2 extends Service {
      * @return int activedId
      */
     protected function getDBId() {
-        $this->activedId = $this->calcFreeDatabase();
-        if (!$this->activedId) {
-            return false;
-        }
-
         $this->serviceDB = $this->calcOracleInstance();
         if (empty($this->serviceDB)) {
             return LogUtil::registerError('No s\'ha pogut calcular la instància de base de dades corresponent');
         }
-        return true;
+
+        return $this->calcFreeDatabase();
     }
 
     /**
@@ -85,11 +81,13 @@ class Service_moodle2 extends Service {
         $params['clientAddress'] = $client->clientAddress;
         $params['clientCity'] = $client->clientCity;
         $params['clientDNS'] = $client->clientDNS;
+
         $operation = $this->addOperation('script_enable_service', $params, 5);
         if (!$operation) {
             return LogUtil::registerError('No s\'ha pogut afegir la operació d\'activació del servei');
         }
         SessionUtil::setVar('execOper', $operation->id);
+
         LogUtil::registerStatus('S\'està activant el servei... si no s\'activa aneu a les cues');
         return true;
     }
@@ -102,7 +100,7 @@ class Service_moodle2 extends Service {
      * @return resource
      * @throws Exception
      */
-    public static function getDBConnection($db, $userid, $createDB = false) {
+    public static function getDBConnection($dbHost, $db, $userid, $createDB = false) {
         global $ZConfig, $agora;
         $user = $agora['moodle2']['userprefix'] . $userid;
         if ($ZConfig['System']['oci_pconnect']) {
@@ -175,7 +173,7 @@ class Service_moodle2 extends Service {
      * Restore XTECAdmin action
      * @return bool succeed
      */
-    protected function action_restore_xtecadmin() {
+    public function restoreXtecadmin() {
         $operation = $this->addExecuteOperation('script_restore_xtecadmin');
         if (!$operation->has_succeeded()) {
             return LogUtil::registerError('Ha fallat la restauració de l\'usuari xtecadmin. Error:' . $operation->get_message());
@@ -185,13 +183,24 @@ class Service_moodle2 extends Service {
     }
 
     /**
-     * Returns the list of available actions for moodle2
-     * @return array
+     * Show the list of files of the data directory
+     *
+     * @author Toni Ginard
      */
-    public function get_actions() {
-        $actions = parent::get_actions();
-        $actions['restore_xtecadmin'] = "Restaura l'usuari xtecadmin al Moodle";
-        return $actions;
+    public function getDataDirectory() {
+        $agora = AgoraPortal_Util::getGlobalAgoraVars();
+
+        return $agora['server']['root'] . get_filepath_moodle($this->activedId);
     }
 
+    /**
+     * Show the list of files of the data directory
+     *
+     * @author Toni Ginard
+     */
+    public function getDataDirectoryList() {
+        $dataDir = $this->getDataDirectory();
+
+        $this->printDataDir($dataDir);
+    }
 }

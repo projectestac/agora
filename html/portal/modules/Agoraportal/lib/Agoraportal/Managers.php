@@ -48,14 +48,14 @@ class Manager extends AgoraBase {
 
     /**
      * Adds a manager to a Client
-     * @param $clientCode of the client to add the manager
-     * @param $managerUName Username of the manager to be added
+     * @param string $clientCode of the client to add the manager
+     * @param string $managerUName Username of the manager to be added
      * @return bool
      */
     public static function add($clientCode, $managerUName) {
 
         if (!self::can_add_managers($clientCode)) {
-            return LogUtil::registerError('El centre ja té els '.self::MANAGERS_LIMIT.' gestors assignats');
+            return LogUtil::registerError('El centre ja té els ' . self::MANAGERS_LIMIT . ' gestors assignats');
         }
 
         // In case an e-mail address was given, remove text after @
@@ -65,23 +65,23 @@ class Manager extends AgoraBase {
         }
 
         if (is_numeric(substr($managerUName, 1, strlen($managerUName)))) {
-            return LogUtil::registerError('No pots assignar a usuaris genèrics la gestió.');
+            return LogUtil::registerError('No podeu fer gestors a usuaris genèrics');
         }
 
         // check if the user is manager in another client. A user can only be manager for one client
-        $manager_exists = self::get_by_username($managerUName);
-        if ($manager_exists) {
+        $managerInfo = self::get_by_username($managerUName);
+        if ($managerInfo) {
             // get school name
-            $client = Client::get_by_code($manager_exists->clientCode);
-            return LogUtil::registerError('L\'usuari/ària ja és gestor/a del centre <strong>%s</strong>. Una mateixa persona no pot ser gestora de dos centres simultàniament.', $client->clientName);
+            $client = Client::get_by_code($managerInfo->clientCode);
+            return LogUtil::registerError("L'usuari/ària ja és gestor/a del centre <strong>$client->clientName ($client->clientCode)</strong>. Una persona no pot ser gestora de dos centres simultàniament.");
         }
 
         $item = array('clientCode' => $clientCode,
             'managerUName' => $managerUName
         );
 
-        if (!DBUTil::insertObject($item, self::TABLE, 'managerId')) {
-            return LogUtil::registerError('No ha estat possible crear el registre a la base de dades.');
+        if (!DBUtil::insertObject($item, self::TABLE, 'managerId')) {
+            return LogUtil::registerError('No ha estat possible crear el registre a la base de dades');
         }
 
         return true;
@@ -123,7 +123,7 @@ class Manager extends AgoraBase {
 
     /**
      * Delete a Manager from the system
-     * @param $id
+     * @param int managerId
      * @return bool
      */
     public function delete() {

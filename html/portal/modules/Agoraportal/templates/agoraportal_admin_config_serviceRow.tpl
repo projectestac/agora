@@ -5,9 +5,6 @@
 <td>{$service->hasDB}</td>
 <td>{$extra->tablesPrefix}</td>
 <td>{$service->allowedClients}</td>
-<td {if $extra->serverFolder neq ''}class="{if $extra->validFolder}bg-success{else}bg-danger{/if}"{/if}>
-    {$extra->serverFolder}
-</td>
 <td>{$service->defaultDiskSpace}</td>
 <td class="text-right">
     <button type="button" class="btn btn-info" onclick="editService({$service->serviceId});" title="Edita">

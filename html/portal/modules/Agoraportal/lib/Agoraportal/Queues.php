@@ -28,7 +28,7 @@ class Agora_Queues {
      */
     public static function set_last_execution_now($content) {
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-        //-100 really is not a user but represents the system user
+        // -100 is not a user but represents the system user
         ModUtil::func('IWmain', 'user', 'userSetVar',
             array('uid' => -100,
                 'name' => 'lastCronSuccessfull',
@@ -37,6 +37,7 @@ class Agora_Queues {
                 'sv' => $sv,
                 'value' => time()));
 
+        $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
         ModUtil::func('IWmain', 'user', 'userSetVar',
             array('uid' => -100,
                 'name' => 'cronResponse',
@@ -60,12 +61,13 @@ class Agora_Queues {
             return false;
         }
 
-        $pendingnum = self::get_operations_to_run();
+        $pendingnum = self::get_operations_to_run(true);
+
         if (!$pendingnum) {
-            print 'GREAT! No pending operations...';
+            echo 'No pending operations...<br /><br />';
             return true;
         }
-        print 'There are ' . $pendingnum . ' pending operations...';
+        echo 'There are ' . $pendingnum . ' pending operations...<br /><br />';
 
         print '<ul>';
         while ($operation = self::get_next_operation()) {
@@ -79,15 +81,16 @@ class Agora_Queues {
     }
 
     /**
-     * @return The next operation to be executed
+     * @return Object|bool The next operation to be executed
      */
     public static function get_next_operation() {
         $ops = self::get_operations_to_run();
+
         if (!empty($ops)) {
             $op = reset($ops);
 
-            if (isset($op->id)) {
-                return Agora_Queues_Operation::get_operation_by_id($op->id);
+            if (isset($op['id'])) {
+                return Agora_Queues_Operation::get_operation_by_id($op['id']);
             }
         }
         return false;
@@ -103,7 +106,7 @@ class Agora_Queues {
         if ($count) {
             return DBUtil::selectObjectCount(Agora_Queues_Operation::TABLE, $where);
         }
-        return DBUtil::selectObjectArray(Agora_Queues_Operation::TABLE, $where, 'priority DESC, timeCreated ASC, ClientId ASC', -1, 1);
+        return DBUtil::selectObjectArray(Agora_Queues_Operation::TABLE, $where, 'priority DESC, timeCreated ASC, ClientId ASC', -1, -1);
     }
 
     /**
@@ -284,6 +287,7 @@ class Agora_Queues_Operation {
      */
     private function __construct($id) {
         $operation = DBUtil::selectObjectByID(self::TABLE, $id);
+
         $this->id = $operation['id'];
         $this->operation = $operation['operation'];
         $this->clientId = $operation['clientId'];

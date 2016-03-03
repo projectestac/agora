@@ -26,18 +26,32 @@ class Service_nodes extends Service {
     }
 
     /**
-     * Calculates the activedId and serviceDB (got from twin) or free
+     * Calculates the activedId and dbHost (got from twin) or free
      * @return int activedId
      */
     protected function getDBId() {
-        $twin = Service::get_by_client_and_servicename($this->clientId, 'intranet');
+        $twin = Service::get_by_client_and_servicename( $this->clientId, 'intranet' );
+
         if ($twin && $twin->activedId > 0) {
             $this->activedId = $twin->activedId;
-            $this->serviceDB = $twin->serviceDB;
+            $this->serviceDB = $twin->activedId;
+            $this->dbHost = $twin->dbHost;
+
             return $this->activedId;
         }
 
-        $this->activedId = $this->calcFreeDatabase();
+        if (!empty($this->serviceDB)) {
+            if ( self::get_by_servicename_and_activeid('nodes', $this->serviceDB)) {
+                $this->activedId = $this->calcFreeDatabase();
+                $this->serviceDB = $this->activedId;
+                LogUtil::registerStatus("La base de dades $this->serviceDB està essent usada. S'ha buscat una base de dades lliure.");
+            }
+            $this->activedId = $this->serviceDB;
+        } else {
+            $this->activedId = $this->calcFreeDatabase();
+            $this->serviceDB = $this->activedId;
+        }
+
         return $this->activedId;
     }
 
@@ -51,7 +65,7 @@ class Service_nodes extends Service {
 
         $client = $this->get_client();
         if (!$client->extraFunc) {
-            return LogUtil::registerError("Falta indicar el tipus de plantilla al camp <strong>Funcionalitats addicionals</strong>");
+            return LogUtil::registerError('Falta indicar la plantilla al camp <strong>Plantilla de Nodes</strong>');
         }
 
         $shortcode = $client->extraFunc;
@@ -64,7 +78,7 @@ class Service_nodes extends Service {
         $origin_bd = $template->dbHost;
 
         $dbfile = $ZConfig['System']['datadir'] . '/nodes/master' . $shortcode . '.sql';
-        $datafile = $agora['server']['root'] . $agora['moodle2']['datadir'] . $agora['nodes']['userprefix'] . '1/repository/files/master' . $shortcode . '.zip';
+        $datafile = $agora['server']['root'] . get_filepath_moodle(1) . '/repository/files/master' . $shortcode . '.zip';
 
         if (!file_exists($dbfile)) {
             LogUtil::registerError("No s'ha trobat el fitxer de base de dades $dbfile");
@@ -78,7 +92,7 @@ class Service_nodes extends Service {
 
         // Import DB
         // Temporary variable, used to store current query
-        $currentSQL = "";
+        $currentSQL = '';
         // Read in entire file
         $lines = file($dbfile);
         // Loop through each line
@@ -92,13 +106,13 @@ class Service_nodes extends Service {
             // If it has a semicolon at the end, it's the end of the query
             if (substr(trim($line), -1, 1) == ';') {
                 try {
-                    $result = $this->executeSQL($currentSQL, true);
+                    $this->executeSQL($currentSQL, true);
                 } catch (Exception $e) {
                     return LogUtil::registerError(__f('L\'execució de l\'sql ha fallat: ' . $currentSQL . '. Error: ' . $e->getMessage()));
                 }
 
                 // Reset temp variable to empty
-                $currentSQL = "";
+                $currentSQL = '';
             }
         }
 
@@ -135,9 +149,8 @@ class Service_nodes extends Service {
 
         $zip->close();
 
-        // Generate a password for Moodle admin user
         $params = array();
-        $params['password'] = md5($password); //Admin password en md5
+        $params['password'] = md5($password); // Admin password in md5
         $params['clientName'] = $client->clientName;
         $params['clientAddress'] = $client->clientAddress;
         $params['clientCity'] = $client->clientCity;
@@ -146,12 +159,14 @@ class Service_nodes extends Service {
         $params['clientCode'] = $client->clientCode;
         $params['origin_url'] = $origin_url;
         $params['origin_bd'] = $origin_bd;
+
         $operation = $this->addOperation('script_enable_service', $params, 5);
         if (!$operation) {
             return LogUtil::registerError('No s\'ha pogut afegir la operació d\'activació del servei');
         }
         SessionUtil::setVar('execOper', $operation->id);
-        LogUtil::registerStatus('S\'està activant el servei... si no s\'activa aneu a les cues');
+
+        LogUtil::registerStatus(__('S\'està activant el servei... si no s\'activa aneu a les cues'));
         return true;
     }
 
@@ -162,7 +177,7 @@ class Service_nodes extends Service {
      * @param bool|false $createDB
      * @return false|mysqli
      */
-    public static function getDBConnection($host, $dbid, $createDB = false) {
+    public static function getDBConnection($host, $serviceDB, $dbid, $createDB = false) {
         global $agora;
 
         $parts = explode(':', $host, 2);
@@ -193,5 +208,28 @@ class Service_nodes extends Service {
             }
         }
         return $connect;
+    }
+
+    /**
+     * Show the list of files of the data directory
+     *
+     * @author Toni Ginard
+     */
+    public function getDataDirectory() {
+        $agora = AgoraPortal_Util::getGlobalAgoraVars();
+        $serviceName = $this->servicetype->serviceName;
+
+        return $agora['server']['root'] . $agora[$serviceName]['datadir'] . $agora[$serviceName]['userprefix'] . $this->activedId;
+    }
+
+    /**
+     * Show the list of files of the data directory
+     *
+     * @author Toni Ginard
+     */
+    public function getDataDirectoryList() {
+        $dataDir = $this->getDataDirectory();
+
+        $this->printDataDir($dataDir);
     }
 }

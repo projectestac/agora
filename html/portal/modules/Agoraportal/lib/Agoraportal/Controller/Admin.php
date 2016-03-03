@@ -12,22 +12,22 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
     }
 
     /**
-     * Redirect administrators to services list
-     * @author:		Albert Pérez Monfort (aperezm@xtec.cat)
-     * @return:		Redirect user to function servicesList
+     * Set default function
+     *
+     * @author: Albert Pérez Monfort (aperezm@xtec.cat)
+     * @return:	Redirect user to function listServices
      */
     public function main() {
-        return System::redirect(ModUtil::url('Agoraportal', 'admin', 'servicesList'));
+        return System::redirect(ModUtil::url('Agoraportal', 'admin', 'listServices'));
     }
 
     /**
      * Display the edit form for a service
-     * @author:		Albert Pérez Monfort (aperezm@xtec.cat)
      * @param:		The client-service identity and the filter values
      * @return:		The edit form
      */
-    public function editService($args) {
-        $clientServiceId = AgoraPortal_Util::getFormVar($args, 'clientServiceId', null, 'GET');
+    public function editService() {
+        $clientServiceId = FormUtil::getPassedValue('clientServiceId', null, 'GET');
 
         $service = Service::get_by_id($clientServiceId);
         $client = $service->get_client();
@@ -57,61 +57,68 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
     /**
      * Process the values received from the service edit form
-     * @author:		Albert Pérez Monfort (aperezm@xtec.cat)
      * @param:		The main client and service parameters
-     * @return:		An error message if fails and redirect user to function servicesList
+     * @return:		An error message if fails and redirect user to function listServices
      */
-    public function updateService($args) {
-        global $agora;
+    public function updateService() {
 
         $this->checkCsrfToken(); // Confirm authorisation code
 
-        $clientServiceId = AgoraPortal_Util::getFormVar($args, 'clientServiceId', false, 'POST');
+        $clientServiceId = FormUtil::getPassedValue('clientServiceId', null, 'POST');
+        $extraFunc = FormUtil::getPassedValue('extraFunc', null, 'POST');
+        $dbHost = FormUtil::getPassedValue('dbHost', null, 'POST');
+        $serviceDB = FormUtil::getPassedValue('serviceDB', null, 'POST');
+        $observations = FormUtil::getPassedValue('observations', null, 'POST');
+        $annotations = FormUtil::getPassedValue('annotations', null, 'POST');
+        $diskSpace = FormUtil::getPassedValue('diskSpace', 0, 'POST');
+        $state = FormUtil::getPassedValue('state', null, 'POST');
+        $sendMail = FormUtil::getPassedValue('sendMail', false, 'POST');
+
+        global $agora;
+
         $clientService = Service::get_by_id($clientServiceId);
         if (!$clientService) {
             LogUtil::registerError($this->__('No s\'ha trobat el servei'));
-            return System::redirect(ModUtil::url('Agoraportal', 'admin', 'servicesList'));
+            return System::redirect(ModUtil::url('Agoraportal', 'admin', 'listServices'));
         }
 
         $client = $clientService->get_client();
+
         // Get the definition of the services
         $service = $clientService->get_servicetype();
         $serviceName = $service->serviceName;
         if ($serviceName == 'nodes') {
-            $client->extraFunc = AgoraPortal_Util::getFormVar($args, 'extraFunc', null, 'POST');
+            $client->extraFunc = $extraFunc;
             $success = $client->save();
             if (!$success) {
                 LogUtil::registerError($this->__('S\'ha produït un error en l\'edició del client'));
-                return System::redirect(ModUtil::url('Agoraportal', 'admin', 'servicesList'));
+                return System::redirect(ModUtil::url('Agoraportal', 'admin', 'listServices'));
             }
         }
 
-        $clientService->serviceDB = AgoraPortal_Util::getFormVar($args, 'serviceDB', null, 'POST');
-        $clientService->observations = AgoraPortal_Util::getFormVar($args, 'observations', null, 'POST');
-        $clientService->annotations = AgoraPortal_Util::getFormVar($args, 'annotations', null, 'POST');
-        $clientService->diskSpace = AgoraPortal_Util::getFormVar($args, 'diskSpace', 0, 'POST');
+        $clientService->dbHost = $dbHost;
+        $clientService->serviceDB = $serviceDB;
+        $clientService->observations = $observations;
+        $clientService->annotations = $annotations;
+        $clientService->diskSpace = $diskSpace;
 
-        // Autofill serviceDB var with default value. This is a guess. serviceDB should come from web form.
-        if ((is_null($clientService->serviceDB) || empty($clientService->serviceDB)) && (($serviceName == 'intranet') || ($serviceName == 'nodes'))) {
-            $clientService->serviceDB = $agora['intranet']['host'];
+        // Autofill dbHost var with default value. This is a guess. dbHost should come from web form.
+        if ((is_null($clientService->dbHost) || empty($clientService->dbHost)) && (($serviceName == 'intranet') || ($serviceName == 'nodes'))) {
+            $clientService->dbHost = $agora['intranet']['host'];
         }
 
         // Create a var for admin password where to keep it in order to send it by e-mail
-        $password = "";
+        $password = '';
 
-        $state = AgoraPortal_Util::getFormVar($args, 'state', null, 'POST');
         $result = $clientService->changeState($state);
         if (!$result) {
-            return System::redirect(ModUtil::url('Agoraportal', 'admin', 'servicesList'));
+            return System::redirect(ModUtil::url('Agoraportal', 'admin', 'listServices'));
         } else if ($result !== true) {
             $password = $result;
         }
         $clientService->save();
 
-        // send informational mail if it is necessary
-        // check if module mailer is active
-
-        $sendMail = AgoraPortal_Util::getFormVar($args, 'sendMail', false, 'POST');
+        // Send information mail if it is necessary
         if($sendMail && ($state < -1 || $state == 1)) {
             // We need to know service base URL
             $mailContent = $this->view
@@ -120,132 +127,35 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 ->assign('client', $client)
                 ->assign('service', $clientService)
                 ->assign('servicetype', $service)
-                ->fetch('mail_updateService.tpl');
+                ->fetch('agoraportal_admin_mail_updateService.tpl');
             $client->send_mail( __('Estat dels serveis del centre a Àgora'), $mailContent);
         }
 
         LogUtil::registerStatus($this->__('El client i el servei s\'han modificat correctament'));
-        return System::redirect(ModUtil::url('Agoraportal', 'admin', 'servicesList'));
-    }
-
-    /**
-     * Display the edit form for a client
-     * @author:		Albert Pérez Monfort (aperezm@xtec.cat)
-     * @param:		The main client parameters
-     * @return:		The edit form
-     */
-    public function editClient($args) {
-        $clientId = AgoraPortal_Util::getFormVar($args, 'clientId', null, 'GET');
-        $client = Client::get_by_id($clientId);
-        if (!$client) {
-            LogUtil::registerError($this->__('No s\'ha trobat el client'));
-            return System::redirect(ModUtil::url('Agoraportal', 'admin', 'clientsList'));
-        }
-        $locations = Locations::get_all();
-        $types = ClientTypes::get_all();
-        $templates = ServiceTemplates::get_all();
-
-        return $this->view->assign('client', $client)
-                        ->assign('locations', $locations)
-                        ->assign('types', $types)
-                        ->assign('templates', $templates)
-                        ->fetch('agoraportal_admin_editClient.tpl');
-    }
-
-    /**
-     * Process the values received from the client edit form
-     * @author:		Pau Ferrer Ocaña (pferre22@xtec.cat)
-     * @param:		The main client parameters
-     * @return:		An error message if fails and redirect user to function servicesList
-     */
-    public function updateClient($args) {
-        $this->checkCsrfToken(); // Confirm authorisation code
-
-        $clientId = AgoraPortal_Util::getFormVar($args, 'clientId', null, 'POST');
-        $client = Client::get_by_id($clientId);
-
-        if (!$client) {
-            LogUtil::registerError($this->__('No s\'ha trobat el client'));
-            return System::redirect(ModUtil::url('Agoraportal', 'admin', 'servicesList'));
-        }
-
-        $client->clientState = AgoraPortal_Util::getFormVar($args, 'clientState', null, 'POST');
-        $client->clientDescription = AgoraPortal_Util::getFormVar($args, 'clientDescription', null, 'POST');
-        $client->clientDNS = AgoraPortal_Util::getFormVar($args, 'clientDNS', null, 'POST');
-        $client->clientName = AgoraPortal_Util::getFormVar($args, 'clientName', null, 'POST');
-        $client->clientAddress = AgoraPortal_Util::getFormVar($args, 'clientAddress', null, 'POST');
-        $client->clientCity = AgoraPortal_Util::getFormVar($args, 'clientCity', null, 'POST');
-        $client->clientPC = AgoraPortal_Util::getFormVar($args, 'clientPC', null, 'POST');
-        $client->locationId = AgoraPortal_Util::getFormVar($args, 'locationId', null, 'POST');
-        $client->typeId = AgoraPortal_Util::getFormVar($args, 'typeId', 0, 'POST');
-        $client->noVisible = AgoraPortal_Util::getFormVar($args, 'noVisible', 0, 'POST');
-        $client->extraFunc = AgoraPortal_Util::getFormVar($args, 'extraFunc', null, 'POST');
-        $client->educat = AgoraPortal_Util::getFormVar($args, 'educat', 0, 'POST');
-        $success = $client->save();
-        if (!$success) {
-            LogUtil::registerError($this->__('S\'ha produït un error en l\'edició del client'));
-            return System::redirect(ModUtil::url('Agoraportal', 'admin', 'clientsList'));
-        }
-
-        // Check if only editing client information (table agoraportal_clients), in that case, we're done
-        LogUtil::registerStatus($this->__('El client ha estat editat correctament'));
-        return System::redirect(ModUtil::url('Agoraportal', 'admin', 'clientsList'));
-    }
-
-    /**
-     * Delete a client and all the services associated with the client
-     * @author:		Albert Pérez Monfort (aperezm@xtec.cat)
-     * @param:		The client identity
-     * @return:		An error message if fails and redirect user to function clientsList
-     */
-    public function deleteClient($args) {
-        $clientId = AgoraPortal_Util::getFormVar($args, 'clientId');
-
-        $client = Client::get_by_id($clientId);
-        if (!$client) {
-            LogUtil::registerError($this->__('No s\'ha trobat el client'));
-            return System::redirect(ModUtil::url('Agoraportal', 'admin', 'clientsList'));
-        }
-
-        $confirm = AgoraPortal_Util::getFormVar($args, 'confirm', null, 'POST');
-        if (!$confirm) {
-            $services = $client->get_all_services();
-
-            return $this->view->assign('client', $client)
-                            ->assign('services', $services)
-                            ->fetch('agoraportal_admin_deleteClient.tpl');
-        }
-
-        // The client deletion has been confirmed
-        $this->checkCsrfToken();
-
-        if(Client::delete($clientId)) {
-            LogUtil::registerStatus($this->__('El client i tota la informació asociada ha estat esborrada'));
-        }
-        return System::redirect(ModUtil::url('Agoraportal', 'admin', 'clientsList'));
+        return System::redirect(ModUtil::url('Agoraportal', 'admin', 'listServices'));
     }
 
     /**
      * Delete a service
-     * @author:		Albert Pérez Monfort (aperezm@xtec.cat)
      * @param:		The client-service identity
-     * @return:		An error message if fails and redirect user to function servicesList
+     * @return:		An error message if fails and redirect user to function listServices
      */
-    public function deleteService($args) {
-        $clientServiceId = AgoraPortal_Util::getFormVar($args, 'clientServiceId');
-        $confirm = AgoraPortal_Util::getFormVar($args, 'confirm', null, 'POST');
+    public function deleteService() {
+        $clientServiceId = FormUtil::getPassedValue('clientServiceId', null, 'GETPOST');
+        $confirm = FormUtil::getPassedValue('confirm', false, 'POST');
 
         $service = Service::get_by_id($clientServiceId);
         if (!$service) {
             LogUtil::registerError($this->__('No s\'ha trobat el servei'));
-            return System::redirect(ModUtil::url('Agoraportal', 'admin', 'servicesList'));
+            return System::redirect(ModUtil::url('Agoraportal', 'admin', 'listServices'));
         }
+
         $servicetype = $service->get_servicetype();
 
         $client = $service->get_client();
         if (!$client) {
             LogUtil::registerError($this->__('No s\'ha trobat el client'));
-            return System::redirect(ModUtil::url('Agoraportal', 'admin', 'servicesList'));
+            return System::redirect(ModUtil::url('Agoraportal', 'admin', 'listServices'));
         }
 
         // Get all the services
@@ -263,23 +173,15 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             LogUtil::registerStatus($this->__('El servei ha estat esborrat'));
         }
 
-        return System::redirect(ModUtil::url('Agoraportal', 'admin', 'servicesList'));
+        return System::redirect(ModUtil::url('Agoraportal', 'admin', 'listServices'));
     }
 
     /**
      * Display the list of services associated with clients
-     * @author:		Albert Pérez Monfort (aperezm@xtec.cat)
      * @param:		The filter and pager values
      * @return:		The services list page
      */
-    public function servicesList($args) {
-        $rpp = AgoraPortal_Util::getFormVar($args, 'rpp', 15);
-        $service = AgoraPortal_Util::getFormVar($args, 'service', '0');
-        $stateFilter = AgoraPortal_Util::getFormVar($args, 'stateFilter', 0);
-        $search = AgoraPortal_Util::getFormVar($args, 'search', "");
-        $searchText = AgoraPortal_Util::getFormVar($args, 'searchText', "");
-        $order = AgoraPortal_Util::getFormVar($args, 'order', 2);
-
+    public function listServices($args) {
         if (SessionUtil::getVar('serviceList')) {
             $args = unserialize(SessionUtil::getVar('serviceList'));
             $service = $args['service'];
@@ -287,7 +189,24 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             $search = $args['search'];
             $searchText = $args['searchText'];
             $order = $args['order'];
+            $rpp = $args['rpp'];
+        } else {
+            $rpp = FormUtil::getPassedValue('rpp', isset($args['rpp']) ? $args['rpp'] : 15, 'GETPOST');
+            $service = FormUtil::getPassedValue('service', isset($args['service']) ? $args['service'] : 0, 'GETPOST');
+            $stateFilter = FormUtil::getPassedValue('stateFilter', isset($args['stateFilter']) ? $args['stateFilter'] : 0, 'GETPOST');
+            $search = FormUtil::getPassedValue('search', isset($args['search']) ? $args['search'] : '', 'GETPOST');
+            $searchText = FormUtil::getPassedValue('searchText', isset($args['searchText']) ? $args['searchText'] : '', 'GETPOST');
+            $order = FormUtil::getPassedValue('order', isset($args['order']) ? $args['order'] : 2, 'GETPOST');
         }
+
+        $args = array (
+            'rpp' => $rpp,
+            'service' => $service,
+            'stateFilter' => $stateFilter,
+            'search' => $search,
+            'searchText' => $searchText,
+            'order' => $order
+        );
 
         if (SessionUtil::getVar('execOper')) {
             $execOper = SessionUtil::getVar('execOper');
@@ -296,9 +215,9 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             $execOper = false;
         }
 
-        $servicesListContent = ModUtil::func('Agoraportal', 'admin', 'servicesListContent', $args);
+        $listServicesContent = ModUtil::func('Agoraportal', 'admin', 'listServicesContent', $args);
 
-        return $this->view->assign('servicesListContent', $servicesListContent)
+        return $this->view->assign('listServicesContent', $listServicesContent)
                         ->assign('search', $search)
                         ->assign('searchText', $searchText)
                         ->assign('service', $service)
@@ -306,23 +225,22 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                         ->assign('rpp', $rpp)
                         ->assign('order', $order)
                         ->assign('execOper', $execOper)
-                        ->fetch('agoraportal_admin_servicesList.tpl');
+                        ->fetch('agoraportal_admin_listServices.tpl');
     }
 
     /**
      * Get the list of services associated with clients
-     * @author:		Albert Pérez Monfort (aperezm@xtec.cat)
      * @param:		The filter and pager values
      * @return:		An array with all the clients and services
      */
-    public function servicesListContent($args) {
-        $init = AgoraPortal_Util::getFormVar($args, 'init', -1);
-        $rpp = AgoraPortal_Util::getFormVar($args, 'rpp', 15);
-        $serviceId = AgoraPortal_Util::getFormVar($args, 'service', '0');
-        $stateFilter = AgoraPortal_Util::getFormVar($args, 'stateFilter', 0);
-        $search = AgoraPortal_Util::getFormVar($args, 'search', "");
-        $searchText = AgoraPortal_Util::getFormVar($args, 'searchText', "");
-        $order = AgoraPortal_Util::getFormVar($args, 'order', 2);
+    public function listServicesContent($args) {
+        $init = FormUtil::getPassedValue('init', -1, 'GETPOST');
+        $rpp = FormUtil::getPassedValue('rpp', isset($args['rpp']) ? $args['rpp'] : 15, 'GETPOST');
+        $serviceId = FormUtil::getPassedValue('service', isset($args['service']) ? $args['service'] : 0, 'GETPOST');
+        $stateFilter = FormUtil::getPassedValue('stateFilter', isset($args['stateFilter']) ? $args['stateFilter'] : 0, 'GETPOST');
+        $search = FormUtil::getPassedValue('search', isset($args['search']) ? $args['search'] : '', 'GETPOST');
+        $searchText = FormUtil::getPassedValue('searchText', isset($args['searchText']) ? $args['searchText'] : '', 'GETPOST');
+        $order = FormUtil::getPassedValue('order', isset($args['order']) ? $args['order'] : 1, 'GETPOST');
 
         // Escape special chars
         $searchText = addslashes($searchText);
@@ -332,8 +250,10 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         if (!empty($search) && !empty($searchText)) {
             $searchargs[$search] = $searchText;
         }
-        $services = Services::search_by_full($searchargs, $order, $init, $rpp);
+
+        $services = Services::search($searchargs, $order, $init, $rpp);
         $disks = array();
+
         foreach ($services as $clientServiceId => $service) {
             $disk = new StdClass();
             $disk->percent = $service->get_disk_percentage();
@@ -344,19 +264,23 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         }
 
         $clientsNumber = Services::count_by($searchargs);
+
         $pager = ModUtil::func('Agoraportal', 'user', 'pager',
-            array('init' => $init,
-                    'rpp' => $rpp,
-                    'total' => $clientsNumber,
-                    'itemsname' => 'serveis',
-                    'javascript' => true,
-                    'urltemplate' => "servicesList('$serviceId','$stateFilter','$search','$searchText','$order',%%,'$rpp');"));
+            array(
+                'init' => $init,
+                'rpp' => $rpp,
+                'total' => $clientsNumber,
+                'itemsname' => 'serveis',
+                'javascript' => true,
+                'urltemplate' => "listServices('$serviceId','$stateFilter','$search','$searchText','$order',%%,'$rpp');"
+            )
+        );
 
         return $this->view->assign('services', $services)
                         ->assign('disks', $disks)
                         ->assign('servicetypes', $servicetypes)
                         ->assign('pager', $pager)
-                        ->fetch('agoraportal_admin_servicesListContent.tpl');
+                        ->fetch('agoraportal_admin_listServicesContent.tpl');
     }
 
     /**
@@ -365,8 +289,8 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
      * @param:      Service
      * @return:     Json of actions
      */
-    public function getServiceActions($args) {
-        $serviceid = AgoraPortal_Util::getFormVar($args, 'service', '0', 'POST');
+    public function getServiceActions() {
+        $serviceid = FormUtil::getPassedValue('service', 0, 'GET');
 
         if (!$serviceid) {
             return $this->getServiceActions_noaction('No hi ha accions disponibles pel servei Portal');
@@ -423,73 +347,19 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
     }
 
     /**
-     * Display the list of clients
-     * @author:		Albert Pérez Monfort (aperezm@xtec.cat)
-     * @param:		The filter and pager values
-     * @return:		The clients' list page
-     */
-    public function clientsList($args) {
-        $rpp = AgoraPortal_Util::getFormVar($args, 'rpp', 15);
-        $search = AgoraPortal_Util::getFormVar($args, 'search', "");
-        $searchText = AgoraPortal_Util::getFormVar($args, 'searchText', "");
-
-        if (SessionUtil::getVar('clientsList')) {
-            $args = unserialize(SessionUtil::getVar('clientsList'));
-            $rpp = $args['rpp'];
-            $search = $args['search'];
-            $searchText = $args['searchText'];
-        }
-
-        $clientsListContent = ModUtil::func('Agoraportal', 'admin', 'clientsListContent', $args);
-        return $this->view->assign('clientsListContent', $clientsListContent)
-                        ->assign('rpp', $rpp)
-                        ->assign('search', $search)
-                        ->assign('searchText', $searchText)
-                        ->fetch('agoraportal_admin_clientsList.tpl');
-    }
-
-    /**
-     * Get the list of services associated with clients
-     * @author:		Albert Pérez Monfort (aperezm@xtec.cat)
-     * @param:		The filter and pager values
-     * @return:		An array with all the clients information
-     */
-    public function clientsListContent($args) {
-        $init = AgoraPortal_Util::getFormVar($args, 'init', -1);
-        $rpp = AgoraPortal_Util::getFormVar($args, 'rpp', 15);
-        $by = AgoraPortal_Util::getFormVar($args, 'search');
-        $search = AgoraPortal_Util::getFormVar($args, 'searchText');
-
-        $clients = Clients::search_by($by, $search, $init, $rpp);
-        $clientsNumber = Clients::count_by($by, $search);
-
-        $pager = ModUtil::func('Agoraportal', 'user', 'pager', array('init' => $init,
-                    'rpp' => $rpp,
-                    'total' => $clientsNumber,
-                    'javascript' => true,
-                    'itemsname' => 'clients',
-                    'urltemplate' => "clientsList('$by','$search', %%, '$rpp')"));
-
-        return $this->view->assign('clients', $clients)
-                        ->assign('pager', $pager)
-                        ->fetch('agoraportal_admin_clientsListContent.tpl');
-    }
-
-    /**
-     * Diplay the form needed to create a new client
-     * @author:		Albert Pérez Monfort (aperezm@xtec.cat)
+     * Display the form to create a new client
      * @param:		The main client parameters
-     * @return:		The form fields
+     * @return:		Render the form
      */
-    public function newClient($args) {
-        $clientCode = AgoraPortal_Util::getFormVar($args, 'clientCode');
-        $clientName = AgoraPortal_Util::getFormVar($args, 'clientName');
-        $clientDNS = AgoraPortal_Util::getFormVar($args, 'clientDNS');
-        $clientAddress = AgoraPortal_Util::getFormVar($args, 'clientAddress');
-        $clientCity = AgoraPortal_Util::getFormVar($args, 'clientCity');
-        $clientPC = AgoraPortal_Util::getFormVar($args, 'clientPC');
-        $clientDescription = AgoraPortal_Util::getFormVar($args, 'clientDescription');
-        $clientState = AgoraPortal_Util::getFormVar($args, 'clientState', 0, 'GETPOST');
+    public function newClient() {
+        $clientCode = FormUtil::getPassedValue('clientCode', '', 'GETPOST');
+        $clientName = FormUtil::getPassedValue('clientName', '', 'GETPOST');
+        $clientDNS = FormUtil::getPassedValue('clientDNS', '', 'GETPOST');
+        $clientAddress = FormUtil::getPassedValue('clientAddress', '', 'GETPOST');
+        $clientCity = FormUtil::getPassedValue('clientCity', '', 'GETPOST');
+        $clientPC = FormUtil::getPassedValue('clientPC', '', 'GETPOST');
+        $clientDescription = FormUtil::getPassedValue('clientDescription', '', 'GETPOST');
+        $clientState = FormUtil::getPassedValue('clientState', 0, 'GETPOST');
 
         // Security check
         if (!AgoraPortal_Util::isAdmin()) {
@@ -506,65 +376,77 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         // Create output object
         $view = Zikula_View::getInstance('Agoraportal', false);
         $view->assign('client', $client);
-        return $view->fetch('agoraportal_admin_newClient.tpl');
+        return $view->fetch('agoraportal_admin_client_new.tpl');
     }
 
     /**
      * Create a new client using the values received from the form
-     * @author:		Albert Pérez Monfort (aperezm@xtec.cat)
      * @param:		The main client parameters
      * @return:		An error message if fails and redirect user to clients' list
      */
-    public function createClient($args) {
-        $clientCode = AgoraPortal_Util::getFormVar($args, 'clientCode', null, 'POST');
-        $clientName = AgoraPortal_Util::getFormVar($args, 'clientName', null, 'POST');
-        $clientDNS = AgoraPortal_Util::getFormVar($args, 'clientDNS', null, 'POST');
-        $clientAddress = AgoraPortal_Util::getFormVar($args, 'clientAddress', null, 'POST');
-        $clientCity = AgoraPortal_Util::getFormVar($args, 'clientCity', null, 'POST');
-        $clientPC = AgoraPortal_Util::getFormVar($args, 'clientPC', null, 'POST');
-        $clientDescription = AgoraPortal_Util::getFormVar($args, 'clientDescription', null, 'POST');
-        $clientState = AgoraPortal_Util::getFormVar($args, 'clientState', 0, 'POST');
+    public function createClient() {
+        $clientCode = FormUtil::getPassedValue('clientCode', '', 'POST');
+        $clientName = FormUtil::getPassedValue('clientName', '', 'POST');
+        $clientDNS = FormUtil::getPassedValue('clientDNS', '', 'POST');
+        $clientOldDNS = FormUtil::getPassedValue('clientOldDNS', '', 'POST');
+        $clientAddress = FormUtil::getPassedValue('clientAddress', '', 'POST');
+        $clientCity = FormUtil::getPassedValue('clientCity', '', 'POST');
+        $clientPC = FormUtil::getPassedValue('clientPC', '', 'POST');
+        $clientDescription = FormUtil::getPassedValue('clientDescription', '', 'POST');
+        $clientState = FormUtil::getPassedValue('clientState', 0, 'POST');
+
         // Security check
         if (!AgoraPortal_Util::isAdmin()) {
             return LogUtil::registerPermissionError();
         }
         // Confirm authorisation code
         $this->checkCsrfToken();
+
         // check if all the values are correct
         if ($clientCode == '' || $clientName == '' || $clientDNS == '' || $clientAddress == '' || $clientCity == '' || $clientPC == '') {
             LogUtil::registerError($this->__('Hi ha valors del formulari que no has completat'));
-            return System::redirect(ModUtil::url('Agoraportal', 'admin', 'newClient', array('clientCode' => $clientCode,
-                                'clientName' => $clientName,
-                                'clientDNS' => $clientDNS,
-                                'clientAddress' => $clientAddress,
-                                'clientCity' => $clientCity,
-                                'clientPC' => $clientPC,
-                                'clientState' => $clientState,
-                                'clientDescription' => $clientDescription)));
+            return System::redirect(ModUtil::url('Agoraportal', 'admin', 'newClient', array(
+                'clientCode' => $clientCode,
+                'clientName' => $clientName,
+                'clientDNS' => $clientDNS,
+                'clientOldDNS' => $clientOldDNS,
+                'clientAddress' => $clientAddress,
+                'clientCity' => $clientCity,
+                'clientPC' => $clientPC,
+                'clientState' => $clientState,
+                'clientDescription' => $clientDescription
+            )));
         }
+
         // The client code must be a site user
         $uid = UserUtil::getIdFromName($clientCode);
         if (!$uid) {
             LogUtil::registerError($this->__('El codi del client ha de coincidir amb el nom d\'usuari/ària d\'un usuari/ària del portal'));
-            return System::redirect(ModUtil::url('Agoraportal', 'admin', 'newClient', array('clientCode' => $clientCode,
-                                'clientName' => $clientName,
-                                'clientDNS' => $clientDNS,
-                                'clientAddress' => $clientAddress,
-                                'clientCity' => $clientCity,
-                                'clientPC' => $clientPC,
-                                'clientState' => $clientState,
-                                'clientDescription' => $clientDescription)));
+            return System::redirect(ModUtil::url('Agoraportal', 'admin', 'newClient', array(
+                'clientCode' => $clientCode,
+                'clientName' => $clientName,
+                'clientDNS' => $clientDNS,
+                'clientOldDNS' => $clientOldDNS,
+                'clientAddress' => $clientAddress,
+                'clientCity' => $clientCity,
+                'clientPC' => $clientPC,
+                'clientState' => $clientState,
+                'clientDescription' => $clientDescription
+            )));
         }
 
         // Create client in database
-        $client = Client::create(array('clientCode' => $clientCode,
-                                        'clientName' => $clientName,
-                                        'clientDNS' => $clientDNS,
-                                        'clientAddress' => $clientAddress,
-                                        'clientCity' => $clientCity,
-                                        'clientPC' => $clientPC,
-                                        'clientState' => $clientState,
-                                        'clientDescription' => $clientDescription));
+        $client = Client::create(array(
+            'clientCode' => $clientCode,
+            'clientName' => $clientName,
+            'clientDNS' => $clientDNS,
+            'clientOldDNS' => $clientOldDNS,
+            'clientAddress' => $clientAddress,
+            'clientCity' => $clientCity,
+            'clientPC' => $clientPC,
+            'clientState' => $clientState,
+            'clientDescription' => $clientDescription
+        ));
 
         if (!$client) {
             LogUtil::registerError($this->__('La creació del client ha fallat'));
@@ -576,35 +458,162 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
     }
 
     /**
-     * Display the maintain tools available for a given service and proceed to use a tool
-     *
-     * @author:		Pau Ferrer Ocaña (pferre22@xtec.cat)
-     * @param:		The client-service identity and the action that must be done
-     * @return:		An success message if success and error message if fails. Redirect user to clients' list
+     * Display the edit form for a client
+     * @param:		The main client parameters
+     * @return:		The edit form
      */
-    public function serviceTools($args) {
-        $clientServiceId = AgoraPortal_Util::getFormVar($args, 'clientServiceId');
-        $action = AgoraPortal_Util::getFormVar($args, 'action', null, 'GET');
+    public function editClient() {
+        $clientId = FormUtil::getPassedValue('clientId', null, 'GET');
+        $client = Client::get_by_id($clientId);
+        if (!$client) {
+            LogUtil::registerError($this->__('No s\'ha trobat el client'));
+            return System::redirect(ModUtil::url('Agoraportal', 'admin', 'clientsList'));
+        }
+        $locations = Locations::get_all();
+        $types = ClientTypes::get_all();
+        $templates = ServiceTemplates::get_all();
 
-        // get client information
-        $service = Service::get_by_id($clientServiceId);
-        if (!$service) {
-            LogUtil::registerError($this->__('No s\'ha trobat el servei'));
+        return $this->view->assign('client', $client)
+            ->assign('locations', $locations)
+            ->assign('types', $types)
+            ->assign('templates', $templates)
+            ->fetch('agoraportal_admin_client_edit.tpl');
+    }
+
+    /**
+     * Process the values received from the client edit form
+     * @author:		Pau Ferrer Ocaña (pferre22@xtec.cat)
+     * @param:		The main client parameters
+     * @return:		An error message if fails and redirect user to function listServices
+     */
+    public function updateClient() {
+        $this->checkCsrfToken();
+
+        $clientId = FormUtil::getPassedValue('clientId', null, 'POST');
+        $client = Client::get_by_id($clientId);
+
+        if (!$client) {
+            LogUtil::registerError($this->__('No s\'ha trobat el client'));
+            return System::redirect(ModUtil::url('Agoraportal', 'admin', 'listServices'));
+        }
+
+        $client->clientName = FormUtil::getPassedValue('clientName', '', 'POST');
+        $client->URLType = FormUtil::getPassedValue('URLType', '', 'POST');
+        $client->URLHost = FormUtil::getPassedValue('URLHost', '', 'POST');
+        $client->OldURLHost = FormUtil::getPassedValue('OldURLHost', '', 'POST');
+        $client->clientDescription = FormUtil::getPassedValue('clientDescription', '', 'POST');
+        $client->clientDNS = FormUtil::getPassedValue('clientDNS', '', 'POST');
+        $client->clientOldDNS = FormUtil::getPassedValue('clientOldDNS', '', 'POST');
+        $client->clientAddress = FormUtil::getPassedValue('clientAddress', '', 'POST');
+        $client->clientCity = FormUtil::getPassedValue('clientCity', '', 'POST');
+        $client->clientPC = FormUtil::getPassedValue('clientPC', '', 'POST');
+        $client->locationId = FormUtil::getPassedValue('locationId', '', 'POST');
+        $client->typeId = FormUtil::getPassedValue('typeId', 0, 'POST');
+        $client->noVisible = FormUtil::getPassedValue('noVisible', 0, 'POST');
+        $client->extraFunc = FormUtil::getPassedValue('extraFunc', '', 'POST');
+        $client->educat = FormUtil::getPassedValue('educat', 0, 'POST');
+        $client->clientState = FormUtil::getPassedValue('clientState', '', 'POST');
+
+        $success = $client->save();
+
+        if (!$success) {
+            LogUtil::registerError($this->__('S\'ha produït un error en l\'edició del client'));
             return System::redirect(ModUtil::url('Agoraportal', 'admin', 'clientsList'));
         }
 
-        if (!$service->execute_action($action)) {
-            LogUtil::registerError($this->__('S\'ha produït un error en executar l\'acció'));
-            return System::redirect(ModUtil::url('Agoraportal', 'user', 'myAgora', array('clientCode' => $service->client->clientCode)));
+        // Check if only editing client information (table agoraportal_clients), in that case, we're done
+        LogUtil::registerStatus($this->__('S\'ha editat el client correctament'));
+        return System::redirect(ModUtil::url('Agoraportal', 'admin', 'clientsList'));
+    }
+
+    /**
+     * Delete a client and all the services associated with the client
+     * @param:		The client identity
+     * @return:		An error message if fails and redirect user to function clientsList
+     */
+    public function deleteClient() {
+        $clientId = FormUtil::getPassedValue('clientId', null, 'POST');
+
+        $client = Client::get_by_id($clientId);
+        if (!$client) {
+            LogUtil::registerError($this->__('No s\'ha trobat el client'));
+            return System::redirect(ModUtil::url('Agoraportal', 'admin', 'clientsList'));
         }
 
-        LogUtil::registerStatus($this->__('L\'acció s\'ha executat amb èxit'));
-        return System::redirect(ModUtil::url('Agoraportal', 'user', 'myAgora', array('clientCode' => $service->client->clientCode)));
+        $confirm = FormUtil::getPassedValue('confirm', null, 'POST');
+        if (!$confirm) {
+            $services = $client->get_all_services();
+
+            return $this->view->assign('client', $client)
+                ->assign('services', $services)
+                ->fetch('agoraportal_admin_deleteClient.tpl');
+        }
+
+        // The client deletion has been confirmed
+        $this->checkCsrfToken();
+
+        if(Client::delete($clientId)) {
+            LogUtil::registerStatus($this->__('El client i tota la informació asociada ha estat esborrada'));
+        }
+        return System::redirect(ModUtil::url('Agoraportal', 'admin', 'clientsList'));
+    }
+
+    /**
+     * Display the list of clients
+     * @param:		The filter and pager values
+     * @return:		The clients' list page
+     */
+    public function clientsList($args) {
+
+        if (SessionUtil::getVar('clientsList')) {
+            $args = unserialize(SessionUtil::getVar('clientsList'));
+            $rpp = $args['rpp'];
+            $search = $args['search'];
+            $searchText = $args['searchText'];
+        } else {
+            $rpp = FormUtil::getPassedValue('rpp', isset($args['rpp']) ? $args['rpp'] : 15, 'GETPOST');
+            $search = FormUtil::getPassedValue('search', isset($args['search']) ? $args['search'] : '', 'GETPOST');
+            $searchText = FormUtil::getPassedValue('searchText', isset($args['searchText']) ? $args['searchText'] : '', 'GETPOST');
+        }
+
+        $clientsListContent = ModUtil::func('Agoraportal', 'admin', 'clientsListContent', $args);
+        return $this->view->assign('clientsListContent', $clientsListContent)
+                        ->assign('rpp', $rpp)
+                        ->assign('search', $search)
+                        ->assign('searchText', $searchText)
+                        ->fetch('agoraportal_admin_clientsList.tpl');
+    }
+
+    /**
+     * Get the list of services associated with clients
+     * @param:		The filter and pager values
+     * @return:		An array with all the clients information
+     */
+    public function clientsListContent($args) {
+        $init = isset($args['init']) ? $args['init'] : -1;
+        $rpp = isset($args['rpp']) ? $args['rpp'] : 15;
+        $by = isset($args['search']) ? $args['search'] : '';
+        $search = isset($args['searchText']) ? $args['searchText'] : '';
+
+        $clients = Clients::search_by($by, $search, $init, $rpp);
+        $clientsNumber = Clients::count_by($by, $search);
+
+        $pager = ModUtil::func('Agoraportal', 'user', 'pager', array(
+            'init' => $init,
+            'rpp' => $rpp,
+            'total' => $clientsNumber,
+            'javascript' => true,
+            'itemsname' => 'clients',
+            'urltemplate' => "clientsList('$by','$search', %%, '$rpp')"
+        ));
+
+        return $this->view->assign('clients', $clients)
+                        ->assign('pager', $pager)
+                        ->fetch('agoraportal_admin_clientsListContent.tpl');
     }
 
     /**
      * Display the module configuration form
-     * @author:		Albert Pérez Monfort (aperezm@xtec.cat)
      * @return:		The form fields
      */
     public function config() {
@@ -612,13 +621,11 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $schooltypes = ClientTypes::get_all();
         $requesttypes = RequestTypes::get_all();
         $templates = ServiceTemplates::get_full_info();
-
         $servicetypes = ServiceTypes::get_all();
+
         $extraInfo = array();
         foreach ($servicetypes as $id => $servicetype) {
             $extra = new StdClass();
-            $extra->serverFolder = $servicetype->getDataDirectory();
-            $extra->validFolder = is_dir($servicetype->getParentDataDirectory());
             $extra->tablesPrefix = $servicetype->getTablePrefix();
             $extraInfo[$id] = $extra;
         }
@@ -637,24 +644,22 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                         ->assign('requesttypes', $requesttypes)
                         ->assign('templates', $templates)
                         ->assign('createDB', $this->getVar('createDB'))
-                        ->fetch('config.tpl');
+                        ->fetch('agoraportal_admin_config.tpl');
     }
 
     /**
      * Update the configuration parameters received from the form
-     * @author:		Albert Pérez Monfort (aperezm@xtec.cat)
-     * @param:		The confurable parameters
      * @return:		A success or an error message and redirect user to clients' list
      */
-    public function updateConfig($args) {
-        $siteBaseURL = AgoraPortal_Util::getFormVar($args, 'siteBaseURL', null, 'POST');
-        $warningMailsTo = AgoraPortal_Util::getFormVar($args, 'warningMailsTo', null, 'POST');
-        $requestMailsTo = AgoraPortal_Util::getFormVar($args, 'requestMailsTo', null, 'POST');
-        $diskRequestThreshold = AgoraPortal_Util::getFormVar($args, 'diskRequestThreshold', null, 'POST');
-        $clientsMailThreshold = AgoraPortal_Util::getFormVar($args, 'clientsMailThreshold', null, 'POST');
-        $maxAbsFreeQuota = AgoraPortal_Util::getFormVar($args, 'maxAbsFreeQuota', null, 'POST');
-        $maxFreeQuotaForRequest = AgoraPortal_Util::getFormVar($args, 'maxFreeQuotaForRequest', null, 'POST');
-        $createDB = AgoraPortal_Util::getFormVar($args, 'createDB', false, 'POST');
+    public function updateConfig() {
+        $siteBaseURL = FormUtil::getPassedValue('siteBaseURL', null, 'POST');
+        $warningMailsTo = FormUtil::getPassedValue('warningMailsTo', null, 'POST');
+        $requestMailsTo = FormUtil::getPassedValue('requestMailsTo', null, 'POST');
+        $diskRequestThreshold = FormUtil::getPassedValue('diskRequestThreshold', null, 'POST');
+        $clientsMailThreshold = FormUtil::getPassedValue('clientsMailThreshold', null, 'POST');
+        $maxAbsFreeQuota = FormUtil::getPassedValue('maxAbsFreeQuota', null, 'POST');
+        $maxFreeQuotaForRequest = FormUtil::getPassedValue('maxFreeQuotaForRequest', null, 'POST');
+        $createDB = FormUtil::getPassedValue('createDB', false, 'POST');
 
         // Confirm authorisation code
         $this->checkCsrfToken();
@@ -678,16 +683,15 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
     /**
      * Create a new location
-     * @author:		Albert Pérez Monfort (aperezm@xtec.cat)
      * @param:		The location main values
      * @return:		An success message if success and error message if fails. Redirect user to the configuration page
      */
-    public function addNewLocation($args) {
-        $confirmation = AgoraPortal_Util::getFormVar($args, 'confirmation', null, 'POST');
-        $locationName = AgoraPortal_Util::getFormVar($args, 'locationName', null, 'POST');
+    public function addNewLocation() {
+        $confirmation = FormUtil::getPassedValue('confirmation', null, 'POST');
+        $locationName = FormUtil::getPassedValue('locationName', null, 'POST');
 
         if ($confirmation == null) {
-            return $this->view->fetch('config_location_add.tpl');
+            return $this->view->fetch('agoraportal_admin_config_location_add.tpl');
         }
         // Confirm authorisation code
         $this->checkCsrfToken();
@@ -702,14 +706,13 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
     /**
      * Edit a location
-     * @author:		Albert Pérez Monfort (aperezm@xtec.cat)
      * @param:		The location identity
      * @return:		An array with the available services
      */
-    public function editLocation($args) {
-        $confirmation = AgoraPortal_Util::getFormVar($args, 'confirmation', null, 'POST');
-        $locationId = AgoraPortal_Util::getFormVar($args, 'locationId');
-        $locationName = AgoraPortal_Util::getFormVar($args, 'locationName', null, 'POST');
+    public function editLocation() {
+        $confirmation = FormUtil::getPassedValue('confirmation', null, 'POST');
+        $locationId = FormUtil::getPassedValue('locationId', '', 'GETPOST');
+        $locationName = FormUtil::getPassedValue('locationName', null, 'POST');
 
         $location = Location::get_by_id($locationId);
         if (!$location) {
@@ -718,7 +721,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
         if (!$confirmation) {
             return $this->view->assign('location', $location)
-                ->fetch('config_location_edit.tpl');
+                ->fetch('agoraportal_admin_config_location_edit.tpl');
         }
         // Confirm authorisation code
         $this->checkCsrfToken();
@@ -735,12 +738,11 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
     /**
      * Delete a given location
-     * @author:		Albert Pérez Monfort (aperezm@xtec.cat)
      * @param:		The location identity and name
      * @return:		An success message if success and error message if fails. Redirect user to the configuration page
      */
-    public function deleteLocation($args) {
-        $locationId = AgoraPortal_Util::getFormVar($args, 'locationId');
+    public function deleteLocation() {
+        $locationId = FormUtil::getPassedValue('locationId', 0, 'GETPOST');
 
         if (Location::delete($locationId)) {
             LogUtil::registerStatus($this->__('S\'ha esborrat el Servei Territorial'));
@@ -752,18 +754,17 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
     /**
      * Create a new request type
-     * @author:		Aida Regi Cosculluela (aregi@xtec.cat)
      * @param:		The request type main values
      * @return:		An success message if success and error message if fails. Redirect user to the configuration page
      */
-    public function addNewRequestType($args) {
-        $confirmation = AgoraPortal_Util::getFormVar($args, 'confirmation', null, 'POST');
-        $requestTypeName = AgoraPortal_Util::getFormVar($args, 'requestTypeName', null, 'POST');
-        $requestTypeDescription = AgoraPortal_Util::getFormVar($args, 'requestTypeDescription', null, 'POST');
-        $requestTypeUserCommentsText = AgoraPortal_Util::getFormVar($args, 'requestTypeUserCommentsText', null, 'POST');
+    public function addNewRequestType() {
+        $confirmation = FormUtil::getPassedValue('confirmation', null, 'POST');
+        $requestTypeName = FormUtil::getPassedValue('requestTypeName', null, 'POST');
+        $requestTypeDescription = FormUtil::getPassedValue('requestTypeDescription', null, 'POST');
+        $requestTypeUserCommentsText = FormUtil::getPassedValue('requestTypeUserCommentsText', null, 'POST');
 
         if ($confirmation == null) {
-            return $this->view->fetch('config_requesttype_add.tpl');
+            return $this->view->fetch('agoraportal_admin_config_requesttype_add.tpl');
         }
         // Confirm authorisation code
         $this->checkCsrfToken();
@@ -778,13 +779,12 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
     /**
      * Edit a request type
-     * @author:		Aida Regi Cosculluela (aregi@xtec.cat)
      * @param:		The request type information
      * @return:		The request type updated
      */
-    public function editRequestType($args) {
-        $confirmation = AgoraPortal_Util::getFormVar($args, 'confirmation', null, 'POST');
-        $requestTypeId = AgoraPortal_Util::getFormVar($args, 'requestTypeId');
+    public function editRequestType() {
+        $confirmation = FormUtil::getPassedValue('confirmation', null, 'POST');
+        $requestTypeId = FormUtil::getPassedValue('requestTypeId', 0, 'GETPOST');
 
         $requestType = RequestType::get_by_id($requestTypeId);
         if (!$requestType) {
@@ -793,14 +793,14 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
         if (!$confirmation) {
             return $this->view->assign('requestType', $requestType)
-                ->fetch('config_requesttype_edit.tpl');
+                ->fetch('agoraportal_admin_config_requesttype_edit.tpl');
         }
         // Confirm authorisation code
         $this->checkCsrfToken();
 
-        $requestType->name = AgoraPortal_Util::getFormVar($args, 'requestTypeName', null, 'POST');
-        $requestType->description = AgoraPortal_Util::getFormVar($args, 'requestTypeDescription', null, 'POST');
-        $requestType->userCommentsText = AgoraPortal_Util::getFormVar($args, 'requestTypeUserCommentsText', null, 'POST');
+        $requestType->name = FormUtil::getPassedValue('requestTypeName', null, 'POST');
+        $requestType->description = FormUtil::getPassedValue('requestTypeDescription', null, 'POST');
+        $requestType->userCommentsText = FormUtil::getPassedValue('requestTypeUserCommentsText', null, 'POST');
         if ($requestType->save()) {
             LogUtil::registerStatus($this->__('El tipus de sol·licitud s\'ha editat correctament'));
         } else {
@@ -812,12 +812,11 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
     /**
      * Delete a given request type
-     * @author:		Aida Regi Cosculluela (aregi@xtec.cat)
      * @param:		The request type identity
      * @return:		An success message if success and error message if fails. Redirect user to the configuration page
      */
-    public function deleteRequestType($args) {
-        $requestTypeId = AgoraPortal_Util::getFormVar($args, 'requestTypeId');
+    public function deleteRequestType() {
+        $requestTypeId = FormUtil::getPassedValue('requestTypeId', 0, 'GETPOST');
 
         if (RequestType::delete($requestTypeId)) {
             LogUtil::registerStatus($this->__('S\'ha esborrat el tipus de sol·licitud'));
@@ -830,30 +829,29 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
     /**
      * Create a new relation between a request type and  a service
-     * @author:		Aida Regi Cosculluela (aregi@xtec.cat)
      * @param:		Request type and service identifications
      * @return:		An success message if success and error message if fails. Redirect user to the configuration page
      */
-    public function addNewRequestTypeService($args) {
-        $confirmation = AgoraPortal_Util::getFormVar($args, 'confirmation', null, 'POST');
+    public function addNewRequestTypeService() {
+        $confirmation = FormUtil::getPassedValue('confirmation', null, 'POST');
 
         if (!$confirmation) {
             $requestType = RequestTypes::get_all();
             $services = ServiceTypes::get_all();
             return $this->view->assign('requestType', $requestType)
                 ->assign('services', $services)
-                ->fetch('config_requesttype_assignservice.tpl');
+                ->fetch('agoraportal_admin_config_requesttype_assignservice.tpl');
         }
         // Confirm authorisation code
         $this->checkCsrfToken();
 
-        $requesttypeid = AgoraPortal_Util::getFormVar($args, 'requesttype', null, 'POST');
+        $requesttypeid = FormUtil::getPassedValue('requesttype', null, 'POST');
         $requestType = RequestType::get_by_id($requesttypeid);
         if (!$requestType) {
             return LogUtil::registerError($this->__('No s\'ha trobat el tipus de sol·licitud'));
         }
 
-        $serviceid = AgoraPortal_Util::getFormVar($args, 'service', null, 'POST');
+        $serviceid = FormUtil::getPassedValue('service', null, 'POST');
         if ($requestType->addServiceType($serviceid)) {
             LogUtil::registerStatus($this->__('S\'ha assignat el servei al tipus de sol·licitud'));
         } else {
@@ -864,13 +862,12 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
     /**
      * Delete a given relation between a request type and a service
-     * @author:		Aida Regi Cosculluela (aregi@xtec.cat)
      * @param:		The request type and service identity
      * @return:		An success message if success and error message if fails. Redirect user to the configuration page
      */
-    public function deleteRequestTypeService($args) {
-        $requesttypeid = AgoraPortal_Util::getFormVar($args, 'requestTypeId');
-        $serviceid = AgoraPortal_Util::getFormVar($args, 'serviceId');
+    public function deleteRequestTypeService() {
+        $requesttypeid = FormUtil::getPassedValue('requestTypeId', 0, 'GETPOST');
+        $serviceid = FormUtil::getPassedValue('serviceId', 0, 'GETPOST');
 
         $requestType = RequestType::get_by_id($requesttypeid);
         if (!$requestType) {
@@ -887,16 +884,15 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
     /**
      * Create a new client type
-     * @author:		Albert Pérez Monfort (aperezm@xtec.cat)
      * @param:		The types main values
      * @return:		An success message if success and error message if fails. Redirect user to the configuration page
      */
-    public function addNewType($args) {
-        $confirmation = AgoraPortal_Util::getFormVar($args, 'confirmation', null, 'POST');
-        $typeName = AgoraPortal_Util::getFormVar($args, 'typeName', null, 'POST');
+    public function addNewType() {
+        $confirmation = FormUtil::getPassedValue('confirmation', null, 'POST');
+        $typeName = FormUtil::getPassedValue('typeName', null, 'POST');
 
         if ($confirmation == null) {
-            return $this->view->fetch('config_clienttype_add.tpl');
+            return $this->view->fetch('agoraportal_admin_config_clienttype_add.tpl');
         }
 
         $this->checkCsrfToken();
@@ -910,13 +906,12 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
     /**
      * Edit a client type
-     * @author:		Albert Pérez Monfort (aperezm@xtec.cat)
      * @param:		The type identity
      * @return:		An array with the available services
      */
-    public function editType($args) {
-        $confirmation = AgoraPortal_Util::getFormVar($args, 'confirmation', null, 'POST');
-        $typeId = AgoraPortal_Util::getFormVar($args, 'typeId');
+    public function editType() {
+        $confirmation = FormUtil::getPassedValue('confirmation', null, 'POST');
+        $typeId = FormUtil::getPassedValue('typeId', 0, 'GETPOST');
 
         $type = ClientType::get_by_id($typeId);
         if (!$type) {
@@ -926,12 +921,12 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         if ($confirmation == null) {
 
             return $this->view->assign('type', $type)
-                ->fetch('config_clienttype_edit.tpl');
+                ->fetch('agoraportal_admin_config_clienttype_edit.tpl');
         }
         // Confirm authorisation code
         $this->checkCsrfToken();
 
-        $type->typeName = AgoraPortal_Util::getFormVar($args, 'typeName', null, 'POST');
+        $type->typeName = FormUtil::getPassedValue('typeName', null, 'POST');
         if ($type->save()) {
             LogUtil::registerStatus($this->__('La tipologia de client s\'ha editat correctament'));
         } else {
@@ -942,12 +937,11 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
     /**
      * Delete a given client type
-     * @author:		Albert Pérez Monfort (aperezm@xtec.cat)
      * @param:		The type identity and name
      * @return:		An success message if success and error message if fails. Redirect user to the configuration page
      */
-    public function deleteType($args) {
-        $typeId = AgoraPortal_Util::getFormVar($args, 'typeId');
+    public function deleteType() {
+        $typeId = FormUtil::getPassedValue('typeId', 0, 'GETPOST');
 
         if (ClientType::delete($typeId)) {
             LogUtil::registerStatus($this->__('S\'ha esborrat la tipologia de client'));
@@ -967,21 +961,21 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
      * @return redirect to config
      * @throws Zikula_Exception_Forbidden
      */
-    public function addNewModelType($args) {
-        $confirmation = AgoraPortal_Util::getFormVar($args, 'confirmation', null, 'POST');
+    public function addNewModelType() {
+        $confirmation = FormUtil::getPassedValue('confirmation', null, 'POST');
 
         // Show the form or save the data?
         if ($confirmation == null) {
-            return $this->view->fetch('config_servicetemplate_add.tpl');
+            return $this->view->fetch('agoraportal_admin_config_servicetemplate_add.tpl');
         }
 
         // Confirm authorisation code
         $this->checkCsrfToken();
 
-        $shortcode = AgoraPortal_Util::getFormVar($args, 'shortcode', null, 'POST');
-        $description = AgoraPortal_Util::getFormVar($args, 'description', null, 'POST');
-        $url = AgoraPortal_Util::getFormVar($args, 'url', null, 'POST');
-        $dbHost = AgoraPortal_Util::getFormVar($args, 'dbHost', null, 'POST');
+        $shortcode = FormUtil::getPassedValue('shortcode', null, 'POST');
+        $description = FormUtil::getPassedValue('description', null, 'POST');
+        $url = FormUtil::getPassedValue('url', null, 'POST');
+        $dbHost = FormUtil::getPassedValue('dbHost', null, 'POST');
 
         if (ServiceTemplate::get_by_shortcode($shortcode)) {
             return LogUtil::registerError($this->__('Ja existeix una plantilla amb el nom curt '.$shortcode));
@@ -1008,9 +1002,9 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
      * @author:		Pau Ferrer Ocaña (pferre22@xtec.cat)
      * @param:		The model identity
      */
-    public function editModelType($args) {
-        $confirmation = AgoraPortal_Util::getFormVar($args, 'confirmation', null, 'POST');
-        $modelTypeId = AgoraPortal_Util::getFormVar($args, 'modelTypeId');
+    public function editModelType() {
+        $confirmation = FormUtil::getPassedValue('confirmation', null, 'POST');
+        $modelTypeId = FormUtil::getPassedValue('modelTypeId', 0, 'GETPOST');
 
         $model = ServiceTemplate::get_by_id($modelTypeId);
         if (!$model) {
@@ -1019,15 +1013,15 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
         if ($confirmation == null) {
             return $this->view->assign('model', $model)
-                ->fetch('config_servicetemplate_edit.tpl');
+                ->fetch('agoraportal_admin_config_servicetemplate_edit.tpl');
         }
         // Confirm authorisation code
         $this->checkCsrfToken();
 
-        $model->shortcode = AgoraPortal_Util::getFormVar($args, 'shortcode', null, 'POST');
-        $model->description = AgoraPortal_Util::getFormVar($args, 'description', null, 'POST');
-        $model->url = AgoraPortal_Util::getFormVar($args, 'url', null, 'POST');
-        $model->dbHost = AgoraPortal_Util::getFormVar($args, 'dbHost', null, 'POST');
+        $model->shortcode = FormUtil::getPassedValue('shortcode', null, 'POST');
+        $model->description = FormUtil::getPassedValue('description', null, 'POST');
+        $model->url = FormUtil::getPassedValue('url', null, 'POST');
+        $model->dbHost = FormUtil::getPassedValue('dbHost', null, 'POST');
         if ($model->save()) {
             LogUtil::registerStatus($this->__('La plantilla de nodes s\'ha editat correctament'));
         } else {
@@ -1045,8 +1039,8 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
      * @return redirect to config
      * @throws Zikula_Exception_Forbidden
      */
-    public function deleteModelType($args) {
-        $modelTypeId = AgoraPortal_Util::getFormVar($args, 'modelTypeId');
+    public function deleteModelType() {
+        $modelTypeId = FormUtil::getPassedValue('modelTypeId', 0, 'GETPOST');
 
         if (!ServiceTemplate::delete($modelTypeId)) {
             LogUtil::registerError($this->__('S\'ha produït un error en esborrar el registre de la plantilla'));
@@ -1059,19 +1053,22 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
     /**
      * Display a form that allows you to execute SQL
+     *
      * @author  Pau Ferrer Ocaña (pferre22@xtec.cat)
      * @param   array clients_sel
      * @param   $which
      * @param   $sqlfunc
      * @param   int service_sel     Id of the selected service
-     * @return  Rendering of the page
+     * @return  Page rendered
      */
-    public function sql($args) {
-        $clients_sel = AgoraPortal_Util::getFormVar($args, 'clients_sel');
-        $which = AgoraPortal_Util::getFormVar($args, 'which', "all", 'GETPOST');
-        $sqlfunc = AgoraPortal_Util::getFormVar($args, 'sqlfunction');
-        $sqlfunc = trim($sqlfunc);
-        $service_sel = AgoraPortal_Util::getFormVar($args, 'service_sel', -1,'GETPOST');
+    public function sql() {
+        $clients_sel = FormUtil::getPassedValue('clients_sel', array(), 'GETPOST'); // Clients selected
+        $service_sel = FormUtil::getPassedValue('service_sel', -1, 'GETPOST'); // Service selected (moodle2, nodes, portal)
+        $which = FormUtil::getPassedValue('which', 'all', 'GETPOST');
+        $sqlfunc = trim(FormUtil::getPassedValue('sqlfunction', '', 'GETPOST'));
+        $ask = FormUtil::getPassedValue('ask', '', 'GETPOST');
+        $confirm = FormUtil::getPassedValue('confirm', '', 'GETPOST');
+
         if ($service_sel < 0) {
             $defaultservice = ServiceType::get_by_name('moodle2');
             $service_sel = $defaultservice->serviceId;
@@ -1082,15 +1079,13 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $view->assign('sqlfunc', $sqlfunc);
         $view->assign('service_sel', $service_sel);
 
-        $ask = AgoraPortal_Util::getFormVar($args, 'ask');
-        $confirm = AgoraPortal_Util::getFormVar($args, 'confirm');
         if (!empty($ask)) {
             $action = 'ask';
         } else if (!empty($confirm)) {
             $action = 'exe';
         }
 
-        if (isset($action) && ( empty($sqlfunc) || ($which == "selected" && empty($clients_sel)) || $service_sel === false)) {
+        if (isset($action) && ( empty($sqlfunc) || ($which == 'selected' && empty($clients_sel)) || $service_sel === false)) {
             LogUtil::registerError($this->__('Heu d\'emplenar tots els camps'));
             $action = "show";
         }
@@ -1130,18 +1125,14 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             $view->assign('sqlClients', $clients);
 
             if($action == 'exe') {
-                $results = Array();
-                $success = Array();
-                $messages = Array();
-                $messages_recount = Array();
-                $one_result_mode = false;
-                $columns = false;
+                $results = $success = $messages = $messages_recount = Array();
+                $one_result_mode = $columns = false;
 
                 ini_set('mysql.connect_timeout', 1800);
                 ini_set('default_socket_timeout', 1800);
                 foreach ($clients as $i => $client) {
                     try {
-                        $result = $client->executeSQL($sqlfunc);
+                        $result = $client->executeSQL($sqlfunc, true);
                     } catch(Exception $e) {
                         $success[$i] = false;
                         $messages[$i] = $this->__('No s\'ha pogut executar la comanda a la base de dades: ') . $e->getMessage();
@@ -1149,7 +1140,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                     }
 
                     $success[$i] = true;
-                    //PARSE the result
+                    // PARSE the result
                     if (strpos($sqlfunc_low, "select") !== False || strpos($sqlfunc_low, "show") !== False) {
                         $messages[$i] = count($result);
                         if ($messages[$i] > 0) {
@@ -1163,7 +1154,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                             }
                         }
                     } else {
-                        $messages[$i] = "OK";
+                        $messages[$i] = 'OK';
                     }
                 }
 
@@ -1192,7 +1183,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 $view->assign('messages', $messages);
                 $view->assign('messages_recount', $messages_recount);
 
-                return $view->fetch('admin_sql_exe.tpl');
+                return $view->fetch('agoraportal_admin_sql_exe.tpl');
             }
 
             // Else ask to execute SQL
@@ -1202,221 +1193,46 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                     LogUtil::registerError($this->__f('La comanda SQL conté el codi de seguretat "%s". No es recomana seguir amb l\'operació', ModUtil::getVar('Agoraportal', 'sqlSecurityCode')));
                 }
             }
-            return $view->fetch('admin_sql_confirm.tpl');
+            return $view->fetch('agoraportal_admin_sql_confirm.tpl');
         }
 
         $this->view->assign('services', ServiceTypes::get_with_db(true));
 
-        // Create output object
         $commands = ModUtil::func('Agoraportal', 'admin', 'sqlComandList', array('serviceId' => $service_sel));
         if ($commands) {
             $view->assign('comands', $commands);
         }
-        $view->assign('actiononchangeservice', 'sqlComandsUpdate(0);');
-        $view->assign('servicesListContent', $this->filter_servicesList($args));
-        return $view->fetch('admin_sql.tpl');
+
+        $filter_content = $this->filter_listServices(array(
+            '$clients_sel' => $clients_sel,
+            'service_sel' => $service_sel
+        ));
+
+        $view->assign('actiononchangeservice', 'sqlComandsUpdateTab(\'all\');')
+             ->assign('listServicesContent', $filter_content);
+
+        return $view->fetch('agoraportal_admin_sql.tpl');
     }
 
     /**
-     * Changes the advices block content
-     * @author:     Pau Ferrer Ocaña (pferre22@xtec.cat)
-     * @return:     Rendering of the page
+     * Show a textarea populated with a list of the clients that have a given service active
+     *
+     * @author: Pau Ferrer Ocaña (pferre22@xtec.cat)
+     * @param: Array The filter and pager values
+     * @return: string HTML code of the textarea
      */
-    public function advices($args) {
-        global $agora;
+    public function filter_listServices($args) {
+        $service_sel = isset($args['service_sel']) ? $args['service_sel'] : array();
+        $clients_sel = isset($args['clients_sel']) ? $args['clients_sel'] : array();
+        $order = FormUtil::getPassedValue('order', isset($args['order']) ? $args['order'] : 1, 'GETPOST');
+        $searchby = FormUtil::getPassedValue('search', isset($args['search']) ? $args['search'] : 0, 'GETPOST');
+        $searchText = FormUtil::getPassedValue('searchText', isset($args['searchText']) ? $args['searchText'] : '', 'GETPOST');
+        $pilot = FormUtil::getPassedValue('pilot', isset($args['pilot']) ? $args['pilot'] : 0, 'GETPOST');
+        $include = FormUtil::getPassedValue('include', isset($args['include']) ? $args['include'] : 1, 'GETPOST');
 
-        $clients_sel = AgoraPortal_Util::getFormVar($args, 'clients_sel');
-        $message = AgoraPortal_Util::getFormVar($args, 'message');
-        $which = AgoraPortal_Util::getFormVar($args, 'which', "all", 'GETPOST');
-        $only_admins = AgoraPortal_Util::getFormVar($args, 'only_admins', "0", 'GETPOST');
-        $date_start = AgoraPortal_Util::getFormVar($args, 'date_start', 0, 'GETPOST');
-        $date_stop = AgoraPortal_Util::getFormVar($args, 'date_stop', 0, 'GETPOST');
-
-        $servicetype = ServiceType::get_by_name('intranet');
-        $service_sel = AgoraPortal_Util::getFormVar($args, 'service_sel', $servicetype->serviceId,'GETPOST');
-
-        $view = Zikula_View::getInstance('Agoraportal', false);
-        $view->assign('message', $message);
-        $view->assign('which', $which);
-        $view->assign('only_admins', $only_admins);
-        $view->assign('date_start', $date_start);
-        $view->assign('date_stop', $date_stop);
-        $view->assign('service_sel', $service_sel);
-
-        $ask = AgoraPortal_Util::getFormVar($args, 'ask');
-        $confirm = AgoraPortal_Util::getFormVar($args, 'confirm');
-
-        if (!empty($ask)) {
-            $action = 'ask';
-        } else if (!empty($confirm)) {
-            $action = 'exe';
-        }
-
-        if (isset($action) && ($which == "selected" && empty($clients_sel) )) {
-            LogUtil::registerError($this->__('Heu d\'emplenar tots els camps'));
-            $action = "show";
-        }
-
-        if ($date_stop && $date_start && $date_stop < $date_start) {
-            LogUtil::registerError($this->__('La data d\'inici no pot ser superior a la data de fi'));
-            $action = "show";
-        }
-
-        if (isset($action) && $service_sel != $servicetype->serviceId) {
-            LogUtil::registerError($this->__('Només està preparat per funcionar amb Intranet'));
-            $action = "show";
-        }
-
-        if (isset($action) && ($action == "ask" || $action == "exe")) {
-            //Common parts on ask and execute
-
-            $clients = Services::get_enabled_by_serviceid_full($servicetype->serviceId);
-            if ($which == 'selected') {
-                $clients = array_intersect_key($clients, array_flip($clients_sel));
-            }
-
-            $view->assign('serviceName', $servicetype->serviceName);
-            $view->assign('sqlClients', $clients);
-
-            if ($action == "exe") { //Execute SQL
-
-                $view->assign('prefix', $agora['server']['userprefix']);
-
-                $success = Array();
-                $messages = Array();
-                $ok = 0;
-                $error = 0;
-                // Get message from session
-                $message = unserialize(SessionUtil::getVar('noticeboardMessage'));
-
-                $startTime = $date_start ? str_replace('-',"", $date_start) : 0;
-                $endTime = $date_stop ? str_replace('-',"", $date_stop) : 0;
-                if ($only_admins) {
-                    $content = Array('startTime' => $startTime,
-                        'endTime' => $endTime,
-                        'adminNotice' => $message);
-                } else {
-                    $content = Array('startTime' => $startTime,
-                        'endTime' => $endTime,
-                        'userNotice' => $message,
-                        'adminNotice' => $message);
-                }
-                $content = serialize($content);
-                $content = str_replace("'", "''", $content);
-                $date = date("Y-m-d H:i:s");
-
-                $sqlexists = "SELECT * FROM blocks WHERE bkey = 'IWnotice'";
-                $sqlactive = "SELECT * FROM blocks WHERE bkey = 'IWnotice' AND active = '1'";
-                $sqlactivate = "UPDATE blocks SET active = '1', content = '" . $content . "'  WHERE bkey = 'IWnotice'";
-                $sqlupdate = "UPDATE blocks SET content = '" . $content . "'  WHERE bkey = 'IWnotice'";
-                $sqlminorder = "SELECT MIN(sortorder) as ordre FROM block_placements";
-
-                foreach ($clients as $i => $client) {
-                    try {
-                        $return = $client->executeSQL($sqlexists, true);
-                        if (count($return) > 0) {
-                            // Block exists. Check if it's active
-                            $blockid = $return[0]['bid'];
-                            $return = $client->executeSQL($sqlminorder, true);
-
-                            $minorder = $return[0]['ordre'] - 1;
-                            $return = $client->executeSQL($sqlactive, true);
-
-                            if (count($return) > 0) {
-                                // The block exists and it's active
-                                $client->executeSQL($sqlupdate, true);
-                                // Check if block placement exists
-                                $sql = "SELECT pid FROM block_placements WHERE bid = '" . $blockid . "'";
-                                $return = $client->executeSQL($sql, true);
-
-                                if (count($return) > 0) {
-                                    // The block placement exists
-                                    $sql = "UPDATE block_placements SET pid = '2', sortorder = '" . $minorder . "' WHERE bid = '" . $blockid . "'";
-                                } else{
-                                    // The block placement doesn't exist
-                                    $sql = "INSERT INTO block_placements SET bid = '" . $blockid . "', pid = '2', sortorder = '" . $minorder . "'";
-                                }
-                                $client->executeSQL($sql);
-
-                                $messages[$i] = $this->__('El bloc s\'ha actualitzat correctament i s\'ha promocionat a la primera posició de la columna dreta');
-                            } else {
-                                // The block exists but isn't active. Active it, update it and promote it
-                                $client->executeSQL($sqlactivate, true);
-
-                                $sql = "UPDATE block_placements SET pid = '2', sortorder = '" . $minorder . "' WHERE bid = '" . $blockid . "'";
-                                $client->executeSQL($sql);
-
-                                $messages[$i] = $this->__('El bloc s\'ha activat i actualitzat correctament i s\'ha promocionat a la primera posició de la columna dreta');
-                            }
-                        } else {
-                            // It doesn't exist. Create it
-                            $sql = "SELECT id FROM modules WHERE name = 'IWmain'";
-                            $return = $client->executeSQL($sql, true);
-
-                            $mid = $return[0]['id'];
-                            $sql = "INSERT INTO blocks (bkey, title, content, url, mid, filter, active, collapsable, defaultstate, refresh, last_update, language)
-                                    VALUES('IWnotice', 'Avisos', '" . $content . "', '', '" . $mid . "', 'a:0:{}', '1', '0', '1', '3600', '" . $date . "', '')";
-                            $client->executeSQL($sql, true);
-
-                            // Add the block to the right column in first position
-                            $return = $client->executeSQL($sqlexists, true);
-                            $blockid = $return[0]["bid"];
-
-                            $return = $client->executeSQL($sqlminorder, true);
-                            $minorder = $return[0]['ordre'] - 1;
-
-                            $sql = "INSERT INTO block_placements (pid, bid, sortorder) VALUES ('2', '" . $blockid . "', '" . $minorder . "')";
-                            $client->executeSQL($sql);
-
-                            $messages[$i] = $this->__('El bloc s\'ha creat correctament');
-                        }
-                        $ok++;
-                        $success[$i] = true;
-
-                    } catch(Exception $e) {
-                        $success[$i] = false;
-                        $messages[$i] = $this->__('No s\'ha pogut executar la comanda a la base de dades: ') . $e->getMessage();
-                        $error++;
-                        continue;
-                    }
-                }
-
-                $view->assign('success', $success);
-                $view->assign('messages', $messages);
-                $view->assign('ok', $ok);
-                $view->assign('error', $error);
-
-                return $view->fetch('admin_advices_exe.tpl');
-            }
-
-            // Else ask to execute SQL
-            // Save message to session
-            SessionUtil::setVar('noticeboardMessage', serialize($message));
-
-            return $view->fetch('admin_advices_confirm.tpl');
-        }
-
-        $this->view->assign('services', array($servicetype->serviceId => $servicetype));
-        $this->view->assign('service_sel', $service_sel);
-
-        // Create output object
-        $args['service_sel'] = $service_sel;
-        $view->assign('servicesListContent', $this->filter_servicesList($args));
-
-        return $view->fetch('admin_advices.tpl');
-    }
-
-    /**
-     * Get the list of services associated with clients
-     * @author:     Pau Ferrer Ocaña (pferre22@xtec.cat)
-     * @param:      The filter and pager values
-     * @return:     An array with all the clients and services
-     */
-    public function filter_servicesList($args) {
-        $service_sel = AgoraPortal_Util::getFormVar($args, 'service_sel', -1,'GETPOST');
         if ($service_sel < 0) {
-            $serviceName = AgoraPortal_Util::getFormVar($args, 'serviceName', -1,'GETPOST');
-            if ($serviceName < 0) {
+            $serviceName = FormUtil::getPassedValue('serviceName', '', 'GETPOST');
+            if (empty($serviceName)) {
                 $serviceName = 'moodle2';
             }
             $service = ServiceType::get_by_name($serviceName);
@@ -1424,39 +1240,28 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             $service = ServiceType::get_by_id($service_sel);
         }
 
-        $clients_sel = AgoraPortal_Util::getFormVar($args, 'clients_sel');
-
-        // Sorting and filtering data
-        $order = AgoraPortal_Util::getFormVar($args, 'order', 1, 'GETPOST');
-        $searchby = AgoraPortal_Util::getFormVar($args, 'search', 0, 'GETPOST');
-        $searchText = AgoraPortal_Util::getFormVar($args, 'searchText', '', 'GETPOST');
-        $pilot = AgoraPortal_Util::getFormVar($args, 'pilot', 0, 'GETPOST');
-        $include = AgoraPortal_Util::getFormVar($args, 'include', 1, 'GETPOST');
-
         $search = array();
 
         switch ($order) {
             case 1:
                 $search['orderby'] = "clientName, clientDNS";
                 break;
-            case 2: //Used to order by edit time
+            case 2:
                 $search['orderby'] = "state asc, timeEdited desc,clientServiceId desc";
                 break;
-            case 3: //Used to order by activedId
-                $search['orderby'] = "activedId";
+            case 3:
+                $search['orderby'] = "a.activedId";
                 break;
-            case 4: //Used to order by clientCode
+            case 4:
                 $search['orderby'] = "clientCode";
                 break;
-            case 5: //Used to order by clientDNS
+            case 5:
                 $search['orderby'] = "clientDNS";
                 break;
             default:
                 $search['orderby'] = $order;
-                break;
         }
 
-        $search['searchby'] = array();
         if ($searchby) {
             switch ($searchby) {
                 case '1':
@@ -1473,11 +1278,12 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                     break;
                 case '5':
                     $searchby = 'activedId';
-                    break;
             }
+            $search['searchby'] = array();
             $search['searchby'][$searchby] = $searchText;
         }
         $search['searchby']['state'] = 1;
+
         if (!empty($pilot)) {
             $search['searchby'][$pilot] = $include;
         }
@@ -1485,91 +1291,86 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $clientsNumber = count($clients);
 
         return $this->view->assign('clients', $clients)
-                        ->assign('service', $service)
-                        ->assign('clients_sel', $clients_sel)
-                        ->assign('clientsNumber', $clientsNumber)
-                        ->assign('order', $order)
-                        ->assign('pilot', $pilot)
-                        ->assign('include', $include)
-                        ->fetch('agoraportal_admin_service_filter_content.tpl');
+            ->assign('service_sel', $service_sel)
+            ->assign('clients_sel', $clients_sel)
+            ->assign('service', $service)
+            ->assign('clientsNumber', $clientsNumber)
+            ->assign('order', $order)
+            ->assign('pilot', $pilot)
+            ->assign('include', $include)
+            ->assign('search', $search)
+            ->assign('searchText', $searchText)
+            ->fetch('agoraportal_admin_service_filter_content.tpl');
     }
 
     /**
      * Get the list of SQL comands saved in the database
-     * @author:     Fèlix Casanellas (felix.casanellas@gmail.com)
      * @param:      None
      * @return:     An array with all comands and their descriptions
      */
     public function sqlComandList($args) {
-        $serviceId = AgoraPortal_Util::getFormVar($args, 'serviceId', 2);
-        $command_type = AgoraPortal_Util::getFormVar($args, 'comand_type', 0);
+        $serviceId = FormUtil::getPassedValue('serviceId', isset($args['serviceId']) ? $args['serviceId'] : 2, 'GETPOST');
+        $command_type = FormUtil::getPassedValue('comand_type', isset($args['comand_type']) ? $args['comand_type'] : 0, 'GETPOST');
 
-        $comands = SQLCommands::getCommands($serviceId,$command_type);
+        $commands = SQLCommands::getCommands($serviceId, $command_type);
 
-        return $this->view->assign('commands', $comands)
-                        ->fetch('admin_sql_commandList.tpl');
+        return $this->view->assign('commands', $commands)
+                        ->fetch('agoraportal_admin_sql_commandList.tpl');
     }
 
-    public function stats($args) {
-        $which = AgoraPortal_Util::getFormVar($args, 'which', "all", 'GETPOST');
-        $stats = AgoraPortal_Util::getFormVar($args, 'stats', 1, 'GET');
-        $service = AgoraPortal_Util::getFormVar($args, 'service', 1, 'GET');
-        $start = AgoraPortal_Util::getFormVar($args, 'date_start', date("Y-m-d"), 'GETPOST');
-        $stop = AgoraPortal_Util::getFormVar($args, 'date_stop', date("Y-m-d"), 'GETPOST');
+    public function stats() {
+        // Initial values
+        $clients_sel = array();
+        $which = 'all';
+        $stats = 1;
+        $start = date("Y-m-d");
+        $stop = date("Y-m-d");
 
-        $serviceid = 0;
-        if (isset($service)) {
-            $servicetype = ServiceType::get_by_id($service);
-            if ($servicetype) {
-                $serviceid = $servicetype->serviceId;
-            }
-        }
+        $defaultservice = ServiceType::get_by_name('moodle2');
+        $service_sel = $defaultservice->serviceId;
 
-        $this->view->assign('services', ServiceTypes::get_all());
-        $this->view->assign('service_sel', $serviceid);
-        $args['service_sel'] = $serviceid;
-        $this->view->assign('servicesListContent', $this->filter_servicesList($args));
+        $filter_content = $this->filter_listServices(array(
+            '$clients_sel' => $clients_sel,
+            'service_sel' => $service_sel
+        ));
+
+        $this->view->assign('services', ServiceTypes::get_with_db(false))
+            ->assign('listServicesContent', $filter_content);
 
         if (strtotime($stop) < strtotime($start)) {
             LogUtil::registerError($this->__('La data de fi és menor que la d\'inici'));
         }
 
         return $this->view->assign('which', $which)
-                        ->assign('service', $serviceid)
                         ->assign('stats_sel', $stats)
                         ->assign('date_start', $start)
                         ->assign('date_stop', $stop)
                         ->assign('searchText', '')
                         ->assign('resultsContent', '')
                         ->assign('actiononchangeservice', 'getServiceStats();')
-                        ->fetch('admin_stats.tpl');
+                        ->fetch('agoraportal_admin_stats.tpl');
     }
 
     public function statsGetStatisticsContent($args) {
-        $stats = AgoraPortal_Util::getFormVar($args, 'stats', 1, 'GET');
-        $service = AgoraPortal_Util::getFormVar($args, 'service', 1, 'GET');
-        $which = AgoraPortal_Util::getFormVar($args, 'which', "all", 'GET');
-        $start = AgoraPortal_Util::getFormVar($args, 'date_start', date("Y-m-d"), 'GETPOST');
-        $stop = AgoraPortal_Util::getFormVar($args, 'date_stop', date("Y-m-d"), 'GETPOST');
-        $orderby = AgoraPortal_Util::getFormVar($args, 'orderby', 'clientDNS', 'GET');
+        $stats = isset($args['stats']) ? $args['stats'] : 1;
+        $service = isset($args['service']) ? $args['service'] : 1;
+        $start = isset($args['date_start']) ? $args['date_start'] : date("Y-m-d");
+        $stop = isset($args['date_stop']) ? $args['date_stop'] : date("Y-m-d");
+        $orderby = isset($args['orderby']) ? $args['orderby'] : 'clientDNS';
+        $clients = isset($args['clients']) ? $args['clients'] : '';
 
         if (strtotime($stop) < strtotime($start)) {
-            return $this->view->assign('error', 'La data de fi és menor que la d\'inici')->fetch('admin_stats_table.tpl');
-        }
-
-        $clients = "";
-
-        if ($which == 'selected') {
-            $clients = AgoraPortal_Util::getFormVar($args, 'clients', '', 'GET');
+            return $this->view->assign('error', 'La data de fi és anterior a la d\'inici')->fetch('agoraportal_admin_stats_table.tpl');
         }
 
         $items = Stats::getResults($service, $stats, $start, $stop, $orderby, $clients);
         if ($items === false) {
-            return $this->view->assign('error', 'S\'ha produït un error en carregar elements')->fetch('admin_stats_table.tpl');
+            return $this->view->assign('error', 'S\'ha produït un error en carregar elements')->fetch('agoraportal_admin_stats_table.tpl');
         }
 
         if(count($items['results']) <= 0) {
-            return $this->view->assign('error', 'No hi ha dades')->fetch('admin_stats_table.tpl');
+            return $this->view->assign('error', 'No hi ha dades')
+                ->fetch('agoraportal_admin_stats_table.tpl');
         }
 
         $show_access_button = isset($items['results'][0]['d1']) || isset($items['results'][0]['h1']);
@@ -1579,33 +1380,32 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                     ->assign('totals', $items['totals'])
                     ->assign('stats', $stats)
                     ->assign('show_access_button', $show_access_button)
-                    ->fetch('admin_stats_table.tpl');
+                    ->fetch('agoraportal_admin_stats_table.tpl');
     }
-
 
     /**
      * Creates the CSV from the stats demmanded
      * @author:     Pau Ferrer Ocaña (aregi@xtec.cat)
      * @param:      The filter and pager values
      */
-    public function statsGetCSVContent($args) {
-        $stats = AgoraPortal_Util::getFormVar($args, 'stats', 1, 'POST');
-        $service = AgoraPortal_Util::getFormVar($args, 'service', 1, 'POST');
-        $which = AgoraPortal_Util::getFormVar($args, 'which', "all", 'POST');
-        $start = AgoraPortal_Util::getFormVar($args, 'date_start', date("Y-m-d"), 'GETPOST');
-        $stop = AgoraPortal_Util::getFormVar($args, 'date_stop', date("Y-m-d"), 'GETPOST');
-        $orderby = AgoraPortal_Util::getFormVar($args, 'orderby', 'clientDNS', 'GET');
+    public function statsGetCSVContent() {
+        $stats = FormUtil::getPassedValue('stats', 1, 'POST');
+        $service_sel = FormUtil::getPassedValue('service_sel', 1, 'POST');
+        $which = FormUtil::getPassedValue('which', 'all', 'POST');
+        $start = FormUtil::getPassedValue('date_start', date("Y-m-d"), 'POST');
+        $stop = FormUtil::getPassedValue('date_stop', date("Y-m-d"), 'POST');
+        $orderby = FormUtil::getPassedValue('orderby', 'clientDNS', 'POST');
 
         if (strtotime($stop) < strtotime($start)) {
             return LogUtil::registerError($this->__('La data de fi és menor que la d\'inici'));
         }
 
-        $clients = "";
+        $clients = '';
         if ($which == 'selected') {
-            $clients = AgoraPortal_Util::getFormVar($args, 'clients', '', 'GET');
+            $clients = implode(',', FormUtil::getPassedValue('clients_sel', array(), 'POST')); // Format expected by Stats::getResults()
         }
 
-        $items = Stats::getResults($service, $stats, $start, $stop, $orderby, $clients);
+        $items = Stats::getResults($service_sel, $stats, $start, $stop, $orderby, $clients);
         if ($items === false) {
             return LogUtil::registerError($this->__('S\'ha produït un error en carregar elements'));
         }
@@ -1621,14 +1421,14 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $fsize = $fstats['size'];
 
         rewind($fp);
-        $csv = "";
+        $csv = '';
         while ($csvrow= fgets($fp)) {
             $csv .= $csvrow;
         }
 
         fclose($fp);
 
-        $servicetype = ServiceType::get_by_id($service);
+        $servicetype = ServiceType::get_by_id($service_sel);
         $filename = 'stats_'.$servicetype->serviceName.'_'.$stats.'_'.str_replace('-',"",$start).'-'.str_replace('-',"",$stop);
         header("Content-type: text/csv"); // add here more headers for diff. extensions
         header('Content-Disposition: attachment; filename="'.$filename.'.csv"'); // use 'attachment' to force a download
@@ -1638,25 +1438,24 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         exit;
     }
 
-    public function statsGetGraphsContent($args) {
-        $stat = AgoraPortal_Util::getFormVar($args, 'stats', 1, 'GET');
-        $service = AgoraPortal_Util::getFormVar($args, 'service', 1, 'GET');
-        $which = AgoraPortal_Util::getFormVar($args, 'which', "all", 'GET');
-        $date_start = AgoraPortal_Util::getFormVar($args, 'date_start', 0, 'GET');
-        $date_stop = AgoraPortal_Util::getFormVar($args, 'date_stop', 0, 'GET');
-        $column = AgoraPortal_Util::getFormVar($args, 'column', false, 'GET');
-        $show_totals = AgoraPortal_Util::getFormVar($args, 'totals', false, 'GET');
-        $clients = AgoraPortal_Util::getFormVar($args, 'clients', '', 'GET');
+    public function statsGetGraphsContent() {
+        $stat = FormUtil::getPassedValue('stats', 1, 'GET');
+        $service = FormUtil::getPassedValue('service', 1, 'GET');
+        $date_start = FormUtil::getPassedValue('date_start', 0, 'GET');
+        $date_stop = FormUtil::getPassedValue('date_stop', 0, 'GET');
+        $column = FormUtil::getPassedValue('column', false, 'GET');
+        $show_totals = FormUtil::getPassedValue('totals', false, 'GET');
+        $clients = FormUtil::getPassedValue('clients', '', 'GET');
 
         $servicetype = ServiceType::get_by_id($service);
         $columns = Stats::getGraphColumns($service, $stat, $column, $show_totals);
         if(!$columns) {
-            return $this->view->assign('error', 'No hi ha columnes per mostrar')->fetch('admin_stats_graph.tpl');
+            return $this->view->assign('error', 'No hi ha columnes per mostrar')->fetch('agoraportal_admin_stats_graph.tpl');
         }
 
         $items = Stats::getStats($service, $stat, $date_start, $date_stop, 'clientDNS', $clients, $columns, $show_totals);
         if (!$items) {
-            return $this->view->assign('error', 'S\'ha produït un error en carregar elements')->fetch('admin_stats_graph.tpl');
+            return $this->view->assign('error', 'S\'ha produït un error en carregar elements')->fetch('agoraportal_admin_stats_graph.tpl');
         }
 
         if (count($items) <= 1) {
@@ -1739,7 +1538,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             $charttype = 'bar';
         }
 
-        $title = "";
+        $title = '';
         switch($stat) {
             case 'month':
                 $title = 'Mensuals ';
@@ -1752,11 +1551,11 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 break;
         }
         $title .= $servicetype->serviceName;
-        $subtitle = "";
+        $subtitle = '';
         if ($show_totals) {
             $subtitle .= 'Totals ';
         } else {
-            $subtitle .= $clients.' ';
+            $subtitle .= $clients . ' ';
         }
         $subtitle .= $column? $column : "Accessos repartits";
         $title .= " ($subtitle)";
@@ -1783,24 +1582,32 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         return $this->view->assign('graph_title', $title)
                     ->assign('charttype', $charttype)
                     ->assign('chartdata', $chartdata)
-            ->fetch('admin_stats_graph.tpl');
+            ->fetch('agoraportal_admin_stats_graph.tpl');
     }
 
-    public function updateDiskUse($args) {
+    public function updateDiskUse() {
        // Security check
         if (!AgoraPortal_Util::isAdmin() && !defined('CLI_SCRIPT')) {
             LogUtil::registerError($this->__('No teniu accés a executar aquesta funcionalitat'));
-            return System::redirect(ModUtil::url('Agoraportal', 'admin', 'servicesList'));
+            return System::redirect(ModUtil::url('Agoraportal', 'admin', 'listServices'));
         }
 
-        $debug = AgoraPortal_Util::getFormVar($args, 'debug', isset($args['debug']) ? true : false, 'GET');
+        $debug = FormUtil::getPassedValue('debug', false, 'GET');
 
         // Load general config
         global $agora;
 
         // General vars
-        $errorMsg = "";
-        $adminReport = "";
+        $errorMsg = '';
+        $adminReport = '';
+
+        // Check if Mailer is active
+        $modid = ModUtil::getIdFromName('Mailer');
+        $modinfo = ModUtil::getInfo($modid);
+        $mailerAvailable = ($modinfo['state'] == 3) ? 1 : 0;
+
+        // E-mail addresses of agoraportal administrators
+        $adminemails = explode(',', ModUtil::getVar('Agoraportal', 'warningMailsTo'));
 
         // Build warning message
         $warningMsgTpl = "<p>Benvolgut/da,</p><p>Aquest missatge és per informar-vos de què ###warningMsgForUser###";
@@ -1811,79 +1618,88 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $warningMsgTpl .= "<p>---<br />L'equip del projecte Àgora</p>";
         $warningMsgTpl .= "<p>P.D.: Aquest missatge s'envia automàticament. Si us plau, no el respongueu.</p>";
 
-        // Get available services (currently: intranet, marsupial, moodle)
-        $servicetypes = ServiceTypes::get_all();
+        // Get available services with db flag set (currently: intranet, moodle2, nodes)
+        $servicetypes = ServiceTypes::get_with_db();
 
         // Build array with info of the services to check and the path to its file
         foreach ($servicetypes as $servicetype) {
-            // Marsupial has defaultDiskSpace = 0
-            if ($servicetype->defaultDiskSpace > 0) {
-                $agoravars = $agora[$servicetype->serviceName];
-                $path = $agora['server']['root'] . $agoravars['datadir'] . $agoravars['diskusagefile'];
 
-                if (!file_exists($path)) {
-                    $errorMsg .= $servicetype->serviceName. ': No s\'ha trobat el fitxer de consums de disc següent: ' . $path . '<br />';
+            $agoravars = $agora[$servicetype->serviceName];
+            $path = $agora['server']['root'] . $agoravars['datadir'] . $agoravars['diskusagefile'];
+
+            if (!file_exists($path)) {
+                $errorMsg .= $servicetype->serviceName. ': No s\'ha trobat el fitxer de consums de disc següent: ' . $path . '<br />';
+                continue;
+            }
+
+            $userprefix = $agoravars['userprefix'];
+
+            if ($debug) {
+                $adminReport .= '<h4>Servei: ' . strtoupper($servicetype->serviceName) . '</h4>';
+            }
+
+            $services = Services::get_enabled_by_serviceid($servicetype->serviceId, 'activedId');
+
+            // Parse the file and update the information
+            $lines = file($path);
+            foreach ($lines as $line_num => $line) {
+                if (!preg_match('/^\d+\s+' . $userprefix . '[1-9]\d*$/', $line)) {
                     continue;
                 }
 
-                $userprefix = $agoravars['userprefix'];
+                // Get usage value
+                $usageArray = preg_split('/\s+' . $userprefix . '/', $line);
+                $activedId = trim($usageArray[1]);
 
-                $services = Services::get_enabled_by_serviceid($servicetype->serviceId, 'activedId');
+                $service = $services[$activedId];
+                if (!$service) {
+                    $errorMsg .= $servicetype->serviceName. ': No s\'ha trobat el servei ' . $userprefix . $activedId . '<br />';
+                    continue;
+                }
 
-                // Parse the file and update the information
-                $lines = file($path);
-                foreach ($lines as $line_num => $line) {
-                    if (!preg_match('/^\d+\s+' . $userprefix . '[1-9]\d*$/', $line)) {
-                        continue;
-                    }
+                $client = $service->get_client();
+                $service->diskConsume = trim($usageArray[0]);
 
-                    // get usage value
-                    $usageArray = preg_split('/\s+' . $userprefix . '/', $line);
-                    $activedId = trim($usageArray[1]);
+                if (!$service->save()) {
+                    $errorMsg .= $servicetype->serviceName. ': Error en l\'actualització de l\'espai consumit a la base de dades per: ' . $client->clientCode . '<br />';
+                }
 
-                    $service = $services[$activedId];
-                    if (!$service) {
-                        $errorMsg .= $servicetype->serviceName. ': No s\'ha trobat el servei ' . $userprefix . $activedId . '<br />';
-                        continue;
-                    }
-                    $client = $service->get_client();
+                $warning = $service->is_quota_warning();
 
-                    $service->diskConsume = trim($usageArray[0]);
+                if ($mailerAvailable) {
+                    $percentage = $service->get_disk_percentage();
+                    $consume = round($service->diskConsume / 1024);
 
-                    if (!$service->save()) {
-                        $errorMsg .= $servicetype->serviceName. ': Error en l\'actualització de l\'espai consumit a la base de dades per: ' . $client->clientCode . '<br />';
-                    }
-
-                    $warning = $service->is_quota_warning();
                     if ($warning) {
-                        $percentatge = $service->get_disk_percentage();
                         // Send warning message to client managers
-                        $warningMsgForUser = ($percentatge > 100) ? " heu superat el límit d'espai de disc disponible per al servei '" . $servicetype->serviceName . "' d'Àgora." : " esteu a prop de superar el límit d'espai de disc disponible per al servei '" . $servicetype->serviceName . "' d'Àgora.";
+                        $warningMsgForUser = ($percentage > 100) ? " heu superat el límit d'espai de disc disponible per al servei '" . $servicetype->serviceName . "' d'Àgora." : " esteu a prop de superar el límit d'espai de disc disponible per al servei '" . $servicetype->serviceName . "' d'Àgora.";
                         $warningMsg = str_replace('###warningMsgForUser###', $warningMsgForUser, $warningMsgTpl);
-                        $warningMsg = str_replace('###diskConsumeValue###', $service->diskConsume, $warningMsg);
+                        $warningMsg = str_replace('###diskConsumeValue###', $percentage, $warningMsg);
 
                         // Send the e-mail
                         $subject = $this->__('Ocupació de disc dels serveis a Àgora');
                         $sendMail = $client->send_mail($subject, $warningMsg, true, true, false);
+
                         if (!$sendMail) {
                             $errorMsg .= $servicetype->serviceName. ': No s\'ha enviat l\'avís a cap usuari/ària del centre amb codi ' . $client->clientCode . '<br />';
                         }
 
                         // Save error message for admin report
                         $url = $service->get_url();
-                        $textColor = ($percentatge > 100) ? 'red' : 'orange';
-                        $consume = round($service->diskConsume/1024);
-                        $adminReport .= '<h4>' . $client->clientCode . ' (<a href="'.$url.'" target="_blank">'.$url.'</a>): </h4>';
-                        $adminReport .= '<div style="color:' . $textColor . '";>' .$servicetype->serviceName. ' - '. $client->clientCode . ': ' . $percentatge . ' % (' . $consume  . ' / ' . $service->diskSpace . ')</div>';
-                        $adminReport .= $warningMsg . '<hr/>';
-                    } else if($debug) {
+                        $textColor = ($percentage > 100) ? 'red' : 'orange';
+                        $adminReport .= '<div style="color:' . $textColor . '";>'
+                            . $servicetype->serviceName . ' - ' . $client->clientCode . ': ' . $percentage . ' % (' . $consume . ' / ' . $service->diskSpace . ')'
+                            . ' (<a href="' . $url . '" target="_blank">' . $url . '</a>)'
+                            . '</div>';
+
+                    } else if ($debug) {
                         // Save error message for admin report
                         $url = $service->get_url();
                         $textColor = 'green';
-                        $consume = round($service->diskConsume/1024);
-                        $adminReport .= '<h4>' . $client->clientCode . ' (<a href="'.$url.'" target="_blank">'.$url.'</a>): </h4>';
-                        $adminReport .= '<div style="color:' . $textColor . '";>' .$servicetype->serviceName. ' - '. $client->clientCode . ': ' . $percentatge . ' % (' . $consume  . ' / ' . $service->diskSpace . ')</div>';
-                        $adminReport .= '<hr/>';
+                        $adminReport .= '<div style="color:' . $textColor . '";>'
+                            . $servicetype->serviceName . ' - ' . $client->clientCode . ': ' . $percentage . ' % (' . $consume . ' / ' . $service->diskSpace . ')'
+                            . ' (<a href="' . $url . '" target="_blank">' . $url . '</a>)'
+                            . '</div>';
                     }
                 }
             }
@@ -1894,16 +1710,30 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         }
 
         // Admin report
-        if (!empty($adminReport)) {
-            AgoraPortal_Util::send_mail_to_admins($this->__('Resum de missatges sobre quotes als usuaris'), $adminReport);
+        if ($mailerAvailable && !empty($adminReport)) {
+            ModUtil::apiFunc('Mailer', 'user', 'sendmessage', array(
+                'toname' => $this->__('Agoraportal admin'),
+                'toaddress' => $adminemails,
+                'subject' => $this->__('Resum de missatges sobre quotes als usuaris'),
+                'body' => $adminReport,
+                'html' => 1));
         }
 
-        // Info Agoraportal admins of the presence of errors
+        // Tell agoraportal admins that one or more errors occurred
         if (!empty($errorMsg)) {
             echo '<br/><br/>ERRORS:<br/>' . $errorMsg;
+
             // Send warning message to configured recipients if Mailer is available
-            $content = $this->__('<p>S\'han produït errors en la gestió del consum de disc per part dels centres. Missatge de l\'error:</p><p>' . $errorMsg . '</p>');
-            AgoraPortal_Util::send_mail_to_admins($this->__('Error en el càlcul de consum de disc'), $content);
+            if ($mailerAvailable) {
+                $content = $this->__('<p>S\'han produït errors en la gestió del consum de disc per part dels centres. Missatge de l\'error:</p><p>' . $errorMsg . '</p>');
+
+                ModUtil::apiFunc( 'Mailer', 'user', 'sendmessage', array(
+                    'toname' => $this->__( 'Agoraportal admin' ),
+                    'toaddress' => $adminemails,
+                    'subject' => $this->__( 'Error en el càlcul de consum de disc' ),
+                    'body' => $content,
+                    'html' => 1 ) );
+            }
         } else {
             $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
             ModUtil::func('IWmain', 'user', 'userSetVar', array('uid' => -100,
@@ -1923,12 +1753,11 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
     /**
      * Display the edit form for a request
      *
-     * @author		Aida Regi Cosculluela (aregi@xtec.cat)
      * @param		The request Id and the filter values
      * @return		The edit form
      */
-    public function editRequest($args) {
-        $requestId = AgoraPortal_Util::getFormVar($args, 'requestId', null, 'GET');
+    public function editRequest() {
+        $requestId = FormUtil::getPassedValue('requestId', null, 'GET');
 
         $request = Request::get_by_id($requestId);
         $service = Service::get_by_client_and_service($request->clientId, $request->serviceId);
@@ -1954,18 +1783,16 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
     /**
      * Process the values received from the request edit form
      *
-     * @author		Albert Pérez Monfort (aperezm@xtec.cat)
-     * @author      Aida Regi
      * @param		The main client and request parameters
      * @return		An error message if fails and redirect user to function requestsList
      */
-    public function updateRequest($args) {
-        $state = AgoraPortal_Util::getFormVar($args, 'state', null, 'POST');
-        $adminComments = AgoraPortal_Util::getFormVar($args, 'adminComments', null, 'POST');
-        $privateNotes = AgoraPortal_Util::getFormVar($args, 'privateNotes', null, 'POST');
-        $requestId = AgoraPortal_Util::getFormVar($args, 'requestId', null, 'POST');
-        $clientCode = AgoraPortal_Util::getFormVar($args, 'clientCode', null, 'POST');
-        $sendMail = AgoraPortal_Util::getFormVar($args, 'sendMail', null, 'POST');
+    public function updateRequest() {
+        $state = FormUtil::getPassedValue('state', null, 'POST');
+        $adminComments = FormUtil::getPassedValue('adminComments', null, 'POST');
+        $privateNotes = FormUtil::getPassedValue('privateNotes', null, 'POST');
+        $requestId = FormUtil::getPassedValue('requestId', null, 'POST');
+        $clientCode = FormUtil::getPassedValue('clientCode', null, 'POST');
+        $sendMail = FormUtil::getPassedValue('sendMail', null, 'POST');
 
         // Confirm authorisation code
         $this->checkCsrfToken();
@@ -1999,7 +1826,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             $view->assign('adminComments', nl2br($adminComments));
             $view->assign('stateDesc', $resolt);
 
-            $mailContent = $view->fetch('mail_updateRequest.tpl');
+            $mailContent = $view->fetch('agoraportal_admin_mail_updateRequest.tpl');
 
             $client->send_mail(__('Estat de les sol·licituds a Àgora'), $mailContent);
         }
@@ -2011,13 +1838,12 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
     /**
      * Delete a service
-     * @author		Albert Pérez Monfort (aperezm@xtec.cat)
      * @param		The request identity
      * @param       Aida Regi
-     * @return		An error message if fails and redirect user to function servicesList
+     * @return		An error message if fails and redirect user to function listServices
      */
-    public function deleteRequest($args) {
-        $requestId = AgoraPortal_Util::getFormVar($args, 'requestId');
+    public function deleteRequest() {
+        $requestId = FormUtil::getPassedValue('requestId', 0, 'GETPOST');
 
         $request = Request::get_by_id($requestId);
         if (!$request) {
@@ -2034,38 +1860,38 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
     /**
      * Display the list of services associated with clients
-     * @author		Albert Pérez Monfort (aperezm@xtec.cat)
-     * @author      Aida Regi
      * @param		The filter and pager values
      * @return		The services list page
      */
     public function requestsList($args) {
-        $init = AgoraPortal_Util::getFormVar($args, 'init', -1);
-        $service = AgoraPortal_Util::getFormVar($args, 'service', 0);
-        $stateFilter = AgoraPortal_Util::getFormVar($args, 'stateFilter', -1);
-        $search = AgoraPortal_Util::getFormVar($args, 'search', 0);
-        $searchText = AgoraPortal_Util::getFormVar($args, 'searchText', "");
-        $rpp = AgoraPortal_Util::getFormVar($args, 'rpp', 15);
-        $order = AgoraPortal_Util::getFormVar($args, 'order', 2);
 
         if (SessionUtil::getVar('requestsList')) {
             $args = unserialize(SessionUtil::getVar('requestsList'));
-            $init = $args['init'];
             $service = $args['service'];
             $stateFilter = $args['stateFilter'];
             $search = $args['search'];
             $searchText = $args['searchText'];
             $rpp = $args['rpp'];
+            $order = $args['order'];
+        } else {
+            $rpp = FormUtil::getPassedValue('rpp', isset($args['rpp']) ? $args['rpp'] : 15, 'GETPOST');
+            $service = FormUtil::getPassedValue('service', isset($args['service']) ? $args['service'] : 0, 'GETPOST');
+            $stateFilter = FormUtil::getPassedValue('stateFilter', isset($args['stateFilter']) ? $args['stateFilter'] : -1, 'GETPOST');
+            $search = FormUtil::getPassedValue('search', isset($args['search']) ? $args['search'] : '', 'GETPOST');
+            $searchText = FormUtil::getPassedValue('searchText', isset($args['searchText']) ? $args['searchText'] : '', 'GETPOST');
+            $order = FormUtil::getPassedValue('order', isset($args['order']) ? $args['order'] : 2, 'GETPOST');
         }
 
-        $servicesListContent = ModUtil::func('Agoraportal', 'admin', 'requestsListContent', $args);
+        $listServicesContent = ModUtil::func('Agoraportal', 'admin', 'requestsListContent', $args);
         $requestsstates = Requests::get_states();
+        $servicetypes = ServiceTypes::get_all();
 
-        return $this->view->assign('requestListContent', $servicesListContent)
+        return $this->view->assign('requestListContent', $listServicesContent)
                         ->assign('requestsstates', $requestsstates)
                         ->assign('search', $search)
                         ->assign('searchText', $searchText)
                         ->assign('service', $service)
+                        ->assign('servicetypes', $servicetypes)
                         ->assign('stateFilter', $stateFilter)
                         ->assign('rpp', $rpp)
                         ->assign('order', $order)
@@ -2074,18 +1900,17 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
     /**
      * Get the list of requests
-     * @author:		Albert Pérez Monfort (aperezm@xtec.cat)
      * @param:		The filter and pager values
      * @return:		An array with all the clients and services
      */
     public function requestsListContent($args) {
-        $init = AgoraPortal_Util::getFormVar($args, 'init', -1);
-        $service = AgoraPortal_Util::getFormVar($args, 'service', 0);
-        $stateFilter = AgoraPortal_Util::getFormVar($args, 'stateFilter', -1);
-        $search = AgoraPortal_Util::getFormVar($args, 'search', 0);
-        $searchText = AgoraPortal_Util::getFormVar($args, 'searchText', "");
-        $rpp = AgoraPortal_Util::getFormVar($args, 'rpp', 15);
-        $order = AgoraPortal_Util::getFormVar($args, 'order', 2);
+        $init = isset($args['init']) ? $args['init'] : -1;
+        $service = isset($args['service']) ? $args['service'] : 0;
+        $stateFilter = isset($args['stateFilter']) ? $args['stateFilter'] : -1;
+        $search = isset($args['search']) ? $args['search'] : 0;
+        $searchText = isset($args['searchText']) ? $args['searchText'] : '';
+        $rpp = isset($args['rpp']) ? $args['rpp'] : 15;
+        $order = isset($args['order']) ? $args['order'] : 2;
 
         // Escape special chars
         $searchText = addslashes($searchText);
@@ -2110,49 +1935,67 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
     }
 
     /**
-     * List files from moodledata and zkdata
+     * List data files of a service
      *
-     * @global array    agora
-     * @param string    serviceName
-     * @param int       activedId
+     * @param string serviceName
+     * @param int activedId
      *
      * @return Boolean
      */
-    public function listDataDirs($args) {
+    public function listDataDirs() {
         // Security check
         if (!AgoraPortal_Util::isAdmin() && !defined('CLI_SCRIPT')) {
-            LogUtil::registerError($this->__('No teniu accés a executar aquesta funcionalitat'));
-            return System::redirect(ModUtil::url('Agoraportal', 'admin', 'servicesList'));
+            LogUtil::registerError($this->__('No teniu autorització per accedir a la llista de fitxers'));
+            return System::redirect(ModUtil::url('Agoraportal', 'admin', 'listServices'));
         }
 
-        $serviceName = AgoraPortal_Util::getFormVar($args, 'serviceName');
-        $activedId = AgoraPortal_Util::getFormVar($args, 'activedId');
+        $serviceName = FormUtil::getPassedValue('serviceName', '', 'GET');
+        $activedId = FormUtil::getPassedValue('activedId', '', 'GET');
+
+        // Creates an object of the service and calls its function to show the content of the directory of data
         $service = Service::get_by_servicename_and_activeid($serviceName, $activedId);
-        if (!$service) {
-            LogUtil::registerError($this->__('El servei no existeix'));
-            return System::redirect(ModUtil::url('Agoraportal', 'admin', 'servicesList'));
-        }
+        $service->getDataDirectoryList();
 
-        return $service->printDataDirs();
+        return true;
     }
 
     /**
      * Display a form that allows you to execute commands
-     * @author  Pau Ferrer Ocaña (pferre22@xtec.cat)
-     * @return  Rendering of the page
+     *  - $action false: Initial form
+     *  - $action 'ask': Ask for confirmation
+     *  - $action 'confirm': Show operations programmed
+     *
+     * @author Pau Ferrer Ocaña (pferre22@xtec.cat)
+     * @author Toni Ginard
+     * @return Page rendered
      */
-    public function operations($args) {
+    public function operations() {
         global $agora;
-        $clients_sel = AgoraPortal_Util::getFormVar($args, 'clients_sel');
-        $which = AgoraPortal_Util::getFormVar($args, 'which', "all", 'GETPOST');
-        $order = AgoraPortal_Util::getFormVar($args, 'order', 1, 'GETPOST');
-        $service_sel = AgoraPortal_Util::getFormVar($args, 'service_sel', -1,'GETPOST');
+
+        $clients_sel = FormUtil::getPassedValue('clients_sel', 0, 'GETPOST');
+        $service_sel = FormUtil::getPassedValue('service_sel', -1,'GETPOST');
+        $which = FormUtil::getPassedValue('which', 'all', 'GETPOST');
+        $order = FormUtil::getPassedValue('order', 1, 'GETPOST');
+        $actionselect = FormUtil::getPassedValue('actionselect', false, 'GETPOST');
+        $priority = FormUtil::getPassedValue('priority', 0, 'GETPOST');
+        $queue = FormUtil::getPassedValue('queue', '', 'GETPOST');
+        $confirm = FormUtil::getPassedValue('confirm', '', 'GETPOST');
+
+        // If there's no previous selected service, select Moodle
         if ($service_sel < 0) {
             $defaultservice = ServiceType::get_by_name('moodle2');
             $service_sel = $defaultservice->serviceId;
         }
-        $actionselect = AgoraPortal_Util::getFormVar($args, 'actionselect', false, 'GETPOST');
-        $priority = AgoraPortal_Util::getFormVar($args, 'priority', false, 'GETPOST');
+
+        // Set the action
+        if (!empty($queue)) {
+            $action = 'ask';
+        } else if (!empty($confirm)) {
+            $action = 'confirm';
+        }
+        if (isset($action) && (empty($actionselect) || ($which == 'selected' && empty($clients_sel)) || $service_sel === false)) {
+            LogUtil::registerError($this->__('Heu d\'emplenar tots els camps'));
+        }
 
         $view = Zikula_View::getInstance('Agoraportal', false);
         $view->assign('which', $which);
@@ -2160,86 +2003,60 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $view->assign('order', $order);
         $view->assign('actionselect', $actionselect);
 
-        $exe = AgoraPortal_Util::getFormVar($args, 'exe');
-        $queue = AgoraPortal_Util::getFormVar($args, 'queue');
-        $confirm = AgoraPortal_Util::getFormVar($args, 'confirm');
-        if (!empty($queue)) {
-            $action = 'ask';
-        } else if (!empty($confirm)) {
-            $action = 'confirm';
-        }
-
-        if (isset($action) && (empty($actionselect) || ($which == "selected" && empty($clients_sel)) || $service_sel === false)) {
-            LogUtil::registerError($this->__('Heu d\'emplenar tots els camps'));
-            $action = "show";
-        } else if (isset($action) && $service_sel == 0) {
-            LogUtil::registerError($this->__('No està preparat pel portal'));
-            $action = "show";
-        }
-
-        if (isset($action) && $action != "show") {
+        if (isset($action)) { // 'ask' or 'confirm'
             $view->assign('priority', $priority);
 
-            // Common parts on ask and execute
-            $servicetype = ServiceType::get_by_id($service_sel);
-            $serviceName = $servicetype->serviceName;
-
-            $clients = array();
-            if ($action == "exe") {
-                $clients = Services::get_enabled_by_serviceid_full($servicetype->serviceId);
-                if ($which == 'selected') {
-                    $clients = array_intersect_key($clients, array_flip($clients_sel));
-                }
-            } else {
-                if ($which == 'selected') {
-                    $clients = Clients::get_by_service_params($servicetype->serviceId, array('state' => 1));
-                    $clients = array_intersect_key($clients, array_flip($clients_sel));
-                }
+            $serviceName = ServiceType::get_name($service_sel);
+            $services = Services::get_enabled_by_serviceid_full($service_sel);
+            // In case that some services are selected, keep only the selected
+            if ($which == 'selected') {
+                $services = array_intersect_key($services, array_flip($clients_sel));
             }
 
-            //Get params
-            $args = '';
+            // Get params
             $params = array();
             foreach ($_POST as $key => $value) {
                 if (strpos($key,'parm_') === 0 && !empty($value)) {
                     $key_ret = substr($key, 5);
-                    $params[$key_ret] = AgoraPortal_Util::getFormVar($args, $key, null, 'POST');
+                    $params[$key_ret] = FormUtil::getPassedValue($key, null, 'POST');
                 }
             }
+
             $view->assign('params', $params);
-
             $view->assign('serviceName', $serviceName);
-            $view->assign('clients', $clients);
+            $view->assign('services', $services);
 
-            if ($action == "confirm") { //Execute Operation
+            if ($action == 'confirm') { // Execute Operation
                 $success = Array();
-                foreach ($clients as $i => $client) {
-                    //Connected
-                    $operation = $client->addOperation($actionselect, $params, $priority);
+                foreach ($services as $i => $service) {
+                    $operation = Agora_Queues_Operation::add($actionselect, $service->clientId, $service->serviceId, $params, $priority);
                     $success[$i] = $operation ? true : false;
                 }
-                $view->assign('which', $which);
-                $view->assign('success', $success);
-                $view->assign('prefix', $agora['server']['userprefix']);
-                return $view->fetch('admin_operations_exe.tpl');
+                return $view->assign('success', $success)
+                    ->assign('prefix', $agora['server']['userprefix'])
+                    ->fetch('agoraportal_admin_operations_exe.tpl');
             }
-
-            return $view->fetch('admin_operations_confirm.tpl');
+            else {
+                return $view->fetch('agoraportal_admin_operations_confirm.tpl');
+            }
         }
 
-        $this->view->assign('services', ServiceTypes::get_with_db());
-        $view->assign('actiononchangeservice', 'getServiceActions();');
-        $view->assign('servicesListContent', $this->filter_servicesList($args));
+        $filter_content = $this->filter_listServices(array(
+            '$clients_sel' => $clients_sel,
+            'service_sel' => $service_sel
+        ));
 
-        $priority_values = array();
-        $i = -10;
-        while ($i <= 10) {
-            $priority_values["$i"] = $i;
-            $i++;
+        $this->view->assign('services', ServiceTypes::get_with_db())
+            ->assign('actiononchangeservice', 'getServiceActions();')
+            ->assign('listServicesContent', $filter_content);
+
+       $priority_values = array();
+        for ($i = -10; $i <= 10; $i++) {
+            $priority_values[$i] = $i;
         }
         $view->assign('priority_values', $priority_values);
 
-        return $view->fetch('admin_operations.tpl');
+        return $view->fetch('agoraportal_admin_operations.tpl');
     }
 
     /**
@@ -2247,41 +2064,41 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
      * @author  Pau Ferrer Ocaña (pferre22@xtec.cat)
      * @return  Rendering of the page
      */
-    public function queues($args) {
+    public function queues() {
         $view = Zikula_View::getInstance('Agoraportal', false);
 
         $search = array();
-        $search['operation'] = AgoraPortal_Util::getFormVar($args, 'operation_filter', '', 'GETPOST');
+        $search['operation'] = FormUtil::getPassedValue('operation_filter', '', 'GETPOST');
         $view->assign('operation_filter', $search['operation']);
 
-        $search['client_type'] = AgoraPortal_Util::getFormVar($args, 'client_type', '', 'GETPOST');
+        $search['client_type'] = FormUtil::getPassedValue('client_type', '', 'GETPOST');
         $view->assign('client_type', $search['client_type']);
 
-        $search['client'] = AgoraPortal_Util::getFormVar($args, 'client_filter', '', 'GETPOST');
+        $search['client'] = FormUtil::getPassedValue('client_filter', '', 'GETPOST');
         $view->assign('client_filter', $search['client']);
 
-        $search['priority'] = AgoraPortal_Util::getFormVar($args, 'priority_filter', '-', 'GETPOST');
+        $search['priority'] = FormUtil::getPassedValue('priority_filter', '-', 'GETPOST');
         $view->assign('priority_filter', $search['priority']);
 
-        $search['service'] = AgoraPortal_Util::getFormVar($args, 'service_filter', '', 'GETPOST');
+        $search['service'] = FormUtil::getPassedValue('service_filter', '', 'GETPOST');
         $view->assign('service_filter', $search['service']);
 
-        $search['state'] = AgoraPortal_Util::getFormVar($args, 'state_filter', '', 'GETPOST');
+        $search['state'] = FormUtil::getPassedValue('state_filter', '', 'GETPOST');
         $view->assign('state_filter', $search['state']);
 
-        $search['from'] = AgoraPortal_Util::getFormVar($args, 'date_start', date('Y-m-d', strtotime('-3 days')).' 00:00', 'GETPOST');
+        $search['from'] = FormUtil::getPassedValue('date_start', date('Y-m-d', strtotime('-3 days')).' 00:00', 'GETPOST');
         $view->assign('date_start', $search['from']);
 
-        $search['to'] = AgoraPortal_Util::getFormVar($args, 'date_stop', date('Y-m-d', strtotime('+1 day')).' 00:00', 'GETPOST');
+        $search['to'] = FormUtil::getPassedValue('date_stop', date('Y-m-d', strtotime('+1 day')).' 00:00', 'GETPOST');
         $view->assign('date_stop', $search['to']);
 
-        $search['sortby_dir'] = AgoraPortal_Util::getFormVar($args, 'sortby_dir', 'ASC', 'GETPOST');
+        $search['sortby_dir'] = FormUtil::getPassedValue('sortby_dir', 'ASC', 'GETPOST');
         $view->assign('sortby_dir', $search['sortby_dir']);
 
-        $search['sortby'] = AgoraPortal_Util::getFormVar($args, 'sortby_filter', 'timeStart', 'GETPOST');
+        $search['sortby'] = FormUtil::getPassedValue('sortby_filter', 'timeStart', 'GETPOST');
         $view->assign('sortby_filter', $search['sortby']);
 
-        $startnum = AgoraPortal_Util::getFormVar($args, 'startnum', 0, 'GETPOST');
+        $startnum = FormUtil::getPassedValue('startnum', 0, 'GETPOST');
         $search['startnum'] = $startnum;
 
         $rpp = 50;
@@ -2332,24 +2149,26 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
      * @param:      The list of services to create
      * @return:     The edit form
      */
-    public function createBatch($args) {
-        $schoolCodes = AgoraPortal_Util::getFormVar($args, 'schoolCodes', null, 'POST');
-        $service = AgoraPortal_Util::getFormVar($args, 'service_sel', 0, 'POST');
-        $serviceDB = AgoraPortal_Util::getFormVar($args, 'serviceDB', null, 'POST');
-        $template = AgoraPortal_Util::getFormVar($args, 'template', null, 'POST');
-        $createClient = AgoraPortal_Util::getFormVar($args, 'createClient', null, 'POST');
+    public function createBatch() {
+        $schoolCodes = FormUtil::getPassedValue('schoolCodes', null, 'POST');
+        $service_sel = FormUtil::getPassedValue('service_sel', 5, 'POST');
+        $dbHost = FormUtil::getPassedValue('dbHost', null, 'POST');
+        $serviceDB = FormUtil::getPassedValue('serviceDB', null, 'POST');
+        $template = FormUtil::getPassedValue('template', null, 'POST');
+        $createClient = FormUtil::getPassedValue('createClient', null, 'POST');
 
         $services = ServiceTypes::get_with_db();
         $templates = ServiceTemplates::get_all();
 
         return $this->view->assign('schoolCodes', $schoolCodes)
-                        ->assign('service', $service)
-                        ->assign('services', $services)
-                        ->assign('serviceDB', $serviceDB)
-                        ->assign('template', $template)
-                        ->assign('createClient', $createClient)
-                        ->assign('templates', $templates)
-                        ->fetch('agoraportal_admin_createBatch.tpl');
+            ->assign('service_sel', $service_sel)
+            ->assign('services', $services)
+            ->assign('dbHost', $dbHost)
+            ->assign('serviceDB', $serviceDB)
+            ->assign('template', $template)
+            ->assign('createClient', $createClient)
+            ->assign('templates', $templates)
+            ->fetch('agoraportal_admin_createBatch.tpl');
     }
 
     /**
@@ -2361,11 +2180,12 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
     public function createBatch_exec($args) {
         global $agora;
 
-        $schoolCodes = AgoraPortal_Util::getFormVar($args, 'schoolCodes', null, 'POST');
-        $service_sel = AgoraPortal_Util::getFormVar($args, 'service_sel', 0, 'POST');
-        $serviceDB = AgoraPortal_Util::getFormVar($args, 'serviceDB', null, 'POST');
-        $template = AgoraPortal_Util::getFormVar($args, 'template', null, 'POST');
-        $createClient = AgoraPortal_Util::getFormVar($args, 'createClient', null, 'POST');
+        $schoolCodes = FormUtil::getPassedValue('schoolCodes', null, 'POST');
+        $service_sel = FormUtil::getPassedValue('service_sel', 0, 'POST');
+        $dbHost = FormUtil::getPassedValue('dbHost', null, 'POST');
+        $serviceDB = FormUtil::getPassedValue('serviceDB', null, 'POST');
+        $template = FormUtil::getPassedValue('template', null, 'POST');
+        $createClient = FormUtil::getPassedValue('createClient', null, 'POST');
 
         if (empty($schoolCodes)) {
             LogUtil::registerError('La llista de codis de centre no pot estar buida');
@@ -2379,11 +2199,11 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
         $servicetype = ServiceType::get_by_id($service_sel);
         if (!$servicetype) {
-            LogUtil::registerError('No s\'ha de troabat el servei '.$service_sel);
+            LogUtil::registerError('No s\'ha de trobat el servei '.$service_sel);
             return $this->createBatch($args);
         }
 
-        $serviceId = $servicetype->serviceId;
+        $serviceTypeId = $servicetype->serviceId;
         $serviceName = $servicetype->serviceName;
 
         if ($serviceName == 'nodes' && empty($template)) {
@@ -2391,9 +2211,9 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             return $this->createBatch($args);
         }
 
-        // Autofill serviceDB var with default value. This is a guess. serviceDB should come from web form.
-        if ((is_null($serviceDB) || empty($serviceDB)) && (($serviceName == 'intranet') || ($serviceName == 'nodes'))) {
-            $serviceDB = $agora['intranet']['host'];
+        // Autofill dbHost var with default value. This is a guess. dbHost should come from web form.
+        if ((is_null($dbHost) || empty($dbHost)) && (($serviceName == 'intranet') || ($serviceName == 'nodes'))) {
+            $dbHost = $agora['intranet']['host'];
         }
 
         $clientCodes = explode(',', $schoolCodes);
@@ -2412,7 +2232,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             // Pas 1: Obtenir les dades del client (taula clients)
             $client = Client::get_by_code($clientCode);
             if (!$client && $createClient) {
-                $clientName = 'form'.substr($clientCode, -3);
+                $clientName = 'form'.substr($clientCode, -3); // formxxx (three numbers)
 
                 $client_exists = Client::get_by_dns($clientName);
                 if ($client_exists) {
@@ -2425,11 +2245,12 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                     'clientCode' => $clientCode,
                     'clientName' => $clientName,
                     'clientDNS' => $clientName,
-                    'clientAddress' => "",
-                    'clientCity' => "",
-                    'clientPC' => "",
+                    'clientAddress' => '',
+                    'clientCity' => '',
+                    'clientPC' => '',
                     'clientState' => 1,
-                    'clientDescription' => 'Alta automàtica'), false);
+                    'clientDescription' => 'Alta automàtica'
+                    ), false);
                 if (!$client) {
                     $results[$clientCode] = "El centre amb codi <strong>$clientCode</strong> no està donat d'alta. I la seva creació ha fallat.";
                     $error++;
@@ -2444,15 +2265,19 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             }
 
             // Pas 2: Comprovar que el centre encara no té el servei
-            $ClientService = $client->get_service_by_id($serviceId);
-            if ($ClientService) {
+            $service = Service::get_by_client_and_service($client->clientId, $serviceTypeId); // Should return false!
+            if ($service) {
                 $results[$clientCode] = "El centre <strong>$client->clientName</strong> ja disposa del servei $serviceName. Per tant, no es crearà.";
                 $error++;
                 continue;
             }
 
             // Pas 3: Crear el Servei
-            if (!$client->request_service($serviceId, 'Alta automàtica', $template)) {
+            if (Service::get_by_client_and_service($client->clientId, $serviceTypeId)) {
+                echo "El centre <strong>$client->clientDNS</strong> ja té el servei <strong>$serviceName</strong>";
+                $error++;
+                continue;
+            } elseif (!Service::request_service($serviceTypeId, $client->clientId, 'Alta automàtica', $template)) {
                 echo "No s'ha pogut crear el servei $serviceName per al centre <strong>$client->clientDNS</strong>";
                 $error++;
                 continue;
@@ -2460,37 +2285,63 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
             if ($serviceName == 'nodes') {
                 $client->set_extraFunc($template);
+                $client->save();
             }
 
-            $clientService = $client->get_service_by_id($serviceId);
-            $clientService->serviceDB = $serviceDB;
-            $clientService->observations = 'Alta automàtica';
-            $clientService->diskSpace = $servicetype->defaultDiskSpace;
-            $clientService->save();
+            $service = Service::get_by_client_and_service($client->clientId, $serviceTypeId); // Get the object of the service created in step 3
+            $service->dbHost = $dbHost;
+            $service->serviceDB = $serviceDB;
+            $service->observations = 'Alta automàtica';
+            $service->diskSpace = $servicetype->defaultDiskSpace;
+            $service->save(); // Update values
 
             // Pas 4: Activar el Servei
-            $password = $clientService->changeState(Service::STATUS_ENABLED);
-            if (!$password) {
-                // If it fails, delete the recently created agoraportal_client_services
-                Service::delete($clientService->clientServiceId);
-                $results[$clientCode] = "No s'ha pogut activar el servei";
+            try {
+                $password = $service->changeState(Service::STATUS_ENABLED);
+            } catch (Exception $e){
+                // If it fails, delete the record created in agoraportal_client_services
+                $service->delete($service->clientServiceId);
+                $results[$clientCode] = "No s'ha pogut activar el servei: " . $e->getMessage();
                 $error++;
                 continue;
             }
-            $clientService->save();
+            $service->save();
 
             $results[$clientCode] = "S'ha creat el servei per al centre <strong>$clientCode</strong> i password <strong>$password</strong>";
             $success[$clientCode] = true;
         }
 
         return $this->view->assign('schoolCodes', $schoolCodes)
-                        ->assign('servicetype', $servicetype)
-                        ->assign('results', $results)
-                        ->assign('success', $success)
-                        ->assign('error', $error)
-                        ->assign('serviceDB', $serviceDB)
-                        ->assign('template', $template)
-                        ->assign('createClient', $createClient)
-                        ->fetch('agoraportal_admin_createBatch_exec.tpl');
+            ->assign('logo', $servicetype->get_logo())
+            ->assign('results', $results)
+            ->assign('success', $success)
+            ->assign('error', $error)
+            ->assign('dbHost', $dbHost)
+            ->assign('serviceDB', $serviceDB)
+            ->assign('template', $template)
+            ->assign('createClient', $createClient)
+            ->fetch('agoraportal_admin_createBatch_exec.tpl');
     }
+
+    /**
+     * Entry point to call the function to restore xtecadmin in each service
+     *
+     * @return bool
+     * @throws Zikula_Exception_Forbidden
+     */
+    public function restoreXtecadmin() {
+        // client code is optional
+        $clientServiceId = FormUtil::getPassedValue('clientServiceId', '', 'GET');
+
+        if (is_numeric($clientServiceId) && ($clientServiceId > 0)) {
+            $service = Service::get_by_id($clientServiceId);
+        }
+
+        if ($service->restoreXtecadmin()) {
+            LogUtil::registerStatus($this->__('S\'ha restaurat correctament l\'usuari xtecadmin'));
+        }
+
+        return System::redirect($_SERVER['HTTP_REFERER']);
+    }
+
 }

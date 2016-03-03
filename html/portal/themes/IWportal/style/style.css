@@ -6,8 +6,7 @@ body {
     font-family: arial,helvetica,clean,sans-serif;
     line-height: 20px;
     margin: 0px;
-    padding: 0px;
-    padding-top: 50px;
+    padding: 50px 0 0 0px;
 }
 
 a {
@@ -169,7 +168,7 @@ header h1 {
     margin: 20px;
 }
 
-.pn-block-content{
+.z-block-content{
     -moz-border-radius-bottomright:5px;
     -moz-border-radius-bottomleft:5px;
     -moz-box-shadow:3px 3px 3px #BBBBBB;
@@ -188,14 +187,14 @@ header h1 {
     padding: 10px 5px 15px 10px;
 }
 
-.pn-block-content-complete{
+.z-block-content-complete{
     -moz-border-radius-topleft:5px;
     -moz-border-radius-topright:5px;
     border-top-left-radius:5px;
     border-top-right-radius:5px;
 }
 
-h4.pn-block-title{
+h4.z-block-title{
     -moz-border-radius-topleft:5px;
     -moz-border-radius-topright:5px;
     -moz-box-shadow:3px 3px 3px #BBBBBB;
@@ -232,12 +231,12 @@ div.navcontainer ul, div#navcontainer ul {
     font-size:0.9em;
 }
 
-.pn-bkey-menu li, .pn-bkey-extmenu li{list-style:none; display:block; padding:2px; margin-bottom:2px;}
-.pn-bkey-menu li a, .pn-bkey-extmenu li a{font-weight:bold; text-decoration:none;}
-.pn-bkey-menu li a:hover, .pn-bkey-extmenu li a:hover{text-decoration:none;}
-.pn-bkey-menu li ul, .pn-bkey-extmenu li ul{margin:3px 0 3px 15px; font-size:1em; font-weight:normal;}
-.pn-bkey-menu li ul li, .pn-bkey-extmenu li ul li{margin-bottom:0;}
-.pn-bkey-menu li ul a, .pn-bkey-extmenu li ul a{font-weight:normal;}
+.z-bkey-menu li, .z-bkey-extmenu li{list-style:none; display:block; padding:2px; margin-bottom:2px;}
+.z-bkey-menu li a, .z-bkey-extmenu li a{font-weight:bold; text-decoration:none;}
+.z-bkey-menu li a:hover, .pn-bkey-extmenu li a:hover{text-decoration:none;}
+.z-bkey-menu li ul, .z-bkey-extmenu li ul{margin:3px 0 3px 15px; font-size:1em; font-weight:normal;}
+.z-bkey-menu li ul li, .z-bkey-extmenu li ul li{margin-bottom:0;}
+.z-bkey-menu li ul a, .z-bkey-extmenu li ul a{font-weight:normal;}
 
 
 /**************** Footer styles ****************/
@@ -288,7 +287,7 @@ img {
 /* Table styles based on style from the css table gallery
    STYLESHEET: CLEAR BLUE, AUTHOR: ROBERT HARTL */
 
-table.pn-datatable {
+table.z-datatable {
     width:100%;
     line-height:1.2em;
     background-color:#fff;
@@ -298,7 +297,7 @@ table.pn-datatable {
     margin-bottom:1em;
 }
 
-table.pn-datatable caption {
+table.z-datatable caption {
     padding-bottom:1em;
     text-align: center;
     font-size: 1.4em;
@@ -309,7 +308,7 @@ table.pn-datatable caption {
     background: transparent;
 }
 
-table.pn-datatable thead th, table.pn-datatable tfoot th, table.pn-datatable tfoot td {
+table.z-datatable thead th, table.z-datatable tfoot th, table.z-datatable tfoot td {
     border-right: 1px solid #fff;
     padding-left:5px;
     font-variant:small-caps;
@@ -318,42 +317,42 @@ table.pn-datatable thead th, table.pn-datatable tfoot th, table.pn-datatable tfo
     background: #a0a0a0;
 }
 
-table.pn-datatable tfoot th, table.pn-datatable tfoot td {
+table.z-datatable tfoot th, table.z-datatable tfoot td {
     border-top: 2pt double #009;
 }
 
-table.pn-datatable td, table.pn-datatable th {
+table.z-datatable td, table.z-datatable th {
     padding:4px;
 }
 
-table.pn-datatable tbody tr th, table.pn-datatable tbody tr td {
+table.z-datatable tbody tr th, table.z-datatable tbody tr td {
     border-bottom: 1px dotted #467aa7;
 }
 
-table.pn-datatable tbody tr:hover td, table.pn-datatable tbody tr:hover th {
+table.z-datatable tbody tr:hover td, table.z-datatable tbody tr:hover th {
     border-bottom: 1px solid #467aa7;
 }
 
-table.pn-datatable tbody td a, table.pn-datatable tbody th a {
+table.z-datatable tbody td a, table.z-datatable tbody th a {
     background: transparent;
     text-decoration: none;
     border:none;
 }
 
-table.pn-datatable tbody td a:hover, table.pn-datatable tbody th a:hover {
+table.z-datatable tbody td a:hover, table.z-datatable tbody th a:hover {
     background: transparent;
 }
 
-table.pn-datatable .odd {
+table.z-datatable .odd {
     background: #e3e3f4;
 }
 
-table.pn-datatable tbody tr:hover {
+table.z-datatable tbody tr:hover {
     color: #333;
     background: #e8eaec;
 }
 
-table.pn-datatable tbody tr th:hover {
+table.z-datatable tbody tr th:hover {
     background:#fff;
 }
 
@@ -419,7 +418,7 @@ COLOR5: #D0D0D0 #BBEEEE #87BDC1 #FFEDBA #B3CD7B #B3CADB
 }
 /**************** Blocks **************************/
 
-h4.pn-block-title{
+h4.z-block-title{
     background-color:#AC2013; /*COLOR2*/
     border-color: #AC2013; /*COLOR2*/
 }
@@ -444,4 +443,13 @@ h4.pn-block-title{
 
 #iw_menu li li.branch{ /*Personalizable*/
     border-right: 3px solid #AC2013 !important;
+}
+
+div.tab-content {
+    background: #fff;
+    color: #333;
+    width: auto;
+    border: 1px solid #ccc;
+    border-top: none;
+    padding: 5px 1%;
 }

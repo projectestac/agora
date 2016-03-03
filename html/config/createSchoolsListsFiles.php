@@ -34,7 +34,7 @@ if (isset($args['update'])) {
 
 
     /* MOODLE 2 update file */
-    $schools = getAllSchools('activedId', 'asc', 'moodle2', '1');
+    $schools = getServices(false, 'activedId', 'asc', 'moodle2', '1');
 
     $schoolsvar = '';
     foreach ($schools as $school) {
@@ -42,11 +42,11 @@ if (isset($args['update'])) {
             $schoolsvar .= $school['school_dns'] . "\n";
         } else {
             if ($newversion) {
-                $schoolsvar .= $agora['server']['html'] . $school['school_dns'] .
+                $schoolsvar .= $agora['server']['html'] . $school['dns'] .
                     "/moodle/admin/index.php?confirmupgrade=1&confirmrelease=1&autopilot=1&confirmplugincheck=1&lang=ca&cache=0\n";
             }
             for ($i = 0; $i < $numexec; $i++) {
-                $schoolsvar .= $agora['server']['html'] . $school['school_dns'] .
+                $schoolsvar .= $agora['server']['html'] . $school['dns'] .
                     "/moodle/admin/index.php?lang=ca&autopilot=1\n";
             }
         }
@@ -56,14 +56,14 @@ if (isset($args['update'])) {
 
 
     /* ZIKULA update file */
-    $schools = getAllSchools('activedId', 'asc', 'intranet', '1');
+    $schools = getServices(false, 'activedId', 'asc', 'intranet', '1');
 
     $schoolsvar = '';
     foreach ($schools as $school) {
         if ($onlyname) {
-            $schoolsvar .= $school['school_dns'] . "\n";
+            $schoolsvar .= $school['dns'] . "\n";
         } else {
-            $schoolsvar .= $agora['server']['html'] . $school['school_dns'] . "/intranet/upgradeModules.php\n";
+            $schoolsvar .= $agora['server']['html'] . $school['dns'] . "/intranet/upgradeModules.php\n";
         }
     }
 
@@ -71,14 +71,14 @@ if (isset($args['update'])) {
 
 
     /* NODES update file */
-    $schools = getAllSchools('activedId', 'asc', 'nodes', '1');
+    $schools = getServices(false, 'activedId', 'asc', 'nodes', '1');
 
     $schoolsvar = '';
     foreach ($schools as $school) {
         if ($onlyname) {
-            $schoolsvar .= $school['school_dns'] . "\n";
+            $schoolsvar .= $school['dns'] . "\n";
         } else {
-            $schoolsvar .= $agora['server']['html'] . $school['school_dns'] . "/wp-admin/upgrade.php?step=1\n";
+            $schoolsvar .= $agora['server']['html'] . $school['dns'] . "/wp-admin/upgrade.php?step=1\n";
         }
     }
 
@@ -105,11 +105,11 @@ if (isset($args['update'])) {
     );
 
     foreach ($services as $service) {
-        $schools = getAllSchools('activedId', 'asc', $service['name'], '1');
-        
+        $schools = getServices(false, 'activedId', 'asc', $service['name'], '1');
+
         $schoolsvar = '';
         foreach ($schools as $school) {
-            $schoolsvar .= $agora['server']['html'] . $school['school_dns'] . $service['url'];
+            $schoolsvar .= $agora['server']['html'] . $school['dns'] . $service['url'];
         }
 
         saveVarToFile($service['file'], $schoolsvar);

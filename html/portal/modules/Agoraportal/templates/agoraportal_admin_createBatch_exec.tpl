@@ -1,15 +1,19 @@
+{adminheader}
+
 {include file="agoraportal_admin_menu.tpl"}
+
 <h3>{gt text="Creació Massiva"}</h3>
 <div class="panel panel-info">
     <div class="panel-heading">
-        Opcions de la creació
+        {gt text="Opcions de la creació"}
     </div>
     <div class="panel-body">
-        {$servicetype->logo}<br>
+        {$logo}<br />
         <strong>{gt text="Codis a crear:"}</strong> {$schoolCodes}<br/>
+        <strong>{gt text="dbHost:"}</strong> {$dbHost}<br/>
         <strong>{gt text="serviceDB:"}</strong> {$serviceDB}<br/>
         <strong>{gt text="Plantilla:"}</strong> {$template}<br/>
-        <strong>{gt text="Crea els clients que no existeixin:"}</strong> {if $createClient eq 1}Si{else}No{/if}<br/>
+        <strong>{gt text="Crea els clients que no existeixin:"}</strong> {if $createClient eq 1}{gt text="Sí"}{else}{gt text="No"}{/if}<br />
     </div>
 </div>
 
@@ -32,3 +36,5 @@
         </tbody>
     </table>
 </div>
+
+{adminfooter}

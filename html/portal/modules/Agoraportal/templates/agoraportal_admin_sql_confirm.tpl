@@ -3,7 +3,7 @@
 <div class="panel panel-info">
     <div class="panel-heading">
         {$servicetype->logo}
-        {gt text="Funció a executar"}</div>
+        {gt text="Sentència a executar"}</div>
     <div class="panel-body" style="white-space: pre;">
         {$sqlfunc}
     </div>
@@ -24,7 +24,7 @@
     {/if}
     </div>
 </div>
-<form name="sqlForm" id="sqlForm" action="index.php?module=Agoraportal&type=admin&func=sql" method="POST">
+<form name="sqlForm" id="sqlForm" action="{modurl modname='Agoraportal' type='admin' func='sql'}" method="POST">
     <div class="hidden">
         <input type="hidden" name="which" value="{$which}">
         <input name="service_sel" type="hidden" value="{$servicetype->serviceId}" />

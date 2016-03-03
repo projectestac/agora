@@ -24,7 +24,7 @@
                                 {if $column eq 'clientDNS'}
                                     {assign var=clientDNS value=$field}
                                     {if $show_access_button}
-                                        <button onclick="statsGetStatistics(false, '{$clientDNS}'); statsGetStatisticsGraphs('{$clientDNS}', false);" class="btn btn-default btn-xs" aria-label="Filtra aquest centre i mostra els accessos" title="Filtra aquest centre i mostra els accessos">
+                                        <button onclick="statsGetStatistics(false, '{$clientDNS}'); statsGetStatisticsGraphs('{$clientDNS}', false);" class="btn btn-default btn-xs" aria-label="Cerca aquest centre i mostra els accessos" title="Cerca aquest centre i mostra els accessos">
                                             <span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
                                         </button>
                                     {/if}

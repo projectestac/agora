@@ -20,7 +20,7 @@ class ServiceType_portal extends ServiceType {
      * Returns Logo (image not available so, returns text)
      * @return string
      */
-    public function get_logo() {
+    public function get_logo($link = false) { // Param is required for compatibility with definition in other classes
         return 'Portal';
     }
 }
@@ -70,7 +70,7 @@ class Service_portal extends Service {
      * @param bool|false $createDB
      * @return false|mysqli
      */
-    public static function getDBConnection($host = false, $dbid = false, $createDB = false) {
+    public static function getDBConnection($host = false, $serviceDB = false, $dbid = false, $createDB = false) {
         global $agora;
 
         $databaseName = $agora['admin']['database'];
