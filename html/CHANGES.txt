@@ -3,8 +3,30 @@ Release notes for Agora (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
-Changes in progress
+Changes 16.03.14
 ---------------------------------------------------------------------------------------
+MOODLE
+- Updated LangPacks
+- Added progress bar block and updated submodules in order to get progress bar working
+- MDL-48778 assign: Use proper latest attempt for quickgrading prechecks
+- Added delete temporary tables to cron
+
+NODES
+- Reactor: Moved hard coded language strings to po file (Trello #963)
+- Reactor: Moved equalization of cards to a file previously loaded to increase speed (Trello #963)
+- Reactor: Merged files from primaria and serveis-education to the parent theme (Trello #963)
+- mu-common: Improved add category image option to let remove it (Trello #1150)
+- xtec-ldap-login: Ensure the user metadata is set, as it is required to create blogs in XTECBlocs (Trello #1105)
+- bp-moderation: Fixed bug with incorrect viewing link from inappropriate admin comments page (Trello #1160)
+- Themes: Revert changes made to avoid 3 columns (Trello #1173)
+- Themes: Merged css files (Trello #1173)
+- Themes: Deleted unused functions and fonts (Trello #1173)
+- Intraweb Importer: Optimize intranet importer loading (Trello #1173)
+- Themes: Merge side-menu template (Trello #1173)
+- Themes: Create a grid to display a header properly (Trello #1173)
+- GCE: Fixed warning for non-superadmin users
+- Changed server domain for SE from agora.xtec.cat to serveiseducatius.xtec.cat (Trello #1086)
+
 GENERAL
 - Works.php: Added check for data directories (Trello #1110)
 
