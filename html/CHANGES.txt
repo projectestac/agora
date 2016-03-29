@@ -11,6 +11,7 @@ NODES
 - Reactor: Fixed bug when resizing cards (Trello #1187)
 - XTEC lib: Added suport for extension Email Subscriber in service activation and in URL replace (Trello #1174)
 - Theme reactor-serveis-educatius: Fixed menu options set to _blank not opening in new window (Trello #1175)
+- Email Subscribers: Changed default group from Public to Portada (Trello #833)
 
 
 Changes 16.03.14
