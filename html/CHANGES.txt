@@ -14,6 +14,10 @@ NODES
 - Email Subscribers: Changed default group from Public to Portada (Trello #833)
 
 
+PORTAL
+- Avoid access to requests page to clients (only managers can access) (Trello #1204)
+
+
 Changes 16.03.14
 ---------------------------------------------------------------------------------------
 MOODLE

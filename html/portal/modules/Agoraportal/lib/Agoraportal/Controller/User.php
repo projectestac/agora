@@ -848,7 +848,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
      * @return:     The client requests list
      */
     public function requests($args) {
-        AgoraPortal_Util::requireClient();
+        AgoraPortal_Util::requireManager();
 
         // client code is optional
         $clientCode = AgoraPortal_Util::getFormVar($args, 'clientCode');
@@ -898,7 +898,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
      * @return:     The new request if success and error message otherwise
      */
     public function addRequest($args) {
-        AgoraPortal_Util::requireClient();
+        AgoraPortal_Util::requireManager();
 
         $service = AgoraPortal_Util::getFormVar($args, 'requestMenuServices');
         $typeId = AgoraPortal_Util::getFormVar($args, 'requestFilter');
