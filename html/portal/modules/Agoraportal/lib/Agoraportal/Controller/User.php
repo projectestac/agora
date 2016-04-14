@@ -848,7 +848,10 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
      * @return:     The client requests list
      */
     public function requests($args) {
-        AgoraPortal_Util::requireManager();
+        if (!AgoraPortal_Util::isManager()) {
+            LogUtil::registerError($this->__("L'accés amb codi de centre només permet modificar els gestors. Les sol·licituds (ampliacions de quota, canvis de contrasenya, etc.) les han de fer els gestors."));
+            return System::redirect(ModUtil::url('Agoraportal', 'user', 'managers'));
+        }
 
         // client code is optional
         $clientCode = AgoraPortal_Util::getFormVar($args, 'clientCode');
