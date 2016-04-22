@@ -1126,7 +1126,7 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (1786, 'widget_a2a_share_save_widget', 'a:2:{i:1;a:0:{}s:12:"_multiwidget";i:1;}', 'yes'),
 (1787, 'widget_xtec_stats_widget', 'a:2:{i:1;a:0:{}s:12:"_multiwidget";i:1;}', 'yes'),
 (1813, 'common_css', '', 'yes'),
-(1843, 'recaptcha_options', 'a:5:{s:8:"site_key";s:40:"6LcgQgsAAAAAAMZKqiYEDAhniHIY0hXC-MMVM6Rs";s:6:"secret";s:40:"6LcgQgsAAAAAAMAOLB0yfxPACo0e60sKD5ksV_hP";s:14:"comments_theme";s:8:"standard";s:18:"recaptcha_language";s:2:"ca";s:17:"no_response_error";s:58:"<strong>ERROR</strong>: Please fill in the reCAPTCHA form.";}', 'yes'),
+(1843, 'recaptcha_options', 'a:5:{s:8:"site_key";s:40:"6LddJgoTAAAAAFCT6LwNkKU2YR2qNMG7fQgIXse8";s:6:"secret";s:40:"6LddJgoTAAAAAKs-yBghGgTZmAB1oPLQlldWYKAh";s:14:"comments_theme";s:8:"standard";s:18:"recaptcha_language";s:2:"ca";s:17:"no_response_error";s:58:"<strong>ERROR</strong>: Please fill in the reCAPTCHA form.";}', 'yes'),
 (1867, 'bp-disable-group-cover-image-uploads', '1', 'yes'),
 (1868, 'bp-disable-cover-image-uploads', '1', 'yes'),
 (1869, 'ga_analyticator_global_notification', '1', 'yes'),
