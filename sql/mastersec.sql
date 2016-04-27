@@ -959,7 +959,7 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (34, 'category_base', '/categoria', 'yes'),
 (35, 'ping_sites', 'http://rpc.pingomatic.com/', 'yes'),
 (36, 'advanced_edit', '0', 'yes'),
-(37, 'comment_max_links', '2', 'yes'),
+(37, 'comment_max_links', '3', 'yes'),
 (38, 'gmt_offset', '1', 'yes'),
 (39, 'default_email_category', '1', 'yes'),
 (40, 'recently_edited', '', 'no'),
