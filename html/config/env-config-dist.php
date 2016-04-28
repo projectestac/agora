@@ -26,6 +26,8 @@ $agora['moodle2']['database']  = 'XE';            // Base de dades (tal i com es
 $agora['moodle2']['dbnumber']  = '';              // Número de la primera base de dades de l'aplicació; a acceptació en blanc i a producció 3
 $agora['moodle2']['datadir']   = $agora['server']['docs'] . 'moodle2/';  // Directori de dades d'usuari del moodle2
 $agora['moodle2']['memcache_servers'] = '127.0.0.1';
+//$agora['moodle2']['filepath_number'] = 0;     // Total de "usus" que hi haurà a cada directori de dades
+//$agora['moodle2']['filepath_prefix'] = 'dades'; // Directori intermig on es troben els usu (dadesX)
 
 // Schools intranet database access info (MySQL)
 $agora['intranet']['username'] = 'root';          // Usuari/ària per accedir a les bases de dades de les intranets

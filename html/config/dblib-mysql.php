@@ -1042,3 +1042,41 @@ function isServeiEducatiu()
 
     return isset($school_info['type']) && $school_info['type'] == SERVEI_EDUCATIU_ID ? true : false;
 }
+
+/**
+ * Calculate filepath for Moodle
+ *
+ * @param   int database number
+ * @return  string instance name
+ */
+function get_filepath_moodle($args) {
+    global $agora, $school_info;
+
+    $filepath = $agora['moodle2']['datadir'];
+    $filepath_number = 0;
+    if (array_key_exists('filepath_number', $agora['moodle2'])) {
+        $filepath_number = (int) $agora['moodle2']['filepath_number'];
+        $filepath_start = 1;
+    }
+
+    // If $filepath_number is not set or it is an empty string, at this point its value
+    // will be 0. In that case, no offset is applied
+    if (empty($filepath_number)) {
+        return $filepath . $agora['moodle2']['username'] . $school_info['id_moodle2'];
+    }
+
+    $offset = floor($school_info['id_moodle2'] / $filepath_number) + (($school_info['id_moodle2'] % $filepath_number) == 0 ? ($filepath_start - 1) : $filepath_start);
+
+    if ($offset > 0) {
+        $offset = (string) $offset; // Ensure there will not be cast issues
+        $filepath_prefix = 'dades';
+        if (array_key_exists('filepath_prefix', $agora['moodle2'])) {
+            $filepath_prefix = $agora['moodle2']['filepath_prefix'];
+        }
+        $filepath = $filepath . $filepath_prefix .$offset. '/' . $agora['moodle2']['username'] . $school_info['id_moodle2'];
+    } else {
+        $filepath = $filepath . $agora['moodle2']['username'] . $school_info['id_moodle2'];
+    }
+
+    return $filepath;
+}
