@@ -1874,8 +1874,12 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
         $serviceName = $services[$client[$clientServiceId]['serviceId']]['serviceName'];
 
         // Get absolute path to usage file
-        $dir = $agora['server']['root'] . $agora[$serviceName]['datadir'] . $agora[$serviceName]['userprefix'] . $client[$clientServiceId]['activedId'];
-
+        //$dir = $agora['server']['root'] . $agora[$serviceName]['datadir'] . $agora[$serviceName]['userprefix'] . $client[$clientServiceId]['activedId'];
+        if ($serviceName == 'moodle2') {
+            $dir = $agora['server']['root'] . get_filepath_moodle($client[$clientServiceId]['activedId']);
+        } else {
+            $dir = $agora['server']['root'] . $agora[$serviceName]['datadir'] . $agora[$serviceName]['userprefix'] . $client[$clientServiceId]['activedId'];
+        }
         if (!is_dir($dir)) {
             LogUtil::registerError($this->__('No s\'ha trobat el directori ' . $dir));
             return false;

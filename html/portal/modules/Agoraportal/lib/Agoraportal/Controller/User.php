@@ -432,7 +432,8 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
             // send file to folder
             $fileToMove = $agora['server']['ubr_upload'] . $file;
             $folder = $agora['moodle2']['repository_files'];
-            $destination = $agora['server']['root'] . $agora[$serviceName]['datadir'] . $agora[$serviceName]['username'] . $clientService['activedId'] . $folder;
+            //$destination = $agora['server']['root'] . $agora[$serviceName]['datadir'] . $agora[$serviceName]['username'] . $clientService['activedId'] . $folder;
+            $destination = $agora['server']['root'] . get_filepath_moodle($clientService['activedId']) . $folder;
             if (!file_exists($fileToMove)) {
                 LogUtil::registerError($this->__('No s\'ha trobat el directori d\'origen'));
                 return System::redirect(ModUtil::url('Agoraportal', 'user', 'main', array('clientCode' => $clientCode)));
@@ -462,7 +463,8 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
 
         // read moodle2 repository folder
         if ($action == 'm2x') {
-            $folder = $agora['server']['root'] . $agora['moodle2']['datadir'] . $agora['moodle2']['userprefix'] . $clientService['activedId'] . '/repository/files/';
+            //$folder = $agora['server']['root'] . $agora['moodle2']['datadir'] . $agora['moodle2']['userprefix'] . $clientService['activedId'] . '/repository/files/';
+            $folder = $agora['server']['root'] . get_filepath_moodle($clientService['activedId']) . '/repository/files/';
             if (is_dir($folder)) {
                 $moodle2RepoFiles = array();
                 $objects = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($folder), RecursiveIteratorIterator::SELF_FIRST);

@@ -1049,7 +1049,7 @@ function isServeiEducatiu()
  * @param   int database number
  * @return  string instance name
  */
-function get_filepath_moodle($args) {
+function get_filepath_moodle($id_moodle2 = '') {
     global $agora, $school_info;
 
     $filepath = $agora['moodle2']['datadir'];
@@ -1059,13 +1059,17 @@ function get_filepath_moodle($args) {
         $filepath_start = 1;
     }
 
-    // If $filepath_number is not set or it is an empty string, at this point its value
-    // will be 0. In that case, no offset is applied
-    if (empty($filepath_number) || (array_key_exists('filepath_lastmoved', $agora['moodle2']) && $agora['moodle2']['filepath_lastmoved'] < $school_info['id_moodle2'] )  ) {
-        return $filepath . $agora['moodle2']['username'] . $school_info['id_moodle2'];
+    if (empty($id_moodle2)) {
+        $id_moodle2 = $school_info['id_moodle2'];
     }
 
-    $offset = floor($school_info['id_moodle2'] / $filepath_number) + (($school_info['id_moodle2'] % $filepath_number) == 0 ? ($filepath_start - 1) : $filepath_start);
+    // If $filepath_number is not set or it is an empty string, at this point its value
+    // will be 0. In that case, no offset is applied
+    if (empty($filepath_number) || (array_key_exists('filepath_lastmoved', $agora['moodle2']) && $agora['moodle2']['filepath_lastmoved'] < $id_moodle2 )  ) {
+        return $filepath . $agora['moodle2']['username'] . $id_moodle2;
+    }
+
+    $offset = floor($id_moodle2 / $filepath_number) + (($id_moodle2% $filepath_number) == 0 ? ($filepath_start - 1) : $filepath_start);
 
     if ($offset > 0) {
         $offset = (string) $offset; // Ensure there will not be cast issues
@@ -1073,9 +1077,9 @@ function get_filepath_moodle($args) {
         if (array_key_exists('filepath_prefix', $agora['moodle2'])) {
             $filepath_prefix = $agora['moodle2']['filepath_prefix'];
         }
-        $filepath = $filepath . $filepath_prefix .$offset. '/' . $agora['moodle2']['username'] . $school_info['id_moodle2'];
+        $filepath = $filepath . $filepath_prefix .$offset. '/' . $agora['moodle2']['username'] . $id_moodle2;
     } else {
-        $filepath = $filepath . $agora['moodle2']['username'] . $school_info['id_moodle2'];
+        $filepath = $filepath . $agora['moodle2']['username'] . $id_moodle2;
     }
 
     return $filepath;

@@ -3775,7 +3775,11 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $activedId = AgoraPortal_Util::getFormVar($args, 'activedId');
 
         if (isset($serviceName) && isset($activedId)) {
-            $dataDir = $agora['server']['root'] . $agora[$serviceName]['datadir'] . $agora['server']['userprefix'] . $activedId;
+            if ($serviceName == 'moodle2') {
+                $dataDir = $agora['server']['root'] . get_filepath_moodle($activedId);
+            } else {
+                $dataDir = $agora['server']['root'] . $agora[$serviceName]['datadir'] . $agora['server']['userprefix'] . $activedId;
+            }
             if (filetype($dataDir) == 'dir') {
                 echo '<h3>' . $agora['server']['userprefix'] . $activedId . ': ' . exec("du -skh $dataDir") . '</h3>';
                 $dh2 = opendir($dataDir);
