@@ -3,6 +3,12 @@ Release notes for Agora (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
+Changes 16.05.03
+---------------------------------------------------------------------------------------
+MOODLE
+- Added params and functions to split Moodle folders if necessary
+
+
 Changes 16.03.30
 ---------------------------------------------------------------------------------------
 NODES
