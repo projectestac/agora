@@ -51,6 +51,7 @@ gitcheckout "html/wordpress/wp-content/plugins/buddypress-docs" "master" "git@gi
 gitcheckout "html/wordpress/wp-content/plugins/email-subscribers" "master" "git@github.com:projectestac/wordpress-email-subscribers.git"
 gitcheckout "html/wordpress/wp-content/plugins/google-analyticator" "master" "git@github.com:projectestac/wordpress-google-analyticator.git"
 gitcheckout "html/wordpress/wp-content/plugins/google-calendar-events" "master" "git@github.com:projectestac/wordpress-gce.git"
+gitcheckout "html/wordpress/wp-content/plugins/import-users-from-csv-with-meta" "master" "git@github.com:projectestac/wordpress-import-users-from-csv-with-meta.git"
 gitcheckout "html/wordpress/wp-content/plugins/invite-anyone" "master" "git@github.com:projectestac/wordpress-invite-anyone.git"
 gitcheckout "html/wordpress/wp-content/plugins/raw-html" "master" "git@github.com:projectestac/wordpress-raw-html.git"
 gitcheckout "html/wordpress/wp-content/plugins/slideshow-jquery-image-gallery" "master" "git@github.com:projectestac/wordpress-slideshow-jig.git"
