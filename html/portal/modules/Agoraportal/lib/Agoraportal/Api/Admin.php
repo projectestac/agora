@@ -457,7 +457,8 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         }
 
         $dbfile = $ZConfig['System']['datadir'] . '/nodes/master' . $shortcode . '.sql';
-        $datafile = $agora['server']['root'] . $agora['moodle2']['datadir'] . $agora['nodes']['userprefix'] . '1/repository/files/master' . $shortcode . '.zip';
+        //$datafile = $agora['server']['root'] . $agora['moodle2']['datadir'] . $agora['nodes']['userprefix'] . '1/repository/files/master' . $shortcode . '.zip';
+        $datafile = $agora['server']['root'] . get_filepath_moodle(1) . '/repository/files/master' . $shortcode . '.zip';
 
         if (!file_exists($dbfile)) {
             LogUtil::registerError($this->__f("No s'ha trobat el fitxer de base de dades %s", $dbfile));
