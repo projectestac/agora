@@ -506,7 +506,8 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         $folder = $agora['moodle2']['repository_files'];
 
         $clientService = ModUtil::apiFunc('Agoraportal', 'user', 'getClientService', array('clientId' => $clientInfo['client'][$clientCode]['clientId'], 'serviceName' => 'moodle2'));
-        $folder = $agora['server']['root'] . $agora['moodle2']['datadir'] . $agora['moodle2']['userprefix'] . $clientService['activedId'] . $folder;
+        //$folder = $agora['server']['root'] . $agora['moodle2']['datadir'] . $agora['moodle2']['userprefix'] . $clientService['activedId'] . $folder;
+        $folder = $agora['server']['root'] . get_filepath_moodle($clientService['activedId']) . $folder;
 
         //Check if file exists. If not returns error.
         if (!file_exists($filename)) {
