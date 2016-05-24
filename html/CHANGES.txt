@@ -3,6 +3,19 @@ Release notes for Agora (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
+Changes 16.05.30
+---------------------------------------------------------------------------------------
+MOODLE
+
+NODES
+
+PORTAL
+- xtec-mailer: Compress log files to zip
+
+ZIKULA
+- xtec-mailer: Compress log files to zip
+
+
 Changes 16.05.03
 ---------------------------------------------------------------------------------------
 MOODLE
@@ -18,6 +31,9 @@ NODES
 - XTEC lib: Added suport for extension Email Subscriber in service activation and in URL replace (Trello #1174)
 - Theme reactor-serveis-educatius: Fixed menu options set to _blank not opening in new window (Trello #1175)
 - Email Subscribers: Changed default group from Public to Portada (Trello #833)
+
+PORTAL
+- Avoid access to requests page to clients (only managers can access) (Trello #1204)
 
 
 Changes 16.03.14
