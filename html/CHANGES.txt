@@ -16,6 +16,41 @@ MOODLE
 - Added Quiz access rules: Offline attempts access rule to enable offline quizzes from the app
 
 NODES
+- Upgraded WordPress to version 4.4.3 (Trello #1176)
+- Reactor: Fixed bug with right column size if only right column is enabled (Trello #1185)
+- Reactor: Fixed bug with icon in last card (Trello #1187)
+- Reactor: Fixed bug getting multiple categories posts from URL (Trello #1142)
+- Reactor: Minor improvements in CSS
+- Reactor: Added three color palettes (GitHub #275)
+- Reactor: Fixed line-height in default WordPress formats, used by imported posts (GitHub #412)
+- Reactor: Added description link (Trello #1218)
+- reactor-serveis-educatius: Options of depth 0 in menu don't break in two lines if they're long
+- Disabled asynchronous default cron because there's an hourly system cron (Trello #1112)
+- Added embed, iframe and script support in kses
+- Hidden options in Settings menu (Trello #1219)
+- Fixed bug with searching members or groups box (Trello #1216)
+- xtec-ldap-login: Any existing user whose e-mail is XTEC, will always log in through LDAP if it is activated (Trello #1105)
+- mu-common: Avoid delete page_on_front because front page is not shown if it doesn't exist (Trello #1178)
+- mu-common: Replace template if front-page page is not using correct one (Trello #1178)
+- xtec-mailer: Displayed reply-to parameter for admins to allow them to change it (Trello #1206)
+- xtec-mailer: Taken Reply-to from headers if specified (Trello #1206)
+- xtec-mailer: Compress log files to zip
+- enllacos-educatius: Changed xtec.cat to xtec.gencat.cat (Trello #1207)
+- enllacos-educatius: Added links to Google Classroom and to Serveis Educatius (GitHub #241)
+- buddypress-activity-plus: Upgraded from version 1.6.2 to 1.6.4 (Trello #1039)
+- buddypress + invite-anyone: Reviewed catalan translation (Trello #1209)
+- WSL: Upgraded to version 2.3.0 (Trello #1035)
+- Grup-Classe: Added Email subscribers integration to Grup-Classe widget (GitHub #193)
+- Email Subscribers: Improved widget design (GitHub #193)
+- intraweb-importer: Copy and update creation date of content. Import again deleted content (Trello #1236)
+- import-users-from-csv-with-meta: Upgraded to version 1.8.7.2 (Trello #1043)
+- widget-visibility-without-jetpack: Fixed button "Visibility" not showing in Customizer under WP 4.4 (Trello #1176)
+- add-to-any: Upgraded plugin to version 1.6.16
+- buddypress-docs: Upgraded plugin to version 1.9.0
+- google-analyticator: Upgraded plugin to version 6.4.9.7
+- raw-html: Upgraded plugin to version 1.4.16
+- Carrusel: Added textarea for album extension content
+- tinymce-advanced: Upgraded plugin to version 4.2.8 (Trello #985)
 
 PORTAL
 - xtec-mailer: Compress log files to zip
