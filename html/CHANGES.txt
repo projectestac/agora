@@ -6,6 +6,14 @@ development home at https://github.com/projectestac/agora
 Changes 16.05.30
 ---------------------------------------------------------------------------------------
 MOODLE
+- Moodle upgraded to from 2.8.12 (Trello #1213)
+- Updated local_mobile to 2.8.310
+- Updated mod/questionaire
+- Updated local/oauth
+- local_agora: Changed default exceptionerror to avoid error in admin pages when datadir is not writable
+- Zipped old log cron and mailer files until they will be deleted (Trello #1234)
+- Updated mod/hotpot
+- Added Quiz access rules: Offline attempts access rule to enable offline quizzes from the app
 
 NODES
 

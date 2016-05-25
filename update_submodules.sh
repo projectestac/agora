@@ -25,6 +25,7 @@ gitcheckout "html/moodle2/mod/hotpot" "master" "https://github.com/gbateson/mood
 gitcheckout "html/moodle2/mod/jclic" "MOODLE_28_STABLE" "git@github.com:projectestac/moodle-mod_jclic.git"
 gitcheckout "html/moodle2/mod/journal" "MOODLE_28_STABLE" "https://github.com/dmonllao/moodle-mod_journal.git"
 gitcheckout "html/moodle2/mod/questionnaire" "MOODLE_28_STABLE" "https://github.com/remotelearner/moodle-mod_questionnaire.git"
+gitcheckout "html/moodle2/mod/quiz/accessrule/offlineattempts" "master" "https://github.com/jleyva/moodle-quizaccess_offlineattempts.git"
 gitcheckout "html/moodle2/mod/qv" "master" "git@github.com:projectestac/moodle-mod_qv.git"
 gitcheckout "html/moodle2/question/format/hotpot" "master" "https://github.com/gbateson/moodle-qformat_hotpot.git"
 gitcheckout "html/moodle2/question/type/ddimageortext" "master" "https://github.com/moodleou/moodle-qtype_ddimageortext.git"
