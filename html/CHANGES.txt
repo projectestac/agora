@@ -51,6 +51,7 @@ NODES
 - raw-html: Upgraded plugin to version 1.4.16
 - Carrusel: Added textarea for album extension content
 - tinymce-advanced: Upgraded plugin to version 4.2.8 (Trello #985)
+- Fixed bug with terms splitting and with visibility menus on Activity pages
 
 PORTAL
 - xtec-mailer: Compress log files to zip
