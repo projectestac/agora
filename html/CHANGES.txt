@@ -3,6 +3,18 @@ Release notes for Agora (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
+Changes in progress
+---------------------------------------------------------------------------------------
+MOODLE
+
+
+NODES
+- BuddyPress Group Email Subscription: Converted to submodule (Trello #1042)
+
+PORTAL
+
+ZIKULA
+
 Changes 16.05.30
 ---------------------------------------------------------------------------------------
 MOODLE
