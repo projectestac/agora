@@ -10,6 +10,7 @@ MOODLE
 
 NODES
 - BuddyPress Group Email Subscription: Converted to submodule and updated to 3.6.1 (Trello #1042)
+- BuddyPress: Converted to submodule
 
 PORTAL
 
