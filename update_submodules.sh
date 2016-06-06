@@ -47,6 +47,7 @@ gitcheckout "html/wordpress" "master" "git@github.com:projectestac/agora_nodes.g
 gitcheckout "html/wordpress/wp-content/mu-plugins/common" "master" "git@github.com:projectestac/wordpress-mu-common.git"
 gitcheckout "html/wordpress/wp-content/plugins/add-to-any" "master" "git@github.com:projectestac/wordpress-add-to-any.git"
 gitcheckout "html/wordpress/wp-content/plugins/blogger-importer" "master" "git@github.com:projectestac/wordpress-blogger-importer.git"
+gitcheckout "html/wordpress/wp-content/plugins/buddypress" "master" "git@github.com:projectestac/wordpress-buddypress.git"
 gitcheckout "html/wordpress/wp-content/plugins/buddypress-activity-plus" "master" "git@github.com:projectestac/wordpress-buddypress-activity-plus.git"
 gitcheckout "html/wordpress/wp-content/plugins/buddypress-docs" "master" "git@github.com:projectestac/wordpress-buddypress-docs.git"
 gitcheckout "html/wordpress/wp-content/plugins/buddypress-group-email-subscription" "master" "git@github.com:projectestac/wordpress-buddypress-group-email-subscription.git"
