@@ -13,6 +13,7 @@ PORTAL
 - agoraportal: Fixed quota e-mails not being sent to managers
 
 ZIKULA
+- Added code to activate read only mode
 
 
 
