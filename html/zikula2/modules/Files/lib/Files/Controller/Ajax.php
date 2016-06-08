@@ -118,6 +118,14 @@ class Files_Controller_Ajax extends Zikula_AbstractController {
         $content = ModUtil::func('Files', 'user', 'createDirForm', array('folder' => $folder,
                     'external' => $external,
                     'editor' => $editor));
+
+        // XTEC ************ AFEGIT - Don't allow directori creation in read only mode
+        // 2016.06.17 @aginard
+        if (ModUtil::getVar('IWmain', 'readonly') == 1) {
+            $content = '<div style="color:red; padding:20px;">La Intraweb es troba en mode de només lectura</div>';
+        }
+        // ************ FI
+
         return new Zikula_Response_Ajax(array('content' => $content,
                 ));
     }
@@ -139,6 +147,14 @@ class Files_Controller_Ajax extends Zikula_AbstractController {
         $content = ModUtil::func('Files', 'user', 'uploadFileForm', array('folder' => $folder,
                     'external' => $external,
                     'editor' => $editor));
+
+        // XTEC ************ AFEGIT - Don't allow directori creation in read only mode
+        // 2016.06.17 @aginard
+        if (ModUtil::getVar('IWmain', 'readonly') == 1) {
+            $content = '<div style="color:red; padding:20px;">La Intraweb es troba en mode de només lectura</div>';
+        }
+        // ************ FI
+
         return new Zikula_Response_Ajax(array('content' => $content,
                 ));
     }

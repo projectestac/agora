@@ -101,6 +101,20 @@ class DBUtil
      */
     public static function flushCache($table)
     {
+        // XTEC ************ AFEGIT - Only allow INSERT statements in several tables
+        // 2016.06.08 @aginard
+        $tableName = strtolower($table);
+        if (ModUtil::getVar('IWmain', 'readonly') == 1) {
+            $allowedTables = array ('iwstats', 'iwmain', 'session_info');
+            if (!in_array($tableName, $allowedTables)) {
+                if (!LogUtil::hasErrors()) {
+                    LogUtil::registerError('<span style="color:red;">La Intraweb es troba en mode de només lectura</span>');
+                }
+                return false;
+            }
+        }
+        // ************ FI
+
         if (self::hasObjectCache($table)) {
             $databases = ServiceUtil::getManager()->getArgument('databases');
             $connName = Doctrine_Manager::getInstance()->getCurrentConnection()->getName();
@@ -694,6 +708,16 @@ class DBUtil
         $tables = self::getTables();
         $tableName = $tables[$table];
 
+        // XTEC ************ AFEGIT - Only allow INSERT statements in several tables
+        // 2016.06.08 @aginard
+        if (ModUtil::getVar('IWmain', 'readonly') == 1) {
+            $allowedTables = array ('IWstats', 'IWmain', 'session_info', 'module_deps');
+            if (!in_array($tableName, $allowedTables)) {
+                throw new Exception('<span style="color:red;">La Intraweb es troba en mode de només lectura</span>');
+            }
+        }
+        // ************ FI
+
         $sql = "INSERT INTO $tableName ";
 
         // set standard architecture fields
@@ -826,6 +850,16 @@ class DBUtil
 
         $tables = self::getTables();
         $tableName = $tables[$table];
+
+        // XTEC ************ AFEGIT - Only allow UPDATE statements in several tables
+        // 2016.06.08 @aginard
+        if (ModUtil::getVar('IWmain', 'readonly') == 1) {
+            $allowedTables = array ('IWstats', 'IWmain', 'session_info', 'users', 'modules', 'Files', 'module_vars');
+            if (!in_array($tableName, $allowedTables) || ($tableName == 'module_vars') && (strpos($where, 'URLBase') == false)) {
+                throw new Exception('<span style="color:red;">La Intraweb es troba en mode de només lectura</span>');
+            }
+        }
+        // ************ FI
 
         $sql = "UPDATE $tableName SET ";
 
@@ -1114,6 +1148,17 @@ class DBUtil
 
         $tables = self::getTables();
         $tableName = $tables[$table];
+
+        // XTEC ************ AFEGIT - Only allow DELETE statements in several tables
+        // 2016.06.08 @aginard
+        if (ModUtil::getVar('IWmain', 'readonly') == 1) {
+            $allowedTables = array ('IWstats', 'IWmain', 'session_info');
+            if (!in_array($tableName, $allowedTables)) {
+                throw new Exception('<span style="color:red;">La Intraweb es troba en mode de només lectura</span>');
+            }
+        }
+        // ************ FI
+
         $columns = $tables["{$table}_column"];
         $fieldName = $columns[$idfield];
         $sql = "DELETE FROM $tableName ";
@@ -1207,6 +1252,20 @@ class DBUtil
     {
         $tables = self::getTables();
         $tableName = $tables[$table];
+
+        // XTEC ************ AFEGIT - Only allow DELETE statements in several tables
+        // 2016.06.14 @aginard
+        if (ModUtil::getVar('IWmain', 'readonly') == 1) {
+            $allowedTables = array ('IWstats', 'IWmain', 'session_info');
+            if (!in_array($tableName, $allowedTables)) {
+                if (!LogUtil::hasErrors()) {
+                    LogUtil::registerError('<span style="color:red;">La Intraweb es troba en mode de només lectura</span>');
+                }
+                return false;
+            }
+        }
+        // ************ FI
+
         $where = self::_checkWhereClause($where);
         $sql = 'DELETE FROM ' . $tableName . ' ' . $where;
 

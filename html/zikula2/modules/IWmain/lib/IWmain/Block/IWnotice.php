@@ -39,9 +39,11 @@ class IWmain_Block_IWnotice extends Zikula_Controller_AbstractBlock {
      * @return array Block info ready to be displayed
      */
     public function display($row) {
-        // Access only allowed to registered users
-        if (UserUtil::isGuestUser()) {
-            return false;
+        // Access only allowed to registered users, but in read only mode, allow access to everybody
+        if (ModUtil::getVar('IWmain', 'readonly') != 1) {
+            if (UserUtil::isGuestUser()) {
+                return false;
+            }
         }
 
         // Prepare general vars
