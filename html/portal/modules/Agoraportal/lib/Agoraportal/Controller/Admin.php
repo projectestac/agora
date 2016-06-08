@@ -3366,9 +3366,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                                 $managers = ModUtil::apiFunc('Agoraportal', 'admin', 'getManagers', array('clientCode' => $clientsAndServices[$usageClient]['clientCode']));
                                 $toManagers = array();
                                 foreach ($managers as $manager) {
-                                    if ($manager['state'] == 1) {
-                                        $toManagers[] = $manager['email'];
-                                    }
+                                    $toManagers[] = $manager['email'];
                                 }
                                 // Add clientCode to e-mail receivers
                                 $uid = UserUtil::getIdFromName($clientsAndServices[$usageClient]['clientCode']);
