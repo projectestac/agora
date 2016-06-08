@@ -32,6 +32,14 @@ class Blocks_Api_Admin extends Zikula_AbstractApi
      */
     public function update($args)
     {
+
+        // XTEC ************ AFEGIT - Don't allow update of blocks
+        // 2016.06.14 @aginard
+        if (ModUtil::getVar('IWmain', 'readonly') == 1) {
+            return LogUtil::registerError('<span style="color:red;">La Intraweb es troba en mode de només lectura</span>');
+        }
+        // ************ FI
+
         // Argument check
         if (!isset($args['bid']) || !is_numeric($args['bid']) ||
             !isset($args['content']) ||
@@ -181,6 +189,14 @@ class Blocks_Api_Admin extends Zikula_AbstractApi
         if (!SecurityUtil::checkPermission('Blocks::', "$item[bkey]:$item[title]:$item[bid]", ACCESS_EDIT)) {
             return LogUtil::registerPermissionError();
         }
+
+        // XTEC ************ AFEGIT - Don't allow state changes in read only mode
+        // 2016.06.21 @aginard
+        if (ModUtil::getVar('IWmain', 'readonly') == 1) {
+            LogUtil::registerError('<span style="color:red;">La Intraweb es troba en mode de només lectura</span>');
+            return false;
+        }
+        // ************ FI
 
         // set block's new state
         $item['active'] = $block['active'];

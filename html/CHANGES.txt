@@ -16,6 +16,7 @@ NODES
 PORTAL
 
 ZIKULA
+- Added code to activate read only mode
 
 Changes 16.05.30
 ---------------------------------------------------------------------------------------
