@@ -6,6 +6,10 @@ development home at https://github.com/projectestac/agora
 Changes in progress
 ---------------------------------------------------------------------------------------
 MOODLE
+- Updated LangPacks
+- GeoGebra: Fixed bug when saving manual-grade and comments for each attempt (Trello #1276)
+- Updated local_mobile
+- Updated mod/hotpot to 2016-06-14 (96)
 
 
 NODES
