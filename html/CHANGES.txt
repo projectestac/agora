@@ -3,7 +3,7 @@ Release notes for Agora (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
-Changes in progress
+Changes 16.07.04
 ---------------------------------------------------------------------------------------
 MOODLE
 - Updated LangPacks
@@ -12,13 +12,31 @@ MOODLE
 - Updated mod/hotpot to 2016-06-14 (96)
 
 NODES
+- Upgraded WordPress to version 4.5.3 (Trello #1272)
+- Reviewed embed support in kses to let contributors add Picasa web albums (Trello #1182)
+- BuddyPress Group Email Subscription: Converted to submodule and updated to 3.6.1 (Trello #1042)
+- buddypress-docs: Suggest labels when adding new documents (Trello #1228)
+- BuddyPress: Converted to submodule and upgraded to version 2.5.3 (Trello #1057)
+- BuddyPress: Added option to disable direct post into general wall (Trello #1264)
+- enllacos-educatius: Replaced Ministry of Education link
+- add-to-any: Upgraded module to version 1.6.17. Added more options for xtecadmin (Trello #1031)
+- wordpress-php-info: Upgraded from version 14.12 to version 15
+- widget-visibility-without-jetpack: Added option to show content only in selected groups of buddypress (Trello #1262)
+- Translated menu option "Add Media" to catalan (Trello #1254)
+- mu-common: Deactivate pingback to avoid attacks to other sites (Trello #1275)
+- mu-common: Removed fix for post thumbnails broken due to upgrading to WP 4.4. No longer necessary in WP 4.5
+- mu-common: Check script label to only allow Gallery.io scripts to contributor users rol (Trello #1182)
+- mu-common: Allow shortcodes into taxonomy description, like categories or tags (Trello #1263)
+- XTEC lib: Added a new operation in the portal to fix the Email Subscribers configuration (Trello #1266)
+- raw-html: Removed plugin (Trello #568)
+- xtec-stats: Let administrators view log information: admin only "deleted" entries; xtecadmin all entries (Trello #627)
 
 PORTAL
 - agoraportal: Fixed quota e-mails not being sent to managers
 
 ZIKULA
 - Added code to activate read only mode
-
+- IWxtec2: Fixed position of the slogan
 
 
 Changes 16.05.30
