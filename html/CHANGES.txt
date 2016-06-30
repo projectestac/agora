@@ -30,6 +30,7 @@ NODES
 - XTEC lib: Added a new operation in the portal to fix the Email Subscribers configuration (Trello #1266)
 - raw-html: Removed plugin (Trello #568)
 - xtec-stats: Let administrators view log information: admin only "deleted" entries; xtecadmin all entries (Trello #627)
+- intranet-importer: Fixed import of files in directories that contain blank spaces in its name
 
 PORTAL
 - agoraportal: Fixed quota e-mails not being sent to managers
