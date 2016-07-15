@@ -854,7 +854,7 @@ class DBUtil
         // XTEC ************ AFEGIT - Only allow UPDATE statements in several tables
         // 2016.06.08 @aginard
         if (ModUtil::getVar('IWmain', 'readonly') == 1) {
-            $allowedTables = array ('IWstats', 'IWmain', 'session_info', 'users', 'modules', 'Files', 'module_vars');
+            $allowedTables = array ('IWstats', 'IWmain', 'IWdocmanager', 'session_info', 'users', 'modules', 'Files', 'module_vars');
             if (!in_array($tableName, $allowedTables) || ($tableName == 'module_vars') && (strpos($where, 'URLBase') == false)) {
                 throw new Exception('<span style="color:red;">La Intraweb es troba en mode de només lectura</span>');
             }

@@ -35,9 +35,14 @@ $modid = ModUtil::getIdFromName('Mailer');
 $modinfo = ModUtil::getInfo($modid);
 //if it is active
 if ($modinfo['state'] == 3) {
-    $userNews = userNews();
-    $result = array('value' => $userNews['value'],
-        'msg' => $userNews['msg']);
+    if (!ModUtil::getVar('IWmain', 'readonly')) {
+        $userNews = userNews();
+        $result = array('value' => $userNews['value'],
+            'msg' => $userNews['msg']);
+    } else {
+        $result['value'] = 1;
+        $result['msg'] = "El cron s'ha executat correctament, però sense enviar avisos per correu electrònic.";
+    }
 } else {
     $result = array('value' => '-1',
         'msg' => __('The Mailer module is not active. The cron can not send emails to users.', $dom));
