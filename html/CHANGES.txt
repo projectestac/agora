@@ -12,6 +12,7 @@ NODES
 
 ZIKULA
 - Fixed read only behaviour in IWdocmanager and iwcron.php
+- file.php: Improved the headers used to transfer the file to the user
 
 
 
