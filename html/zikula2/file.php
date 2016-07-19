@@ -45,12 +45,25 @@ header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
 header("Cache-Control: public");
 header("Content-Description: File Transfer");
 header("Content-Type: $ctype");
-$header = "Content-Disposition: attachment; filename=" . basename($fileNameGet) . ";";
-header($header);
-header("Content-Transfer-Encoding: binary");
-header("Content-Length: " . $fileSize);
-@readfile($documentPath);
+header("Content-Disposition: attachment; filename=" . basename($fileNameGet) . ";");
 
+$chunksize = 1 * (1024 * 1024);
+$buffer = '';
+$cnt = 0;
+$handle = fopen($fileName, 'rb');
+if ($handle === false) {
+    return false;
+}
+while (!feof($handle)) {
+    @set_time_limit(60 * 60);
+    $buffer = fread($handle, $chunksize);
+    echo $buffer;
+    flush();
+    if ($retbytes) {
+        $cnt += strlen($buffer);
+    }
+}
+$status = fclose($handle);
 if ($GLOBALS['ZConfig']['Multisites']['multi'] != 1) {
     System::shutdown();
 }
