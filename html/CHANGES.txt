@@ -8,12 +8,19 @@ Changes in progress
 GENERAL
 - checkFiles.php: Added check for file of Nodes cron
 
+ZIKULA
+- Fixed read only behaviour in IWforms
+
+
+
+Changes 16.07.20
+---------------------------------------------------------------------------------------
 NODES
+- Fixed removal of users by admins (Trello #1298)
 
 ZIKULA
 - Fixed read only behaviour in IWdocmanager and iwcron.php
 - file.php: Improved the headers used to transfer the file to the user
-
 
 
 Changes 16.07.04
