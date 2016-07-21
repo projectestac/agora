@@ -874,13 +874,17 @@ class IWforms_Api_User extends Zikula_AbstractApi {
             return LogUtil::registerPermissionError();
         }
 
+        if (ModUtil::getVar('IWmain', 'readonly')) {
+            return true;
+        }
+
         $today = date('Y-m-d', time());
         $items = array('active' => 0);
         $pntable = DBUtil::getTables();
         $c = $pntable['IWforms_definition_column'];
         $where = "$c[caducity] < '$today'  AND $c[caducity] > '0000-00-00'";
 
-        if (!DBUTil::updateObject($items, 'IWforms_definition', $where)) {
+        if (!DBUtil::updateObject($items, 'IWforms_definition', $where)) {
             return LogUtil::registerError($this->__('Error! Update attempt failed.'));
         }
 
