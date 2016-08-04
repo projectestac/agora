@@ -10,6 +10,7 @@ GENERAL
 
 ZIKULA
 - Fixed read only behaviour in IWforms
+- file.php: Allow pdf files to be embedded
 
 
 
