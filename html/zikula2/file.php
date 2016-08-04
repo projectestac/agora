@@ -45,7 +45,7 @@ header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
 header("Cache-Control: public");
 header("Content-Description: File Transfer");
 header("Content-Type: $ctype");
-header("Content-Disposition: attachment; filename=" . basename($fileNameGet) . ";");
+header("Content-Disposition: inline; filename=" . basename($fileNameGet) . ";");
 
 $chunksize = 1 * (1024 * 1024);
 $buffer = '';
