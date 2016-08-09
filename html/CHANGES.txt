@@ -8,6 +8,9 @@ Changes in progress
 GENERAL
 - checkFiles.php: Added check for file of Nodes cron
 
+MOODLE
+- Moodle upgraded to from 3.1.1 (Trello #1268)
+
 ZIKULA
 - Fixed read only behaviour in IWforms
 - file.php: Allow pdf files to be embedded
