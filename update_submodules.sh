@@ -36,7 +36,7 @@ gitcheckout "html/moodle2/auth/googleoauth2" "master" "git@github.com:projectest
 gitcheckout "html/moodle2/blocks/progress" "master" "git@github.com:projectestac/Moodle-block_progress.git"
 gitcheckout "html/moodle2/blocks/rgrade" "master" "https://github.com/imartel/Rgrade.git"
 gitcheckout "html/moodle2/course/format/simple" "master" "git@github.com:projectestac/moodle-format_simple.git"
-gitcheckout "html/moodle2/filter/wiris" "master" "git@github.com:projectestac/moodle-filter_wiris.git"
+gitcheckout "html/moodle2/filter/wiris" "master" "git@github.com:wiris/moodle-filter_wiris.git"
 gitcheckout "html/moodle2/langpacks" "master" "git@github.com:projectestac/moodle-langpacks.git"
 gitcheckout "html/moodle2/lib/editor/atto/plugins/fontsize" "master" "https://github.com/andrewnicols/moodle-atto_fontsize.git"
 gitcheckout "html/moodle2/lib/editor/atto/plugins/fontfamily" "master" "git@github.com:projectestac/moodle-atto_fontfamily.git"
