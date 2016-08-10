@@ -10,6 +10,7 @@ GENERAL
 
 MOODLE
 - Moodle upgraded to from 3.1.1 (Trello #1268)
+- Updated all related wiris plugins
 
 ZIKULA
 - Fixed read only behaviour in IWforms
