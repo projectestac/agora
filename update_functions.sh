@@ -82,6 +82,22 @@ function get_action {
     then
         echo 'Demanat GC'
         action=$tempaction
+    elif [[ $tempaction == 'onlymoodle' ]]
+    then
+        echo 'Demanat actualitzar NOMES MOODLE'
+        action=$tempaction
+    elif [[ $tempaction == 'onlywordpress' ]]
+    then
+        echo 'Demanat actualitzar NOMES WORDPRESS'
+        action=$tempaction
+    elif [[ $tempaction == 'onlyintraweb' ]]
+    then
+        echo 'Demanat actualitzar NOMES INTRAWEB'
+        action=$tempaction
+    elif [[ $tempaction == 'onlyportal' ]]
+    then
+        echo 'Demanat actualitzar NOMES PORTAL'
+        action=$tempaction
     else
         action=""
     fi
@@ -97,7 +113,7 @@ function pull_submodules {
         update_exec "git submodule sync"
     fi
 
-    ./update_submodules.sh
+    ./update_submodules.sh $action
 }
 
 function end_exec {

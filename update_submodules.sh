@@ -2,7 +2,34 @@
 
 source "update_functions.sh"
 
+execmoodle=false
+execwordpress=false
+execintraweb=false
+execportal=false
+
+if [[ $1 == 'onlymoodle' ]]
+then
+	execmoodle=true
+elif [[ $1 == 'onlywordpress' ]]
+then
+	execwordpress=true
+elif [[ $1 == 'onlyintraweb' ]]
+then
+	execintraweb=true
+elif [[ $1 == 'onlyportal' ]]
+then
+	execportal=true
+else
+	execmoodle=true
+	execwordpress=true
+	execintraweb=true
+	execportal=true
+fi
+
 #El tercer paràmetre només es posa si el repositori és nostre per poder-hi escriure
+
+if [[ $execmoodle == true ]]
+then
 # Moodle
 gitcheckout "html/moodle2" "master" "git@github.com:projectestac/agora_moodle2.git"
 gitcheckout "html/moodle2/auth/googleoauth2" "master" "git@github.com:projectestac/moodle-auth_googleoauth2.git"
@@ -37,7 +64,10 @@ gitcheckout "html/moodle2/question/type/truefalsewiris" "master" "git@github.com
 gitcheckout "html/moodle2/question/type/wq" "master" "git@github.com:projectestac/moodle-qtype_wq.git"
 gitcheckout "html/moodle2/report/coursequotas" "master" "git@github.com:projectestac/moodle-report_coursequotas.git"
 gitcheckout "html/moodle2/theme/xtec2" "master" "git@github.com:projectestac/moodle-theme_xtec2.git"
+fi
 
+if [[ $execwordpress == true ]]
+then
 # Wordpress
 gitcheckout "html/wordpress" "master" "git@github.com:projectestac/agora_nodes.git"
 gitcheckout "html/wordpress/wp-content/mu-plugins/common" "master" "git@github.com:projectestac/wordpress-mu-common.git"
@@ -61,15 +91,22 @@ gitcheckout "html/wordpress/wp-content/plugins/wp-recaptcha" "master" "git@githu
 gitcheckout "html/wordpress/wp-content/plugins/xtec-ldap-login" "master" "git@github.com:projectestac/wordpress-xtec-ldap-login.git"
 gitcheckout "html/wordpress/wp-content/plugins/xtec-mail/lib" "master" "git@github.com:projectestac/mailer.git"
 gitcheckout "html/wordpress/wp-includes/xtec" "master" "git@github.com:projectestac/wordpress-xtec.git"
+fi
 
+if [[ $execintraweb == true ]]
+then
 # Intranet
 gitcheckout "html/zikula2/modules/IWagendas" "master" "git@github.com:intraweb-modules13/IWagendas.git"
 gitcheckout "html/zikula2/modules/IWdocmanager" "master" "git@github.com:intraweb-modules13/IWdocmanager.git"
 gitcheckout "html/zikula2/modules/IWgroups" "master" "git@github.com:intraweb-modules13/IWgroups.git"
 gitcheckout "html/zikula2/modules/XtecMailer/includes/mailer" "master" "git@github.com:projectestac/mailer.git"
+fi
 
+if [[ $execportal == true ]]
+then
 # Portal
 gitcheckout "html/portal/modules/XtecMailer/includes/mailer" "master" "git@github.com:projectestac/mailer.git"
+fi
 
 # General
 gitcheckout "html/testlib" "master" "git@github.com:projectestac/testlib_PHP.git"
