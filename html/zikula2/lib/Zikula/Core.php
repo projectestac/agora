@@ -23,7 +23,14 @@ define('ACCESS_EDIT', 500);
 define('ACCESS_ADD', 600);
 define('ACCESS_DELETE', 700);
 define('ACCESS_ADMIN', 800);
-ini_set('mbstring.internal_encoding', 'UTF-8');
+//XTEC ************ MODIFICAT - To avoid warning with PHP 5.6
+//2016.08.16 @sarjona
+if (ini_get("mbstring.internal_encoding")) ini_set("mbstring.internal_encoding", 'UTF-8');
+//************ ORIGINAL
+/*
+ini_set("mbstring.internal_encoding", 'UTF-8');
+ */
+//************ FI
 ini_set('default_charset', 'UTF-8');
 mb_regex_encoding('UTF-8');
 
