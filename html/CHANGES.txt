@@ -3,19 +3,35 @@ Release notes for Agora (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
-Changes in progress
+Changes 16.08.22
 ---------------------------------------------------------------------------------------
 GENERAL
 - checkFiles.php: Added check for file of Nodes cron
 
 MOODLE
 - Moodle upgraded to from 3.1.1 (Trello #1268)
+- Updated LangPacks
+- Updated auth/googleoauth2
+- Updated blocks/progress
+- Updated local/mobile
+- Updated mod/choicegroup
+- Updated mod/geogebra
+- Updated mod/hotpot
+- Updated mod/jclic
+- Updated mod/journal
+- Updated mod/questionnaire
+- Updated mod/qv
 - Updated all related wiris plugins
+
+NODES
+- intranet-importer: Fixed import of images with capital letters in extensions
+- intranet-importer: Added import of images uploaded using IWforms
+- add-to-any: Show the same options to admins in Nodes and in XTECBlocs (Trello #1031)
+- xtec: Added es_c_unsubtext field to fix site name in Email subscribers (Trello #1315)
 
 ZIKULA
 - Fixed read only behaviour in IWforms
 - file.php: Allow pdf files to be embedded
-
 
 
 Changes 16.07.20
