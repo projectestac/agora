@@ -51,7 +51,7 @@ gitcheckout "html/moodle2/mod/geogebra" "MOODLE_31_STABLE" "git@github.com:proje
 gitcheckout "html/moodle2/mod/hotpot" "master" "https://github.com/gbateson/moodle-mod_hotpot.git"
 gitcheckout "html/moodle2/mod/jclic" "master" "git@github.com:projectestac/moodle-mod_jclic.git"
 gitcheckout "html/moodle2/mod/journal" "master" "https://github.com/dmonllao/moodle-mod_journal.git"
-gitcheckout "html/moodle2/mod/questionnaire" "MOODLE_31_STABLE" "https://github.com/remotelearner/moodle-mod_questionnaire.git"
+gitcheckout "html/moodle2/mod/questionnaire" "MOODLE_31_STABLE" "https://github.com/projectestac/moodle-mod_questionnaire.git"
 gitcheckout "html/moodle2/mod/quiz/accessrule/offlineattempts" "master" "https://github.com/jleyva/moodle-quizaccess_offlineattempts.git"
 gitcheckout "html/moodle2/mod/qv" "master" "git@github.com:projectestac/moodle-mod_qv.git"
 gitcheckout "html/moodle2/question/format/hotpot" "master" "https://github.com/gbateson/moodle-qformat_hotpot.git"
