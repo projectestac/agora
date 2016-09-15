@@ -3,6 +3,33 @@ Release notes for Agora (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
+Changes 16.09.19
+---------------------------------------------------------------------------------------
+MOODLE
+- Moodle upgraded to from 3.1.2 (Trello #1343)
+- Updated LangPacks
+- RSS: Fixed bug to show feed name when preferred is not specified - MDL-55886 (Trello #1338)
+- Updated mod/choicegroup to fix detected problems with groups duplication (installed original version) (Trello #1341)
+- Updated blocks/rgrade
+- theme/xtec2: fixed problem when more than 5 languages
+- report/coursequotas: Added icons for usability and improved performance (Trello #1278)
+- mod/jclic: Added support for JClic HTML5 player (Trello #1294)
+- Updated mod/hotpot
+- local/rcommon: Fixed bug when filtering users from a course with group mode different from "No groups" (Trello #1353)
+
+NODES
+- Upgraded WordPress to version 4.5.4 (Trello #1345)
+- GCE: Updated from 2.2.5 (Legacy Google Calendar Events 2.4) to 3.1.2 (Simple Calendar - Google Calendar Plugin) (Trello #1034)
+- grup-classe: Removed option to select format of the calendar due to the changes in GCE v3.x (Trello #1034)
+- New users: Fixed URL to change password, which was not being shown in email sent to new users
+- blogger-importer: Fixed import of images (Trello #1340)
+- xtec-booking: Added plugin for bookings of spaces or equipment (Trello #1166)
+- Added role Professor (Trello #1166)
+- Role Professor: Removed links to comments and tools (Trello #1354)
+- Tools: Added custom tool boxes for timetables and events management. Removed bp and categories boxes (Trello #1342)
+- buddypress-docs: Fixed upload of image using editor's menu option when creating a new document (Trello #1229)
+
+
 Changes 16.09.07
 ---------------------------------------------------------------------------------------
 MOODLE
