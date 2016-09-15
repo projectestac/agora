@@ -42,8 +42,7 @@ MOODLE
 - report/coursequotas: Added filemanager (Trello #1278)
 
 NODES
-- GCE: Updated from 2.2.5 (Legacy Google Calendar Events 2.4) to 3.1.2 (Simple Calendar - Google Calendar Plugin) (Trello #1034)
-- BPDOCS: Fixed bug when uploading files when editing them if protocol it is not HTTPS (Trello #1205)
+- buddypress-docs: Fixed bug when uploading files when editing them if protocol it is not HTTPS (Trello #1205)
 
 
 Changes 16.08.22
