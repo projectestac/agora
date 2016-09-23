@@ -20,6 +20,7 @@ MOODLE
 NODES
 - Upgraded WordPress to version 4.5.4 (Trello #1345)
 - GCE: Updated from 2.2.5 (Legacy Google Calendar Events 2.4) to 3.1.2 (Simple Calendar - Google Calendar Plugin) (Trello #1034)
+- GCE: Included fix for grouped calendars (Trello #1371)
 - grup-classe: Removed option to select format of the calendar due to the changes in GCE v3.x (Trello #1034)
 - New users: Fixed URL to change password, which was not being shown in email sent to new users
 - blogger-importer: Fixed import of images (Trello #1340)
