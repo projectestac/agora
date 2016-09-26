@@ -25,6 +25,7 @@ NODES
 - New users: Fixed URL to change password, which was not being shown in email sent to new users
 - blogger-importer: Fixed import of images (Trello #1340)
 - xtec-booking: Added plugin for bookings of spaces or equipment (Trello #1166)
+- xtec-booking: Included fix for bookings without start and finish hours (Trello #1373)
 - Added role Professor (Trello #1166)
 - Role Professor: Removed links to comments and tools (Trello #1354)
 - Tools: Added custom tool boxes for timetables and events management. Removed bp and categories boxes (Trello #1342)
