@@ -232,6 +232,13 @@ class Zikula_Session_Storage_Legacy implements Zikula_Session_StorageInterface
         $obj['uid'] = (SessionUtil::getVar('uid') ? SessionUtil::getVar('uid') : 0);
         $obj['lastused'] = date('Y-m-d H:i:s', time());
 
+        // XTEC ************ AFEGIT - Don't create registers in table session_info for anonymous visitors
+        // 2016.09.28 @aginard
+        if ($obj['uid'] == 0) {
+            return false;
+        }
+        //************ FI
+
         if (System::getVar('sessionstoretofile')) {
             $path = DataUtil::formatForOS(session_save_path());
 
