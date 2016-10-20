@@ -3,8 +3,35 @@ Release notes for Agora (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
-Changes in progress
+Changes 16.10.24
 ---------------------------------------------------------------------------------------
+MOODLE
+- mod/assign: Filtering in Assignment grading interface throws a javascript error - MDL-56300 (Trello #1392)
+- report/coursequotas: Separate the report views to improve performance (Trello #1278)
+- Updated mod/hotpot
+- Updated mod/jclic
+- local/alexandriaimporter: Added local plugin for importing courses and SCORM activities from Alexandria (Trello #1318)
+- local/clickedu: Added local plugin for synchronizing with ClickEdu (Trello #913)
+- Updated filter/wiris and atto/wiris (Trello #1403)
+- Updated LangPacks
+
+NODES
+- GCE: Prevent grouped calendars to belong to categories used to create that calendars (Trello #1371)
+- CGE: Fixed grouped calendars not showing in dropdown menu in customizer (Trello #1384)
+- Dashboard: Reviewed access to menu options in dashboard for roles xtec_teacher and contributor (Trello #1354)
+- wordpress-importer: Upgraded plugin from 0.6.1 to 0.6.3
+- agora-functions: agora-functions: Translated text to english and added translation to .po file (Trello #1394)
+- mu-common: Allow more attributes in embed tag in visual editor (Trello #1297)
+- mu-common: Fixed default comment status. Restored default action about comment status parameter (Trello #1365)
+- mu-common: Added Automatic creation of featured image (Imatge resum) (Trello #1284)
+- xtec-stats: Fixed Javascript error in Safari in statistics page (Trello #1361)
+- xtec-booking: Fixed size image in modal window with the booking details (Trello #1399)
+- xtec-booking: Fixed styles in day view (Trello #1399)
+- buddypress-docs: Tag searches use 'and' as a default condition. Changed text link accordingly (Trello #1368)
+- add-to-any: Upgraded plugin from 1.6.17 to 1.7 (Trello #1283)
+- buddypress: Corrected translation in register page (Trello #1382)
+- buddypress: Removed submenu Appearance | Emails (Trello #1301)
+- Role of xtecadmin cannot be changed (Trello #1390)
 
 ZIKULA
 - Don't create registers in table session_info for anonymous visitors (Trello #1326)
