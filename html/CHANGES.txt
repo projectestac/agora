@@ -3,6 +3,12 @@ Release notes for Agora (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
+Changes in progress
+---------------------------------------------------------------------------------------
+GENERAL
+- Added robots.txt to reduce robot visits to plugin bp-docs of Nodes (Trello #1334)
+
+
 Changes 16.10.24
 ---------------------------------------------------------------------------------------
 MOODLE
