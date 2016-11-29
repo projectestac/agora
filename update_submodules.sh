@@ -79,6 +79,7 @@ gitcheckout "html/wordpress/wp-content/plugins/buddypress" "master" "git@github.
 gitcheckout "html/wordpress/wp-content/plugins/buddypress-activity-plus" "master" "git@github.com:projectestac/wordpress-buddypress-activity-plus.git"
 gitcheckout "html/wordpress/wp-content/plugins/buddypress-docs" "master" "git@github.com:projectestac/wordpress-buddypress-docs.git"
 gitcheckout "html/wordpress/wp-content/plugins/buddypress-group-email-subscription" "master" "git@github.com:projectestac/wordpress-buddypress-group-email-subscription.git"
+gitcheckout "html/wordpress/wp-content/plugins/buddypress-like" "master" "git@github.com:projectestac/wordpress-buddypress-like.git"
 gitcheckout "html/wordpress/wp-content/plugins/email-subscribers" "master" "git@github.com:projectestac/wordpress-email-subscribers.git"
 gitcheckout "html/wordpress/wp-content/plugins/google-analyticator" "master" "git@github.com:projectestac/wordpress-google-analyticator.git"
 gitcheckout "html/wordpress/wp-content/plugins/google-calendar-events" "master" "git@github.com:projectestac/wordpress-gce.git"
