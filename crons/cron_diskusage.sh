@@ -1,23 +1,47 @@
 #!/bin/bash
-DIRECTORY=$(cd `dirname $0` && pwd)
-cd $DIRECTORY
-source "config.sh"
+# Script per a la generacio del fitxer d'ocupacio d'agora - moodledata
 
-cd $basedir/dades
+path="/NAS/agora/docs/moodle2"
+repoDirPrefix="repo"
 
-#DiskUsage
-#S'executa un script que genera aquests tres fitxers una vegada al dia des d'un dels frontals a la 1:30.
-#L’executa el root directament des de la cabina de discos, sense passar per l’NFS per a que sigui més ràpid.
-#Aquest és el fitxer que es fa servir per controlar la quota dels centres.
-cd dades2/zkdata
-du -sk * > diskUsageZk.tmp
-mv diskUsageZk.tmp diskUsageZk.txt
+if [ -d $path ]; then
+    echo "Directori muntat!"
+else
+    echo "Directori no muntat! Abortem execucio"
+    exit 1
+fi
 
-cd ../wpdata
-du -sk * > diskUsageWp.tmp
-mv diskUsageWp.tmp diskUsageWp.txt
+echo "Creant diskUsageMdl2.txt ..."
 
-cd ../../dades1/moodle2
-du -sk * > diskUsageMdl2.tmp
-mv diskUsageMdl2.tmp diskUsageMdl2.txt
+cd $path
+
+repo=()
+
+# Crea els fitxers parcials i es guarda els noms
+for i in $(ls -d */)
+do
+    if [[ $i == ${repoDirPrefix}* ]]
+    then
+        repo+=(${i%%/}/diskUsageMdl2_part.txt)
+        # Si el du -sk es fa per volums, tres línies següents s'haurien de comentar
+        cd ${i%%/}
+        du -sk usu* > diskUsageMdl2_part.txt
+        cd ..
+    fi
+done
+
+# Crea el fitxer parcial corresponent als espais que estan fora de directoris "repo"
+du -sk usu* > diskUsageMdl2_part.txt
+
+dirs=''
+
+for item in ${repo[*]}
+do
+   dirs=$dirs" "$item;
+done
+
+# Crea el diskUsageMdl2.txt: Concatena els fitxers parcials i esborra duplicats (queden els usus de dins dels repo)
+cat $dirs diskUsageMdl2_part.txt | awk '!a[$2]++' > diskUsageMdl2.txt
+
+echo "diskUsageMdl2.txt creat!"
 
