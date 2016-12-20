@@ -86,6 +86,7 @@ gitcheckout "html/wordpress/wp-content/plugins/google-analyticator" "master" "gi
 gitcheckout "html/wordpress/wp-content/plugins/google-calendar-events" "master" "git@github.com:projectestac/wordpress-gce.git"
 gitcheckout "html/wordpress/wp-content/plugins/import-users-from-csv-with-meta" "master" "git@github.com:projectestac/wordpress-import-users-from-csv-with-meta.git"
 gitcheckout "html/wordpress/wp-content/plugins/invite-anyone" "master" "git@github.com:projectestac/wordpress-invite-anyone.git"
+gitcheckout "html/wordpress/wp-content/plugins/slideshare" "master" "git@github.com:projectestac/wordpress-slideshare.git"
 gitcheckout "html/wordpress/wp-content/plugins/slideshow-jquery-image-gallery" "master" "git@github.com:projectestac/wordpress-slideshow-jig.git"
 gitcheckout "html/wordpress/wp-content/plugins/tinymce-advanced" "master" "git@github.com:projectestac/wordpress-tinymce-advanced.git"
 gitcheckout "html/wordpress/wp-content/plugins/wordpress-importer" "master" "git@github.com:projectestac/wordpress-importer.git"
