@@ -33,6 +33,7 @@ then
 # Moodle
 gitcheckout "html/moodle2" "master" "git@github.com:projectestac/agora_moodle2.git"
 gitcheckout "html/moodle2/auth/googleoauth2" "master" "git@github.com:projectestac/moodle-auth_googleoauth2.git"
+gitcheckout "html/moodle2/blocks/completion_progress" "master" "git@github.com:projectestac/moodle-block_completion_progress.git"
 gitcheckout "html/moodle2/blocks/progress" "master" "git@github.com:projectestac/Moodle-block_progress.git"
 gitcheckout "html/moodle2/blocks/rgrade" "master" "https://github.com/projectestac/Rgrade.git"
 gitcheckout "html/moodle2/course/format/simple" "master" "git@github.com:projectestac/moodle-format_simple.git"
