@@ -89,19 +89,18 @@ class Requests {
      * @return string
      */
     private static function get_search_by($search = array()) {
-
         $wheres = array();
 
         foreach ($search as $key => $value) {
             switch($key) {
                 case 'service':
                     if ($value > 0) {
-                        $wheres[] = "serviceId = $value";
+                        $wheres[] = "d.serviceId = $value";
                     }
                     break;
                 case 'state' :
                     if ($value >= 0) {
-                        $wheres[] = "requestStateId = $value";
+                        $wheres[] = "tbl.requestStateId = $value";
                     }
                     break;
                 case 'clientCode':
@@ -130,7 +129,7 @@ class Requests {
      * @return array of Request
      */
     public static function search_by($search, $init = -1, $rpp = 15) {
-        $where = 'd.' . self::get_search_by($search);
+        $where = self::get_search_by($search);
 
         $joins = array(self::get_client_join(), self::get_requeststype_join(), self::get_service_join(), self::get_servicetype_join());
 
