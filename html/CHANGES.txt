@@ -8,6 +8,15 @@ Changes in progress
 GENERAL
 - Added robots.txt to reduce robot visits to plugin bp-docs of Nodes (Trello #1334)
 
+MOODLE
+- Added support for subdomains
+
+NODES
+- Added support for subdomains
+
+PORTAL
+- Added support for subdomains
+
 
 Changes 16.10.24
 ---------------------------------------------------------------------------------------
