@@ -20,6 +20,17 @@
         </div>
     </div>
     <div class="form-group">
+        <label class="col-sm-4 control-label">{gt text="Tipus d'URL"}:</label>
+        <div class="col-sm-8">
+            <div class="">
+                <input id="standard" type="radio" name="URLType" value="standard" {if $client->URLType eq 'standard'}checked="checked"{/if} />&nbsp;<label for="standard">{gt text="Nom propi (http://agora.xtec.cat/nompropi/)"}</label>
+            </div>
+            <div class="">
+                <input id="subdomain" type="radio" name="URLType" value="subdomain" {if $client->URLType eq 'subdomain'}checked="checked"{/if} />&nbsp;<label for="subdomain">{gt text="Subdomini (http://nompropi.xtec.cat/)"}</label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
         <label class="col-sm-4 control-label" for="clientDNS">{gt text="Nom propi"}:</label>
         <div class="col-sm-8">
             <input class="form-control" id="clientDNS" type="text" name="clientDNS" size="15" maxlength="50" value="{$client->clientDNS}"/>
@@ -29,6 +40,18 @@
         <label class="col-sm-4 control-label" for="clientOldDNS">{gt text="Nom propi antic"}:</label>
         <div class="col-sm-8">
             <input class="form-control" id="clientOldDNS" type="text" name="clientOldDNS" size="15" maxlength="50" value="{$client->clientOldDNS}"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4 control-label" for="URLHost">{gt text="Subdomini"}:</label>
+        <div class="col-sm-8">
+            <input class="form-control" id="URLHost" type="text" name="URLHost" size="15" maxlength="50" value="{$client->URLHost}"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4 control-label" for="OldURLHost">{gt text="Subdomini antic"}:</label>
+        <div class="col-sm-8">
+            <input class="form-control" id="OldURLHost" type="text" name="OldURLHost" size="15" maxlength="50" value="{$client->OldURLHost}"/>
         </div>
     </div>
     <div class="form-group">

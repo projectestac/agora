@@ -2,42 +2,47 @@ RewriteEngine on
 
 RewriteBase /agora/
 
+# Add trailing slash if necessary: Not an extension (.php, .css, .js, ...), not a Moodle cache file and does not end with a slash (/)
+RewriteCond %{REQUEST_URI} !\.([^/]*)$
+RewriteCond %{REQUEST_URI} !(.*)/moodle/(.*)\.([^/]*)/(.*)$
+RewriteCond %{REQUEST_URI} !/$
+RewriteRule ^(.*)$ $1/ [QSA,R=permanent,L]
+
+# Bare domain. Must change Rewrite Base in every environment
+RewriteCond %{HTTP_HOST} ^agora-virtual\.xtec\.cat$ [OR,NC]
+RewriteCond %{HTTP_HOST} ^agora-virtual-se\.xtec\.cat$ [NC]
+RewriteCond %{REQUEST_URI} ^/$
+RewriteRule . index.php [L]
+
 # Allow access to directories without URL rewrite
-RewriteRule ^$ index.php [L]
-RewriteRule ^portal(.*)$ - [L]
-RewriteRule ^config(.*)$ - [L]
-RewriteRule ^error(.*)$ - [L]
-RewriteRule ^works(.*)$ - [L]
-RewriteRule ^opcache(.*)$ - [L]
-RewriteRule ^testapp(.*)$ - [L]
-RewriteRule ^index(.*)$ - [L]
-RewriteRule ^CHANGES(.*)$ - [L]
-RewriteRule ^monitor(.*)$ - [L]
+RewriteCond %{HTTP_HOST} ^agora-virtual\.xtec\.cat$ [OR,NC]
+RewriteCond %{HTTP_HOST} ^agora-virtual-se\.xtec\.cat$ [NC]
+RewriteRule ^(portal(.*)|config(.*)|index\.php|error\.php|works\.php|opcache\.php|testapp\.php|CHANGES\.txt|monitor\.php)$ - [L]
 
 # Required for the proper functioning of cacti
 RewriteRule ^server-status$ - [L]
 
 # Block access to install.php
 RewriteCond %{REQUEST_URI} ([^/]*)/moodle/install.php
-RewriteRule ^([^.]*)/install.php(.*)$ $1/moodle/siteoff.html [QSA,L]
-
-RewriteRule ^([^/]*)/moodle$ $1/moodle/ [QSA,R=permanent,L]
-RewriteRule ^([^/]*)/moodle/my$ $1/moodle/my/ [QSA,R=permanent,L]
-RewriteRule ^([^/]*)/intranet$ $1/intranet/ [QSA,R=permanent,L]
-RewriteRule ^([^/]*)/wp-admin$ $1/wp-admin/ [QSA,R=permanent,L]
-RewriteRule ^([^/]*)$ $1/ [QSA,R=permanent,L]
+RewriteRule ^([^.]*)/install.php(.*)$ $1/siteoff.html [QSA,L]
 
 # Redirect /moodle2 to /moodle
 RewriteRule ^([^/]*)/moodle2/(.*)$ $1/moodle/$2 [QSA,R=permanent,L]
 RewriteRule ^([^/]*)/moodle2$ $1/moodle/ [QSA,R=permanent,L]
 
+# Get nom propi from query string
 RewriteRule ^([^/]*)/moodle/([^?]*)?(.*)$ moodle2/$2?$3&ccentre=$1 [QSA,L]
 RewriteRule ^([^/]*)/intranet/(.*)$ zikula2/$2?ccentre=$1 [QSA,L]
+# Nodes
+RewriteCond %{HTTP_HOST} ^agora-virtual\.xtec\.cat$ [OR,NC]
+RewriteCond %{HTTP_HOST} ^agora-virtual-se\.xtec\.cat$ [NC]
 # Only apply the rule if it is not an internal redirect
 RewriteCond %{ENV:REDIRECT_STATUS} !200
 RewriteRule ^([^/]*)/(.*)$ wordpress/$2?ccentre=$1 [QSA,L]
 
-# Required for WordPress
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . wordpress/index.php [L]
+# Get nom propi from http host
+RewriteCond %{HTTP_HOST} ^([^.]*)\.([^.]*)\.([^.]*)$
+RewriteRule ^moodle/([^?]*)?(.*)$ moodle2/$1?$2&ccentre=%1 [QSA,L]
+RewriteCond %{ENV:REDIRECT_STATUS} !200
+RewriteCond %{HTTP_HOST} ^([^.]*)\.([^.]*)\.([^.]*)$
+RewriteRule ^(.*)$ wordpress/$1?ccentre=%1 [QSA,L]

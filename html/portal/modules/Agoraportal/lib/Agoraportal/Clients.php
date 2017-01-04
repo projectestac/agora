@@ -221,7 +221,9 @@ class Client extends AgoraBase {
     protected $clientDNS;
     // Previous name stored to redirect the URL
     protected $clientOldDNS;
-
+    protected $URLType;
+    protected $URLHost;
+    protected $OldURLHost;
     protected $clientName;
     protected $clientAddress;
     protected $clientCity;

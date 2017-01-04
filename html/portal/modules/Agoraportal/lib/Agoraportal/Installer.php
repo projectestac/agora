@@ -265,6 +265,12 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
                 DBUtil::executeSQL($sql);
                 $sql = "ALTER TABLE agoraportal_nodes_stats_month CHANGE date yearmonth INT;";
                 DBUtil::executeSQL($sql);
+                $sql = "ALTER TABLE agoraportal_clients ADD URLType ENUM('standard', 'subdomain') NOT NULL DEFAULT 'standard' AFTER clientOldDNS;";
+                DBUtil::executeSQL($sql);
+                $sql = "ALTER TABLE agoraportal_clients ADD URLHost VARCHAR(100) NOT NULL DEFAULT '' AFTER URLType;";
+                DBUtil::executeSQL($sql);
+                $sql = "ALTER TABLE agoraportal_clients ADD OldURLHost VARCHAR(100) NOT NULL DEFAULT '' AFTER URLHost;";
+                DBUtil::executeSQL($sql);
                 $sql = "ALTER TABLE agoraportal_services DROP version;";
                 DBUtil::executeSQL($sql);
                 $sql = "ALTER TABLE agoraportal_client_services DROP version;";

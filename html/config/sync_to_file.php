@@ -26,19 +26,23 @@ foreach ($services as $school) {
     $dns     = $school['dns'];
     $service = $school['service'];
 
+    $schools[$dns]['clientCode'] = $school['code'];
+    $schools[$dns]['type'] = $school['type'];
+    $schools[$dns]['url_type'] = $school['url_type'];
+    $schools[$dns]['url_host'] = $school['url_host'];
+
     $schools[$dns]['id_'.$service]          = $school['id'];
     $schools[$dns]['dbhost_'.$service]      = $school['dbhost'];
     $schools[$dns]['database_'.$service]    = $school['database'];
     $schools[$dns]['diskPercent_'.$service] = $school['diskPercent'];
 
-    $schools[$dns]['clientCode'] = $school['code'];
-
-    $schools[$dns]['type'] = $school['type'];
-
-    // Add an element: key = previous DNS, value = current DNS. This will be
-    //   used to show an info page explaining that the DNS has changed
-    if (isset($school['old_dns']) && !empty($school['old_dns'])) {
+    // Add an element: key = previous DNS, value = current DNS.
+    if (!empty($school['old_dns'])) {
         $schools[$school['old_dns']]['new_dns'] = $dns;
+    }
+
+    if (!empty($school['old_url_host'])) {
+        $schools[$school['old_url_host']]['new_url_host'] = $school['url_host'];
     }
 }
 
