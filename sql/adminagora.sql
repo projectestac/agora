@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.10.1deb1
+-- version 4.0.10deb1
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Temps de generació: 30-11-2015 a les 11:59:38
--- Versió del servidor: 5.5.43
--- Versió de PHP : 5.4.39-1+deb.sury.org~precise+2
+-- Temps de generació: 09-01-2017 a les 12:35:41
+-- Versió del servidor: 5.5.53-0ubuntu0.14.04.1
+-- Versió de PHP: 5.6.29-1+deb.sury.org~trusty+1
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -109,6 +109,9 @@ CREATE TABLE IF NOT EXISTS `agoraportal_clients` (
   `clientCode` varchar(15) NOT NULL DEFAULT '',
   `clientDNS` varchar(50) NOT NULL DEFAULT '',
   `clientOldDNS` varchar(50) NOT NULL DEFAULT '',
+  `URLType` enum('standard','subdomain') NOT NULL DEFAULT 'standard',
+  `URLHost` varchar(100) NOT NULL DEFAULT '',
+  `OldURLHost` varchar(100) NOT NULL DEFAULT '',
   `clientName` varchar(150) NOT NULL DEFAULT '',
   `clientAddress` varchar(150) NOT NULL DEFAULT '',
   `clientCity` varchar(50) NOT NULL DEFAULT '',
@@ -123,18 +126,23 @@ CREATE TABLE IF NOT EXISTS `agoraportal_clients` (
   `educat` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`clientId`),
   KEY `locationId` (`locationId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Bolcant dades de la taula `agoraportal_clients`
 --
 
-INSERT INTO `agoraportal_clients` (`clientId`, `clientCode`, `clientDNS`, `clientOldDNS`, `clientName`, `clientAddress`, `clientCity`, `clientPC`, `clientCountry`, `clientDescription`, `clientState`, `locationId`, `typeId`, `noVisible`, `extraFunc`, `educat`) VALUES
-(1, 'a8000001', 'usu1', '', 'Centre 1', 'Carrer sense número', 'Valldeneu Valldeneu Valldeneu Vilanova i la Geltrú', '00000', 'cat', '', 1, 10, 1, 0, '', 1),
-(2, 'a8000002', 'usu2', '', 'Centre 2', 'Carrer sense número', 'Valldeneu', '00000', 'cat', '', 1, 1, 2, 0, '', 0),
-(3, 'a8000003', 'usu3', '', 'Centre 3', 'Carrer sense número', 'Valldeneu', '00000', 'cat', '', 1, 5, 5, 0, '', 0),
-(4, 'a8000004', 'usu4', '', 'Centre 4', 'Carrer sense número', 'Valldeneu', '00000', 'cat', '', 1, 6, 4, 0, '', 1),
-(5, 'a8000005', 'usu5', '', 'Centre 5', '-', '-', '-', 'cat', '-', 1, 7, 8, 0, '', 0);
+INSERT INTO `agoraportal_clients` (`clientId`, `clientCode`, `clientDNS`, `clientOldDNS`, `URLType`, `URLHost`, `OldURLHost`, `clientName`, `clientAddress`, `clientCity`, `clientPC`, `clientCountry`, `clientDescription`, `clientState`, `locationId`, `typeId`, `noVisible`, `extraFunc`, `educat`) VALUES
+(1, 'a8000001', 'usu1', '', 'standard', '', '', 'Centre 1', 'Carrer sense número', 'Cruïlles, Monells i Sant Sadurní de l''Heura', '00000', 'cat', '', 1, 3, 1, 0, 'pri', 1),
+(2, 'a8000002', 'usu2', '', 'standard', '', '', 'Centre 2', 'Carrer sense número', 'Valldeneu', '00000', 'cat', '', 1, 1, 2, 0, 'sec', 0),
+(3, 'a8000003', 'usu3', '', 'standard', '', '', 'Centre 3', 'Carrer sense número', 'Valldeneu', '00000', 'cat', '', 1, 5, 4, 0, 'cfa', 0),
+(4, 'a8000004', 'usu4', '', 'standard', '', '', 'Centre 4', 'Carrer sense número', 'Valldeneu', '00000', 'cat', '', 1, 6, 6, 0, 'eoi', 0),
+(5, 'a8000005', 'centre-5', 'usu5', 'standard', '', '', 'Centre 5', 'Carrer sense número', 'Valldeneu', '00000', 'cat', '', 1, 7, 11, 0, 'zer', 0),
+(6, 'a8000006', 'centre-6', 'usu6', 'standard', '', '', 'Centre 6', 'Carrer sense número', 'Valldeneu', '00000', 'cat', '', 1, 8, 8, 0, 'creda', 0),
+(7, 'a8000007', 'centre-7', 'usu7', 'standard', '', '', 'Centre 7', 'Carrer sense número', 'Valldeneu', '00000', 'cat', '', 1, 9, 7, 0, 'cda', 0),
+(8, 'a8000008', 'centre-8', 'usu8', 'standard', '', '', 'Centre 8', 'Carrer sense número', 'Valldeneu', '00000', 'cat', '', 1, 10, 5, 0, 'ssee', 0),
+(9, 'a8000009', 'centre-9', 'usu9', 'standard', '', '', 'Centre 9', 'Carrer sense número', 'Valldeneu', '00000', 'cat', '', 1, 0, 0, 0, '', 0),
+(10, 'a8000010', 'centre-10', 'usu10', 'standard', '', '', 'Centre 10', 'Carrer sense número', 'Valldeneu', '00000', 'cat', '', 1, 0, 0, 0, '', 0);
 
 -- --------------------------------------------------------
 
@@ -177,7 +185,7 @@ CREATE TABLE IF NOT EXISTS `agoraportal_client_managers` (
   `managerUName` varchar(15) NOT NULL DEFAULT '',
   PRIMARY KEY (`managerId`),
   KEY `clientCode` (`clientCode`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Bolcant dades de la taula `agoraportal_client_managers`
@@ -188,7 +196,12 @@ INSERT INTO `agoraportal_client_managers` (`managerId`, `clientCode`, `managerUN
 (2, 'a8000002', 'manager2'),
 (3, 'a8000003', 'manager3'),
 (4, 'a8000004', 'manager4'),
-(5, 'a8000005', 'manager5');
+(5, 'a8000005', 'manager5'),
+(6, 'a8000006', 'manager6'),
+(7, 'a8000007', 'manager7'),
+(8, 'a8000008', 'manager8'),
+(9, 'a8000009', 'manager9'),
+(10, 'a8000010', 'manager10');
 
 -- --------------------------------------------------------
 
@@ -202,13 +215,10 @@ CREATE TABLE IF NOT EXISTS `agoraportal_client_services` (
   `clientId` int(11) NOT NULL,
   `serviceDB` varchar(20) NOT NULL,
   `description` varchar(255) NOT NULL,
-  `version` varchar(15) NOT NULL,
   `state` tinyint(4) NOT NULL DEFAULT '0',
   `activedId` int(11) NOT NULL DEFAULT '0',
   `contactName` varchar(150) NOT NULL,
-  `contactMail` varchar(30) NOT NULL,
   `contactProfile` varchar(50) NOT NULL,
-  `lastVisit` varchar(25) NOT NULL,
   `timeCreated` varchar(25) NOT NULL,
   `observations` varchar(255) NOT NULL,
   `annotations` varchar(255) NOT NULL,
@@ -218,25 +228,27 @@ CREATE TABLE IF NOT EXISTS `agoraportal_client_services` (
   `diskConsume` varchar(15) NOT NULL,
   `dbHost` varchar(25) NOT NULL,
   PRIMARY KEY (`clientServiceId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=60 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=64 ;
 
 --
 -- Bolcant dades de la taula `agoraportal_client_services`
 --
 
-INSERT INTO `agoraportal_client_services` (`clientServiceId`, `serviceId`, `clientId`, `serviceDB`, `description`, `version`, `state`, `activedId`, `contactName`, `contactMail`, `contactProfile`, `lastVisit`, `timeCreated`, `observations`, `annotations`, `diskSpace`, `timeEdited`, `timeRequested`, `diskConsume`, `dbHost`) VALUES
-(5, 1, 3, '', '', '', 1, 3, 'manager3', 'manager3@exemple.cat', 'Directora', '', '1417523646', '', '', 200, '1417523646', '1331127897', '352', 'localhost'),
-(6, 4, 3, 'XE', '', '', 1, 3, 'manager3', 'manager3@exemple.cat', 'Directora', '', '1331127943', '', '', 5000, '1417524991', '1331127897', '4476', ''),
-(7, 1, 4, '', '', '', 1, 4, 'manager4', 'manager4@exemple.cat', 'Cap d''estudis', '', '1417523682', '', '', 200, '1417523683', '1331215250', '352', 'localhost'),
-(8, 4, 4, 'XE', '', '', 1, 4, 'manager4', 'manager4@exemple.cat', 'Cap d''estudis', '', '1331226348', '', '', 5000, '1417525007', '1331215250', '4444', ''),
-(50, 4, 1, 'XE', '', '', 1, 1, 'manager1', 'manager1@exemple.cat', 'L''artístac', '', '1342518349', '', '', 5000, '1417524960', '1342439879', '19236', ''),
-(53, 4, 2, 'XE', '', '', 1, 2, 'manager2', 'manager2@exemple.cat', 'Coordinador/a d''informàtica', '', '1356025656', '', '', 5000, '1417524976', '1356024781', '7528', ''),
-(54, 1, 1, '', '', '', 1, 1, 'manager1', 'manager1@exemple.cat', 'Cap d''estudis i Coordinador TAC', '', '1417523555', '', '', 200, '1417523555', '1390210210', '352', 'localhost'),
-(55, 1, 2, '', '', '', 1, 2, 'manager2', 'manager2@exemple.cat', 'Referent TAC', '', '1417523601', '', '', 200, '1417523601', '1390212190', '352', 'localhost'),
-(56, 5, 1, '', '', '', 1, 1, 'manager1', 'manager1@exemple.cat', 'Tècnic TAC', '', '1417523584', 'Maqueta primària', '', 5000, '1417523584', '1417523396', '11964', 'localhost'),
-(57, 5, 2, '', '', '', 1, 2, 'manager2', 'manager2@exemple.cat', 'Tècnic TAC', '', '1417523629', 'Maqueta secundària', '', 5000, '1417523629', '1417523441', '16816', 'localhost'),
-(58, 5, 3, '', '', '', 1, 3, 'manager3', 'manager3@exemple.cat', 'Tècnic TAC', '', '1417523666', 'Maqueta primària', '', 5000, '1417523666', '1417523474', '11964', 'localhost'),
-(59, 5, 4, '', '', '', 1, 4, 'manager4', 'manager4@exemple.cat', 'Tècnic TAC', '', '1417523698', 'Maqueta secundària', '', 5000, '1417523699', '1417523508', '16816', 'localhost');
+INSERT INTO `agoraportal_client_services` (`clientServiceId`, `serviceId`, `clientId`, `serviceDB`, `description`, `state`, `activedId`, `contactName`, `contactProfile`, `timeCreated`, `observations`, `annotations`, `diskSpace`, `timeEdited`, `timeRequested`, `diskConsume`, `dbHost`) VALUES
+(6, 4, 3, 'XE', '', 1, 3, 'manager3', 'Directora', '1331127943', '', '', 5000, '1483960298', '1331127897', '89472', ''),
+(8, 4, 4, 'XE', '', 1, 4, 'manager4', 'Cap d''estudis', '1331226348', '', '', 5000, '1483960426', '1331215250', '89472', ''),
+(50, 4, 1, 'XE', '', 1, 1, 'manager1', 'L''artístac', '1342518349', '', '', 5000, '1483960253', '1342439879', '280140', ''),
+(53, 4, 2, 'XE', '', 1, 2, 'manager2', 'Coordinador/a d''informàtica', '1356025656', '', '', 5000, '1483960281', '1356024781', '89472', ''),
+(54, 1, 1, '', '', 1, 1, 'manager1', 'Cap d''estudis i Coordinador TAC', '1417523555', '', '', 200, '1483960612', '1390210210', '284', 'localhost'),
+(55, 1, 2, '', '', 1, 2, 'manager2', 'Referent TAC', '1417523601', '', '', 200, '1483960326', '1390212190', '284', 'localhost'),
+(56, 5, 1, '', '', 1, 1, 'manager1', 'Tècnic TAC', '1417523584', 'Maqueta primària', '', 5000, '1483960287', '1417523396', '12440', 'localhost'),
+(57, 5, 2, '', '', 1, 2, 'manager2', 'Tècnic TAC', '1417523629', 'Maqueta secundària', '', 5000, '1483960396', '1417523441', '17228', 'localhost'),
+(58, 5, 3, '', '', 1, 3, 'manager3', 'Tècnic TAC', '1417523666', 'Maqueta adults', '', 5000, '1483960386', '1417523474', '19512', 'localhost'),
+(59, 5, 4, '', '', 1, 4, 'manager4', 'Tècnic TAC', '1417523698', 'Maqueta EOI', '', 5000, '1483960461', '1417523508', '29340', 'localhost'),
+(60, 5, 5, '', '', 1, 5, 'manager5', 'Tècnic SSCC', '1483958678', 'Maqueta ZER', '', 5000, '1483960479', '1483958678', '18336', 'localhost'),
+(61, 5, 6, '', '', 1, 6, 'manager6', 'Tècnic SSCC', '1483958678', 'Maqueta CREDA', '', 5000, '1483960437', '1483958806', '56588', 'localhost'),
+(62, 5, 7, '', '', 1, 7, 'manager7', 'Tècnic SSCC', '1483958678', 'Maqueta CdA', '', 5000, '1483960448', '1483958996', '45696', 'localhost'),
+(63, 5, 8, '', '', 1, 8, 'manager8', 'Tècnic SSCC', '1483958678', 'Maqueta SSEE', '', 5000, '1483960452', '1483959238', '69608', 'localhost');
 
 -- --------------------------------------------------------
 
@@ -368,193 +380,203 @@ INSERT INTO `agoraportal_location` (`locationId`, `locationName`) VALUES
 CREATE TABLE IF NOT EXISTS `agoraportal_logs` (
   `logId` int(11) NOT NULL AUTO_INCREMENT,
   `clientCode` varchar(15) NOT NULL,
-  `uid` int(11) NOT NULL DEFAULT '0',
   `uname` varchar(25) NOT NULL,
   `actionCode` tinyint(4) NOT NULL DEFAULT '0',
   `action` varchar(255) NOT NULL,
   `time` varchar(20) NOT NULL,
   PRIMARY KEY (`logId`),
   KEY `clientCode` (`clientCode`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=174 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=185 ;
 
 --
 -- Bolcant dades de la taula `agoraportal_logs`
 --
 
-INSERT INTO `agoraportal_logs` (`logId`, `clientCode`, `uid`, `uname`, `actionCode`, `action`, `time`) VALUES
-(1, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el servei moodle', '1338507412'),
-(2, 'a8000001', 0, 'manager1', 1, 'S\\''ha fet la sol·licitud del servei moodle', '1338507423'),
-(3, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle', '1338507442'),
-(4, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el servei moodle', '1338507554'),
-(5, 'a8000001', 0, 'manager1', 1, 'S\\''ha fet la sol·licitud del servei moodle', '1338507579'),
-(6, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle', '1338507613'),
-(7, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el servei moodle', '1338507871'),
-(8, 'a8000001', 0, 'manager1', 1, 'S\\''ha fet la sol·licitud del servei moodle', '1338507882'),
-(9, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle', '1338507901'),
-(10, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el servei moodle', '1338508687'),
-(11, 'a8000001', 0, 'manager1', 1, 'S\\''ha fet la sol·licitud del servei moodle', '1338508709'),
-(12, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle', '1338518114'),
-(13, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el servei moodle', '1338518133'),
-(14, 'a8000001', 0, 'manager1', 1, 'S\\''ha fet la sol·licitud del servei moodle', '1338518217'),
-(15, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle', '1338518394'),
-(16, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el servei intranet', '1338519007'),
-(17, 'a8000001', 0, 'manager1', 1, 'S\\''ha fet la sol·licitud del servei intranet', '1338519214'),
-(18, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1338522795'),
-(19, 'a8000001', 0, 'admin', 2, 'S\\''ha connectat la intranet amb el Moodle', '1338522796'),
-(20, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el servei intranet', '1338522847'),
-(21, 'a8000001', 0, 'manager1', 1, 'S\\''ha fet la sol·licitud del servei intranet', '1338522873'),
-(22, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1338522895'),
-(23, 'a8000001', 0, 'admin', 2, 'S\\''ha connectat la intranet amb el Moodle', '1338522895'),
-(24, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el servei intranet', '1338522958'),
-(25, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el servei moodle', '1338522967'),
-(26, 'a8000001', 0, 'manager1', 1, 'S\\''ha fet la sol·licitud del servei intranet', '1338522980'),
-(27, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle', '1338523000'),
-(28, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1338523018'),
-(29, 'a8000001', 0, 'admin', 2, 'S\\''ha connectat la intranet amb el Moodle', '1338523019'),
-(30, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el servei moodle2', '1338523059'),
-(31, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el servei moodle', '1338523065'),
-(32, 'a8000001', 0, 'manager1', 1, 'S\\''ha fet la sol·licitud del servei moodle', '1338523084'),
-(33, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle2', '1338523108'),
-(34, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle', '1338523806'),
-(35, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el servei moodle', '1338524245'),
-(36, 'a8000001', 0, 'manager1', 1, 'S\\''ha fet la sol·licitud del servei moodle', '1338524272'),
-(37, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle', '1338524288'),
-(38, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el servei moodle', '1338524458'),
-(39, 'a8000001', 0, 'manager1', 1, 'S\\''ha fet la sol·licitud del servei moodle', '1338524472'),
-(40, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle', '1338524489'),
-(41, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el servei moodle', '1338524529'),
-(42, 'a8000001', 0, 'manager1', 1, 'S\\''ha fet la sol·licitud del servei moodle', '1338524540'),
-(43, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle', '1338524554'),
-(44, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el servei moodle', '1338524596'),
-(45, 'a8000001', 0, 'manager1', 1, 'S\\''ha fet la sol·licitud del servei moodle', '1338524609'),
-(46, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle', '1338524625'),
-(47, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el servei moodle', '1338524709'),
-(48, 'a8000001', 0, 'manager1', 1, 'S\\''ha fet la sol·licitud del servei moodle', '1338524720'),
-(49, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle', '1338524736'),
-(50, 'a8000001', 0, 'admin', 2, 'S\\''ha connectat la intranet amb el Moodle', '1338524736'),
-(51, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el servei moodle', '1338524784'),
-(52, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el servei moodle2', '1338524790'),
-(53, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el servei intranet', '1338524795'),
-(54, 'a8000001', 0, 'manager1', 1, 'S\\''ha fet la sol·licitud del servei intranet', '1338524810'),
-(55, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle2', '1338524830'),
-(56, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle', '1338524874'),
-(57, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1338524885'),
-(58, 'a8000001', 0, 'admin', 2, 'S\\''ha connectat la intranet amb el Moodle', '1338524886'),
-(59, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el servei moodle2', '1338542426'),
-(60, 'a8000001', 0, 'manager1', 1, 'S\\''ha fet la sol·licitud del servei moodle2', '1338542533'),
-(61, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle2', '1338542583'),
-(62, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el servei intranet', '1338553462'),
-(63, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el servei moodle', '1338553468'),
-(64, 'a8000001', 0, 'manager1', 1, 'S\\''ha fet la sol·licitud del servei intranet', '1338553499'),
-(65, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1338553827'),
-(66, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el servei intranet', '1338554044'),
-(67, 'a8000001', 0, 'manager1', 1, 'S\\''ha fet la sol·licitud del servei intranet', '1338554209'),
-(68, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1338554226'),
-(69, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el servei intranet', '1338554775'),
-(70, 'a8000001', 0, 'manager1', 1, 'S\\''ha fet la sol·licitud del servei intranet', '1338554787'),
-(71, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1338554806'),
-(72, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle', '1338555692'),
-(73, 'a8000001', 0, 'admin', 2, 'S\\''ha connectat la intranet amb el Moodle', '1338555693'),
-(74, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el servei moodle2', '1339756758'),
-(75, 'a8000001', 0, 'manager1', 1, 'S\\''ha fet la sol·licitud del servei moodle2', '1339756970'),
-(76, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle2', '1339757442'),
-(77, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el servei moodle', '1341504662'),
-(78, 'a8000001', 0, 'manager1', 1, 'S\\''ha fet la sol·licitud del servei moodle', '1341505096'),
-(79, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle', '1341506727'),
-(80, 'a8000001', 0, 'admin', 2, 'S\\''ha connectat la intranet amb el Moodle', '1341506728'),
-(81, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el servei moodle', '1341506867'),
-(82, 'a8000001', 0, 'manager1', 1, 'S\\''ha fet la sol·licitud del servei moodle', '1341506879'),
-(83, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle', '1341507849'),
-(84, 'a8000001', 0, 'admin', 2, 'S\\''ha connectat la intranet amb el Moodle', '1341507849'),
-(85, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el servei moodle2', '1341507857'),
-(86, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el servei moodle', '1341507900'),
-(87, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el servei intranet', '1341507905'),
-(88, 'a8000001', 0, 'manager1', 1, 'S\\''ha fet la sol·licitud del servei intranet', '1341507924'),
-(89, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle2', '1341507941'),
-(90, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1341507961'),
-(91, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el servei intranet', '1341508661'),
-(92, 'a8000001', 0, 'manager1', 1, 'S\\''ha fet la sol·licitud del servei intranet', '1341508673'),
-(93, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1341508689'),
-(94, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el servei intranet', '1341509087'),
-(95, 'a8000001', 0, 'manager1', 1, 'S\\''ha fet la sol·licitud del servei intranet', '1341509102'),
-(96, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1341509119'),
-(97, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el servei intranet', '1341509305'),
-(98, 'a8000001', 0, 'manager1', 1, 'S\\''ha fet la sol·licitud del servei intranet', '1341509316'),
-(99, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1341509330'),
-(100, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el servei intranet', '1341998785'),
-(101, 'a8000001', 0, 'manager1', 1, 'S\\''ha fet la sol·licitud del servei intranet', '1341998801'),
-(102, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle', '1342002474'),
-(103, 'a8000001', 0, 'manager1', 3, 'S\\''ha mogut el fitxer \\''backup-cdp-20120525-1223.zip\\'' de Moodle 1.9 a Moodle 2.x', '1342002508'),
-(104, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1342174995'),
-(105, 'a8000001', 0, 'admin', 2, 'S\\''ha connectat la intranet amb el Moodle', '1342174996'),
-(106, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el servei intranet', '1342196547'),
-(107, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el servei moodle', '1342196552'),
-(108, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el servei moodle2', '1342196557'),
-(109, 'a8000001', 0, 'manager1', 1, 'S\\''ha fet la sol·licitud del servei intranet', '1342196604'),
-(110, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle', '1342196629'),
-(111, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1342196647'),
-(112, 'a8000001', 0, 'admin', 2, 'S\\''ha connectat la intranet amb el Moodle', '1342196648'),
-(113, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle2', '1342196660'),
-(114, 'a8000001', 0, 'admin', 2, 'S\\''ha connectat la intranet amb el Moodle', '1342196660'),
-(115, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el servei intranet', '1342197000'),
-(116, 'a8000001', 0, 'manager1', 1, 'S\\''ha fet la sol·licitud del servei intranet', '1342197012'),
-(117, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1342197032'),
-(118, 'a8000001', 0, 'admin', 2, 'S\\''ha connectat la intranet amb el Moodle', '1342197032'),
-(119, 'a8000001', 0, 'admin', 2, 'S\\''ha desactivat el servei intranet', '1342197354'),
-(120, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1342197374'),
-(121, 'a8000001', 0, 'admin', 2, 'S\\''ha connectat la intranet amb el Moodle', '1342197374'),
-(122, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el servei intranet', '1342439854'),
-(123, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el servei moodle2', '1342439859'),
-(124, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el servei moodle', '1342439865'),
-(125, 'a8000001', 0, 'manager1', 1, 'S\\''ha fet la sol·licitud del servei intranet', '1342439879'),
-(126, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle', '1342439899'),
-(127, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1342439921'),
-(128, 'a8000001', 0, 'admin', 2, 'S\\''ha connectat la intranet amb el Moodle', '1342439922'),
-(129, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle2', '1342439940'),
-(130, 'a8000001', 0, 'admin', 2, 'S\\''ha connectat la intranet amb el Moodle', '1342439941'),
-(131, 'a8000001', 0, 'manager1', 3, 'S\\''ha mogut el fitxer \\''backup-cdp-20120716-1700.zip\\'' de Moodle 1.9 a Moodle 2.x', '1342450935'),
-(132, 'a8000001', 0, 'admin', 2, 'S\\''ha desactivat el servei moodle2', '1342518332'),
-(133, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle2', '1342518349'),
-(134, 'a8000001', 0, 'admin', 2, 'S\\''ha connectat la intranet amb el Moodle', '1342518350'),
-(135, 'a8000001', 0, 'admin', 2, 'S\\''ha denegat el servei moodle2', '1342518369'),
-(136, 'a8000001', 0, 'admin', 2, 'S\\''ha denegat el servei moodle2', '1342518389'),
-(137, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el fitxer \\''backup-cdp-20121029-1545.zip\\'' del repository \\''Fitxers\\'' de Moodle', '1351526586'),
-(138, 'a8000001', 0, 'admin', 3, 'S\\''ha mogut el fitxer \\''backup-ma_0310_002_1.0-20120725-2038.zip\\'' de Moodle 1.9 a Moodle 2.x', '1351526596'),
-(139, 'a8000002', 0, 'manager2', 1, 'S\\''ha fet la sol·licitud del servei marsupial', '1356023100'),
-(140, 'a8000002', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei marsupial', '1356023122'),
-(141, 'a8000003', 0, 'manager3', 1, 'S\\''ha fet la sol·licitud del servei marsupial', '1356023315'),
-(142, 'a8000003', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei marsupial', '1356023380'),
-(143, 'a8000002', 0, 'admin', 3, 'S\\''ha esborrat el servei marsupial', '1356024684'),
-(144, 'a8000002', 0, 'manager2', 1, 'S\\''ha fet la sol·licitud del servei moodle2', '1356024781'),
-(145, 'a8000002', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle2', '1356025656'),
-(146, 'a8000002', 0, 'admin', 2, 'S\\''ha connectat la intranet amb el Moodle', '1356025657'),
-(147, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el servei intranet', '1390210187'),
-(148, 'a8000001', 0, 'manager1', 1, 'S\\''ha fet la sol·licitud del servei intranet', '1390210210'),
-(149, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1390210245'),
-(150, 'a8000002', 0, 'admin', 3, 'S\\''ha esborrat el servei intranet', '1390212172'),
-(151, 'a8000002', 0, 'manager2', 1, 'S\\''ha fet la sol·licitud del servei intranet', '1390212190'),
-(152, 'a8000002', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1390212231'),
-(153, 'a8000002', 0, 'admin', 3, 'S\\''ha esborrat el servei moodle', '1391001729'),
-(154, 'a8000001', 0, 'admin', 3, 'S\\''ha esborrat el servei moodle', '1391001736'),
-(155, 'a8000003', 0, 'admin', 2, 'S\\''ha donat de baixa el servei intranet', '1417523197'),
-(156, 'a8000003', 0, 'admin', 2, 'S\\''ha donat de baixa el servei intranet', '1417523212'),
-(157, 'a8000002', 0, 'admin', 2, 'S\\''ha donat de baixa el servei intranet', '1417523234'),
-(158, 'a8000001', 0, 'admin', 2, 'S\\''ha donat de baixa el servei intranet', '1417523266'),
-(159, 'a8000004', 0, 'admin', 2, 'S\\''ha donat de baixa el servei intranet', '1417523363'),
-(160, 'a8000001', 0, 'manager1', 1, 'S\\''ha fet la sol·licitud del servei intranet', '1417523397'),
-(161, 'a8000002', 0, 'manager2', 1, 'S\\''ha fet la sol·licitud del servei intranet', '1417523442'),
-(162, 'a8000003', 0, 'manager3', 1, 'S\\''ha fet la sol·licitud del servei intranet', '1417523474'),
-(163, 'a8000004', 0, 'manager4', 1, 'S\\''ha fet la sol·licitud del servei intranet', '1417523509'),
-(164, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1417523555'),
-(165, 'a8000001', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei nodes', '1417523584'),
-(166, 'a8000002', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1417523601'),
-(167, 'a8000002', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei nodes', '1417523629'),
-(168, 'a8000003', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1417523646'),
-(169, 'a8000003', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei nodes', '1417523666'),
-(170, 'a8000004', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1417523683'),
-(171, 'a8000004', 0, 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei nodes', '1417523698'),
-(172, 'a8000003', 0, 'admin', 3, 'S\\''ha esborrat el servei marsupial', '1448874805'),
-(173, '', 0, 'admin', 1, 'S\\''ha afegit un gestor amb nom d\\''usuari manager5', '1448875169');
+INSERT INTO `agoraportal_logs` (`logId`, `clientCode`, `uname`, `actionCode`, `action`, `time`) VALUES
+(1, 'a8000001', 'admin', 3, 'S\\''ha esborrat el servei moodle', '1338507412'),
+(2, 'a8000001', 'manager1', 1, 'S\\''ha fet la sol·licitud del servei moodle', '1338507423'),
+(3, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle', '1338507442'),
+(4, 'a8000001', 'admin', 3, 'S\\''ha esborrat el servei moodle', '1338507554'),
+(5, 'a8000001', 'manager1', 1, 'S\\''ha fet la sol·licitud del servei moodle', '1338507579'),
+(6, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle', '1338507613'),
+(7, 'a8000001', 'admin', 3, 'S\\''ha esborrat el servei moodle', '1338507871'),
+(8, 'a8000001', 'manager1', 1, 'S\\''ha fet la sol·licitud del servei moodle', '1338507882'),
+(9, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle', '1338507901'),
+(10, 'a8000001', 'admin', 3, 'S\\''ha esborrat el servei moodle', '1338508687'),
+(11, 'a8000001', 'manager1', 1, 'S\\''ha fet la sol·licitud del servei moodle', '1338508709'),
+(12, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle', '1338518114'),
+(13, 'a8000001', 'admin', 3, 'S\\''ha esborrat el servei moodle', '1338518133'),
+(14, 'a8000001', 'manager1', 1, 'S\\''ha fet la sol·licitud del servei moodle', '1338518217'),
+(15, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle', '1338518394'),
+(16, 'a8000001', 'admin', 3, 'S\\''ha esborrat el servei intranet', '1338519007'),
+(17, 'a8000001', 'manager1', 1, 'S\\''ha fet la sol·licitud del servei intranet', '1338519214'),
+(18, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1338522795'),
+(19, 'a8000001', 'admin', 2, 'S\\''ha connectat la intranet amb el Moodle', '1338522796'),
+(20, 'a8000001', 'admin', 3, 'S\\''ha esborrat el servei intranet', '1338522847'),
+(21, 'a8000001', 'manager1', 1, 'S\\''ha fet la sol·licitud del servei intranet', '1338522873'),
+(22, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1338522895'),
+(23, 'a8000001', 'admin', 2, 'S\\''ha connectat la intranet amb el Moodle', '1338522895'),
+(24, 'a8000001', 'admin', 3, 'S\\''ha esborrat el servei intranet', '1338522958'),
+(25, 'a8000001', 'admin', 3, 'S\\''ha esborrat el servei moodle', '1338522967'),
+(26, 'a8000001', 'manager1', 1, 'S\\''ha fet la sol·licitud del servei intranet', '1338522980'),
+(27, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle', '1338523000'),
+(28, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1338523018'),
+(29, 'a8000001', 'admin', 2, 'S\\''ha connectat la intranet amb el Moodle', '1338523019'),
+(30, 'a8000001', 'admin', 3, 'S\\''ha esborrat el servei moodle2', '1338523059'),
+(31, 'a8000001', 'admin', 3, 'S\\''ha esborrat el servei moodle', '1338523065'),
+(32, 'a8000001', 'manager1', 1, 'S\\''ha fet la sol·licitud del servei moodle', '1338523084'),
+(33, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle2', '1338523108'),
+(34, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle', '1338523806'),
+(35, 'a8000001', 'admin', 3, 'S\\''ha esborrat el servei moodle', '1338524245'),
+(36, 'a8000001', 'manager1', 1, 'S\\''ha fet la sol·licitud del servei moodle', '1338524272'),
+(37, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle', '1338524288'),
+(38, 'a8000001', 'admin', 3, 'S\\''ha esborrat el servei moodle', '1338524458'),
+(39, 'a8000001', 'manager1', 1, 'S\\''ha fet la sol·licitud del servei moodle', '1338524472'),
+(40, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle', '1338524489'),
+(41, 'a8000001', 'admin', 3, 'S\\''ha esborrat el servei moodle', '1338524529'),
+(42, 'a8000001', 'manager1', 1, 'S\\''ha fet la sol·licitud del servei moodle', '1338524540'),
+(43, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle', '1338524554'),
+(44, 'a8000001', 'admin', 3, 'S\\''ha esborrat el servei moodle', '1338524596'),
+(45, 'a8000001', 'manager1', 1, 'S\\''ha fet la sol·licitud del servei moodle', '1338524609'),
+(46, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle', '1338524625'),
+(47, 'a8000001', 'admin', 3, 'S\\''ha esborrat el servei moodle', '1338524709'),
+(48, 'a8000001', 'manager1', 1, 'S\\''ha fet la sol·licitud del servei moodle', '1338524720'),
+(49, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle', '1338524736'),
+(50, 'a8000001', 'admin', 2, 'S\\''ha connectat la intranet amb el Moodle', '1338524736'),
+(51, 'a8000001', 'admin', 3, 'S\\''ha esborrat el servei moodle', '1338524784'),
+(52, 'a8000001', 'admin', 3, 'S\\''ha esborrat el servei moodle2', '1338524790'),
+(53, 'a8000001', 'admin', 3, 'S\\''ha esborrat el servei intranet', '1338524795'),
+(54, 'a8000001', 'manager1', 1, 'S\\''ha fet la sol·licitud del servei intranet', '1338524810'),
+(55, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle2', '1338524830'),
+(56, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle', '1338524874'),
+(57, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1338524885'),
+(58, 'a8000001', 'admin', 2, 'S\\''ha connectat la intranet amb el Moodle', '1338524886'),
+(59, 'a8000001', 'admin', 3, 'S\\''ha esborrat el servei moodle2', '1338542426'),
+(60, 'a8000001', 'manager1', 1, 'S\\''ha fet la sol·licitud del servei moodle2', '1338542533'),
+(61, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle2', '1338542583'),
+(62, 'a8000001', 'admin', 3, 'S\\''ha esborrat el servei intranet', '1338553462'),
+(63, 'a8000001', 'admin', 3, 'S\\''ha esborrat el servei moodle', '1338553468'),
+(64, 'a8000001', 'manager1', 1, 'S\\''ha fet la sol·licitud del servei intranet', '1338553499'),
+(65, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1338553827'),
+(66, 'a8000001', 'admin', 3, 'S\\''ha esborrat el servei intranet', '1338554044'),
+(67, 'a8000001', 'manager1', 1, 'S\\''ha fet la sol·licitud del servei intranet', '1338554209'),
+(68, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1338554226'),
+(69, 'a8000001', 'admin', 3, 'S\\''ha esborrat el servei intranet', '1338554775'),
+(70, 'a8000001', 'manager1', 1, 'S\\''ha fet la sol·licitud del servei intranet', '1338554787'),
+(71, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1338554806'),
+(72, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle', '1338555692'),
+(73, 'a8000001', 'admin', 2, 'S\\''ha connectat la intranet amb el Moodle', '1338555693'),
+(74, 'a8000001', 'admin', 3, 'S\\''ha esborrat el servei moodle2', '1339756758'),
+(75, 'a8000001', 'manager1', 1, 'S\\''ha fet la sol·licitud del servei moodle2', '1339756970'),
+(76, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle2', '1339757442'),
+(77, 'a8000001', 'admin', 3, 'S\\''ha esborrat el servei moodle', '1341504662'),
+(78, 'a8000001', 'manager1', 1, 'S\\''ha fet la sol·licitud del servei moodle', '1341505096'),
+(79, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle', '1341506727'),
+(80, 'a8000001', 'admin', 2, 'S\\''ha connectat la intranet amb el Moodle', '1341506728'),
+(81, 'a8000001', 'admin', 3, 'S\\''ha esborrat el servei moodle', '1341506867'),
+(82, 'a8000001', 'manager1', 1, 'S\\''ha fet la sol·licitud del servei moodle', '1341506879'),
+(83, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle', '1341507849'),
+(84, 'a8000001', 'admin', 2, 'S\\''ha connectat la intranet amb el Moodle', '1341507849'),
+(85, 'a8000001', 'admin', 3, 'S\\''ha esborrat el servei moodle2', '1341507857'),
+(86, 'a8000001', 'admin', 3, 'S\\''ha esborrat el servei moodle', '1341507900'),
+(87, 'a8000001', 'admin', 3, 'S\\''ha esborrat el servei intranet', '1341507905'),
+(88, 'a8000001', 'manager1', 1, 'S\\''ha fet la sol·licitud del servei intranet', '1341507924'),
+(89, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle2', '1341507941'),
+(90, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1341507961'),
+(91, 'a8000001', 'admin', 3, 'S\\''ha esborrat el servei intranet', '1341508661'),
+(92, 'a8000001', 'manager1', 1, 'S\\''ha fet la sol·licitud del servei intranet', '1341508673'),
+(93, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1341508689'),
+(94, 'a8000001', 'admin', 3, 'S\\''ha esborrat el servei intranet', '1341509087'),
+(95, 'a8000001', 'manager1', 1, 'S\\''ha fet la sol·licitud del servei intranet', '1341509102'),
+(96, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1341509119'),
+(97, 'a8000001', 'admin', 3, 'S\\''ha esborrat el servei intranet', '1341509305'),
+(98, 'a8000001', 'manager1', 1, 'S\\''ha fet la sol·licitud del servei intranet', '1341509316'),
+(99, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1341509330'),
+(100, 'a8000001', 'admin', 3, 'S\\''ha esborrat el servei intranet', '1341998785'),
+(101, 'a8000001', 'manager1', 1, 'S\\''ha fet la sol·licitud del servei intranet', '1341998801'),
+(102, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle', '1342002474'),
+(103, 'a8000001', 'manager1', 3, 'S\\''ha mogut el fitxer \\''backup-cdp-20120525-1223.zip\\'' de Moodle 1.9 a Moodle 2.x', '1342002508'),
+(104, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1342174995'),
+(105, 'a8000001', 'admin', 2, 'S\\''ha connectat la intranet amb el Moodle', '1342174996'),
+(106, 'a8000001', 'admin', 3, 'S\\''ha esborrat el servei intranet', '1342196547'),
+(107, 'a8000001', 'admin', 3, 'S\\''ha esborrat el servei moodle', '1342196552'),
+(108, 'a8000001', 'admin', 3, 'S\\''ha esborrat el servei moodle2', '1342196557'),
+(109, 'a8000001', 'manager1', 1, 'S\\''ha fet la sol·licitud del servei intranet', '1342196604'),
+(110, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle', '1342196629'),
+(111, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1342196647'),
+(112, 'a8000001', 'admin', 2, 'S\\''ha connectat la intranet amb el Moodle', '1342196648'),
+(113, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle2', '1342196660'),
+(114, 'a8000001', 'admin', 2, 'S\\''ha connectat la intranet amb el Moodle', '1342196660'),
+(115, 'a8000001', 'admin', 3, 'S\\''ha esborrat el servei intranet', '1342197000'),
+(116, 'a8000001', 'manager1', 1, 'S\\''ha fet la sol·licitud del servei intranet', '1342197012'),
+(117, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1342197032'),
+(118, 'a8000001', 'admin', 2, 'S\\''ha connectat la intranet amb el Moodle', '1342197032'),
+(119, 'a8000001', 'admin', 2, 'S\\''ha desactivat el servei intranet', '1342197354'),
+(120, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1342197374'),
+(121, 'a8000001', 'admin', 2, 'S\\''ha connectat la intranet amb el Moodle', '1342197374'),
+(122, 'a8000001', 'admin', 3, 'S\\''ha esborrat el servei intranet', '1342439854'),
+(123, 'a8000001', 'admin', 3, 'S\\''ha esborrat el servei moodle2', '1342439859'),
+(124, 'a8000001', 'admin', 3, 'S\\''ha esborrat el servei moodle', '1342439865'),
+(125, 'a8000001', 'manager1', 1, 'S\\''ha fet la sol·licitud del servei intranet', '1342439879'),
+(126, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle', '1342439899'),
+(127, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1342439921'),
+(128, 'a8000001', 'admin', 2, 'S\\''ha connectat la intranet amb el Moodle', '1342439922'),
+(129, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle2', '1342439940'),
+(130, 'a8000001', 'admin', 2, 'S\\''ha connectat la intranet amb el Moodle', '1342439941'),
+(131, 'a8000001', 'manager1', 3, 'S\\''ha mogut el fitxer \\''backup-cdp-20120716-1700.zip\\'' de Moodle 1.9 a Moodle 2.x', '1342450935'),
+(132, 'a8000001', 'admin', 2, 'S\\''ha desactivat el servei moodle2', '1342518332'),
+(133, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle2', '1342518349'),
+(134, 'a8000001', 'admin', 2, 'S\\''ha connectat la intranet amb el Moodle', '1342518350'),
+(135, 'a8000001', 'admin', 2, 'S\\''ha denegat el servei moodle2', '1342518369'),
+(136, 'a8000001', 'admin', 2, 'S\\''ha denegat el servei moodle2', '1342518389'),
+(137, 'a8000001', 'admin', 3, 'S\\''ha esborrat el fitxer \\''backup-cdp-20121029-1545.zip\\'' del repository \\''Fitxers\\'' de Moodle', '1351526586'),
+(138, 'a8000001', 'admin', 3, 'S\\''ha mogut el fitxer \\''backup-ma_0310_002_1.0-20120725-2038.zip\\'' de Moodle 1.9 a Moodle 2.x', '1351526596'),
+(139, 'a8000002', 'manager2', 1, 'S\\''ha fet la sol·licitud del servei marsupial', '1356023100'),
+(140, 'a8000002', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei marsupial', '1356023122'),
+(141, 'a8000003', 'manager3', 1, 'S\\''ha fet la sol·licitud del servei marsupial', '1356023315'),
+(142, 'a8000003', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei marsupial', '1356023380'),
+(143, 'a8000002', 'admin', 3, 'S\\''ha esborrat el servei marsupial', '1356024684'),
+(144, 'a8000002', 'manager2', 1, 'S\\''ha fet la sol·licitud del servei moodle2', '1356024781'),
+(145, 'a8000002', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei moodle2', '1356025656'),
+(146, 'a8000002', 'admin', 2, 'S\\''ha connectat la intranet amb el Moodle', '1356025657'),
+(147, 'a8000001', 'admin', 3, 'S\\''ha esborrat el servei intranet', '1390210187'),
+(148, 'a8000001', 'manager1', 1, 'S\\''ha fet la sol·licitud del servei intranet', '1390210210'),
+(149, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1390210245'),
+(150, 'a8000002', 'admin', 3, 'S\\''ha esborrat el servei intranet', '1390212172'),
+(151, 'a8000002', 'manager2', 1, 'S\\''ha fet la sol·licitud del servei intranet', '1390212190'),
+(152, 'a8000002', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1390212231'),
+(153, 'a8000002', 'admin', 3, 'S\\''ha esborrat el servei moodle', '1391001729'),
+(154, 'a8000001', 'admin', 3, 'S\\''ha esborrat el servei moodle', '1391001736'),
+(155, 'a8000003', 'admin', 2, 'S\\''ha donat de baixa el servei intranet', '1417523197'),
+(156, 'a8000003', 'admin', 2, 'S\\''ha donat de baixa el servei intranet', '1417523212'),
+(157, 'a8000002', 'admin', 2, 'S\\''ha donat de baixa el servei intranet', '1417523234'),
+(158, 'a8000001', 'admin', 2, 'S\\''ha donat de baixa el servei intranet', '1417523266'),
+(159, 'a8000004', 'admin', 2, 'S\\''ha donat de baixa el servei intranet', '1417523363'),
+(160, 'a8000001', 'manager1', 1, 'S\\''ha fet la sol·licitud del servei intranet', '1417523397'),
+(161, 'a8000002', 'manager2', 1, 'S\\''ha fet la sol·licitud del servei intranet', '1417523442'),
+(162, 'a8000003', 'manager3', 1, 'S\\''ha fet la sol·licitud del servei intranet', '1417523474'),
+(163, 'a8000004', 'manager4', 1, 'S\\''ha fet la sol·licitud del servei intranet', '1417523509'),
+(164, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1417523555'),
+(165, 'a8000001', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei nodes', '1417523584'),
+(166, 'a8000002', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1417523601'),
+(167, 'a8000002', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei nodes', '1417523629'),
+(168, 'a8000003', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1417523646'),
+(169, 'a8000003', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei nodes', '1417523666'),
+(170, 'a8000004', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei intranet', '1417523683'),
+(171, 'a8000004', 'admin', 2, 'S\\''ha aprovat la sol·licitud del servei nodes', '1417523698'),
+(172, 'a8000003', 'admin', 3, 'S\\''ha esborrat el servei marsupial', '1448874805'),
+(173, '', 'admin', 1, 'S\\''ha afegit un gestor amb nom d\\''usuari manager5', '1448875169'),
+(174, 'a8000004', 'admin', 2, 'S\\''ha donat de baixa el servei intranet', '1483957904'),
+(175, 'a8000003', 'admin', 2, 'S\\''ha donat de baixa el servei intranet', '1483958010'),
+(176, 'a8000003', 'admin', 3, 'S\\''ha esborrat el servei intranet', '1483958100'),
+(177, 'a8000004', 'admin', 3, 'S\\''ha esborrat el servei intranet', '1483958473'),
+(178, 'a8000005', 'manager5', 1, 'S\\''ha fet la sol·licitud del servei nodes', '1483958679'),
+(179, 'a8000006', 'admin', 1, 'S\\''ha afegit un gestor amb nom d\\''usuari manager6', '1483958770'),
+(180, 'a8000006', 'manager6', 1, 'S\\''ha fet la sol·licitud del servei nodes', '1483958808'),
+(181, 'a8000007', 'admin', 1, 'S\\''ha afegit un gestor amb nom d\\''usuari manager7', '1483958885'),
+(182, 'a8000007', 'manager7', 1, 'S\\''ha fet la sol·licitud del servei nodes', '1483958997'),
+(183, 'a8000008', 'admin', 1, 'S\\''ha afegit un gestor amb nom d\\''usuari manager8', '1483959036'),
+(184, 'a8000008', 'manager8', 1, 'S\\''ha fet la sol·licitud del servei nodes', '1483959240');
 
 -- --------------------------------------------------------
 
@@ -565,24 +587,25 @@ INSERT INTO `agoraportal_logs` (`logId`, `clientCode`, `uid`, `uname`, `actionCo
 CREATE TABLE IF NOT EXISTS `agoraportal_modelTypes` (
   `modelTypeId` int(11) NOT NULL AUTO_INCREMENT,
   `shortcode` varchar(50) NOT NULL,
-  `keyword` varchar(50) NOT NULL,
   `description` varchar(255) NOT NULL,
   `url` varchar(255) NOT NULL,
   `dbHost` varchar(50) NOT NULL,
   PRIMARY KEY (`modelTypeId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 --
 -- Bolcant dades de la taula `agoraportal_modelTypes`
 --
 
-INSERT INTO `agoraportal_modelTypes` (`modelTypeId`, `shortcode`, `keyword`, `description`, `url`, `dbHost`) VALUES
-(4, 'ssee', 'SE', 'Maqueta Serveis Educatius', 'http://pwc-int.educacio.intranet/agora/masterssee/', 'usu5'),
-(5, 'pri', 'primaria', 'Maqueta primària', 'http://pwc-int.educacio.intranet/agora/masterpri/', 'usu6'),
-(6, 'sec', 'secundaria', 'Maqueta secundària', 'http://pwc-int.educacio.intranet/agora/mastersec/', 'usu7'),
-(7, 'cfa', 'adults', 'Maqueta adults', 'http://pwc-int.educacio.intranet/agora/mastercfa/', 'usu8'),
-(8, 'eoi', 'eoi', 'Maqueta EOI', 'http://pwc-int.educacio.intranet/agora/mastereoi/', 'usu9'),
-(9, 'zer', 'zer', 'Maqueta ZER', 'http://pwc-int.educacio.intranet/agora/masterzer/', 'usu10');
+INSERT INTO `agoraportal_modelTypes` (`modelTypeId`, `shortcode`, `description`, `url`, `dbHost`) VALUES
+(4, 'ssee', 'Maqueta SSEE', 'http://pwc-int.educacio.intranet/agora/masterssee/', 'usu5'),
+(5, 'pri', 'Maqueta primària', 'http://pwc-int.educacio.intranet/agora/masterpri/', 'usu6'),
+(6, 'sec', 'Maqueta secundària', 'http://pwc-int.educacio.intranet/agora/mastersec/', 'usu7'),
+(7, 'cfa', 'Maqueta adults', 'http://pwc-int.educacio.intranet/agora/mastercfa/', 'usu8'),
+(8, 'eoi', 'Maqueta EOI', 'http://pwc-int.educacio.intranet/agora/mastereoi/', 'usu9'),
+(9, 'zer', 'Maqueta ZER', 'http://pwc-int.educacio.intranet/agora/masterzer/', 'usu10'),
+(10, 'cda', 'Maqueta CdA', 'http://pwc-int.educacio.intranet/agora/mastercda/', 'usu4'),
+(11, 'creda', 'Maqueta CREDA', 'http://pwc-int.educacio.intranet/agora/mastercreda/', 'usu11');
 
 -- --------------------------------------------------------
 
@@ -877,7 +900,7 @@ CREATE TABLE IF NOT EXISTS `agoraportal_moodle_stats_month` (
   `clientcode` varchar(10) DEFAULT NULL,
   `clientDNS` varchar(50) NOT NULL,
   `yearmonth` int(11) DEFAULT NULL,
-  `users` int(11) DEFAULT '0',
+  `usersactive` int(11) DEFAULT NULL,
   `courses` int(11) DEFAULT '0',
   `activities` int(11) DEFAULT '0',
   `lastaccess` varchar(50) DEFAULT NULL,
@@ -892,7 +915,7 @@ CREATE TABLE IF NOT EXISTS `agoraportal_moodle_stats_month` (
 -- Bolcant dades de la taula `agoraportal_moodle_stats_month`
 --
 
-INSERT INTO `agoraportal_moodle_stats_month` (`clientcode`, `clientDNS`, `yearmonth`, `users`, `courses`, `activities`, `lastaccess`, `lastaccess_date`, `lastaccess_user`, `total_access`, `diskConsume`, `usersactivelast30days`) VALUES
+INSERT INTO `agoraportal_moodle_stats_month` (`clientcode`, `clientDNS`, `yearmonth`, `usersactive`, `courses`, `activities`, `lastaccess`, `lastaccess_date`, `lastaccess_user`, `total_access`, `diskConsume`, `usersactivelast30days`) VALUES
 ('a8000001', 'usu1', 201205, 3, 2, 4, '1335286501', '24/04/2012 18:55:01', 'admin', 8, '0', 0),
 ('a8000002', 'usu2', 201205, 2, 1, 0, '1331049388', '06/03/2012 16:56:28', 'admin', 0, '0', 0),
 ('a8000003', 'usu3', 201205, 2, 1, 0, '1331049892', '06/03/2012 17:04:52', 'admin', 0, '0', 0),
@@ -924,7 +947,7 @@ CREATE TABLE IF NOT EXISTS `agoraportal_moodle_stats_week` (
   `clientcode` varchar(10) NOT NULL DEFAULT '',
   `clientDNS` varchar(50) NOT NULL,
   `date` int(8) DEFAULT NULL,
-  `users` int(10) DEFAULT '0',
+  `usersactive` int(11) DEFAULT NULL,
   `courses` int(10) DEFAULT '0',
   `activities` int(10) DEFAULT '0',
   `lastaccess` varchar(50) DEFAULT '',
@@ -937,7 +960,7 @@ CREATE TABLE IF NOT EXISTS `agoraportal_moodle_stats_week` (
 -- Bolcant dades de la taula `agoraportal_moodle_stats_week`
 --
 
-INSERT INTO `agoraportal_moodle_stats_week` (`clientcode`, `clientDNS`, `date`, `users`, `courses`, `activities`, `lastaccess`, `lastaccess_date`, `lastaccess_user`, `total_access`) VALUES
+INSERT INTO `agoraportal_moodle_stats_week` (`clientcode`, `clientDNS`, `date`, `usersactive`, `courses`, `activities`, `lastaccess`, `lastaccess_date`, `lastaccess_user`, `total_access`) VALUES
 ('a8000001', 'usu1', 20120716, 3, 2, 5, '1341491742', '05/07/2012 14:35:42', 'admin', 0),
 ('a8000002', 'usu2', 20120716, 2, 1, 0, '1331049388', '06/03/2012 16:56:28', 'admin', 0),
 ('a8000003', 'usu3', 20120716, 2, 1, 0, '1341491586', '05/07/2012 14:33:06', 'admin', 0),
@@ -1012,7 +1035,7 @@ INSERT INTO `agoraportal_nodes_stats_day` (`clientcode`, `clientDNS`, `date`, `t
 CREATE TABLE IF NOT EXISTS `agoraportal_nodes_stats_month` (
   `clientcode` varchar(10) NOT NULL,
   `clientDNS` varchar(50) NOT NULL,
-  `date` int(11) NOT NULL DEFAULT '0',
+  `yearmonth` int(11) DEFAULT NULL,
   `total` int(11) NOT NULL DEFAULT '0',
   `posts` int(11) NOT NULL DEFAULT '0',
   `userstotal` int(11) NOT NULL DEFAULT '0',
@@ -1025,7 +1048,7 @@ CREATE TABLE IF NOT EXISTS `agoraportal_nodes_stats_month` (
 -- Bolcant dades de la taula `agoraportal_nodes_stats_month`
 --
 
-INSERT INTO `agoraportal_nodes_stats_month` (`clientcode`, `clientDNS`, `date`, `total`, `posts`, `userstotal`, `usersactive`, `lastactivity`, `diskConsume`) VALUES
+INSERT INTO `agoraportal_nodes_stats_month` (`clientcode`, `clientDNS`, `yearmonth`, `total`, `posts`, `userstotal`, `usersactive`, `lastactivity`, `diskConsume`) VALUES
 ('a8000001', 'usu1', 201412, 39, 118, 2, 2, '2014-12-02 13:32:21', 11964),
 ('a8000002', 'usu2', 201412, 17, 191, 2, 2, '2014-12-02 13:38:08', 16816),
 ('a8000003', 'usu3', 201412, 18, 118, 2, 2, '2014-12-02 13:39:42', 11964),
@@ -1097,28 +1120,6 @@ INSERT INTO `agoraportal_request` (`requestId`, `requestTypeId`, `serviceId`, `c
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `agoraportal_requestStates`
---
-
-CREATE TABLE IF NOT EXISTS `agoraportal_requestStates` (
-  `requestStateId` int(10) NOT NULL AUTO_INCREMENT,
-  `name` varchar(80) NOT NULL DEFAULT '',
-  PRIMARY KEY (`requestStateId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
-
---
--- Bolcant dades de la taula `agoraportal_requestStates`
---
-
-INSERT INTO `agoraportal_requestStates` (`requestStateId`, `name`) VALUES
-(1, 'Pendent'),
-(2, 'En estudi'),
-(3, 'Solucionada'),
-(4, 'Denegada');
-
--- --------------------------------------------------------
-
---
 -- Estructura de la taula `agoraportal_requestTypes`
 --
 
@@ -1179,7 +1180,6 @@ CREATE TABLE IF NOT EXISTS `agoraportal_services` (
   `URL` varchar(50) NOT NULL DEFAULT '',
   `description` varchar(255) NOT NULL,
   `hasDB` tinyint(4) NOT NULL DEFAULT '1',
-  `version` varchar(15) NOT NULL,
   `defaultDiskSpace` bigint(20) NOT NULL DEFAULT '0',
   `allowedClients` longtext NOT NULL,
   PRIMARY KEY (`serviceId`)
@@ -1189,12 +1189,12 @@ CREATE TABLE IF NOT EXISTS `agoraportal_services` (
 -- Bolcant dades de la taula `agoraportal_services`
 --
 
-INSERT INTO `agoraportal_services` (`serviceId`, `serviceName`, `URL`, `description`, `hasDB`, `version`, `defaultDiskSpace`, `allowedClients`) VALUES
-(1, 'intranet', 'intranet', 'Intranet i web de centre', 1, '1.3.9', 200, ''),
-(2, 'moodle', '', 'Antic Entorn Virtual d''Aprenentatge. Servei eliminat', 0, '', 0, 'cap'),
-(3, 'marsupial', '', 'Integració dels materials de les editorials en el moodle. Servei eliminat', 0, '', 0, 'cap'),
-(4, 'moodle2', 'moodle', 'Entorn Virtual d''Aprenentatge (Moodle 2)', 1, '2.8.9', 5000, ''),
-(5, 'nodes', '', 'Web de centre fet amb WordPress', 1, '4.2.2', 5000, '');
+INSERT INTO `agoraportal_services` (`serviceId`, `serviceName`, `URL`, `description`, `hasDB`, `defaultDiskSpace`, `allowedClients`) VALUES
+(1, 'intranet', 'intranet', 'Intranet i web de centre', 1, 200, ''),
+(2, 'moodle', '', 'Antic Entorn Virtual d''Aprenentatge. Servei eliminat', 0, 0, 'cap'),
+(3, 'marsupial', '', 'Integració dels materials de les editorials en el moodle. Servei eliminat', 0, 0, 'cap'),
+(4, 'moodle2', 'moodle', 'Entorn Virtual d''Aprenentatge (Moodle 2)', 1, 5000, ''),
+(5, 'nodes', '', 'Web de centre fet amb WordPress', 1, 5000, '');
 
 -- --------------------------------------------------------
 
@@ -1219,7 +1219,7 @@ CREATE TABLE IF NOT EXISTS `blocks` (
   `description` longtext NOT NULL,
   PRIMARY KEY (`bid`),
   KEY `active_idx` (`active`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Bolcant dades de la taula `blocks`
@@ -1487,7 +1487,25 @@ INSERT INTO `group_membership` (`gid`, `uid`) VALUES
 (1, 11),
 (3, 11),
 (1, 12),
-(4, 12);
+(4, 12),
+(1, 13),
+(3, 13),
+(1, 14),
+(3, 14),
+(1, 15),
+(3, 15),
+(1, 16),
+(3, 16),
+(1, 17),
+(3, 17),
+(1, 18),
+(4, 18),
+(1, 19),
+(4, 19),
+(1, 20),
+(4, 20),
+(1, 21),
+(1, 22);
 
 -- --------------------------------------------------------
 
@@ -1757,7 +1775,7 @@ CREATE TABLE IF NOT EXISTS `IWstats` (
   KEY `iw_ipForward` (`iw_ipForward`),
   KEY `iw_ipClient` (`iw_ipClient`),
   KEY `iw_userAgent` (`iw_userAgent`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -1837,11 +1855,11 @@ INSERT INTO `modules` (`id`, `name`, `type`, `displayname`, `url`, `description`
 (22, 'Settings', 3, 'Paràmetres generals', 'Paràmetres', 'Interfície de configuració general del lloc.', 0, 'Settings', '2.9.7', 1, 'Simon Wunderlin', '', 1, 0, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:10:"Settings::";s:2:"::";}', 'a:1:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
 (26, 'Legal', 2, 'Legal info manager', 'legalmod', 'Provides an interface for managing the site''s legal documents.', 0, 'Legal', '2.0.1', 1, 'Michael M. Wechsler', 'michael@thelaw.com', 1, 1, 0, 0, 2, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/install.txt', 'pndocs/license.txt', 'a:8:{s:7:"Legal::";s:2:"::";s:18:"Legal::legalnotice";s:2:"::";s:17:"Legal::termsofuse";s:2:"::";s:20:"Legal::privacypolicy";s:2:"::";s:16:"Legal::agepolicy";s:2:"::";s:29:"Legal::accessibilitystatement";s:2:"::";s:30:"Legal::cancellationrightpolicy";s:2:"::";s:22:"Legal::tradeconditions";s:2:"::";}', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '1.3.0', '1.3.99'),
 (35, 'AuthLDAP', 2, 'AuthLDAP', 'AuthLDAP', 'Permet validar els centres per LDAP.', 0, 'AuthLDAP', '1.0.1', 1, 'Mike Goldfinger', 'MikeGoldfinger@linuxmail.org', 1, 0, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:10:"AuthLDAP::";s:2:"::";}', 'a:1:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
-(64, 'Agoraportal', 2, 'Agoraportal', 'Agoraportal', 'Administració dels serveis d''Àgora, petició d''espais nous i gestió per part dels centres.', 0, 'Agoraportal', '2.0.21', 0, 'Agora Development Team', 'agora@xtec.cat', 1, 1, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:13:"Agoraportal::";s:2:"::";}', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
+(64, 'Agoraportal', 2, 'Agoraportal', 'Agoraportal', 'Administració dels serveis d''Àgora, petició d''espais nous i gestió per part dels centres.', 0, 'Agoraportal', '3.0.0', 0, 'Agora Development Team', 'agora@xtec.cat', 1, 1, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:13:"Agoraportal::";s:2:"::";}', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
 (68, 'XtecMailer', 2, 'Mailer XTEC', 'XtecMailer', 'Amplia les funcionalitats del mòdul Mailer per poder enviar correu electrònic utilitzant el servei web de la XTEC', 0, 'XtecMailer', '1.0.0', 0, '', '', 0, 0, 0, 0, 3, '', '', '', '', 'a:1:{s:12:"XtecMailer::";s:2:"::";}', 'a:1:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
 (69, 'IWmain', 2, 'Intraweb', 'IWmain', 'Mòdul principal del mòduls Intraweb. Els mòduls Intraweb necessiten aquest mòdul per poder funcionar.', 0, 'IWmain', '3.0.0', 0, '', '', 0, 0, 0, 0, 3, '', '', '', '', 'a:1:{s:8:"IWmain::";s:2:"::";}', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
 (70, 'IWstats', 2, 'Estadístiques', 'IWstats', 'Mòdul d''estadístiques.', 0, 'IWstats', '3.0.1', 0, '', '', 0, 0, 0, 0, 3, '', '', '', '', 'a:1:{s:9:"IWstats::";s:2:"::";}', 'a:1:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
-(71, 'Files', 2, 'Gestor de fitxers', 'fitxers', 'Gestió de fitxers per a llocs Zikula', 0, 'Files', '1.0.1', 0, '', '', 0, 0, 0, 0, 3, '', '', '', '', 'a:1:{s:7:"Files::";s:2:"::";}', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '1.3.0', '1.3.99');
+(71, 'Files', 2, 'Gestor de fitxers', 'fitxers', 'Gestió de fitxers per a llocs Zikula', 0, 'Files', '1.0.3', 0, '', '', 0, 0, 0, 0, 3, '', '', '', '', 'a:1:{s:7:"Files::";s:2:"::";}', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '1.3.0', '1.3.99');
 
 -- --------------------------------------------------------
 
@@ -1857,14 +1875,14 @@ CREATE TABLE IF NOT EXISTS `module_deps` (
   `maxversion` varchar(10) NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
 
 --
 -- Bolcant dades de la taula `module_deps`
 --
 
 INSERT INTO `module_deps` (`id`, `modid`, `modname`, `minversion`, `maxversion`, `status`) VALUES
-(12, 11, 'Scribite', '5.0.0', '', 2);
+(15, 11, 'Scribite', '5.0.0', '', 2);
 
 -- --------------------------------------------------------
 
@@ -1879,7 +1897,7 @@ CREATE TABLE IF NOT EXISTS `module_vars` (
   `value` longtext,
   PRIMARY KEY (`id`),
   KEY `mod_var` (`modname`,`name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=864 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=868 ;
 
 --
 -- Bolcant dades de la taula `module_vars`
@@ -1997,8 +2015,8 @@ INSERT INTO `module_vars` (`id`, `modname`, `name`, `value`) VALUES
 (121, 'ZConfig', 'onlysendsummarybyemail', 'i:1;'),
 (122, 'ZConfig', 'updatecheck', 'i:1;'),
 (123, 'ZConfig', 'updatefrequency', 'i:7;'),
-(124, 'ZConfig', 'updatelastchecked', 'i:1448874201;'),
-(125, 'ZConfig', 'updateversion', 's:5:"1.3.8";'),
+(124, 'ZConfig', 'updatelastchecked', 'i:1483544421;'),
+(125, 'ZConfig', 'updateversion', 's:13024:"<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1.0">\n<meta name="author" content="">\n<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>\n<title></title>\n<meta name="description" content=""/>\n<meta name="keywords" content=""/>\n<link rel="stylesheet" href="http://update.zikula.org/web/font-awesome/css/font-awesome.min.css" type="text/css"/>\n<link rel="stylesheet" href="http://update.zikula.org/themes/Zikula/Theme/ModernBusinessTheme/Resources/public/css/spacelab.min.css" type="text/css"/>\n<link rel="stylesheet" href="http://update.zikula.org/style/core.css" type="text/css"/>\n<link rel="stylesheet" href="http://update.zikula.org/style/legacy.css" type="text/css"/>\n<link rel="stylesheet" href="http://update.zikula.org/themes/Zikula/Theme/ModernBusinessTheme/Resources/public/css/style.css" type="text/css"/>\n<link rel="stylesheet" href="http://update.zikula.org/system/Zikula/Module/BlocksModule/Resources/public/css/style.css" type="text/css"/>\n<link rel="stylesheet" href="http://update.zikula.org/system/Zikula/Module/BlocksModule/Resources/public/css/menutree/horizontal.css" type="text/css"/>\n<link rel="stylesheet" href="http://update.zikula.org/modules/ExtensionLibrary/Resources/public/css/style.css" type="text/css"/>\n<script type="text/javascript">/* <![CDATA[ */ \ndocument.location.entrypoint="index.php";document.location.pnbaseURL="http://update.zikula.org/"; document.location.ajaxtimeout=25000;\nif (typeof(Zikula) == ''undefined'') {var Zikula = {};}\nZikula.Config = {"entrypoint":"index.php","baseURL":"http:\\/\\/update.zikula.org\\/","baseURI":"\\/","ajaxtimeout":"25000","lang":"en","sessionName":"_zsid","uid":"0"}\n /* ]]> */</script>\n<script type="text/javascript" src="http://update.zikula.org/web/jquery/jquery.min.js"></script>\n<script type="text/javascript" src="http://update.zikula.org/javascript/jquery_config.js"></script>\n<script type="text/javascript" src="http://update.zikula.org/web/jquery/jquery-migrate.min.js"></script>\n<script type="text/javascript" src="http://update.zikula.org/web/bundles/fosjsrouting/js/router.js"></script>\n<script type="text/javascript" src="http://update.zikula.org/web/js/fos_js_routes.js"></script>\n<script type="text/javascript" src="http://update.zikula.org/web/bootstrap/js/bootstrap.min.js"></script>\n<script type="text/javascript" src="http://update.zikula.org/javascript/helpers/bootstrap-zikula.js"></script>\n<script type="text/javascript" src="http://update.zikula.org/themes/Zikula/Theme/ModernBusinessTheme/Resources/public/js/modern-business.js"></script>\n<script type="text/javascript" src="http://update.zikula.org/web/html5shiv/dist/html5shiv.js"></script>\n<link rel="search" type="application/opensearchdescription+xml" title="Zikula" href="/search/opensearch"/>\n<!--[if IE]><link rel="stylesheet" type="text/css" href="http://update.zikula.org/style/core_iehacks.css" media="print,projection,screen" /><![endif]-->\n</head>\n<body>\n<div class="z-block z-blockposition-topnav z-bkey-menutreeblock z-bid-7">\n \n<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">\n<div class="container">\n<div class="navbar-header">\n<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">\n<span class="sr-only">Toggle navigation</span>\n<span class="icon-bar"></span>\n<span class="icon-bar"></span>\n<span class="icon-bar"></span>\n</button>\n<span class=''navbar-brand''></span>\n<a class="navbar-brand" href="http://update.zikula.org/"><img style="display: inline;" src="http://update.zikula.org/themes/Zikula/Theme/ModernBusinessTheme/Resources/public/images/logo32.png"/> Zikula</a>\n</div>\n<div class="collapse navbar-collapse navbar-ex1-collapse">\n<ul id="menu7" class=''nav navbar-nav navbar-right''><li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Home <b class="caret"></b></a><ul class=''dropdown-menu''><li><a href="http://update.zikula.org/" title="Home">Home</a></li><li><a href="http://support.zikula.de/" title="German Community">German Community</a></li></ul></li><li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Dev <b class="caret"></b></a><ul class=''dropdown-menu''><li><a href="https://github.com/zikula/core" title="Zikula Github">Github</a></li><li><a href="http://modulestudio.de/en">Module Studio</a></li><li><a href="/gettext" title="Gettext Extractor">Gettext</a></li><li><a href="/pages/display/development" title="Zikula Development">Dev notes</a></li></ul></li><li><a href="/library" title="Extensions Library">Extensions</a></li><li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a><ul class=''dropdown-menu''><li><a href="/login?returnpage=%252Fcgi-bin%252Fengine%252Fcheckcoreversion13.cgi%253F" title="Login">Login</a></li><li><a href="/register" title="Register">Register</a></li><li><a href="/users/lost-password" title="Lost password">Lost password</a></li></ul></li><li><a href="http://update.zikula.org/blog/index/" title="News, blog and announcements">Blog</a></li><li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Forum <b class="caret"></b></a><ul class=''dropdown-menu''><li><a href="/forums/" title="forum overview">Overview</a></li><li><a href="/forums/topics/view-latest" title="latest forum posts">Latest</a></li></ul></li><li><a href="/search" title="Search this site">Site search</a></li></ul>\n</div> \n</div> \n</nav>\n </div>\n<div class="jumbotron">\n<div class="container">\n<div class="z-block z-blockposition-jumbotron z-bkey-htmlblock z-bid-15">\n<h1>Welcome to Zikula</h1>\n<div>\n<p>Zikula is an OpenSource PHP Application Framework, for your small to enterprise business or personal site.</p>\n \n</div></div>\n<div class=''clearfix'' style="margin: 40px 0">\n<div class="z-block z-blockposition-jumbotron-sub z-bkey-latestreleaseblock z-bid-32">\n<div class="col-lg-4 col-md-4">\n<p><a class="btn btn-success btn-lg" role="button" href="#" style="white-space: normal" data-toggle="modal" data-target="#el-block-latest-release-modal-supported-586d1766616da">\n<i class="fa fa-cloud-download fa-3x pull-left"></i> Download Zikula<br/>1.4.5\n</a>\n</p>\n</div></div>\n<div class="z-block z-blockposition-jumbotron-sub z-bkey-htmlblock z-bid-20">\n<div class="col-lg-4 col-md-4">\n<p><a class="btn btn-primary btn-lg" role="button" style="white-space: normal" href=''http://zikula.org/blog/display/2017/1/1/zikula-core-1312-and-145-released/''><i class=''fa fa-bullhorn fa-3x pull-left''></i> Blog: Core 1.4.5<br/>Released!</a></p>\n</div></div>\n<div class="z-block z-blockposition-jumbotron-sub z-bkey-htmlblock z-bid-36">\n<div class="col-lg-4 col-md-4">\n<p><a class="btn btn-warning btn-lg" role="button" href="http://modulestudio.de/en" target="_blank">\n<img src="/images/ModuleStudio_icon.png" width="48" height="48" alt="ModuleStudio" class="pull-left" style="margin-right:1 em"/> Generate extensions<br/>using ModuleStudio\n</a>\n</p>\n</div></div>\n</div>\n<div class="pull-right">\n<ul class="list-inline">\n<li><a href="https://www.facebook.com/pages/Zikula/160401810638081"><i title="Zikula on Facebook" class="fa fa-facebook-square fa-3x text-primary tooltips"></i></a></li>\n<li><a href="http://twitter.com/#!/zikula"><i title="Zikula on Twitter" class="fa fa-twitter-square fa-3x text-info tooltips"></i></a></li>\n<li><a href="https://www.youtube.com/user/Zikula"><i title="Zikula on YouTube" class="fa fa-youtube-square fa-3x text-danger tooltips"></i></a></li>\n<li><a href="/RSS/blog/view"><i title="RSS news feed" class="fa fa-rss-square fa-3x text-warning tooltips"></i></a></li>\n<li><a id=''github-icon'' href="https://github.com/zikula"><i title="Zikula project on Github" class="fa fa-github-square fa-3x text-muted tooltips"></i></a></li>\n<li id=''github-iframes''><iframe src="http://ghbtns.com/github-btn.html?user=zikula&repo=core&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px" align="right"></iframe><br/>\n<iframe src="http://ghbtns.com/github-btn.html?user=zikula&repo=core&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe></li>\n</ul>\n</div> </div>\n</div>\n<div class="section">\n<div class="container">\n<div class="row">\n<div class="z-block z-blockposition-homeblock-row1 z-bkey-htmlblock z-bid-8">\n<div class="col-lg-4 col-md-4">\n<p><img src=''/themes/Zikula/Theme/ModernBusinessTheme/Resources/public/images/vendorlogos/symfony_black_01_small.png''/> <i class=''fa fa-plus''></i> <img src=''/themes/Zikula/Theme/ModernBusinessTheme/Resources/public/images/vendorlogos/doctrine-logo.png'' title=''Doctrine'' class=''tooltips''/><br/><strong>Zikula 1.4</strong> has <a href=''http://www.symfony.com/''>Symfony</a> at it''s foundation, which includes <a href=''http://www.doctrine-project.org''>Doctrine</a>. "Symfony is an Open Source distributed PHP framework. A framework helps you work better (structuring developments) and faster (reusing generic modules)."</p>\n</div></div>\n<div class="z-block z-blockposition-homeblock-row1 z-bkey-htmlblock z-bid-10">\n<div class="col-lg-4 col-md-4">\n<p><span class="fa fa-twitter-square fa-2x" style=''color:#5500aa''> Bootstrap</span> <i class=''fa fa-plus''></i> <span title=''Font Awesome'' class="fa fa-flag fa-2x tooltips" style=''color:#34a782''> FA</span><br/><strong>Zikula 1.4</strong> integrates Twitter''s <a href=''http://getbootstrap.com''>Bootstrap 3</a> and <a href=''http://fontawesome.io''>Font Awesome 4</a>. Bootstrap is a "sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development." Font Awesome adds amazing iconic graphics.</p>\n</div></div>\n<div class="z-block z-blockposition-homeblock-row1 z-bkey-htmlblock z-bid-11">\n<div class="col-lg-4 col-md-4">\n<p><img src=''/themes/Zikula/Theme/ModernBusinessTheme/Resources/public/images/vendorlogos/jQuery-Logo.png''/><br/><strong>Zikula 1.4</strong> utilizes <a href="http://jquery.com">jQuery</a> for exciting web user-interfaces and effects. "jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler..."</p>\n</div></div>\n</div> \n<div class="row">\n</div> \n</div> \n</div> \n<div class="section-colored text-center">\n<div class="container">\n<div class="row">\n<div class="col-lg-12">\n<div class="z-block z-blockposition-center z-bkey-html z-bid-3">\n<h2>Zikula: an OpenSource PHP Application Framework and CMS for your website</h2>\n<div>\n<p><p>Zikula Core-1.4 is based on Symfony 2.8.x as a foundation and includes other technologies including a dynamic modular development paradigm and Twig-based theming system which allows for quick expansion of Symfony.</p>\n<p>No matter what your needs, Zikula can provide the solution. Whether it is a large corporate web presence with ecommerce, a small simple blog or a community portal, Zikula can do it all. Zikula is infinitely expandable to add the functionality you need. And all with tomorrow''s technology.<br/>\nBest of all, it is completely free. Our community forum provides you with the support and help you need free of charge.</p></p>\n</div></div>\n<div class="z-block z-blockposition-center z-bkey-htmlblock z-bid-31">\n<div>\n<p><a href=''http://www.jetbrains.com''><img src=''/images/logo_JetBrains_4.png'' alt=''jet brains logo'' style=''height: 64px''/></a> <span style=''font-size: 150%''>The Zikula project is generously supported by <a href=''http://www.jetbrains.com''>JetBrains</a>.</span> <a href=''https://www.jetbrains.com/phpstorm/''><img src=''/images/icon_PhpStorm.png'' alt=''PhpStorm logo'' style=''height: 64px''/></a></p>\n</div></div>\n<hr>\n</div>\n</div> \n</div> \n</div> \n<div class="container">\n<hr>\n<footer>\n<div class="row">\n<div class="col-lg-12">\n<p>Copyright &copy; Zikula 2017</p>\n</div>\n</div>\n</footer>\n</div> \n<div class="modal fade" id="el-block-latest-release-modal-supported-586d1766616da" tabindex="-1">\n<div class="modal-dialog modal-lg">\n<div class="modal-content">\n<div class="modal-header">\n<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>\n<h4 class="modal-title"><strong>Zikula Core 1.4.5</strong></h4>\n</div>\n<div class="modal-body">\n<p>Zikula Core <strong>1.4.5</strong> is available as of today, 01 January, 2017.</p>\n</div>\n<div class="modal-footer">\n<a href="https://github.com/zikula/core/releases/download/1.4.5/Zikula_Core-1.4.5.build106-checksums.txt" class="btn btn-sm btn-success">Zikula_Core-1.4.5.build106-checksums.txt</a>\n<a href="https://github.com/zikula/core/releases/download/1.4.5/Zikula_Core-1.4.5.build106.tar.gz" class="btn btn-sm btn-success">Zikula_Core-1.4.5.build106.tar.gz</a>\n<a href="https://github.com/zikula/core/releases/download/1.4.5/Zikula_Core-1.4.5.build106.zip" class="btn btn-sm btn-success">Zikula_Core-1.4.5.build106.zip</a>\n</div>\n</div> \n</div> \n</div> \n</body>\n</html>";'),
 (126, 'ZConfig', 'keyexpiry', 'i:0;'),
 (127, 'ZConfig', 'sessionauthkeyua', 'i:0;'),
 (128, 'ZConfig', 'secure_domain', 's:0:"";'),
@@ -2072,7 +2090,7 @@ INSERT INTO `module_vars` (`id`, `modname`, `name`, `value`) VALUES
 (264, 'AuthLDAP', 'authldap_protocol', 's:1:"3";'),
 (265, 'AuthLDAP', 'authldap_pnldap', 's:2:"pn";'),
 (266, 'AuthLDAP', 'authldap_hash_method', 's:4:"none";'),
-(745, 'Agoraportal', 'siteBaseURL', 's:19:"http://agora/agora/";'),
+(745, 'Agoraportal', 'siteBaseURL', 's:36:"http://agora-virtual.xtec.cat/agora/";'),
 (746, 'Agoraportal', 'tempFolder', 's:0:"";'),
 (747, 'Agoraportal', 'serveradr', 's:9:"127.0.0.1";'),
 (748, 'Agoraportal', 'basedn', 's:13:"dc=foo,dc=bar";'),
@@ -2083,7 +2101,7 @@ INSERT INTO `module_vars` (`id`, `modname`, `name`, `value`) VALUES
 (753, 'Agoraportal', 'allowedUsersAdministration', 's:4:"none";'),
 (754, 'Agoraportal', 'allowedAccessRequest', 'i:0;'),
 (755, 'Agoraportal', 'sqlSecurityCode', 's:4:"****";'),
-(757, 'Agoraportal', 'warningMailsTo', 's:16:"aginard@xtec.cat";'),
+(757, 'Agoraportal', 'warningMailsTo', 'N;'),
 (758, 'Agoraportal', 'requestMailsTo', 's:0:"";'),
 (759, 'Agoraportal', 'diskRequestThreshold', 's:2:"75";'),
 (760, 'Agoraportal', 'clientsMailThreshold', 's:2:"85";'),
@@ -2177,17 +2195,21 @@ INSERT INTO `module_vars` (`id`, `modname`, `name`, `value`) VALUES
 (848, 'IWstats', 'keepDays', 'i:90;'),
 (849, '/EventHandlers', 'IWstats', 'a:1:{i:0;a:3:{s:9:"eventname";s:13:"core.postinit";s:8:"callable";a:2:{i:0;s:17:"IWstats_Listeners";i:1;s:8:"coreinit";}s:6:"weight";i:10;}}'),
 (850, 'Files', 'showHideFiles', 's:1:"0";'),
-(851, 'Files', 'allowedExtensions', 's:36:"gif,png,jpg,jpeg,odt,doc,pdf,zip,txt";'),
+(851, 'Files', 'allowedExtensions', 's:40:"gif,png,jpg,jpeg,odt,doc,pdf,zip,txt,sql";'),
 (852, 'Files', 'defaultQuota', 's:1:"1";'),
-(853, 'Files', 'groupsQuota', 's:0:"";'),
-(854, 'Files', 'filesMaxSize', 's:7:"1000000";'),
+(853, 'Files', 'groupsQuota', 's:55:"a:1:{i:0;a:2:{s:3:"gid";s:1:"2";s:5:"quota";s:2:"-1";}}";'),
+(854, 'Files', 'filesMaxSize', 's:8:"10000000";'),
 (855, 'Files', 'maxWidth', 's:3:"250";'),
 (856, 'Files', 'maxHeight', 's:3:"250";'),
 (857, 'Files', 'editableExtensions', 's:32:"php,htm,html,htaccess,css,js,tpl";'),
 (858, 'Files', 'usersFolder', 's:10:"usersFiles";'),
 (859, 'Files', 'defaultPublic', 'i:0;'),
 (860, 'Agoraportal', 'createDB', 'b:0;'),
-(863, 'Theme', 'cache_lifetime_mods', 'i:0;');
+(863, 'Theme', 'cache_lifetime_mods', 'i:0;'),
+(864, 'Files', 'scribite_v4', 'b:0;'),
+(865, 'Files', 'scribite_v5', 's:1:"1";'),
+(866, 'Files', 'scribite_v4_name', 's:8:"Scribite";'),
+(867, 'Files', 'scribite_v5_name', 's:8:"Scribite";');
 
 -- --------------------------------------------------------
 
@@ -2209,7 +2231,7 @@ CREATE TABLE IF NOT EXISTS `objectdata_attributes` (
   PRIMARY KEY (`id`),
   KEY `object_type` (`object_type`),
   KEY `object_id` (`object_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=36 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=46 ;
 
 --
 -- Bolcant dades de la taula `objectdata_attributes`
@@ -2250,7 +2272,17 @@ INSERT INTO `objectdata_attributes` (`id`, `attribute_name`, `object_id`, `objec
 (32, '_Legal_privacyPolicyAccepted', 11, 'users', '2015-11-30T09:16:52+0000', 'A', '2015-11-30 10:16:23', 2, '2015-11-30 10:16:52', 2),
 (33, '_Users_isVerified', 12, 'users', '0', 'A', '2015-11-30 10:17:29', 2, '2015-11-30 10:17:29', 2),
 (34, '_Legal_termsOfUseAccepted', 12, 'users', '2015-11-30T09:17:51+0000', 'A', '2015-11-30 10:17:29', 2, '2015-11-30 10:17:51', 2),
-(35, '_Legal_privacyPolicyAccepted', 12, 'users', '2015-11-30T09:17:51+0000', 'A', '2015-11-30 10:17:29', 2, '2015-11-30 10:17:51', 2);
+(35, '_Legal_privacyPolicyAccepted', 12, 'users', '2015-11-30T09:17:51+0000', 'A', '2015-11-30 10:17:29', 2, '2015-11-30 10:17:51', 2),
+(36, '_Users_isVerified', 13, 'users', '0', 'A', '2017-01-04 17:08:54', 2, '2017-01-04 17:08:54', 2),
+(37, '_Users_isVerified', 14, 'users', '0', 'A', '2017-01-04 17:09:42', 2, '2017-01-04 17:09:42', 2),
+(38, '_Users_isVerified', 15, 'users', '0', 'A', '2017-01-04 17:10:21', 2, '2017-01-04 17:10:21', 2),
+(39, '_Users_isVerified', 16, 'users', '0', 'A', '2017-01-04 17:11:17', 2, '2017-01-04 17:11:17', 2),
+(40, '_Users_isVerified', 17, 'users', '0', 'A', '2017-01-04 17:11:57', 2, '2017-01-04 17:11:57', 2),
+(41, '_Users_isVerified', 18, 'users', '0', 'A', '2017-01-09 11:08:14', 2, '2017-01-09 11:08:14', 2),
+(42, '_Users_isVerified', 19, 'users', '0', 'A', '2017-01-09 11:09:22', 2, '2017-01-09 11:09:22', 2),
+(43, '_Users_isVerified', 20, 'users', '0', 'A', '2017-01-09 11:10:14', 2, '2017-01-09 11:10:14', 2),
+(44, '_Users_isVerified', 21, 'users', '0', 'A', '2017-01-09 11:11:25', 2, '2017-01-09 11:11:25', 2),
+(45, '_Users_isVerified', 22, 'users', '0', 'A', '2017-01-09 11:14:13', 2, '2017-01-09 11:14:13', 2);
 
 -- --------------------------------------------------------
 
@@ -2481,7 +2513,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`uid`),
   KEY `uname` (`uname`),
   KEY `email` (`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=23 ;
 
 --
 -- Bolcant dades de la taula `users`
@@ -2489,17 +2521,27 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`uid`, `uname`, `email`, `user_regdate`, `pass`, `ublockon`, `ublock`, `theme`, `activated`, `lastlogin`, `passreminder`, `approved_date`, `approved_by`, `tz`, `locale`) VALUES
 (1, 'guest', '', '1970-01-01 00:00:00', '', 0, '', '', 1, '1970-01-01 00:00:00', '', '1970-01-01 00:00:00', 0, '', ''),
-(2, 'admin', 'agora@xtec.invalid', '2010-03-02 10:33:02', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '2015-11-30 10:57:04', '', '2010-03-02 10:33:02', 2, '', ''),
-(3, 'a8000001', 'usu1@exemple.invalid', '2012-03-05 13:01:43', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '1970-01-01 00:00:00', '', '2012-03-05 13:01:43', 2, '', ''),
-(4, 'a8000002', 'usu2@exemple.invalid', '2012-03-05 13:02:12', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '1970-01-01 00:00:00', '', '2012-03-05 13:02:12', 2, '', ''),
-(5, 'a8000003', 'usu3@exemple.invalid', '2012-03-05 13:02:36', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '1970-01-01 00:00:00', '', '2012-03-05 13:02:36', 2, '', ''),
-(6, 'a8000004', 'usu4@exemple.invalid', '2012-03-05 13:03:02', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '1970-01-01 00:00:00', '', '2012-03-05 13:03:02', 2, '', ''),
-(7, 'manager1', 'manager1@exemple.invalid', '2012-03-05 13:19:20', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '2014-12-02 12:29:39', 'Contrasenya definida per l''administrador/a.', '2012-03-05 13:19:20', 2, '', ''),
-(8, 'manager2', 'manager2@exemple.invalid', '2012-03-05 13:46:09', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '2014-12-02 12:30:26', '', '2012-03-05 13:46:09', 2, '', ''),
-(9, 'manager3', 'manager3@exemple.invalid', '2012-03-05 13:46:45', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '2014-12-02 12:30:57', '', '2012-03-05 13:46:45', 2, '', ''),
-(10, 'manager4', 'manager4@exemple.invalid', '2012-03-05 13:47:25', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '2014-12-02 12:31:29', '', '2012-03-05 13:47:25', 2, '', ''),
-(11, 'a8000005', 'usu5@exemple.inv', '2015-11-30 09:16:23', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '1970-01-01 00:00:00', '', '2015-11-30 09:16:23', 2, '', ''),
-(12, 'manager5', 'manager5@exemple.inv', '2015-11-30 09:17:29', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '1970-01-01 00:00:00', '', '2015-11-30 09:17:29', 2, '', '');
+(2, 'admin', 'agora@xtec.cat', '2010-03-02 10:33:02', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '2017-01-09 10:05:35', '', '2010-03-02 10:33:02', 2, '', ''),
+(3, 'a8000001', 'a8000001@xtec.cat', '2012-03-05 13:01:43', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '1970-01-01 00:00:00', '', '2012-03-05 13:01:43', 2, '', ''),
+(4, 'a8000002', 'a8000002@xtec.cat', '2012-03-05 13:02:12', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '1970-01-01 00:00:00', '', '2012-03-05 13:02:12', 2, '', ''),
+(5, 'a8000003', 'a8000003@xtec.cat', '2012-03-05 13:02:36', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '1970-01-01 00:00:00', '', '2012-03-05 13:02:36', 2, '', ''),
+(6, 'a8000004', 'a8000004@xtec.cat', '2012-03-05 13:03:02', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '1970-01-01 00:00:00', '', '2012-03-05 13:03:02', 2, '', ''),
+(7, 'manager1', 'manager1@xtec.cat', '2012-03-05 13:19:20', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '2014-12-02 12:29:39', '', '2012-03-05 13:19:20', 2, '', ''),
+(8, 'manager2', 'manager2@xtec.cat', '2012-03-05 13:46:09', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '2014-12-02 12:30:26', '', '2012-03-05 13:46:09', 2, '', ''),
+(9, 'manager3', 'manager3@xtec.cat', '2012-03-05 13:46:45', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '2014-12-02 12:30:57', '', '2012-03-05 13:46:45', 2, '', ''),
+(10, 'manager4', 'manager4@xtec.cat', '2012-03-05 13:47:25', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '2014-12-02 12:31:29', '', '2012-03-05 13:47:25', 2, '', ''),
+(11, 'a8000005', 'a8000005@xtec.cat', '2015-11-30 09:16:23', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '1970-01-01 00:00:00', '', '2015-11-30 09:16:23', 2, '', ''),
+(12, 'manager5', 'manager5@xtec.cat', '2015-11-30 09:17:29', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '2017-01-09 10:43:43', '', '2015-11-30 09:17:29', 2, '', ''),
+(13, 'a8000006', 'a8000006@xtec.cat', '2017-01-04 16:08:54', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '1970-01-01 00:00:00', '', '2017-01-04 16:08:54', 2, '', ''),
+(14, 'a8000007', 'a8000007@xtec.cat', '2017-01-04 16:09:42', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '1970-01-01 00:00:00', '', '2017-01-04 16:09:42', 2, '', ''),
+(15, 'a8000008', 'a8000008@xtec.cat', '2017-01-04 16:10:21', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '1970-01-01 00:00:00', '', '2017-01-04 16:10:21', 2, '', ''),
+(16, 'a8000009', 'a8000009@xtec.cat', '2017-01-04 16:11:17', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '1970-01-01 00:00:00', '', '2017-01-04 16:11:17', 2, '', ''),
+(17, 'a8000010', 'a8000010@xtec.cat', '2017-01-04 16:11:57', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '1970-01-01 00:00:00', '', '2017-01-04 16:11:57', 2, '', ''),
+(18, 'manager6', 'manager6@xtec.cat', '2017-01-09 10:08:14', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '2017-01-09 10:45:17', '(Contrasenya facilitada per l''administrador/a del lloc web)', '2017-01-09 10:08:14', 2, '', ''),
+(19, 'manager7', 'manager7@xtec.cat', '2017-01-09 10:09:22', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '2017-01-09 10:47:27', '(Contrasenya facilitada per l''administrador/a del lloc web)', '2017-01-09 10:09:22', 2, '', ''),
+(20, 'manager8', 'manager8@xtec.cat', '2017-01-09 10:10:14', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '2017-01-09 10:53:24', '(Contrasenya facilitada per l''administrador/a del lloc web)', '2017-01-09 10:10:14', 2, '', ''),
+(21, 'manager9', 'manager9@xtec.cat', '2017-01-09 10:11:25', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '1970-01-01 00:00:00', '(Contrasenya facilitada per l''administrador/a del lloc web)', '2017-01-09 10:11:25', 2, '', ''),
+(22, 'manager10', 'manager10@xtec.cat', '2017-01-09 10:14:13', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '1970-01-01 00:00:00', '(Contrasenya facilitada per l''administrador/a del lloc web)', '2017-01-09 10:14:13', 2, '', '');
 
 -- --------------------------------------------------------
 
