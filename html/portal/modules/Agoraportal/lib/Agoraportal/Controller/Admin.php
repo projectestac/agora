@@ -96,15 +96,16 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             }
         }
 
-        $clientService->dbHost = $dbHost;
         $clientService->serviceDB = $serviceDB;
         $clientService->observations = $observations;
         $clientService->annotations = $annotations;
         $clientService->diskSpace = $diskSpace;
 
-        // Autofill dbHost var with default value. This is a guess. dbHost should come from web form.
-        if ((is_null($clientService->dbHost) || empty($clientService->dbHost)) && (($serviceName == 'intranet') || ($serviceName == 'nodes'))) {
+        // If dbHost is not set, autofill it with a default value. This is a guess. dbHost should come from web form.
+        if ((is_null($dbHost) || empty($dbHost)) && (($serviceName == 'intranet') || ($serviceName == 'nodes'))) {
             $clientService->dbHost = $agora['intranet']['host'];
+        } else {
+            $clientService->dbHost = $dbHost;
         }
 
         // Create a var for admin password where to keep it in order to send it by e-mail

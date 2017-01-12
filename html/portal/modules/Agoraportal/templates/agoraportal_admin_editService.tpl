@@ -84,7 +84,7 @@
                 <label class="col-sm-4 control-label" for="serviceDB">{gt text="Base de dades"}:</label>
                 <div class="col-sm-8">
                     <input class="form-control" id="serviceDB" type="text" name="serviceDB" size="30" maxlength="30" value="{$service->serviceDB}" />
-                    <span style="font-style:italic; color:grey;">{gt text="Si està en blanc, es calcula automàticament"}</span>
+                    <span style="font-style:italic; color:grey;">{gt text="Si està en blanc, es calcula automàticament. A Nodes només s'utilitza en el moment de l'activació."}</span>
                 </div>
             </div>
             <div class="form-group">
