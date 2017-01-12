@@ -271,7 +271,9 @@ function getSchoolInfo($service) {
         }
 
         // Debug info
-        $school_info['source'] = 'allSchools';
+        if (!empty($school_info)) {
+            $school_info['source'] = 'allSchools';
+        }
     }
 
     // If cache fails, retrieve from Database
@@ -279,7 +281,9 @@ function getSchoolInfo($service) {
         $school_info = getSchoolFromDB($centre);
 
         // Debug info
-        $school_info['source'] = 'DB';
+        if (!empty($school_info)) {
+            $school_info['source'] = 'allSchools';
+        }
     }
 
     // If a new_dns param is present, redirect to the new DNS
