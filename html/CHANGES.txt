@@ -54,6 +54,7 @@ NODES
 - slideshare: Upgraded from version 1.9.1 to 1.9.2 (Trello #1453)
 - invite-anyone: Upgraded from version 1.3.9 to 1.3.12 (Trello #1443)
 - xtec-stats: Fixed error in widget when saving data. Moved option to save admin visits to admin pages (Trello #1289)
+- wp-recaptcha: Fixed some debug warnings
 
 PORTAL
 - Refactoring. Upgrading AgoraPortal to 3.0.0 (Trello #816)
