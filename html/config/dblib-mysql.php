@@ -276,6 +276,18 @@ function getSchoolInfo($service) {
         }
     }
 
+    // When loading only an specific service, empty the array if the school has not that service. This must be done
+    //  after the cache is checked to take into account the case of the recently activated services.
+    if (isset($service)) {
+        if ($service == 'moodle2' && !isset($school_info['id_moodle2'])) {
+            $school_info = '';
+        } else if ($service == 'intranet' && !isset($school_info['id_intranet']) && !isset($school_info['id_nodes'])) {
+            $school_info = '';
+        } else if ($service == 'nodes' && !isset($school_info['id_nodes'])) {
+            $school_info = '';
+        }
+    }
+
     // If cache fails, retrieve from Database
     if (empty($school_info)) {
         $school_info = getSchoolFromDB($centre);
@@ -334,17 +346,6 @@ function getSchoolInfo($service) {
             header('Location: ' . $new_url_host);
         }
         exit;
-    }
-
-    // When loading only an specific service, empty the array if the school has not that service
-    if (isset($service)) {
-        if ($service == 'moodle2' && !isset($school_info['id_moodle2'])) {
-            $school_info = '';
-        } else if ($service == 'intranet' && !isset($school_info['id_intranet']) && !isset($school_info['id_nodes'])) {
-            $school_info = '';
-        } else if ($service == 'nodes' && !isset($school_info['id_nodes'])) {
-            $school_info = '';
-        }
     }
 
     // At this point, if there is no school information, abort
