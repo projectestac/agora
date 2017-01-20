@@ -229,7 +229,14 @@ function getSchoolInfo($service) {
 
     // Check the variable received via GET. Ensure it has an allowed value
     if (!isValidDNS($centre)) {
-        return false;
+        if (defined('CLI_SCRIPT')) {
+            echo 'DNS ' . $centre . ' not valid!';
+            echo "\nerror\n";
+        } else {
+            $service_dir = ( $service == 'nodes') ? "s=" : "s=$service";
+            header('Location: ' . WWWROOT . 'error.php?' . $service_dir . '&dns=' . $centre);
+        }
+        exit(0);
     }
 
     // Cache level 1: If cookie is present load it and return
@@ -354,7 +361,8 @@ function getSchoolInfo($service) {
             echo 'Center ' . $centre . ' not found in database';
             echo "\nerror\n";
         } else {
-            return false;
+            $service_dir = ( $service == 'nodes') ? "s=" : "s=$service";
+            header('Location: ' . WWWROOT . 'error.php?' . $service_dir . '&dns=' . $centre);
         }
         exit(0);
     }
