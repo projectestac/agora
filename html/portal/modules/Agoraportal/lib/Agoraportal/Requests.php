@@ -131,7 +131,7 @@ class Requests {
     public static function search_by($search, $init = -1, $rpp = 15) {
         $where = self::get_search_by($search);
 
-        $joins = array(self::get_client_join(), self::get_requeststype_join(), self::get_service_join(), self::get_servicetype_join());
+        $joins = array(self::get_client_join(), self::get_requeststype_join(), self::get_servicetype_join());
 
         $orderby = 'requestId DESC';
         $rows = DBUtil::selectExpandedObjectArray(Request::TABLE, $joins, $where, $orderby, $init, $rpp);
