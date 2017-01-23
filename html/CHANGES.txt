@@ -3,6 +3,20 @@ Release notes for Agora (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
+Changes 17.01.20
+---------------------------------------------------------------------------------------
+NODES
+- xtec-booking: Fixed error that blocked edition of post date
+- reactor: Fixed PHP warning
+
+PORTAL
+- Return correct error when accessing to a non-existing site
+- Fixed pagination in request list
+- Fixed datetime format and order in requests
+- Fixed pagination in user log list
+- Fixed not to show clients set to non-visible in client list
+
+
 Changes 17.01.16
 ---------------------------------------------------------------------------------------
 GENERAL
