@@ -33,12 +33,12 @@
             </div>
             <div class="form-group">
                 <label class="col-sm-4 control-label">{gt text="Data de sol·licitud"}:</label>
-                <div class="col-sm-8"><p class="form-control-static">{$request->timeCreated|dateformat:"%d/%m/%Y - %H:%m"}</p></div>
+                <div class="col-sm-8"><p class="form-control-static">{$request->timeCreated|dateformat:"%d/%m/%Y - %H:%M"}</p></div>
             </div>
             {if $request->timeClosed}
                 <div class="form-group">
                     <label class="col-sm-4 control-label">{gt text="Data de modificació"}:</label>
-                    <div class="col-sm-8"><p class="form-control-static">{$request->timeClosed|dateformat:"%d/%m/%Y - %H:%m"}</p></div>
+                    <div class="col-sm-8"><p class="form-control-static">{$request->timeClosed|dateformat:"%d/%m/%Y - %H:%M"}</p></div>
                 </div>
             {/if}
             <div class="form-group">

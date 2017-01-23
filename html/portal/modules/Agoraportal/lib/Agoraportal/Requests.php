@@ -133,7 +133,7 @@ class Requests {
 
         $joins = array(self::get_client_join(), self::get_requeststype_join(), self::get_servicetype_join());
 
-        $orderby = 'requestId DESC';
+        $orderby = 'timeClosed DESC';
         $rows = DBUtil::selectExpandedObjectArray(Request::TABLE, $joins, $where, $orderby, $init, $rpp);
         $requests = array();
         foreach ($rows as $key => $row) {

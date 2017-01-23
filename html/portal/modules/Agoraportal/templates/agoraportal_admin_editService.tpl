@@ -22,15 +22,15 @@
             </div>
             <div class="form-group">
                 <label class="col-sm-4 control-label">{gt text="Data de sol·licitud"}:</label>
-                <div class="col-sm-8"><p class="form-control-static">{$service->timeRequested|dateformat:"%d/%m/%Y - %H:%m"}</p></div>
+                <div class="col-sm-8"><p class="form-control-static">{$service->timeRequested|dateformat:"%d/%m/%Y - %H:%M"}</p></div>
             </div>
             <div class="form-group">
                 <label class="col-sm-4 control-label">{gt text="Data de creació"}:</label>
-                <div class="col-sm-8"><p class="form-control-static">{$service->timeCreated|dateformat:"%d/%m/%Y - %H:%m"}</p></div>
+                <div class="col-sm-8"><p class="form-control-static">{$service->timeCreated|dateformat:"%d/%m/%Y - %H:%M"}</p></div>
             </div>
             <div class="form-group">
                 <label class="col-sm-4 control-label">{gt text="Data d'edició"}:</label>
-                <div class="col-sm-8"><p class="form-control-static">{$service->timeEdited|dateformat:"%d/%m/%Y - %H:%m"}</p></div>
+                <div class="col-sm-8"><p class="form-control-static">{$service->timeEdited|dateformat:"%d/%m/%Y - %H:%M"}</p></div>
             </div>
             <div class="form-group">
                 <label class="col-sm-4 control-label" for="state">{gt text="Estat"}:</label>

@@ -46,8 +46,8 @@
              </td>
              <td>{$request->type_name} </td>
              <td>{$request->adminComments|truncate:30} </td>
-             <td>{$request->timeCreated|dateformat:"%d/%m/%Y - %H:%m"} </td>
-             <td>{$request->timeClosed|dateformat:"%d/%m/%Y - %H:%m"} </td>
+             <td>{$request->timeCreated|dateformat:"%d/%m/%Y - %H:%M"} </td>
+             <td>{$request->timeClosed|dateformat:"%d/%m/%Y - %H:%M"} </td>
              <td>
                 <div class="btn-group" role="group">
                     <a class="btn btn-info" href="{modurl modname='Agoraportal' type='admin' func='editRequest' requestId=$request->requestId}" title="Edita">
