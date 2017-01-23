@@ -460,15 +460,15 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
      * @param:  logs parameters
      * @return: all logs that satisfy the parameters, the number of pages and the actual paramaters
      */
-    public function logsContent() {
+    public function logsContent($args) {
         AgoraPortal_Util::requireClient();
 
-        $clientCode = FormUtil::getPassedValue('clientCode', 0, 'GETPOST');
-        $actionCode = FormUtil::getPassedValue('actionCode', null, 'POST');
-        $uname = FormUtil::getPassedValue('uname', null, 'POST');
-        $fromDate = FormUtil::getPassedValue('fromDate', null, 'POST');
-        $toDate = FormUtil::getPassedValue('toDate', null, 'POST');
-        $init = FormUtil::getPassedValue('init', -1, 'POST');
+        $clientCode = FormUtil::getPassedValue('clientCode', $args['clientCode'], 'GETPOST');
+        $actionCode = FormUtil::getPassedValue('actionCode', $args['actionCode'], 'POST');
+        $uname = FormUtil::getPassedValue('uname', $args['uname'], 'POST');
+        $fromDate = FormUtil::getPassedValue('fromDate', $args['fromDate'], 'POST');
+        $toDate = FormUtil::getPassedValue('toDate', $args['toDate'], 'POST');
+        $init = FormUtil::getPassedValue('init', $args['init'], 'POST');
 
         $clientCode = AgoraPortal_Util::getClientCodeFromUser($clientCode);
         $client = Client::get_by_code($clientCode);
@@ -490,7 +490,6 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
                 'itemsname' => 'registres',
                 'javascript' => true,
                 'urltemplate' => "logs('$clientCode','$actionCode','$fromDate','$toDate','$uname',%%);"));
-
 
         return $this->view->assign('logs', $logs)
                         ->assign('pager', $pager)
