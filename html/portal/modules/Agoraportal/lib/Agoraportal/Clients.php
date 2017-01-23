@@ -50,7 +50,8 @@ class Clients {
      */
     public static function search_with_services_by($by = "", $search = "", $locationId = false, $typeId = false, $init = -1, $rpp = 15) {
         $where = self::get_search_where($by, $search, $locationId, $typeId);
-        $where .= (empty($where)? "" : ' AND ') . 'a.state = '.Service::STATUS_ENABLED;
+        $where .= (empty($where)? '' : ' AND ') . 'a.state = '.Service::STATUS_ENABLED;
+        $where .= (empty($where)? '' : ' AND ') . 'noVisible = 0';
 
         $joins = array();
         $joins[] = array('join_table' => Service::TABLE,
@@ -79,7 +80,8 @@ class Clients {
      */
     public static function count_with_services_by($by = "", $search = "", $locationId = false, $typeId = false) {
         $where = self::get_search_where($by, $search, $locationId, $typeId);
-        $where .= (empty($where)? "" : ' AND ') . 'a.state = '.Service::STATUS_ENABLED;
+        $where .= (empty($where)? '' : ' AND ') . 'a.state = '.Service::STATUS_ENABLED;
+        $where .= (empty($where)? '' : ' AND ') . 'noVisible = 0';
 
         $joins = array();
         $joins[] = array('join_table' => Service::TABLE,
