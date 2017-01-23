@@ -1,6 +1,6 @@
 #!/bin/bash
 
-urlbase=http://agora/agora
+urlbase=http://agora-virtual.xtec.cat/agora
 basedir=/dades/agora/
 apacheuser=vagrant
 logs=$basedir"logs"
