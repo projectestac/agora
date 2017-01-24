@@ -18,6 +18,7 @@ PORTAL
 - Fixed not to show clients set to non-visible in client list
 - Added exception for localhost in updateDiskUse
 - Close mysql connections after every execution in an external database
+- Don't update edit time when updating disk usage
 
 
 Changes 17.01.16

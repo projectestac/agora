@@ -459,9 +459,13 @@ class Service extends AgoraBase {
      * Updates the instance info
      * @return int if succeeded
      */
-    public function save() {
+    public function save($updateTime = true) {
         $where = "clientServiceId = $this->clientServiceId";
-        $this->timeEdited = time();
+
+        if ($updateTime == true) {
+            $this->timeEdited = time();
+        }
+
         $item = $this->get_array();
 
         return DBUtil::updateObject($item, self::TABLE, $where, $this->clientServiceId);

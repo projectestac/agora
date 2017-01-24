@@ -1661,7 +1661,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 $client = $service->get_client();
                 $service->diskConsume = trim($usageArray[0]);
 
-                if (!$service->save()) {
+                if (!$service->save(false)) {
                     $errorMsg .= $servicetype->serviceName. ': Error en l\'actualització de l\'espai consumit a la base de dades per: ' . $client->clientCode . '<br />';
                 }
 
