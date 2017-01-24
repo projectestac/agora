@@ -128,12 +128,18 @@ class Requests {
      * @param int $rpp
      * @return array of Request
      */
-    public static function search_by($search, $init = -1, $rpp = 15) {
+    public static function search_by($search, $init = -1, $rpp = 15, $order) {
         $where = self::get_search_by($search);
 
         $joins = array(self::get_client_join(), self::get_requeststype_join(), self::get_servicetype_join());
 
-        $orderby = 'timeClosed DESC';
+        $orderby = '';
+        if ($order == 1) {
+            $orderby = 'timeCreated DESC';
+        } elseif ($order == 2) {
+            $orderby = 'a.clientName ASC';
+        }
+
         $rows = DBUtil::selectExpandedObjectArray(Request::TABLE, $joins, $where, $orderby, $init, $rpp);
         $requests = array();
         foreach ($rows as $key => $row) {

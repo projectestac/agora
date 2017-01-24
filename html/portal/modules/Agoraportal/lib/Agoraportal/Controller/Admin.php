@@ -1880,7 +1880,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             $stateFilter = FormUtil::getPassedValue('stateFilter', isset($args['stateFilter']) ? $args['stateFilter'] : -1, 'GETPOST');
             $search = FormUtil::getPassedValue('search', isset($args['search']) ? $args['search'] : '', 'GETPOST');
             $searchText = FormUtil::getPassedValue('searchText', isset($args['searchText']) ? $args['searchText'] : '', 'GETPOST');
-            $order = FormUtil::getPassedValue('order', isset($args['order']) ? $args['order'] : 2, 'GETPOST');
+            $order = FormUtil::getPassedValue('order', isset($args['order']) ? $args['order'] : 1, 'GETPOST');
         }
 
         $listServicesContent = ModUtil::func('Agoraportal', 'admin', 'requestsListContent', $args);
@@ -1911,7 +1911,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $search = isset($args['search']) ? $args['search'] : 0;
         $searchText = isset($args['searchText']) ? $args['searchText'] : '';
         $rpp = isset($args['rpp']) ? $args['rpp'] : 15;
-        $order = isset($args['order']) ? $args['order'] : 2;
+        $order = isset($args['order']) ? $args['order'] : 1;
 
         // Escape special chars
         $searchText = addslashes($searchText);
@@ -1920,7 +1920,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         if (!empty($search) && !empty($searchText)) {
             $searchargs[$search] = $searchText;
         }
-        $requests = Requests::search_by($searchargs, $init, $rpp);
+        $requests = Requests::search_by($searchargs, $init, $rpp, $order);
         $requestsNumber = Requests::count_by($searchargs);
 
         $pager = ModUtil::func('Agoraportal', 'user', 'pager', array('init' => $init,

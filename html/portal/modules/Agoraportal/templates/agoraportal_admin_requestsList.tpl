@@ -52,8 +52,8 @@
             <div class="form-group">
                 <label for="order">{gt text="Ordena per..."}</label>&nbsp;
                 <select class="form-control" name="order" id="order" onchange="return submitform();">
-                    <option {if $order eq 1}selected{/if} value="1">{gt text="Nom client"}</option>
-                    <option {if $order eq 2}selected{/if} value="2">{gt text="Data de modificació"}</option>
+                    <option {if $order eq 1}selected{/if} value="1">{gt text="Data de petició"}</option>
+                    <option {if $order eq 2}selected{/if} value="2">{gt text="Nom del client"}</option>
                 </select>
             </div>
             <div class="form-group">

@@ -12,6 +12,7 @@ NODES
 PORTAL
 - Return correct error when accessing to a non-existing site
 - Fixed pagination in request list
+- Fixed search in request list
 - Fixed datetime format and order in requests
 - Fixed pagination in user log list
 - Fixed not to show clients set to non-visible in client list
