@@ -16,6 +16,7 @@ PORTAL
 - Fixed datetime format and order in requests
 - Fixed pagination in user log list
 - Fixed not to show clients set to non-visible in client list
+- Added exception for localhost in updateDiskUse
 
 
 Changes 17.01.16

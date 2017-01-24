@@ -1587,8 +1587,8 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
     }
 
     public function updateDiskUse() {
-       // Security check
-        if (!AgoraPortal_Util::isAdmin() && !defined('CLI_SCRIPT')) {
+        // Security check
+        if (!AgoraPortal_Util::isAdmin() && !defined('CLI_SCRIPT') && (System::serverGetVar('HTTP_HOST') != 'localhost')) {
             LogUtil::registerError($this->__('No teniu accés a executar aquesta funcionalitat'));
             return System::redirect(ModUtil::url('Agoraportal', 'admin', 'listServices'));
         }
