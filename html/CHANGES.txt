@@ -17,6 +17,7 @@ PORTAL
 - Fixed pagination in user log list
 - Fixed not to show clients set to non-visible in client list
 - Added exception for localhost in updateDiskUse
+- Close mysql connections after every execution in an external database
 
 
 Changes 17.01.16

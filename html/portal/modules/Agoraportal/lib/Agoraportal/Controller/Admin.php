@@ -1133,7 +1133,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 ini_set('default_socket_timeout', 1800);
                 foreach ($clients as $i => $client) {
                     try {
-                        $result = $client->executeSQL($sqlfunc, true);
+                        $result = $client->executeSQL($sqlfunc, false);
                     } catch(Exception $e) {
                         $success[$i] = false;
                         $messages[$i] = $this->__('No s\'ha pogut executar la comanda a la base de dades: ') . $e->getMessage();

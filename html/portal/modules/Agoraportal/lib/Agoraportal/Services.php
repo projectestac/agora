@@ -327,7 +327,7 @@ class Service extends AgoraBase {
      * Disconnects the DB when destructing the object
      */
     public function __destruct() {
-        $this->disconnectDB($this->connect);
+        // $this->disconnectDB($this->connect);
     }
 
     /**
