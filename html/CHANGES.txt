@@ -19,6 +19,7 @@ PORTAL
 - Added exception for localhost in updateDiskUse
 - Close mysql connections after every execution in an external database
 - Don't update edit time when updating disk usage
+- Fixed some errors when schools try to change dns
 
 
 Changes 17.01.16

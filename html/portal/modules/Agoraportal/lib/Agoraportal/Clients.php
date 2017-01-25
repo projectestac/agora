@@ -340,7 +340,7 @@ class Client extends AgoraBase {
         }
 
         $this->clientOldDNS = $this->clientDNS;
-        $this->clientDNS = $this->$newdns;
+        $this->clientDNS = $newdns;
         if (!$this->save()) {
             return false;
         }

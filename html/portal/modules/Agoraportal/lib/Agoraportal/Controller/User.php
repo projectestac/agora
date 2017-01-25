@@ -407,20 +407,12 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         $clientDNS = FormUtil::getPassedValue('clientDNS', null, 'POST');
         $clientOldDNS = FormUtil::getPassedValue('clientOldDNS', null, 'POST');
 
-        // Securize form info
-        $changeDNS_clientCode = SessionUtil::getVar('changeDNS_clientCode', false);
-        $changeDNS_olddns = SessionUtil::getVar('changeDNS_olddns', false);
-        $changeDNS_newdns = SessionUtil::getVar('changeDNS_newdns', false);
-        SessionUtil::delVar('changeDNS_clientCode');
-        SessionUtil::delVar('changeDNS_olddns');
-        SessionUtil::delVar('changeDNS_newdns');
-
-        if (!$clientCode || $clientCode != $changeDNS_clientCode || !$clientDNS || $clientDNS != $changeDNS_newdns || !$clientOldDNS || $clientOldDNS != $changeDNS_olddns) {
+        if (!$clientCode || !$clientDNS || !$clientOldDNS) {
             return LogUtil::registerError($this->__('Els paràmetres per al canvi de nom no coincideixen, o bé falten dades'));
         }
 
         $client = Client::get_by_code($clientCode);
-        if ($client) {
+        if (!$client) {
             return LogUtil::registerError($this->__('No s\'ha trobat el client'));
         }
 
