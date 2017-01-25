@@ -5,6 +5,7 @@ RewriteBase /agora/
 # Add trailing slash if necessary: Not an extension (.php, .css, .js, ...), not a Moodle cache file and does not end with a slash (/)
 RewriteCond %{REQUEST_URI} !\.([^/]*)$
 RewriteCond %{REQUEST_URI} !(.*)/moodle/(.*)\.([^/]*)/(.*)$
+RewriteCond %{REQUEST_URI} !(.*)/nodes/(.*)$
 RewriteCond %{REQUEST_URI} !/$
 RewriteRule ^(.*)$ $1/ [QSA,R=permanent,L]
 
