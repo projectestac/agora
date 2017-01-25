@@ -20,6 +20,7 @@ PORTAL
 - Close mysql connections after every execution in an external database
 - Don't update edit time when updating disk usage
 - Fixed some errors when schools try to change dns
+- Fixed error when schools try to access with their code
 
 
 Changes 17.01.16

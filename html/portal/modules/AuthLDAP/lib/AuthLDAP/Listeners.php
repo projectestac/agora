@@ -96,19 +96,19 @@ class AuthLDAP_Listeners {
             set_error_handler(function() { ; }, E_WARNING);
             ldap_unbind($ldap_ds);
             restore_error_handler();
-
-            // Check if this user is a school and check if it has nom propi
-            if (isUserSchool($uname)) {
-                $schoolData = getSchoolFromWS($uname);
-                if ($schoolData['error'] == 1) {
-                    LogUtil::registerError($schoolData['message']);
-                    return false;
-                }
-            }
         } else {
             $info[0]['uid'][0] = $uname;
             $info[0]['cn'][0] = $uname;
             $info[0]['mail'][0] = $uname . '@xtec.cat';
+        }
+
+        // Check if this user is a school and check if it has nom propi
+        if (isUserSchool($uname)) {
+            $schoolData = getSchoolFromWS($uname);
+            if ($schoolData['error'] == 1) {
+                LogUtil::registerError($schoolData['message']);
+                return false;
+            }
         }
 
         // Check if the user already exists in the Zikula database. If not, create it.
@@ -202,13 +202,15 @@ function createClient($args) {
     $schoolData = $args['schoolData'];
 
     if (isUserSchool($uname)) {
+        require_once('modules/Agoraportal/lib/Agoraportal/Util.php');
+        ModUtil::load('Agoraportal');
         // Check if user belongs to group "Clients"
         $idGroupClients = UserUtil::getGroupIdList('name=\'Clients\'');
         $groups = userUtil::getGroupsForUser($uid);
         $isClient = (in_array($idGroupClients, $groups)) ? true : false;
 
         // Check for existence of register in agoraportal_clients
-        $client = ModUtil::apiFunc('Agoraportal', 'user', 'getClient', array('clientCode' => $uname));
+        $client = Client::get_by_code($uname);
 
         if (!$isClient || !is_array($client)) {
             if (empty($schoolData)) {
@@ -239,14 +241,15 @@ function createClient($args) {
 
             if (!is_array($client)) {
                 // Add user to agoraportal_clients
-                $created = ModUtil::apiFunc('Agoraportal', 'admin', 'createClient', array('clientCode' => $clientCode,
+                $row = array('clientCode' => $clientCode,
                             'clientDNS' => $clientDNS,
                             'clientName' => $clientName,
                             'clientAddress' => $clientAddress,
                             'clientCity' => $clientCity,
                             'clientState' => 1,
                             'clientPC' => $clientPC,
-                            'dontAddToGroup' => ''));
+                            'dontAddToGroup' => '');
+                $created = Client::create($row, $addtogroup = true);
 
                 if (!$created) {
                     return LogUtil::registerError('La creació de l\'usuari a la taula de centres ha fallat.');
