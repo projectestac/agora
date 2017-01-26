@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Temps de generació: 09-01-2017 a les 12:35:41
+-- Temps de generació: 26-01-2017 a les 17:36:40
 -- Versió del servidor: 5.5.53-0ubuntu0.14.04.1
 -- Versió de PHP: 5.6.29-1+deb.sury.org~trusty+1
 
@@ -141,7 +141,7 @@ INSERT INTO `agoraportal_clients` (`clientId`, `clientCode`, `clientDNS`, `clien
 (6, 'a8000006', 'centre-6', 'usu6', 'standard', '', '', 'Centre 6', 'Carrer sense número', 'Valldeneu', '00000', 'cat', '', 1, 8, 8, 0, 'creda', 0),
 (7, 'a8000007', 'centre-7', 'usu7', 'standard', '', '', 'Centre 7', 'Carrer sense número', 'Valldeneu', '00000', 'cat', '', 1, 9, 7, 0, 'cda', 0),
 (8, 'a8000008', 'centre-8', 'usu8', 'standard', '', '', 'Centre 8', 'Carrer sense número', 'Valldeneu', '00000', 'cat', '', 1, 10, 5, 0, 'ssee', 0),
-(9, 'a8000009', 'centre-9', 'usu9', 'standard', '', '', 'Centre 9', 'Carrer sense número', 'Valldeneu', '00000', 'cat', '', 1, 0, 0, 0, '', 0),
+(9, 'a8000009', 'centre-9', 'usu9', 'standard', '', '', 'Centre 9', 'Carrer sense número', 'Valldeneu', '00000', 'cat', '', 1, 2, 12, 0, 'sec', 0),
 (10, 'a8000010', 'centre-10', 'usu10', 'standard', '', '', 'Centre 10', 'Carrer sense número', 'Valldeneu', '00000', 'cat', '', 1, 0, 0, 0, '', 0);
 
 -- --------------------------------------------------------
@@ -154,7 +154,7 @@ CREATE TABLE IF NOT EXISTS `agoraportal_clientType` (
   `typeId` int(10) NOT NULL AUTO_INCREMENT,
   `typeName` varchar(100) NOT NULL DEFAULT '',
   PRIMARY KEY (`typeId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 --
 -- Bolcant dades de la taula `agoraportal_clientType`
@@ -171,7 +171,8 @@ INSERT INTO `agoraportal_clientType` (`typeId`, `typeName`) VALUES
 (8, 'CEE'),
 (9, 'Centre concertat'),
 (10, 'ECA'),
-(11, 'ZER');
+(11, 'ZER'),
+(12, 'Projecte');
 
 -- --------------------------------------------------------
 
@@ -228,7 +229,7 @@ CREATE TABLE IF NOT EXISTS `agoraportal_client_services` (
   `diskConsume` varchar(15) NOT NULL,
   `dbHost` varchar(25) NOT NULL,
   PRIMARY KEY (`clientServiceId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=64 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=65 ;
 
 --
 -- Bolcant dades de la taula `agoraportal_client_services`
@@ -248,7 +249,8 @@ INSERT INTO `agoraportal_client_services` (`clientServiceId`, `serviceId`, `clie
 (60, 5, 5, '', '', 1, 5, 'manager5', 'Tècnic SSCC', '1483958678', 'Maqueta ZER', '', 5000, '1483960479', '1483958678', '18336', 'localhost'),
 (61, 5, 6, '', '', 1, 6, 'manager6', 'Tècnic SSCC', '1483958678', 'Maqueta CREDA', '', 5000, '1483960437', '1483958806', '56588', 'localhost'),
 (62, 5, 7, '', '', 1, 7, 'manager7', 'Tècnic SSCC', '1483958678', 'Maqueta CdA', '', 5000, '1483960448', '1483958996', '45696', 'localhost'),
-(63, 5, 8, '', '', 1, 8, 'manager8', 'Tècnic SSCC', '1483958678', 'Maqueta SSEE', '', 5000, '1483960452', '1483959238', '69608', 'localhost');
+(63, 5, 8, '', '', 1, 8, 'manager8', 'Tècnic SSCC', '1483958678', 'Maqueta SSEE', '', 5000, '1483960452', '1483959238', '69608', 'localhost'),
+(64, 5, 9, '9', '', 1, 9, 'admin', 'Tècnic SSCC', '1485447714', 'Maqueta secundària', '', 5000, '1485447717', '1485447557', '', 'localhost');
 
 -- --------------------------------------------------------
 
@@ -386,7 +388,7 @@ CREATE TABLE IF NOT EXISTS `agoraportal_logs` (
   `time` varchar(20) NOT NULL,
   PRIMARY KEY (`logId`),
   KEY `clientCode` (`clientCode`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=185 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=188 ;
 
 --
 -- Bolcant dades de la taula `agoraportal_logs`
@@ -576,7 +578,10 @@ INSERT INTO `agoraportal_logs` (`logId`, `clientCode`, `uname`, `actionCode`, `a
 (181, 'a8000007', 'admin', 1, 'S\\''ha afegit un gestor amb nom d\\''usuari manager7', '1483958885'),
 (182, 'a8000007', 'manager7', 1, 'S\\''ha fet la sol·licitud del servei nodes', '1483958997'),
 (183, 'a8000008', 'admin', 1, 'S\\''ha afegit un gestor amb nom d\\''usuari manager8', '1483959036'),
-(184, 'a8000008', 'manager8', 1, 'S\\''ha fet la sol·licitud del servei nodes', '1483959240');
+(184, 'a8000008', 'manager8', 1, 'S\\''ha fet la sol·licitud del servei nodes', '1483959240'),
+(185, 'a8000009', 'admin', 1, 'S\\''ha fet la sol·licitud del servei nodes', '1485447558'),
+(186, 'a8000009', 'admin', -1, 'Contrasenya d\\''administració per nodes: deX7TQNi', '1485447717'),
+(187, 'a8000009', 'admin', 2, 'S\\''ha aprovat la sol·licitud d\\''alta del servei nodes', '1485447717');
 
 -- --------------------------------------------------------
 
@@ -995,7 +1000,14 @@ CREATE TABLE IF NOT EXISTS `agoraportal_mysql_comands` (
   `description` text NOT NULL,
   `type` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`comandId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Bolcant dades de la taula `agoraportal_mysql_comands`
+--
+
+INSERT INTO `agoraportal_mysql_comands` (`comandId`, `serviceId`, `comand`, `description`, `type`) VALUES
+(1, 5, 'UPDATE wp_users SET user_pass = MD5(''agora'') WHERE user_login = ''admin'';', 'Canvia la contrasenya a l''admin', 3);
 
 -- --------------------------------------------------------
 
@@ -1073,7 +1085,14 @@ CREATE TABLE IF NOT EXISTS `agoraportal_queues` (
   `params` longtext NOT NULL,
   `logId` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Bolcant dades de la taula `agoraportal_queues`
+--
+
+INSERT INTO `agoraportal_queues` (`id`, `operation`, `clientId`, `serviceId`, `priority`, `state`, `timeCreated`, `timeStart`, `timeEnd`, `params`, `logId`) VALUES
+(1, 'script_enable_service', 9, 5, 5, 'OK', 1485447717, 1485448063, 1485448075, '{"password":"afdec27098e0e0215754ad641529f078","clientName":"Centre 9","clientAddress":"Carrer sense n&uacute;mero","clientCity":"Valldeneu","clientPC":"00000","clientDNS":"centre-9","clientCode":"a8000009","origin_url":"http:\\/\\/pwc-int.educacio.intranet\\/agora\\/mastersec\\/","origin_bd":"usu7"}', 1);
 
 -- --------------------------------------------------------
 
@@ -1086,7 +1105,14 @@ CREATE TABLE IF NOT EXISTS `agoraportal_queues_log` (
   `content` longtext NOT NULL,
   `timeModified` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Bolcant dades de la taula `agoraportal_queues_log`
+--
+
+INSERT INTO `agoraportal_queues_log` (`id`, `content`, `timeModified`) VALUES
+(1, 'Start server Time: Thu, 26 Jan 2017 17:27:54 +0100<br />\nActiva el servei Àgora-Nodes<br />\nSet Blog name to Centre 9<br />\nSet Admin mail to a8000009@xtec.cat<br />\nSet Site URL to http://agora-virtual-projectes.xtec.cat/agora/centre-9/<br />\nUpdate school name and address<br />\nConfiguring admin and xtecadmin users<br />\nCorregeix el nom del centre a l''Email Subscribers<br />\nSet admin e-mail in Email Subscribers<br />\nSet blog name in Email Subscribers<br />\nReplaced Institut L&#039;Arany by Centre 9 in Email Subscribers<br />\n<br />\nExecution took 0.033724 seconds<br />\nReset stats table<br />\nReemplaça la URL base d''Àgora-Nodes<br />\nURL origen: ://pwc-int.educacio.intranet/agora/mastersec/<br />\nURL destí: ://agora-virtual-projectes.xtec.cat/agora/centre-9/<br />\nDB origen: usu7<br />\nDB destí: usu9<br />\nUpdate serialized wp_options fields<br />\nUpdate slides URLs<br />\n<br />\nExecution took 0.27518 seconds<br />\nActualitza el WordPress<br />\nActualitza els espais d''Àgora-Nodes<br />\nVersió de la base dades: 36686<br />Versió dels fitxers: 36686<br /><br />El WordPress ja estava actualitzat!<br /><br />\nExecution took 0.001245 seconds<br />\n<br />\nExecution took 0.68053 seconds<br />\nEnd server Time: Thu, 26 Jan 2017 17:27:55 +0100<br />\nScript script_enable_service succeed<br />\nsuccess', '1485448075');
 
 -- --------------------------------------------------------
 
@@ -1832,7 +1858,7 @@ CREATE TABLE IF NOT EXISTS `modules` (
   PRIMARY KEY (`id`),
   KEY `state` (`state`),
   KEY `mod_state` (`name`,`state`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=72 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=74 ;
 
 --
 -- Bolcant dades de la taula `modules`
@@ -1841,7 +1867,6 @@ CREATE TABLE IF NOT EXISTS `modules` (
 INSERT INTO `modules` (`id`, `name`, `type`, `displayname`, `url`, `description`, `regid`, `directory`, `version`, `official`, `author`, `contact`, `admin_capable`, `user_capable`, `profile_capable`, `message_capable`, `state`, `credits`, `changelog`, `help`, `license`, `securityschema`, `capabilities`, `core_min`, `core_max`) VALUES
 (1, 'Extensions', 3, 'Mòduls', 'extensions', 'Gestioneu els vostres mòduls i connectors.', 0, 'Extensions', '3.7.10', 1, 'Jim McDonald, Mark West', 'http://www.zikula.org', 1, 0, 0, 0, 3, '', '', '', '', 'a:1:{s:12:"Extensions::";s:2:"::";}', 'a:1:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
 (2, 'Theme', 3, 'Entorns visuals', 'entorn visual', 'Mòdul d''entorns visuals per a la gestió de l''aspecte del lloc, el renderitzat de les plantilles i la memòria cau.', 0, 'Theme', '3.4.2', 1, 'Mark West', 'http://www.markwest.me.uk/', 1, 1, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:7:"Theme::";s:12:"Theme name::";}', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
-(4, 'Search', 3, 'Motor de cerca', 'cerca', 'Paràmetres del cercador intern del lloc.', 0, 'Search', '1.5.2', 1, 'Patrick Kellum', 'http://www.ctarl-ctarl.com', 1, 1, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/install.txt', 'pndocs/license.txt', 'a:1:{s:8:"Search::";s:13:"Module name::";}', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
 (7, 'PageLock', 3, 'Gestor del bloqueig de pàgines', 'pagelock', 'Proporciona la capacitat de bloquejar pàgines quan s''estan utilitzant.', 0, 'PageLock', '1.1.1', 1, 'Jorn Wildt', 'http://www.elfisk.dk', 0, 0, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/install.txt', 'pndocs/license.txt', 'a:1:{s:10:"PageLock::";s:2:"::";}', 'a:0:{}', '', ''),
 (11, 'Blocks', 3, 'Blocs', 'blocs', 'Administració dels blocs i la seva posició.', 0, 'Blocks', '3.8.2', 1, 'Jim McDonald, Mark West', 'http://www.mcdee.net/, http://www.markwest.me.uk/', 1, 1, 0, 0, 3, '', '', '', '', 'a:4:{s:8:"Blocks::";s:30:"Block key:Block title:Block ID";s:16:"Blocks::position";s:26:"Position name::Position ID";s:23:"Menutree:menutreeblock:";s:26:"Block ID:Link Name:Link ID";s:19:"ExtendedMenublock::";s:17:"Block ID:Link ID:";}', 'a:3:{s:15:"hook_subscriber";a:1:{s:7:"enabled";b:1;}s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
 (12, 'Groups', 3, 'Grups', 'grups', 'Mòdul d''administració de grups d''usuaris', 0, 'Groups', '2.3.2', 1, 'Mark West, Franky Chestnut, Michael Halbook', 'http://www.markwest.me.uk/, http://dev.pnconcept.com, http://www.halbrooktech.com', 1, 1, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:8:"Groups::";s:10:"Group ID::";}', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
@@ -1853,13 +1878,14 @@ INSERT INTO `modules` (`id`, `name`, `type`, `displayname`, `url`, `description`
 (19, 'Categories', 3, 'Categories', 'categories', 'Categoria d''administració.', 0, 'Categories', '1.2.1', 1, 'Robert Gasch', 'rgasch@gmail.com', 1, 1, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:20:"Categories::Category";s:40:"Category ID:Category Path:Category IPath";}', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
 (21, 'Errors', 3, 'Errors', 'errors', 'Mòdul de visualització d''errors.', 0, 'Errors', '1.1.1', 1, 'Brian Lindner <Furbo>', 'furbo@sigtauonline.com', 0, 1, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:8:"Errors::";s:2:"::";}', 'a:1:{s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
 (22, 'Settings', 3, 'Paràmetres generals', 'Paràmetres', 'Interfície de configuració general del lloc.', 0, 'Settings', '2.9.7', 1, 'Simon Wunderlin', '', 1, 0, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:10:"Settings::";s:2:"::";}', 'a:1:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
-(26, 'Legal', 2, 'Legal info manager', 'legalmod', 'Provides an interface for managing the site''s legal documents.', 0, 'Legal', '2.0.1', 1, 'Michael M. Wechsler', 'michael@thelaw.com', 1, 1, 0, 0, 2, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/install.txt', 'pndocs/license.txt', 'a:8:{s:7:"Legal::";s:2:"::";s:18:"Legal::legalnotice";s:2:"::";s:17:"Legal::termsofuse";s:2:"::";s:20:"Legal::privacypolicy";s:2:"::";s:16:"Legal::agepolicy";s:2:"::";s:29:"Legal::accessibilitystatement";s:2:"::";s:30:"Legal::cancellationrightpolicy";s:2:"::";s:22:"Legal::tradeconditions";s:2:"::";}', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '1.3.0', '1.3.99'),
 (35, 'AuthLDAP', 2, 'AuthLDAP', 'AuthLDAP', 'Permet validar els centres per LDAP.', 0, 'AuthLDAP', '1.0.1', 1, 'Mike Goldfinger', 'MikeGoldfinger@linuxmail.org', 1, 0, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:10:"AuthLDAP::";s:2:"::";}', 'a:1:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
-(64, 'Agoraportal', 2, 'Agoraportal', 'Agoraportal', 'Administració dels serveis d''Àgora, petició d''espais nous i gestió per part dels centres.', 0, 'Agoraportal', '3.0.0', 0, 'Agora Development Team', 'agora@xtec.cat', 1, 1, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:13:"Agoraportal::";s:2:"::";}', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
+(64, 'Agoraportal', 2, 'Agoraportal', 'Agoraportal', 'Administració dels serveis d''Àgora, petició d''espais nous i gestió per part dels centres.', 0, 'Agoraportal', '3.0.1', 0, 'Agora Development Team', 'agora@xtec.cat', 1, 1, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:13:"Agoraportal::";s:2:"::";}', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
 (68, 'XtecMailer', 2, 'Mailer XTEC', 'XtecMailer', 'Amplia les funcionalitats del mòdul Mailer per poder enviar correu electrònic utilitzant el servei web de la XTEC', 0, 'XtecMailer', '1.0.0', 0, '', '', 0, 0, 0, 0, 3, '', '', '', '', 'a:1:{s:12:"XtecMailer::";s:2:"::";}', 'a:1:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
 (69, 'IWmain', 2, 'Intraweb', 'IWmain', 'Mòdul principal del mòduls Intraweb. Els mòduls Intraweb necessiten aquest mòdul per poder funcionar.', 0, 'IWmain', '3.0.0', 0, '', '', 0, 0, 0, 0, 3, '', '', '', '', 'a:1:{s:8:"IWmain::";s:2:"::";}', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
 (70, 'IWstats', 2, 'Estadístiques', 'IWstats', 'Mòdul d''estadístiques.', 0, 'IWstats', '3.0.1', 0, '', '', 0, 0, 0, 0, 3, '', '', '', '', 'a:1:{s:9:"IWstats::";s:2:"::";}', 'a:1:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
-(71, 'Files', 2, 'Gestor de fitxers', 'fitxers', 'Gestió de fitxers per a llocs Zikula', 0, 'Files', '1.0.3', 0, '', '', 0, 0, 0, 0, 3, '', '', '', '', 'a:1:{s:7:"Files::";s:2:"::";}', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '1.3.0', '1.3.99');
+(71, 'Files', 2, 'Gestor de fitxers', 'fitxers', 'Gestió de fitxers per a llocs Zikula', 0, 'Files', '1.0.3', 0, '', '', 0, 0, 0, 0, 3, '', '', '', '', 'a:1:{s:7:"Files::";s:2:"::";}', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '1.3.0', '1.3.99'),
+(72, 'Legal', 2, 'Legal info manager', 'legalmod', 'Provides an interface for managing the site''s legal documents.', 0, 'Legal', '2.0.1', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', 'a:8:{s:7:"Legal::";s:2:"::";s:18:"Legal::legalnotice";s:2:"::";s:17:"Legal::termsofuse";s:2:"::";s:20:"Legal::privacypolicy";s:2:"::";s:16:"Legal::agepolicy";s:2:"::";s:29:"Legal::accessibilitystatement";s:2:"::";s:30:"Legal::cancellationrightpolicy";s:2:"::";s:22:"Legal::tradeconditions";s:2:"::";}', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '1.3.0', '1.3.99'),
+(73, 'Search', 3, 'Motor de cerca', 'cerca', 'Paràmetres del cercador intern del lloc.', 0, 'Search', '1.5.2', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', 'a:1:{s:8:"Search::";s:13:"Module name::";}', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', '');
 
 -- --------------------------------------------------------
 
@@ -1875,14 +1901,14 @@ CREATE TABLE IF NOT EXISTS `module_deps` (
   `maxversion` varchar(10) NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
 
 --
 -- Bolcant dades de la taula `module_deps`
 --
 
 INSERT INTO `module_deps` (`id`, `modid`, `modname`, `minversion`, `maxversion`, `status`) VALUES
-(15, 11, 'Scribite', '5.0.0', '', 2);
+(21, 11, 'Scribite', '5.0.0', '', 2);
 
 -- --------------------------------------------------------
 
@@ -1897,7 +1923,7 @@ CREATE TABLE IF NOT EXISTS `module_vars` (
   `value` longtext,
   PRIMARY KEY (`id`),
   KEY `mod_var` (`modname`,`name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=868 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=869 ;
 
 --
 -- Bolcant dades de la taula `module_vars`
@@ -2002,7 +2028,7 @@ INSERT INTO `module_vars` (`id`, `modname`, `name`, `value`) VALUES
 (104, 'ZConfig', 'profilemodule', 's:0:"";'),
 (105, 'ZConfig', 'messagemodule', 's:0:"";'),
 (106, 'ZConfig', 'languageurl', 's:1:"0";'),
-(107, 'ZConfig', 'ajaxtimeout', 'i:5000;'),
+(107, 'ZConfig', 'ajaxtimeout', 's:5:"50000";'),
 (108, 'ZConfig', 'permasearch', 's:161:"À,Á,Â,Ã,Å,à,á,â,ã,å,Ò,Ó,Ô,Õ,Ø,ò,ó,ô,õ,ø,È,É,Ê,Ë,è,é,ê,ë,Ç,ç,Ì,Í,Î,Ï,ì,í,î,ï,Ù,Ú,Û,ù,ú,û,ÿ,Ñ,ñ,ß,ä,Ä,ö,Ö,ü,Ü";'),
 (109, 'ZConfig', 'permareplace', 's:114:"A,A,A,A,A,a,a,a,a,a,O,O,O,O,O,o,o,o,o,o,E,E,E,E,e,e,e,e,C,c,I,I,I,I,i,i,i,i,U,U,U,u,u,u,y,N,n,ss,ae,Ae,oe,Oe,ue,Ue";'),
 (110, 'ZConfig', 'language', 's:3:"eng";'),
@@ -2015,8 +2041,8 @@ INSERT INTO `module_vars` (`id`, `modname`, `name`, `value`) VALUES
 (121, 'ZConfig', 'onlysendsummarybyemail', 'i:1;'),
 (122, 'ZConfig', 'updatecheck', 'i:1;'),
 (123, 'ZConfig', 'updatefrequency', 'i:7;'),
-(124, 'ZConfig', 'updatelastchecked', 'i:1483544421;'),
-(125, 'ZConfig', 'updateversion', 's:13024:"<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1.0">\n<meta name="author" content="">\n<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>\n<title></title>\n<meta name="description" content=""/>\n<meta name="keywords" content=""/>\n<link rel="stylesheet" href="http://update.zikula.org/web/font-awesome/css/font-awesome.min.css" type="text/css"/>\n<link rel="stylesheet" href="http://update.zikula.org/themes/Zikula/Theme/ModernBusinessTheme/Resources/public/css/spacelab.min.css" type="text/css"/>\n<link rel="stylesheet" href="http://update.zikula.org/style/core.css" type="text/css"/>\n<link rel="stylesheet" href="http://update.zikula.org/style/legacy.css" type="text/css"/>\n<link rel="stylesheet" href="http://update.zikula.org/themes/Zikula/Theme/ModernBusinessTheme/Resources/public/css/style.css" type="text/css"/>\n<link rel="stylesheet" href="http://update.zikula.org/system/Zikula/Module/BlocksModule/Resources/public/css/style.css" type="text/css"/>\n<link rel="stylesheet" href="http://update.zikula.org/system/Zikula/Module/BlocksModule/Resources/public/css/menutree/horizontal.css" type="text/css"/>\n<link rel="stylesheet" href="http://update.zikula.org/modules/ExtensionLibrary/Resources/public/css/style.css" type="text/css"/>\n<script type="text/javascript">/* <![CDATA[ */ \ndocument.location.entrypoint="index.php";document.location.pnbaseURL="http://update.zikula.org/"; document.location.ajaxtimeout=25000;\nif (typeof(Zikula) == ''undefined'') {var Zikula = {};}\nZikula.Config = {"entrypoint":"index.php","baseURL":"http:\\/\\/update.zikula.org\\/","baseURI":"\\/","ajaxtimeout":"25000","lang":"en","sessionName":"_zsid","uid":"0"}\n /* ]]> */</script>\n<script type="text/javascript" src="http://update.zikula.org/web/jquery/jquery.min.js"></script>\n<script type="text/javascript" src="http://update.zikula.org/javascript/jquery_config.js"></script>\n<script type="text/javascript" src="http://update.zikula.org/web/jquery/jquery-migrate.min.js"></script>\n<script type="text/javascript" src="http://update.zikula.org/web/bundles/fosjsrouting/js/router.js"></script>\n<script type="text/javascript" src="http://update.zikula.org/web/js/fos_js_routes.js"></script>\n<script type="text/javascript" src="http://update.zikula.org/web/bootstrap/js/bootstrap.min.js"></script>\n<script type="text/javascript" src="http://update.zikula.org/javascript/helpers/bootstrap-zikula.js"></script>\n<script type="text/javascript" src="http://update.zikula.org/themes/Zikula/Theme/ModernBusinessTheme/Resources/public/js/modern-business.js"></script>\n<script type="text/javascript" src="http://update.zikula.org/web/html5shiv/dist/html5shiv.js"></script>\n<link rel="search" type="application/opensearchdescription+xml" title="Zikula" href="/search/opensearch"/>\n<!--[if IE]><link rel="stylesheet" type="text/css" href="http://update.zikula.org/style/core_iehacks.css" media="print,projection,screen" /><![endif]-->\n</head>\n<body>\n<div class="z-block z-blockposition-topnav z-bkey-menutreeblock z-bid-7">\n \n<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">\n<div class="container">\n<div class="navbar-header">\n<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">\n<span class="sr-only">Toggle navigation</span>\n<span class="icon-bar"></span>\n<span class="icon-bar"></span>\n<span class="icon-bar"></span>\n</button>\n<span class=''navbar-brand''></span>\n<a class="navbar-brand" href="http://update.zikula.org/"><img style="display: inline;" src="http://update.zikula.org/themes/Zikula/Theme/ModernBusinessTheme/Resources/public/images/logo32.png"/> Zikula</a>\n</div>\n<div class="collapse navbar-collapse navbar-ex1-collapse">\n<ul id="menu7" class=''nav navbar-nav navbar-right''><li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Home <b class="caret"></b></a><ul class=''dropdown-menu''><li><a href="http://update.zikula.org/" title="Home">Home</a></li><li><a href="http://support.zikula.de/" title="German Community">German Community</a></li></ul></li><li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Dev <b class="caret"></b></a><ul class=''dropdown-menu''><li><a href="https://github.com/zikula/core" title="Zikula Github">Github</a></li><li><a href="http://modulestudio.de/en">Module Studio</a></li><li><a href="/gettext" title="Gettext Extractor">Gettext</a></li><li><a href="/pages/display/development" title="Zikula Development">Dev notes</a></li></ul></li><li><a href="/library" title="Extensions Library">Extensions</a></li><li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a><ul class=''dropdown-menu''><li><a href="/login?returnpage=%252Fcgi-bin%252Fengine%252Fcheckcoreversion13.cgi%253F" title="Login">Login</a></li><li><a href="/register" title="Register">Register</a></li><li><a href="/users/lost-password" title="Lost password">Lost password</a></li></ul></li><li><a href="http://update.zikula.org/blog/index/" title="News, blog and announcements">Blog</a></li><li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Forum <b class="caret"></b></a><ul class=''dropdown-menu''><li><a href="/forums/" title="forum overview">Overview</a></li><li><a href="/forums/topics/view-latest" title="latest forum posts">Latest</a></li></ul></li><li><a href="/search" title="Search this site">Site search</a></li></ul>\n</div> \n</div> \n</nav>\n </div>\n<div class="jumbotron">\n<div class="container">\n<div class="z-block z-blockposition-jumbotron z-bkey-htmlblock z-bid-15">\n<h1>Welcome to Zikula</h1>\n<div>\n<p>Zikula is an OpenSource PHP Application Framework, for your small to enterprise business or personal site.</p>\n \n</div></div>\n<div class=''clearfix'' style="margin: 40px 0">\n<div class="z-block z-blockposition-jumbotron-sub z-bkey-latestreleaseblock z-bid-32">\n<div class="col-lg-4 col-md-4">\n<p><a class="btn btn-success btn-lg" role="button" href="#" style="white-space: normal" data-toggle="modal" data-target="#el-block-latest-release-modal-supported-586d1766616da">\n<i class="fa fa-cloud-download fa-3x pull-left"></i> Download Zikula<br/>1.4.5\n</a>\n</p>\n</div></div>\n<div class="z-block z-blockposition-jumbotron-sub z-bkey-htmlblock z-bid-20">\n<div class="col-lg-4 col-md-4">\n<p><a class="btn btn-primary btn-lg" role="button" style="white-space: normal" href=''http://zikula.org/blog/display/2017/1/1/zikula-core-1312-and-145-released/''><i class=''fa fa-bullhorn fa-3x pull-left''></i> Blog: Core 1.4.5<br/>Released!</a></p>\n</div></div>\n<div class="z-block z-blockposition-jumbotron-sub z-bkey-htmlblock z-bid-36">\n<div class="col-lg-4 col-md-4">\n<p><a class="btn btn-warning btn-lg" role="button" href="http://modulestudio.de/en" target="_blank">\n<img src="/images/ModuleStudio_icon.png" width="48" height="48" alt="ModuleStudio" class="pull-left" style="margin-right:1 em"/> Generate extensions<br/>using ModuleStudio\n</a>\n</p>\n</div></div>\n</div>\n<div class="pull-right">\n<ul class="list-inline">\n<li><a href="https://www.facebook.com/pages/Zikula/160401810638081"><i title="Zikula on Facebook" class="fa fa-facebook-square fa-3x text-primary tooltips"></i></a></li>\n<li><a href="http://twitter.com/#!/zikula"><i title="Zikula on Twitter" class="fa fa-twitter-square fa-3x text-info tooltips"></i></a></li>\n<li><a href="https://www.youtube.com/user/Zikula"><i title="Zikula on YouTube" class="fa fa-youtube-square fa-3x text-danger tooltips"></i></a></li>\n<li><a href="/RSS/blog/view"><i title="RSS news feed" class="fa fa-rss-square fa-3x text-warning tooltips"></i></a></li>\n<li><a id=''github-icon'' href="https://github.com/zikula"><i title="Zikula project on Github" class="fa fa-github-square fa-3x text-muted tooltips"></i></a></li>\n<li id=''github-iframes''><iframe src="http://ghbtns.com/github-btn.html?user=zikula&repo=core&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px" align="right"></iframe><br/>\n<iframe src="http://ghbtns.com/github-btn.html?user=zikula&repo=core&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe></li>\n</ul>\n</div> </div>\n</div>\n<div class="section">\n<div class="container">\n<div class="row">\n<div class="z-block z-blockposition-homeblock-row1 z-bkey-htmlblock z-bid-8">\n<div class="col-lg-4 col-md-4">\n<p><img src=''/themes/Zikula/Theme/ModernBusinessTheme/Resources/public/images/vendorlogos/symfony_black_01_small.png''/> <i class=''fa fa-plus''></i> <img src=''/themes/Zikula/Theme/ModernBusinessTheme/Resources/public/images/vendorlogos/doctrine-logo.png'' title=''Doctrine'' class=''tooltips''/><br/><strong>Zikula 1.4</strong> has <a href=''http://www.symfony.com/''>Symfony</a> at it''s foundation, which includes <a href=''http://www.doctrine-project.org''>Doctrine</a>. "Symfony is an Open Source distributed PHP framework. A framework helps you work better (structuring developments) and faster (reusing generic modules)."</p>\n</div></div>\n<div class="z-block z-blockposition-homeblock-row1 z-bkey-htmlblock z-bid-10">\n<div class="col-lg-4 col-md-4">\n<p><span class="fa fa-twitter-square fa-2x" style=''color:#5500aa''> Bootstrap</span> <i class=''fa fa-plus''></i> <span title=''Font Awesome'' class="fa fa-flag fa-2x tooltips" style=''color:#34a782''> FA</span><br/><strong>Zikula 1.4</strong> integrates Twitter''s <a href=''http://getbootstrap.com''>Bootstrap 3</a> and <a href=''http://fontawesome.io''>Font Awesome 4</a>. Bootstrap is a "sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development." Font Awesome adds amazing iconic graphics.</p>\n</div></div>\n<div class="z-block z-blockposition-homeblock-row1 z-bkey-htmlblock z-bid-11">\n<div class="col-lg-4 col-md-4">\n<p><img src=''/themes/Zikula/Theme/ModernBusinessTheme/Resources/public/images/vendorlogos/jQuery-Logo.png''/><br/><strong>Zikula 1.4</strong> utilizes <a href="http://jquery.com">jQuery</a> for exciting web user-interfaces and effects. "jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler..."</p>\n</div></div>\n</div> \n<div class="row">\n</div> \n</div> \n</div> \n<div class="section-colored text-center">\n<div class="container">\n<div class="row">\n<div class="col-lg-12">\n<div class="z-block z-blockposition-center z-bkey-html z-bid-3">\n<h2>Zikula: an OpenSource PHP Application Framework and CMS for your website</h2>\n<div>\n<p><p>Zikula Core-1.4 is based on Symfony 2.8.x as a foundation and includes other technologies including a dynamic modular development paradigm and Twig-based theming system which allows for quick expansion of Symfony.</p>\n<p>No matter what your needs, Zikula can provide the solution. Whether it is a large corporate web presence with ecommerce, a small simple blog or a community portal, Zikula can do it all. Zikula is infinitely expandable to add the functionality you need. And all with tomorrow''s technology.<br/>\nBest of all, it is completely free. Our community forum provides you with the support and help you need free of charge.</p></p>\n</div></div>\n<div class="z-block z-blockposition-center z-bkey-htmlblock z-bid-31">\n<div>\n<p><a href=''http://www.jetbrains.com''><img src=''/images/logo_JetBrains_4.png'' alt=''jet brains logo'' style=''height: 64px''/></a> <span style=''font-size: 150%''>The Zikula project is generously supported by <a href=''http://www.jetbrains.com''>JetBrains</a>.</span> <a href=''https://www.jetbrains.com/phpstorm/''><img src=''/images/icon_PhpStorm.png'' alt=''PhpStorm logo'' style=''height: 64px''/></a></p>\n</div></div>\n<hr>\n</div>\n</div> \n</div> \n</div> \n<div class="container">\n<hr>\n<footer>\n<div class="row">\n<div class="col-lg-12">\n<p>Copyright &copy; Zikula 2017</p>\n</div>\n</div>\n</footer>\n</div> \n<div class="modal fade" id="el-block-latest-release-modal-supported-586d1766616da" tabindex="-1">\n<div class="modal-dialog modal-lg">\n<div class="modal-content">\n<div class="modal-header">\n<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>\n<h4 class="modal-title"><strong>Zikula Core 1.4.5</strong></h4>\n</div>\n<div class="modal-body">\n<p>Zikula Core <strong>1.4.5</strong> is available as of today, 01 January, 2017.</p>\n</div>\n<div class="modal-footer">\n<a href="https://github.com/zikula/core/releases/download/1.4.5/Zikula_Core-1.4.5.build106-checksums.txt" class="btn btn-sm btn-success">Zikula_Core-1.4.5.build106-checksums.txt</a>\n<a href="https://github.com/zikula/core/releases/download/1.4.5/Zikula_Core-1.4.5.build106.tar.gz" class="btn btn-sm btn-success">Zikula_Core-1.4.5.build106.tar.gz</a>\n<a href="https://github.com/zikula/core/releases/download/1.4.5/Zikula_Core-1.4.5.build106.zip" class="btn btn-sm btn-success">Zikula_Core-1.4.5.build106.zip</a>\n</div>\n</div> \n</div> \n</div> \n</body>\n</html>";'),
+(124, 'ZConfig', 'updatelastchecked', 'i:1485445523;'),
+(125, 'ZConfig', 'updateversion', 's:13024:"<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1.0">\n<meta name="author" content="">\n<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>\n<title></title>\n<meta name="description" content=""/>\n<meta name="keywords" content=""/>\n<link rel="stylesheet" href="http://update.zikula.org/web/font-awesome/css/font-awesome.min.css" type="text/css"/>\n<link rel="stylesheet" href="http://update.zikula.org/themes/Zikula/Theme/ModernBusinessTheme/Resources/public/css/spacelab.min.css" type="text/css"/>\n<link rel="stylesheet" href="http://update.zikula.org/style/core.css" type="text/css"/>\n<link rel="stylesheet" href="http://update.zikula.org/style/legacy.css" type="text/css"/>\n<link rel="stylesheet" href="http://update.zikula.org/themes/Zikula/Theme/ModernBusinessTheme/Resources/public/css/style.css" type="text/css"/>\n<link rel="stylesheet" href="http://update.zikula.org/system/Zikula/Module/BlocksModule/Resources/public/css/style.css" type="text/css"/>\n<link rel="stylesheet" href="http://update.zikula.org/system/Zikula/Module/BlocksModule/Resources/public/css/menutree/horizontal.css" type="text/css"/>\n<link rel="stylesheet" href="http://update.zikula.org/modules/ExtensionLibrary/Resources/public/css/style.css" type="text/css"/>\n<script type="text/javascript">/* <![CDATA[ */ \ndocument.location.entrypoint="index.php";document.location.pnbaseURL="http://update.zikula.org/"; document.location.ajaxtimeout=25000;\nif (typeof(Zikula) == ''undefined'') {var Zikula = {};}\nZikula.Config = {"entrypoint":"index.php","baseURL":"http:\\/\\/update.zikula.org\\/","baseURI":"\\/","ajaxtimeout":"25000","lang":"en","sessionName":"_zsid","uid":"0"}\n /* ]]> */</script>\n<script type="text/javascript" src="http://update.zikula.org/web/jquery/jquery.min.js"></script>\n<script type="text/javascript" src="http://update.zikula.org/javascript/jquery_config.js"></script>\n<script type="text/javascript" src="http://update.zikula.org/web/jquery/jquery-migrate.min.js"></script>\n<script type="text/javascript" src="http://update.zikula.org/web/bundles/fosjsrouting/js/router.js"></script>\n<script type="text/javascript" src="http://update.zikula.org/web/js/fos_js_routes.js"></script>\n<script type="text/javascript" src="http://update.zikula.org/web/bootstrap/js/bootstrap.min.js"></script>\n<script type="text/javascript" src="http://update.zikula.org/javascript/helpers/bootstrap-zikula.js"></script>\n<script type="text/javascript" src="http://update.zikula.org/themes/Zikula/Theme/ModernBusinessTheme/Resources/public/js/modern-business.js"></script>\n<script type="text/javascript" src="http://update.zikula.org/web/html5shiv/dist/html5shiv.js"></script>\n<link rel="search" type="application/opensearchdescription+xml" title="Zikula" href="/search/opensearch"/>\n<!--[if IE]><link rel="stylesheet" type="text/css" href="http://update.zikula.org/style/core_iehacks.css" media="print,projection,screen" /><![endif]-->\n</head>\n<body>\n<div class="z-block z-blockposition-topnav z-bkey-menutreeblock z-bid-7">\n \n<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">\n<div class="container">\n<div class="navbar-header">\n<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">\n<span class="sr-only">Toggle navigation</span>\n<span class="icon-bar"></span>\n<span class="icon-bar"></span>\n<span class="icon-bar"></span>\n</button>\n<span class=''navbar-brand''></span>\n<a class="navbar-brand" href="http://update.zikula.org/"><img style="display: inline;" src="http://update.zikula.org/themes/Zikula/Theme/ModernBusinessTheme/Resources/public/images/logo32.png"/> Zikula</a>\n</div>\n<div class="collapse navbar-collapse navbar-ex1-collapse">\n<ul id="menu7" class=''nav navbar-nav navbar-right''><li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Home <b class="caret"></b></a><ul class=''dropdown-menu''><li><a href="http://update.zikula.org/" title="Home">Home</a></li><li><a href="http://support.zikula.de/" title="German Community">German Community</a></li></ul></li><li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Dev <b class="caret"></b></a><ul class=''dropdown-menu''><li><a href="https://github.com/zikula/core" title="Zikula Github">Github</a></li><li><a href="http://modulestudio.de/en">Module Studio</a></li><li><a href="/gettext" title="Gettext Extractor">Gettext</a></li><li><a href="/pages/display/development" title="Zikula Development">Dev notes</a></li></ul></li><li><a href="/library" title="Extensions Library">Extensions</a></li><li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a><ul class=''dropdown-menu''><li><a href="/login?returnpage=%252Fcgi-bin%252Fengine%252Fcheckcoreversion13.cgi%253F" title="Login">Login</a></li><li><a href="/register" title="Register">Register</a></li><li><a href="/users/lost-password" title="Lost password">Lost password</a></li></ul></li><li><a href="http://update.zikula.org/blog/index/" title="News, blog and announcements">Blog</a></li><li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Forum <b class="caret"></b></a><ul class=''dropdown-menu''><li><a href="/forums/" title="forum overview">Overview</a></li><li><a href="/forums/topics/view-latest" title="latest forum posts">Latest</a></li></ul></li><li><a href="/search" title="Search this site">Site search</a></li></ul>\n</div> \n</div> \n</nav>\n </div>\n<div class="jumbotron">\n<div class="container">\n<div class="z-block z-blockposition-jumbotron z-bkey-htmlblock z-bid-15">\n<h1>Welcome to Zikula</h1>\n<div>\n<p>Zikula is an OpenSource PHP Application Framework, for your small to enterprise business or personal site.</p>\n \n</div></div>\n<div class=''clearfix'' style="margin: 40px 0">\n<div class="z-block z-blockposition-jumbotron-sub z-bkey-latestreleaseblock z-bid-32">\n<div class="col-lg-4 col-md-4">\n<p><a class="btn btn-success btn-lg" role="button" href="#" style="white-space: normal" data-toggle="modal" data-target="#el-block-latest-release-modal-supported-588a19c92655a">\n<i class="fa fa-cloud-download fa-3x pull-left"></i> Download Zikula<br/>1.4.5\n</a>\n</p>\n</div></div>\n<div class="z-block z-blockposition-jumbotron-sub z-bkey-htmlblock z-bid-20">\n<div class="col-lg-4 col-md-4">\n<p><a class="btn btn-primary btn-lg" role="button" style="white-space: normal" href=''http://zikula.org/blog/display/2017/1/1/zikula-core-1312-and-145-released/''><i class=''fa fa-bullhorn fa-3x pull-left''></i> Blog: Core 1.4.5<br/>Released!</a></p>\n</div></div>\n<div class="z-block z-blockposition-jumbotron-sub z-bkey-htmlblock z-bid-36">\n<div class="col-lg-4 col-md-4">\n<p><a class="btn btn-warning btn-lg" role="button" href="http://modulestudio.de/en" target="_blank">\n<img src="/images/ModuleStudio_icon.png" width="48" height="48" alt="ModuleStudio" class="pull-left" style="margin-right:1 em"/> Generate extensions<br/>using ModuleStudio\n</a>\n</p>\n</div></div>\n</div>\n<div class="pull-right">\n<ul class="list-inline">\n<li><a href="https://www.facebook.com/pages/Zikula/160401810638081"><i title="Zikula on Facebook" class="fa fa-facebook-square fa-3x text-primary tooltips"></i></a></li>\n<li><a href="http://twitter.com/#!/zikula"><i title="Zikula on Twitter" class="fa fa-twitter-square fa-3x text-info tooltips"></i></a></li>\n<li><a href="https://www.youtube.com/user/Zikula"><i title="Zikula on YouTube" class="fa fa-youtube-square fa-3x text-danger tooltips"></i></a></li>\n<li><a href="/RSS/blog/view"><i title="RSS news feed" class="fa fa-rss-square fa-3x text-warning tooltips"></i></a></li>\n<li><a id=''github-icon'' href="https://github.com/zikula"><i title="Zikula project on Github" class="fa fa-github-square fa-3x text-muted tooltips"></i></a></li>\n<li id=''github-iframes''><iframe src="http://ghbtns.com/github-btn.html?user=zikula&repo=core&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px" align="right"></iframe><br/>\n<iframe src="http://ghbtns.com/github-btn.html?user=zikula&repo=core&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe></li>\n</ul>\n</div> </div>\n</div>\n<div class="section">\n<div class="container">\n<div class="row">\n<div class="z-block z-blockposition-homeblock-row1 z-bkey-htmlblock z-bid-8">\n<div class="col-lg-4 col-md-4">\n<p><img src=''/themes/Zikula/Theme/ModernBusinessTheme/Resources/public/images/vendorlogos/symfony_black_01_small.png''/> <i class=''fa fa-plus''></i> <img src=''/themes/Zikula/Theme/ModernBusinessTheme/Resources/public/images/vendorlogos/doctrine-logo.png'' title=''Doctrine'' class=''tooltips''/><br/><strong>Zikula 1.4</strong> has <a href=''http://www.symfony.com/''>Symfony</a> at it''s foundation, which includes <a href=''http://www.doctrine-project.org''>Doctrine</a>. "Symfony is an Open Source distributed PHP framework. A framework helps you work better (structuring developments) and faster (reusing generic modules)."</p>\n</div></div>\n<div class="z-block z-blockposition-homeblock-row1 z-bkey-htmlblock z-bid-10">\n<div class="col-lg-4 col-md-4">\n<p><span class="fa fa-twitter-square fa-2x" style=''color:#5500aa''> Bootstrap</span> <i class=''fa fa-plus''></i> <span title=''Font Awesome'' class="fa fa-flag fa-2x tooltips" style=''color:#34a782''> FA</span><br/><strong>Zikula 1.4</strong> integrates Twitter''s <a href=''http://getbootstrap.com''>Bootstrap 3</a> and <a href=''http://fontawesome.io''>Font Awesome 4</a>. Bootstrap is a "sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development." Font Awesome adds amazing iconic graphics.</p>\n</div></div>\n<div class="z-block z-blockposition-homeblock-row1 z-bkey-htmlblock z-bid-11">\n<div class="col-lg-4 col-md-4">\n<p><img src=''/themes/Zikula/Theme/ModernBusinessTheme/Resources/public/images/vendorlogos/jQuery-Logo.png''/><br/><strong>Zikula 1.4</strong> utilizes <a href="http://jquery.com">jQuery</a> for exciting web user-interfaces and effects. "jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler..."</p>\n</div></div>\n</div> \n<div class="row">\n</div> \n</div> \n</div> \n<div class="section-colored text-center">\n<div class="container">\n<div class="row">\n<div class="col-lg-12">\n<div class="z-block z-blockposition-center z-bkey-html z-bid-3">\n<h2>Zikula: an OpenSource PHP Application Framework and CMS for your website</h2>\n<div>\n<p><p>Zikula Core-1.4 is based on Symfony 2.8.x as a foundation and includes other technologies including a dynamic modular development paradigm and Twig-based theming system which allows for quick expansion of Symfony.</p>\n<p>No matter what your needs, Zikula can provide the solution. Whether it is a large corporate web presence with ecommerce, a small simple blog or a community portal, Zikula can do it all. Zikula is infinitely expandable to add the functionality you need. And all with tomorrow''s technology.<br/>\nBest of all, it is completely free. Our community forum provides you with the support and help you need free of charge.</p></p>\n</div></div>\n<div class="z-block z-blockposition-center z-bkey-htmlblock z-bid-31">\n<div>\n<p><a href=''http://www.jetbrains.com''><img src=''/images/logo_JetBrains_4.png'' alt=''jet brains logo'' style=''height: 64px''/></a> <span style=''font-size: 150%''>The Zikula project is generously supported by <a href=''http://www.jetbrains.com''>JetBrains</a>.</span> <a href=''https://www.jetbrains.com/phpstorm/''><img src=''/images/icon_PhpStorm.png'' alt=''PhpStorm logo'' style=''height: 64px''/></a></p>\n</div></div>\n<hr>\n</div>\n</div> \n</div> \n</div> \n<div class="container">\n<hr>\n<footer>\n<div class="row">\n<div class="col-lg-12">\n<p>Copyright &copy; Zikula 2017</p>\n</div>\n</div>\n</footer>\n</div> \n<div class="modal fade" id="el-block-latest-release-modal-supported-588a19c92655a" tabindex="-1">\n<div class="modal-dialog modal-lg">\n<div class="modal-content">\n<div class="modal-header">\n<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>\n<h4 class="modal-title"><strong>Zikula Core 1.4.5</strong></h4>\n</div>\n<div class="modal-body">\n<p>Zikula Core <strong>1.4.5</strong> is available as of today, 01 January, 2017.</p>\n</div>\n<div class="modal-footer">\n<a href="https://github.com/zikula/core/releases/download/1.4.5/Zikula_Core-1.4.5.build106-checksums.txt" class="btn btn-sm btn-success">Zikula_Core-1.4.5.build106-checksums.txt</a>\n<a href="https://github.com/zikula/core/releases/download/1.4.5/Zikula_Core-1.4.5.build106.tar.gz" class="btn btn-sm btn-success">Zikula_Core-1.4.5.build106.tar.gz</a>\n<a href="https://github.com/zikula/core/releases/download/1.4.5/Zikula_Core-1.4.5.build106.zip" class="btn btn-sm btn-success">Zikula_Core-1.4.5.build106.zip</a>\n</div>\n</div> \n</div> \n</div> \n</body>\n</html>";'),
 (126, 'ZConfig', 'keyexpiry', 'i:0;'),
 (127, 'ZConfig', 'sessionauthkeyua', 'i:0;'),
 (128, 'ZConfig', 'secure_domain', 's:0:"";'),
@@ -2077,8 +2103,6 @@ INSERT INTO `module_vars` (`id`, `modname`, `name`, `value`) VALUES
 (186, 'Mailer', 'smtptimeout', 'i:10;'),
 (187, 'Mailer', 'smtpusername', 's:0:"";'),
 (188, 'Mailer', 'smtppassword', 's:0:"";'),
-(194, 'Search', 'itemsperpage', 'i:10;'),
-(195, 'Search', 'limitsummary', 'i:255;'),
 (196, 'ZConfig', 'log_last_rotate', 'i:1336499209;'),
 (205, 'AuthPN', 'authmodules', 's:6:"AuthPN";'),
 (258, 'AuthLDAP', 'authldap_serveradr', 's:13:"ldap.xtec.cat";'),
@@ -2110,7 +2134,6 @@ INSERT INTO `module_vars` (`id`, `modname`, `name`, `value`) VALUES
 (763, 'Categories', 'EntityCategorySubclasses', 'a:0:{}'),
 (764, '/EventHandlers', 'Extensions', 'a:2:{i:0;a:3:{s:9:"eventname";s:27:"controller.method_not_found";s:8:"callable";a:2:{i:0;s:17:"Extensions_HookUI";i:1;s:5:"hooks";}s:6:"weight";i:10;}i:1;a:3:{s:9:"eventname";s:27:"controller.method_not_found";s:8:"callable";a:2:{i:0;s:17:"Extensions_HookUI";i:1;s:14:"moduleservices";}s:6:"weight";i:10;}}'),
 (765, 'ZConfig', 'idnnames', 'b:1;'),
-(766, 'Legal', 'minimumAge', 's:1:"0";'),
 (767, '/EventHandlers', 'Users', 'a:4:{i:0;a:3:{s:9:"eventname";s:19:"get.pending_content";s:8:"callable";a:2:{i:0;s:29:"Users_Listener_PendingContent";i:1;s:22:"pendingContentListener";}s:6:"weight";i:10;}i:1;a:3:{s:9:"eventname";s:15:"user.login.veto";s:8:"callable";a:2:{i:0;s:35:"Users_Listener_ForcedPasswordChange";i:1;s:28:"forcedPasswordChangeListener";}s:6:"weight";i:10;}i:2;a:3:{s:9:"eventname";s:21:"user.logout.succeeded";s:8:"callable";a:2:{i:0;s:34:"Users_Listener_ClearUsersNamespace";i:1;s:27:"clearUsersNamespaceListener";}s:6:"weight";i:10;}i:3;a:3:{s:9:"eventname";s:25:"frontcontroller.exception";s:8:"callable";a:2:{i:0;s:34:"Users_Listener_ClearUsersNamespace";i:1;s:27:"clearUsersNamespaceListener";}s:6:"weight";i:10;}}'),
 (768, 'Users', 'chgemail_expiredays', 'i:0;'),
 (769, 'Users', 'chgpass_expiredays', 'i:0;'),
@@ -2148,19 +2171,6 @@ INSERT INTO `module_vars` (`id`, `modname`, `name`, `value`) VALUES
 (801, 'SecurityCenter', 'htmlpurifierConfig', 's:3914:"a:10:{s:4:"Attr";a:15:{s:14:"AllowedClasses";N;s:19:"AllowedFrameTargets";a:0:{}s:10:"AllowedRel";a:3:{s:8:"nofollow";b:1;s:11:"imageviewer";b:1;s:8:"lightbox";b:1;}s:10:"AllowedRev";a:0:{}s:13:"ClassUseCDATA";N;s:15:"DefaultImageAlt";N;s:19:"DefaultInvalidImage";s:0:"";s:22:"DefaultInvalidImageAlt";s:13:"Invalid image";s:14:"DefaultTextDir";s:3:"ltr";s:8:"EnableID";b:0;s:16:"ForbiddenClasses";a:0:{}s:11:"IDBlacklist";a:0:{}s:17:"IDBlacklistRegexp";N;s:8:"IDPrefix";s:0:"";s:13:"IDPrefixLocal";s:0:"";}s:10:"AutoFormat";a:10:{s:13:"AutoParagraph";b:0;s:6:"Custom";a:0:{}s:14:"DisplayLinkURI";b:0;s:7:"Linkify";b:0;s:22:"PurifierLinkify.DocURL";s:3:"#%s";s:15:"PurifierLinkify";b:0;s:33:"RemoveEmpty.RemoveNbsp.Exceptions";a:2:{s:2:"td";b:1;s:2:"th";b:1;}s:22:"RemoveEmpty.RemoveNbsp";b:0;s:11:"RemoveEmpty";b:0;s:28:"RemoveSpansWithoutAttributes";b:0;}s:3:"CSS";a:9:{s:14:"AllowImportant";b:0;s:11:"AllowTricky";b:0;s:12:"AllowedFonts";N;s:17:"AllowedProperties";N;s:13:"DefinitionRev";i:1;s:19:"ForbiddenProperties";a:0:{}s:12:"MaxImgLength";s:6:"1200px";s:11:"Proprietary";b:0;s:7:"Trusted";b:0;}s:5:"Cache";a:3:{s:14:"DefinitionImpl";s:10:"Serializer";s:14:"SerializerPath";N;s:21:"SerializerPermissions";i:493;}s:4:"Core";a:17:{s:17:"AggressivelyFixLt";b:1;s:13:"CollectErrors";b:0;s:13:"ColorKeywords";a:17:{s:6:"maroon";s:7:"#800000";s:3:"red";s:7:"#FF0000";s:6:"orange";s:7:"#FFA500";s:6:"yellow";s:7:"#FFFF00";s:5:"olive";s:7:"#808000";s:6:"purple";s:7:"#800080";s:7:"fuchsia";s:7:"#FF00FF";s:5:"white";s:7:"#FFFFFF";s:4:"lime";s:7:"#00FF00";s:5:"green";s:7:"#008000";s:4:"navy";s:7:"#000080";s:4:"blue";s:7:"#0000FF";s:4:"aqua";s:7:"#00FFFF";s:4:"teal";s:7:"#008080";s:5:"black";s:7:"#000000";s:6:"silver";s:7:"#C0C0C0";s:4:"gray";s:7:"#808080";}s:25:"ConvertDocumentToFragment";b:1;s:31:"DirectLexLineNumberSyncInterval";i:0;s:8:"Encoding";s:5:"utf-8";s:21:"EscapeInvalidChildren";b:0;s:17:"EscapeInvalidTags";b:0;s:24:"EscapeNonASCIICharacters";b:0;s:14:"HiddenElements";a:2:{s:6:"script";b:1;s:5:"style";b:1;}s:8:"Language";s:2:"en";s:9:"LexerImpl";N;s:19:"MaintainLineNumbers";N;s:17:"NormalizeNewlines";b:1;s:16:"RemoveInvalidImg";b:1;s:28:"RemoveProcessingInstructions";b:0;s:20:"RemoveScriptContents";N;}s:6:"Filter";a:6:{s:6:"Custom";a:0:{}s:27:"ExtractStyleBlocks.Escaping";b:1;s:24:"ExtractStyleBlocks.Scope";N;s:27:"ExtractStyleBlocks.TidyImpl";N;s:18:"ExtractStyleBlocks";b:0;s:7:"YouTube";b:0;}s:4:"HTML";a:26:{s:7:"Allowed";N;s:17:"AllowedAttributes";N;s:15:"AllowedElements";N;s:14:"AllowedModules";N;s:18:"Attr.Name.UseCDATA";b:0;s:12:"BlockWrapper";s:1:"p";s:11:"CoreModules";a:7:{s:9:"Structure";b:1;s:4:"Text";b:1;s:9:"Hypertext";b:1;s:4:"List";b:1;s:22:"NonXMLCommonAttributes";b:1;s:19:"XMLCommonAttributes";b:1;s:16:"CommonAttributes";b:1;}s:13:"CustomDoctype";N;s:12:"DefinitionID";N;s:13:"DefinitionRev";i:1;s:7:"Doctype";N;s:20:"FlashAllowFullScreen";b:0;s:19:"ForbiddenAttributes";a:0:{}s:17:"ForbiddenElements";a:0:{}s:12:"MaxImgLength";i:1200;s:8:"Nofollow";b:0;s:6:"Parent";s:3:"div";s:11:"Proprietary";b:0;s:9:"SafeEmbed";b:1;s:10:"SafeObject";b:1;s:6:"Strict";b:0;s:7:"TidyAdd";a:0:{}s:9:"TidyLevel";s:6:"medium";s:10:"TidyRemove";a:0:{}s:7:"Trusted";b:0;s:5:"XHTML";b:1;}s:6:"Output";a:6:{s:21:"CommentScriptContents";b:1;s:12:"FixInnerHTML";b:1;s:11:"FlashCompat";b:1;s:7:"Newline";N;s:8:"SortAttr";b:0;s:10:"TidyFormat";b:0;}s:4:"Test";a:1:{s:12:"ForceNoIconv";b:0;}s:3:"URI";a:16:{s:14:"AllowedSchemes";a:6:{s:4:"http";b:1;s:5:"https";b:1;s:6:"mailto";b:1;s:3:"ftp";b:1;s:4:"nntp";b:1;s:4:"news";b:1;}s:4:"Base";N;s:13:"DefaultScheme";s:4:"http";s:12:"DefinitionID";N;s:13:"DefinitionRev";i:1;s:7:"Disable";b:0;s:15:"DisableExternal";b:0;s:24:"DisableExternalResources";b:0;s:16:"DisableResources";b:0;s:4:"Host";N;s:13:"HostBlacklist";a:0:{}s:12:"MakeAbsolute";b:0;s:5:"Munge";N;s:14:"MungeResources";b:0;s:14:"MungeSecretKey";N;s:22:"OverrideAllowedSchemes";b:1;}}";'),
 (802, 'ZConfig', 'sessioncsrftokenonetime', 'i:0;'),
 (803, '/EventHandlers', 'AuthLDAP', 'a:2:{i:0;a:3:{s:9:"eventname";s:31:"module.users.ui.login.succeeded";s:8:"callable";a:2:{i:0;s:18:"AuthLDAP_Listeners";i:1;s:20:"loginSuccessListener";}s:6:"weight";i:10;}i:1;a:3:{s:9:"eventname";s:28:"module.users.ui.login.failed";s:8:"callable";a:2:{i:0;s:18:"AuthLDAP_Listeners";i:1;s:19:"tryAuthLDAPListener";}s:6:"weight";i:10;}}'),
-(804, 'Legal', 'termsOfUseActive', 's:1:"1";'),
-(805, 'Legal', 'privacyPolicyActive', 's:1:"1";'),
-(806, 'Legal', 'accessibilityStatementActive', 's:1:"1";'),
-(807, '/EventHandlers', 'Legal', 'a:2:{i:0;a:3:{s:9:"eventname";s:15:"user.login.veto";s:8:"callable";a:2:{i:0;s:29:"Legal_Listener_UsersLoginVeto";i:1;s:22:"acceptPoliciesListener";}s:6:"weight";i:10;}i:1;a:1:{s:9:"classname";s:29:"Legal_Listener_UsersUiHandler";}}'),
-(808, 'Legal', 'legalNoticeActive', 'b:0;'),
-(809, 'Legal', 'cancellationRightPolicyActive', 'b:0;'),
-(810, 'Legal', 'tradeConditionsActive', 'b:0;'),
-(811, 'Legal', 'legalNoticeUrl', 's:0:"";'),
-(812, 'Legal', 'termsOfUseUrl', 's:0:"";'),
-(813, 'Legal', 'privacyPolicyUrl', 's:0:"";'),
-(814, 'Legal', 'accessibilityStatementUrl', 's:0:"";'),
-(815, 'Legal', 'cancellationRightPolicyUrl', 's:0:"";'),
-(816, 'Legal', 'tradeConditionsUrl', 's:0:"";'),
 (817, 'XtecMailer', 'enabled', 'i:1;'),
 (818, 'XtecMailer', 'idApp', 's:5:"AGORA";'),
 (819, 'XtecMailer', 'replyAddress', 's:14:"agora@xtec.cat";'),
@@ -2209,7 +2219,8 @@ INSERT INTO `module_vars` (`id`, `modname`, `name`, `value`) VALUES
 (864, 'Files', 'scribite_v4', 'b:0;'),
 (865, 'Files', 'scribite_v5', 's:1:"1";'),
 (866, 'Files', 'scribite_v4_name', 's:8:"Scribite";'),
-(867, 'Files', 'scribite_v5_name', 's:8:"Scribite";');
+(867, 'Files', 'scribite_v5_name', 's:8:"Scribite";'),
+(868, 'ZConfig', 'pagetitle', 's:11:"%pagetitle%";');
 
 -- --------------------------------------------------------
 
@@ -2384,40 +2395,6 @@ CREATE TABLE IF NOT EXISTS `sc_intrusion` (
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `search_result`
---
-
-CREATE TABLE IF NOT EXISTS `search_result` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) NOT NULL,
-  `text` longtext,
-  `module` varchar(100) DEFAULT NULL,
-  `extra` varchar(100) DEFAULT NULL,
-  `created` datetime DEFAULT NULL,
-  `found` datetime DEFAULT NULL,
-  `sesid` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `title` (`title`),
-  KEY `module` (`module`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Estructura de la taula `search_stat`
---
-
-CREATE TABLE IF NOT EXISTS `search_stat` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `search` varchar(50) NOT NULL,
-  `scount` int(11) NOT NULL DEFAULT '0',
-  `date` date DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
 -- Estructura de la taula `session_info`
 --
 
@@ -2521,7 +2498,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`uid`, `uname`, `email`, `user_regdate`, `pass`, `ublockon`, `ublock`, `theme`, `activated`, `lastlogin`, `passreminder`, `approved_date`, `approved_by`, `tz`, `locale`) VALUES
 (1, 'guest', '', '1970-01-01 00:00:00', '', 0, '', '', 1, '1970-01-01 00:00:00', '', '1970-01-01 00:00:00', 0, '', ''),
-(2, 'admin', 'agora@xtec.cat', '2010-03-02 10:33:02', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '2017-01-09 10:05:35', '', '2010-03-02 10:33:02', 2, '', ''),
+(2, 'admin', 'agora@xtec.cat', '2010-03-02 10:33:02', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '2017-01-26 15:44:58', '', '2010-03-02 10:33:02', 2, '', ''),
 (3, 'a8000001', 'a8000001@xtec.cat', '2012-03-05 13:01:43', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '1970-01-01 00:00:00', '', '2012-03-05 13:01:43', 2, '', ''),
 (4, 'a8000002', 'a8000002@xtec.cat', '2012-03-05 13:02:12', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '1970-01-01 00:00:00', '', '2012-03-05 13:02:12', 2, '', ''),
 (5, 'a8000003', 'a8000003@xtec.cat', '2012-03-05 13:02:36', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '1970-01-01 00:00:00', '', '2012-03-05 13:02:36', 2, '', ''),
