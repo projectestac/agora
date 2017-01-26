@@ -285,6 +285,13 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
                         $client->save();
                     }
                 }
+            case '3.0.0':
+                global $agora;
+                if ((isset($agora['iseoi']) && $agora['iseoi'] == false) || (!isset($agora['iseoi']))) {
+                    $sql = "INSERT INTO agoraportal_clientType (`typeId`, `typeName`) VALUES ('12', 'Projecte');";
+                    DBUtil::executeSQL($sql);
+                }
+
 
             /* IMPORTANT: DBUtil::changeTable elimina els índexos. Cal
              * afegir una comprovació amb DBUtil::metaIndexes per saber
