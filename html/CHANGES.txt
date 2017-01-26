@@ -5,6 +5,9 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+GENERAL
+- sync_to_file.php: Add only active services to allSchools.php (Trello #1515)
+
 PORTAL
  - Fixed false error messages when updating quotas due to deactivated services (Trello #1492)
 

@@ -15,7 +15,7 @@ define('DEBUG_ENABLED', $debugenabled);
 xtec_debug("DEBUG ENABLED: $debugenabled");
 
 // Retrieve info
-$services = getServices();
+$services = getServices(false, 'activedId', 'asc', 'all', 1);
 if (empty($services)) {
     exit(0);
 }
