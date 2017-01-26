@@ -72,6 +72,7 @@
     $agora['google_api_key'] = 'AIzaSyAxh4zWTv9TEdDcxec9L2I2BmaiqG_g44U'; // API key for Google Calendar
 
     define('SERVEI_EDUCATIU_ID', 5);
+    define('PROJECTES_TYPE_ID', 12);
 
     // Load restricted vars
     include_once $agora['server']['root'] . 'html/config/config-restricted.php';
