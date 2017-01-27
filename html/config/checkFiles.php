@@ -73,6 +73,8 @@ $files[] = array('filename' => $agora['server']['root'] . 'html/moodle2/local/ag
     'message' => 'Error en la caché de Moodle');
 $files[] = array('filename' => $agora['server']['root'] . 'html/moodle2/local/agora/muc/cacheconfig.php', 'perms' => 0660, 'link' => false,
     'message' => 'Error en la caché de Moodle');
+$files[] = array('filename' => $agora['server']['root'] . 'html/wordpress/.htaccess', 'perms' => 0640, 'link' => false,
+    'message' => 'Error en la configuració dels nodes');
 $files[] = array('filename' => $agora['server']['root'] . 'html/wordpress/wp-config.php', 'perms' => 0640, 'link' => false,
     'message' => 'Error en la configuració dels nodes');
 $files[] = array('filename' => $agora['server']['root'] . 'html/wordpress/wp-content/uploads', 'perms' => 0770, 'link' => true,
