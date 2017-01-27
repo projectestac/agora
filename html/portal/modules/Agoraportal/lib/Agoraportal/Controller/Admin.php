@@ -1654,7 +1654,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
                 $service = $services[$activedId];
                 if (!$service) {
-                    $errorMsg .= $servicetype->serviceName. ': No s\'ha trobat el servei ' . $userprefix . $activedId . '<br />';
+                    // We get here when there is a directory in usage file that has no active service, so just skip it!
                     continue;
                 }
 
