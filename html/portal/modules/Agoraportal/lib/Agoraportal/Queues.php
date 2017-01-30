@@ -135,7 +135,8 @@ class Agora_Queues {
         if ($count) {
             return DBUtil::selectObjectCount(Agora_Queues_Operation::TABLE, "state = '".$state."'");
         }
-        return DBUtil::selectObjectArray(Agora_Queues_Operation::TABLE, "state = '".$state."'");
+        return self::get_operations(array ('state' => $state));
+
     }
 
     /**
@@ -167,7 +168,6 @@ class Agora_Queues {
                 break;
         }
 
-
         $wheres = array();
         $joins = array();
         $joins[] = array('join_table' => 'agoraportal_clients',
@@ -175,7 +175,6 @@ class Agora_Queues {
             'object_field_name' => array('clientName', 'clientDNS', 'clientCode'),
             'compare_field_table' => 'clientId',
             'compare_field_join' => 'clientId');
-
         $joins[] = array('join_table' => 'agoraportal_services',
             'join_field' => array('serviceName'),
             'object_field_name' => array('serviceName'),

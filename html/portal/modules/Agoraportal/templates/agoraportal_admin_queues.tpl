@@ -6,13 +6,13 @@
 <div class="panel panel-default">
     <div class="panel-heading">{gt text="Cercador"} <span id="reload"></span></div>
     <div class="panel-body">
-        <form class="form-inline" name="serviceForm" action="index.php?module=Agoraportal&type=admin&func=queues" method="POST">
+        <form class="form-inline" name="serviceForm" action="{modurl modname='Agoraportal' type='admin' func='queues'}" method="POST">
             <div class="form-group">
-                <label for="operation_filter">Operació: </label>
+                <label for="operation_filter">{gt text="Operació:"}</label>
                 <input class="form-control" name="operation_filter" id="operation_filter" value="{$operation_filter}"/>
             </div>
             <div class="form-group">
-                <label for="client_type">Cerca centres per: </label>
+                <label for="client_type">{gt text="Cerca centres per:"}</label>
                 <select class="form-control" name="client_type" id="client_type">
                     <option {if $client_type === "clientCode"}selected{/if} value="clientCode">{gt text="Codi"}</option>
                     <option {if $client_type === "clientName"}selected{/if} value="clientName">{gt text="Nom client"}</option>
@@ -23,11 +23,11 @@
                 <input class="form-control" type="text" value="{$client_filter}" name="client_filter" size="20"/>
             </div>
             <div class="form-group">
-                <label for="priority_filter">Prioritat: </label>
+                <label for="priority_filter">{gt text="Prioritat:"}</label>
                 {html_options class=form-control id=priority_filter name=priority_filter options=$priority_filter_values values=$priority_filter_values selected=$priority_filter}
             </div>
             <div class="form-group">
-                <label for="service_filter">Servei: </label>
+                <label for="service_filter">{gt text="Servei:"}</label>
                 <select class="form-control" name="service_filter" id="service_filter">
                     <option value="" {if $service_filter === ""}selected="selected"{/if}>Tots</option>
                     {foreach item=service from=$services}
@@ -36,7 +36,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="state_filter">Estat: </label>
+                <label for="state_filter">{gt text="Estat:"}</label>
                 <select class="form-control" name="state_filter" id="state_filter">
                     <option {if $state_filter === ''}selected{/if} value="">{gt text="Tots"}</option>
                     <option {if $state_filter === 'L'}selected{/if} value="L">{gt text="Executant"}</option>
@@ -50,11 +50,11 @@
             </div>
             <br/><br/>
             <div class="form-group">
-                <label for="date_start">{gt text="Des de: "}</label>
+                <label for="date_start">{gt text="Des de:"}</label>
                 <input type="datetime" class="form-control" id="date_start" name="date_start" value="{$date_start}" min="2014-01-01"  max="{$smarty.now|date_format:"%Y-%m-%d"}"/>
             </div>
             <div class="form-group">
-                <label for="date_stop">{gt text="Fins a: "}</label>
+                <label for="date_stop">{gt text="Fins a:"}</label>
                 <input type="datetime" class="form-control" id="date_stop" name="date_stop" value="{$date_stop}" min="2014-01-01"  max="{$smarty.now|date_format:"%Y-%m-%d"}"/>
             </div>
             <div class="form-group">
@@ -98,7 +98,7 @@
             </tr>
             </thead>
             <tbody>
-            {foreach item=row from=$rows}
+            {foreach item=row from=$exec_rows}
                 <tr class="info">
                     <td>{$row.id}</td>
                     <td>{$row.operation}</td>

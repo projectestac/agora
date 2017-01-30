@@ -11,6 +11,7 @@ GENERAL
 
 PORTAL
  - Fixed false error messages when updating quotas due to deactivated services (Trello #1492)
+ - Fixed incorrect list of operations in progress  (Trello #1492)
 
 
 Changes 17.01.20
