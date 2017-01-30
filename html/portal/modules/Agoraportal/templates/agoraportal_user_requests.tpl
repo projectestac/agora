@@ -65,7 +65,7 @@
                         {elseif $request->requestStateId eq 3}
                             <span class="btn btn-success glyphicon glyphicon-ok" aria-hidden="true" aria-label="Solucionada" title="Solucionada"></span>
                         {elseif $request->requestStateId eq 4}
-                            <span class="btn btn-alert glyphicon glyphicon-ban-circle" aria-hidden="true" aria-label="Denegada" title="Denegada"></span>
+                            <span class="btn btn-danger glyphicon glyphicon-ban-circle" aria-hidden="true" aria-label="Denegada" title="Denegada"></span>
                         {/if}
                     </td>
                     <td>{$type->name}</td>

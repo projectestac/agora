@@ -21,7 +21,7 @@
                 {elseif $log.actionCode eq 3}
                     <span class="btn btn-warning glyphicon glyphicon-trash" aria-hidden="true" aria-label="Eliminació/Baixa" title="Eliminació/Baixa"></span>
                 {elseif $log.actionCode eq 4}
-                    <span class="btn btn-alert glyphicon glyphicon-remove" aria-hidden="true" aria-label="Error" title="Error"></span>
+                    <span class="btn btn-danger glyphicon glyphicon-remove" aria-hidden="true" aria-label="Error" title="Error"></span>
                 {elseif $log.actionCode eq -1}
                     <span class="btn btn-primary glyphicon glyphicon-user" aria-hidden="true" aria-label="Adminitració" title="Adminitració"></span>
                 {/if}
