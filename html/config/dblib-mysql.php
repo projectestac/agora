@@ -318,13 +318,6 @@ function getSchoolInfo($service) {
         }
     }
 
-    // Redirect old intranet URL to Nodes in case the client has a Nodes service
-    if (isset($service) && $service == 'intranet' && isset($school_info['id_nodes']) && !isset($school_info['id_intranet'])) {
-        $newaddress = $agora['server']['server'] . $agora['server']['base'] . $centre . '/';
-        header('HTTP/1.1 301 Moved Permanently');
-        header('Location: ' . $newaddress);
-    }
-
     // If a new_dns param is present, redirect to the new DNS
     if (!empty($school_info['new_dns'])) {
         $newDNS = $school_info['new_dns'];
@@ -459,6 +452,13 @@ function getSchoolInfo($service) {
             header('Location: ' . $url);
             exit;
         }
+    }
+
+    // Redirect old intranet URL to Nodes in case the client has a Nodes service
+    if (isset($service) && $service == 'intranet' && !empty($school_info['id_nodes']) && empty($school_info['id_intranet'])) {
+        $newaddress = $agora['server']['html'] . $centre . '/';
+        header('HTTP/1.1 301 Moved Permanently');
+        header('Location: ' . $newaddress);
     }
 
     xtec_debug($school_info['source']);
