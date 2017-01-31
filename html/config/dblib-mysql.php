@@ -302,7 +302,7 @@ function getSchoolInfo($service) {
     if (isset($service)) {
         if ($service == 'moodle2' && !isset($school_info['id_moodle2'])) {
             $school_info = '';
-        } else if ($service == 'intranet' && !isset($school_info['id_intranet']) && !isset($school_info['id_nodes'])) {
+        } else if ($service == 'intranet' && !isset($school_info['id_intranet'])) {
             $school_info = '';
         } else if ($service == 'nodes' && !isset($school_info['id_nodes'])) {
             $school_info = '';
@@ -312,11 +312,17 @@ function getSchoolInfo($service) {
     // If cache fails, retrieve from Database
     if (empty($school_info)) {
         $school_info = getSchoolFromDB($centre);
-
         // Debug info
         if (!empty($school_info)) {
-            $school_info['source'] = 'allSchools';
+            $school_info['source'] = 'DB';
         }
+    }
+
+    // Redirect old intranet URL to Nodes in case the client has a Nodes service
+    if (isset($service) && $service == 'intranet' && isset($school_info['id_nodes']) && !isset($school_info['id_intranet'])) {
+        $newaddress = $agora['server']['server'] . $agora['server']['base'] . $centre . '/';
+        header('HTTP/1.1 301 Moved Permanently');
+        header('Location: ' . $newaddress);
     }
 
     // If a new_dns param is present, redirect to the new DNS
