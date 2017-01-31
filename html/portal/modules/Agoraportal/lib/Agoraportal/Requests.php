@@ -95,7 +95,7 @@ class Requests {
             switch($key) {
                 case 'service':
                     if ($value > 0) {
-                        $wheres[] = "d.serviceId = $value";
+                        $wheres[] = "c.serviceId = $value";
                     }
                     break;
                 case 'state' :
@@ -169,12 +169,9 @@ class Requests {
      */
     public static function count_by($search) {
         $where = self::get_search_by($search);
+        $joins = array(self::get_client_join(), self::get_requeststype_join(), self::get_servicetype_join());
 
-
-        $orderby = 'requestId desc';
-        $joins = array(self::get_client_join());
-
-        $items = DBUtil::selectExpandedObjectArray(Request::TABLE, $joins, $where, "", -1, -1, "requestId", null, null, null, true);
+        $items = DBUtil::selectExpandedObjectArray(Request::TABLE, $joins, $where, '', -1, -1, "requestId", null, null, null, true);
         return count($items);
     }
 

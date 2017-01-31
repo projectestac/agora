@@ -9,8 +9,16 @@
     <input type="hidden" name="clientId" value="{$client->clientId}" />
     <input type="hidden" name="clientCode" value="{$client->clientCode}" />
 
-    {include file="agoraportal_admin_clientInfo.tpl"}
-    {include file="agoraportal_user_serviceInfo.tpl"}
+    {if isset($client)}
+        {include file="agoraportal_admin_clientInfo.tpl"}
+        {include file="agoraportal_user_serviceInfo.tpl"}
+    {else}
+        <div class="panel panel-default">
+            <div class="panel-heading row-fluid clearfix bg-warning">
+                {gt text="Aquest servei està donat de baixa"}
+            </div>
+        </div>
+    {/if}
 
     <div class="panel panel-info">
         <div class="panel-heading">{gt text="Dades de la sol·licitud"}</div>

@@ -1762,11 +1762,14 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
         $request = Request::get_by_id($requestId);
         $service = Service::get_by_client_and_service($request->clientId, $request->serviceId);
-        $client = $service->get_client();
-        $servicetype = $service->get_servicetype();
+
+        if (false !== $service) {
+            $client = $service->get_client();
+            $servicetype = $service->get_servicetype();
+        }
 
         $requestsstates = Requests::get_states();
-        $requesttype = RequestType::get_by_id($request->requestId);
+        $requesttype = RequestType::get_by_id( $request->requestId );
 
         // Check module Mailer availability
         $mailer = AgoraPortal_Util::isMailerAvalaible();

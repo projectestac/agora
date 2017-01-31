@@ -21,7 +21,7 @@
             {elseif $request->requestStateId eq 2}
                 class="info"
             {elseif $request->requestStateId eq 3}
-                class=""
+                class="success"
             {elseif $request->requestStateId eq 4}
                 class="danger"
             {/if}
