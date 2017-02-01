@@ -16,6 +16,7 @@ PORTAL
 - Fixed style for denied requests (Trello #1492)
 - Fixed pager in requests (Trello #1520)
 - Added exception to allow update of quotas usage via CLI without being logged (Trello #1516)
+- Updated terms of services provided in Agora to explicitly refer to Nodes and to remove Intraweb (Trello #1497)
 
 
 Changes 17.01.20
