@@ -5,9 +5,12 @@ require_once('modules/Agoraportal/lib/Agoraportal/Util.php');
 class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
     public function postInitialize() {
-        AgoraPortal_Util::requireAdmin();
-        $this->view->assign('isAdmin', true);
-        $this->view->assign('accessLevel', 'admin');
+        // Don't require a logged admin at this level for updateDiskUse. The check will be done in the function.
+        if (!defined('CLI_SCRIPT') || ($this->view->func != 'updatediskuse')) {
+            AgoraPortal_Util::requireAdmin();
+            $this->view->assign('isAdmin', true);
+            $this->view->assign('accessLevel', 'admin');
+        }
         $this->view->setCaching(false);
     }
 
@@ -1588,7 +1591,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
     public function updateDiskUse() {
         // Security check
-        if (!AgoraPortal_Util::isAdmin() && !defined('CLI_SCRIPT') && (System::serverGetVar('HTTP_HOST') != 'localhost')) {
+        if (!AgoraPortal_Util::isAdmin() && !defined('CLI_SCRIPT')) {
             LogUtil::registerError($this->__('No teniu accés a executar aquesta funcionalitat'));
             return System::redirect(ModUtil::url('Agoraportal', 'admin', 'listServices'));
         }
