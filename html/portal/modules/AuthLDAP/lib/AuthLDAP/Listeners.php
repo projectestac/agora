@@ -212,7 +212,7 @@ function createClient($args) {
         // Check for existence of register in agoraportal_clients
         $client = Client::get_by_code($uname);
 
-        if (!$isClient || !is_array($client)) {
+        if (!$isClient || !is_object($client)) {
             if (empty($schoolData)) {
                 return false; // Log errors already set
             }
@@ -239,7 +239,7 @@ function createClient($args) {
                 DBUtil::insertObject($item, 'group_membership');
             }
 
-            if (!is_array($client)) {
+            if (!is_object($client)) {
                 // Add user to agoraportal_clients
                 $row = array('clientCode' => $clientCode,
                             'clientDNS' => $clientDNS,
