@@ -300,11 +300,11 @@ function getSchoolInfo($service) {
     // When loading only an specific service, empty the array if the school has not that service. This must be done
     //  after the cache is checked to take into account the case of the recently activated services.
     if (isset($service)) {
-        if ($service == 'moodle2' && !isset($school_info['id_moodle2'])) {
+        if ($service == 'moodle2' && empty($school_info['id_moodle2'])) {
             $school_info = '';
-        } else if ($service == 'intranet' && !isset($school_info['id_intranet'])) {
+        } else if ($service == 'intranet' && empty($school_info['id_intranet'])) {
             $school_info = '';
-        } else if ($service == 'nodes' && !isset($school_info['id_nodes'])) {
+        } else if ($service == 'nodes' && empty($school_info['id_nodes'])) {
             $school_info = '';
         }
     }
@@ -316,6 +316,13 @@ function getSchoolInfo($service) {
         if (!empty($school_info)) {
             $school_info['source'] = 'DB';
         }
+    }
+
+    // Redirect old intranet URL to Nodes in case the client has a Nodes service
+    if (isset($service) && $service == 'intranet' && !empty($school_info['id_nodes']) && empty($school_info['id_intranet'])) {
+        $newaddress = $agora['server']['html'] . $centre . '/';
+        header('HTTP/1.1 301 Moved Permanently');
+        header('Location: ' . $newaddress);
     }
 
     // If a new_dns param is present, redirect to the new DNS
@@ -371,7 +378,7 @@ function getSchoolInfo($service) {
     }
 
     // At this point, if there is no school information, abort
-    if (empty($school_info)) {
+    if (empty($school_info['id_' . $service])) {
         if (defined('CLI_SCRIPT')) {
             echo 'Center ' . $centre . ' not found in database';
             echo "\nerror\n";
@@ -454,13 +461,6 @@ function getSchoolInfo($service) {
         }
     }
 
-    // Redirect old intranet URL to Nodes in case the client has a Nodes service
-    if (isset($service) && $service == 'intranet' && !empty($school_info['id_nodes']) && empty($school_info['id_intranet'])) {
-        $newaddress = $agora['server']['html'] . $centre . '/';
-        header('HTTP/1.1 301 Moved Permanently');
-        header('Location: ' . $newaddress);
-    }
-
     xtec_debug($school_info['source']);
 
     return $centre;
@@ -475,7 +475,7 @@ function getSchoolInfo($service) {
  *
  * @return array with the schools information
  */
-function getSchoolFromDB($dns, $codeletter = false) {
+function getSchoolFromDB($dns) {
 
     $sql = "SELECT c.clientId, c.clientCode, c.typeId, c.URLType, c.URLHost, s.serviceName, cs.activedId, cs.serviceDB, cs.dbHost, cs.diskSpace, cs.diskConsume
 			FROM agoraportal_client_services cs
@@ -490,8 +490,8 @@ function getSchoolFromDB($dns, $codeletter = false) {
         foreach ($results as $row) {
             // The following values are present in all rows. There's no need to override them.
             if (empty($value['clientCode'])) {
-                // Transform client code if required (a8000000 -> 08000000)
-                $value['clientCode'] = (!$codeletter) ? transformClientCode($row->clientCode) : $row->clientCode;
+                // Transform client code (a8000000 -> 08000000)
+                $value['clientCode'] = transformClientCode($row->clientCode);
             }
 
             if (empty($value['type'])) {
@@ -508,12 +508,12 @@ function getSchoolFromDB($dns, $codeletter = false) {
 
             // Now, the values that are different in every iteration
             $diskPercent = getDiskPercent($row->diskConsume, $row->diskSpace);
-            $service = $row->serviceName;
+            $serviceName = $row->serviceName;
 
-            $value['id_' . $service] = $row->activedId;
-            $value['dbhost_' . $service] = $row->dbHost;
-            $value['database_' . $service] = $row->serviceDB;
-            $value['diskPercent_' . $service] = $diskPercent;
+            $value['id_' . $serviceName] = $row->activedId;
+            $value['dbhost_' . $serviceName] = $row->dbHost;
+            $value['database_' . $serviceName] = $row->serviceDB;
+            $value['diskPercent_' . $serviceName] = $diskPercent;
         }
     }
 
