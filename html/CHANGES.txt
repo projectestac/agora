@@ -10,6 +10,11 @@ GENERAL
 - Added support for the new domain 'projectes' (Trello #1513)
 - Fixed redirection of Intraweb sites to Nodes
 
+MOODLE
+- mod/jclic: Changed default report to detailed
+- local/alexandriaimported: Reviewed some Catalan string
+- Updated LangPacks
+
 PORTAL
 - Fixed false error messages when updating quotas due to deactivated services (Trello #1492)
 - Fixed incorrect list of operations in progress (Trello #1492)
