@@ -3,7 +3,7 @@ Release notes for Agora (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
-Changes in progress
+Changes 17.02.13
 ---------------------------------------------------------------------------------------
 GENERAL
 - sync_to_file.php: Add only active services to allSchools.php (Trello #1515)
@@ -12,8 +12,26 @@ GENERAL
 
 MOODLE
 - mod/jclic: Changed default report to detailed
-- local/alexandriaimported: Reviewed some Catalan string
+- local/alexandriaimported: Reviewed some Catalan strings
 - Updated LangPacks
+
+NODES
+- xtec-booking: Fixed color of the right border on mouse over with some colors (Trello #1495)
+- mu-common: Fixed access to Comments and Tools for Contributors (Trello #1354)
+- mu-common: Expired in session instead of default 10 days the cookie for posts protected with password (Trello #1461)
+- Theme reactor: Fixed PHP warning with header icons (Trello #1472 i #1470)
+- Theme reactor: Improved catalan translation (Trello #1504)
+- Theme reactor-projectes: First version, based on reactor-serveis-educatius (Trello #1512)
+- carrusel: Translate roles in configuration tab (Trello #1504)
+- carrusel: Fixed catalan translation not being loaded in some cases (Trello #1504)
+- google-calendar-events: Improved catalan translation (Trello #1504)
+- add-to-any: Upgraded plugin from version 1.7.1 to 1.7.7 (Trello #1487)
+- add-to-any: Fixed strings that could not be translated in widgets administration (Trello #1504)
+- WordPress translation: Fixed plural translation of Administrator (Trello #1504)
+- bp-moderation: Removed plugin due to its incompatibility with the current version of WordPress and BuddyPress (Trello #1486)
+- intranet-importer: Removed plugin because it is no longer necessary (Trello #1255)
+- buddypress-like: Updated catalan translation (Although the affected string are in database) (Trello #1452)
+- google-analyticator: Fixed warning message shown in debug mode (Trello #1372)
 
 PORTAL
 - Fixed false error messages when updating quotas due to deactivated services (Trello #1492)
