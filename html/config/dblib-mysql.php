@@ -299,14 +299,15 @@ function getSchoolInfo($service) {
 
     // When loading only an specific service, empty the array if the school has not that service. This must be done
     //  after the cache is checked to take into account the case of the recently activated services.
-    if (isset($service)) {
-        if ($service == 'moodle2' && empty($school_info['id_moodle2'])) {
-            $school_info = '';
-        } else if ($service == 'intranet' && empty($school_info['id_intranet'])) {
-            $school_info = '';
-        } else if ($service == 'nodes' && empty($school_info['id_nodes'])) {
-            $school_info = '';
-        }
+    if ($service == 'moodle2' && (!isset($school_info['id_moodle2']) || $school_info['id_moodle2'] == '')) {
+        $school_info = array();
+    } elseif ($service == 'intranet' &&
+        (!isset($school_info['id_intranet']) || $school_info['id_intranet'] == '') &&
+        (!isset($school_info['id_nodes']) || $school_info['id_nodes'] == ''))
+    {
+        $school_info = array();
+    } elseif ($service == 'nodes' && (!isset($school_info['id_nodes']) || $school_info['id_nodes'] == '')) {
+        $school_info = array();
     }
 
     // If cache fails, retrieve from Database
@@ -319,10 +320,14 @@ function getSchoolInfo($service) {
     }
 
     // Redirect old intranet URL to Nodes in case the client has a Nodes service
-    if (isset($service) && $service == 'intranet' && !empty($school_info['id_nodes']) && empty($school_info['id_intranet'])) {
+    if ($service == 'intranet' &&
+        (isset($school_info['id_nodes']) && !empty($school_info['id_nodes'])) &&
+        (!isset($school_info['id_intranet']) || empty($school_info['id_intranet'])))
+    {
         $newaddress = $agora['server']['html'] . $centre . '/';
         header('HTTP/1.1 301 Moved Permanently');
         header('Location: ' . $newaddress);
+        exit;
     }
 
     // If a new_dns param is present, redirect to the new DNS
@@ -386,7 +391,7 @@ function getSchoolInfo($service) {
             $service_dir = ( $service == 'nodes') ? "s=" : "s=$service";
             header('Location: ' . WWWROOT . 'error.php?' . $service_dir . '&dns=' . $centre);
         }
-        exit(0);
+        exit;
     }
 
     // Set cookie for future requests
