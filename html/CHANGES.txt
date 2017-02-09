@@ -41,6 +41,7 @@ PORTAL
 - Added exception to allow update of quotas usage via CLI without being logged (Trello #1516)
 - Updated terms of services provided in Agora to explicitly refer to Nodes and to remove Intraweb (Trello #1497)
 - Fixed login of usernames that are school codes
+- Automatically create system users for new managers if they don't exist yet (Trello #1518)
 
 
 Changes 17.01.20

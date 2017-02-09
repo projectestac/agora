@@ -556,32 +556,63 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
 
     /**
      * add a manager for a client
-     * @author: Albert Pérez Monfort (aperezm@xtec.cat)
+     * @author: Toni Ginard
      * @param: The manager information
      * @return: The new manager if success and false otherwise
      */
     public function addManager() {
         AgoraPortal_Util::requireClient();
+
         // Confirm authorisation code
         $this->checkCsrfToken();
 
-        $managerUName = FormUtil::getPassedValue('managerUName', null, 'POST');
-        $confirm = FormUtil::getPassedValue('confirm', false, 'POST');
-        $clientCode = FormUtil::getPassedValue('clientCode', null, 'POST');
+        $managerUName = FormUtil::getPassedValue('managerUName', '', 'POST');
+        $clientCode = FormUtil::getPassedValue('clientCode', '', 'POST');
+
+        // Check if the user already exists in the Zikula database
+        $user = DBUtil::selectObjectByID('users', $managerUName, 'uname');
+
+        // If the new manager is not a user, create the user
+        if (empty($user) || !isset($user['uid'])) {
+            $item = array('uname' => $managerUName,
+                'email' => $managerUName . '@xtec.cat',
+                'user_regdate' => DateUtil::buildDatetime(date("Y"), date("m"), date("d"), date("H"), date("i"), date("s")),
+                'approved_date' => DateUtil::buildDatetime(date("Y"), date("m"), date("d"), date("H"), date("i"), date("s")),
+                'pass' => '',
+                'activated' => 1,
+                'approved_by' => 2,
+            );
+
+            $uid = DBUtil::insertObject($item, 'users', 'uid');
+            if (!$uid) {
+                return LogUtil::registerError('No s\'ha pogut crear l\'usuari.');
+            }
+
+            // Insert user in default group
+            $defaultGroupId = ModUtil::getVar('Groups', 'defaultgroup');
+            $item = array(
+                'uid' => $uid['uid'],
+                'gid' => $defaultGroupId
+            );
+
+            $groupMember = DBUtil::insertObject($item, 'group_membership');
+            if (!$groupMember) {
+                return LogUtil::registerError('No s\'ha pogut afegir l\'usuari al grup per defecte.');
+            }
+
+            LogUtil::registerStatus($this->__('S\'ha introduït l\'usuari al sistema.'));
+        }
+
         $clientCode = AgoraPortal_Util::getClientCodeFromUser($clientCode);
         $client = Client::get_by_code($clientCode);
 
-        if ($confirm) {
-            if (!$client->add_manager($managerUName)) {
-                LogUtil::registerError($this->__("No s'ha pogut convertir en gestor l'usuari indicat."));
-            } elseif (!AgoraPortal_Util::add_user_to_group('Managers', $managerUName)) {
-                LogUtil::registerError($this->__("No s'ha pogut habilitar el gestor"));
-            } else {
-                LogUtil::registerStatus($this->__("El gestor s'ha creat correctament. Aviseu a l'usuari designat que a partir d'ara podrà gestionar els serveis del centre des d'aquest portal."));
-                $client->add_log(ClientLog::CODE_ADD, $this->__f("S'ha afegit un gestor amb nom d'usuari %s", $managerUName));
-            }
+        if (!$client->add_manager($managerUName)) {
+            LogUtil::registerError($this->__("No s'ha pogut convertir en gestor l'usuari indicat."));
+        } elseif (!AgoraPortal_Util::add_user_to_group('Managers', $managerUName, $uid['uid'])) {
+            LogUtil::registerError($this->__("No s'ha pogut habilitar el gestor"));
         } else {
-            LogUtil::registerError($this->__('No s\'ha afegit el gestor/a.'));
+            LogUtil::registerStatus($this->__("El gestor s'ha creat correctament. Aviseu a l'usuari designat que a partir d'ara podrà gestionar els serveis del centre des d'aquest portal."));
+            $client->add_log(ClientLog::CODE_ADD, $this->__f("S'ha afegit un gestor amb nom d'usuari %s", $managerUName));
         }
 
         return System::redirect(ModUtil::url('Agoraportal', 'user', 'managers', array('clientCode' => $clientCode)));

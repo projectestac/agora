@@ -40,20 +40,22 @@ class AgoraPortal_Util {
      * @param bool|false $username if not provided, use current user
      * @return bool|false
      */
-    public static function add_user_to_group($groupname, $username = false) {
+    public static function add_user_to_group($groupname, $username = false, $uid = false) {
         $gid = UserUtil::getGroupIdList("name='$groupname'");
         if (!$gid) {
             return LogUtil::registerError("El grup $groupname no existeix");
         }
 
-        if ($username) {
+        if ($username && !$uid) {
             $uid = UserUtil::getIdFromName($username);
             if (!$uid) {
                 return LogUtil::registerError("L'usuari $username no existeix");
             }
         } else {
             // Own user
-            $uid = UserUtil::getVar('uid');
+            if (false === $uid) {
+                $uid = UserUtil::getVar('uid');
+            }
         }
 
         // Verify if the user is already a member of this group
