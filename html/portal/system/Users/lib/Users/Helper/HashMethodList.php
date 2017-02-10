@@ -27,11 +27,13 @@ class Users_Helper_HashMethodList
         return array(
             'sha1'  => 'sha1',
             'sha256'=> 'sha256',
-            //******* AFEGIT XTEC - Added md5 hash
-            // 2013.01.04 @albert
+
+            // XTEC ************ AFEGIT - Added md5 hash
+            // 2013.01.04 @aperez16
             'md5' => 'md5',
-            //******* FI
-            );
+            //************ FI
+
+        );
     }
 
     /**

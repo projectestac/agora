@@ -568,16 +568,20 @@ function _check_requirements()
 
     $results['pdo'] = extension_loaded('pdo');
     $results['register_globals'] = !ini_get('register_globals');
-    //XTEC ** MODIFICAT - Zikula detects incorrectly php params
-    //2012.06.20 @aginard       
+
+    // XTEC ************ MODIFICAT - Zikula detects incorrectly php params
+    // 2012.06.20 @aginard       
     if (get_magic_quotes_gpc() == 'Off' || get_magic_quotes_gpc() == 0) {
         $results['magic_quotes_gpc'] = false;
     } else {
         $results['magic_quotes_gpc'] = true;
     }
-    //****** Original
-    // $results['magic_quotes_gpc'] = !ini_get('magic_quotes_gpc');
-    //****** FI
+    //************ ORIGINAL
+    /*
+    $results['magic_quotes_gpc'] = !ini_get('magic_quotes_gpc');
+    */
+    //************ FI
+
     $results['phptokens'] = function_exists('token_get_all');
     $results['mbstring'] = function_exists('mb_get_info');
     $isEnabled = @preg_match('/^\p{L}+$/u', 'TheseAreLetters');

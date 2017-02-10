@@ -59,7 +59,7 @@ class Mailer_Api_User extends Zikula_AbstractApi
 
             return true;
         }
-
+           
         // Check for installed advanced Mailer module
         $event = new Zikula_Event('module.mailer.api.sendmessage', $this, $args);
         $this->eventManager->notify($event);
@@ -76,7 +76,7 @@ class Mailer_Api_User extends Zikula_AbstractApi
         //************ FI
 
         // include php mailer class file
-        require_once "system/Mailer/lib/vendor/class.phpmailer.php";
+        require_once 'system/Mailer/lib/vendor/PHPMailerAutoload.php';
 
         // create new instance of mailer class
         $mail = new PHPMailer();

@@ -2380,7 +2380,6 @@ class Users_Controller_Admin extends Zikula_AbstractController
 
             // check groups and set defaultGroup as default if there are not groups defined
 
-            
             // XTEC ************ MODIFICAT - Allow automatic membership to more than one group in bulk import
             // 2013.12.02 @aginard
             $importValues[$counter - 1]['groups'] = isset($importValues[$counter - 1]['groups']) ? $importValues[$counter - 1]['groups'] : '';
@@ -2389,7 +2388,6 @@ class Users_Controller_Admin extends Zikula_AbstractController
             $importValues[$counter - 1]['groups'] = isset($importValues[$counter - 1]['groups']) ? (int)$importValues[$counter - 1]['groups'] : '';
             */
             //************ FI
-
 
             $groups = $importValues[$counter - 1]['groups'];
             if ($groups == '') {

@@ -53,7 +53,8 @@ class Settings_Controller_Admin extends Zikula_AbstractController
         $pagetitle = str_replace('%pagetitle%', $this->__('%pagetitle%'), $pagetitle);
         $pagetitle = str_replace('%sitename%', $this->__('%sitename%'), $pagetitle);
         $pagetitle = str_replace('%modulename%', $this->__('%modulename%'), $pagetitle);
-        $this->view->assign('pagetitle', $pagetitle);
+        $this->view->assign('pagetitle', $pagetitle)
+                   ->assign('languages', ZLanguage::getInstalledLanguageNames());
 
         return $this->view->fetch('settings_admin_modifyconfig.tpl');
     }
@@ -190,7 +191,8 @@ class Settings_Controller_Admin extends Zikula_AbstractController
                 'mlsettings_timezone_server' => 'timezone_server',
                 'mlsettings_multilingual' => 'multilingual',
                 'mlsettings_language_detect' => 'language_detect',
-                'mlsettings_languageurl' => 'languageurl');
+                'mlsettings_languageurl' => 'languageurl',
+                'idnnames' => 'idnnames');
 
         // we can't detect language if multilingual feature is off so reset this to false
         if (FormUtil::getPassedValue('mlsettings_multilingual', null, 'POST') == 0) {
