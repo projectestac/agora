@@ -26,12 +26,16 @@ class DataUtil
      */
     public static function cleanVar($var)
     {
-        //XTEC ** MODIFICAT - Zikula detects incorrectly php params
-        //2012.06.20 @aginard       
+
+        // XTEC ************ MODIFICAT - Zikula detects incorrectly php params
+        // 2012.06.20 @aginard
         if (get_magic_quotes_gpc() == 'Off' || get_magic_quotes_gpc() == 0) {
-        //****** Original
-        // if (!get_magic_quotes_gpc()) {
-        //****** FI
+        //************ ORIGINAL
+        /*
+        if (!get_magic_quotes_gpc()) {
+        */
+        //************ FI
+
             return $var;
         }
 

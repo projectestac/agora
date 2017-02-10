@@ -305,7 +305,9 @@ class DBUtil
                 }
             }
         } catch (Exception $e) {
-            // XTEC AFEGIT - To avoid "MySQL server has gone away" errors!
+
+            // XTEC ************ AFEGIT - To avoid "MySQL server has gone away" errors!
+            // xxxx.xx.xx - @pferrer22
             if ($e->getPortableCode() == 2006) {
                 global $ZConfig;
                 $name = $connection->getName();
@@ -318,7 +320,8 @@ class DBUtil
                 $connection->setOption('password', $connectionInfo['password']);
                 return self::executeSQL($sql, $limitOffset, $limitNumRows, $exitOnError, $verbose);
             }
-            // FI
+            //************ FI
+
             echo 'Error in DBUtil::executeSQL: ' . $sql . '<br />' . $e->getMessage() . '<br />';
             if ((System::isDevelopmentMode() && SecurityUtil::checkPermission('.*', '.*', ACCESS_ADMIN))) {
                 echo nl2br($e->getTraceAsString());

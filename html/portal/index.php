@@ -22,9 +22,8 @@ $module = FormUtil::getPassedValue('module', '', 'GETPOST', FILTER_SANITIZE_STRI
 $type   = FormUtil::getPassedValue('type', '', 'GETPOST', FILTER_SANITIZE_STRING);
 $func   = FormUtil::getPassedValue('func', '', 'GETPOST', FILTER_SANITIZE_STRING);
 
-
-//XTEC ************ AFEGIT - provide https login using BigIP
-//2013.03.05 @albertpm
+// XTEC ************ AFEGIT - provide https login using BigIP
+// 2013.03.05 @aperez16
 if (isset($_SERVER['HTTP_X_FORWARDED_PROTO'])) {
     $rurl = $_SERVER['HTTP_X_FORWARDED_PROTO'];
 } elseif (isset($_SERVER['HTTPS'])) {
@@ -43,7 +42,6 @@ if (($module == 'users' || $module == 'usuaris') && $type == 'user' && ($func ==
     }
 }
 //************ FI
-
 
 // check requested module
 $arguments = array();

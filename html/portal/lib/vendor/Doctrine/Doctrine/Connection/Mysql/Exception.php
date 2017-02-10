@@ -62,9 +62,11 @@ class Doctrine_Connection_Mysql_Exception extends Doctrine_Connection_Exception
                                       1216 => Doctrine_Core::ERR_CONSTRAINT,
                                       1217 => Doctrine_Core::ERR_CONSTRAINT,
                                       1451 => Doctrine_Core::ERR_CONSTRAINT,
-        // XTEC AFEGIT - To avoid "MySQL server has gone away" errors!
-        2006 => 2006,
-        // FI XTEC
+
+        // XTEC ************ AFEGIT - To avoid "MySQL server has gone away" errors!
+                                      2006 => 2006,
+        //************ FI
+
                                       );
 
     /**

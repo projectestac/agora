@@ -250,14 +250,13 @@ class Users_Constant
     /**
      * Default value for the hash method used for hashing passwords.
      */
+
     // XTEC ************ MODIFICAT - Changed default hash method
-	// 2014.05.12 - aginard
-    
+    // 2014.05.12 - aginard
     const DEFAULT_HASH_METHOD = 'md5';
-    
     //************ ORIGINAL
 	/*
-	const DEFAULT_HASH_METHOD = 'sha256';
+    const DEFAULT_HASH_METHOD = 'sha256';
 	*/
 	//************ FI
 
