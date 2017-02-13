@@ -141,7 +141,7 @@ INSERT INTO `agoraportal_clients` (`clientId`, `clientCode`, `clientDNS`, `clien
 (6, 'a8000006', 'centre-6', 'usu6', 'standard', '', '', 'Centre 6', 'Carrer sense número', 'Valldeneu', '00000', 'cat', '', 1, 8, 8, 0, 'creda', 0),
 (7, 'a8000007', 'centre-7', 'usu7', 'standard', '', '', 'Centre 7', 'Carrer sense número', 'Valldeneu', '00000', 'cat', '', 1, 9, 7, 0, 'cda', 0),
 (8, 'a8000008', 'centre-8', 'usu8', 'standard', '', '', 'Centre 8', 'Carrer sense número', 'Valldeneu', '00000', 'cat', '', 1, 10, 5, 0, 'ssee', 0),
-(9, 'a8000009', 'centre-9', 'usu9', 'standard', '', '', 'Centre 9', 'Carrer sense número', 'Valldeneu', '00000', 'cat', '', 1, 2, 12, 0, 'sec', 0),
+(9, 'a8000009', 'centre-9', 'usu9', 'standard', '', '', 'Centre 9', 'Carrer sense número', 'Valldeneu', '00000', 'cat', '', 1, 2, 12, 0, 'ssee', 0),
 (10, 'a8000010', 'centre-10', 'usu10', 'standard', '', '', 'Centre 10', 'Carrer sense número', 'Valldeneu', '00000', 'cat', '', 1, 0, 0, 0, '', 0);
 
 -- --------------------------------------------------------
