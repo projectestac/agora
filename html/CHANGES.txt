@@ -9,6 +9,7 @@ GENERAL
 - sync_to_file.php: Add only active services to allSchools.php (Trello #1515)
 - Added support for the new domain 'projectes' (Trello #1513)
 - Fixed redirection of Intraweb sites to Nodes
+- createSchoolsListsFiles.php URL of the services used to call the crons take into account the type of service (Trello #1425)
 
 MOODLE
 - mod/jclic: Changed default report to detailed

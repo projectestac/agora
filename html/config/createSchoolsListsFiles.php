@@ -108,8 +108,20 @@ if (isset($args['update'])) {
         $schools = getServices(false, 'activedId', 'asc', $service['name'], '1');
 
         $schoolsvar = '';
+
         foreach ($schools as $school) {
-            $schoolsvar .= $agora['server']['html'] . $school['dns'] . $service['url'];
+            // Select the server name according to the
+            switch ($school['type']) {
+                case SERVEI_EDUCATIU_ID:
+                    $schoolsvar .= $agora['server']['se-url'] . $agora['server']['base'];
+                    break;
+                case PROJECTES_TYPE_ID:
+                    $schoolsvar .= $agora['server']['projectes'] . $agora['server']['base'];
+                    break;
+                default:
+                    $schoolsvar .= $agora['server']['server'] . $agora['server']['base'];
+            }
+            $schoolsvar .= $school['dns'] . $service['url'];
         }
 
         saveVarToFile($service['file'], $schoolsvar);
