@@ -533,14 +533,16 @@ function getSchoolFromDB($dns) {
     }
 
     // Get new domain
-    $http_host = $_SERVER['HTTP_HOST'];
-    $sql = "SELECT c.URLHost
+    if (isset($_SERVER['HTTP_HOST'])) {
+        $http_host = $_SERVER['HTTP_HOST'];
+        $sql = "SELECT c.URLHost
             FROM agoraportal_clients c
             WHERE c.clientState = '1' AND c.OldURLHost = '$http_host';";
 
-    $results = get_rows_from_db($sql);
-    if ($results && $row = array_shift($results)) {
-        $value['new_url_host'] = $row->clientDNS;
+        $results = get_rows_from_db($sql);
+        if ($results && $row = array_shift($results)) {
+            $value['new_url_host'] = $row->clientDNS;
+        }
     }
 
     return $value;

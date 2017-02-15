@@ -5,6 +5,9 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+GENERAL
+- dblib-mysql.php: Fixed PHP Warning in CLI calls
+
 PORTAL
 - Fixed activation of Moodle services
 
