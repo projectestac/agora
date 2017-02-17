@@ -6,6 +6,8 @@
  */
 class Service_moodle2 extends Service {
 
+    const NUM_DB_PER_INSTANCE = 200;
+
     /**
      * Performs the actions to replace DNS in database
      * @param $oldDNS
@@ -30,12 +32,17 @@ class Service_moodle2 extends Service {
      * @return int activedId
      */
     protected function getDBId() {
-        $this->serviceDB = $this->calcOracleInstance();
+        $this->activedId = $this->calcFreeDatabase();
+
         if (empty($this->serviceDB)) {
-            return LogUtil::registerError('No s\'ha pogut calcular la instància de base de dades corresponent');
+            $this->serviceDB = $this->calcOracleInstance(); // calcOracleInstance() needs $this->activedId to be populated
         }
 
-        return $this->calcFreeDatabase();
+        if (empty($this->serviceDB)) {
+            return LogUtil::registerError('No s\'ha pogut calcular la instància de base de dades.');
+        }
+
+        return $this->activedId;
     }
 
     /**
@@ -50,14 +57,14 @@ class Service_moodle2 extends Service {
 
         $dbNumber = (int) $agora['moodle2']['dbnumber'];
 
-        // If $dbNumber is not set or it is an empty string, at this point its value
-        //   will be 0. In that case, no offset is applied to $agora['moodle2']['database']
+        // If $dbNumber is not set or it is an empty string, no offset is applied to $agora['moodle2']['database']
         if (empty($dbNumber)) {
             return $agora['moodle2']['database'];
         }
 
-        $database = $this->activedId;
-        $offset = floor($database / 200) + (($database % 200) == 0 ? ($dbNumber - 1) : $dbNumber);
+        // Users are distributed in blocks of NUM_DB_PER_INSTANCE schemas per instance
+        $DBId = $this->activedId;
+        $offset = floor($DBId / self::NUM_DB_PER_INSTANCE) + (($DBId % self::NUM_DB_PER_INSTANCE) == 0 ? ($dbNumber - 1) : $dbNumber);
         if ($offset <= 0) {
             return $agora['moodle2']['database'];
         }
@@ -110,7 +117,7 @@ class Service_moodle2 extends Service {
         }
         if (!$connect) {
             $e = oci_error();
-            throw new Exception(htmlentities($e['message']));
+            throw new Exception(htmlentities($e['message'] . " - $user - $db"));
         }
         return $connect;
     }

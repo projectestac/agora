@@ -725,14 +725,26 @@ class Service extends AgoraBase {
     private function enable() {
         $previous = $this->get_array();
 
-        // Get the current Id
+        // Get the Id for the new service
         $dbid = $this->getDBId();
         if (!$dbid) {
             $this->activedId = $previous['activedId'];
             $this->save();
             return false;
+        } else {
+            // Get info of the service from its ID
+            $service = $this->get_servicetype();
+            $createDB = ModUtil::getVar('Agoraportal', 'createDB');
+            $connects = $service->testConnection($this->dbHost, $this->serviceDB, $dbid, $createDB);
+
+            if (!$connects) {
+                LogUtil::registerError('No s\'ha pogut connectar a la base de dades. '
+                    . 'Paràmetres passats a testConnection: database: '
+                    . $dbid . ', dbHost: ' . $this->dbHost . ', serviceDB: ' . $this->serviceDB);
+                return false;
+            }
+
         }
-        $this->activedId = $dbid;
 
         $this->state = self::STATUS_ENABLED;
         $this->timeCreated = time();
@@ -994,18 +1006,6 @@ class Service extends AgoraBase {
         // No luck, so let's try the following ID
         if (!$free) {
             $free = $i;
-        }
-
-        // Get info of the service from its ID
-        $service = $this->get_servicetype();
-        $createDB = ModUtil::getVar('Agoraportal', 'createDB');
-        $connects = $service->testConnection($this->dbHost, $this->serviceDB, $free, $createDB);
-
-        if (!$connects) {
-            LogUtil::registerError('No s\'ha pogut connectar a la base de dades. '
-                . 'Paràmetres passats a testConnection: servicename: '
-                . $serviceName . ', database: ' . $free . ', dbHost: ' . $this->dbHost . ', serviceDB: ' . $this->serviceDB);
-            return false;
         }
 
         return $free;
