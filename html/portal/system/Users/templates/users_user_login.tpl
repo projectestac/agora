@@ -6,16 +6,6 @@
 {/if}
 {/foreach}
 {gt text='User log-in' assign='templatetitle'}
-
-{* Eliminat XTEC BEGIN - Eliminar menú que mostra l'opció de recuperar la contrasenya *}
-{* 2012.05.22 @aginard
-{* modulelinks modname='Users' type='user'*}
-{* Eliminat XTEC END *}
-
-{* Afegit XTEC BEGIN *}
-<br />
-{* Afegit XTEC END *}
-
 {include file='users_user_menu.tpl'}
 {if (count($authentication_method_display_order) > 1)}
 <div>

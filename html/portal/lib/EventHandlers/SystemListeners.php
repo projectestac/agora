@@ -732,15 +732,15 @@ class SystemListeners extends Zikula_AbstractEventHandler
             $die = true;
         }
 
-        //XTEC ******** ELIMINAT - Zikula detects incorrectly php params
-        //2012.06.20 @aginard
+        // XTEC ************ ELIMINAT - Zikula detects incorrectly php params
+        // 2012.06.20 @aginard
         /*
         if (ini_get('magic_quotes_gpc')) {
             echo __('Error! Zikula does not support PHP magic_quotes_gpc = On - please disable this feature in your php.ini file.');
             $die = true;
         }
         */
-        //************** FI
+        //************ FI
 
         if (ini_get('register_globals')) {
             echo __('Error! Zikula does not support PHP register_globals = On - please disable this feature in your php.ini or .htaccess file.');

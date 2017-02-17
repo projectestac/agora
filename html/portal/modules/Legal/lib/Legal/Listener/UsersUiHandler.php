@@ -72,13 +72,13 @@ class Legal_Listener_UsersUiHandler extends Zikula_AbstractEventHandler
 
         $this->helper = new Legal_Helper_AcceptPolicies();
     }
-    
+
     public function getView()
     {
         if (!$this->view) {
             $this->view = Zikula_View::getInstance($this->name);
         }
-        
+
         return $this->view;
     }
 
@@ -144,6 +144,8 @@ class Legal_Listener_UsersUiHandler extends Zikula_AbstractEventHandler
             $viewablePolicies = $this->helper->getViewablePolicies($user['uid']);
 
             if (array_sum($viewablePolicies) > 0) {
+                ModUtil::load('Legal'); // to enable translation domain
+
                 $templateVars = array(
                     'activePolicies'    => $activePolicies,
                     'viewablePolicies'  => $viewablePolicies,
@@ -168,6 +170,8 @@ class Legal_Listener_UsersUiHandler extends Zikula_AbstractEventHandler
         $activePolicies = $this->helper->getActivePolicies();
         $activePolicyCount = array_sum($activePolicies);
         if ($activePolicyCount > 0) {
+            ModUtil::load('Legal'); // to enable translation domain
+
             $eventName = $event->getName();
 
             // Determine if the hook should be displayed, and also set up certain variables, based on the type of event
@@ -191,9 +195,9 @@ class Legal_Listener_UsersUiHandler extends Zikula_AbstractEventHandler
 
                         // We only show the policies if one or more active policies have not been accepted by the user.
                         if (($activePolicies['termsOfUse'] && !$acceptedPolicies['termsOfUse'])
-                                || ($activePolicies['privacyPolicy'] && !$acceptedPolicies['privacyPolicy'])
-                                || ($activePolicies['agePolicy'] && !$acceptedPolicies['agePolicy'])
-                                ) {
+                            || ($activePolicies['privacyPolicy'] && !$acceptedPolicies['privacyPolicy'])
+                            || ($activePolicies['agePolicy'] && !$acceptedPolicies['agePolicy'])
+                        ) {
                             $templateVars = array(
                                 'policiesUid'               => $user['uid'],
                                 'activePolicies'            => $activePolicies,
@@ -267,13 +271,19 @@ class Legal_Listener_UsersUiHandler extends Zikula_AbstractEventHandler
     public function validateEdit(Zikula_Event $event)
     {
         if (!$this->request->isPost()) {
-            // Validation is only appropriate for a post, otherwise it is probably a hack attempt.
-            throw new Zikula_Exception_Forbidden();
+            // Check if we got here by a reentrant login method.
+            $sessionVars = $this->request->getSession()->get('Users_Controller_User_login', array(), 'Zikula_Users');
+            $getReentrantToken = $this->request->query->get('reentranttoken', null);
+            if (!isset($sessionVars['reentranttoken']) || !isset($getReentrantToken) || $getReentrantToken != $sessionVars['reentranttoken']) {
+                // Not reentrant login method,  it is probably a hack attempt.
+                throw new Zikula_Exception_Forbidden();
+            }
         }
 
         // If there is no 'acceptedpolicies_uid' in the POST, then there is no attempt to update the acceptance of policies,
         // So there is nothing to validate.
         if ($this->request->getPost()->has('acceptedpolicies_uid')) {
+            ModUtil::load('Legal'); // to enable translation domain
 
             // Set up the necessary objects for the validation response
             $policiesAcceptedAtRegistration = array(
@@ -386,13 +396,13 @@ class Legal_Listener_UsersUiHandler extends Zikula_AbstractEventHandler
                 $editablePolicies = $this->helper->getEditablePolicies();
 
                 if (!isset($user) || empty($user) || !is_array($user)) {
-                        throw new Zikula_Exception_Fatal();
+                    throw new Zikula_Exception_Fatal();
                 }
 
                 $isNewUser = (!isset($user['uid']) || empty($user['uid']));
 
                 if (!$isNewUser && !is_numeric($user['uid'])) {
-                        throw new Zikula_Exception_Fatal();
+                    throw new Zikula_Exception_Fatal();
                 }
 
                 if ($isNewUser || ($user['uid'] > 2)) {
@@ -448,6 +458,8 @@ class Legal_Listener_UsersUiHandler extends Zikula_AbstractEventHandler
         $eventName = $event->getName();
 
         if (isset($this->validation) && !$this->validation->hasErrors()) {
+            ModUtil::load('Legal'); // to enable translation domain
+
             $user = $event->getSubject();
             $uid = $user['uid'];
 

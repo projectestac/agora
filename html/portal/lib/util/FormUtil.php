@@ -103,8 +103,9 @@ class FormUtil
                 }
                 break;
             default:
-                //XTEC ** AFEGIT - Admit params from CLI
-                //2015.09.02 @pferre22
+
+                // XTEC ************ AFEGIT - Admit params from CLI
+                // 2015.09.02 @pferre22
                 $clivars = self::parse_cli_args();
                 if ($clivars && isset($clivars[$key])) {
                     if (is_array($clivars[$key])) {
@@ -114,17 +115,19 @@ class FormUtil
                     $failed = ($value === false) ? $args : null;
                 } else {
                 //************ FI
-                    if ($source) {
-                        static $valid = array('R', 'REQUEST', 'G', 'GET', 'P', 'POST', 'C', 'COOKIE', 'F', 'FILES', 'GP', 'GETPOST');
-                        if (!in_array($source, $valid)) {
-                            z_exit(__f('Invalid input source [%s] received.', DataUtil::formatForDisplay($source)));
 
-                            return $default;
-                        }
+                if ($source) {
+                    static $valid = array('R', 'REQUEST', 'G', 'GET', 'P', 'POST', 'C', 'COOKIE', 'F', 'FILES', 'GP', 'GETPOST');
+                    if (!in_array($source, $valid)) {
+                        z_exit(__f('Invalid input source [%s] received.', DataUtil::formatForDisplay($source)));
+
+                        return $default;
                     }
-                    $value = $default;
-                //XTEC ** AFEGIT - Admit params from CLI
-                //2015.09.02 @pferre22
+                }
+                $value = $default;
+
+                // XTEC ************ AFEGIT - Admit params from CLI
+                // 2015.09.02 @pferre22
                 }
                 //************ FI
         }
@@ -137,8 +140,8 @@ class FormUtil
         return $value;
     }
 
-    //XTEC ** AFEGIT - Admit params from CLI
-    //2015.09.02 @pferre22
+    // XTEC ************ AFEGIT - Admit params from CLI
+    // 2015.09.02 @pferre22
     /**
      * Returns an array with the params parsed from CLI
      * @return array with the parsed params

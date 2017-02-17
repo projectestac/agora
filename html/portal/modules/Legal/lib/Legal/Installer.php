@@ -108,7 +108,9 @@ class Legal_Installer extends Zikula_AbstractInstaller
                 $this->setVar(Legal_Constant::MODVAR_TRADECONDITIONS_URL, '');
 
             case '2.0.1':
-                // Upgrade 2.0.1 -> ?.?.?
+                // Nothing to do.
+            case '2.0.2':
+                // Upgrade 2.0.2 -> ?.?.?
 
                 // The following break should be the only one in the switch, and should appear immediately prior to the default case.
                 break;

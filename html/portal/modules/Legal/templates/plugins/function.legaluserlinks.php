@@ -27,6 +27,7 @@
  *      string $params['separator'] DEPRECATED, modify the template instead; The string to display before all of the links; optional; default ']'.
  *      string $params['class']     DEPRECATED, modify the template instead; The string to display before all of the links; optional; default 'z-menuitem-title'.
  *
+ * @deprecated                Use {modulelinks}
  * @param array       $params All parameters passed to this function from the template.
  * @param Zikula_View &$view  Reference to the Zikula view object, a subclass of Smarty.
  *

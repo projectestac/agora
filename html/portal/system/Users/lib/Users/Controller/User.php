@@ -1131,14 +1131,12 @@ class Users_Controller_User extends Zikula_AbstractController
             $reentrantToken = substr(SecurityUtil::generateCsrfToken(), 0, 10);
         }
 
-
         // XTEC ************ AFEGIT - Filter username to remove trailing '@xtec.cat' in case it exists
         // 2016.01.18 @aginard
         if (strpos($authenticationInfo['login_id'], '@xtec.cat')) {
             $authenticationInfo['login_id'] = substr($authenticationInfo['login_id'], 0, -strlen('@xtec.cat'));
         }
         // ************ FI
-
 
         // Any authentication information for use in this pass through login is gathered, so ensure any session variable
         // is cleared, even if we are coming in through a post or a function call that didn't gather info from the session.
@@ -1803,14 +1801,14 @@ class Users_Controller_User extends Zikula_AbstractController
         $mid = ModUtil::getIdFromName($this->name);
         $found = false;
         foreach ($blocks as $block) {
-            if ($block['mid'] == $mid && $block['bkey'] == 'user') {
+            if ($block['mid'] == $mid && $block['bkey'] == 'User') {
                 $found = true;
                 break;
             }
         }
 
         if (!$found) {
-            throw new Zikual_Exception_Fatal();
+            throw new Zikula_Exception_Fatal();
         }
 
         return $this->view->assign(UserUtil::getVars(UserUtil::getVar('uid')))
@@ -1845,7 +1843,7 @@ class Users_Controller_User extends Zikula_AbstractController
         $mid = ModUtil::getIdFromName($this->name);
         $found = false;
         foreach ($blocks as $block) {
-            if ($block['mid'] == $mid && $block['bkey'] == 'user') {
+            if ($block['mid'] == $mid && $block['bkey'] == 'User') {
                 $found = true;
                 break;
             }
