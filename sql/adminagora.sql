@@ -1560,10 +1560,11 @@ CREATE TABLE IF NOT EXISTS `group_perms` (
 INSERT INTO `group_perms` (`pid`, `gid`, `sequence`, `realm`, `component`, `instance`, `level`, `bond`) VALUES
 (1, 2, 0, 0, '.*', '.*', 800, 0),
 (3, 1, 4, 0, '.*', '.*', 300, 0),
-(5, 0, 5, 0, '.*', '.*', 200, 0),
+(5, 0, 6, 0, '.*', '.*', 200, 0),
 (6, 3, 2, 0, 'Agoraportal::', '.*', 300, 0),
 (7, 4, 1, 0, 'Agoraportal::', '.*', 600, 0),
-(8, 1, 3, 0, 'Agoraportal::', '.*', 200, 0);
+(8, 1, 3, 0, 'Agoraportal::', '.*', 200, 0),
+(9, 0, 5, 0, 'Users::', '.*', 0, 0);
 
 -- --------------------------------------------------------
 
