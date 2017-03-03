@@ -393,7 +393,7 @@ function autoActionsRequests() {
     document.forms["editRequestForm"].sendMail.checked = true;
 }
 
-function addManager() {
+function checkManager() {
     var f = document.forms["addManager"];
     var error = false;
 
@@ -406,10 +406,8 @@ function addManager() {
         error = true;
     }
     if (!error) {
-        document.getElementById("confirm").value = 1;
         return true;
     }
-
     return false;
 }
 

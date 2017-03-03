@@ -45,7 +45,7 @@
             <div class="alert alert-warning">
                 {gt text="Aviseu a l'usuari designat que a partir d'ara podrà gestionar els serveis del centre des d'aquest portal."}
             </div>
-            <form id="addManager" class="form-horizontal" action="{modurl modname='Agoraportal' type='user' func='addManager'}" method="post" enctype="application/x-www-form-urlencoded" onsubmit="addManager();">
+            <form id="addManager" class="form-horizontal" action="{modurl modname='Agoraportal' type='user' func='addManager'}" method="post" enctype="application/x-www-form-urlencoded" onsubmit="return checkManager();">
                 <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
                 <input type="hidden" name="clientCode" value="{$client->clientCode}" />
                 <div class="form-group">

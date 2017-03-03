@@ -574,7 +574,16 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
 
         // If the new manager is not a user, create the user
         if (empty($user) || !isset($user['uid'])) {
-            $item = array('uname' => $managerUName,
+
+            // Do some validation to the username
+            $managerUName = strtolower($managerUName);
+            if (strlen($managerUName) > 8 || !preg_match("/^[a-z0-9]+$/", $managerUName)) {
+                LogUtil::registerError('El nom d\'usuari XTEC no és vàlid. Només pot contenir lletres i números i pot tenir una longitud màxima de 8 caràcters.');;
+                return System::redirect(ModUtil::url('Agoraportal', 'user', 'managers', array('clientCode' => $clientCode)));
+            }
+
+            $item = array(
+                'uname' => $managerUName,
                 'email' => $managerUName . '@xtec.cat',
                 'user_regdate' => DateUtil::buildDatetime(date("Y"), date("m"), date("d"), date("H"), date("i"), date("s")),
                 'approved_date' => DateUtil::buildDatetime(date("Y"), date("m"), date("d"), date("H"), date("i"), date("s")),
