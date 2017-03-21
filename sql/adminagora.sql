@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Temps de generació: 21-03-2017 a les 17:43:21
+-- Temps de generació: 21-03-2017 a les 17:51:55
 -- Versió del servidor: 5.5.54-0ubuntu0.14.04.1
 -- Versió de PHP: 5.6.30-7+deb.sury.org~trusty+1
 
@@ -1802,7 +1802,16 @@ CREATE TABLE IF NOT EXISTS `IWstats` (
   KEY `iw_ipForward` (`iw_ipForward`),
   KEY `iw_ipClient` (`iw_ipClient`),
   KEY `iw_userAgent` (`iw_userAgent`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Bolcant dades de la taula `IWstats`
+--
+
+INSERT INTO `IWstats` (`iw_statsid`, `iw_datetime`, `iw_ip`, `iw_ipForward`, `iw_ipClient`, `iw_userAgent`, `iw_moduleid`, `iw_params`, `iw_uid`, `iw_isadmin`, `iw_skipped`, `iw_skippedModule`, `iw_summarised`) VALUES
+(1, '2017-03-21 17:44:21', '192.168.33.1', '', '', 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0', 64, 'module=Agoraportal&type=admin&func=main', 0, 0, 0, 0, 0),
+(2, '2017-03-21 17:44:22', '192.168.33.1', '', '', 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0', 14, 'module=usuaris&type=user&func=login&returnpage=%2Fagora%2Fportal%2Findex.php%3Fmodule%3DAgoraportal%', 0, 0, 0, 0, 0),
+(3, '2017-03-21 17:44:25', '192.168.33.1', '', '', 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0', 14, 'module=usuaris&type=user&func=login&returnpage=http://agora-virtual.xtec.cat/agora/portal/index.php?', 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -2408,6 +2417,13 @@ CREATE TABLE IF NOT EXISTS `session_info` (
   `vars` longtext NOT NULL,
   PRIMARY KEY (`sessid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Bolcant dades de la taula `session_info`
+--
+
+INSERT INTO `session_info` (`sessid`, `ipaddr`, `lastused`, `uid`, `remember`, `vars`) VALUES
+('6mpc3864vjq4qlqm8hl8h4b6et3p38oa', 'b44aab0625ab749bf5a23cce99d45b6d', '2017-03-21 17:44:27', 0, 0, '/|a:5:{s:4:"rand";a:0:{}s:9:"useragent";s:40:"37fbafd09f6f52059271252678a0280eb8c22058";s:3:"uid";i:0;s:14:"_ZErrorMsgType";i:403;s:7:"_tokens";a:2:{s:23:"58d158674100a9.97984888";a:2:{s:5:"token";s:92:"NThkMTU4Njc0MTAwYTkuOTc5ODQ4ODg6NjE0OWZiNDVkMWI2ZmE0ZDIxNzE5MjUzZjJmNWRkNjA6MTQ5MDExNDY2Mw==";s:9:"timestamp";i:1490114663;}s:23:"58d1586a09b9b5.67843770";a:2:{s:5:"token";s:92:"NThkMTU4NmEwOWI5YjUuNjc4NDM3NzA6YjE4ZjYyNDhhYmFiNWE4NGRhNmMyZjE3MWY4NzA4YjY6MTQ5MDExNDY2Ng==";s:9:"timestamp";i:1490114666;}}}_zikula_messages|a:1:{s:5:"error";a:0:{}}');
 
 -- --------------------------------------------------------
 
