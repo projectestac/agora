@@ -141,7 +141,7 @@ INSERT INTO `agoraportal_clients` (`clientId`, `clientCode`, `clientDNS`, `clien
 (6, 'a8000006', 'centre-6', 'usu6', 'standard', '', '', 'Centre 6', 'Carrer sense número', 'Valldeneu', '00000', 'cat', '', 1, 8, 8, 0, 'creda', 0),
 (7, 'a8000007', 'centre-7', 'usu7', 'standard', '', '', 'Centre 7', 'Carrer sense número', 'Valldeneu', '00000', 'cat', '', 1, 9, 7, 0, 'cda', 0),
 (8, 'a8000008', 'centre-8', 'usu8', 'standard', '', '', 'Centre 8', 'Carrer sense número', 'Valldeneu', '00000', 'cat', '', 1, 10, 5, 0, 'ssee', 0),
-(9, 'a8000009', 'centre-9', 'usu9', 'standard', '', '', 'Centre 9', 'Carrer sense número', 'Valldeneu', '00000', 'cat', '', 1, 2, 12, 0, 'ssee', 0),
+(9, 'a8000009', 'centre-9', 'usu9', 'standard', '', '', 'Centre 9', 'Carrer sense número', 'Valldeneu', '00000', 'cat', '', 1, 2, 12, 0, 'pro', 0),
 (10, 'a8000010', 'centre-10', 'usu10', 'standard', '', '', 'Centre 10', 'Carrer sense número', 'Valldeneu', '00000', 'cat', '', 1, 0, 0, 0, '', 0);
 
 -- --------------------------------------------------------
@@ -248,7 +248,7 @@ INSERT INTO `agoraportal_client_services` (`clientServiceId`, `serviceId`, `clie
 (61, 5, 6, '', '', 1, 6, 'manager6', 'Tècnic SSCC', '1483958678', 'Maqueta CREDA', '', 5000, '1483960437', '1483958806', '56588', 'localhost'),
 (62, 5, 7, '', '', 1, 7, 'manager7', 'Tècnic SSCC', '1483958678', 'Maqueta CdA', '', 5000, '1483960448', '1483958996', '45696', 'localhost'),
 (63, 5, 8, '', '', 1, 8, 'manager8', 'Tècnic SSCC', '1483958678', 'Maqueta SSEE', '', 5000, '1483960452', '1483959238', '69608', 'localhost'),
-(64, 5, 9, '0', '', 1, 9, 'admin', 'Tècnic SSCC', '1485447714', 'Maqueta Projectes', '', 5000, '1485447717', '1485447557', '', 'localhost');
+(64, 5, 9, '', '', 1, 9, 'manager9', 'Tècnic SSCC', '1485447714', 'Maqueta Projectes', '', 5000, '1485447717', '1485447557', '', 'localhost');
 
 -- --------------------------------------------------------
 
