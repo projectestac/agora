@@ -541,12 +541,12 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
             return LogUtil::registerError($this->__('No et pots esborrar a tu mateix com a gestor'));
         }
 
-        if (!AgoraPortal_Util::remove_user_from_group('Managers', $username)) {
-            return LogUtil::registerError($this->__('No s \'ha pogut deshabilitar el gestor'));
-        }
-
         if (!$manager->delete()) {
             return LogUtil::registerError($this->__('No s \'ha pogut eliminar el gestor'));
+        }
+
+        if (!$manager->is_manager() && !AgoraPortal_Util::remove_user_from_group('Managers', $username)) {
+            return LogUtil::registerError($this->__('No s \'ha pogut deshabilitar el gestor'));
         }
 
         LogUtil::registerStatus($this->__('El gestor s\'ha esborrat correctament.'));

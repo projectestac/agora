@@ -19,6 +19,7 @@ PORTAL
 - Upgraded Zikula from 1.3.9 to 1.3.12. Standardized XTEC comments (Trello #1492)
 - Fixed activation of Moodle services
 - Added username verification to users created automatically in managers section (Trello #1546)
+- Allow users to be managers of more than one client (Trello #1561)
 
 
 Changes 17.02.13

@@ -68,15 +68,8 @@ class Manager extends AgoraBase {
             return LogUtil::registerError('No podeu fer gestors a usuaris genèrics');
         }
 
-        // check if the user is manager in another client. A user can only be manager for one client
-        $managerInfo = self::get_by_username($managerUName);
-        if ($managerInfo) {
-            // get school name
-            $client = Client::get_by_code($managerInfo->clientCode);
-            return LogUtil::registerError("L'usuari/ària ja és gestor/a del centre <strong>$client->clientName ($client->clientCode)</strong>. Una persona no pot ser gestora de dos centres simultàniament.");
-        }
-
-        $item = array('clientCode' => $clientCode,
+        $item = array(
+            'clientCode' => $clientCode,
             'managerUName' => $managerUName
         );
 
@@ -133,5 +126,18 @@ class Manager extends AgoraBase {
         return true;
     }
 
+    /**
+     * Check if a user is manager of any client
+     * @return bool
+     */
+    public function is_manager() {
+        $row = DBUtil::selectObjectByID(self::TABLE, $this->managerUName, 'managerUName');
+
+        if (!$row) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 }
 
