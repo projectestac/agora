@@ -21,6 +21,7 @@ PORTAL
 - Added username verification to users created automatically in managers section (Trello #1546)
 - Allow users to be managers of more than one client (Trello #1561)
 - Fixed automatic replace of URL after a change of Nom Propi (Trello #1492)
+- Fixed request type in form to edit requests by admins (Trello #1492)
 
 
 Changes 17.02.13
