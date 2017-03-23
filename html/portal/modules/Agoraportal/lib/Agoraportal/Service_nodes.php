@@ -22,7 +22,7 @@ class Service_nodes extends Service {
         $params = array();
         $params['origin_url'] = $urlbase . $oldDNS . '/';
 
-        return Agora_Queues_Operation::add('script_replace_url', $this->clientId, $this->serviceId, 0, $params);
+        return Agora_Queues_Operation::add('script_replace_url', $this->clientId, $this->serviceId, $params, 0);
     }
 
     /**
