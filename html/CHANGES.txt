@@ -3,7 +3,7 @@ Release notes for Agora (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
-Changes in progress
+Changes 17.03.28
 ---------------------------------------------------------------------------------------
 GENERAL
 - dblib-mysql.php: Fixed PHP Warning in CLI calls
@@ -14,6 +14,18 @@ MOODLE
 - Updated local/mobile
 - Updated mod/hotpot
 - Updated local/agora
+- Updated LangPacks
+
+NODES
+- Upgraded WordPress to version 4.5.7 (Trello #1543)
+- xtec lib: Remove the visits of the robots older than two months (Trello #1296)
+- import-users-from-csv-with-meta: Upgraded plugin from version 1.8.7.2 to 1.10.2 (Trello #1260)
+- Added WordPress translation to Basque, Galician, French and Occitan (Trello #1534)
+- xtec-booking: Added support for translations to javascript calendar (Trello #1534)
+- Themes: In themes list (wp-admin/themes.php), show only the theme already in use in that site (Trello #1538)
+- GCE: Fixed hover effect and customized calendar list view (Trello #1547)
+- GCE: Fixed access to protected with password and private calendars (Trello #1548)
+- GCE: Added loading of JQuery library, required by some themes in XTECBlocs (Trello #1034)
 
 PORTAL
 - Upgraded Zikula from 1.3.9 to 1.3.12. Standardized XTEC comments (Trello #1492)
