@@ -1,1 +1,0 @@
-{modfunc modname='AdminMessages' type='admin' func='view'}

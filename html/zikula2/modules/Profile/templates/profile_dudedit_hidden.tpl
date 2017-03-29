@@ -1,1 +1,0 @@
-<input id="prop_{$attributename}" type="hidden" name="dynadata[{$attributename}]" value="{$value}" />

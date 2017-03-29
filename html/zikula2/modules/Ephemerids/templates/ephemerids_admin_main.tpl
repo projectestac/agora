@@ -1,1 +1,0 @@
-{modfunc modname=Ephemerids type=admin func=view}
