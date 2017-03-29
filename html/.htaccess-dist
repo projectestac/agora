@@ -5,7 +5,7 @@ RewriteBase /agora/
 # Required for the proper functioning of cacti
 RewriteRule ^server-status$ - [L]
 
-# Add trailing slash if necessary: Not an extension (.php, .css, .js, ...), not a Moodle cache file and does not end with a slash (/)
+# Add trailing slash if necessary: Not an extension (.php, .css, .js, ...), not a Moodle cache file, not a BuddyPress URL and does not end with a slash (/)
 RewriteCond %{REQUEST_URI} !\.([^/]*)$
 RewriteCond %{REQUEST_URI} !(.*)/moodle/(.*)\.([^/]*)/(.*)$
 RewriteCond %{REQUEST_URI} !(.*)/nodes/(.*)$
@@ -30,11 +30,11 @@ RewriteRule ^([^.]*)/install.php(.*)$ $1/siteoff.html [QSA,L]
 
 # Redirect /moodle2 to /moodle
 RewriteRule ^([^/]*)/moodle2/(.*)$ $1/moodle/$2 [QSA,R=permanent,L]
-RewriteRule ^([^/]*)/moodle2$ $1/moodle/ [QSA,R=permanent,L]
 
-# Get nom propi from query string
+# Get nom propi from query string. Usage of $3 is required for some URL
 RewriteRule ^([^/]*)/moodle/([^?]*)?(.*)$ moodle2/$2?$3&ccentre=$1 [QSA,L]
-RewriteRule ^([^/]*)/intranet/(.*)$ zikula2/$2?ccentre=$1 [QSA,L]
+# Redirect old Intraweb URL to Nodes
+RewriteRule ^([^/]*)/intranet/(.*)$ $1/ [QSA,R=permanent,L]
 # Nodes
 RewriteCond %{HTTP_HOST} ^agora-virtual\.xtec\.cat$ [OR,NC]
 RewriteCond %{HTTP_HOST} ^agora-virtual-se\.xtec\.cat$ [OR,NC]
