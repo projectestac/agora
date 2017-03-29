@@ -101,15 +101,6 @@ gitcheckout "html/wordpress/wp-content/plugins/xtec-mail/lib" "master" "git@gith
 gitcheckout "html/wordpress/wp-includes/xtec" "master" "git@github.com:projectestac/wordpress-xtec.git"
 fi
 
-if [[ $execintraweb == true ]]
-then
-# Intranet
-gitcheckout "html/zikula2/modules/IWagendas" "master" "git@github.com:intraweb-modules13/IWagendas.git"
-gitcheckout "html/zikula2/modules/IWdocmanager" "master" "git@github.com:intraweb-modules13/IWdocmanager.git"
-gitcheckout "html/zikula2/modules/IWgroups" "master" "git@github.com:intraweb-modules13/IWgroups.git"
-gitcheckout "html/zikula2/modules/XtecMailer/includes/mailer" "master" "git@github.com:projectestac/mailer.git"
-fi
-
 if [[ $execportal == true ]]
 then
 # Portal
