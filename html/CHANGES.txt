@@ -3,11 +3,18 @@ Release notes for Agora (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
-Changes in progress
+Changes 17.04.24
 ---------------------------------------------------------------------------------------
 GENERAL
 - htaccess: Redirect for /intranet/ is done directly in htaccess (Trello #1255)
 - htaccess: Removed redundant line to redirect /moodle2 to /moodle (Trello #1255)
+
+NODES
+- Polylang: Added plugin (Trello #1198)
+- bp-moderation: Removed links in BuddyPress index page
+
+ZIKULA
+- Removed code (Trello #1255)
 
 
 Changes 17.03.28
