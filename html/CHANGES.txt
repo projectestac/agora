@@ -9,6 +9,13 @@ GENERAL
 - htaccess: Redirect for /intranet/ is done directly in htaccess (Trello #1255)
 - htaccess: Removed redundant line to redirect /moodle2 to /moodle (Trello #1255)
 
+MOODLE
+- Updated mod/hotpot
+- Updated all related wiris plugins
+- Updated LangPacks
+- Added Vicens Vives modules: one course format, two blocks and a local (Trello #1331)
+- Added H5P module (Trello #1571)
+
 NODES
 - Polylang: Added plugin (Trello #1198)
 - bp-moderation: Removed links in BuddyPress index page
