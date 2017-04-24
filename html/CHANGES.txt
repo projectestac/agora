@@ -15,6 +15,7 @@ MOODLE
 - Updated LangPacks
 - Added Vicens Vives modules: one course format, two blocks and a local (Trello #1331)
 - Added H5P module (Trello #1571)
+- JClic: Fixed bug with time conversion
 
 NODES
 - Polylang: Added plugin (Trello #1198)
