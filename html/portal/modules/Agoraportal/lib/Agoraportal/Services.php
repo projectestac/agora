@@ -362,11 +362,18 @@ class Service extends AgoraBase {
      * Retrieves the Service seeking by ClientId and ServiceTypeId
      * @param $client clientId to look for
      * @param $service servicetypeid to look for
+     * @param null $state Whether the service is active, pending, etc. Must be a number
      * @return false|Service
      */
-    public static function get_by_client_and_service($client, $service) {
+    public static function get_by_client_and_service($client, $service, $state = null) {
         $where = "clientId = $client AND serviceId = $service";
+
+        if (!is_null($state)) {
+            $where .= " AND state = $state";
+        }
+
         $row = DBUtil::selectObject(self::TABLE, $where);
+
         return self::get_subclass($row);
     }
 
@@ -389,16 +396,18 @@ class Service extends AgoraBase {
 
     /**
      * Retrieves the Service seeking by ClientId and ServiceName
+     *
      * @param $client
      * @param $servicename
+     * @param null $state Whether the service is active, pending, etc. Must be a number
      * @return false|Service
      */
-    public static function get_by_client_and_servicename($client, $servicename) {
+    public static function get_by_client_and_servicename($client, $servicename, $state = null) {
         $service = ServiceType::get_by_name($servicename);
         if (!$service) {
             return false;
         }
-        return self::get_by_client_and_service($client, $service->serviceId);
+        return self::get_by_client_and_service($client, $service->serviceId, $state);
     }
 
     /**

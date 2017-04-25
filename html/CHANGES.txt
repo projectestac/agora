@@ -21,6 +21,9 @@ NODES
 - Polylang: Added plugin (Trello #1198)
 - bp-moderation: Removed links in BuddyPress index page
 
+PORTAL
+- Agoraportal: Fixed bug when uploading files to Moodle2 when a client has two services, one of them inactive (Trello #1581)
+
 ZIKULA
 - Removed code (Trello #1255)
 

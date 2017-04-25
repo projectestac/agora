@@ -286,7 +286,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
 
         //TODO: Now the only service that allow to update files is moodle2
         // In the future other services will allow to update files.
-        $service = Service::get_by_client_and_servicename($client->clientId, 'moodle2');
+        $service = Service::get_by_client_and_servicename($client->clientId, 'moodle2', 1);
         if(!$service) {
             return LogUtil::registerError($this->__('El centre no té el servei Moodle 2 activat'));
         }
