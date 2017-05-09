@@ -15,7 +15,7 @@
     <div class="form-group">
         <label class="col-sm-4 control-label" for="warningMailsTo">{gt text="Adreces de correu a on s'han d'enviar els missatges relatius al consum del disc"}</label>
         <div class="col-sm-8">
-            <textarea class="form-control" id="warningMailsTo" rows="3">{$warningMailsTo}</textarea>
+            <textarea class="form-control" id="warningMailsTo" name="warningMailsTo" rows="3">{$warningMailsTo}</textarea>
             <div class="alert alert-info">
                 {gt text="Separeu la llista d'adreces per comes."}
             </div>
@@ -27,7 +27,7 @@
         <div class="col-sm-8">
             <textarea class="form-control" id="requestMailsTo" name="requestMailsTo" rows="3">{$requestMailsTo}</textarea>
             <div class="alert alert-info">
-                {gt text="Separeu la llista d'IP per comes."}
+                {gt text="Separeu la llista d'adreces per comes."}
             </div>
         </div>
     </div>
@@ -67,7 +67,7 @@
     </div>
 
     <div class="text-center">
-        <button type="submit" class="btn btn-success" title="Modifica la configuració">
+        <button type="submit" class="btn btn-success" title={gt text="Modifica la configuració"}>
             <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> {gt text="Modifica la configuració"}
         </button>
     </div>
