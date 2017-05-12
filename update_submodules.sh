@@ -36,7 +36,6 @@ gitcheckout "html/moodle2/auth/googleoauth2" "master" "git@github.com:projectest
 gitcheckout "html/moodle2/blocks/completion_progress" "master" "git@github.com:projectestac/moodle-block_completion_progress.git"
 gitcheckout "html/moodle2/blocks/courses_vicensvives" "master" "https://github.com/vicensvives/moodle-block_courses_vicensvives.git"
 gitcheckout "html/moodle2/blocks/licenses_vicensvives" "master" "https://github.com/vicensvives/moodle-block_licenses_vicensvives.git"
-gitcheckout "html/moodle2/blocks/progress" "master" "git@github.com:projectestac/Moodle-block_progress.git"
 gitcheckout "html/moodle2/blocks/rgrade" "master" "https://github.com/projectestac/Rgrade.git"
 gitcheckout "html/moodle2/course/format/simple" "master" "git@github.com:projectestac/moodle-format_simple.git"
 gitcheckout "html/moodle2/course/format/vv" "master" "https://github.com/vicensvives/moodle-format_vicensvives.git"
