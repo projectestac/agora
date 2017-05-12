@@ -13,6 +13,8 @@ MOODLE
 - Updated mod/hotpot
 - Removed progress block (Trello #1503)
 - Updated LangPacks
+- Updated report/coursequotas
+- Updated mod/rcontent
 
 PORTAL:
 - Fixed addresses to send quota reports not being saved when updating form
