@@ -94,6 +94,7 @@ gitcheckout "html/wordpress/wp-content/plugins/invite-anyone" "master" "git@gith
 gitcheckout "html/wordpress/wp-content/plugins/polylang" "master" "git@github.com:projectestac/wordpress-polylang.git"
 gitcheckout "html/wordpress/wp-content/plugins/slideshare" "master" "git@github.com:projectestac/wordpress-slideshare.git"
 gitcheckout "html/wordpress/wp-content/plugins/slideshow-jquery-image-gallery" "master" "git@github.com:projectestac/wordpress-slideshow-jig.git"
+gitcheckout "html/wordpress/wp-content/plugins/table-of-contents-plus" "master" "git@github.com:projectestac/wordpress-table-of-contents-plus.git"
 gitcheckout "html/wordpress/wp-content/plugins/tinymce-advanced" "master" "git@github.com:projectestac/wordpress-tinymce-advanced.git"
 gitcheckout "html/wordpress/wp-content/plugins/wordpress-importer" "master" "git@github.com:projectestac/wordpress-importer.git"
 gitcheckout "html/wordpress/wp-content/plugins/wordpress-php-info" "master" "git@github.com:projectestac/wordpress-php-info.git"
