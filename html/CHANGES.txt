@@ -3,6 +3,13 @@ Release notes for Agora (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
+Changes in progress
+---------------------------------------------------------------------------------------
+NODES
+- buddypress-group-email-subscription: Upgraded plugin from version 3.6.1 to 3.7.0
+- xtec-booking: Added cron to remove old bookings
+
+
 Changes 17.05.23
 ---------------------------------------------------------------------------------------
 MOODLE
@@ -16,7 +23,7 @@ MOODLE
 - Updated report/coursequotas
 - Updated mod/rcontent
 
-NODES:
+NODES
 - Upgraded WordPress to version 4.5.9 (Trello #1592)
 - mu-common: Hidden options to allow admins to activate pingbacks and trackbacks (Trello #1551)
 - mu-common: Customized order posts into homepage and categories (Trello #1579)
@@ -27,7 +34,7 @@ NODES:
 - table-of-contents-plus: Added plugin (Trello #1370)
 - agora-functions: Added feature to replace bp-moderation (Trello #1580)
 
-PORTAL:
+PORTAL
 - Fixed addresses to send quota reports not being saved when updating form
 
 
