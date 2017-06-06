@@ -1,9 +1,9 @@
 [submodule "html/wordpress"]
 	path = html/wordpress
-	url = http://github.com/projectestac/agora_nodes.git
+	url = https://github.com/projectestac/agora_nodes.git
 [submodule "html/moodle2"]
 	path = html/moodle2
-	url = http://github.com/projectestac/agora_moodle2.git
+	url = https://github.com/projectestac/agora_moodle2.git
 [submodule "html/portal/modules/XtecMailer/includes/mailer"]
 	path = html/portal/modules/XtecMailer/includes/mailer
 	url = https://github.com/projectestac/mailer.git
