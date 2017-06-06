@@ -66,7 +66,7 @@ All errors which occur in a FileSystem driver are stored in an error object. The
 
 ## Examples
 
-### Example 1 – Connect using FTP and get a directory listing
+### Example 1: Connect using FTP and get a directory listing
 
     [php]
     $conf = new FileSystem_Configuration_Ftp('localhost', 'user', 'pass');
@@ -82,7 +82,7 @@ All errors which occur in a FileSystem driver are stored in an error object. The
     print_r($dir);
 
 
-### Example 2 – Connect using FTP and copy a file from one place to another on the remote file system
+### Example 2: Connect using FTP and copy a file from one place to another on the remote file system
 
     [php]
     $conf = new FileSystem_Configuration_Ftp('localhost', 'user', 'pass');
@@ -100,7 +100,7 @@ All errors which occur in a FileSystem driver are stored in an error object. The
     //copy ok, file1.txt has been copied to file2.txt
 
 
-### Example 3 – Connect using FTP and SFTP and move a file from FTP to SFTP server
+### Example 3: Connect using FTP and SFTP and move a file from FTP to SFTP server
 
     [php]
     $conf = new FileSystem_Configuration_Ftp('localhost', 'user', 'pass');
@@ -132,7 +132,7 @@ All errors which occur in a FileSystem driver are stored in an error object. The
     //do something with errors
     return;
     }
-    //File was saved to the sftp, there now exists the file “file1.txt” on both the ftp and sftp file systems.
+    //File was saved to the sftp, there now exists the file "file1.txt" on both the ftp and sftp file systems.
     //we can now remove the old one from ftp if we wish.
     $ftp->rm('file1.txt');
     //file should have been removed, let us check all logged errors and see if anything went wrong.
