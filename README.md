@@ -42,10 +42,14 @@ The open source Virtual Learning Environment [Moodle](https://moodle.org) is use
 
 The [source code repository](https://github.com/projectestac/agora) is organized in [git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules). The steps to reproduce to obtain the full source code of eeach component are:
 
-- Identify the component to checkout. You can choose between Àgora-Nodes (`https://github.com/projectestac/agora_nodes.git`), Àgora-Moodle (`https://github.com/projectestac/agora_moodle2.git`) or the full Àgora system (`https://github.com/projectestac/agora.git`)
-- Launch `git checkout` followed by the module URL.
+- Git clone the desired module. You can choose between:
+    * Àgora-Nodes: `git clone https://github.com/projectestac/agora_nodes.git`
+    * Àgora-Moodle: `git clone https://github.com/projectestac/agora_moodle2.git`
+    * The full Àgora platform: `git clone https://github.com/projectestac/agora.git`
+
 - Launch `git submodule update --init --recursive` to initialize all the submodules. Please be patient, because this step can take time.
-- To update the repository content with the latest version of the software, launch: `git pull --recurse-submodules`
+
+- To update the repository content with the latest version of the software, launch anytime: `git pull --recurse-submodules`
 
 See INSTALL.txt for installation instructions.
 
