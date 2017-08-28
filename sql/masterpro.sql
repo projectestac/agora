@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: pdb-int:3308
--- Temps de generació: 30-05-2017 a les 10:07:18
--- Versió del servidor: 5.6.35
--- Versió de PHP : 5.4.16
+-- Tiempo de generación: 13-07-2017 a las 11:12:45
+-- Versión del servidor: 5.6.35
+-- Versión de PHP: 5.4.16
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de dades: `usu3`
+-- Base de datos: `usu3`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `wp_bp_activity`
+-- Estructura de tabla para la tabla `wp_bp_activity`
 --
 
 CREATE TABLE `wp_bp_activity` (
@@ -55,17 +55,17 @@ CREATE TABLE `wp_bp_activity` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=89 ;
 
 --
--- Bolcant dades de la taula `wp_bp_activity`
+-- Volcado de datos para la tabla `wp_bp_activity`
 --
 
 INSERT INTO `wp_bp_activity` (`id`, `user_id`, `component`, `type`, `action`, `content`, `primary_link`, `item_id`, `secondary_item_id`, `date_recorded`, `hide_sitewide`, `mptt_left`, `mptt_right`, `is_spam`) VALUES
-(1, 2, 'members', 'last_activity', '', '', '', 0, NULL, '2017-05-29 17:17:30', 0, 0, 0, 0),
+(1, 2, 'members', 'last_activity', '', '', '', 0, NULL, '2017-06-27 14:03:12', 0, 0, 0, 0),
 (6, 1, 'members', 'last_activity', '', '', '', 0, NULL, '2017-03-15 12:29:29', 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `wp_bp_activity_meta`
+-- Estructura de tabla para la tabla `wp_bp_activity_meta`
 --
 
 CREATE TABLE `wp_bp_activity_meta` (
@@ -81,7 +81,7 @@ CREATE TABLE `wp_bp_activity_meta` (
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `wp_bp_friends`
+-- Estructura de tabla para la tabla `wp_bp_friends`
 --
 
 CREATE TABLE `wp_bp_friends` (
@@ -99,7 +99,7 @@ CREATE TABLE `wp_bp_friends` (
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `wp_bp_groups`
+-- Estructura de tabla para la tabla `wp_bp_groups`
 --
 
 CREATE TABLE `wp_bp_groups` (
@@ -119,7 +119,7 @@ CREATE TABLE `wp_bp_groups` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=34 ;
 
 --
--- Bolcant dades de la taula `wp_bp_groups`
+-- Volcado de datos para la tabla `wp_bp_groups`
 --
 
 INSERT INTO `wp_bp_groups` (`id`, `creator_id`, `name`, `slug`, `description`, `status`, `enable_forum`, `date_created`, `parent_id`) VALUES
@@ -139,7 +139,7 @@ INSERT INTO `wp_bp_groups` (`id`, `creator_id`, `name`, `slug`, `description`, `
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `wp_bp_groups_groupmeta`
+-- Estructura de tabla para la tabla `wp_bp_groups_groupmeta`
 --
 
 CREATE TABLE `wp_bp_groups_groupmeta` (
@@ -153,7 +153,7 @@ CREATE TABLE `wp_bp_groups_groupmeta` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=229 ;
 
 --
--- Bolcant dades de la taula `wp_bp_groups_groupmeta`
+-- Volcado de datos para la tabla `wp_bp_groups_groupmeta`
 --
 
 INSERT INTO `wp_bp_groups_groupmeta` (`id`, `group_id`, `meta_key`, `meta_value`) VALUES
@@ -246,7 +246,7 @@ INSERT INTO `wp_bp_groups_groupmeta` (`id`, `group_id`, `meta_key`, `meta_value`
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `wp_bp_groups_members`
+-- Estructura de tabla para la tabla `wp_bp_groups_members`
 --
 
 CREATE TABLE `wp_bp_groups_members` (
@@ -272,7 +272,7 @@ CREATE TABLE `wp_bp_groups_members` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=40 ;
 
 --
--- Bolcant dades de la taula `wp_bp_groups_members`
+-- Volcado de datos para la tabla `wp_bp_groups_members`
 --
 
 INSERT INTO `wp_bp_groups_members` (`id`, `group_id`, `user_id`, `inviter_id`, `is_admin`, `is_mod`, `user_title`, `date_modified`, `comments`, `is_confirmed`, `is_banned`, `invite_sent`) VALUES
@@ -292,7 +292,7 @@ INSERT INTO `wp_bp_groups_members` (`id`, `group_id`, `user_id`, `inviter_id`, `
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `wp_bp_messages_messages`
+-- Estructura de tabla para la tabla `wp_bp_messages_messages`
 --
 
 CREATE TABLE `wp_bp_messages_messages` (
@@ -310,7 +310,7 @@ CREATE TABLE `wp_bp_messages_messages` (
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `wp_bp_messages_meta`
+-- Estructura de tabla para la tabla `wp_bp_messages_meta`
 --
 
 CREATE TABLE `wp_bp_messages_meta` (
@@ -326,7 +326,7 @@ CREATE TABLE `wp_bp_messages_meta` (
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `wp_bp_messages_notices`
+-- Estructura de tabla para la tabla `wp_bp_messages_notices`
 --
 
 CREATE TABLE `wp_bp_messages_notices` (
@@ -342,7 +342,7 @@ CREATE TABLE `wp_bp_messages_notices` (
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `wp_bp_messages_recipients`
+-- Estructura de tabla para la tabla `wp_bp_messages_recipients`
 --
 
 CREATE TABLE `wp_bp_messages_recipients` (
@@ -363,7 +363,7 @@ CREATE TABLE `wp_bp_messages_recipients` (
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `wp_bp_mod_contents`
+-- Estructura de tabla para la tabla `wp_bp_mod_contents`
 --
 
 CREATE TABLE `wp_bp_mod_contents` (
@@ -387,7 +387,7 @@ CREATE TABLE `wp_bp_mod_contents` (
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `wp_bp_mod_flags`
+-- Estructura de tabla para la tabla `wp_bp_mod_flags`
 --
 
 CREATE TABLE `wp_bp_mod_flags` (
@@ -404,7 +404,7 @@ CREATE TABLE `wp_bp_mod_flags` (
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `wp_bp_notifications`
+-- Estructura de tabla para la tabla `wp_bp_notifications`
 --
 
 CREATE TABLE `wp_bp_notifications` (
@@ -427,7 +427,7 @@ CREATE TABLE `wp_bp_notifications` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=76 ;
 
 --
--- Bolcant dades de la taula `wp_bp_notifications`
+-- Volcado de datos para la tabla `wp_bp_notifications`
 --
 
 INSERT INTO `wp_bp_notifications` (`id`, `user_id`, `item_id`, `secondary_item_id`, `component_name`, `component_action`, `date_notified`, `is_new`) VALUES
@@ -439,7 +439,7 @@ INSERT INTO `wp_bp_notifications` (`id`, `user_id`, `item_id`, `secondary_item_i
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `wp_bp_notifications_meta`
+-- Estructura de tabla para la tabla `wp_bp_notifications_meta`
 --
 
 CREATE TABLE `wp_bp_notifications_meta` (
@@ -455,7 +455,7 @@ CREATE TABLE `wp_bp_notifications_meta` (
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `wp_bp_xprofile_data`
+-- Estructura de tabla para la tabla `wp_bp_xprofile_data`
 --
 
 CREATE TABLE `wp_bp_xprofile_data` (
@@ -470,7 +470,7 @@ CREATE TABLE `wp_bp_xprofile_data` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
--- Bolcant dades de la taula `wp_bp_xprofile_data`
+-- Volcado de datos para la tabla `wp_bp_xprofile_data`
 --
 
 INSERT INTO `wp_bp_xprofile_data` (`id`, `field_id`, `user_id`, `value`, `last_updated`) VALUES
@@ -480,7 +480,7 @@ INSERT INTO `wp_bp_xprofile_data` (`id`, `field_id`, `user_id`, `value`, `last_u
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `wp_bp_xprofile_fields`
+-- Estructura de tabla para la tabla `wp_bp_xprofile_fields`
 --
 
 CREATE TABLE `wp_bp_xprofile_fields` (
@@ -505,7 +505,7 @@ CREATE TABLE `wp_bp_xprofile_fields` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Bolcant dades de la taula `wp_bp_xprofile_fields`
+-- Volcado de datos para la tabla `wp_bp_xprofile_fields`
 --
 
 INSERT INTO `wp_bp_xprofile_fields` (`id`, `group_id`, `parent_id`, `type`, `name`, `description`, `is_required`, `is_default_option`, `field_order`, `option_order`, `order_by`, `can_delete`) VALUES
@@ -514,7 +514,7 @@ INSERT INTO `wp_bp_xprofile_fields` (`id`, `group_id`, `parent_id`, `type`, `nam
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `wp_bp_xprofile_groups`
+-- Estructura de tabla para la tabla `wp_bp_xprofile_groups`
 --
 
 CREATE TABLE `wp_bp_xprofile_groups` (
@@ -528,7 +528,7 @@ CREATE TABLE `wp_bp_xprofile_groups` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Bolcant dades de la taula `wp_bp_xprofile_groups`
+-- Volcado de datos para la tabla `wp_bp_xprofile_groups`
 --
 
 INSERT INTO `wp_bp_xprofile_groups` (`id`, `name`, `description`, `group_order`, `can_delete`) VALUES
@@ -537,7 +537,7 @@ INSERT INTO `wp_bp_xprofile_groups` (`id`, `name`, `description`, `group_order`,
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `wp_bp_xprofile_meta`
+-- Estructura de tabla para la tabla `wp_bp_xprofile_meta`
 --
 
 CREATE TABLE `wp_bp_xprofile_meta` (
@@ -554,7 +554,7 @@ CREATE TABLE `wp_bp_xprofile_meta` (
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `wp_commentmeta`
+-- Estructura de tabla para la tabla `wp_commentmeta`
 --
 
 CREATE TABLE `wp_commentmeta` (
@@ -570,7 +570,7 @@ CREATE TABLE `wp_commentmeta` (
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `wp_comments`
+-- Estructura de tabla para la tabla `wp_comments`
 --
 
 CREATE TABLE `wp_comments` (
@@ -600,7 +600,7 @@ CREATE TABLE `wp_comments` (
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `wp_es_deliverreport`
+-- Estructura de tabla para la tabla `wp_es_deliverreport`
 --
 
 CREATE TABLE `wp_es_deliverreport` (
@@ -617,7 +617,7 @@ CREATE TABLE `wp_es_deliverreport` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
--- Bolcant dades de la taula `wp_es_deliverreport`
+-- Volcado de datos para la tabla `wp_es_deliverreport`
 --
 
 INSERT INTO `wp_es_deliverreport` (`es_deliver_id`, `es_deliver_sentguid`, `es_deliver_emailid`, `es_deliver_emailmail`, `es_deliver_sentdate`, `es_deliver_status`, `es_deliver_viewdate`, `es_deliver_sentstatus`, `es_deliver_senttype`) VALUES
@@ -627,7 +627,7 @@ INSERT INTO `wp_es_deliverreport` (`es_deliver_id`, `es_deliver_sentguid`, `es_d
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `wp_es_emaillist`
+-- Estructura de tabla para la tabla `wp_es_emaillist`
 --
 
 CREATE TABLE `wp_es_emaillist` (
@@ -643,7 +643,7 @@ CREATE TABLE `wp_es_emaillist` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
--- Bolcant dades de la taula `wp_es_emaillist`
+-- Volcado de datos para la tabla `wp_es_emaillist`
 --
 
 INSERT INTO `wp_es_emaillist` (`es_email_id`, `es_email_name`, `es_email_mail`, `es_email_status`, `es_email_created`, `es_email_viewcount`, `es_email_group`, `es_email_guid`) VALUES
@@ -652,7 +652,7 @@ INSERT INTO `wp_es_emaillist` (`es_email_id`, `es_email_name`, `es_email_mail`, 
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `wp_es_notification`
+-- Estructura de tabla para la tabla `wp_es_notification`
 --
 
 CREATE TABLE `wp_es_notification` (
@@ -665,7 +665,7 @@ CREATE TABLE `wp_es_notification` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Bolcant dades de la taula `wp_es_notification`
+-- Volcado de datos para la tabla `wp_es_notification`
 --
 
 INSERT INTO `wp_es_notification` (`es_note_id`, `es_note_cat`, `es_note_group`, `es_note_templ`, `es_note_status`) VALUES
@@ -674,7 +674,7 @@ INSERT INTO `wp_es_notification` (`es_note_id`, `es_note_cat`, `es_note_group`, 
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `wp_es_pluginconfig`
+-- Estructura de tabla para la tabla `wp_es_pluginconfig`
 --
 
 CREATE TABLE `wp_es_pluginconfig` (
@@ -703,7 +703,7 @@ CREATE TABLE `wp_es_pluginconfig` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Bolcant dades de la taula `wp_es_pluginconfig`
+-- Volcado de datos para la tabla `wp_es_pluginconfig`
 --
 
 INSERT INTO `wp_es_pluginconfig` (`es_c_id`, `es_c_fromname`, `es_c_fromemail`, `es_c_mailtype`, `es_c_adminmailoption`, `es_c_adminemail`, `es_c_adminmailsubject`, `es_c_adminmailcontant`, `es_c_usermailoption`, `es_c_usermailsubject`, `es_c_usermailcontant`, `es_c_optinoption`, `es_c_optinsubject`, `es_c_optincontent`, `es_c_optinlink`, `es_c_unsublink`, `es_c_unsubtext`, `es_c_unsubhtml`, `es_c_subhtml`, `es_c_message1`, `es_c_message2`) VALUES
@@ -712,7 +712,7 @@ INSERT INTO `wp_es_pluginconfig` (`es_c_id`, `es_c_fromname`, `es_c_fromemail`, 
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `wp_es_sentdetails`
+-- Estructura de tabla para la tabla `wp_es_sentdetails`
 --
 
 CREATE TABLE `wp_es_sentdetails` (
@@ -733,7 +733,7 @@ CREATE TABLE `wp_es_sentdetails` (
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `wp_es_templatetable`
+-- Estructura de tabla para la tabla `wp_es_templatetable`
 --
 
 CREATE TABLE `wp_es_templatetable` (
@@ -746,7 +746,7 @@ CREATE TABLE `wp_es_templatetable` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
--- Bolcant dades de la taula `wp_es_templatetable`
+-- Volcado de datos para la tabla `wp_es_templatetable`
 --
 
 INSERT INTO `wp_es_templatetable` (`es_templ_id`, `es_templ_heading`, `es_templ_body`, `es_templ_status`, `es_email_type`) VALUES
@@ -757,7 +757,7 @@ INSERT INTO `wp_es_templatetable` (`es_templ_id`, `es_templ_heading`, `es_templ_
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `wp_links`
+-- Estructura de tabla para la tabla `wp_links`
 --
 
 CREATE TABLE `wp_links` (
@@ -781,7 +781,7 @@ CREATE TABLE `wp_links` (
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `wp_options`
+-- Estructura de tabla para la tabla `wp_options`
 --
 
 CREATE TABLE `wp_options` (
@@ -791,10 +791,10 @@ CREATE TABLE `wp_options` (
   `autoload` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'yes',
   PRIMARY KEY (`option_id`),
   UNIQUE KEY `option_name` (`option_name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=4752 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=4767 ;
 
 --
--- Bolcant dades de la taula `wp_options`
+-- Volcado de datos para la tabla `wp_options`
 --
 
 INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES
@@ -1148,19 +1148,21 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (4619, 'simple-calendar_settings_advanced', 'a:1:{s:6:"assets";a:1:{s:11:"disable_css";s:0:"";}}', 'yes'),
 (4626, 'simple-calendar_version', '3.1.9', 'yes'),
 (4627, 'can_compress_scripts', '1', 'yes'),
-(4636, 'theme_mods_reactor-projectes', 'a:1:{s:18:"nav_menu_locations";a:1:{s:9:"main-menu";i:145;}}', 'yes'),
+(4636, 'theme_mods_reactor-projectes', 'a:2:{s:18:"nav_menu_locations";a:1:{s:9:"main-menu";i:145;}s:18:"custom_css_post_id";i:-1;}', 'yes'),
 (4637, 'widget_widget_recent_bp_docs', 'a:2:{i:1;a:0:{}s:12:"_multiwidget";i:1;}', 'yes'),
 (4691, 'category_children', 'a:0:{}', 'yes'),
 (4718, 'calendar_category_children', 'a:0:{}', 'yes'),
 (4729, 'xtec_principal_node', 'Selecciona el node de professor', 'yes'),
 (4734, 'widget_toc-widget', 'a:1:{s:12:"_multiwidget";i:1;}', 'yes'),
 (4742, 'es_c_emailsubscribers', 's:4:"b:0;";', 'yes'),
-(4743, 'current_sa_email_subscribers_db_version', '3.2', 'yes');
+(4743, 'current_sa_email_subscribers_db_version', '3.2', 'yes'),
+(4759, 'toc-options', 'a:43:{s:15:"fragment_prefix";s:1:"i";s:8:"position";i:2;s:5:"start";i:4;s:17:"show_heading_text";b:1;s:12:"heading_text";s:10:"Continguts";s:22:"auto_insert_post_types";a:1:{i:0;s:4:"page";}s:14:"show_heirarchy";b:1;s:12:"ordered_list";b:0;s:13:"smooth_scroll";b:1;s:20:"smooth_scroll_offset";i:40;s:10:"visibility";b:0;s:15:"visibility_show";s:4:"show";s:15:"visibility_hide";s:4:"hide";s:26:"visibility_hide_by_default";b:0;s:5:"width";s:4:"Auto";s:12:"width_custom";d:275;s:18:"width_custom_units";s:2:"px";s:8:"wrapping";i:2;s:9:"font_size";d:95;s:15:"font_size_units";s:1:"%";s:5:"theme";i:1;s:24:"custom_background_colour";s:7:"#f9f9f9";s:20:"custom_border_colour";s:7:"#aaaaaa";s:19:"custom_title_colour";s:1:"#";s:19:"custom_links_colour";s:1:"#";s:25:"custom_links_hover_colour";s:1:"#";s:27:"custom_links_visited_colour";s:1:"#";s:9:"lowercase";b:0;s:9:"hyphenate";b:0;s:14:"bullet_spacing";b:0;s:16:"include_homepage";b:0;s:11:"exclude_css";b:0;s:7:"exclude";s:0:"";s:14:"heading_levels";a:6:{i:0;s:1:"1";i:1;s:1:"2";i:2;s:1:"3";i:3;s:1:"4";i:4;s:1:"5";i:5;s:1:"6";}s:13:"restrict_path";s:6:"/docs/";s:19:"css_container_class";s:0:"";s:25:"sitemap_show_page_listing";b:1;s:29:"sitemap_show_category_listing";b:1;s:20:"sitemap_heading_type";i:3;s:13:"sitemap_pages";s:5:"Pages";s:18:"sitemap_categories";s:10:"Categories";s:23:"show_toc_in_widget_only";b:0;s:34:"show_toc_in_widget_only_post_types";a:1:{i:0;s:4:"page";}}', 'yes'),
+(4766, 'es_rm_notice_email_subscribers', 'no', 'yes');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `wp_postmeta`
+-- Estructura de tabla para la tabla `wp_postmeta`
 --
 
 CREATE TABLE `wp_postmeta` (
@@ -1174,7 +1176,7 @@ CREATE TABLE `wp_postmeta` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=4800 ;
 
 --
--- Bolcant dades de la taula `wp_postmeta`
+-- Volcado de datos para la tabla `wp_postmeta`
 --
 
 INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUES
@@ -2278,7 +2280,7 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `wp_posts`
+-- Estructura de tabla para la tabla `wp_posts`
 --
 
 CREATE TABLE `wp_posts` (
@@ -2313,17 +2315,15 @@ CREATE TABLE `wp_posts` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=8193 ;
 
 --
--- Bolcant dades de la taula `wp_posts`
+-- Volcado de datos para la tabla `wp_posts`
 --
 
 INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_title`, `post_excerpt`, `post_status`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_content_filtered`, `post_parent`, `guid`, `menu_order`, `post_type`, `post_mime_type`, `comment_count`) VALUES
 (5, 1, '2014-09-12 09:46:02', '2014-09-12 09:46:02', '', 'Activitat a tot el lloc web', '', 'publish', 'closed', 'closed', '', 'activitat', '', '', '2017-02-23 12:11:00', '2017-02-23 11:11:00', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/?page_id=5', 0, 'page', '', 0),
 (6, 1, '2014-09-12 09:46:02', '2014-09-12 09:46:02', '', 'Membres', '', 'publish', 'closed', 'closed', '', 'membres', '', '', '2014-09-22 14:13:29', '2014-09-22 14:13:29', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/?page_id=6', 0, 'page', '', 0),
 (7, 1, '2014-09-12 10:14:31', '2014-09-12 10:14:31', '', 'Pàgines d''inici', '', 'publish', 'closed', 'closed', '', 'pagines-dinici', '', '', '2014-09-22 14:13:29', '2014-09-22 14:13:29', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/?page_id=7', 0, 'page', '', 0),
-(8, 1, '2014-09-12 10:14:31', '2014-09-12 10:14:31', '', 'Pàgines d''inici', '', 'inherit', 'open', 'open', '', '7-revision-v1', '', '', '2014-09-12 10:14:31', '2014-09-12 10:14:31', '', 7, 'http://pwc-int.educacio.intranet/agora/masterpro/2014/09/7-revision-v1/', 0, 'revision', '', 0),
 (9, 1, '2014-09-12 10:15:01', '2014-09-12 10:15:01', '', 'Inici', '', 'publish', 'closed', 'closed', '', 'pagina-dinici-buida', '', '', '2014-09-22 14:13:29', '2014-09-22 14:13:29', '', 7, 'http://pwc-int.educacio.intranet/agora/masterpro/?page_id=9', 0, 'page', '', 0),
 (13, 1, '2014-09-12 11:05:02', '2014-09-12 11:05:02', 'Pàgina d''avís', 'Avís', '', 'publish', 'closed', 'closed', '', 'avis', '', '', '2014-09-22 14:13:29', '2014-09-22 14:13:29', '', 7, 'http://pwc-int.educacio.intranet/agora/masterpro/?page_id=13', 0, 'page', '', 0),
-(14, 1, '2014-09-12 11:05:02', '2014-09-12 11:05:02', 'Pàgina d''avís', 'Avís', '', 'inherit', 'open', 'open', '', '13-revision-v1', '', '', '2014-09-12 11:05:02', '2014-09-12 11:05:02', '', 13, 'http://pwc-int.educacio.intranet/agora/masterpro/2014/09/13-revision-v1/', 0, 'revision', '', 0),
 (16, 1, '2014-09-12 12:40:45', '2014-09-12 12:40:45', '', 'Nodes', '', 'publish', 'closed', 'closed', '', 'nodes', '', '', '2014-09-22 14:13:29', '2014-09-22 14:13:29', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/nodes/', 0, 'page', '', 0),
 (31, 1, '2014-09-17 16:26:18', '2014-09-17 16:26:18', '', 'Instal·lacions', '', 'trash', 'closed', 'closed', '', 'instal%c2%b7lacions__trashed', '', '', '2017-03-07 10:05:09', '2017-03-07 09:05:09', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/?post_type=slideshow&#038;p=31', 0, 'slideshow', '', 0),
 (32, 1, '2014-09-17 16:29:37', '2014-09-17 16:29:37', '', 'exemple1', '', 'inherit', 'open', 'open', '', 'exemple1', '', '', '2014-09-17 16:29:37', '2014-09-17 16:29:37', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/wp-content/uploads/usu3/2014/09/exemple1.png', 0, 'attachment', 'image/png', 0),
@@ -2333,12 +2333,8 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 (36, 1, '2014-09-17 16:29:41', '2014-09-17 16:29:41', '', 'exemple3b', '', 'inherit', 'open', 'open', '', 'exemple3b', '', '', '2014-09-17 16:29:41', '2014-09-17 16:29:41', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/wp-content/uploads/usu3/2014/09/exemple3b.png', 0, 'attachment', 'image/png', 0),
 (37, 1, '2014-09-17 16:31:11', '2014-09-17 16:31:11', '', 'exemple2', '', 'inherit', 'open', 'open', '', 'exemple2', '', '', '2014-09-17 16:31:11', '2014-09-17 16:31:11', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/wp-content/uploads/usu3/2014/09/exemple2.png', 0, 'attachment', 'image/png', 0),
 (107, 1, '2014-09-18 16:34:30', '2014-09-18 16:34:30', '', 'Capçalera', '', 'publish', 'closed', 'closed', '', 'capcalera-2', '', '', '2017-03-15 12:16:41', '2017-03-15 11:16:41', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/?post_type=slideshow&#038;p=107', 0, 'slideshow', '', 0),
-(111, 1, '2014-09-18 16:44:58', '2014-09-18 16:44:58', '', 'Inici', '', 'inherit', 'open', 'open', '', '9-revision-v1', '', '', '2014-09-18 16:44:58', '2014-09-18 16:44:58', '', 9, 'http://pwc-int.educacio.intranet/agora/masterpro/general/9-revision-v1.html', 0, 'revision', '', 0),
 (113, 1, '2014-09-18 17:21:02', '2014-09-18 17:21:02', 'Node del Departament de Ciències Naturals', 'Dep. Ciències', '', 'private', 'closed', 'open', '', 'dep-ciencies', '', '', '2014-09-18 17:21:02', '2014-09-18 17:21:02', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/forums/forum/dep-ciencies', 0, 'forum', '', 0),
 (115, 1, '2014-09-18 17:40:29', '2014-09-18 17:40:29', 'Node del departament de ciències socials (professorat)', 'Dep. Socials', '', 'private', 'closed', 'open', '', 'dep-socials', '', '', '2014-09-18 17:40:29', '2014-09-18 17:40:29', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/forums/forum/dep-socials', 0, 'forum', '', 0),
-(122, 1, '2014-09-19 09:55:11', '2014-09-19 09:55:11', '', 'Activitat', '', 'inherit', 'open', 'open', '', '5-revision-v1', '', '', '2014-09-19 09:55:11', '2014-09-19 09:55:11', '', 5, 'http://pwc-int.educacio.intranet/agora/masterpro/general/5-revision-v1.html', 0, 'revision', '', 0),
-(123, 1, '2014-09-19 09:55:11', '2014-09-19 09:55:11', '', 'Membres', '', 'inherit', 'open', 'open', '', '6-revision-v1', '', '', '2014-09-19 09:55:11', '2014-09-19 09:55:11', '', 6, 'http://pwc-int.educacio.intranet/agora/masterpro/general/6-revision-v1.html', 0, 'revision', '', 0),
-(124, 1, '2014-09-19 09:55:11', '2014-09-19 09:55:11', '', 'Nodes', '', 'inherit', 'open', 'open', '', '16-revision-v1', '', '', '2014-09-19 09:55:11', '2014-09-19 09:55:11', '', 16, 'http://pwc-int.educacio.intranet/agora/masterpro/general/16-revision-v1.html', 0, 'revision', '', 0),
 (131, 1, '2014-09-19 10:42:18', '2014-09-19 10:42:18', '', 'primersauxilis', '', 'inherit', 'open', 'open', '', 'primersauxilis', '', '', '2014-09-19 10:42:18', '2014-09-19 10:42:18', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/wp-content/uploads/usu3/2014/09/primersauxilis.jpg', 0, 'attachment', 'image/jpeg', 0),
 (141, 1, '2014-09-19 11:18:24', '2014-09-19 11:18:24', '', 'cicles', '', 'inherit', 'open', 'open', '', 'cicles', '', '', '2014-09-19 11:18:24', '2014-09-19 11:18:24', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/wp-content/uploads/usu3/2014/09/cicles.png', 0, 'attachment', 'image/png', 0),
 (146, 1, '2014-09-19 12:05:27', '2014-09-19 12:05:27', '', 'gimnas', '', 'inherit', 'open', 'open', '', 'gimnas', '', '', '2014-09-19 12:05:27', '2014-09-19 12:05:27', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/wp-content/uploads/usu3/2014/09/gimnas.png', 0, 'attachment', 'image/png', 0),
@@ -2355,8 +2351,6 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 (177, 1, '2014-09-19 16:45:37', '2014-09-19 16:45:37', 'Node del departament de música (professorat)', 'Dep. Música', '', 'private', 'closed', 'open', '', 'dep-musica', '', '', '2014-09-19 16:45:37', '2014-09-19 16:45:37', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/forums/forum/dep-musica', 0, 'forum', '', 0),
 (178, 1, '2014-09-19 16:50:06', '2014-09-19 16:50:06', 'Node del departament d&#039;Orientació (professorat)', 'Dep. Orientació', '', 'private', 'closed', 'open', '', 'dep-orientacio', '', '', '2014-09-19 16:50:06', '2014-09-19 16:50:06', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/forums/forum/dep-orientacio', 0, 'forum', '', 0),
 (179, 1, '2014-09-19 17:00:49', '2014-09-19 17:00:49', 'Node del departament d&#039;Informàtica (professorat)', 'Dep. Informàtica', '', 'private', 'closed', 'open', '', 'dep-informatica', '', '', '2014-09-19 17:00:49', '2014-09-19 17:00:49', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/forums/forum/dep-informatica', 0, 'forum', '', 0),
-(180, 1, '2014-09-22 09:09:03', '2014-09-22 09:09:03', 'Hola que tal', 'Inici', '', 'inherit', 'open', 'open', '', '9-revision-v1', '', '', '2014-09-22 09:09:03', '2014-09-22 09:09:03', '', 9, 'http://pwc-int.educacio.intranet/agora/masterpro/general/9-revision-v1.html', 0, 'revision', '', 0),
-(181, 1, '2014-09-22 09:12:59', '2014-09-22 09:12:59', '', 'Inici', '', 'inherit', 'open', 'open', '', '9-revision-v1', '', '', '2014-09-22 09:12:59', '2014-09-22 09:12:59', '', 9, 'http://pwc-int.educacio.intranet/agora/masterpro/general/9-revision-v1.html', 0, 'revision', '', 0),
 (185, 1, '2014-09-22 10:13:06', '2014-09-22 10:13:06', '', 'ampa', '', 'inherit', 'open', 'open', '', 'ampa-2', '', '', '2014-09-22 10:13:06', '2014-09-22 10:13:06', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/wp-content/uploads/usu3/2014/09/ampa.png', 0, 'attachment', 'image/png', 0),
 (202, 1, '2014-09-22 15:03:12', '2014-09-22 15:03:12', '', 'Destacat Nodes', '', 'trash', 'closed', 'closed', '', 'destacat-nodes__trashed', '', '', '2017-03-07 10:05:00', '2017-03-07 09:05:00', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/?post_type=slideshow&#038;p=202', 0, 'slideshow', '', 0),
 (203, 1, '2014-09-22 14:12:23', '2014-09-22 14:12:23', 'Node dedicat a l&#039;educació emocional', 'Educació emocional', '', 'publish', 'closed', 'open', '', 'educacio-emocional', '', '', '2014-09-22 14:12:23', '2014-09-22 14:12:23', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/forums/forum/educacio-emocional', 0, 'forum', '', 0),
@@ -2404,10 +2398,10 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 (806, 1, '2015-11-28 21:29:55', '2015-11-28 20:29:55', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ut bibendum libero. Donec lectus purus, pellentesque et volutpat non, euismod id erat. Aliquam vitae tincidunt lacus. Vivamus aliquet ornare tellus, quis varius nisl suscipit posuere. Aliquam interdum at neque et feugiat. Nullam odio orci, condimentum eu lobortis eu, feugiat sit amet sapien. Cras vitae condimentum risus. Aliquam erat volutpat. Nullam cursus justo nec purus elementum condimentum.\r\n\r\nSuspendisse in enim sed diam mattis fermentum a vitae tellus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut sed ligula tortor. Vestibulum at odio a turpis sollicitudin feugiat ut vel dolor. Donec venenatis, est ullamcorper tincidunt congue, risus neque bibendum lorem, id vulputate metus elit vitae mi. Sed sit amet magna faucibus, tempor est ut, porta felis. In hac habitasse platea dictumst. Ut posuere neque quis metus suscipit, ac congue mi rutrum. Nulla facilisi. Duis eleifend diam ac lectus mollis, quis tempor felis egestas. Donec laoreet elit non magna blandit, sed mollis arcu faucibus.\r\n', 'El projecte', '', 'publish', 'closed', 'closed', '', 'el-projecte', '', '', '2017-03-07 10:00:39', '2017-03-07 09:00:39', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/?page_id=806', 0, 'page', '', 0),
 (879, 1, '2015-11-29 13:12:08', '2015-11-29 12:12:08', '<p>Fitxa per demanar una maleta pedagògica o un aparell</p>\r\n', 'Fitxa de petició de recursos', '', 'publish', 'open', 'open', '', 'fitxa-de-peticio-de-recursos', '', '', '2015-12-02 14:24:00', '2015-12-02 13:24:00', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/docs/', 0, 'bp_doc', '', 0),
 (882, 1, '2015-11-29 13:21:12', '2015-11-29 12:21:12', '<div class="gce-list-event gce-tooltip-event">[event-title]</div>\n[if-not-all-day]\n[if-single-day]\n<div>Quan: [start-time]-[end-time]</div>\n[/if-single-day]\n[/if-not-all-day]\n[if-multi-day]\n<div>Del [start-date] fins al [end-date]</div>\n[/if-multi-day]\n[if-location]\n<div>Ubicació: [location]</div>\n[/if-location]\n[if-description]\n<div>Descripció: [description]</div>\n[/if-description]\n<div>[link newwindow="true"]Més detalls...[/link]</div>', 'Reserva d''aparells', '', 'trash', 'closed', 'closed', '', 'reserva-daparells__trashed', '', '', '2017-03-07 10:05:30', '2017-03-07 09:05:30', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/?post_type=gce_feed&#038;p=882', 0, 'calendar', '', 0),
-(944, 1, '2015-11-29 20:20:56', '2015-11-29 19:20:56', 'Programa Fòrum de Treballs de recerca i crèdits de síntesi', 'Programa Fòrum de Treballs de recerca 2015', '', 'publish', 'open', 'open', '', 'programa-forum-de-treballs-de-recerca', '', '', '2015-12-02 14:26:25', '2015-12-02 13:26:25', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/docs/', 0, 'bp_doc', '', 0);
-INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_title`, `post_excerpt`, `post_status`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_content_filtered`, `post_parent`, `guid`, `menu_order`, `post_type`, `post_mime_type`, `comment_count`) VALUES
+(944, 1, '2015-11-29 20:20:56', '2015-11-29 19:20:56', 'Programa Fòrum de Treballs de recerca i crèdits de síntesi', 'Programa Fòrum de Treballs de recerca 2015', '', 'publish', 'open', 'open', '', 'programa-forum-de-treballs-de-recerca', '', '', '2015-12-02 14:26:25', '2015-12-02 13:26:25', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/docs/', 0, 'bp_doc', '', 0),
 (952, 1, '2015-11-29 20:41:28', '2015-11-29 19:41:28', '<strong>BASES PER A LA PARTICIPACIÓ:</strong>\n<ol>\n	<li>Hi pot participar l’alumnat de segon curs de batxillerat i de segon dels cicles formatius de grau superior d’FP de les àrees Científico-Tècniques que hagi estat seleccionat prèviament als diferents centres de la zona. El criteri de selecció el fixarà cada centre.</li>\n	<li><span style="line-height: 1.5;">Els treballs presentats poden ser individuals o col·lectius, de creació pròpia.</span></li>\n	<li><span style="line-height: 1.5;">Cada centre docent pot presentar un màxim de 6 treballs per cada modalitat de batxillerat o cicle formatiu i fins a un màxim de 8 per centre.</span></li>\n	<li><span style="line-height: 1.5;">Els resums dels treballs s''han de presentar en format digital seguint aquestes pautes:</span></li>\n	<li><span style="line-height: 1.5;">Resum que contingui com a mínim les següents parts: introducció, desenvolupament del tema i conclusions de la recerca (disposeu de document tipus a la web).</span></li>\n	<li><span style="line-height: 1.5;">S''han d''adjuntar els documents i materials necessaris per a la seva exposició. Per tal d''unificar format de cara a la publicació, es recomana seguir aquests models.</span></li>\n	<li><span style="line-height: 1.5;">Els abstracts (resums) dels treballs s’hauran de lliurar al CRP del Tarragonès, abans del 8 de març de 2015, preferentment per correu electrònic a l’adreça: xgranell@xtec.cat en format digital.</span></li>\n	<li><span style="line-height: 1.5;">L’acte de celebració del IX Fòrum tindrà lloc el divendres 17 d’abril de 2015.</span></li>\n	<li><span style="line-height: 1.5;">L’organització confeccionarà una llista amb l’ordre en el que s''hauran d’exposar els treballs.</span></li>\n	<li><span style="line-height: 1.5;">L’organització es reserva el dret de difondre el resum dels treballs, total o parcialment, a través de qualsevol suport o mitjà.</span></li>\n	<li><span style="line-height: 1.5;">L’organització, en funció dels espais de que es disposin per fer l’activitat, fixarà per a cada centre el nombre d’alumnes de primer curs que podran assistir. En tot cas, es procurarà, si la capacitat dels espais on es realitzi el fòrum ho permet, que hi puguin assistir el màxim nombre d’alumnes.</span></li>\n	<li><span style="line-height: 1.5;">El fet de participar en aquest Fòrum pressuposa l’acceptació de les bases. Qualsevol circumstància no prevista serà resolta per l’organització. </span></li>\n</ol>', 'Bases fòrum treballs de recerca 2015', '', 'publish', 'open', 'open', '', 'bases-forum-treballs-de-recerca-2015', '', '', '2015-11-29 20:41:28', '2015-11-29 19:41:28', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/docs/', 0, 'bp_doc', '', 0),
-(956, 1, '2015-11-29 20:53:57', '2015-11-29 19:53:57', '<p>Cal lliurar els abstracts abans del <strong>8 de març</strong> de 2015</p>\r\n', 'Model resum de treball de recerca 2015', '', 'publish', 'open', 'open', '', 'model-resum-de-treball-de-recerca-2015', '', '', '2015-12-02 14:22:12', '2015-12-02 13:22:12', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/docs/', 0, 'bp_doc', '', 0),
+(956, 1, '2015-11-29 20:53:57', '2015-11-29 19:53:57', '<p>Cal lliurar els abstracts abans del <strong>8 de març</strong> de 2015</p>\r\n', 'Model resum de treball de recerca 2015', '', 'publish', 'open', 'open', '', 'model-resum-de-treball-de-recerca-2015', '', '', '2015-12-02 14:22:12', '2015-12-02 13:22:12', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/docs/', 0, 'bp_doc', '', 0);
+INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_title`, `post_excerpt`, `post_status`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_content_filtered`, `post_parent`, `guid`, `menu_order`, `post_type`, `post_mime_type`, `comment_count`) VALUES
 (982, 1, '2015-11-29 23:06:40', '2015-11-29 22:06:40', '1. S’estableixen 7 categories segons el nivell educatiu, quatre per a l’educació primària i tres per a l’educació secundària obligatòria.\n<ul>\n	<li><b>A. Alumnat de cicle inicial d’educació primària</b></li>\n	<li><b>B. Alumnat de cicle mitjà d’educació primària</b></li>\n	<li><b>C. Alumnat dl cicle superior d’educació primària</b></li>\n	<li><b>D. Alumnat d’educació especial d’educació primària</b></li>\n	<li><b>E. Alumnat de 1r i 2n d’educació secundària obligatòria</b></li>\n	<li><b>F. Alumnat de 3r i 4t d’educació secundària obligatòria</b></li>\n	<li><b>G. Alumnat d’educació especial d’educació secundària obligatòria </b></li>\n</ul>\n2. La participació al certamen és voluntària.\n\n3. Els treballs presentats, un per categoria, poden ser individuals o col·lectius (màxim 6 alumnes) i sempre de creació pròpia.\n\n4. Els treballs han de ser escrits en llengua catalana o en aranès.\n\n5. La modalitat pot ser poesia o prosa. El tema és lliure.\n\n6. Característiques de la presentació:\n<ul>\n	<li>El text s’ha de presentar en DIN A4, escrit per una sola cara i a doble espai.</li>\n	<li>L’extensió no pot ser superior a 3 fulls, amb un màxim de 25 línies per full.</li>\n</ul>\n<ul>\n	<li>El cos de la lletra ha de ser arial 12.\n<ul>\n	<li>Hi ha de constar el títol de l’obra, i a baix a la dreta la categoria i el pseudònim.</li>\n	<li>És imprescindible que els treballs arribin corregits quant a l’ortografia, la sintaxi i el vocabulari.</li>\n</ul>\n</li>\n</ul>\n7. El jurat seleccionarà un text per a cadascuna de les 7 categories.\n\n8. Els treballs guardonats es penjaran al web de la XTEC <a href="http://www.xtec.cat/web/centres/alscentres/premis/jocsflorals" rel="nofollow">http://www.xtec.cat/web/centres/alscentres/premis/jocsflorals</a>\n\n9. Per poder participar en el certamen, els centres s’han d’adreçar al Servei Educatiu de Zona (CRP) i lliurar els treballs en el termini establert, en format digital i per correu electrònic.', 'Bases Jocs florals 2015', '', 'publish', 'open', 'open', '', 'bases-jocs-florals-2015', '', '', '2015-11-29 23:06:40', '2015-11-29 22:06:40', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/docs/', 0, 'bp_doc', '', 0),
 (1038, 1, '2014-10-07 05:44:15', '2014-10-07 05:44:15', '<div class="gce-list-event gce-tooltip-event">[event-title]</div>\n[if-not-all-day]\n[if-single-day]\n<div>Quan: [start-time]-[end-time]</div>\n[/if-single-day]\n[/if-not-all-day]\n[if-multi-day]\n<div>Del [start-date] fins el [end-date]</div>\n[/if-multi-day]\n[if-location]\n<div>On: [location]</div>\n[/if-location]\n[if-description]\n<div>[description]</div>\n[/if-description]\n<div>[link newwindow="true"]Més detalls...[/link]</div>', 'Agenda SE', '', 'trash', 'closed', 'closed', '', 'se__trashed', '', '', '2017-03-07 10:05:28', '2017-03-07 09:05:28', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/gce_feed/institut-larany', 0, 'calendar', '', 0),
 (1046, 1, '2015-11-30 09:50:49', '2015-11-30 08:50:49', '', 'Recursos', '', 'publish', 'open', 'closed', '', 'recursos-2', '', '', '2017-03-15 11:28:38', '2017-03-15 10:28:38', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/general/recursos-2/', 6, 'nav_menu_item', '', 0),
@@ -2419,15 +2413,6 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 (1087, 1, '2015-11-30 09:50:59', '2015-11-30 08:50:59', ' ', '', '', 'publish', 'open', 'closed', '', '1087', '', '', '2017-03-15 11:28:38', '2017-03-15 10:28:38', '', 806, 'http://pwc-int.educacio.intranet/agora/masterpro/general/1087/', 4, 'nav_menu_item', '', 0),
 (1088, 1, '2015-11-30 09:50:59', '2015-11-30 08:50:59', ' ', '', '', 'publish', 'open', 'closed', '', '1088', '', '', '2017-03-15 11:28:38', '2017-03-15 10:28:38', '', 806, 'http://pwc-int.educacio.intranet/agora/masterpro/general/1088/', 2, 'nav_menu_item', '', 0),
 (1120, 1, '2015-11-30 13:18:34', '2015-11-30 12:18:34', 'Node de comunicació entre formadors i el servei educatiu', 'Formadors', '', 'private', 'closed', 'open', '', 'formadors', '', '', '2015-11-30 13:18:34', '2015-11-30 12:18:34', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/forums/forum/formadors/', 0, 'forum', '', 0),
-(1121, 1, '2015-11-27 21:34:16', '2015-11-27 20:34:16', '', 'Fitxa de dades del formador/a', '', 'inherit', 'open', 'open', '', '701-revision-v1', '', '', '2015-11-27 21:34:16', '2015-11-27 20:34:16', '', 701, 'http://pwc-int.educacio.intranet/agora/masterpro/general/701-revision-v1/', 0, 'revision', '', 0),
-(1122, 1, '2015-11-27 21:43:09', '2015-11-27 20:43:09', '<ul>\n	<li>Qüestionari de valoració de cursos, tallers i seminaris, per part dels assistents</li>\n	<li>Full de valoració de grups de treball (per omplir conjuntament entre tots els participants)</li>\n	<li>Full de valoració de seminaris de coordinació (per omplir conjuntament entre tots els participants)</li>\n	<li>Full de valoració d’assessoraments (per part del centre)</li>\n	<li>Full de valoració del taller a centre</li>\n	<li>Valoració de l’activitat per part del formador/a.</li>\n</ul>\n<span style="color: #008000;"><strong>NOTA:</strong> alguns d''aquests qüestionaris es poden substituir per formularis a Google Forms.</span>', 'Qüestionaris de valoració', '', 'inherit', 'open', 'open', '', '704-revision-v1', '', '', '2015-11-27 21:43:09', '2015-11-27 20:43:09', '', 704, 'http://pwc-int.educacio.intranet/agora/masterpro/general/704-revision-v1/', 0, 'revision', '', 0),
-(1123, 1, '2015-11-27 21:08:18', '2015-11-27 20:08:18', 'Diferent al que se obté (diferent de l’acta d’assistència que s’obté a GTAF)', 'Acta de tancament de l’activitat', '', 'inherit', 'open', 'open', '', '697-revision-v1', '', '', '2015-11-27 21:08:18', '2015-11-27 20:08:18', '', 697, 'http://pwc-int.educacio.intranet/agora/masterpro/general/697-revision-v1/', 0, 'revision', '', 0),
-(1124, 1, '2015-11-27 21:02:28', '2015-11-27 20:02:28', '', 'Guia d’ús del GTAF', '', 'inherit', 'open', 'open', '', '693-revision-v1', '', '', '2015-11-27 21:02:28', '2015-11-27 20:02:28', '', 693, 'http://pwc-int.educacio.intranet/agora/masterpro/general/693-revision-v1/', 0, 'revision', '', 0),
-(1125, 1, '2015-11-27 20:52:29', '2015-11-27 19:52:29', 'Informació sobre tràmits i avaluació de grups de treball i seminaris de coordinació', 'Informació sobre tràmits i avaluació de grups de treball i seminaris de coordinació', '', 'inherit', 'open', 'open', '', '687-revision-v1', '', '', '2015-11-27 20:52:29', '2015-11-27 19:52:29', '', 687, 'http://pwc-int.educacio.intranet/agora/masterpro/general/687-revision-v1/', 0, 'revision', '', 0),
-(1126, 1, '2015-11-27 20:38:18', '2015-11-27 19:38:18', 'Informació sobre documentació, tràmits i avaluació de les activitats del pla de zona\nAssessoraments – Cursos – Seminaris – Tallers', 'Informació sobre documentació, tràmits i avaluació de les activitats', '', 'inherit', 'open', 'open', '', '684-revision-v1', '', '', '2015-11-27 20:38:18', '2015-11-27 19:38:18', '', 684, 'http://pwc-int.educacio.intranet/agora/masterpro/general/684-revision-v1/', 0, 'revision', '', 0),
-(1143, 1, '2015-11-30 16:52:19', '2015-11-30 15:52:19', 'Cada servei educatiu està format per un equip multidisciplinar:\r\n<ul>\r\n	<li><strong>CRP </strong>(Centre de recursos pedagògics): equip que dóna <strong>suport a l’activitat pedagògica dels centres</strong> i a la tasca docent de mestres i professorat, especialment, en temes de formació permanent, de recursos pedagògics i de dinamització de projectes de centre i de la zona. <a href="http://pwc-int.educacio.intranet/agora/masterpro/categoria/crp/">Blog del CRP</a>.</li>\r\n	<li><strong>EAP </strong>(Equip d’assesorament i orientació psicopedagògic)<span class="Apple-converted-space">: equip</span> que dóna suport al professorat i als centres educatius en la resposta a la <strong>diversitat de l’alumnat</strong> i en relació als alumnes que presenten <strong>necessitats educatives especials</strong>, així com a les seves famílies. <a href="http://pwc-int.educacio.intranet/agora/masterpro/categoria/eap/">Blog de l''EAP</a>.</li>\r\n	<li><strong>ELIC </strong>(Equip d’assessorament i orientació en llengua, interculturalitat i cohesió social): que donen suport al professorat en l’atenció a la diversitat relacionada amb l’alumnat, especialment procedent de la immigració i/o amb l’alumnat amb risc d’exclusió social, en l’àmbit dels centres educatius i els plans educatius d’entorn. <a href="http://pwc-int.educacio.intranet/agora/masterpro/categoria/elic/">Blog d''ELIC</a>.</li>\r\n</ul>\r\nEl Servei Educatiu també treballa de forma coordinada amb el <a href="http://www.xtec.cat/creda-lleida/">CREDA</a> (Centre de Recursos Educatius per a Deficients Auditius) de XXXXXXXXX i amb el professorat que atén l’alumnat amb discapacitat visual. Igualment, col·labora amb el <a href="http://blocs.xtec.cat/cdabages/">Camp d’Aprenentatge del XXXXXXXXXX</a> en diverses iniciatives.\r\n\r\n<img class=" size-full wp-image-185 alignright" src="http://pwc-int.educacio.intranet/agora/masterpro/wp-content/uploads/usu3/2014/09/ampa.png" alt="ampa" width="315" height="126" />\r\n\r\nPodeu consultar els <a href="http://pwc-int.educacio.intranet/agora/masterpro/docs/distribucio-de-professionals-per-centres/">professionals assignats al vostre centre</a>.', 'Equip', '', 'inherit', 'open', 'open', '', '306-revision-v1', '', '', '2015-11-30 16:52:19', '2015-11-30 15:52:19', '', 306, 'http://pwc-int.educacio.intranet/agora/masterpro/general/306-revision-v1/', 0, 'revision', '', 0),
-(1144, 1, '2015-11-28 03:00:10', '2015-11-28 02:00:10', '&nbsp;\n<table>\n<tbody>\n<tr>\n<td rowspan="2" width="203"><strong>CENTRE DOCENT</strong></td>\n<td colspan="2" width="378"><strong>EAP</strong></td>\n</tr>\n<tr>\n<td width="227"><strong>PSI</strong></td>\n<td width="151"><strong>TS</strong></td>\n</tr>\n<tr>\n<td width="203">ESC Alpha</td>\n<td width="227">Montserrat Farulla</td>\n<td width="151">Sandra Soria</td>\n</tr>\n<tr>\n<td width="203">ESC Beta</td>\n<td width="227">Montserrat Farulla</td>\n<td width="151">Neus Martín</td>\n</tr>\n<tr>\n<td width="203">ESC Gamma</td>\n<td width="227">Marta Pascual</td>\n<td width="151">Caridad Vilar</td>\n</tr>\n<tr>\n<td width="203">ESC Epsilon</td>\n<td width="227">Beatriz Alejandre</td>\n<td width="151">Neus Martín</td>\n</tr>\n<tr>\n<td width="203">ESC Omega</td>\n<td width="227">Beatriz Alejandre</td>\n<td width="151">Neus Martín</td>\n</tr>\n<tr>\n<td width="203">INS Alpha</td>\n<td width="227">Marta Pascual</td>\n<td width="151">Neus Martín</td>\n</tr>\n<tr>\n<td width="203">INS Beta</td>\n<td width="227">Beatriz Alejandre</td>\n<td width="151">Neus Martín</td>\n</tr>\n<tr>\n<td width="203">Escola Gamma</td>\n<td width="227">Marta Pascual</td>\n<td width="151">Sandra Soria</td>\n</tr>\n<tr>\n<td width="203">Escola Epsilon</td>\n<td width="227">Miquel Torico</td>\n<td width="151">Neus Martín</td>\n</tr>\n<tr>\n<td width="203">Escola Omega</td>\n<td width="227">Miquel Torico</td>\n<td width="151">Neus Martín</td>\n</tr>\n<tr>\n<td width="203">Escola Alpha</td>\n<td width="227">Montserrat Farulla</td>\n<td width="151">Sandra Soria</td>\n</tr>\n<tr>\n<td width="203">ESC Beta</td>\n<td width="227">Andreu Ora</td>\n<td width="151">Caridad Vilar</td>\n</tr>\n<tr>\n<td width="203">ESC Omega</td>\n<td width="227">Andreu Ora</td>\n<td width="151">Caridad Vilar</td>\n</tr>\n<tr>\n<td width="203">INS Gamma</td>\n<td width="227">Andreu Ora</td>\n<td width="151">Caridad Vilar</td>\n</tr>\n<tr>\n<td width="203">Escola Alpha</td>\n<td width="227">Marta Pascual</td>\n<td width="151">Caridad Vilar</td>\n</tr>\n<tr>\n<td width="203">ESC Beta</td>\n<td width="227">Montserrat Farulla</td>\n<td width="151">Caridad Vilar</td>\n</tr>\n<tr>\n<td width="203">ESC Alpha</td>\n<td width="227">Blanca Bages</td>\n<td width="151">Sandra Soria</td>\n</tr>\n<tr>\n<td width="203">ESC Omega</td>\n<td width="227">Miquel Torico</td>\n<td width="151">Sandra Soria</td>\n</tr>\n<tr>\n<td width="203">INS Epsilon</td>\n<td width="227">Miquel Torico</td>\n<td width="151">Sandra Soria</td>\n</tr>\n<tr>\n<td width="203">INS Gamma</td>\n<td width="227">Blanca Baiges</td>\n<td width="151">Sandra Soria</td>\n</tr>\n<tr>\n<td width="203">Escola Beta</td>\n<td width="227">Marta Pascual</td>\n<td width="151">Sandra Soria</td>\n</tr>\n<tr>\n<td width="203">Escola Alpha</td>\n<td width="227">Beatriz Aleja</td>\n<td width="151">Neus Martín</td>\n</tr>\n<tr>\n<td width="203">Escola Epsilon</td>\n<td width="227">Beatriz Aleja</td>\n<td width="151">Caridad Vilar</td>\n</tr>\n</tbody>\n</table>', 'EAP – Professionals adscrits', '', 'inherit', 'open', 'open', '', '732-revision-v1', '', '', '2015-11-28 03:00:10', '2015-11-28 02:00:10', '', 732, 'http://pwc-int.educacio.intranet/agora/masterpro/general/732-revision-v1/', 0, 'revision', '', 0),
-(1145, 1, '2015-11-30 16:56:03', '2015-11-30 15:56:03', '&nbsp;\r\n<table>\r\n<tbody>\r\n<tr>\r\n<td rowspan="2" width="203"><strong>CENTRE DOCENT</strong></td>\r\n<td colspan="2" width="378"><strong>EAP</strong></td>\r\n</tr>\r\n<tr>\r\n<td width="227"><strong>Psicopedagog/a</strong></td>\r\n<td width="151"><strong>Treballador/a social</strong></td>\r\n</tr>\r\n<tr>\r\n<td width="203">ESC Alpha</td>\r\n<td width="227">Montserrat Farulla</td>\r\n<td width="151">Sandra Soria</td>\r\n</tr>\r\n<tr>\r\n<td width="203">ESC Beta</td>\r\n<td width="227">Montserrat Farulla</td>\r\n<td width="151">Neus Martín</td>\r\n</tr>\r\n<tr>\r\n<td width="203">ESC Gamma</td>\r\n<td width="227">Marta Pascual</td>\r\n<td width="151">Caridad Vilar</td>\r\n</tr>\r\n<tr>\r\n<td width="203">ESC Epsilon</td>\r\n<td width="227">Beatriz Alejandre</td>\r\n<td width="151">Neus Martín</td>\r\n</tr>\r\n<tr>\r\n<td width="203">ESC Omega</td>\r\n<td width="227">Beatriz Alejandre</td>\r\n<td width="151">Neus Martín</td>\r\n</tr>\r\n<tr>\r\n<td width="203">INS Alpha</td>\r\n<td width="227">Marta Pascual</td>\r\n<td width="151">Neus Martín</td>\r\n</tr>\r\n<tr>\r\n<td width="203">INS Beta</td>\r\n<td width="227">Beatriz Alejandre</td>\r\n<td width="151">Neus Martín</td>\r\n</tr>\r\n<tr>\r\n<td width="203">Escola Gamma</td>\r\n<td width="227">Marta Pascual</td>\r\n<td width="151">Sandra Soria</td>\r\n</tr>\r\n<tr>\r\n<td width="203">Escola Epsilon</td>\r\n<td width="227">Miquel Torico</td>\r\n<td width="151">Neus Martín</td>\r\n</tr>\r\n<tr>\r\n<td width="203">Escola Omega</td>\r\n<td width="227">Miquel Torico</td>\r\n<td width="151">Neus Martín</td>\r\n</tr>\r\n<tr>\r\n<td width="203">Escola Alpha</td>\r\n<td width="227">Montserrat Farulla</td>\r\n<td width="151">Sandra Soria</td>\r\n</tr>\r\n<tr>\r\n<td width="203">ESC Beta</td>\r\n<td width="227">Andreu Ora</td>\r\n<td width="151">Caridad Vilar</td>\r\n</tr>\r\n<tr>\r\n<td width="203">ESC Omega</td>\r\n<td width="227">Andreu Ora</td>\r\n<td width="151">Caridad Vilar</td>\r\n</tr>\r\n<tr>\r\n<td width="203">INS Gamma</td>\r\n<td width="227">Andreu Ora</td>\r\n<td width="151">Caridad Vilar</td>\r\n</tr>\r\n<tr>\r\n<td width="203">Escola Alpha</td>\r\n<td width="227">Marta Pascual</td>\r\n<td width="151">Caridad Vilar</td>\r\n</tr>\r\n<tr>\r\n<td width="203">ESC Beta</td>\r\n<td width="227">Montserrat Farulla</td>\r\n<td width="151">Caridad Vilar</td>\r\n</tr>\r\n<tr>\r\n<td width="203">ESC Alpha</td>\r\n<td width="227">Blanca Bages</td>\r\n<td width="151">Sandra Soria</td>\r\n</tr>\r\n<tr>\r\n<td width="203">ESC Omega</td>\r\n<td width="227">Miquel Torico</td>\r\n<td width="151">Sandra Soria</td>\r\n</tr>\r\n<tr>\r\n<td width="203">INS Epsilon</td>\r\n<td width="227">Miquel Torico</td>\r\n<td width="151">Sandra Soria</td>\r\n</tr>\r\n<tr>\r\n<td width="203">INS Gamma</td>\r\n<td width="227">Blanca Baiges</td>\r\n<td width="151">Sandra Soria</td>\r\n</tr>\r\n<tr>\r\n<td width="203">Escola Beta</td>\r\n<td width="227">Marta Pascual</td>\r\n<td width="151">Sandra Soria</td>\r\n</tr>\r\n<tr>\r\n<td width="203">Escola Alpha</td>\r\n<td width="227">Beatriz Aleja</td>\r\n<td width="151">Neus Martín</td>\r\n</tr>\r\n<tr>\r\n<td width="203">Escola Epsilon</td>\r\n<td width="227">Beatriz Aleja</td>\r\n<td width="151">Caridad Vilar</td>\r\n</tr>\r\n</tbody>\r\n</table>', 'EAP – Professionals adscrits', '', 'inherit', 'open', 'open', '', '732-revision-v1', '', '', '2015-11-30 16:56:03', '2015-11-30 15:56:03', '', 732, 'http://pwc-int.educacio.intranet/agora/masterpro/general/732-revision-v1/', 0, 'revision', '', 0),
 (1147, 1, '2015-11-30 17:49:23', '2015-11-30 16:49:23', 'Node de coordinació dels seminaris TAC', 'TAC', '', 'publish', 'closed', 'open', '', 'tac', '', '', '2015-11-30 17:49:23', '2015-11-30 16:49:23', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/forums/forum/tac/', 0, 'forum', '', 0),
 (1156, 1, '2015-11-30 18:04:03', '2015-11-30 17:04:03', 'Algun centre està fent servir Chromebooks? Què recomaneu? ', 'Chromebooks vs Notebooks', '', 'spam', 'closed', 'open', '', 'chromebooks-vs-notebooks', '', '', '2016-03-17 13:58:39', '2016-03-17 12:58:39', '', 1147, 'https://pwc-int.educacio.intranet/agora/masterpro/forums/topic/chromebooks-vs-notebooks/', 0, 'topic', '', 0),
 (1157, 1, '2015-11-30 18:05:19', '2015-11-30 17:05:19', 'Quin model de portàtil recomaneu? Tenim un presupost de 200 € màxim per alumne.', 'Model de portatil (ESO)', '', 'spam', 'closed', 'open', '', 'model-de-portatil-eso', '', '', '2016-03-17 13:58:29', '2016-03-17 12:58:29', '', 1147, 'https://pwc-int.educacio.intranet/agora/masterpro/forums/topic/model-de-portatil-eso/', 0, 'topic', '', 0),
@@ -2442,43 +2427,14 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 (1168, 1, '2015-11-30 18:49:49', '2015-11-30 17:49:49', 'Contes que roden, Contes col·lectius, Contes encetats contes contats, Intercontes...', 'Contes col·laboratius', '', 'publish', 'closed', 'open', '', 'contes-col%c2%b7laboratius', '', '', '2015-11-30 18:49:49', '2015-11-30 17:49:49', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/forums/forum/contes-col%c2%b7laboratius/', 0, 'forum', '', 0),
 (1169, 1, '2015-11-30 18:55:35', '2015-11-30 17:55:35', 'Contes que roden, Contes col·lectius, Contes encetats contes contats, Intercontes...', 'Contes intercentres', '', 'publish', 'closed', 'open', '', 'contes-intercentres', '', '', '2015-11-30 18:55:35', '2015-11-30 17:55:35', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/forums/forum/contes-intercentres/', 0, 'forum', '', 0),
 (1170, 1, '2015-11-30 19:06:26', '2015-11-30 18:06:26', 'Necessites un domini propi però, a part d''això, no té cap cost pel centre', '', '', 'publish', 'closed', 'open', '', '1170', '', '', '2015-11-30 19:06:26', '2015-11-30 18:06:26', '', 1160, 'https://pwc-int.educacio.intranet/agora/masterpro/forums/reply/1170/', 1, 'reply', '', 0),
-(1171, 1, '2015-11-30 19:16:09', '2015-11-30 18:16:09', 'Cada servei educatiu està format per un equip multidisciplinar:\r\n<ul>\r\n	<li><strong>CRP </strong>(Centre de recursos pedagògics): equip que dóna <strong>suport a l’activitat pedagògica dels centres</strong> i a la tasca docent de mestres i professorat, especialment, en temes de formació permanent, de recursos pedagògics i de dinamització de projectes de centre i de la zona. Podeu consultar les activitats, recursos i notícies a l''apartat dinàmic del<a href="http://pwc-int.educacio.intranet/agora/masterpro/categoria/crp/"> CRP</a>.</li>\r\n	<li><strong>EAP </strong>(Equip d’assesorament i orientació psicopedagògic)<span class="Apple-converted-space">: equip</span> que dóna suport al professorat i als centres educatius en la resposta a la <strong>diversitat de l’alumnat</strong> i en relació als alumnes que presenten <strong>necessitats educatives especials</strong>, així com a les seves famílies. Podeu consultar les activitats, recursos i notícies a l''apartat dinàmic de l''<a href="http://pwc-int.educacio.intranet/agora/masterpro/categoria/eap/">EAP</a>.</li>\r\n	<li><strong>ELIC </strong>(Equip d’assessorament i orientació en llengua, interculturalitat i cohesió social): que donen suport al professorat en l’atenció a la diversitat relacionada amb l’alumnat, especialment procedent de la immigració i/o amb l’alumnat amb risc d’exclusió social, en l’àmbit dels centres educatius i els plans educatius d’entorn. Podeu consultar les activitats, recursos i notícies a l''apartat dinàmic de l''<a href="http://pwc-int.educacio.intranet/agora/masterpro/categoria/elic/">ELIC</a>.</li>\r\n</ul>\r\nEl Servei Educatiu també treballa de forma coordinada amb el <a href="http://www.xtec.cat/creda-lleida/">CREDA</a> (Centre de Recursos Educatius per a Deficients Auditius) de XXXXXXXXX i amb el professorat que atén l’alumnat amb discapacitat visual. Igualment, col·labora amb el <a href="http://blocs.xtec.cat/cdabages/">Camp d’Aprenentatge del XXXXXXXXXX</a> en diverses iniciatives.\r\n\r\n<img class=" size-full wp-image-185 alignright" src="http://pwc-int.educacio.intranet/agora/masterpro/wp-content/uploads/usu3/2014/09/ampa.png" alt="ampa" width="315" height="126" />\r\n\r\nPodeu consultar els <a href="http://pwc-int.educacio.intranet/agora/masterpro/docs/distribucio-de-professionals-per-centres/">professionals assignats al vostre centre</a>.', 'Equip', '', 'inherit', 'open', 'open', '', '306-revision-v1', '', '', '2015-11-30 19:16:09', '2015-11-30 18:16:09', '', 306, 'http://pwc-int.educacio.intranet/agora/masterpro/general/306-revision-v1/', 0, 'revision', '', 0),
-(1203, 1, '2015-12-01 10:03:37', '2015-12-01 09:03:37', 'Cal lliurar els abstracts abans del <strong>8 de març</strong> de 2015', 'Model resum de treball de recerca 2015', '', 'inherit', 'open', 'open', '', '956-revision-v1', '', '', '2015-12-01 10:03:37', '2015-12-01 09:03:37', '', 956, 'http://pwc-int.educacio.intranet/agora/masterpro/general/956-revision-v1/', 0, 'revision', '', 0),
 (1224, 1, '2015-12-01 11:19:03', '2015-12-01 10:19:03', '', 'favicon', '', 'inherit', 'open', 'open', '', 'favicon-2', '', '', '2015-12-01 11:19:03', '2015-12-01 10:19:03', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/wp-content/uploads/usu3/2015/12/favicon.ico', 0, 'attachment', 'image/x-icon', 0),
 (1225, 1, '2015-12-01 11:27:53', '2015-12-01 10:27:53', '', 'SEAltPenedes', '', 'inherit', 'open', 'open', '', 'sealtpenedes', '', '', '2015-12-01 11:27:53', '2015-12-01 10:27:53', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/wp-content/uploads/usu3/2015/12/SEAltPenedes.jpg', 0, 'attachment', 'image/jpeg', 0),
-(1228, 1, '2015-11-28 12:58:59', '2015-11-28 11:58:59', '<strong>Professionals de l''ELIC</strong>\n<ul>\n	<li>Rosa Bonet (referent equip ELIC)</li>\n	<li><span style="line-height: 1.5;">Anna Valls</span><span style="line-height: 1.5;"> (Pla educatiu d''entorn. XXXXXXX)</span></li>\n	<li>Carles Simarro (Pla educatiu d''entorn. XXXXXXXXX)</li>\n</ul>', 'ELIC - Professionals adscrits', '', 'inherit', 'open', 'open', '', '769-revision-v1', '', '', '2015-11-28 12:58:59', '2015-11-28 11:58:59', '', 769, 'http://pwc-int.educacio.intranet/agora/masterpro/general/769-revision-v1/', 0, 'revision', '', 0),
-(1229, 1, '2015-12-01 12:13:53', '2015-12-01 11:13:53', '<strong>Professionals de l''ELIC</strong>\r\n<ul>\r\n	<li>Rosa Bonet (referent equip ELIC)</li>\r\n	<li><span style="line-height: 1.5;">Anna Valls</span><span style="line-height: 1.5;"> (Pla educatiu d''entorn. XXXXXXX)</span></li>\r\n	<li>Carles Simarro (Pla educatiu d''entorn. XXXXXXXXX)</li>\r\n</ul>', 'ELIC – Professionals adscrits', '', 'inherit', 'open', 'open', '', '769-revision-v1', '', '', '2015-12-01 12:13:53', '2015-12-01 11:13:53', '', 769, 'http://pwc-int.educacio.intranet/agora/masterpro/general/769-revision-v1/', 0, 'revision', '', 0),
-(1230, 1, '2015-11-28 03:11:19', '2015-11-28 02:11:19', '<table border="0" width="409" cellspacing="0" cellpadding="2">\n<tbody>\n<tr>\n<td style="padding-left: 30px;">Carme Ferrer (directora)</td>\n<td><a href="http://xxxxxxxx@xtec.cat">xxxxxxxx@xtec.cat</a></td>\n</tr>\n<tr>\n<td style="padding-left: 30px;">Pere Serrat</td>\n<td><a href="http://xxxxxxxx@xtec.cat">xxxxxxxx@xtec.cat</a></td>\n</tr>\n<tr>\n<td style="padding-left: 30px;">Joana Vera</td>\n<td><a href="http://xxxxxxxx@xtec.cat">xxxxxxxx@xtec.cat</a></td>\n</tr>\n</tbody>\n</table>', 'CRP – Professionals adscrits', '', 'inherit', 'open', 'open', '', '736-revision-v1', '', '', '2015-11-28 03:11:19', '2015-11-28 02:11:19', '', 736, 'http://pwc-int.educacio.intranet/agora/masterpro/general/736-revision-v1/', 0, 'revision', '', 0),
-(1231, 1, '2015-11-28 10:44:37', '2015-11-28 09:44:37', '<table border="1" cellspacing="0" cellpadding="0" align="center">\n<tbody>\n<tr>\n<td><strong>Centre</strong></td>\n<td><strong>Professionals</strong></td>\n</tr>\n<tr>\n<td>ZER EL Solsonès</td>\n<td>Maite Gessé (CRP), Sílvia Ramiro (EAP)</td>\n</tr>\n<tr>\n<td>Escola Vall de Lord</td>\n<td>Joan Coromina (CRP), Elisabet Riudeubàs (EAP), Toni Casserras (LIC), Montserrat Ramonet (CREDA)</td>\n</tr>\n<tr>\n<td>SI Sant Llorenç</td>\n<td>Joan Coromina (CRP), Elisabet Riudeubàs (EAP)</td>\n</tr>\n<tr>\n<td>Escola Setelsis</td>\n<td>Maite Gessé (CRP), Yolanda Marín (EAP), Montse Ramonet (CREDA)</td>\n</tr>\n<tr>\n<td>Escola Arrels I</td>\n<td>Maite Gessé (CRP), Montse Ramonet (CREDA), Elisabet Riudeubàs (EAP)</td>\n</tr>\n<tr>\n<td>Escola El Vinyet</td>\n<td>Maite Gessé (CRP), Yolanda Marín (EAP), Montse Ramonet (CREDA)</td>\n</tr>\n<tr>\n<td>Institut Francesc Ribalta</td>\n<td>Joan Coromina (CRP), Elisabet Riudeubàs (EAP), Toni Casserras (LIC)</td>\n</tr>\n<tr>\n<td>Escola Arrels II</td>\n<td>Joan Coromina (CRP), Elisabet Riudeubàs (EAP)</td>\n</tr>\n</tbody>\n</table>', 'Distribució de professionals per centres', '', 'inherit', 'open', 'open', '', '739-revision-v1', '', '', '2015-11-28 10:44:37', '2015-11-28 09:44:37', '', 739, 'http://pwc-int.educacio.intranet/agora/masterpro/general/739-revision-v1/', 0, 'revision', '', 0),
-(1232, 1, '2015-12-01 12:16:08', '2015-12-01 11:16:08', '<table border="1" cellspacing="0" cellpadding="0" align="center">\r\n<tbody>\r\n<tr>\r\n<td><strong>Centre</strong></td>\r\n<td><strong>Professionals</strong></td>\r\n</tr>\r\n<tr>\r\n<td>ZER EL Solsonès</td>\r\n<td>Marta Gese (CRP), Sandra Ramiro (EAP)</td>\r\n</tr>\r\n<tr>\r\n<td>Escola Vall de Lord</td>\r\n<td>Joan Coromines (CRP), Elisabet Riu (EAP), Toni Cas (LIC), Montse Ram (CREDA)</td>\r\n</tr>\r\n<tr>\r\n<td>SI Sant Llorenç</td>\r\n<td>Joan Coromines (CRP), Elisabet Riu (EAP)</td>\r\n</tr>\r\n<tr>\r\n<td>Escola Setelsis</td>\r\n<td>Maite Gese (CRP), Yolanda Marina (EAP), Montse Ram (CREDA)</td>\r\n</tr>\r\n<tr>\r\n<td>Escola Arrels I</td>\r\n<td>Maite Gese (CRP), Montse Ram (CREDA), Elisabet Riu (EAP)</td>\r\n</tr>\r\n<tr>\r\n<td>Escola El Vinyet</td>\r\n<td>Maite Gese (CRP), Yolanda Marina (EAP), Montse Ram (CREDA)</td>\r\n</tr>\r\n<tr>\r\n<td>Institut Francesc Ribalta</td>\r\n<td>Joan Coromines (CRP), Elisabet Riu (EAP), Toni Cas (LIC)</td>\r\n</tr>\r\n<tr>\r\n<td>Escola Arrels II</td>\r\n<td>Joan Coromines (CRP), Elisabet Riu (EAP)</td>\r\n</tr>\r\n</tbody>\r\n</table>', 'Distribució de professionals per centres', '', 'inherit', 'open', 'open', '', '739-revision-v1', '', '', '2015-12-01 12:16:08', '2015-12-01 11:16:08', '', 739, 'http://pwc-int.educacio.intranet/agora/masterpro/general/739-revision-v1/', 0, 'revision', '', 0),
-(1233, 1, '2015-11-28 12:07:44', '2015-11-28 11:07:44', '<strong>L''equip de direcció tècnica del Servei Educatiu del XXXXXX</strong>\n\nL’equip de direcció tècnica és una comissió de coordinació interna formada per:\n<ul>\n	<li>Joan de la Munoza, Director del CRP</li>\n	<li>Elisabet Bonet, Directora de l’EAP</li>\n	<li>Antoni Casals, representant de l’ELIC</li>\n	<li>Montserrat Palau, logopeda del CREDA</li>\n</ul>\nSón funcions de l’equip de direcció tècnica:\n<ul>\n	<li>Establir els objectius, identificar les necessitats, els criteris per a l’actuació interna i els indicadors d’avaluació del propi servei.</li>\n	<li><span style="line-height: 1.5;">Identificar les necessitats dels centres educatius (professorat, alumnat i famílies) i de la zona.</span></li>\n	<li><span style="line-height: 1.5;">Coordinar la integració de les actuacions dels professionals dels serveis educatius vetllant per l’eficàcia de la intervenció en els centres.</span></li>\n	<li><span style="line-height: 1.5;">Elaborar la proposta de pla d’actuació, indicadors d’avaluació i memòria, a partir dels objectius i actuacions prioritàries.</span></li>\n	<li><span style="line-height: 1.5;">Fer el seguiment del desenvolupament de les activitats.</span></li>\n	<li><span style="line-height: 1.5;">Elaborar el pressupost i la liquidació corresponent.</span></li>\n</ul>\nL’equip de direcció tècnica es reunirà un cop al mes.\n\n<strong>La coordinació del Servei Educatiu del XXXXXXX</strong>\n\nAnirà a càrrec del director del CRP.\n\nSón funcions del coordinador:\n<ul>\n	<li>Representar els serveis educatius de zona.</li>\n	<li><span style="line-height: 1.5;">Fer el seguiment dels acords presos en l’equip de direcció tècnica.</span></li>\n	<li><span style="line-height: 1.5;">D’acord amb les direccions respectives, establir les línies generals de coordinació i actuació entre els serveis educatius de zona i els serveis educatius específics i CdA de la zona .</span></li>\n	<li><span style="line-height: 1.5;">Coordinar els diferents àmbits d’organització interna.</span></li>\n	<li><span style="line-height: 1.5;">Presentar als serveis territorials el pla d’actuació i la memòria anual.</span></li>\n	<li><span style="line-height: 1.5;">Presentar als serveis territorials el pressupost anual i la liquidació corresponent.</span></li>\n	<li><span style="line-height: 1.5;">Convocar i presidir l’equip de direcció tècnica i la reunió plenària.</span></li>\n</ul>\n<strong> Reunió plenària del Servei Educatiu del XXXXXXX</strong>\n\nÉs l''espai de consulta i participació de tots els professionals dels serveis educatius, integrat per la totalitat dels professionals que hi presten serveis i presidit pel coordinador del Servei educatiu de zona.\n\nLes seves funcions són:\n<ul>\n	<li>Participar en l’elaboració del pla d’actuació i de la memòria.</li>\n	<li><span style="line-height: 1.5;">Informar i aportar propostes a l’equip de direcció tècnica sobre l’organització dels recursos humans i materials i la programació general.</span></li>\n	<li><span style="line-height: 1.5;">Promoure iniciatives en l’àmbit de la innovació i de la formació dels serveis educatius i de la zona.</span></li>\n	<li><span style="line-height: 1.5;">Es reunirà, com a mínim, una vegada per trimestre amb caràcter ordinari i sempre que el convoqui el coordinador/a o ho sol·liciti un terç, com a mínim, dels seus membres. És preceptiu celebrar una reunió a principi i a final de curs escolar. L’assistència a la reunió plenària és obligatòria per a tots els seus membres.</span></li>\n	<li><span style="line-height: 1.5;">Quan es tractin temes vinculats a les seves funcions, els professionals dels serveis educatius específics i dels camps d’aprenentatge que presten atenció a la zona podran participar a les reunions plenàries.</span></li>\n</ul>\n<strong>Equips de treball del Servei Educatiu del Solsonès</strong>\n\nS''han creat quatre grups de treball en funció dels centres. Els grups estan ingrats pels professionals que atenen un centre en concret:\n<ul>\n	<li>Equip dels centres de primària de XXXXXX</li>\n	<li><span style="line-height: 1.5;">Equip de la ZER del XXXXXX</span></li>\n	<li><span style="line-height: 1.5;">Equip de Sant Llorenç XXXXXX</span></li>\n	<li><span style="line-height: 1.5;">Equip dels centres de secundària de XXXXXX</span></li>\n</ul>\nLes tasques d''aquests equips són:\n<ul>\n	<li>Intercanviar informació entre els diferents professionals que intervenen en un centre.</li>\n	<li><span style="line-height: 1.5;">Detectar necessitats i mancances.</span></li>\n	<li><span style="line-height: 1.5;">Planificar i compartir actuacions conjuntes entre els diferents professioanls que actuen un un mateix centre.</span></li>\n</ul>', 'Organització interna del Servei Educatiu', '', 'inherit', 'open', 'open', '', '765-revision-v1', '', '', '2015-11-28 12:07:44', '2015-11-28 11:07:44', '', 765, 'http://pwc-int.educacio.intranet/agora/masterpro/general/765-revision-v1/', 0, 'revision', '', 0),
 (1242, 1, '2015-12-01 18:06:25', '2015-12-01 17:06:25', 'Node per la coordinació dels serveis educatius', 'Servei educatiu', '', 'private', 'closed', 'open', '', 'servei-educatiu-2', '', '', '2015-12-01 18:06:25', '2015-12-01 17:06:25', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/forums/forum/servei-educatiu-2/', 0, 'forum', '', 0),
 (1255, 1, '2015-12-02 11:54:55', '2015-12-02 10:54:55', 'Node de comunicació entre formadors i el servei educatiu', 'Formadors', '', 'private', 'closed', 'open', '', 'formadors-2', '', '', '2015-12-02 11:54:55', '2015-12-02 10:54:55', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/forums/forum/formadors-2/', 0, 'forum', '', 0),
 (1256, 1, '2015-12-02 11:56:45', '2015-12-02 10:56:45', 'Node de comunicació entre formadors i el servei educatiu', 'Formadors', '', 'private', 'closed', 'open', '', 'formadors-3', '', '', '2015-12-02 11:56:45', '2015-12-02 10:56:45', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/forums/forum/formadors-3/', 0, 'forum', '', 0),
-(1264, 1, '2015-12-02 12:25:48', '2015-12-02 11:25:48', 'De dilluns a divendres\r\n<ul>\r\n	<li>Matí: de<strong> 9</strong> a <strong>14 </strong>h</li>\r\n	<li>Tarda: de<strong> 16</strong> a <strong>18</strong> h</li>\r\n</ul>\r\nHorari intensiu, de <strong>9</strong> a <strong>15</strong> h:\r\n<ul>\r\n	<li>22 de desembre</li>\r\n	<li>Del 6 de juny al 15 de juliol</li>\r\n</ul>\r\nEl nostre servei educatiu romandrà tancat al públic, a part dels períodes de vacances escolars i dels dies de festes laborals oficials a Catalunya, els següents dies de festa local i de lliure disposició, acordats pel Consell Escolar Municipal de XXXXXX:\r\n<ul>\r\n	<li>30 d''octubre de 2015 (festa de lliure disposició)</li>\r\n	<li>7 de desembre de 2015 (festa de lliure disposició)</li>\r\n	<li>5 de febrer de 2016 (festa de lliure disposició)</li>\r\n	<li>8 de febrer de 2016 (festa de lliure disposició)</li>\r\n	<li>29 d''abril de 2016 (festa de lliure disposició)</li>\r\n	<li>16 de maig de 2016 (festa local)</li>\r\n</ul>', 'Horari i calendari', '', 'inherit', 'open', 'open', '', '608-revision-v1', '', '', '2015-12-02 12:25:48', '2015-12-02 11:25:48', '', 608, 'http://pwc-int.educacio.intranet/agora/masterpro/general/608-revision-v1/', 0, 'revision', '', 0),
-(1265, 1, '2015-12-02 12:27:05', '2015-12-02 11:27:05', 'Els <strong>Serveis Educatius</strong> del Departament d''Ensenyament donen suport i assessorament als centres educatius públics i privats concertats de nivells educatius no universitaris. Cada servei educatiu està format per un equip multidisciplinar que ofereix els següents serveis:\r\n<ul>\r\n	<li>Suport i assessorament en estratègies organitzatives, didàctiques i metodològiques per a l’assoliment de les <strong>competències bàsiques.</strong></li>\r\n	<li>Suport en la <strong>tutoria i l’orientació</strong> educativa.</li>\r\n	<li><strong>Detecció precoç</strong> de les dificultats d’aprenentatge, socials, motrius i fer avaluacions psicopedagògiques.</li>\r\n	<li>Assessorament sobre el procés d’escolarització en <strong>necessitats educatives específiques i especials</strong> (NEE).</li>\r\n	<li>Assessorament sobre <strong>adaptacions curriculars individuals</strong> (CI).</li>\r\n	<li>Suport en la <strong>prevenció de l’abandonament escolar</strong> prematur.</li>\r\n	<li>Suport en el tractament integrat de <strong>llengua i continguts</strong>.</li>\r\n	<li>Planificació i gestió del catàleg de <strong>formació del professorat</strong> de la zona.</li>\r\n	<li>Suport i assessorament en didàctica, <strong>innovació</strong> i/o <strong>planificació</strong>: plans de millora, TAC, suport a la lectura…</li>\r\n	<li><strong>Servei de préstec</strong> de maquinari, vídeos i textos especialitzats en temes educatius.</li>\r\n	<li>Suport a <strong>projectes internacionals</strong> pel desenvolupament del <strong>plurilingüisme</strong> i de les <strong>competències comunicatives</strong> dels alumnes.</li>\r\n</ul>\r\nL''àmbit d''actuació del servei educatiu és la comarca del XXXXXXX, a més d''algunes poblacions de comarques veïnes que, per motius diversos (pertinença a una ZER o a una zona d''inspecció), s''integren al territori.\r\n<h4>Qui pot fer la demanda dels serveis?</h4>\r\n<ul>\r\n	<li>Els centres, mitjançant els seus equips de direcció.</li>\r\n	<li>Col·lectius de docents, d’especialitat, de nivell, d’interessos, etc.</li>\r\n	<li>Els docents directament.</li>\r\n	<li>Altres entitats vinculades a l’Educació.</li>\r\n</ul>\r\n<h4>Com es fa la demanda?</h4>\r\nTrucant al telèfon <strong>000 000 000</strong> o enviant un correu electrònic a <strong>se-xxxxxxx@xtec.cat</strong>\r\n\r\n&nbsp;\r\n\r\n&nbsp;\r\n<h4></h4>', 'Presentació', '', 'inherit', 'open', 'open', '', '797-revision-v1', '', '', '2015-12-02 12:27:05', '2015-12-02 11:27:05', '', 797, 'http://pwc-int.educacio.intranet/agora/masterpro/general/797-revision-v1/', 0, 'revision', '', 0),
-(1283, 1, '2015-11-26 17:00:37', '2015-11-26 16:00:37', 'Document model per fer el conveni amb les entitats', 'Conveni amb entitats pel servei comunitari', '', 'inherit', 'open', 'open', '', '531-revision-v1', '', '', '2015-11-26 17:00:37', '2015-11-26 16:00:37', '', 531, 'https://pwc-int.educacio.intranet/agora/masterpro/general/531-revision-v1/', 0, 'revision', '', 0),
-(1285, 1, '2015-11-26 16:36:06', '2015-11-26 15:36:06', 'Orientacions als centres educatius per a desenvolupar un projecte de servei comunitari', 'Orientacions per projecte de servei comunitari', '', 'inherit', 'open', 'open', '', '515-revision-v1', '', '', '2015-11-26 16:36:06', '2015-11-26 15:36:06', '', 515, 'https://pwc-int.educacio.intranet/agora/masterpro/general/515-revision-v1/', 0, 'revision', '', 0),
-(1287, 1, '2015-11-26 16:59:44', '2015-11-26 15:59:44', '', 'Esquema del projecte de servei comunitari', '', 'inherit', 'open', 'open', '', '528-revision-v1', '', '', '2015-11-26 16:59:44', '2015-11-26 15:59:44', '', 528, 'https://pwc-int.educacio.intranet/agora/masterpro/general/528-revision-v1/', 0, 'revision', '', 0),
-(1289, 1, '2015-11-26 16:49:11', '2015-11-26 15:49:11', '', 'Model d’autoritzacio de prestació del servei comunitari', '', 'inherit', 'open', 'open', '', '524-revision-v1', '', '', '2015-11-26 16:49:11', '2015-11-26 15:49:11', '', 524, 'https://pwc-int.educacio.intranet/agora/masterpro/general/524-revision-v1/', 0, 'revision', '', 0),
-(1291, 1, '2015-11-26 16:44:29', '2015-11-26 15:44:29', 'Exemple d''una bona experiència: La participació dels joves en el municipi de Vilanova i Vallromanes', 'Experiència d''aprenentatge servei comunitari', '', 'inherit', 'open', 'open', '', '518-revision-v1', '', '', '2015-11-26 16:44:29', '2015-11-26 15:44:29', '', 518, 'https://pwc-int.educacio.intranet/agora/masterpro/general/518-revision-v1/', 0, 'revision', '', 0),
-(1292, 1, '2015-12-02 14:15:26', '2015-12-02 13:15:26', 'Exemple d''una bona experiència: La participació dels joves en el municipi de Vilanova i Vallromanes', 'Experiència d’aprenentatge servei comunitari', '', 'inherit', 'open', 'open', '', '518-revision-v1', '', '', '2015-12-02 14:15:26', '2015-12-02 13:15:26', '', 518, 'https://pwc-int.educacio.intranet/agora/masterpro/general/518-revision-v1/', 0, 'revision', '', 0),
-(1294, 1, '2015-11-26 14:22:25', '2015-11-26 13:22:25', 'Criteris, instruccions i orientacions, 2015-16', 'Formació del professorat. Criteris, instruccions i orientacions (2015-16)', '', 'inherit', 'open', 'open', '', '510-revision-v1', '', '', '2015-11-26 14:22:25', '2015-11-26 13:22:25', '', 510, 'https://pwc-int.educacio.intranet/agora/masterpro/general/510-revision-v1/', 0, 'revision', '', 0),
-(1296, 1, '2015-11-26 16:45:58', '2015-11-26 15:45:58', '', 'Model de document de compromís', '', 'inherit', 'open', 'open', '', '521-revision-v1', '', '', '2015-11-26 16:45:58', '2015-11-26 15:45:58', '', 521, 'https://pwc-int.educacio.intranet/agora/masterpro/general/521-revision-v1/', 0, 'revision', '', 0),
-(1298, 1, '2015-12-02 14:22:12', '2015-12-02 13:22:12', '<p>Cal lliurar els abstracts abans del <strong>8 de març</strong> de 2015</p>\r\n', 'Model resum de treball de recerca 2015', '', 'inherit', 'open', 'open', '', '956-revision-v1', '', '', '2015-12-02 14:22:12', '2015-12-02 13:22:12', '', 956, 'https://pwc-int.educacio.intranet/agora/masterpro/general/956-revision-v1/', 0, 'revision', '', 0),
-(1300, 1, '2015-11-29 13:12:08', '2015-11-29 12:12:08', 'Fitxa per demanar una maleta pedagògica o un aparell', 'Fitxa de petició de recursos', '', 'inherit', 'open', 'open', '', '879-revision-v1', '', '', '2015-11-29 13:12:08', '2015-11-29 12:12:08', '', 879, 'https://pwc-int.educacio.intranet/agora/masterpro/general/879-revision-v1/', 0, 'revision', '', 0),
-(1301, 1, '2015-12-02 14:24:00', '2015-12-02 13:24:00', '<p>Fitxa per demanar una maleta pedagògica o un aparell</p>\r\n', 'Fitxa de petició de recursos', '', 'inherit', 'open', 'open', '', '879-revision-v1', '', '', '2015-12-02 14:24:00', '2015-12-02 13:24:00', '', 879, 'https://pwc-int.educacio.intranet/agora/masterpro/general/879-revision-v1/', 0, 'revision', '', 0),
-(1303, 1, '2015-11-29 20:20:56', '2015-11-29 19:20:56', 'Programa Fòrum de Treballs de recerca i crèdits de síntesi', 'Programa Fòrum de Treballs de recerca 2015', '', 'inherit', 'open', 'open', '', '944-revision-v1', '', '', '2015-11-29 20:20:56', '2015-11-29 19:20:56', '', 944, 'https://pwc-int.educacio.intranet/agora/masterpro/general/944-revision-v1/', 0, 'revision', '', 0);
-INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_title`, `post_excerpt`, `post_status`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_content_filtered`, `post_parent`, `guid`, `menu_order`, `post_type`, `post_mime_type`, `comment_count`) VALUES
 (1307, 1, '2015-12-02 16:08:32', '2015-12-02 15:08:32', '', 'Documents', '', 'publish', 'open', 'closed', '', 'documents', '', '', '2017-03-15 11:28:38', '2017-03-15 10:28:38', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/?p=1307', 7, 'nav_menu_item', '', 0),
-(1308, 1, '2015-12-02 16:35:40', '2015-12-02 15:35:40', '<strong>Servei Educatiu L''Arany\r\n</strong>Plaça de la Vila, 14\r\n01234 Abella de Xerta\r\ntel. 01234567\r\nse-larany@xtec.cat\r\n\r\n<iframe src="https://www.instamaps.cat/geocatweb/visor.html?businessid=f623ab36c9dc28b7c159b350b279e99e&amp;id=1697256&amp;title=Centres-del-SEZ-del-Pla-de-lEstany&amp;embed=1" width="90%" height="500" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>\r\n\r\n<strong>Com arribar-hi:\r\n</strong>\r\n<ul>\r\n	<li>Per tren: Estació Abella centre de la línia 1</li>\r\n	<li>Per bus: Línies L3 i L5</li>\r\n</ul>', 'On som', '', 'inherit', 'open', 'open', '', '318-revision-v1', '', '', '2015-12-02 16:35:40', '2015-12-02 15:35:40', '', 318, 'http://pwc-int.educacio.intranet/agora/masterpro/general/318-revision-v1/', 0, 'revision', '', 0),
-(1309, 1, '2015-12-02 16:36:10', '2015-12-02 15:36:10', '<strong>Servei Educatiu L''Arany\r\n</strong>Plaça de la Vila, 14\r\n01234 Abella de Xerta\r\ntel. 01234567\r\nse-larany@xtec.cat\r\n\r\n<iframe src="http://www.instamaps.cat/geocatweb/visor.html?businessid=f623ab36c9dc28b7c159b350b279e99e&amp;id=1697256&amp;title=Centres-del-SEZ-del-Pla-de-lEstany&amp;embed=1" width="90%" height="500" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>\r\n\r\n<strong>Com arribar-hi:\r\n</strong>\r\n<ul>\r\n	<li>Per tren: Estació Abella centre de la línia 1</li>\r\n	<li>Per bus: Línies L3 i L5</li>\r\n</ul>', 'On som', '', 'inherit', 'open', 'open', '', '318-revision-v1', '', '', '2015-12-02 16:36:10', '2015-12-02 15:36:10', '', 318, 'http://pwc-int.educacio.intranet/agora/masterpro/general/318-revision-v1/', 0, 'revision', '', 0),
-(8109, 1, '2016-03-17 13:58:29', '2016-03-17 12:58:29', 'Quin model de portàtil recomaneu? Tenim un presupost de 200 € màxim per alumne.', 'Model de portatil (ESO)', '', 'inherit', 'open', 'open', '', '1157-revision-v1', '', '', '2016-03-17 13:58:29', '2016-03-17 12:58:29', '', 1157, 'https://pwc-int.educacio.intranet/agora/masterpro/general/1157-revision-v1/', 0, 'revision', '', 0),
-(8110, 1, '2016-03-17 13:58:39', '2016-03-17 12:58:39', 'Algun centre està fent servir Chromebooks? Què recomaneu? ', 'Chromebooks vs Notebooks', '', 'inherit', 'open', 'open', '', '1156-revision-v1', '', '', '2016-03-17 13:58:39', '2016-03-17 12:58:39', '', 1156, 'https://pwc-int.educacio.intranet/agora/masterpro/general/1156-revision-v1/', 0, 'revision', '', 0),
 (8111, 1, '2016-03-29 12:36:51', '2016-03-29 11:36:51', '', 'Activa', '', 'publish', 'closed', 'closed', '', 'activa', '', '', '2016-03-29 12:36:51', '2016-03-29 11:36:51', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/?page_id=8111', 0, 'page', '', 0),
-(8112, 1, '2016-03-29 12:36:51', '2016-03-29 11:36:51', '', 'Activa', '', 'inherit', 'open', 'open', '', '8111-revision-v1', '', '', '2016-03-29 12:36:51', '2016-03-29 11:36:51', '', 8111, 'http://pwc-int.educacio.intranet/agora/masterpro/general/8111-revision-v1/', 0, 'revision', '', 0),
 (8113, 1, '2016-03-29 12:37:06', '2016-03-29 11:37:06', '', 'Registre', '', 'publish', 'closed', 'closed', '', 'registre', '', '', '2016-03-29 12:51:15', '2016-03-29 11:51:15', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/?page_id=8113', 0, 'page', '', 0),
-(8114, 1, '2016-03-29 12:37:06', '2016-03-29 11:37:06', '', 'Registre', '', 'inherit', 'open', 'open', '', '8113-revision-v1', '', '', '2016-03-29 12:37:06', '2016-03-29 11:37:06', '', 8113, 'http://pwc-int.educacio.intranet/agora/masterpro/general/8113-revision-v1/', 0, 'revision', '', 0),
 (8115, 1, '2017-02-23 12:10:59', '2017-02-23 11:10:59', '{{poster.name}} ha respost a una de les teves actualitzacions:\n\n<blockquote>&quot;{{usermessage}}&quot;</blockquote>\n\n<a href="{{{thread.url}}}">Aneu a la discussió</a>per respondre o posar-vos al dia de la conversa.', '[{{{site.name}}}] {{poster.name}} ha respost a una de les vostres actualitzacions', '{{poster.name}} ha respost a una de les teves actualitzacions:\n\n"{{usermessage}}"\n\nAneu a la discussió per respondre o posar-vos al dia de la conversa: {{{thread.url}}}', 'publish', 'closed', 'closed', '', 'site-name-poster-name-ha-respost-a-una-de-les-vostres-actualitzacions', '', '', '2017-02-23 12:10:59', '2017-02-23 11:10:59', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/general/site-name-poster-name-ha-respost-a-una-de-les-vostres-actualitzacions/', 0, 'bp-email', '', 0),
 (8116, 1, '2017-02-23 12:10:59', '2017-02-23 11:10:59', '{{poster.name}} ha respost a un dels vostres comentaris:\n\n<blockquote>&quot;{{usermessage}}&quot;</blockquote>\n\n<a href="{{{thread.url}}}">Aneu a la discussió</a> per respondre o posar-vos al dia de la conversa.', '[{{{site.name}}}] {{poster.name}} ha respost a un dels vostres comentaris', '{{poster.name}} ha respost a un dels vostres comentaris:\n\n"{{usermessage}}"\n\nAneu a la discussió per respondre o posar-vos al dia de la conversa. {{{thread.url}}}', 'publish', 'closed', 'closed', '', 'site-name-poster-name-ha-respost-a-un-dels-vostres-comentaris', '', '', '2017-02-23 12:10:59', '2017-02-23 11:10:59', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/general/site-name-poster-name-ha-respost-a-un-dels-vostres-comentaris/', 0, 'bp-email', '', 0),
 (8117, 1, '2017-02-23 12:10:59', '2017-02-23 11:10:59', '{{poster.name}} us ha mencionat en una actualització d''estat:\n\n<blockquote>&quot;{{usermessage}}&quot;</blockquote>\n\n<a href="{{{mentioned.url}}}">Aneu a la discussió</a> per respondre o posar-vos al dia de la conversa.', '[{{{site.name}}}] {{poster.name}} us ha mencionat en una actualització d''estat', '{{poster.name}} us ha menciona en una actualització d''estat:\n\n"{{usermessage}}"\n\nAneu a la discussió per a respondre o posar-vos al dia de la conversa: {{{mentioned.url}}}', 'publish', 'closed', 'closed', '', 'site-name-poster-name-us-ha-mencionat-en-una-actualitzacio-destat', '', '', '2017-02-23 12:10:59', '2017-02-23 11:10:59', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/general/site-name-poster-name-us-ha-mencionat-en-una-actualitzacio-destat/', 0, 'bp-email', '', 0),
@@ -2495,22 +2451,15 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 (8128, 1, '2017-02-23 12:11:00', '2017-02-23 11:11:00', 'ecentment heu canviat l''adreça de correu electrònic associada amb el compte de ''{{site.name}}'' a {{user.email}}. Si això és correcte, <a href="{{{verify.url}}}">aneu aquí per confirmar el canvi</a>.\n\nD''altra banda, podeu ignorar i eliminar aquest missatge si heu canviat d''opinió, o si penseu que heu rebut aquest missatge per error.', '[{{{site.name}}}] Verifiqueu la vostra nova adreça de correu electrònic', 'Recentment heu canviat l''adreça de correu electrònic associada amb el compte de ''{{site.name}}'' a {{user.email}}. Si això és correcte, aneu al següent enllaç per confirmar el canvi: {{{verify.url}}}\n\nD''altra banda, si heu canviat d''opinió o si penseu que heu rebut aquest missatge per error el podeu ignorar i eliminar.', 'publish', 'closed', 'closed', '', 'site-name-verifiqueu-la-vostra-nova-adreca-de-correu-electronic', '', '', '2017-02-23 12:11:00', '2017-02-23 11:11:00', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/general/site-name-verifiqueu-la-vostra-nova-adreca-de-correu-electronic/', 0, 'bp-email', '', 0),
 (8129, 1, '2017-02-23 12:11:00', '2017-02-23 11:11:00', 'La vostra sol·licitud d''admissió pel node &quot;<a href="{{{group.url}}}">{{group.name}}</a>&quot; ha estat acceptada.', '[{{{site.name}}}] Sol·licitud d''admissió pel node "{{group.name}}" acceptada', 'La vostra sol·licitud d''admissió pel node "{{group.name}}" ha estat acceptada.\n\nPer veure el node, visiteu: {{{group.url}}}', 'publish', 'closed', 'closed', '', 'site-name-sol%c2%b7licitud-dadmissio-pel-node-group-name-acceptada', '', '', '2017-02-23 12:11:00', '2017-02-23 11:11:00', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/general/site-name-sol%c2%b7licitud-dadmissio-pel-node-group-name-acceptada/', 0, 'bp-email', '', 0),
 (8130, 1, '2017-02-23 12:11:00', '2017-02-23 11:11:00', 'La vostra sol·licitud d''admissió pel node &quot;<a href="{{{group.url}}}">{{group.name}}</a>&quot; ha estat denegada.', '[{{{site.name}}}] Sol·licitud d''admissió pel node "{{group.name}}" denegada', 'La vostra sol·licitud d''admissió pel node "{{group.name}}" ha estat denegada.\n\nPer sol·licitar l''admissió de nou, visiteu: {{{group.url}}}', 'publish', 'closed', 'closed', '', 'site-name-sol%c2%b7licitud-dadmissio-pel-node-group-name-denegada', '', '', '2017-02-23 12:11:00', '2017-02-23 11:11:00', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/general/site-name-sol%c2%b7licitud-dadmissio-pel-node-group-name-denegada/', 0, 'bp-email', '', 0),
-(8131, 1, '2017-02-23 12:11:00', '2017-02-23 11:11:00', '', 'Activitat a tot el lloc web', '', 'inherit', 'closed', 'closed', '', '5-revision-v1', '', '', '2017-02-23 12:11:00', '2017-02-23 11:11:00', '', 5, 'http://pwc-int.educacio.intranet/agora/masterpro/general/5-revision-v1/', 0, 'revision', '', 0),
-(8132, 1, '2017-03-07 10:00:35', '2017-03-07 09:00:35', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ut bibendum libero. Donec lectus purus, pellentesque et volutpat non, euismod id erat. Aliquam vitae tincidunt lacus. Vivamus aliquet ornare tellus, quis varius nisl suscipit posuere. Aliquam interdum at neque et feugiat. Nullam odio orci, condimentum eu lobortis eu, feugiat sit amet sapien. Cras vitae condimentum risus. Aliquam erat volutpat. Nullam cursus justo nec purus elementum condimentum.\r\n\r\nSuspendisse in enim sed diam mattis fermentum a vitae tellus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut sed ligula tortor. Vestibulum at odio a turpis sollicitudin feugiat ut vel dolor. Donec venenatis, est ullamcorper tincidunt congue, risus neque bibendum lorem, id vulputate metus elit vitae mi. Sed sit amet magna faucibus, tempor est ut, porta felis. In hac habitasse platea dictumst. Ut posuere neque quis metus suscipit, ac congue mi rutrum. Nulla facilisi. Duis eleifend diam ac lectus mollis, quis tempor felis egestas. Donec laoreet elit non magna blandit, sed mollis arcu faucibus.\r\n', 'El projecte', '', 'inherit', 'closed', 'closed', '', '806-revision-v1', '', '', '2017-03-07 10:00:35', '2017-03-07 09:00:35', '', 806, 'http://pwc-int.educacio.intranet/agora/masterpro/general/806-revision-v1/', 0, 'revision', '', 0),
-(8133, 1, '2017-03-07 10:01:05', '2017-03-07 09:01:05', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ut bibendum libero. Donec lectus purus, pellentesque et volutpat non, euismod id erat. Aliquam vitae tincidunt lacus. Vivamus aliquet ornare tellus, quis varius nisl suscipit posuere. Aliquam interdum at neque et feugiat. Nullam odio orci, condimentum eu lobortis eu, feugiat sit amet sapien. Cras vitae condimentum risus. Aliquam erat volutpat. Nullam cursus justo nec purus elementum condimentum.\r\n\r\nSuspendisse in enim sed diam mattis fermentum a vitae tellus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut sed ligula tortor. Vestibulum at odio a turpis sollicitudin feugiat ut vel dolor. Donec venenatis, est ullamcorper tincidunt congue, risus neque bibendum lorem, id vulputate metus elit vitae mi. Sed sit amet magna faucibus, tempor est ut, porta felis. In hac habitasse platea dictumst. Ut posuere neque quis metus suscipit, ac congue mi rutrum. Nulla facilisi. Duis eleifend diam ac lectus mollis, quis tempor felis egestas. Donec laoreet elit non magna blandit, sed mollis arcu faucibus.\r\n', 'Presentació', '', 'inherit', 'closed', 'closed', '', '797-revision-v1', '', '', '2017-03-07 10:01:05', '2017-03-07 09:01:05', '', 797, 'http://pwc-int.educacio.intranet/agora/masterpro/general/797-revision-v1/', 0, 'revision', '', 0),
-(8134, 1, '2017-03-07 10:01:26', '2017-03-07 09:01:26', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ut bibendum libero. Donec lectus purus, pellentesque et volutpat non, euismod id erat. Aliquam vitae tincidunt lacus. Vivamus aliquet ornare tellus, quis varius nisl suscipit posuere. Aliquam interdum at neque et feugiat. Nullam odio orci, condimentum eu lobortis eu, feugiat sit amet sapien. Cras vitae condimentum risus. Aliquam erat volutpat. Nullam cursus justo nec purus elementum condimentum.\r\n\r\nSuspendisse in enim sed diam mattis fermentum a vitae tellus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut sed ligula tortor. Vestibulum at odio a turpis sollicitudin feugiat ut vel dolor. Donec venenatis, est ullamcorper tincidunt congue, risus neque bibendum lorem, id vulputate metus elit vitae mi. Sed sit amet magna faucibus, tempor est ut, porta felis. In hac habitasse platea dictumst. Ut posuere neque quis metus suscipit, ac congue mi rutrum. Nulla facilisi. Duis eleifend diam ac lectus mollis, quis tempor felis egestas. Donec laoreet elit non magna blandit, sed mollis arcu faucibus.\r\n', 'Equip', '', 'inherit', 'closed', 'closed', '', '306-revision-v1', '', '', '2017-03-07 10:01:26', '2017-03-07 09:01:26', '', 306, 'http://pwc-int.educacio.intranet/agora/masterpro/general/306-revision-v1/', 0, 'revision', '', 0),
-(8135, 1, '2017-03-07 10:01:32', '2017-03-07 09:01:32', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ut bibendum libero. Donec lectus purus, pellentesque et volutpat non, euismod id erat. Aliquam vitae tincidunt lacus. Vivamus aliquet ornare tellus, quis varius nisl suscipit posuere. Aliquam interdum at neque et feugiat. Nullam odio orci, condimentum eu lobortis eu, feugiat sit amet sapien. Cras vitae condimentum risus. Aliquam erat volutpat. Nullam cursus justo nec purus elementum condimentum.\r\n\r\nSuspendisse in enim sed diam mattis fermentum a vitae tellus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut sed ligula tortor. Vestibulum at odio a turpis sollicitudin feugiat ut vel dolor. Donec venenatis, est ullamcorper tincidunt congue, risus neque bibendum lorem, id vulputate metus elit vitae mi. Sed sit amet magna faucibus, tempor est ut, porta felis. In hac habitasse platea dictumst. Ut posuere neque quis metus suscipit, ac congue mi rutrum. Nulla facilisi. Duis eleifend diam ac lectus mollis, quis tempor felis egestas. Donec laoreet elit non magna blandit, sed mollis arcu faucibus.\r\n', 'Horari i calendari', '', 'inherit', 'closed', 'closed', '', '608-revision-v1', '', '', '2017-03-07 10:01:32', '2017-03-07 09:01:32', '', 608, 'http://pwc-int.educacio.intranet/agora/masterpro/general/608-revision-v1/', 0, 'revision', '', 0),
-(8136, 1, '2017-03-07 10:01:40', '2017-03-07 09:01:40', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ut bibendum libero. Donec lectus purus, pellentesque et volutpat non, euismod id erat. Aliquam vitae tincidunt lacus. Vivamus aliquet ornare tellus, quis varius nisl suscipit posuere. Aliquam interdum at neque et feugiat. Nullam odio orci, condimentum eu lobortis eu, feugiat sit amet sapien. Cras vitae condimentum risus. Aliquam erat volutpat. Nullam cursus justo nec purus elementum condimentum.\r\n\r\nSuspendisse in enim sed diam mattis fermentum a vitae tellus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut sed ligula tortor. Vestibulum at odio a turpis sollicitudin feugiat ut vel dolor. Donec venenatis, est ullamcorper tincidunt congue, risus neque bibendum lorem, id vulputate metus elit vitae mi. Sed sit amet magna faucibus, tempor est ut, porta felis. In hac habitasse platea dictumst. Ut posuere neque quis metus suscipit, ac congue mi rutrum. Nulla facilisi. Duis eleifend diam ac lectus mollis, quis tempor felis egestas. Donec laoreet elit non magna blandit, sed mollis arcu faucibus.\r\n', 'On som', '', 'inherit', 'closed', 'closed', '', '318-revision-v1', '', '', '2017-03-07 10:01:40', '2017-03-07 09:01:40', '', 318, 'http://pwc-int.educacio.intranet/agora/masterpro/general/318-revision-v1/', 0, 'revision', '', 0),
 (8186, 1, '2017-03-15 12:12:49', '2017-03-15 11:12:49', '', 'logo', '', 'inherit', 'open', 'closed', '', 'logo', '', '', '2017-03-15 12:12:49', '2017-03-15 11:12:49', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/wp-content/uploads/usu3/2017/03/logo.png', 0, 'attachment', 'image/png', 0),
 (8188, 1, '2017-03-15 12:19:18', '0000-00-00 00:00:00', '', 'Esborrany automàtic', '', 'auto-draft', 'open', 'open', '', '', '', '', '2017-03-15 12:19:18', '0000-00-00 00:00:00', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/?p=8188', 0, 'post', '', 0),
 (8189, 1, '2017-03-15 12:23:15', '2017-03-15 11:23:15', 'Nodes permet implementar un espai de coordinació adient per projectes on intervinguin membres que necessitin compartir un espai de debat i documentació amb l''objectiu final de publicar periòdicament els seus avanços.\r\n\r\nSi no saps com funciona Nodes, pots començar per els <a href="https://vimeo.com/album/3772376/sort:preset/format:detail" target="_blank">videotutorials</a>.', 'Nou projecte', '', 'publish', 'open', 'open', '', 'nou-projecte', '', '', '2017-03-15 12:24:05', '2017-03-15 11:24:05', '', 0, 'http://pwc-int.educacio.intranet/agora/masterpro/?p=8189', 0, 'post', '', 0),
-(8190, 1, '2017-03-15 12:23:15', '2017-03-15 11:23:15', 'Nodes permet implementar un espai de coordinació adient per projectes on intervinguin membres que necessitin compartir un espai de debat i documentació amb l''objectiu final de publicar periòdicament els seus avanços.\r\n\r\nSi no saps com funciona Nodes, pots començar per els <a href="https://vimeo.com/album/3772376/sort:preset/format:detail" target="_blank">videotutorials</a>.', 'Nou projecte', '', 'inherit', 'closed', 'closed', '', '8189-revision-v1', '', '', '2017-03-15 12:23:15', '2017-03-15 11:23:15', '', 8189, 'http://pwc-int.educacio.intranet/agora/masterpro/general/8189-revision-v1/', 0, 'revision', '', 0),
 (8191, 1, '2017-03-15 12:24:00', '2017-03-15 11:24:00', '', 'rocket4-300x150', '', 'inherit', 'open', 'closed', '', 'rocket4-300x150', '', '', '2017-03-15 12:24:00', '2017-03-15 11:24:00', '', 8189, 'http://pwc-int.educacio.intranet/agora/masterpro/wp-content/uploads/usu3/2017/03/rocket4-300x150.png', 0, 'attachment', 'image/png', 0);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `wp_signups`
+-- Estructura de tabla para la tabla `wp_signups`
 --
 
 CREATE TABLE `wp_signups` (
@@ -2535,7 +2484,7 @@ CREATE TABLE `wp_signups` (
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `wp_stats`
+-- Estructura de tabla para la tabla `wp_stats`
 --
 
 CREATE TABLE `wp_stats` (
@@ -2562,7 +2511,7 @@ CREATE TABLE `wp_stats` (
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `wp_termmeta`
+-- Estructura de tabla para la tabla `wp_termmeta`
 --
 
 CREATE TABLE `wp_termmeta` (
@@ -2578,7 +2527,7 @@ CREATE TABLE `wp_termmeta` (
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `wp_terms`
+-- Estructura de tabla para la tabla `wp_terms`
 --
 
 CREATE TABLE `wp_terms` (
@@ -2592,7 +2541,7 @@ CREATE TABLE `wp_terms` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=280 ;
 
 --
--- Bolcant dades de la taula `wp_terms`
+-- Volcado de datos para la tabla `wp_terms`
 --
 
 INSERT INTO `wp_terms` (`term_id`, `name`, `slug`, `term_group`) VALUES
@@ -2610,29 +2559,9 @@ INSERT INTO `wp_terms` (`term_id`, `name`, `slug`, `term_group`) VALUES
 (64, 'Comunitat', 'comunitat', 0),
 (66, 'Dinamització', 'dinamitzacio', 0),
 (76, 'Recursos', 'recursos', 0),
-(118, 'acta', 'acta', 0),
-(119, 'assesoraments', 'assesoraments', 0),
 (120, 'bp_docs_access_group_member_20', 'bp_docs_access_group_member_20', 0),
 (121, 'bp_docs_access_loggedin', 'bp_docs_access_loggedin', 0),
-(122, 'creda', 'creda', 0),
-(123, 'crp', 'crp', 0),
-(124, 'cursos', 'cursos', 0),
-(125, 'eap', 'eap', 0),
-(126, 'elic', 'elic', 0),
-(127, 'Equip SE', 'equip-se', 0),
-(128, 'fitxa', 'fitxa', 0),
-(129, 'formadors', 'formadors', 0),
-(130, 'fòrum-recerca-2015', 'forum-recerca-2015', 0),
-(132, 'grups de treball', 'grups-de-treball', 0),
-(133, 'GTAF', 'gtaf', 0),
-(134, 'jocs florals', 'jocs-florals', 0),
-(135, 'PFZ', 'pfz', 0),
-(136, 'qüestionaris', 'questionaris', 0),
-(137, 'seminaris', 'seminaris', 0),
-(138, 'servei comunitari', 'servei-comunitari', 0),
 (140, 'Servei educatiu', 'bp_docs_associated_group_20', 0),
-(141, 'tallers', 'tallers', 0),
-(143, 'treballs de recerca', 'treballs-de-recerca', 0),
 (145, 'MenuSuperior', 'menusuperior', 0),
 (149, 'Formadors', 'bp_docs_associated_group_33', 0),
 (150, 'bp_docs_access_group_member_33', 'bp_docs_access_group_member_33', 0),
@@ -2661,7 +2590,7 @@ INSERT INTO `wp_terms` (`term_id`, `name`, `slug`, `term_group`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `wp_term_relationships`
+-- Estructura de tabla para la tabla `wp_term_relationships`
 --
 
 CREATE TABLE `wp_term_relationships` (
@@ -2673,7 +2602,7 @@ CREATE TABLE `wp_term_relationships` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Bolcant dades de la taula `wp_term_relationships`
+-- Volcado de datos para la tabla `wp_term_relationships`
 --
 
 INSERT INTO `wp_term_relationships` (`object_id`, `term_taxonomy_id`, `term_order`) VALUES
@@ -2685,84 +2614,41 @@ INSERT INTO `wp_term_relationships` (`object_id`, `term_taxonomy_id`, `term_orde
 (289, 65, 0),
 (510, 51, 0),
 (515, 51, 0),
-(515, 142, 0),
 (518, 51, 0),
-(518, 142, 0),
 (521, 51, 0),
-(521, 142, 0),
 (524, 51, 0),
-(524, 142, 0),
 (528, 51, 0),
-(528, 142, 0),
 (531, 51, 0),
-(531, 142, 0),
 (602, 282, 0),
 (602, 283, 0),
-(684, 123, 0),
-(684, 128, 0),
-(684, 133, 0),
-(684, 139, 0),
-(684, 141, 0),
-(684, 145, 0),
 (684, 153, 0),
 (684, 154, 0),
-(687, 133, 0),
-(687, 136, 0),
-(687, 139, 0),
 (687, 153, 0),
 (687, 154, 0),
 (689, 51, 0),
-(689, 139, 0),
-(693, 133, 0),
-(693, 137, 0),
 (693, 153, 0),
 (693, 154, 0),
-(697, 122, 0),
-(697, 133, 0),
 (697, 153, 0),
 (697, 154, 0),
-(701, 132, 0),
-(701, 133, 0),
 (701, 153, 0),
 (701, 154, 0),
-(704, 133, 0),
-(704, 140, 0),
 (704, 153, 0),
 (704, 154, 0),
 (732, 51, 0),
-(732, 129, 0),
-(732, 131, 0),
 (736, 51, 0),
-(736, 127, 0),
-(736, 131, 0),
 (739, 125, 0),
-(739, 131, 0),
 (748, 282, 0),
 (748, 283, 0),
-(765, 126, 0),
-(765, 127, 0),
-(765, 129, 0),
-(765, 130, 0),
-(765, 131, 0),
 (765, 155, 0),
 (765, 156, 0),
 (769, 51, 0),
-(769, 130, 0),
-(769, 131, 0),
 (879, 51, 0),
 (882, 282, 0),
 (882, 283, 0),
 (944, 51, 0),
-(944, 134, 0),
-(944, 147, 0),
 (952, 51, 0),
-(952, 134, 0),
-(952, 147, 0),
 (956, 51, 0),
-(956, 134, 0),
-(956, 147, 0),
 (982, 51, 0),
-(982, 138, 0),
 (1038, 282, 0),
 (1038, 283, 0),
 (1046, 149, 0),
@@ -2795,7 +2681,7 @@ INSERT INTO `wp_term_relationships` (`object_id`, `term_taxonomy_id`, `term_orde
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `wp_term_taxonomy`
+-- Estructura de tabla para la tabla `wp_term_taxonomy`
 --
 
 CREATE TABLE `wp_term_taxonomy` (
@@ -2811,7 +2697,7 @@ CREATE TABLE `wp_term_taxonomy` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=284 ;
 
 --
--- Bolcant dades de la taula `wp_term_taxonomy`
+-- Volcado de datos para la tabla `wp_term_taxonomy`
 --
 
 INSERT INTO `wp_term_taxonomy` (`term_taxonomy_id`, `term_id`, `taxonomy`, `description`, `parent`, `count`) VALUES
@@ -2829,29 +2715,9 @@ INSERT INTO `wp_term_taxonomy` (`term_taxonomy_id`, `term_id`, `taxonomy`, `desc
 (68, 64, 'category', '', 0, 0),
 (70, 66, 'category', '', 0, 0),
 (80, 76, 'category', '', 0, 0),
-(122, 118, 'bp_docs_tag', '', 0, 1),
-(123, 119, 'bp_docs_tag', '', 0, 1),
 (124, 120, 'bp_docs_access', '', 0, 0),
 (125, 121, 'bp_docs_access', '', 0, 1),
-(126, 122, 'bp_docs_tag', '', 0, 1),
-(127, 123, 'bp_docs_tag', '', 0, 2),
-(128, 124, 'bp_docs_tag', '', 0, 1),
-(129, 125, 'bp_docs_tag', '', 0, 2),
-(130, 126, 'bp_docs_tag', '', 0, 2),
-(131, 127, 'bp_docs_tag', '', 0, 5),
-(132, 128, 'bp_docs_tag', '', 0, 1),
-(133, 129, 'bp_docs_tag', '', 0, 6),
-(134, 130, 'bp_docs_tag', '', 0, 3),
-(136, 132, 'bp_docs_tag', '', 0, 1),
-(137, 133, 'bp_docs_tag', '', 0, 1),
-(138, 134, 'bp_docs_tag', '', 0, 1),
-(139, 135, 'bp_docs_tag', '', 0, 3),
-(140, 136, 'bp_docs_tag', '', 0, 1),
-(141, 137, 'bp_docs_tag', '', 0, 1),
-(142, 138, 'bp_docs_tag', '', 0, 6),
 (144, 140, 'bp_docs_associated_item', 'Document associat al node Servei educatiu', 0, 0),
-(145, 141, 'bp_docs_tag', '', 0, 1),
-(147, 143, 'bp_docs_tag', '', 0, 3),
 (149, 145, 'nav_menu', '', 0, 7),
 (153, 149, 'bp_docs_associated_item', 'Document associat al node Formadors', 0, 6),
 (154, 150, 'bp_docs_access', '', 0, 6),
@@ -2880,7 +2746,7 @@ INSERT INTO `wp_term_taxonomy` (`term_taxonomy_id`, `term_id`, `taxonomy`, `desc
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `wp_usermeta`
+-- Estructura de tabla para la tabla `wp_usermeta`
 --
 
 CREATE TABLE `wp_usermeta` (
@@ -2894,7 +2760,7 @@ CREATE TABLE `wp_usermeta` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=200 ;
 
 --
--- Bolcant dades de la taula `wp_usermeta`
+-- Volcado de datos para la tabla `wp_usermeta`
 --
 
 INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALUES
@@ -2925,7 +2791,7 @@ INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALU
 (25, 2, 'wp_user_level', '10'),
 (26, 2, 'dismissed_wp_pointers', 'wp350_media,wp360_revisions,wp360_locks,wp390_widgets,wp410_dfw,addtoany_settings_pointer'),
 (27, 2, 'wp_dashboard_quick_press_last_post_id', '4'),
-(28, 2, 'last_activity', '2017-05-29 17:17:30'),
+(28, 2, 'last_activity', '2017-06-27 14:03:12'),
 (29, 2, 'closedpostboxes_slideshow', 'a:1:{i:2;s:5:"style";}'),
 (30, 2, 'metaboxhidden_slideshow', 'a:2:{i:3;s:7:"slugdiv";i:4;s:5:"style";}'),
 (31, 2, 'managenav-menuscolumnshidden', 'a:3:{i:0;s:11:"css-classes";i:1;s:3:"xfn";i:2;s:11:"description";}'),
@@ -2975,12 +2841,12 @@ INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALU
 (194, 2, 'edit_post_per_page', '200'),
 (195, 2, 'edit_page_per_page', '300'),
 (198, 1, 'wp_media_library_mode', 'list'),
-(199, 2, 'session_tokens', 'a:1:{s:64:"329417410ec418838d14dd006d321ef66f4c6501b3805d16baeb076b770b9e86";a:4:{s:10:"expiration";i:1496243849;s:2:"ip";s:11:"10.155.7.35";s:2:"ua";s:76:"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:53.0) Gecko/20100101 Firefox/53.0";s:5:"login";i:1496071049;}}');
+(199, 2, 'session_tokens', 'a:1:{s:64:"565f57daed2b63a869831de93d8f8d2650c49a6fdd0807fcb998e569cd1ac5b4";a:4:{s:10:"expiration";i:1498736227;s:2:"ip";s:11:"10.155.7.35";s:2:"ua";s:104:"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.75 Safari/537.36";s:5:"login";i:1498563427;}}');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `wp_users`
+-- Estructura de tabla para la tabla `wp_users`
 --
 
 CREATE TABLE `wp_users` (
@@ -3001,17 +2867,17 @@ CREATE TABLE `wp_users` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=3 ;
 
 --
--- Bolcant dades de la taula `wp_users`
+-- Volcado de datos para la tabla `wp_users`
 --
 
 INSERT INTO `wp_users` (`ID`, `user_login`, `user_pass`, `user_nicename`, `user_email`, `user_url`, `user_registered`, `user_activation_key`, `user_status`, `display_name`) VALUES
-(1, 'admin', '', 'admin', 'a8000003@xtec.cat', '', '0000-00-00 00:00:00', '', 0, 'admin'),
-(2, 'xtecadmin', '', 'xtecadmin', 'agora@xtec.invalid', '', '2014-09-12 09:45:10', '', 0, 'xtecadmin');
+(1, 'admin', '$P$BvDwniTRtcG9JMJ5RfunHhEHCMJ27M1', 'admin', 'a8000003@xtec.cat', '', '0000-00-00 00:00:00', '', 0, 'admin'),
+(2, 'xtecadmin', '$P$Bn9s5/tqhv.eFv0hejt51mGhkXfAHJ/', 'xtecadmin', 'agora@xtec.invalid', '', '2014-09-12 09:45:10', '', 0, 'xtecadmin');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `wp_wsluserscontacts`
+-- Estructura de tabla para la tabla `wp_wsluserscontacts`
 --
 
 CREATE TABLE `wp_wsluserscontacts` (
@@ -3031,7 +2897,7 @@ CREATE TABLE `wp_wsluserscontacts` (
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `wp_wslusersprofiles`
+-- Estructura de tabla para la tabla `wp_wslusersprofiles`
 --
 
 CREATE TABLE `wp_wslusersprofiles` (
