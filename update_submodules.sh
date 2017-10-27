@@ -30,11 +30,10 @@ fi
 
 if [[ $execmoodle == true ]]
 then
-# Moodle
 gitcheckout "html/moodle2" "master" "git@github.com:projectestac/agora_moodle2.git"
 gitcheckout "html/moodle2/auth/googleoauth2" "master" "git@github.com:projectestac/moodle-auth_googleoauth2.git"
-gitcheckout "html/moodle2/blocks/completion_progress" "master" "git@github.com:projectestac/moodle-block_completion_progress.git"
-gitcheckout "html/moodle2/blocks/courses_vicensvives" "master" "https://github.com/vicensvives/moodle-block_courses_vicensvives.git"
+gitcheckout "html/moodle2/blocks/completion_progress" "master" "https://github.com/deraadt/moodle-block_completion_progress.git"
+gitcheckout "html/moodle2/blocks/courses_vicensvives" "MOODLE_32_STABLE" "https://github.com/vicensvives/moodle-block_courses_vicensvives.git"
 gitcheckout "html/moodle2/blocks/licenses_vicensvives" "master" "https://github.com/vicensvives/moodle-block_licenses_vicensvives.git"
 gitcheckout "html/moodle2/blocks/rgrade" "master" "https://github.com/projectestac/Rgrade.git"
 gitcheckout "html/moodle2/course/format/simple" "master" "git@github.com:projectestac/moodle-format_simple.git"
@@ -55,7 +54,7 @@ gitcheckout "html/moodle2/local/wsvicensvives" "master" "https://github.com/vice
 gitcheckout "html/moodle2/mod/choicegroup" "master" "git@github.com:ndunand/moodle-mod_choicegroup.git"
 gitcheckout "html/moodle2/mod/geogebra" "master" "git@github.com:projectestac/moodle-mod_geogebra.git"
 gitcheckout "html/moodle2/mod/hotpot" "master" "https://github.com/gbateson/moodle-mod_hotpot.git"
-gitcheckout "html/moodle2/mod/hvp" "master" "git@github.com:projectestac/moodle-mod_hvp.git"
+gitcheckout "html/moodle2/mod/hvp" "stable" "https://github.com/h5p/h5p-moodle-plugin.git"
 gitcheckout "html/moodle2/mod/jclic" "master" "git@github.com:projectestac/moodle-mod_jclic.git"
 gitcheckout "html/moodle2/mod/journal" "MOODLE_32_STABLE" "https://github.com/elearningsoftware/moodle-mod_journal.git"
 gitcheckout "html/moodle2/mod/questionnaire" "MOODLE_32_STABLE" "https://github.com/remotelearner/moodle-mod_questionnaire.git"
@@ -103,6 +102,9 @@ gitcheckout "html/wordpress/wp-content/plugins/wp-recaptcha" "master" "git@githu
 gitcheckout "html/wordpress/wp-content/plugins/xtec-ldap-login" "master" "git@github.com:projectestac/wordpress-xtec-ldap-login.git"
 gitcheckout "html/wordpress/wp-content/plugins/xtec-mail/lib" "master" "git@github.com:projectestac/mailer.git"
 gitcheckout "html/wordpress/wp-includes/xtec" "master" "git@github.com:projectestac/wordpress-xtec.git"
+gitcheckout "html/wordpress/wp-content/plugins/tabs-responsive" "master" "https://github.com/projectestac/tabs-responsive.git"
+gitcheckout "html/wordpress/wp-content/plugins/h5p" "master" "https://github.com/h5p/h5p-wordpress-plugin.git"
+
 fi
 
 if [[ $execportal == true ]]

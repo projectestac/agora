@@ -9,6 +9,41 @@ NODES
 - buddypress-group-email-subscription: Upgraded plugin from version 3.6.1 to 3.7.0
 - xtec-booking: Added cron to remove old bookings
 
+
+Changes 17.10.27
+---------------------------------------------------------------------------------------
+MODDLE
+- Moodle upgraded to from 3.2.5
+- Updated blocks/courses_vicensvives
+- Updated blocks/licenses_vicensvives
+- Updated course/format/vv
+- Updated filter/wiris
+- Updated lib/editor/atto/plugins/wiris
+- Updated local/wsvicensvives
+- Updated mod/choicegroup
+- Updated mod/hotpot
+- Updated mod/questionnaire
+- Updated question/format/hotpot
+- Updated question/type/essaywiris
+- Updated question/type/matchwiris
+- Updated question/type/multianswerwiris
+- Updated question/type/multichoicewiris
+- Updated question/type/shortanswerwiris
+- Updated question/type/truefalsewiris
+- Updated question/type/wq
+- Updated mod/rcontent
+- Updated local/rcommon
+- Updated LangPacks
+- Updated mod/hvp and added new catalan translations
+- Fix the sql statement to be compatible with Oracle in mod_assign
+- Fix invalid z-index in File Manager theme/bootstrapbase
+
+NODES
+- Added H5P plugin
+- Added tabs responsive plugin
+- Updated translation
+
+
 Changes 17.07.04
 ---------------------------------------------------------------------------------------
 MODDLE
