@@ -67,6 +67,7 @@ gitcheckout "html/moodle2/question/type/multichoicewiris" "master" "git@github.c
 gitcheckout "html/moodle2/question/type/shortanswerwiris" "master" "git@github.com:wiris/moodle-qtype_shortanswerwiris.git"
 gitcheckout "html/moodle2/question/type/truefalsewiris" "master" "git@github.com:wiris/moodle-qtype_truefalsewiris.git"
 gitcheckout "html/moodle2/question/type/wq" "master" "git@github.com:wiris/moodle-qtype_wq.git"
+gitcheckout "html/moodle2/question/type/ordering" "master" "https://github.com/gbateson/moodle-qtype_ordering.git"
 gitcheckout "html/moodle2/report/coursequotas" "master" "git@github.com:projectestac/moodle-report_coursequotas.git"
 gitcheckout "html/moodle2/theme/xtec2" "master" "git@github.com:projectestac/moodle-theme_xtec2.git"
 fi

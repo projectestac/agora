@@ -9,6 +9,25 @@ NODES
 - buddypress-group-email-subscription: Upgraded plugin from version 3.6.1 to 3.7.0
 - xtec-booking: Added cron to remove old bookings
 
+Changes 18.04.20
+---------------------------------------------------------------------------------------
+MOODLE
+- Moodle upgrades to from 3.2.8
+- Updated local/agora
+- Updated LangPacks
+- Updated auth/googleauth2
+- Updated mod/hvp
+- Updated filter/wiris
+- Fix the string comparision with CLOB reference field
+- Filter the notifications from assigns in popup
+
+NODES
+- Update blogger-importer and google-analyticator
+- Fixed css styles and url links
+- Updated buddypress-group-email-subscription
+- Updated slideshow-jquery-image-gallery
+- Updated wordpress-social-login
+
 
 Changes 17.10.27
 ---------------------------------------------------------------------------------------
