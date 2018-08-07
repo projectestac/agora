@@ -1133,7 +1133,7 @@ class Users_Controller_User extends Zikula_AbstractController
 
         // XTEC ************ AFEGIT - Filter username to remove trailing '@xtec.cat' in case it exists
         // 2016.01.18 @aginard
-        if (strpos($authenticationInfo['login_id'], '@xtec.cat')) {
+        if (isset($authenticationInfo['login_id']) && strpos($authenticationInfo['login_id'], '@xtec.cat')) {
             $authenticationInfo['login_id'] = substr($authenticationInfo['login_id'], 0, -strlen('@xtec.cat'));
         }
         // ************ FI

@@ -107,7 +107,7 @@ class Service_nodes extends Service {
             if (substr(trim($line), -1, 1) == ';') {
                 try {
                     $this->executeSQL($currentSQL, true);
-                } catch (Exception $e) {
+                } catch (Throwable $e) {
                     return LogUtil::registerError(__f('L\'execució de l\'sql ha fallat: ' . $currentSQL . '. Error: ' . $e->getMessage()));
                 }
 

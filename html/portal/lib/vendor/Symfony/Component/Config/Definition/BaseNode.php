@@ -255,7 +255,7 @@ abstract class BaseNode implements NodeInterface
         foreach ($this->finalValidationClosures as $closure) {
             try {
                 $value = $closure($value);
-            } catch (Exception $correctEx) {
+            } catch (Throwable $correctEx) {
                 throw $correctEx;
             } catch (\Exception $invalid) {
                 throw new InvalidConfigurationException(sprintf(

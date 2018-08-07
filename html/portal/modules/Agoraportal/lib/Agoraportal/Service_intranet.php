@@ -65,7 +65,7 @@ class Service_intranet extends Service {
         foreach ($sql as $currentSQL) {
             try {
                 $this->executeSQL($currentSQL, true);
-            } catch (Exception $e) {
+            } catch (Throwable $e) {
                 return LogUtil::registerError(__f('L\'execució de l\'sql ha fallat: ' . $currentSQL . '. Error: ' . $e->getMessage()));
             }
         }
@@ -111,7 +111,7 @@ class Service_intranet extends Service {
         $sql = "SELECT uid FROM users WHERE uname = 'xtecadmin'";
         try {
             $result = $this->executeSQL($sql, true);
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             return LogUtil::registerError('L\'execució de l\'sql ha fallat: ' . $sql . '. Error:' . $e->getMessage());
         }
 
@@ -122,7 +122,7 @@ class Service_intranet extends Service {
             $sql = "DELETE FROM group_membership WHERE uid = $uid";
             try {
                 $result = $this->executeSQL($sql, true);
-            } catch (Exception $e) {
+            } catch (Throwable $e) {
                 return LogUtil::registerError('L\'execució de l\'sql ha fallat: ' . $sql . '. Error:' . $e->getMessage());
             }
 
@@ -130,7 +130,7 @@ class Service_intranet extends Service {
             $sql = "DELETE FROM users WHERE uid = $uid";
             try {
                 $result = $this->executeSQL($sql, true);
-            } catch (Exception $e) {
+            } catch (Throwable $e) {
                 return LogUtil::registerError('L\'execució de l\'sql ha fallat: ' . $sql . '. Error:' . $e->getMessage());
             }
 
@@ -142,14 +142,14 @@ class Service_intranet extends Service {
                     VALUES ('xtecadmin','" . '1$$' . $agora['xtecadmin']['password'] . "', '" . $agora['xtecadmin']['mail'] . "',1)";
         try {
             $result = $this->executeSQL($sql, true);
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             return LogUtil::registerError('L\'execució de l\'sql ha fallat: ' . $sql . '. Error:' . $e->getMessage());
         }
 
         $sql = "SELECT uid FROM users WHERE uname='xtecadmin'";
         try {
             $result = $this->executeSQL($sql, true);
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             return LogUtil::registerError('L\'execució de l\'sql ha fallat: ' . $sql . '. Error:' . $e->getMessage());
         }
 
@@ -160,7 +160,7 @@ class Service_intranet extends Service {
             $sql = "INSERT INTO group_membership (uid, gid) VALUES ($uid, 2)";
             try {
                 $result = $this->executeSQL($sql, false);
-            } catch (Exception $e) {
+            } catch (Throwable $e) {
                 return LogUtil::registerError('L\'execució de l\'sql ha fallat: ' . $sql . '. Error:' . $e->getMessage());
             }
         }

@@ -850,7 +850,7 @@ class Service extends AgoraBase {
      */
     public static function disconnectDB($connect) {
         if ($connect) {
-            $connect->close();
+            oci_close($connect);
         }
     }
 

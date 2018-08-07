@@ -140,6 +140,7 @@ class Zikula_Session
      */
     public function getMessages($type, $default = array())
     {
+        //$_SESSION['_zikula_messages'] = is_null($_SESSION['_zikula_messages'])?array():$_SESSION['_zikula_messages'];
         if (isset($_SESSION) && array_key_exists($type, $_SESSION['_zikula_messages'])) {
             return $_SESSION['_zikula_messages'][$type];
         }

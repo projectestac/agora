@@ -282,7 +282,7 @@ class SystemPlugin_Imagine_Manager extends Zikula_Controller_AbstractPlugin
             try {
                 $this->removePresetThumbs($imagePath, $objectId)
                     ->createThumbnail($image, $preset);
-            } catch(Exception $e) {
+            } catch(Throwable $e) {
                 //! %1$s is source image path, %2$s is error message
                 LogUtil::log($this->__f('An error occurred during thumbnail creation for image [%1$s]. Error details: %2$s', array($imagePath, $e->getMessage())), Zikula_AbstractErrorHandler::INFO);
 
@@ -429,7 +429,7 @@ class SystemPlugin_Imagine_Manager extends Zikula_Controller_AbstractPlugin
                 ->apply($this->getImagine()->open($image->getRealPath()))
                 ->thumbnail($size, $mode)
                 ->save($image->getThumbRealPath(), $preset['options']);
-        } catch (Exception $exception) {
+        } catch (Throwable $exception) {
             throw $exception;
         }
 

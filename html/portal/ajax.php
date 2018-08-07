@@ -65,7 +65,7 @@ try {
     $response = new Zikula_Response_Ajax_Fatal($e->getMessage());
 } catch (PDOException $e) {
     $response = new Zikula_Response_Ajax_Fatal($e->getMessage());
-} catch (Exception $e) {
+} catch (Throwable $e) {
     $response = new Zikula_Response_Ajax_Fatal($e->getMessage());
 }
 

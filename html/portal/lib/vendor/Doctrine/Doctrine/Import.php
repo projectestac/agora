@@ -407,7 +407,7 @@ class Doctrine_Import extends Doctrine_Connection_Module
                           'foreign' => $relation['foreign']
                       );
                   }
-              } catch (Exception $e) {}
+              } catch (Throwable $e) {}
 
               $definitions[strtolower($definition['className'])] = $definition;
               $classes[] = $definition['className'];

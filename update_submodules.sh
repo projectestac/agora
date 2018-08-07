@@ -33,7 +33,7 @@ then
 gitcheckout "html/moodle2" "master" "git@github.com:projectestac/agora_moodle2.git"
 gitcheckout "html/moodle2/auth/googleoauth2" "master" "git@github.com:projectestac/moodle-auth_googleoauth2.git"
 gitcheckout "html/moodle2/blocks/completion_progress" "master" "https://github.com/deraadt/moodle-block_completion_progress.git"
-gitcheckout "html/moodle2/blocks/courses_vicensvives" "MOODLE_32_STABLE" "https://github.com/vicensvives/moodle-block_courses_vicensvives.git"
+gitcheckout "html/moodle2/blocks/courses_vicensvives" "master" "https://github.com/vicensvives/moodle-block_courses_vicensvives.git"
 gitcheckout "html/moodle2/blocks/licenses_vicensvives" "master" "https://github.com/vicensvives/moodle-block_licenses_vicensvives.git"
 gitcheckout "html/moodle2/blocks/rgrade" "master" "https://github.com/projectestac/Rgrade.git"
 gitcheckout "html/moodle2/course/format/simple" "master" "git@github.com:projectestac/moodle-format_simple.git"
@@ -47,17 +47,17 @@ gitcheckout "html/moodle2/local/agora" "master" "git@github.com:projectestac/moo
 gitcheckout "html/moodle2/local/agora/mailer" "master" "git@github.com:projectestac/mailer.git"
 gitcheckout "html/moodle2/local/alexandriaimporter" "master" "git@github.com:projectestac/moodle-local_alexandriaimporter.git"
 gitcheckout "html/moodle2/local/bigdata" "master" "git@github.com:projectestac/moodle-local_bigdata.git"
-gitcheckout "html/moodle2/local/clickedu" "MOODLE_32_STABLE" "git@github.com:clickedu/ClickeduMoodlePlugin.git"
+gitcheckout "html/moodle2/local/clickedu" "MOODLE_34_STABLE" "git@github.com:clickedu/ClickeduMoodlePlugin.git"
 gitcheckout "html/moodle2/local/oauth" "master" "git@github.com:projectestac/moodle-local_oauth.git"
-gitcheckout "html/moodle2/local/mobile" "MOODLE_32_STABLE" "https://github.com/jleyva/moodle-local_mobile.git"
+gitcheckout "html/moodle2/local/mobile" "MOODLE_34_STABLE" "https://github.com/jleyva/moodle-local_mobile.git"
 gitcheckout "html/moodle2/local/wsvicensvives" "master" "https://github.com/vicensvives/moodle-local_ws_vicensvives.git"
 gitcheckout "html/moodle2/mod/choicegroup" "master" "git@github.com:ndunand/moodle-mod_choicegroup.git"
 gitcheckout "html/moodle2/mod/geogebra" "master" "git@github.com:projectestac/moodle-mod_geogebra.git"
 gitcheckout "html/moodle2/mod/hotpot" "master" "https://github.com/gbateson/moodle-mod_hotpot.git"
 gitcheckout "html/moodle2/mod/hvp" "stable" "https://github.com/h5p/h5p-moodle-plugin.git"
 gitcheckout "html/moodle2/mod/jclic" "master" "git@github.com:projectestac/moodle-mod_jclic.git"
-gitcheckout "html/moodle2/mod/journal" "MOODLE_32_STABLE" "https://github.com/elearningsoftware/moodle-mod_journal.git"
-gitcheckout "html/moodle2/mod/questionnaire" "MOODLE_32_STABLE" "https://github.com/remotelearner/moodle-mod_questionnaire.git"
+gitcheckout "html/moodle2/mod/journal" "MOODLE_34_STABLE" "https://github.com/elearningsoftware/moodle-mod_journal.git"
+gitcheckout "html/moodle2/mod/questionnaire" "MOODLE_34_STABLE" "https://github.com/remotelearner/moodle-mod_questionnaire.git"
 gitcheckout "html/moodle2/mod/qv" "master" "git@github.com:projectestac/moodle-mod_qv.git"
 gitcheckout "html/moodle2/question/format/hotpot" "master" "https://github.com/gbateson/moodle-qformat_hotpot.git"
 gitcheckout "html/moodle2/question/type/essaywiris" "master" "git@github.com:wiris/moodle-qtype_essaywiris.git"
@@ -70,6 +70,8 @@ gitcheckout "html/moodle2/question/type/wq" "master" "git@github.com:wiris/moodl
 gitcheckout "html/moodle2/question/type/ordering" "master" "https://github.com/gbateson/moodle-qtype_ordering.git"
 gitcheckout "html/moodle2/report/coursequotas" "master" "git@github.com:projectestac/moodle-report_coursequotas.git"
 gitcheckout "html/moodle2/theme/xtec2" "master" "git@github.com:projectestac/moodle-theme_xtec2.git"
+gitcheckout "html/moodle2/theme/admin/tool/dataprivacy" "MOODLE_34_STABLE" "https://github.com/moodlehq/moodle-tool_dataprivacy.git"
+gitcheckout "html/moodle2/theme/admin/tool/policy" "MOODLE_34_STABLE" "https://github.com/moodlehq/moodle-tool_policy.git"
 fi
 
 if [[ $execwordpress == true ]]
@@ -105,6 +107,8 @@ gitcheckout "html/wordpress/wp-content/plugins/xtec-mail/lib" "master" "git@gith
 gitcheckout "html/wordpress/wp-includes/xtec" "master" "git@github.com:projectestac/wordpress-xtec.git"
 gitcheckout "html/wordpress/wp-content/plugins/tabs-responsive" "master" "https://github.com/projectestac/tabs-responsive.git"
 gitcheckout "html/wordpress/wp-content/plugins/h5p" "master" "https://github.com/h5p/h5p-wordpress-plugin.git"
+gitcheckout "html/wordpress/wp-content/plugins/wordpress-telegram" "master" "https://github.com/projectestac/wordpress-telegram.git"
+gitcheckout "html/wordpress/wp-content/plugins/author-category" "master" "git@github.com:projectestac/wordpress-author-category.git"
 
 fi
 

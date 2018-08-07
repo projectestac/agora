@@ -399,7 +399,7 @@ class DoctrineUtil
             $alterTableDefinition = array('add' => array($key => $columnDefinition));
             try {
                 $connection->export->alterTable($tableName, $alterTableDefinition);
-            } catch (Exception $e) {
+            } catch (Throwable $e) {
                 return LogUtil::registerError(__('Error! Table update failed.') . ' ' . $e->getMessage());
             }
         }
@@ -409,7 +409,7 @@ class DoctrineUtil
             $alterTableDefinition = array('change' => array($key => array('definition' => $columnDefinition)));
             try {
                 $connection->export->alterTable($tableName, $alterTableDefinition);
-            } catch (Exception $e) {
+            } catch (Throwable $e) {
                 return LogUtil::registerError(__('Error! Table update failed.') . ' ' . $e->getMessage());
             }
         }
@@ -423,7 +423,7 @@ class DoctrineUtil
                 $alterTableDefinition = array('remove' => array($key => array()));
                 try {
                     $connection->export->alterTable($tableName, $alterTableDefinition);
-                } catch (Exception $e) {
+                } catch (Throwable $e) {
                     return LogUtil::registerError(__('Error! Table update failed.') . ' ' . $e->getMessage());
                 }
             }
@@ -434,7 +434,7 @@ class DoctrineUtil
         foreach ($schemaIndexes as $index) {
             try {
                 $connection->export->dropIndex($tableName, $index);
-            } catch (Exception $e) {
+            } catch (Throwable $e) {
                 return LogUtil::registerError(__('Error! Table update failed.') . ' ' . $e->getMessage());
             }
         }

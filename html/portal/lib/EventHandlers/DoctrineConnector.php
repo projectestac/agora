@@ -112,7 +112,7 @@ class DoctrineListener extends Zikula_AbstractEventHandler
             if (isset($connectionInfo['collate'])) {
                 $connection->setCollate($connectionInfo['collate']);
             }
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             //if (!System::isInstalling()) {
             //    throw new Exception(__('Error setting database characterset and collation.'));
             //}

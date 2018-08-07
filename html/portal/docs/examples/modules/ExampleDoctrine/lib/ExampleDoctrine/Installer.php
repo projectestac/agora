@@ -34,7 +34,7 @@ class ExampleDoctrine_Installer extends Zikula_AbstractInstaller
                                                                      'ExampleDoctrine_Entity_UserCategory',
                                                                      'ExampleDoctrine_Entity_UserAttribute',
                                                                      'ExampleDoctrine_Entity_UserMetadata'));
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             return false;
         }
 

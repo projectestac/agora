@@ -87,7 +87,7 @@ class SecurityCenter_EventHandler_Filter extends Zikula_AbstractEventHandler
                 } else {
                     // no attack detected
                 }
-            } catch (Exception $e) {
+            } catch (Throwable $e) {
                 // sth went wrong - maybe the filter rules weren't found
                 z_exit(__f('An error occured during executing PHPIDS: %s', $e->getMessage()));
             }

@@ -37,9 +37,9 @@ if (($module == 'users' || $module == 'usuaris') && $type == 'user' && ($func ==
         header('location:https://' . System::serverGetVar('HTTP_HOST') . System::getBaseUri() . '/' . ModUtil::url('users', 'user', 'login') . '&returnpage=' . System::getCurrentUrl());
     }
 } else {
-    if ($rurl == 'https') {
-        header('location:http://' . System::serverGetVar('HTTP_HOST') . System::getCurrentUri());
-    }
+    //if ($rurl == 'https') {
+    //    header('location:http://' . System::serverGetVar('HTTP_HOST') . System::getCurrentUri());
+    //}
 }
 //************ FI
 
@@ -109,7 +109,7 @@ try {
         $dbConn->commit();
     }
 
-} catch (Exception $e) {
+} catch (Throwable $e) {
     $event = new Zikula_Event('frontcontroller.exception', $e, array('modinfo' => $modinfo, 'type' => $type, 'func' => $func, 'arguments' => $arguments));
     $core->getEventManager()->notify($event);
 

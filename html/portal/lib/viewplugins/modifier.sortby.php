@@ -31,7 +31,7 @@ function array_sort_by_fields(&$data, $sortby)
 
     if (empty($sort_funcs[$sortby])) {
         $code = "\$c=0;";
-        foreach (split(',', $sortby) as $key) {
+        foreach (preg_split(',', $sortby) as $key) {
             $d = '1';
             if (substr($key, 0, 1) == '-') {
                 $d = '-1';

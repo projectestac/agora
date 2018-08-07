@@ -208,7 +208,7 @@ class Doctrine_Transaction extends Doctrine_Connection_Module
                 if ( ! $event->skipOperation) {
                     try {
                         $this->_doBeginTransaction();
-                    } catch (Exception $e) {
+                    } catch (Throwable $e) {
                         throw new Doctrine_Transaction_Exception($e->getMessage());
                     }
                 }
@@ -354,7 +354,7 @@ class Doctrine_Transaction extends Doctrine_Connection_Module
                 $this->_internalNestingLevel = 0;
                 try {
                     $this->_doRollback();
-                } catch (Exception $e) {
+                } catch (Throwable $e) {
                     throw new Doctrine_Transaction_Exception($e->getMessage());
                 }
             }

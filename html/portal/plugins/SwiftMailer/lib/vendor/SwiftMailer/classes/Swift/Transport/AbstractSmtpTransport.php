@@ -184,7 +184,7 @@ abstract class Swift_Transport_AbstractSmtpTransport
       $sent += $this->_sendCc($message, $reversePath, $cc, $failedRecipients);
       $sent += $this->_sendBcc($message, $reversePath, $bcc, $failedRecipients);
     }
-    catch (Exception $e)
+    catch (Throwable $e)
     {
       $message->setBcc($bcc);
       throw $e;

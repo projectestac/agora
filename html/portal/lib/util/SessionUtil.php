@@ -260,6 +260,8 @@ class SessionUtil
 
         $GLOBALS['_ZSession']['sessid_old'] = session_id(); // save old session id
 
+        //$GLOBALS['_ZSession']['obj']['sessid'] = session_id();
+
         session_regenerate_id();
 
         $GLOBALS['_ZSession']['obj']['sessid'] = session_id(); // commit new sessid

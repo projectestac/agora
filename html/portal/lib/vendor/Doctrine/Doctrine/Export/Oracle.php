@@ -55,7 +55,7 @@ class Doctrine_Export_Oracle extends Doctrine_Export
             try {
                 $query = 'GRANT CREATE SESSION, CREATE TABLE, UNLIMITED TABLESPACE, CREATE SEQUENCE, CREATE TRIGGER TO ' . $username;
                 $result = $this->conn->exec($query);
-            } catch (Exception $e) {
+            } catch (Throwable $e) {
                 $this->dropDatabase($username);
             }
         }

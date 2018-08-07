@@ -355,7 +355,7 @@ class Doctrine_Query extends Doctrine_Query_Abstract implements Countable
         try {
             $this->getSqlAggregateAlias($dqlAlias);
             return true;
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             return false;
         }
     }

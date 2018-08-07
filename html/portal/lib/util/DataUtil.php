@@ -248,7 +248,7 @@ class DataUtil
         // this does not break HTML tags that might be around either
         // the username or the domain name
         static $search = array(
-        '/([^\024])@([^\022])/se');
+        '/([^\024])@([^\022])/s');
 
         static $replace = array('"&#" .
                                 sprintf("%03d", ord("\\1")) .

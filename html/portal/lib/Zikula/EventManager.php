@@ -193,10 +193,10 @@ class Zikula_EventManager implements Zikula_EventManagerInterface
                 // PHP callable format
                 if (is_object($handler[0])) {
                     // invoke instanciated object method.
-                    $handler[0]->$handler[1]($event);
+                    $handler[0]->{$handler[1]}($event);
                 } else {
                     // invoke static class method.
-                    $handler[0]::$handler[1]($event);
+                    $handler[0]::{$handler[1]}($event);
                 }
             } else {
                 // invoke function including anonymous functions

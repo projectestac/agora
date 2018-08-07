@@ -317,7 +317,7 @@ class Agora_Queues_Operation {
         if ($id > 0) {
             try {
                 return new Agora_Queues_Operation($id);
-            } catch (Exception $e) {
+            } catch (Throwable $e) {
             }
         }
         return false;

@@ -30,7 +30,7 @@ class Extensions_Util
         if (class_exists($class)) {
             try {
                 $modversion = new $class();
-            } catch (Exception $e) {
+            } catch (Throwable $e) {
                 LogUtil::log(__f('%1$s threw an exception reporting: "%2$s"', array($class, $e->getMessage())), Zikula_AbstractErrorHandler::CRIT);
                 throw new InvalidArgumentException(__f('%1$s threw an exception reporting: "%2$s"', array($class, $e->getMessage())), 0, $e);
             }

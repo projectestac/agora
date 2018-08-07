@@ -581,7 +581,7 @@ function upgrade_getColumnsForTable($connection, $tableName)
 
     try {
         return $connection->import->listTableColumns(($GLOBALS['ZConfig']['System']['prefix'] ? $GLOBALS['ZConfig']['System']['prefix'].'_' : '').$tableName);
-    } catch (Exception $e) {
+    } catch (Throwable $e) {
         // TODO - do something with the exception here?
     }
 }
@@ -868,7 +868,7 @@ CHANGE pn_language language VARCHAR(30) NOT NULL DEFAULT  ''";
         $stmt = $connection->prepare($sql);
         try {
             $stmt->execute();
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             // Silent - trap and toss exceptions.
         }
     }

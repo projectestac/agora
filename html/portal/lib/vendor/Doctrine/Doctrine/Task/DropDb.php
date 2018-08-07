@@ -53,7 +53,7 @@ class Doctrine_Task_DropDb extends Doctrine_Task
             try {
                 $connection->dropDatabase();
                 $this->notify("Successfully dropped database for connection named '" . $name . "'");
-            } catch (Exception $e) {
+            } catch (Throwable $e) {
                 $this->notify($e->getMessage());
             }
         }

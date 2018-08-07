@@ -389,7 +389,7 @@ class Doctrine_Node_NestedSet extends Doctrine_Node implements Doctrine_Node_Int
     		$this->insertNode($newLeft, $newRight, $newRoot);
     		
     		$conn->commit();
-		} catch (Exception $e) {
+		} catch (Throwable $e) {
 		    $conn->rollback();
 		    throw $e;
 		}
@@ -435,7 +435,7 @@ class Doctrine_Node_NestedSet extends Doctrine_Node implements Doctrine_Node_Int
             // $dest->getNode()->setRightValue($dest->getNode()->getRightValue() + 2);
             
             $conn->commit();
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             $conn->rollback();
             throw $e;
         }
@@ -480,7 +480,7 @@ class Doctrine_Node_NestedSet extends Doctrine_Node implements Doctrine_Node_Int
             // no need, node not affected
             
             $conn->commit();
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             $conn->rollback();
             throw $e;
         }
@@ -526,7 +526,7 @@ class Doctrine_Node_NestedSet extends Doctrine_Node implements Doctrine_Node_Int
             // $dest->getNode()->setRightValue($dest->getNode()->getRightValue() + 2);
             
             $conn->commit();
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             $conn->rollback();
             throw $e;
         }
@@ -572,7 +572,7 @@ class Doctrine_Node_NestedSet extends Doctrine_Node implements Doctrine_Node_Int
             // $dest->getNode()->setRightValue($dest->getNode()->getRightValue() + 2);
             
             $conn->commit();
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             $conn->rollback();
             throw $e;
         }
@@ -663,7 +663,7 @@ class Doctrine_Node_NestedSet extends Doctrine_Node implements Doctrine_Node_Int
             $conn->commit();
      
 	        return true;
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             $conn->rollback();
             throw $e;
         }
@@ -836,7 +836,7 @@ class Doctrine_Node_NestedSet extends Doctrine_Node implements Doctrine_Node_Int
             $conn->commit();
             
             return true;
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             $conn->rollback();
             throw $e;
         }
@@ -978,7 +978,7 @@ class Doctrine_Node_NestedSet extends Doctrine_Node implements Doctrine_Node_Int
             $this->shiftRLValues($first, $delta, $oldRoot);
             
             $conn->commit();
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             $conn->rollback();
             throw $e;
         }
@@ -1046,7 +1046,7 @@ class Doctrine_Node_NestedSet extends Doctrine_Node implements Doctrine_Node_Int
             $this->record->refresh();
             
             $conn->commit();
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             $conn->rollback();
             throw $e;
         }

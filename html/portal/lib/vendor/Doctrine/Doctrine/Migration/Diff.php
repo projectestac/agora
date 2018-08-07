@@ -392,7 +392,7 @@ class Doctrine_Migration_Diff
             try {
                 Doctrine_Core::generateModelsFromDb($path, (array) $item, $options);
                 return $path;
-            } catch (Exception $e) {
+            } catch (Throwable $e) {
                 throw new Doctrine_Migration_Exception('Could not generate models from connection: ' . $e->getMessage());
             }
         }

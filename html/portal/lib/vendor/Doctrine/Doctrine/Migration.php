@@ -326,7 +326,7 @@ class Doctrine_Migration
             }
 
             $this->_doMigrate($to);
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             $this->addError($e);
         }
 
@@ -403,7 +403,7 @@ class Doctrine_Migration
      * @param Exception $e
      * @return void
      */
-    public function addError(Exception $e)
+    public function addError(Throwable $e)
     {
         $this->_errors[] = $e;
     }
@@ -520,7 +520,7 @@ class Doctrine_Migration
                     if (method_exists($this->_process, $funcName)) {
                         try {
                             $this->_process->$funcName($change);
-                        } catch (Exception $e) {
+                        } catch (Throwable $e) {
                             $this->addError($e);
                         }
                     } else {
@@ -531,7 +531,7 @@ class Doctrine_Migration
 
             $method = 'post' . $direction;
             $migration->$method();
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             $this->addError($e);
         }
     }
@@ -555,7 +555,7 @@ class Doctrine_Migration
             $this->_connection->export->createTable($this->_migrationTableName, array('version' => array('type' => 'integer', 'size' => 11)));
 
             return true;
-        } catch(Exception $e) {
+        } catch(Throwable $e) {
             return false;
         }
     }

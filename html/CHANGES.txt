@@ -6,8 +6,31 @@ development home at https://github.com/projectestac/agora
 Changes in progress
 ---------------------------------------------------------------------------------------
 NODES
-- buddypress-group-email-subscription: Upgraded plugin from version 3.6.1 to 3.7.0
 - xtec-booking: Added cron to remove old bookings
+
+
+Changes 18.08.13
+---------------------------------------------------------------------------------------
+MOODLE
+- Moodle upgraded to from 3.4.4
+- Updated modules
+- Updated LangPacks
+- Check if competencies have been enabled by xtecadmin or let acces to xtecadmin to the competencies submenu
+- Remove wwwsecureroot from advancededit button and ad second parametres to pix_icon
+- Core: Hide some of the new settings for non xtecamdins and remove the obsoletes
+- Marsupial: Compatibility update for php7 and Moodle 3.4
+- Remove hub configuration
+- Add GLPR support  
+
+NODES
+- Upgraded WordPress to version 4.9.5
+- Remove bbp_get_forum_doc_permalink_filter funtion because the only accepted protocol is https
+
+- Update core translation binaries for 4.9.5
+- Updated plugins
+- Added Telegram support
+- Added Author Category plugin
+
 
 Changes 18.04.20
 ---------------------------------------------------------------------------------------

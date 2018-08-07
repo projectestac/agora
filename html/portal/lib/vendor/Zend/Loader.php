@@ -246,7 +246,7 @@ class Zend_Loader
         try {
             @self::loadClass($class);
             return $class;
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             return false;
         }
     }

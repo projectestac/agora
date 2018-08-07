@@ -413,7 +413,7 @@ class Doctrine_Cli
      * @param  Exception $exception
      * @return string
      */
-    protected function formatExceptionMessage(Exception $exception)
+    protected function formatExceptionMessage(Throwable $exception)
     {
         $message = $exception->getMessage();
 
@@ -433,7 +433,7 @@ class Doctrine_Cli
      * @param  Exception $exception
      * @return void
      */
-    protected function notifyException(Exception $exception)
+    protected function notifyException(Throwable $exception)
     {
         echo $this->formatExceptionMessage($exception);
     }
@@ -450,7 +450,7 @@ class Doctrine_Cli
     {
         try {
             $this->_run($args);
-        } catch (Exception $exception) {
+        } catch (Throwable $exception) {
             //Do not rethrow exceptions by default
             if ($this->getConfigValue('rethrow_exceptions', false)) {
                 throw new $exception($this->formatExceptionMessage($exception));

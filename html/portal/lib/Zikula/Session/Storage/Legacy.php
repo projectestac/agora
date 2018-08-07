@@ -207,7 +207,7 @@ class Zikula_Session_Storage_Legacy implements Zikula_Session_StorageInterface
         } else {
             $result = DBUtil::selectObjectByID('session_info', $sessionId, 'sessid');
             if (!$result) {
-                return false;
+                return '';
             }
         }
 
@@ -226,6 +226,17 @@ class Zikula_Session_Storage_Legacy implements Zikula_Session_StorageInterface
      */
     public function write($sessionId, $vars)
     {
+        //Ugly hack due the php bug in regenerate_session
+        if (!isset($GLOBALS['_ZSession']['obj'])) {
+            $ip = $_SERVER["REMOTE_ADDR"];
+            $now = date('m/d/Y h:i:s a', time());
+            $GLOBALS['_ZSession']['obj'] = [
+                    'sessid' => $sessionId,
+                    'ipaddr' => $ip,
+                    'uid' => 0,
+                    'lastused' => $now,
+                    ];
+        }
         $obj = $GLOBALS['_ZSession']['obj'];
         $obj['vars'] = $vars;
         $obj['remember'] = (SessionUtil::getVar('rememberme') ? SessionUtil::getVar('rememberme') : 0);

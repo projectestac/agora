@@ -71,7 +71,7 @@ class XtecMailer_Listeners {
 
         try {
             $mailsender = new mailsender($idApp, $replyAddress, $sender, $wsdl, $log, $debug, $logpath);
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             LogUtil::registerError('ERROR: Cannot initialize mailsender, no mail will be sent');
             LogUtil::registerError($e->getMessage());
             LogUtil::registerError('The execution must go on!');

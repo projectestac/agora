@@ -330,6 +330,8 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 30);
         curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curl_handle, CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($curl_handle, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($curl_handle, CURLOPT_SSL_VERIFYPEER, false);
         $actions = curl_exec($curl_handle);
         curl_close($curl_handle);
 
@@ -1137,7 +1139,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 foreach ($clients as $i => $client) {
                     try {
                         $result = $client->executeSQL($sqlfunc, false);
-                    } catch(Exception $e) {
+                    } catch(Throwable $e) {
                         $success[$i] = false;
                         $messages[$i] = $this->__('No s\'ha pogut executar la comanda a la base de dades: ') . $e->getMessage();
                         continue;
@@ -2305,7 +2307,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             // Pas 4: Activar el Servei
             try {
                 $password = $service->changeState(Service::STATUS_ENABLED);
-            } catch (Exception $e){
+            } catch (Throwable $e){
                 // If it fails, delete the record created in agoraportal_client_services
                 $service->delete($service->clientServiceId);
                 $results[$clientCode] = "No s'ha pogut activar el servei: " . $e->getMessage();

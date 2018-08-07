@@ -1288,7 +1288,7 @@ class Users_Controller_Admin extends Zikula_AbstractController
         if (!$reginfo['isverified'] && !empty($reginfo['verificationsent']) && ($regExpireDays > 0)) {
             try {
                 $expiresUTC = new DateTime($reginfo['verificationsent'], new DateTimeZone('UTC'));
-            } catch (Exception $e) {
+            } catch (Throwable $e) {
                 $expiresUTC = new DateTime(Users_Constant::EXPIRED, new DateTimeZone('UTC'));
             }
             $expiresUTC->modify("+{$regExpireDays} days");
@@ -1565,7 +1565,7 @@ class Users_Controller_Admin extends Zikula_AbstractController
             if (!$reginfo['isverified'] && $reginfo['verificationsent'] && ($regExpireDays > 0)) {
                 try {
                     $expiresUTC = new DateTime($reginfo['verificationsent'], new DateTimeZone('UTC'));
-                } catch (Exception $e) {
+                } catch (Throwable $e) {
                     $expiresUTC = new DateTime(Users_Constant::EXPIRED, new DateTimeZone('UTC'));
                 }
                 $expiresUTC->modify("+{$regExpireDays} days");
@@ -1685,7 +1685,7 @@ class Users_Controller_Admin extends Zikula_AbstractController
             if (!$reginfo['isverified'] && !empty($reginfo['verificationsent']) && ($regExpireDays > 0)) {
                 try {
                     $expiresUTC = new DateTime($reginfo['verificationsent'], new DateTimeZone('UTC'));
-                } catch (Exception $e) {
+                } catch (Throwable $e) {
                     $expiresUTC = new DateTime(Users_Constant::EXPIRED, new DateTimeZone('UTC'));
                 }
                 $expiresUTC->modify("+{$regExpireDays} days");
@@ -1800,7 +1800,7 @@ class Users_Controller_Admin extends Zikula_AbstractController
             if (!$reginfo['isverified'] && !empty($reginfo['verificationsent']) && ($regExpireDays > 0)) {
                 try {
                     $expiresUTC = new DateTime($reginfo['verificationsent'], new DateTimeZone('UTC'));
-                } catch (Exception $e) {
+                } catch (Throwable $e) {
                     $expiresUTC = new DateTime(Users_Constant::EXPIRED, new DateTimeZone('UTC'));
                 }
                 $expiresUTC->modify("+{$regExpireDays} days");

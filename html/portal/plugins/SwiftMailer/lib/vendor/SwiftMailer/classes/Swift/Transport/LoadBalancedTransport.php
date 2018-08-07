@@ -175,7 +175,7 @@ class Swift_Transport_LoadBalancedTransport implements Swift_Transport
       {
         $transport->stop();
       }
-      catch (Exception $e)
+      catch (Throwable $e)
       {
       }
       $this->_deadTransports[] = $transport;

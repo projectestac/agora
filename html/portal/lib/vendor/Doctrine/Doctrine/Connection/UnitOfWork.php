@@ -146,7 +146,7 @@ class Doctrine_Connection_UnitOfWork extends Doctrine_Connection_Module
             $record->state($state);
 
             $conn->commit();
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             // Make sure we roll back our internal transaction
             //$record->state($state);
             $conn->rollback();
@@ -275,7 +275,7 @@ class Doctrine_Connection_UnitOfWork extends Doctrine_Connection_Module
             $this->conn->commit();
 
             return true;
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             $this->conn->rollback();
             throw $e;
         }

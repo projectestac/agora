@@ -358,7 +358,7 @@ class Doctrine_Export_Mssql extends Doctrine_Export
             $query = 'SET IDENTITY_INSERT ' . $sequenceName . ' ON ' .
                      'INSERT INTO ' . $sequenceName . ' (' . $seqcolName . ') VALUES ( ' . $start . ')';
             $res = $this->conn->exec($query);
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             $result = $this->conn->exec('DROP TABLE ' . $sequenceName);
         }
         return true;

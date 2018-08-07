@@ -95,7 +95,7 @@ class sfYaml
     {
       $ret = $yaml->parse($input);
     }
-    catch (Exception $e)
+    catch (Throwable $e)
     {
       throw new InvalidArgumentException(sprintf('Unable to parse %s: %s', $file ? sprintf('file "%s"', $file) : 'string', $e->getMessage()));
     }

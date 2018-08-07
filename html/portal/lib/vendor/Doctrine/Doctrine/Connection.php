@@ -290,7 +290,7 @@ abstract class Doctrine_Connection extends Doctrine_Configurable implements Coun
         if ($this->isConnected) {
             try {
                 return $this->dbh->getAttribute($attribute);
-            } catch (Exception $e) {
+            } catch (Throwable $e) {
                 throw new Doctrine_Connection_Exception('Attribute ' . $attribute . ' not found.');
             }
         } else {
@@ -1066,7 +1066,7 @@ abstract class Doctrine_Connection extends Doctrine_Configurable implements Coun
      *
      * @throws Doctrine_Connection_Exception
      */
-    public function rethrowException(Exception $e, $invoker, $query = null)
+    public function rethrowException(Throwable $e, $invoker, $query = null)
     {
         $event = new Doctrine_Event($this, Doctrine_Event::CONN_ERROR);
 
@@ -1221,7 +1221,7 @@ abstract class Doctrine_Connection extends Doctrine_Configurable implements Coun
             $this->beginInternalTransaction();
             $this->unitOfWork->saveAll();
             $this->commit();
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             $this->rollback();
             throw $e;
         }
@@ -1437,7 +1437,7 @@ abstract class Doctrine_Connection extends Doctrine_Configurable implements Coun
         // the tmp connection
         try {
             $tmpConnection->export->createDatabase($info['dbname']);
-        } catch (Exception $e) {}
+        } catch (Throwable $e) {}
 
         // Close the temporary connection used to issue the drop database command
         $this->getManager()->closeConnection($tmpConnection);
@@ -1470,7 +1470,7 @@ abstract class Doctrine_Connection extends Doctrine_Configurable implements Coun
         // the tmp connection
         try {
             $tmpConnection->export->dropDatabase($info['dbname']);
-        } catch (Exception $e) {}
+        } catch (Throwable $e) {}
 
         // Close the temporary connection used to issue the drop database command
         $this->getManager()->closeConnection($tmpConnection);

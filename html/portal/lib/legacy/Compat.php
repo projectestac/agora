@@ -450,7 +450,7 @@ class PNObject extends DBObject
      * @param mixed         $key   The DB key to use to retrieve the object (optional) (default=null)
      * @param string        $field The field containing the key value (optional) (default=null)
      */
-    public function PNObject($init = null, $key = null, $field = null)
+    public function __construct($init = null, $key = null, $field = null)
     {
         $this->_init($init, $key, $field);
         LogUtil::log(__f('Warning! Class %1$s is deprecated. Please use %2$s instead.', array(__CLASS__ , 'DBObject')), E_USER_DEPRECATED);
@@ -493,7 +493,7 @@ class PNObjectArray extends DBObjectArray
      * @param object|string $init  Initialization value (see _init() for details)
      * @param string        $where The where clause to apply to the DB get/select (optional) (default='')
      */
-    public function PNObjectArray($init = null, $where = null, $orderBy = null, $limitOffset = -1, $limitNumRows = -1, $assocKey = null)
+    public function __construct($init = null, $where = null, $orderBy = null, $limitOffset = -1, $limitNumRows = -1, $assocKey = null)
     {
         $this->_init($init, $where, $orderBy, $limitOffset, $limitNumRows, $assocKey);
         LogUtil::log(__f('Warning! Class %1$s is deprecated. Please use %2$s instead.', array(__CLASS__ , 'DBObjectArray')), E_USER_DEPRECATED);

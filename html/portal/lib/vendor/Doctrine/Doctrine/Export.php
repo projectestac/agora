@@ -744,7 +744,7 @@ class Doctrine_Export extends Doctrine_Connection_Module
 
             return $this->conn->quoteIdentifier($name, true)
                  . ' ' . $dec . $charset . $default . $notnull . $unique . $check . $collation;
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             throw new Doctrine_Exception('Around field ' . $name . ': ' . $e->getMessage());
         }
 

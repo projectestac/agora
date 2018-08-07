@@ -31,7 +31,7 @@ class Blocks_Installer extends Zikula_AbstractInstaller
 
         try {
             DoctrineHelper::createSchema($this->entityManager, $classes);
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             return false;
         }
 

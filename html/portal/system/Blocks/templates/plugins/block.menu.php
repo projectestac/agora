@@ -57,13 +57,13 @@ function smarty_block_menu($params, $content, $smarty, &$repeat)
     try {
         $iterator->seek($index);
         $currentKey = $iterator->key();
-    } catch (Exception $e) {
+    } catch (Throwable $e) {
         $currentKey = null;
     }
     try {
         $iterator->seek($index-1);
         $lastKey = $iterator->key();
-    } catch (Exception $e) {
+    } catch (Throwable $e) {
         $lastKey = null;
     }
 

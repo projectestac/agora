@@ -26,7 +26,7 @@ class Admin_Installer extends Zikula_AbstractInstaller
         // create tables
         try {
             DoctrineHelper::createSchema($this->entityManager, array('Admin_Entity_AdminCategory', 'Admin_Entity_AdminModule'));
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             return false;
         }
 
@@ -104,7 +104,7 @@ class Admin_Installer extends Zikula_AbstractInstaller
         // drop tables
         try {
             DoctrineHelper::dropSchema($this->entityManager, array('Admin_Entity_AdminCategory', 'Admin_Entity_AdminModule'));
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             return false;
         }
 

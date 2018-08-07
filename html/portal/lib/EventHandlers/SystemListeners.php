@@ -240,7 +240,7 @@ class SystemListeners extends Zikula_AbstractEventHandler
             if (!$session->start()) {
                 throw new RuntimeException('Failed to start session');
             }
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             // session initialization failed so display templated error
             header('HTTP/1.1 503 Service Unavailable');
             require_once System::getSystemErrorTemplate('sessionfailed.tpl');

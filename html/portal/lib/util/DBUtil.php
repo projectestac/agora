@@ -147,7 +147,7 @@ class DBUtil
             $connection->export->createDatabase($dbname);
 
             return true;
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             echo 'Database error: ' . $e->getMessage();
 
             return false;
@@ -304,7 +304,7 @@ class DBUtil
                     return $result;
                 }
             }
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
 
             // XTEC ************ AFEGIT - To avoid "MySQL server has gone away" errors!
             // xxxx.xx.xx - @pferrer22
@@ -567,7 +567,7 @@ class DBUtil
                         'definition' => $definition));
         try {
             Doctrine_Manager::getInstance()->getCurrentConnection()->export->alterTable($tableName, array('rename' => $renameColumnArray));
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             return LogUtil::registerError(__('Error! Column rename failed.') . ' ' . $e->getMessage());
         }
         self::flushCache($table);
@@ -614,7 +614,7 @@ class DBUtil
 
                 $connection->export->alterTable($tableName, array('add' => array($field[0] => $def)));
             }
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             return LogUtil::registerError(__('Error! Column creation failed.') . ' ' . $e->getMessage());
         }
 
@@ -657,7 +657,7 @@ class DBUtil
 
         try {
             Doctrine_Manager::getInstance()->getCurrentConnection()->export->alterTable($tableName, array('remove' => $arrayFields));
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             return LogUtil::registerError(__('Error! Column deletion failed.') . ' ' . $e->getMessage());
         }
 
@@ -3034,7 +3034,7 @@ class DBUtil
                     throw new Exception(__('Exiting after SQL-error'));
                 }
             }
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             return LogUtil::registerError('Database error: ' . $e->getMessage());
         }
 
@@ -3286,7 +3286,7 @@ class DBUtil
 
         //try {
         //    return Doctrine_Manager::getInstance()->getCurrentConnection()->import->listTableConstraints($tableName);
-        //} catch (Exception $e) {
+        //} catch (Throwable $e) {
         //    return LogUtil::registerError(__('Error! Table constraints determination failed.') . ' ' . $e->getMessage());
         //}
 
@@ -3445,7 +3445,7 @@ class DBUtil
 
         try {
             $connection->export->createTable($tableName, $definition, $tabopt);
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             return LogUtil::registerError(__f('Error! Table creation failed for %s', $tableName) . ' ' . $e->getMessage());
         }
 
@@ -3528,7 +3528,7 @@ class DBUtil
             $alterTableDefinition = array('add' => array($key => $columnDefinition));
             try {
                 $connection->export->alterTable($tableName, $alterTableDefinition);
-            } catch (Exception $e) {
+            } catch (Throwable $e) {
                 return LogUtil::registerError(__('Error! Table update failed.') . ' ' . $e->getMessage());
             }
         }
@@ -3538,7 +3538,7 @@ class DBUtil
             $alterTableDefinition = array('change' => array($key => array('definition' => $columnDefinition)));
             try {
                 $connection->export->alterTable($tableName, $alterTableDefinition);
-            } catch (Exception $e) {
+            } catch (Throwable $e) {
                 return LogUtil::registerError(__('Error! Table update failed.') . ' ' . $e->getMessage());
             }
         }
@@ -3552,7 +3552,7 @@ class DBUtil
                 $alterTableDefinition = array('remove' => array($key => array()));
                 try {
                     $connection->export->alterTable($tableName, $alterTableDefinition);
-                } catch (Exception $e) {
+                } catch (Throwable $e) {
                     return LogUtil::registerError(__('Error! Table update failed.') . ' ' . $e->getMessage());
                 }
             }
@@ -3563,7 +3563,7 @@ class DBUtil
         foreach ($indexes as $index) {
             try {
                 $connection->export->dropIndex($tableName, $index);
-            } catch (Exception $e) {
+            } catch (Throwable $e) {
                 return LogUtil::registerError(__('Error! Table update failed.') . ' ' . $e->getMessage());
             }
         }
@@ -3657,7 +3657,7 @@ class DBUtil
 
         try {
             Doctrine_Manager::getInstance()->getCurrentConnection()->export->alterTable($tableName, array('name' => $newTableName));
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             return LogUtil::registerError(__('Error! Table rename failed.') . ' ' . $e->getMessage());
         }
 
@@ -3690,7 +3690,7 @@ class DBUtil
         try {
             Doctrine_Manager::getInstance()->getCurrentConnection()->export->dropTable($tableName);
             ObjectUtil::deleteAllObjectTypeAttributes($table);
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             return LogUtil::registerError(__('Error! Table drop failed.') . ' ' . $e->getMessage());
         }
 
@@ -3769,7 +3769,7 @@ class DBUtil
             Doctrine_Manager::getInstance()->getCurrentConnection()->export->createIndex($tableName, $idxname, $indexDefinition);
 
             return true;
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             return LogUtil::registerError(__('Error! Index creation failed.') . ' ' . $e->getMessage());
         }
     }
@@ -3804,7 +3804,7 @@ class DBUtil
             Doctrine_Manager::getInstance()->getCurrentConnection()->export->dropIndex($tableName, $idxname);
 
             return true;
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             return LogUtil::registerError(__('Error! Index deletion failed.') . ' ' . $e->getMessage());
         }
     }
@@ -3893,7 +3893,7 @@ class DBUtil
         try {
             // Using array_unique here because Doctrine is sometimes returning a duplicate of the last index key - drak refs #2676
             return array_unique(Doctrine_Manager::getInstance()->getCurrentConnection()->import->listTableIndexes($tableName));
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             return LogUtil::registerError(__('Error! Fetching table index list failed.') . ' ' . $e->getMessage());
         }
     }

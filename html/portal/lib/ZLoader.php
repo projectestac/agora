@@ -243,7 +243,7 @@ function z_exit($msg, $html = true)
  *
  * @return void
  */
-function exception_handler(Exception $e)
+function exception_handler(Throwable $e)
 {
     echo "<pre>";
     echo 'Uncaught exception ' . $e->getMessage() . ' in ' . $e->getFile() . ' line, ' . $e->getLine() . "\n";
