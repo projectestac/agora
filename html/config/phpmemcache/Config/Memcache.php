@@ -1,12 +1,12 @@
 <?php
 return array (
-  'stats_api' => 'Memcache',
-  'slabs_api' => 'Memcache',
-  'items_api' => 'Memcache',
-  'get_api' => 'Memcache',
-  'set_api' => 'Memcache',
-  'delete_api' => 'Memcache',
-  'flush_all_api' => 'Memcache',
+  'stats_api' => 'Server',
+  'slabs_api' => 'Server',
+  'items_api' => 'Server',
+  'get_api' => 'Server',
+  'set_api' => 'Server',
+  'delete_api' => 'Server',
+  'flush_all_api' => 'Server',
   'connection_timeout' => '1',
   'max_item_dump' => '100',
   'refresh_rate' => 5,
@@ -18,9 +18,14 @@ return array (
   array (
     'Default' => 
     array (
-      '127.0.0.1:11211' => 
+      '172.18.0.2:11211' => 
       array (
-        'hostname' => '127.0.0.1',
+        'hostname' => '172.18.0.2',
+        'port' => '11211',
+      ),
+      '172.18.0.3:11211' => 
+      array (
+        'hostname' => '172.18.0.3',
         'port' => '11211',
       ),
     ),
