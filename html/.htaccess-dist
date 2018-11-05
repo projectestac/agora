@@ -4,6 +4,10 @@ RewriteBase /agora/
 
 # Required for the proper functioning of cacti
 RewriteRule ^server-status$ - [L]
+RewriteRule ^server-info$ - [L]
+
+RewriteCond %{HTTP:X-FORWARDED-PROTO} !^https$
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/agora/$1 [QSA,R=permanent,L]
 
 # Add trailing slash if necessary: Not an extension (.php, .css, .js, ...), not a Moodle cache file, not a BuddyPress URL and does not end with a slash (/)
 RewriteCond %{REQUEST_URI} !\.([^/]*)$

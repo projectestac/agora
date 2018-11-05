@@ -8,6 +8,21 @@ Changes in progress
 NODES
 - xtec-booking: Added cron to remove old bookings
 
+Changes 18.11.05
+---------------------------------------------------------------------------------------
+MOODLE
+- Moodle upgraded to from 3.4.5
+- Fix deprecated js functions in rgrade
+- Improve the use of memcached
+- Add recordRTC to atto editor
+
+NODES
+- Upgrade H5P
+- Fix the mail format of Buddypress
+- Show url to restart password
+- Change type button to image to show images for categories
+- Upgrade translation binaries for version 4.9.5
+- Non-operating external invitation process
 
 Changes 18.08.13
 ---------------------------------------------------------------------------------------

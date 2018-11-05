@@ -43,6 +43,7 @@ gitcheckout "html/moodle2/langpacks" "master" "git@github.com:projectestac/moodl
 gitcheckout "html/moodle2/lib/editor/atto/plugins/fontsize" "master" "https://github.com/andrewnicols/moodle-atto_fontsize.git"
 gitcheckout "html/moodle2/lib/editor/atto/plugins/fontfamily" "master" "git@github.com:projectestac/moodle-atto_fontfamily.git"
 gitcheckout "html/moodle2/lib/editor/atto/plugins/wiris" "master" "git@github.com:wiris/moodle-atto_wiris.git"
+gitcheckout "html/moodle2/lib/editor/atto/plugins/recordrtc" "master" "https://github.com/blindsidenetworks/moodle-atto_recordrtc.git"
 gitcheckout "html/moodle2/local/agora" "master" "git@github.com:projectestac/moodle-local_agora.git"
 gitcheckout "html/moodle2/local/agora/mailer" "master" "git@github.com:projectestac/mailer.git"
 gitcheckout "html/moodle2/local/alexandriaimporter" "master" "git@github.com:projectestac/moodle-local_alexandriaimporter.git"
@@ -70,8 +71,6 @@ gitcheckout "html/moodle2/question/type/wq" "master" "git@github.com:wiris/moodl
 gitcheckout "html/moodle2/question/type/ordering" "master" "https://github.com/gbateson/moodle-qtype_ordering.git"
 gitcheckout "html/moodle2/report/coursequotas" "master" "git@github.com:projectestac/moodle-report_coursequotas.git"
 gitcheckout "html/moodle2/theme/xtec2" "master" "git@github.com:projectestac/moodle-theme_xtec2.git"
-gitcheckout "html/moodle2/theme/admin/tool/dataprivacy" "MOODLE_34_STABLE" "https://github.com/moodlehq/moodle-tool_dataprivacy.git"
-gitcheckout "html/moodle2/theme/admin/tool/policy" "MOODLE_34_STABLE" "https://github.com/moodlehq/moodle-tool_policy.git"
 fi
 
 if [[ $execwordpress == true ]]
