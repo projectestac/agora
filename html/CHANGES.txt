@@ -8,6 +8,13 @@ Changes in progress
 NODES
 - xtec-booking: Added cron to remove old bookings
 
+Changes 18.11.23
+---------------------------------------------------------------------------------------
+MOODLE
+- Moodle upgraded to from 3.4.6
+- Fix presentation in rgrade
+- Fix the mod_jclic problem set as the first activity and improve some parts
+
 Changes 18.11.05
 ---------------------------------------------------------------------------------------
 MOODLE
