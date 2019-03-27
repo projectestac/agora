@@ -80,7 +80,7 @@ class HTMLPurifier_HTMLModuleManager
             array('Tidy_Transitional', 'Tidy_Proprietary'),
             array(),
             '-//W3C//DTD HTML 4.01 Transitional//EN',
-            'http://www.w3.org/TR/html4/loose.dtd'
+            'https://www.w3.org/TR/html4/loose.dtd'
         );
 
         $this->doctypes->register(
@@ -89,7 +89,7 @@ class HTMLPurifier_HTMLModuleManager
             array('Tidy_Strict', 'Tidy_Proprietary', 'Tidy_Name'),
             array(),
             '-//W3C//DTD HTML 4.01//EN',
-            'http://www.w3.org/TR/html4/strict.dtd'
+            'https://www.w3.org/TR/html4/strict.dtd'
         );
 
         $this->doctypes->register(
@@ -98,7 +98,7 @@ class HTMLPurifier_HTMLModuleManager
             array('Tidy_Transitional', 'Tidy_XHTML', 'Tidy_Proprietary', 'Tidy_Name'),
             array(),
             '-//W3C//DTD XHTML 1.0 Transitional//EN',
-            'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'
+            'https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'
         );
 
         $this->doctypes->register(
@@ -107,7 +107,7 @@ class HTMLPurifier_HTMLModuleManager
             array('Tidy_Strict', 'Tidy_XHTML', 'Tidy_Strict', 'Tidy_Proprietary', 'Tidy_Name'),
             array(),
             '-//W3C//DTD XHTML 1.0 Strict//EN',
-            'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'
+            'https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'
         );
 
         $this->doctypes->register(
@@ -116,7 +116,7 @@ class HTMLPurifier_HTMLModuleManager
             array('Tidy_Strict', 'Tidy_XHTML', 'Tidy_Proprietary', 'Tidy_Strict', 'Tidy_Name'), // Tidy_XHTML1_1
             array(),
             '-//W3C//DTD XHTML 1.1//EN',
-            'http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd'
+            'https://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd'
         );
 
     }

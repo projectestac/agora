@@ -15,7 +15,7 @@ class HTMLPurifier_ConfigSchema_Builder_Xml extends XMLWriter
 
         $purifier = HTMLPurifier::getInstance();
         $html = $purifier->purify($html);
-        $this->writeAttribute('xmlns', 'http://www.w3.org/1999/xhtml');
+        $this->writeAttribute('xmlns', 'https://www.w3.org/1999/xhtml');
         $this->writeRaw($html);
 
         $this->endElement(); // div

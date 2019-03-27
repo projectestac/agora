@@ -86,7 +86,7 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
         $c = $table['agoraportal_nodes_stats_month_column'];
         DBUtil::createIndex('idx_nodes_stats_month', 'agoraportal_nodes_stats_month', array('clientcode', 'date'));
         // create module vars
-        $this->setVar('siteBaseURL', 'http://agora.xtec.cat')
+        $this->setVar('siteBaseURL', 'https://agora.xtec.cat')
                 ->setVar('warningMailsTo', '')
                 ->setVar('requestMailsTo', '')
                 ->setVar('diskRequestThreshold', '70')
@@ -213,7 +213,7 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
                     return false;
             case '2.0.12':
                 $this->setVar('createDB', false)
-                        ->setVar('URLNodesModelBase', 'http://pwc-int.educacio.intranet/agora/master')
+                        ->setVar('URLNodesModelBase', 'https://pwc-int.educacio.intranet/agora/master')
                         ->setVar('DBNodesModel', 'usu6, usu7, usu8, usu9, usu10');
             case '2.0.14':
                 if (!DBUtil::changeTable('agoraportal_queues'))
@@ -411,42 +411,42 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
                 'shortcode' => 'ssee',
                 'keyword' => 'SE',
                 'description' => 'Maqueta Serveis Educatius',
-                'url' => 'http://pwc-int.educacio.intranet/agora/masterssee/',
+                'url' => 'https://pwc-int.educacio.intranet/agora/masterssee/',
                 'dbHost' => 'usu5',
             ),
             array(
                 'shortcode' => 'pri',
                 'keyword' => 'primaria',
                 'description' => 'Maqueta primària',
-                'url' => 'http://pwc-int.educacio.intranet/agora/masterpri/',
+                'url' => 'https://pwc-int.educacio.intranet/agora/masterpri/',
                 'dbHost' => 'usu6',
             ),
             array(
                 'shortcode' => 'sec',
                 'keyword' => 'secundaria',
                 'description' => 'Maqueta secundària',
-                'url' => 'http://pwc-int.educacio.intranet/agora/mastersec/',
+                'url' => 'https://pwc-int.educacio.intranet/agora/mastersec/',
                 'dbHost' => 'usu7',
             ),
             array(
                 'shortcode' => 'cfa',
                 'keyword' => 'adults',
                 'description' => 'Maqueta adults',
-                'url' => 'http://pwc-int.educacio.intranet/agora/mastercfa/',
+                'url' => 'https://pwc-int.educacio.intranet/agora/mastercfa/',
                 'dbHost' => 'usu8',
             ),
             array(
                 'shortcode' => 'eoi',
                 'keyword' => 'eoi',
                 'description' => 'Maqueta EOI',
-                'url' => 'http://pwc-int.educacio.intranet/agora/mastereoi/',
+                'url' => 'https://pwc-int.educacio.intranet/agora/mastereoi/',
                 'dbHost' => 'usu9',
             ),
             array(
                 'shortcode' => 'zer',
                 'keyword' => 'zer',
                 'description' => 'Maqueta ZER',
-                'url' => 'http://pwc-int.educacio.intranet/agora/masterzer/',
+                'url' => 'https://pwc-int.educacio.intranet/agora/masterzer/',
                 'dbHost' => 'usu10',
             ),
         );

@@ -146,11 +146,11 @@ class ServiceType extends AgoraBase {
     public function get_support_url() {
         switch ($this->serviceName) {
             case 'moodle2':
-                return 'http://agora.xtec.cat/moodle/moodle/mod/forum/view.php?id=181';
+                return 'https://agora.xtec.cat/moodle/moodle/mod/forum/view.php?id=181';
             case 'nodes':
-                return 'http://agora.xtec.cat/moodle/moodle/mod/forum/view.php?id=1721';
+                return 'https://agora.xtec.cat/moodle/moodle/mod/forum/view.php?id=1721';
             case 'intranet':
-                return 'http://agora.xtec.cat/moodle/moodle/mod/forum/view.php?id=1161';
+                return 'https://agora.xtec.cat/moodle/moodle/mod/forum/view.php?id=1161';
         }
         return false;
     }

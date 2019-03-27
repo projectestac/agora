@@ -47,9 +47,9 @@ class XmlExporter extends AbstractExporter
     public function exportClassMetadata(ClassMetadataInfo $metadata)
     {
         $xml = new \SimpleXmlElement("<?xml version=\"1.0\" encoding=\"utf-8\"?><doctrine-mapping ".
-            "xmlns=\"http://doctrine-project.org/schemas/orm/doctrine-mapping\" " .
-            "xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" ".
-            "xsi:schemaLocation=\"http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd\" />");
+            "xmlns=\"https://doctrine-project.org/schemas/orm/doctrine-mapping\" " .
+            "xmlns:xsi=\"https://www.w3.org/2001/XMLSchema-instance\" ".
+            "xsi:schemaLocation=\"https://doctrine-project.org/schemas/orm/doctrine-mapping https://doctrine-project.org/schemas/orm/doctrine-mapping.xsd\" />");
 
         /*$xml->addAttribute('xmlns', 'http://doctrine-project.org/schemas/orm/doctrine-mapping');
         $xml->addAttribute('xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance');
