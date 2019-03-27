@@ -73,7 +73,7 @@ function smarty_function_modcallhooks($params, $view)
 
     // create returnurl if not supplied (= this page)
     if (!isset($params['returnurl']) || empty($params['returnurl'])) {
-        $params['returnurl'] = str_replace('&amp;', '&', 'http://' . System::getHost() . System::getCurrentUri());
+        $params['returnurl'] = str_replace('&amp;', '&', 'https://' . System::getHost() . System::getCurrentUri());
     }
 
     // if the implode flag is true then we must always assign the result to a template variable

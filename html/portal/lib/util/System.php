@@ -302,7 +302,7 @@ class System
         $server = self::serverGetVar('HTTP_HOST');
 
         // IIS sets HTTPS=off
-        $https = self::serverGetVar('HTTPS', 'off');
+        $https = self::serverGetVar('HTTPS', 'on');
         if ($https != 'off') {
             $proto = 'https://';
         } else {
