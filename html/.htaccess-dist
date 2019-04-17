@@ -14,7 +14,7 @@ RewriteCond %{REQUEST_URI} !\.([^/]*)$
 RewriteCond %{REQUEST_URI} !(.*)/moodle/(.*)\.([^/]*)/(.*)$
 RewriteCond %{REQUEST_URI} !(.*)/nodes/(.*)$
 RewriteCond %{REQUEST_URI} !/$
-RewriteRule ^(.*)$ $1/ [QSA,R=permanent,L]
+RewriteRule ^(.*)$ $1/ [QSA,R=308,L]
 
 # Bare domain. Must change Rewrite Base in every environment
 RewriteCond %{HTTP_HOST} ^agora-virtual\.xtec\.cat$ [OR,NC]

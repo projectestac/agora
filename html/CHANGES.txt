@@ -8,6 +8,42 @@ Changes in progress
 NODES
 - xtec-booking: Added cron to remove old bookings
 
+Changes 19.04.15
+---------------------------------------------------------------------------------------
+MOODLE
+- Moodle upgraded to from 3.4.8
+- Align availability label next to the activity title
+- Add the temp configuration to the agora config file
+- Updated LangPacks
+- Updated auth/googleauth2
+- Updated mod/hvp
+- Updated them/xtec2
+- Updated mod/geogebra
+- Updated mod/jclic
+
+NODES
+- Upgrade Wordpress to version 5.1.1
+- Updates translation binaries for version 5.1.1
+- Remove core themes
+- Give PWA functionality
+- Adjust custom menu for the mobile version
+- Add function strip_shortcode_from_excerpt
+- Add comment
+- Let user admin delete users
+- Add Educació logo and rename Ensenyament logo
+- Update bbpress
+- Update buddypress-doc
+- Update buddypress-activity-plus
+- Update email-subscribers
+- Update import-users-from-csv-with-meta
+- Update invite-anyone
+- Update polylang
+- Update tabs-responsive
+- Update tinymce-advanced
+- Update wp-recaptcha
+- Add dop plugin
+- Add disable Gutenberg plugin
+
 Changes 18.11.23
 ---------------------------------------------------------------------------------------
 MOODLE

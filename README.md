@@ -66,6 +66,7 @@ Developers:
 - Toni Ginard (aginard@xtec.cat)
 - Pau Ferrer (pferre22@xtec.cat)
 - Sara Arjona (sarjona@xtec.cat)
+- Salva Valldeoriola (svallde2@xtec.cat)
 - Xavier Meler (jmeler@xtec.cat)
 - Víctor Saavedra (vsaavedr@xtec.cat)
 - Albert Pérez (aperez16@xtec.cat)
@@ -78,6 +79,7 @@ With the support of:
 - Francesc Busquets
 - Eduard Cercós
 - Mònica Grau
+- Isabel Oussedik
 - Pablo Mariña
 - Jordi Vivancos
    
@@ -85,7 +87,6 @@ AGORA uses code from the following projects:
 
 - Moodle: Learning Management System (http://moodle.org/)
 - Nodes: CMS for Education & Social Network based on Wordpress & BuddyPress (http://agora.xtec.cat/nodes)
-- Intraweb: CMS for Education based on Zikula (http://projectestac.github.io/intraweb/)
 
 
 AGORA includes external resources like:
