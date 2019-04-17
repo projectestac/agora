@@ -108,7 +108,8 @@ gitcheckout "html/wordpress/wp-content/plugins/tabs-responsive" "master" "https:
 gitcheckout "html/wordpress/wp-content/plugins/h5p" "master" "https://github.com/h5p/h5p-wordpress-plugin.git"
 gitcheckout "html/wordpress/wp-content/plugins/wordpress-telegram" "master" "https://github.com/projectestac/wordpress-telegram.git"
 gitcheckout "html/wordpress/wp-content/plugins/author-category" "master" "git@github.com:projectestac/wordpress-author-category.git"
-
+gitcheckout "html/wordpress/wp-content/plugins/pods" "master" "git@github.com:projectestac/wordpress-pods.git"
+gitcheckout "html/wordpress/wp-content/plugins/disable-gutenberg" "master" "git@github.com:projectestac/wordpress-disable-gutenberg.git"
 fi
 
 if [[ $execportal == true ]]
