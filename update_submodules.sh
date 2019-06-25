@@ -4,7 +4,6 @@ source "update_functions.sh"
 
 execmoodle=false
 execwordpress=false
-execintraweb=false
 execportal=false
 
 if [[ $1 == 'onlymoodle' ]]
@@ -13,16 +12,12 @@ then
 elif [[ $1 == 'onlywordpress' ]]
 then
 	execwordpress=true
-elif [[ $1 == 'onlyintraweb' ]]
-then
-	execintraweb=true
 elif [[ $1 == 'onlyportal' ]]
 then
 	execportal=true
 else
 	execmoodle=true
 	execwordpress=true
-	execintraweb=true
 	execportal=true
 fi
 
@@ -107,9 +102,9 @@ gitcheckout "html/wordpress/wp-includes/xtec" "master" "git@github.com:projectes
 gitcheckout "html/wordpress/wp-content/plugins/tabs-responsive" "master" "https://github.com/projectestac/tabs-responsive.git"
 gitcheckout "html/wordpress/wp-content/plugins/h5p" "master" "https://github.com/h5p/h5p-wordpress-plugin.git"
 gitcheckout "html/wordpress/wp-content/plugins/wordpress-telegram" "master" "https://github.com/projectestac/wordpress-telegram.git"
-gitcheckout "html/wordpress/wp-content/plugins/author-category" "master" "git@github.com:projectestac/wordpress-author-category.git"
-gitcheckout "html/wordpress/wp-content/plugins/pods" "master" "git@github.com:projectestac/wordpress-pods.git"
-gitcheckout "html/wordpress/wp-content/plugins/disable-gutenberg" "master" "git@github.com:projectestac/wordpress-disable-gutenberg.git"
+gitcheckout "html/wordpress/wp-content/plugins/author-category" "master" "https://github.com/projectestac/wordpress-author-category.git"
+gitcheckout "html/wordpress/wp-content/plugins/pods" "master" "https://github.com/projectestac/wordpress-pods.git"
+gitcheckout "html/wordpress/wp-content/plugins/disable-gutenberg" "master" "https://github.com/projectestac/wordpress-disable-gutenberg.git"
 fi
 
 if [[ $execportal == true ]]
