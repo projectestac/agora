@@ -37,7 +37,7 @@ gitcheckout "html/moodle2/filter/wiris" "master" "git@github.com:wiris/moodle-fi
 gitcheckout "html/moodle2/langpacks" "master" "git@github.com:projectestac/moodle-langpacks.git"
 gitcheckout "html/moodle2/lib/editor/atto/plugins/fontsize" "master" "https://github.com/andrewnicols/moodle-atto_fontsize.git"
 gitcheckout "html/moodle2/lib/editor/atto/plugins/fontfamily" "master" "git@github.com:projectestac/moodle-atto_fontfamily.git"
-gitcheckout "html/moodle2/lib/editor/atto/plugins/wiris" "master" "git@github.com:wiris/moodle-atto_wiris.git"
+gitcheckout "html/moodle2/lib/editor/atto/plugins/wiris" "stable" "git@github.com:wiris/moodle-atto_wiris.git"
 gitcheckout "html/moodle2/local/agora" "master" "git@github.com:projectestac/moodle-local_agora.git"
 gitcheckout "html/moodle2/local/agora/mailer" "master" "git@github.com:projectestac/mailer.git"
 gitcheckout "html/moodle2/local/alexandriaimporter" "master" "git@github.com:projectestac/moodle-local_alexandriaimporter.git"
