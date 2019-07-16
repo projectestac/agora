@@ -8,7 +8,7 @@
  * @package   PSI_TO
  * @author    Michael Cramer <BigMichi1@users.sourceforge.net>
  * @copyright 2009 phpSysInfo
- * @license   http://opensource.org/licenses/gpl-2.0.php GNU General Public License
+ * @license   http://opensource.org/licenses/gpl-2.0.php GNU General Public License version 2, or (at your option) any later version
  * @version   SVN: $Id: class.UPSDevice.inc.php 262 2009-06-22 10:48:33Z bigmichi1 $
  * @link      http://phpsysinfo.sourceforge.net
  */
@@ -19,7 +19,7 @@
  * @package   PSI_TO
  * @author    Michael Cramer <BigMichi1@users.sourceforge.net>
  * @copyright 2009 phpSysInfo
- * @license   http://opensource.org/licenses/gpl-2.0.php GNU General Public License
+ * @license   http://opensource.org/licenses/gpl-2.0.php GNU General Public License version 2, or (at your option) any later version
  * @version   Release: 3.0
  * @link      http://phpsysinfo.sourceforge.net
  */
@@ -94,6 +94,13 @@ class UPSDevice
      * @var Integer
      */
     private $_lineVoltage = null;
+
+    /**
+     * line freq
+     *
+     * @var Integer
+     */
+    private $_lineFrequency = null;
 
     /**
      * current load of the ups in percent
@@ -197,7 +204,7 @@ class UPSDevice
     /**
      * Sets $_batteryVoltage.
      *
-     * @param object $batteryVoltage battery volt
+     * @param Integer $batteryVoltage battery volt
      *
      * @see UPSDevice::$_batteryVoltage
      *
@@ -284,6 +291,32 @@ class UPSDevice
     public function setLineVoltage($lineVoltage)
     {
         $this->_lineVoltage = $lineVoltage;
+    }
+
+    /**
+     * Returns $_lineFrequency.
+     *
+     * @see UPSDevice::$_lineFrequency
+     *
+     * @return Integer
+     */
+    public function getLineFrequency()
+    {
+        return $this->_lineFrequency;
+    }
+
+    /**
+     * Sets $_lineFrequency.
+     *
+     * @param Integer $lineFrequency line frequency
+     *
+     * @see UPSDevice::$_lineFrequency
+     *
+     * @return Void
+     */
+    public function setLineFrequency($lineFrequency)
+    {
+        $this->_lineFrequency = $lineFrequency;
     }
 
     /**

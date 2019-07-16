@@ -8,7 +8,7 @@
  * @package   PSI_TO
  * @author    Michael Cramer <BigMichi1@users.sourceforge.net>
  * @copyright 2009 phpSysInfo
- * @license   http://opensource.org/licenses/gpl-2.0.php GNU General Public License
+ * @license   http://opensource.org/licenses/gpl-2.0.php GNU General Public License version 2, or (at your option) any later version
  * @version   SVN: $Id: class.SensorDevice.inc.php 592 2012-07-03 10:55:51Z namiltd $
  * @link      http://phpsysinfo.sourceforge.net
  */
@@ -19,7 +19,7 @@
  * @package   PSI_TO
  * @author    Michael Cramer <BigMichi1@users.sourceforge.net>
  * @copyright 2009 phpSysInfo
- * @license   http://opensource.org/licenses/gpl-2.0.php GNU General Public License
+ * @license   http://opensource.org/licenses/gpl-2.0.php GNU General Public License version 2, or (at your option) any later version
  * @version   Release: 3.0
  * @link      http://phpsysinfo.sourceforge.net
  */
@@ -52,6 +52,13 @@ class SensorDevice
      * @var Integer
      */
     private $_min = null;
+
+    /**
+     * event of the sensor
+     *
+     * @var String
+     */
+    private $_event = "";
 
     /**
      * Returns $_max.
@@ -155,5 +162,31 @@ class SensorDevice
     public function setValue($value)
     {
         $this->_value = $value;
+    }
+
+    /**
+     * Returns $_event.
+     *
+     * @see Sensor::$_event
+     *
+     * @return String
+     */
+    public function getEvent()
+    {
+        return $this->_event;
+    }
+
+    /**
+     * Sets $_event.
+     *
+     * @param String $event sensor event
+     *
+     * @see Sensor::$_event
+     *
+     * @return Void
+     */
+    public function setEvent($event)
+    {
+        $this->_event = $event;
     }
 }
