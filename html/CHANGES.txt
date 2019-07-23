@@ -26,7 +26,7 @@ NODES
 - phpinfo: Fixed access restriction to superadmins
 - email-subscribers: Hidden technical information to users
 - xtec lib: Added action to replace http by https in reactor_options
-
+- Fixed service worker
 
 Changes 19.04.15
 ---------------------------------------------------------------------------------------
