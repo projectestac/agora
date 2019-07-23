@@ -1,7 +1,6 @@
 adminInfo/*
 html/.htaccess
 html/syncdata
-html/config/config.php
 html/config/env-config.php
 html/config/env-config-eoi-pro.php
 html/config/env-config-pro.php
