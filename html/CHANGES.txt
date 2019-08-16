@@ -3,6 +3,16 @@ Release notes for Agora (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
+Changes in progress
+---------------------------------------------------------------------------------------
+MOODLE
+- Fixed cache pollution due to XTEC patches
+- Improved cache definitions
+
+NODES
+- Removed loading of PWA code to fix cache issues
+
+
 Changes 19.07.24
 ---------------------------------------------------------------------------------------
 MOODLE
@@ -27,6 +37,7 @@ NODES
 - email-subscribers: Hidden technical information to users
 - xtec lib: Added action to replace http by https in reactor_options
 - Fixed service worker
+
 
 Changes 19.04.15
 ---------------------------------------------------------------------------------------
