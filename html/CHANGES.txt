@@ -3,7 +3,7 @@ Release notes for Agora (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
-Changes in progress
+Changes 19.08.29
 ---------------------------------------------------------------------------------------
 MOODLE
 - Fixed cache pollution due to XTEC patches
