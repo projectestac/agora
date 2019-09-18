@@ -7,7 +7,10 @@ Changes in progress
 ---------------------------------------------------------------------------------------
 MOODLE
 - Upgraded Moodle from v3.6.5 to v3.6.6
+- Updated language packs
 - Re-added Catalonia to countries list
+- Made exception for FRM environment to put cache files in moodledata
+- Oauth2 server: Updated code to connect to WordPress
 - Marsupial: Updated components
 - Upgraded all wiris plugins
 - Upgraded module clickedu
@@ -16,6 +19,11 @@ MOODLE
 - Upgraded module H5P
 - Upgraded block "completion progress"
 - Upgraded question type "ordering"
+
+NODES
+- WordPress Social Login: Fixed login to WordPress via Moodle
+- TOC+: Fixed compatibility with WordPress 5.1
+- H5P: Upgraded to version 1.14.1
 
 
 Changes 19.08.29
