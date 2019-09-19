@@ -24,6 +24,8 @@ NODES
 - WordPress Social Login: Fixed login to WordPress via Moodle
 - TOC+: Fixed compatibility with WordPress 5.1
 - H5P: Upgraded to version 1.14.1
+- Added script to delete duplicated records in email subscribers tables
+- Added script to create missing tables in buddypress subscriptions
 
 
 Changes 19.08.29
