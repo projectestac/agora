@@ -242,12 +242,12 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
     public function sitesListContent() {
         AgoraPortal_Util::requireUser();
 
-        $init = FormUtil::getPassedValue('init', -1, 'GETPOST');
-        $rpp = FormUtil::getPassedValue('rpp', 10, 'GETPOST');
-        $locationId = FormUtil::getPassedValue('location', false, 'GETPOST');
-        $typeId =  FormUtil::getPassedValue('typeId', false, 'GETPOST');
-        $by =  FormUtil::getPassedValue('search', null, 'GETPOST');
-        $search =  FormUtil::getPassedValue('searchText', '', 'GETPOST');
+        $init = FormUtil::getPassedValue('init', -1, 'GETPOST', FILTER_SANITIZE_NUMBER_INT);
+        $rpp = FormUtil::getPassedValue('rpp', 10, 'GETPOST', FILTER_SANITIZE_NUMBER_INT);
+        $locationId = FormUtil::getPassedValue('location', false, 'GETPOST', FILTER_SANITIZE_NUMBER_INT);
+        $typeId =  FormUtil::getPassedValue('typeId', false, 'GETPOST', FILTER_SANITIZE_NUMBER_INT);
+        $by =  FormUtil::getPassedValue('search', null, 'GETPOST', FILTER_SANITIZE_STRING);
+        $search =  FormUtil::getPassedValue('searchText', '', 'GETPOST', FILTER_SANITIZE_STRING);
 
         $clients = Clients::search_with_services_by($by, $search, $locationId, $typeId, $init, $rpp);
         $clientsNumber = Clients::count_with_services_by($by, $search, $locationId, $typeId);
