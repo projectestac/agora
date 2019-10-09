@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.3.2
+-- version 4.2.13.3
 -- http://www.phpmyadmin.net
 --
--- Servidor: pdb-int:3308
--- Tiempo de generación: 13-07-2017 a las 11:16:04
--- Versión del servidor: 5.6.35
--- Versión de PHP: 5.4.16
+-- Host: pdb-int:3308
+-- Generation Time: 18-10-2019 a les 12:54:45
+-- Versió del servidor: 5.6.35-log
+-- PHP Version: 7.0.27
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -17,17 +17,70 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de datos: `usu7`
+-- Database: `usu7`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_activity`
+-- Estructura de la taula `wp_bpges_queued_items`
 --
 
-CREATE TABLE `wp_bp_activity` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bpges_queued_items` (
+`id` bigint(20) NOT NULL,
+  `user_id` bigint(20) NOT NULL,
+  `group_id` bigint(20) NOT NULL,
+  `activity_id` bigint(20) NOT NULL,
+  `type` varchar(75) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `date_recorded` datetime NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de la taula `wp_bpges_subscriptions`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_bpges_subscriptions` (
+`id` bigint(20) NOT NULL,
+  `user_id` bigint(20) NOT NULL,
+  `group_id` bigint(20) NOT NULL,
+  `type` varchar(75) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Bolcant dades de la taula `wp_bpges_subscriptions`
+--
+
+INSERT INTO `wp_bpges_subscriptions` (`id`, `user_id`, `group_id`, `type`) VALUES
+(1, 1, 1, 'dig'),
+(2, 1, 2, 'dig'),
+(3, 1, 3, 'dig'),
+(4, 1, 4, 'dig'),
+(5, 1, 5, 'dig'),
+(6, 1, 6, 'dig'),
+(7, 1, 7, 'dig'),
+(8, 1, 8, 'dig'),
+(9, 1, 9, 'dig'),
+(10, 1, 10, 'dig'),
+(11, 1, 11, 'dig'),
+(12, 1, 12, 'dig'),
+(13, 1, 13, 'dig'),
+(14, 1, 14, 'dig'),
+(15, 1, 15, 'dig'),
+(16, 1, 16, 'dig'),
+(17, 1, 17, 'dig'),
+(18, 1, 18, 'dig'),
+(19, 1, 19, 'dig');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de la taula `wp_bp_activity`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_bp_activity` (
+`id` bigint(20) NOT NULL,
   `user_id` bigint(20) NOT NULL,
   `component` varchar(75) NOT NULL,
   `type` varchar(75) NOT NULL,
@@ -40,57 +93,46 @@ CREATE TABLE `wp_bp_activity` (
   `hide_sitewide` tinyint(1) DEFAULT '0',
   `mptt_left` int(11) NOT NULL DEFAULT '0',
   `mptt_right` int(11) NOT NULL DEFAULT '0',
-  `is_spam` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `date_recorded` (`date_recorded`),
-  KEY `user_id` (`user_id`),
-  KEY `item_id` (`item_id`),
-  KEY `secondary_item_id` (`secondary_item_id`),
-  KEY `component` (`component`),
-  KEY `type` (`type`),
-  KEY `mptt_left` (`mptt_left`),
-  KEY `mptt_right` (`mptt_right`),
-  KEY `hide_sitewide` (`hide_sitewide`),
-  KEY `is_spam` (`is_spam`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=151 ;
+  `is_spam` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=151 DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `wp_bp_activity`
+-- Bolcant dades de la taula `wp_bp_activity`
 --
 
 INSERT INTO `wp_bp_activity` (`id`, `user_id`, `component`, `type`, `action`, `content`, `primary_link`, `item_id`, `secondary_item_id`, `date_recorded`, `hide_sitewide`, `mptt_left`, `mptt_right`, `is_spam`) VALUES
-(1, 2, 'members', 'last_activity', '', '', '', 0, NULL, '2017-06-27 17:13:40', 0, 0, 0, 0),
-(3, 1, 'groups', 'created_group', '<a href="http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha creat el node <a href="http://pwc-int.educacio.intranet/agora/mastersec/nodes/dep-ciencies/">Dep. Ciències</a>', '', 'http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 2, 0, '2014-09-18 17:21:36', 1, 0, 0, 0),
-(4, 1, 'groups', 'created_group', '<a href="http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha creat el node <a href="http://pwc-int.educacio.intranet/agora/mastersec/nodes/dep-socials/">Dep. Socials</a>', '', 'http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 3, 0, '2014-09-18 17:40:59', 1, 0, 0, 0),
-(5, 1, 'groups', 'activity_update', '<a href="http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha fet una actualització al node <a href="http://pwc-int.educacio.intranet/agora/mastersec/nodes/dep-socials/">Dep. Socials</a>', 'Primer missatge al mur del Departament de Socials. ', 'http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 3, 0, '2014-09-19 09:36:09', 1, 0, 0, 0),
+(1, 2, 'members', 'last_activity', '', '', '', 0, NULL, '2019-05-13 12:44:25', 0, 0, 0, 0),
+(3, 1, 'groups', 'created_group', '<a href="https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha creat el node <a href="https://pwc-int.educacio.intranet/agora/mastersec/nodes/dep-ciencies/">Dep. Ciències</a>', '', 'https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 2, 0, '2014-09-18 17:21:36', 1, 0, 0, 0),
+(4, 1, 'groups', 'created_group', '<a href="https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha creat el node <a href="https://pwc-int.educacio.intranet/agora/mastersec/nodes/dep-socials/">Dep. Socials</a>', '', 'https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 3, 0, '2014-09-18 17:40:59', 1, 0, 0, 0),
+(5, 1, 'groups', 'activity_update', '<a href="https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha fet una actualització al node <a href="https://pwc-int.educacio.intranet/agora/mastersec/nodes/dep-socials/">Dep. Socials</a>', 'Primer missatge al mur del Departament de Socials. ', 'https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 3, 0, '2014-09-19 09:36:09', 1, 0, 0, 0),
 (6, 1, 'members', 'last_activity', '', '', '', 0, NULL, '2017-03-24 12:41:15', 0, 0, 0, 0),
-(8, 1, 'groups', 'joined_group', '<a href="http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> s''ha afegit al node <a href="http://pwc-int.educacio.intranet/agora/mastersec/nodes/dep-socials/">Dep. Socials</a>', '', 'http://pwc-int.educacio.intranet/agora/mastersec/membres/xtecadmin/', 3, 0, '2014-09-19 10:03:51', 1, 0, 0, 0),
-(9, 1, 'groups', 'joined_group', '<a href="http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> s''ha afegit al node <a href="http://pwc-int.educacio.intranet/agora/mastersec/nodes/dep-ciencies/">Dep. Ciències</a>', '', 'http://pwc-int.educacio.intranet/agora/mastersec/membres/xtecadmin/', 2, 0, '2014-09-19 10:04:43', 1, 0, 0, 0),
-(11, 1, 'groups', 'activity_update', '<a href="http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha fet una actualització al node <a href="http://pwc-int.educacio.intranet/agora/mastersec/nodes/dep-ciencies/">Dep. Ciències</a>', 'Primer missatge al mur del departament de ciències ', 'http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 2, 0, '2014-09-19 16:13:07', 1, 0, 0, 0),
-(12, 1, 'groups', 'activity_update', '<a href="http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha fet una actualització al node <a href="http://pwc-int.educacio.intranet/agora/mastersec/nodes/professorat/">Professorat</a>', 'Primer missatge al mur del professorat\n', 'http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 1, 0, '2014-09-19 16:13:26', 1, 0, 0, 0),
-(13, 1, 'groups', 'created_group', '<a href="http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha creat el node <a href="http://pwc-int.educacio.intranet/agora/mastersec/nodes/tecnologia/">Tecnologia</a>', '', 'http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 4, 0, '2014-09-19 16:17:04', 1, 0, 0, 0),
-(14, 1, 'groups', 'created_group', '<a href="http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha creat el node <a href="http://pwc-int.educacio.intranet/agora/mastersec/nodes/dep-matematiques/">Dep. Matemàtiques</a>', '', 'http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 5, 0, '2014-09-19 16:19:50', 1, 0, 0, 0),
-(15, 1, 'groups', 'activity_update', '<a href="http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha fet una actualització al node <a href="http://pwc-int.educacio.intranet/agora/mastersec/nodes/dep-matematiques/">Dep. Matemàtiques</a>', 'Primer missatge en el departament de Matemàtiques', 'http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 5, 0, '2014-09-19 16:23:40', 1, 0, 0, 0),
-(16, 1, 'groups', 'created_group', '<a href="http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha creat el node <a href="http://pwc-int.educacio.intranet/agora/mastersec/nodes/dep-catala-989465410/">Dep. Català</a>', '', 'http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 6, 0, '2014-09-19 16:27:08', 1, 0, 0, 0),
-(17, 1, 'groups', 'created_group', '<a href="http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha creat el node <a href="http://pwc-int.educacio.intranet/agora/mastersec/nodes/dep-castella/">Dep. Castellà</a>', '', 'http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 7, 0, '2014-09-19 16:29:52', 1, 0, 0, 0),
-(18, 1, 'groups', 'created_group', '<a href="http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha creat el node <a href="http://pwc-int.educacio.intranet/agora/mastersec/nodes/dep-llengues-estrangeres/">Dep. Llengües estrangeres</a>', '', 'http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 8, 0, '2014-09-19 16:31:58', 1, 0, 0, 0),
-(19, 1, 'groups', 'created_group', '<a href="http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha creat el node <a href="http://pwc-int.educacio.intranet/agora/mastersec/nodes/dep-educacio-fisica/">Dep. Educació Física</a>', '', 'http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 9, 0, '2014-09-19 16:36:06', 1, 0, 0, 0),
-(20, 1, 'groups', 'activity_update', '<a href="http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha fet una actualització al node <a href="http://pwc-int.educacio.intranet/agora/mastersec/nodes/dep-educacio-fisica/">Dep. Educació Física</a>', 'Primer missatge en el mur del departament d''''Educació Física', 'http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 9, 0, '2014-09-19 16:36:27', 1, 0, 0, 0),
-(21, 1, 'groups', 'created_group', '<a href="http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha creat el node <a href="http://pwc-int.educacio.intranet/agora/mastersec/nodes/dep-visual-i-plastica-1766120807/">Dep. Visual i Plàstica</a>', '', 'http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 10, 0, '2014-09-19 16:40:20', 1, 0, 0, 0),
-(22, 1, 'groups', 'created_group', '<a href="http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha creat el node <a href="http://pwc-int.educacio.intranet/agora/mastersec/nodes/dep-musica/">Dep. Música</a>', '', 'http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 11, 0, '2014-09-19 16:48:34', 1, 0, 0, 0),
-(23, 1, 'groups', 'created_group', '<a href="http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha creat el node <a href="http://pwc-int.educacio.intranet/agora/mastersec/nodes/dep-orientacio/">Dep. Orientació</a>', '', 'http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 12, 0, '2014-09-19 16:54:30', 1, 0, 0, 0),
-(24, 1, 'groups', 'created_group', '<a href="http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha creat el node <a href="http://pwc-int.educacio.intranet/agora/mastersec/nodes/dep-informatica/">Dep. Informàtica</a>', '', 'http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 13, 0, '2014-09-19 17:01:17', 1, 0, 0, 0),
-(34, 1, 'groups', 'activity_update', '<a href="http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha fet una actualització al node <a href="http://pwc-int.educacio.intranet/agora/mastersec/nodes/educacio-emocional/">Educació emocional</a>', 'Un gran vídeo per reflexionar...\n\nhttps://www.youtube.com/watch?v=wSNYYThX5-g', 'http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 14, 0, '2014-09-22 14:36:27', 0, 0, 0, 0),
-(35, 1, 'groups', 'bbp_topic_create', '<a href="http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" rel="nofollow">admin</a> ha començat <a href="http://pwc-int.educacio.intranet/agora/mastersec/nodes/professorat/forum/topic/programa-redes-sobre-educacio-emocional/">Programa Redes sobre educació emocional</a> tema en el fòrum <a href="http://pwc-int.educacio.intranet/agora/mastersec/nodes/professorat/forum/">Professorat</a>', 'Programa Redes sobre l''educació emocional. Molt interessant. Per reflexionar.\n\n\n\n<span><img src="http://img.irtve.es/css/rtve.commons/rtve.header.footer/i/logoRTVEes.png" alt="" /></span> <a title="El aprendizaje social y emocional" href="http://www.rtve.es/alacarta/videos/redes/redes-aprendizaje-social-20130526-2130-169/1839588/"><strong>El aprendizaje social y emocional</strong></a>\n', 'http://pwc-int.educacio.intranet/agora/mastersec/nodes/professorat/forum/topic/programa-redes-sobre-educacio-emocional/', 1, 206, '2014-09-22 14:40:28', 1, 0, 0, 0),
-(36, 1, 'groups', 'bbp_topic_create', '<a href="http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" rel="nofollow">admin</a> ha començat <a href="http://pwc-int.educacio.intranet/agora/mastersec/nodes/professorat/forum/topic/indefensio-apresa/">Indefensió apresa</a> tema en el fòrum <a href="http://pwc-int.educacio.intranet/agora/mastersec/nodes/professorat/forum/">Professorat</a>', 'Un dels objectius de la xarxa Nodes és oferir espais perquè els alumnes es pugin expressar fora de l''aula. Pot ser una eina molt útil especialment pels alumnes que no destaquen pels seus resultats acadèmics i que tenen una baixa autoestima derivada d''una indefensió apresa a l''aula.\n\n', 'http://pwc-int.educacio.intranet/agora/mastersec/nodes/professorat/forum/topic/indefensio-apresa/', 1, 207, '2014-09-22 14:46:13', 1, 0, 0, 0),
-(38, 1, 'groups', 'activity_update', '<a href="http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha fet una actualització al node <a href="http://pwc-int.educacio.intranet/agora/mastersec/nodes/rrr-reduccio-reutilitzacio-i-reciclatge/">RRR – Reducció, Reutilització i Reciclatge</a>', '\n[bpfb_images]\n1_0-44155900-1411397838_koalarrr.jpg\n[/bpfb_images]', 'http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 18, 0, '2014-09-22 14:57:18', 0, 0, 0, 0),
-(39, 1, 'groups', 'created_group', '<a href="http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha creat el node <a href="http://pwc-int.educacio.intranet/agora/mastersec/nodes/papiroflexia/">Papiroflexia</a>', '', 'http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 19, 0, '2014-09-22 15:08:11', 0, 0, 0, 0),
-(40, 1, 'groups', 'bbp_topic_create', '<a href="http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" rel="nofollow">admin</a> ha començat <a href="http://pwc-int.educacio.intranet/agora/mastersec/nodes/papiroflexia/forum/topic/figura-n-1-la-granota/">Figura n.1: La granota </a> tema en el fòrum <a href="http://pwc-int.educacio.intranet/agora/mastersec/nodes/papiroflexia/forum/">Papiroflexia</a>', 'Hola Noders! Qui s''apunta a fer la granota? Aquí teniu les instruccions:\n\n[caption id="" align="alignnone" width="700"]<img src="http://pwc-int.educacio.intranet/agora/mastersec/wp-content/uploads/usu7/2014/09/granota.png" alt="Instruccions Granota" width="700" height="495" /> Instruccions Granota[/caption]', 'http://pwc-int.educacio.intranet/agora/mastersec/nodes/papiroflexia/forum/topic/figura-n-1-la-granota/', 19, 211, '2014-09-22 15:11:13', 0, 0, 0, 0),
-(41, 1, 'groups', 'activity_update', '<a href="http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha fet una actualització al node <a href="http://pwc-int.educacio.intranet/agora/mastersec/nodes/papiroflexia/">Papiroflexia</a>', 'Pengeu les vostres fotos amb la granota feta!', 'http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 19, 0, '2014-09-22 15:12:07', 0, 0, 0, 0),
-(43, 1, 'groups', 'activity_update', '<a href="http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha fet una actualització al node <a href="http://pwc-int.educacio.intranet/agora/mastersec/nodes/cinema/">Cinema</a>', 'Hola Noders! Avui des del node de cinema volem compartir un curtmetratge molt xulo, ple de fantasia.\n\nhttps://www.youtube.com/watch?v=p-yPn2FxxJw', 'http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 15, 0, '2014-09-22 15:33:34', 0, 0, 0, 0),
-(45, 1, 'groups', 'activity_update', '<a href="http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha fet una actualització al node <a href="http://pwc-int.educacio.intranet/agora/mastersec/nodes/fotografia/">Fotografia</a>', 'Una foto que vaig fer a Menorca, que us suggereix? \n[bpfb_images]\n1_0-42209200-1411400780_menorca_jmeler.jpg\n[/bpfb_images]', 'http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 17, 0, '2014-09-22 15:46:20', 0, 0, 0, 0),
-(47, 1, 'groups', 'activity_update', '<a href="http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha fet una actualització al node <a href="http://pwc-int.educacio.intranet/agora/mastersec/nodes/educacio-emocional/">Educació emocional</a>', 'Bon dia Noders! Avui us compartim un inquietant curtmetratge que ens ha de fer reflexionar sobre l’individualisme… és molt xulo… i fins i tot va guanyar un Oscar!\n\nhttps://www.youtube.com/watch?v=pRUGRPKRAWs', 'http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 14, 0, '2014-09-22 15:59:20', 0, 0, 0, 0),
-(48, 1, 'groups', 'bbp_topic_create', '<a href="http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" rel="nofollow">admin</a> ha començat <a href="http://pwc-int.educacio.intranet/agora/mastersec/nodes/professorat/forum/topic/documental-sobre-educacio-emocional/">Documental sobre educació Emocional</a> tema en el fòrum <a href="http://pwc-int.educacio.intranet/agora/mastersec/nodes/professorat/forum/">Professorat</a>', 'Molt recomanable:\nhttps://www.youtube.com/watch?v=PQE4WqQSOcQ', 'http://pwc-int.educacio.intranet/agora/mastersec/nodes/professorat/forum/topic/documental-sobre-educacio-emocional/', 1, 216, '2014-09-22 16:54:13', 1, 0, 0, 0),
+(8, 1, 'groups', 'joined_group', '<a href="https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> s''ha afegit al node <a href="https://pwc-int.educacio.intranet/agora/mastersec/nodes/dep-socials/">Dep. Socials</a>', '', 'https://pwc-int.educacio.intranet/agora/mastersec/membres/xtecadmin/', 3, 0, '2014-09-19 10:03:51', 1, 0, 0, 0),
+(9, 1, 'groups', 'joined_group', '<a href="https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> s''ha afegit al node <a href="https://pwc-int.educacio.intranet/agora/mastersec/nodes/dep-ciencies/">Dep. Ciències</a>', '', 'https://pwc-int.educacio.intranet/agora/mastersec/membres/xtecadmin/', 2, 0, '2014-09-19 10:04:43', 1, 0, 0, 0),
+(11, 1, 'groups', 'activity_update', '<a href="https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha fet una actualització al node <a href="https://pwc-int.educacio.intranet/agora/mastersec/nodes/dep-ciencies/">Dep. Ciències</a>', 'Primer missatge al mur del departament de ciències ', 'https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 2, 0, '2014-09-19 16:13:07', 1, 0, 0, 0),
+(12, 1, 'groups', 'activity_update', '<a href="https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha fet una actualització al node <a href="https://pwc-int.educacio.intranet/agora/mastersec/nodes/professorat/">Professorat</a>', 'Primer missatge al mur del professorat\n', 'https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 1, 0, '2014-09-19 16:13:26', 1, 0, 0, 0),
+(13, 1, 'groups', 'created_group', '<a href="https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha creat el node <a href="https://pwc-int.educacio.intranet/agora/mastersec/nodes/tecnologia/">Tecnologia</a>', '', 'https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 4, 0, '2014-09-19 16:17:04', 1, 0, 0, 0),
+(14, 1, 'groups', 'created_group', '<a href="https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha creat el node <a href="https://pwc-int.educacio.intranet/agora/mastersec/nodes/dep-matematiques/">Dep. Matemàtiques</a>', '', 'https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 5, 0, '2014-09-19 16:19:50', 1, 0, 0, 0),
+(15, 1, 'groups', 'activity_update', '<a href="https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha fet una actualització al node <a href="https://pwc-int.educacio.intranet/agora/mastersec/nodes/dep-matematiques/">Dep. Matemàtiques</a>', 'Primer missatge en el departament de Matemàtiques', 'https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 5, 0, '2014-09-19 16:23:40', 1, 0, 0, 0),
+(16, 1, 'groups', 'created_group', '<a href="https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha creat el node <a href="https://pwc-int.educacio.intranet/agora/mastersec/nodes/dep-catala-989465410/">Dep. Català</a>', '', 'https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 6, 0, '2014-09-19 16:27:08', 1, 0, 0, 0),
+(17, 1, 'groups', 'created_group', '<a href="https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha creat el node <a href="https://pwc-int.educacio.intranet/agora/mastersec/nodes/dep-castella/">Dep. Castellà</a>', '', 'https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 7, 0, '2014-09-19 16:29:52', 1, 0, 0, 0),
+(18, 1, 'groups', 'created_group', '<a href="https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha creat el node <a href="https://pwc-int.educacio.intranet/agora/mastersec/nodes/dep-llengues-estrangeres/">Dep. Llengües estrangeres</a>', '', 'https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 8, 0, '2014-09-19 16:31:58', 1, 0, 0, 0),
+(19, 1, 'groups', 'created_group', '<a href="https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha creat el node <a href="https://pwc-int.educacio.intranet/agora/mastersec/nodes/dep-educacio-fisica/">Dep. Educació Física</a>', '', 'https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 9, 0, '2014-09-19 16:36:06', 1, 0, 0, 0),
+(20, 1, 'groups', 'activity_update', '<a href="https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha fet una actualització al node <a href="https://pwc-int.educacio.intranet/agora/mastersec/nodes/dep-educacio-fisica/">Dep. Educació Física</a>', 'Primer missatge en el mur del departament d''''Educació Física', 'https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 9, 0, '2014-09-19 16:36:27', 1, 0, 0, 0),
+(21, 1, 'groups', 'created_group', '<a href="https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha creat el node <a href="https://pwc-int.educacio.intranet/agora/mastersec/nodes/dep-visual-i-plastica-1766120807/">Dep. Visual i Plàstica</a>', '', 'https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 10, 0, '2014-09-19 16:40:20', 1, 0, 0, 0),
+(22, 1, 'groups', 'created_group', '<a href="https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha creat el node <a href="https://pwc-int.educacio.intranet/agora/mastersec/nodes/dep-musica/">Dep. Música</a>', '', 'https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 11, 0, '2014-09-19 16:48:34', 1, 0, 0, 0),
+(23, 1, 'groups', 'created_group', '<a href="https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha creat el node <a href="https://pwc-int.educacio.intranet/agora/mastersec/nodes/dep-orientacio/">Dep. Orientació</a>', '', 'https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 12, 0, '2014-09-19 16:54:30', 1, 0, 0, 0),
+(24, 1, 'groups', 'created_group', '<a href="https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha creat el node <a href="https://pwc-int.educacio.intranet/agora/mastersec/nodes/dep-informatica/">Dep. Informàtica</a>', '', 'https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 13, 0, '2014-09-19 17:01:17', 1, 0, 0, 0),
+(34, 1, 'groups', 'activity_update', '<a href="https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha fet una actualització al node <a href="https://pwc-int.educacio.intranet/agora/mastersec/nodes/educacio-emocional/">Educació emocional</a>', 'Un gran vídeo per reflexionar...\n\nhttps://www.youtube.com/watch?v=wSNYYThX5-g', 'https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 14, 0, '2014-09-22 14:36:27', 0, 0, 0, 0),
+(35, 1, 'groups', 'bbp_topic_create', '<a href="https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" rel="nofollow">admin</a> ha començat <a href="https://pwc-int.educacio.intranet/agora/mastersec/nodes/professorat/forum/topic/programa-redes-sobre-educacio-emocional/">Programa Redes sobre educació emocional</a> tema en el fòrum <a href="https://pwc-int.educacio.intranet/agora/mastersec/nodes/professorat/forum/">Professorat</a>', 'Programa Redes sobre l''educació emocional. Molt interessant. Per reflexionar.\n\n\n\n<span><img src="http://img.irtve.es/css/rtve.commons/rtve.header.footer/i/logoRTVEes.png" alt="" /></span> <a title="El aprendizaje social y emocional" href="http://www.rtve.es/alacarta/videos/redes/redes-aprendizaje-social-20130526-2130-169/1839588/"><strong>El aprendizaje social y emocional</strong></a>\n', 'https://pwc-int.educacio.intranet/agora/mastersec/nodes/professorat/forum/topic/programa-redes-sobre-educacio-emocional/', 1, 206, '2014-09-22 14:40:28', 1, 0, 0, 0),
+(36, 1, 'groups', 'bbp_topic_create', '<a href="https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" rel="nofollow">admin</a> ha començat <a href="https://pwc-int.educacio.intranet/agora/mastersec/nodes/professorat/forum/topic/indefensio-apresa/">Indefensió apresa</a> tema en el fòrum <a href="https://pwc-int.educacio.intranet/agora/mastersec/nodes/professorat/forum/">Professorat</a>', 'Un dels objectius de la xarxa Nodes és oferir espais perquè els alumnes es pugin expressar fora de l''aula. Pot ser una eina molt útil especialment pels alumnes que no destaquen pels seus resultats acadèmics i que tenen una baixa autoestima derivada d''una indefensió apresa a l''aula.\n\n', 'https://pwc-int.educacio.intranet/agora/mastersec/nodes/professorat/forum/topic/indefensio-apresa/', 1, 207, '2014-09-22 14:46:13', 1, 0, 0, 0),
+(38, 1, 'groups', 'activity_update', '<a href="https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha fet una actualització al node <a href="https://pwc-int.educacio.intranet/agora/mastersec/nodes/rrr-reduccio-reutilitzacio-i-reciclatge/">RRR – Reducció, Reutilització i Reciclatge</a>', '\n[bpfb_images]\n1_0-44155900-1411397838_koalarrr.jpg\n[/bpfb_images]', 'https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 18, 0, '2014-09-22 14:57:18', 0, 0, 0, 0),
+(39, 1, 'groups', 'created_group', '<a href="https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha creat el node <a href="https://pwc-int.educacio.intranet/agora/mastersec/nodes/papiroflexia/">Papiroflexia</a>', '', 'https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 19, 0, '2014-09-22 15:08:11', 0, 0, 0, 0),
+(40, 1, 'groups', 'bbp_topic_create', '<a href="https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" rel="nofollow">admin</a> ha començat <a href="https://pwc-int.educacio.intranet/agora/mastersec/nodes/papiroflexia/forum/topic/figura-n-1-la-granota/">Figura n.1: La granota </a> tema en el fòrum <a href="https://pwc-int.educacio.intranet/agora/mastersec/nodes/papiroflexia/forum/">Papiroflexia</a>', 'Hola Noders! Qui s''apunta a fer la granota? Aquí teniu les instruccions:\n\n[caption id="" align="alignnone" width="700"]<img src="https://pwc-int.educacio.intranet/agora/mastersec/wp-content/uploads/usu7/2014/09/granota.png" alt="Instruccions Granota" width="700" height="495" /> Instruccions Granota[/caption]', 'https://pwc-int.educacio.intranet/agora/mastersec/nodes/papiroflexia/forum/topic/figura-n-1-la-granota/', 19, 211, '2014-09-22 15:11:13', 0, 0, 0, 0),
+(41, 1, 'groups', 'activity_update', '<a href="https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha fet una actualització al node <a href="https://pwc-int.educacio.intranet/agora/mastersec/nodes/papiroflexia/">Papiroflexia</a>', 'Pengeu les vostres fotos amb la granota feta!', 'https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 19, 0, '2014-09-22 15:12:07', 0, 0, 0, 0),
+(43, 1, 'groups', 'activity_update', '<a href="https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha fet una actualització al node <a href="https://pwc-int.educacio.intranet/agora/mastersec/nodes/cinema/">Cinema</a>', 'Hola Noders! Avui des del node de cinema volem compartir un curtmetratge molt xulo, ple de fantasia.\n\nhttps://www.youtube.com/watch?v=p-yPn2FxxJw', 'https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 15, 0, '2014-09-22 15:33:34', 0, 0, 0, 0),
+(45, 1, 'groups', 'activity_update', '<a href="https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha fet una actualització al node <a href="https://pwc-int.educacio.intranet/agora/mastersec/nodes/fotografia/">Fotografia</a>', 'Una foto que vaig fer a Menorca, que us suggereix? \n[bpfb_images]\n1_0-42209200-1411400780_menorca_jmeler.jpg\n[/bpfb_images]', 'https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 17, 0, '2014-09-22 15:46:20', 0, 0, 0, 0),
+(47, 1, 'groups', 'activity_update', '<a href="https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha fet una actualització al node <a href="https://pwc-int.educacio.intranet/agora/mastersec/nodes/educacio-emocional/">Educació emocional</a>', 'Bon dia Noders! Avui us compartim un inquietant curtmetratge que ens ha de fer reflexionar sobre l’individualisme… és molt xulo… i fins i tot va guanyar un Oscar!\n\nhttps://www.youtube.com/watch?v=pRUGRPKRAWs', 'https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/', 14, 0, '2014-09-22 15:59:20', 0, 0, 0, 0),
+(48, 1, 'groups', 'bbp_topic_create', '<a href="https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" rel="nofollow">admin</a> ha començat <a href="https://pwc-int.educacio.intranet/agora/mastersec/nodes/professorat/forum/topic/documental-sobre-educacio-emocional/">Documental sobre educació Emocional</a> tema en el fòrum <a href="https://pwc-int.educacio.intranet/agora/mastersec/nodes/professorat/forum/">Professorat</a>', 'Molt recomanable:\nhttps://www.youtube.com/watch?v=PQE4WqQSOcQ', 'https://pwc-int.educacio.intranet/agora/mastersec/nodes/professorat/forum/topic/documental-sobre-educacio-emocional/', 1, 216, '2014-09-22 16:54:13', 1, 0, 0, 0),
 (59, 1, 'bp_docs', 'bp_doc_created', '<a href="https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha creat el document <a href="https://pwc-int.educacio.intranet/agora/mastersec/docs/autoritzacio-drets-dimatge-dades-i-materials-menors-de-14-anys/">Autorització drets d''imatge, dades i materials (menors de 14 anys)</a>', '', 'https://pwc-int.educacio.intranet/agora/mastersec/docs/autoritzacio-drets-dimatge-dades-i-materials-menors-de-14-anys/', 0, 292, '2016-01-21 08:53:14', 0, 0, 0, 0),
 (60, 1, 'bp_docs', 'bp_doc_created', '<a href="https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha creat el document <a href="https://pwc-int.educacio.intranet/agora/mastersec/docs/autoritzacio-drets-dimatge-dades-i-materials-majors-de-14-anys/">Autorització drets d’imatge, dades i materials (majors de 14 anys)</a>', '', 'https://pwc-int.educacio.intranet/agora/mastersec/docs/autoritzacio-drets-dimatge-dades-i-materials-majors-de-14-anys/', 0, 295, '2016-01-21 08:55:49', 0, 0, 0, 0),
 (61, 1, 'bp_docs', 'bp_doc_created', '<a href="https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha creat el document <a href="https://pwc-int.educacio.intranet/agora/mastersec/docs/autoritzacio-us-de-serveis-i-recursos-digitals-a-laula-menors-de-14-anys/">Autorització ús de serveis i recursos digitals a l''aula (menors de 14 anys)</a>', '', 'https://pwc-int.educacio.intranet/agora/mastersec/docs/autoritzacio-us-de-serveis-i-recursos-digitals-a-laula-menors-de-14-anys/', 0, 297, '2016-01-21 08:59:27', 0, 0, 0, 0),
@@ -116,32 +158,29 @@ INSERT INTO `wp_bp_activity` (`id`, `user_id`, `component`, `type`, `action`, `c
 (123, 1, 'bp_docs', 'bp_doc_created', '<a href="https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha creat el document <a href="https://pwc-int.educacio.intranet/agora/mastersec/docs/document-de-organitzacio-i-gestio-de-centre/">Document de organització i gestió de centre</a>', '', 'https://pwc-int.educacio.intranet/agora/mastersec/docs/document-de-organitzacio-i-gestio-de-centre/', 0, 387, '2016-01-21 15:30:37', 0, 0, 0, 0),
 (124, 1, 'bp_docs', 'bp_doc_edited', '<a href="https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha editat el document <a href="https://pwc-int.educacio.intranet/agora/mastersec/docs/document-de-organitzacio-i-gestio-de-centre/">Document de organització i gestió de centre</a>', '', 'https://pwc-int.educacio.intranet/agora/mastersec/docs/document-de-organitzacio-i-gestio-de-centre/', 0, 387, '2016-01-21 15:30:54', 0, 0, 0, 0),
 (125, 1, 'bp_docs', 'bp_doc_edited', '<a href="https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha editat el document <a href="https://pwc-int.educacio.intranet/agora/mastersec/docs/document-de-organitzacio-i-gestio-de-centre/">Documents de organització i gestió de centre</a>', '', 'https://pwc-int.educacio.intranet/agora/mastersec/docs/document-de-organitzacio-i-gestio-de-centre/', 0, 387, '2016-01-21 15:31:24', 0, 0, 0, 0),
-(135, 1, 'bp_docs', 'bp_doc_edited', '<a href="http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha editat el document <a href="http://pwc-int.educacio.intranet/agora/mastersec/docs/documents-administratius/">Documents administratius</a>', '', 'http://pwc-int.educacio.intranet/agora/mastersec/docs/documents-administratius/', 0, 379, '2016-01-21 15:46:33', 0, 0, 0, 0),
+(135, 1, 'bp_docs', 'bp_doc_edited', '<a href="https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha editat el document <a href="https://pwc-int.educacio.intranet/agora/mastersec/docs/documents-administratius/">Documents administratius</a>', '', 'https://pwc-int.educacio.intranet/agora/mastersec/docs/documents-administratius/', 0, 379, '2016-01-21 15:46:33', 0, 0, 0, 0),
 (137, 1, 'bp_docs', 'bp_doc_created', '<a href="https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha creat el document <a href="https://pwc-int.educacio.intranet/agora/mastersec/docs/cataleg-de-models/">Catàleg de models</a>', '', 'https://pwc-int.educacio.intranet/agora/mastersec/docs/cataleg-de-models/', 0, 391, '2016-01-21 15:51:03', 0, 0, 0, 0),
-(139, 1, 'bp_docs', 'bp_doc_edited', '<a href="http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha editat el document <a href="http://pwc-int.educacio.intranet/agora/mastersec/docs/cataleg-de-models/">Catàleg de models</a>', '', 'http://pwc-int.educacio.intranet/agora/mastersec/docs/cataleg-de-models/', 0, 391, '2016-01-21 15:56:22', 0, 0, 0, 0),
-(141, 1, 'bp_docs', 'bp_doc_edited', '<a href="http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha editat el document <a href="http://pwc-int.educacio.intranet/agora/mastersec/docs/documents-administratius/">Documents administratius</a>', '', 'http://pwc-int.educacio.intranet/agora/mastersec/docs/documents-administratius/', 0, 379, '2016-01-21 17:01:29', 0, 0, 0, 0),
-(148, 1, 'bp_docs', 'bp_doc_edited', '<a href="http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha editat el document <a href="http://pwc-int.educacio.intranet/agora/mastersec/docs/documents-administratius/">Documents administratius</a>', '', 'http://pwc-int.educacio.intranet/agora/mastersec/docs/documents-administratius/', 0, 379, '2016-01-21 17:48:53', 0, 0, 0, 0),
-(149, 1, 'bp_docs', 'bp_doc_edited', '<a href="http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha editat el document <a href="http://pwc-int.educacio.intranet/agora/mastersec/docs/documents-administratius/">Documents administratius</a>', '', 'http://pwc-int.educacio.intranet/agora/mastersec/docs/documents-administratius/', 0, 379, '2016-01-21 17:49:38', 0, 0, 0, 0),
-(150, 1, 'bp_docs', 'bp_doc_edited', '<a href="http://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha editat el document <a href="http://pwc-int.educacio.intranet/agora/mastersec/docs/documents-administratius/">Documents administratius</a>', '', 'http://pwc-int.educacio.intranet/agora/mastersec/docs/documents-administratius/', 0, 379, '2016-01-21 17:57:06', 0, 0, 0, 0);
+(139, 1, 'bp_docs', 'bp_doc_edited', '<a href="https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha editat el document <a href="https://pwc-int.educacio.intranet/agora/mastersec/docs/cataleg-de-models/">Catàleg de models</a>', '', 'https://pwc-int.educacio.intranet/agora/mastersec/docs/cataleg-de-models/', 0, 391, '2016-01-21 15:56:22', 0, 0, 0, 0),
+(141, 1, 'bp_docs', 'bp_doc_edited', '<a href="https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha editat el document <a href="https://pwc-int.educacio.intranet/agora/mastersec/docs/documents-administratius/">Documents administratius</a>', '', 'https://pwc-int.educacio.intranet/agora/mastersec/docs/documents-administratius/', 0, 379, '2016-01-21 17:01:29', 0, 0, 0, 0),
+(148, 1, 'bp_docs', 'bp_doc_edited', '<a href="https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha editat el document <a href="https://pwc-int.educacio.intranet/agora/mastersec/docs/documents-administratius/">Documents administratius</a>', '', 'https://pwc-int.educacio.intranet/agora/mastersec/docs/documents-administratius/', 0, 379, '2016-01-21 17:48:53', 0, 0, 0, 0),
+(149, 1, 'bp_docs', 'bp_doc_edited', '<a href="https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha editat el document <a href="https://pwc-int.educacio.intranet/agora/mastersec/docs/documents-administratius/">Documents administratius</a>', '', 'https://pwc-int.educacio.intranet/agora/mastersec/docs/documents-administratius/', 0, 379, '2016-01-21 17:49:38', 0, 0, 0, 0),
+(150, 1, 'bp_docs', 'bp_doc_edited', '<a href="https://pwc-int.educacio.intranet/agora/mastersec/membres/admin/" title="admin">admin</a> ha editat el document <a href="https://pwc-int.educacio.intranet/agora/mastersec/docs/documents-administratius/">Documents administratius</a>', '', 'https://pwc-int.educacio.intranet/agora/mastersec/docs/documents-administratius/', 0, 379, '2016-01-21 17:57:06', 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_activity_meta`
+-- Estructura de la taula `wp_bp_activity_meta`
 --
 
-CREATE TABLE `wp_bp_activity_meta` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_activity_meta` (
+`id` bigint(20) NOT NULL,
   `activity_id` bigint(20) NOT NULL,
   `meta_key` varchar(255) DEFAULT NULL,
-  `meta_value` longtext,
-  PRIMARY KEY (`id`),
-  KEY `activity_id` (`activity_id`),
-  KEY `meta_key` (`meta_key`(191))
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+  `meta_value` longtext
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `wp_bp_activity_meta`
+-- Bolcant dades de la taula `wp_bp_activity_meta`
 --
 
 INSERT INTO `wp_bp_activity_meta` (`id`, `activity_id`, `meta_key`, `meta_value`) VALUES
@@ -155,29 +194,26 @@ INSERT INTO `wp_bp_activity_meta` (`id`, `activity_id`, `meta_key`, `meta_value`
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_friends`
+-- Estructura de la taula `wp_bp_friends`
 --
 
-CREATE TABLE `wp_bp_friends` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_friends` (
+`id` bigint(20) NOT NULL,
   `initiator_user_id` bigint(20) NOT NULL,
   `friend_user_id` bigint(20) NOT NULL,
   `is_confirmed` tinyint(1) DEFAULT '0',
   `is_limited` tinyint(1) DEFAULT '0',
-  `date_created` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `initiator_user_id` (`initiator_user_id`),
-  KEY `friend_user_id` (`friend_user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `date_created` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_groups`
+-- Estructura de la taula `wp_bp_groups`
 --
 
-CREATE TABLE `wp_bp_groups` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_groups` (
+`id` bigint(20) NOT NULL,
   `creator_id` bigint(20) NOT NULL,
   `name` varchar(100) NOT NULL,
   `slug` varchar(200) NOT NULL,
@@ -185,15 +221,11 @@ CREATE TABLE `wp_bp_groups` (
   `status` varchar(10) NOT NULL DEFAULT 'public',
   `enable_forum` tinyint(1) NOT NULL DEFAULT '1',
   `date_created` datetime NOT NULL,
-  `parent_id` bigint(20) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `creator_id` (`creator_id`),
-  KEY `status` (`status`),
-  KEY `parent_id` (`parent_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=20 ;
+  `parent_id` bigint(20) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `wp_bp_groups`
+-- Bolcant dades de la taula `wp_bp_groups`
 --
 
 INSERT INTO `wp_bp_groups` (`id`, `creator_id`, `name`, `slug`, `description`, `status`, `enable_forum`, `date_created`, `parent_id`) VALUES
@@ -220,21 +252,18 @@ INSERT INTO `wp_bp_groups` (`id`, `creator_id`, `name`, `slug`, `description`, `
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_groups_groupmeta`
+-- Estructura de la taula `wp_bp_groups_groupmeta`
 --
 
-CREATE TABLE `wp_bp_groups_groupmeta` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_groups_groupmeta` (
+`id` bigint(20) NOT NULL,
   `group_id` bigint(20) NOT NULL,
   `meta_key` varchar(255) DEFAULT NULL,
-  `meta_value` longtext,
-  PRIMARY KEY (`id`),
-  KEY `group_id` (`group_id`),
-  KEY `meta_key` (`meta_key`(191))
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=132 ;
+  `meta_value` longtext
+) ENGINE=InnoDB AUTO_INCREMENT=151 DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `wp_bp_groups_groupmeta`
+-- Bolcant dades de la taula `wp_bp_groups_groupmeta`
 --
 
 INSERT INTO `wp_bp_groups_groupmeta` (`id`, `group_id`, `meta_key`, `meta_value`) VALUES
@@ -373,11 +402,11 @@ INSERT INTO `wp_bp_groups_groupmeta` (`id`, `group_id`, `meta_key`, `meta_value`
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_groups_members`
+-- Estructura de la taula `wp_bp_groups_members`
 --
 
-CREATE TABLE `wp_bp_groups_members` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_groups_members` (
+`id` bigint(20) NOT NULL,
   `group_id` bigint(20) NOT NULL,
   `user_id` bigint(20) NOT NULL,
   `inviter_id` bigint(20) NOT NULL,
@@ -388,18 +417,11 @@ CREATE TABLE `wp_bp_groups_members` (
   `comments` longtext NOT NULL,
   `is_confirmed` tinyint(1) NOT NULL DEFAULT '0',
   `is_banned` tinyint(1) NOT NULL DEFAULT '0',
-  `invite_sent` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `group_id` (`group_id`),
-  KEY `is_admin` (`is_admin`),
-  KEY `is_mod` (`is_mod`),
-  KEY `user_id` (`user_id`),
-  KEY `inviter_id` (`inviter_id`),
-  KEY `is_confirmed` (`is_confirmed`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
+  `invite_sent` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `wp_bp_groups_members`
+-- Bolcant dades de la taula `wp_bp_groups_members`
 --
 
 INSERT INTO `wp_bp_groups_members` (`id`, `group_id`, `user_id`, `inviter_id`, `is_admin`, `is_mod`, `user_title`, `date_modified`, `comments`, `is_confirmed`, `is_banned`, `invite_sent`) VALUES
@@ -426,142 +448,109 @@ INSERT INTO `wp_bp_groups_members` (`id`, `group_id`, `user_id`, `inviter_id`, `
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_messages_messages`
+-- Estructura de la taula `wp_bp_messages_messages`
 --
 
-CREATE TABLE `wp_bp_messages_messages` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_messages_messages` (
+`id` bigint(20) NOT NULL,
   `thread_id` bigint(20) NOT NULL,
   `sender_id` bigint(20) NOT NULL,
   `subject` varchar(200) NOT NULL,
   `message` longtext NOT NULL,
-  `date_sent` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `sender_id` (`sender_id`),
-  KEY `thread_id` (`thread_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `date_sent` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_messages_meta`
+-- Estructura de la taula `wp_bp_messages_meta`
 --
 
-CREATE TABLE `wp_bp_messages_meta` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_messages_meta` (
+`id` bigint(20) NOT NULL,
   `message_id` bigint(20) NOT NULL,
   `meta_key` varchar(255) DEFAULT NULL,
-  `meta_value` longtext,
-  PRIMARY KEY (`id`),
-  KEY `message_id` (`message_id`),
-  KEY `meta_key` (`meta_key`(191))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=1 ;
+  `meta_value` longtext
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_messages_notices`
+-- Estructura de la taula `wp_bp_messages_notices`
 --
 
-CREATE TABLE `wp_bp_messages_notices` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_messages_notices` (
+`id` bigint(20) NOT NULL,
   `subject` varchar(200) NOT NULL,
   `message` longtext NOT NULL,
   `date_sent` datetime NOT NULL,
-  `is_active` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `is_active` (`is_active`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `is_active` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_messages_recipients`
+-- Estructura de la taula `wp_bp_messages_recipients`
 --
 
-CREATE TABLE `wp_bp_messages_recipients` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_messages_recipients` (
+`id` bigint(20) NOT NULL,
   `user_id` bigint(20) NOT NULL,
   `thread_id` bigint(20) NOT NULL,
   `unread_count` int(10) NOT NULL DEFAULT '0',
   `sender_only` tinyint(1) NOT NULL DEFAULT '0',
-  `is_deleted` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `user_id` (`user_id`),
-  KEY `thread_id` (`thread_id`),
-  KEY `is_deleted` (`is_deleted`),
-  KEY `sender_only` (`sender_only`),
-  KEY `unread_count` (`unread_count`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `is_deleted` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_mod_contents`
+-- Estructura de la taula `wp_bp_mod_contents`
 --
 
-CREATE TABLE `wp_bp_mod_contents` (
-  `content_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_mod_contents` (
+`content_id` bigint(20) unsigned NOT NULL,
   `item_type` varchar(42) NOT NULL DEFAULT '',
   `item_id` bigint(20) unsigned NOT NULL DEFAULT '0',
   `item_id2` bigint(20) unsigned NOT NULL DEFAULT '0',
   `item_author` bigint(20) unsigned NOT NULL DEFAULT '0',
   `item_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `item_url` varchar(250) NOT NULL DEFAULT '',
-  `status` enum('new','warned','ignored','moderated','edited','deleted') NOT NULL DEFAULT 'new',
-  PRIMARY KEY (`content_id`),
-  KEY `item_type` (`item_type`),
-  KEY `item_id` (`item_id`),
-  KEY `item_id2` (`item_id2`),
-  KEY `item_author` (`item_author`),
-  KEY `item_date` (`item_date`),
-  KEY `status` (`status`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `status` enum('new','warned','ignored','moderated','edited','deleted') NOT NULL DEFAULT 'new'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_mod_flags`
+-- Estructura de la taula `wp_bp_mod_flags`
 --
 
-CREATE TABLE `wp_bp_mod_flags` (
-  `flag_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_mod_flags` (
+`flag_id` bigint(20) unsigned NOT NULL,
   `content_id` bigint(20) unsigned NOT NULL DEFAULT '0',
   `reporter_id` bigint(20) unsigned NOT NULL DEFAULT '0',
-  `date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`flag_id`),
-  KEY `content_id` (`content_id`),
-  KEY `reporter_id` (`reporter_id`),
-  KEY `date` (`date`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_notifications`
+-- Estructura de la taula `wp_bp_notifications`
 --
 
-CREATE TABLE `wp_bp_notifications` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_notifications` (
+`id` bigint(20) NOT NULL,
   `user_id` bigint(20) NOT NULL,
   `item_id` bigint(20) NOT NULL,
   `secondary_item_id` bigint(20) DEFAULT NULL,
   `component_name` varchar(75) NOT NULL,
   `component_action` varchar(75) NOT NULL,
   `date_notified` datetime NOT NULL,
-  `is_new` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `item_id` (`item_id`),
-  KEY `secondary_item_id` (`secondary_item_id`),
-  KEY `user_id` (`user_id`),
-  KEY `is_new` (`is_new`),
-  KEY `component_name` (`component_name`),
-  KEY `component_action` (`component_action`),
-  KEY `useritem` (`user_id`,`is_new`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=76 ;
+  `is_new` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `wp_bp_notifications`
+-- Bolcant dades de la taula `wp_bp_notifications`
 --
 
 INSERT INTO `wp_bp_notifications` (`id`, `user_id`, `item_id`, `secondary_item_id`, `component_name`, `component_action`, `date_notified`, `is_new`) VALUES
@@ -573,38 +562,32 @@ INSERT INTO `wp_bp_notifications` (`id`, `user_id`, `item_id`, `secondary_item_i
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_notifications_meta`
+-- Estructura de la taula `wp_bp_notifications_meta`
 --
 
-CREATE TABLE `wp_bp_notifications_meta` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_notifications_meta` (
+`id` bigint(20) NOT NULL,
   `notification_id` bigint(20) NOT NULL,
   `meta_key` varchar(255) DEFAULT NULL,
-  `meta_value` longtext,
-  PRIMARY KEY (`id`),
-  KEY `notification_id` (`notification_id`),
-  KEY `meta_key` (`meta_key`(191))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=1 ;
+  `meta_value` longtext
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_xprofile_data`
+-- Estructura de la taula `wp_bp_xprofile_data`
 --
 
-CREATE TABLE `wp_bp_xprofile_data` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_xprofile_data` (
+`id` bigint(20) unsigned NOT NULL,
   `field_id` bigint(20) unsigned NOT NULL,
   `user_id` bigint(20) unsigned NOT NULL,
   `value` longtext NOT NULL,
-  `last_updated` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `field_id` (`field_id`),
-  KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `last_updated` datetime NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `wp_bp_xprofile_data`
+-- Bolcant dades de la taula `wp_bp_xprofile_data`
 --
 
 INSERT INTO `wp_bp_xprofile_data` (`id`, `field_id`, `user_id`, `value`, `last_updated`) VALUES
@@ -614,11 +597,11 @@ INSERT INTO `wp_bp_xprofile_data` (`id`, `field_id`, `user_id`, `value`, `last_u
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_xprofile_fields`
+-- Estructura de la taula `wp_bp_xprofile_fields`
 --
 
-CREATE TABLE `wp_bp_xprofile_fields` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_xprofile_fields` (
+`id` bigint(20) unsigned NOT NULL,
   `group_id` bigint(20) unsigned NOT NULL,
   `parent_id` bigint(20) unsigned NOT NULL,
   `type` varchar(150) NOT NULL,
@@ -629,17 +612,11 @@ CREATE TABLE `wp_bp_xprofile_fields` (
   `field_order` bigint(20) NOT NULL DEFAULT '0',
   `option_order` bigint(20) NOT NULL DEFAULT '0',
   `order_by` varchar(15) NOT NULL DEFAULT '',
-  `can_delete` tinyint(1) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`id`),
-  KEY `group_id` (`group_id`),
-  KEY `parent_id` (`parent_id`),
-  KEY `field_order` (`field_order`),
-  KEY `can_delete` (`can_delete`),
-  KEY `is_required` (`is_required`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+  `can_delete` tinyint(1) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `wp_bp_xprofile_fields`
+-- Bolcant dades de la taula `wp_bp_xprofile_fields`
 --
 
 INSERT INTO `wp_bp_xprofile_fields` (`id`, `group_id`, `parent_id`, `type`, `name`, `description`, `is_required`, `is_default_option`, `field_order`, `option_order`, `order_by`, `can_delete`) VALUES
@@ -648,21 +625,19 @@ INSERT INTO `wp_bp_xprofile_fields` (`id`, `group_id`, `parent_id`, `type`, `nam
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_xprofile_groups`
+-- Estructura de la taula `wp_bp_xprofile_groups`
 --
 
-CREATE TABLE `wp_bp_xprofile_groups` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_xprofile_groups` (
+`id` bigint(20) unsigned NOT NULL,
   `name` varchar(150) NOT NULL,
   `description` mediumtext NOT NULL,
   `group_order` bigint(20) NOT NULL DEFAULT '0',
-  `can_delete` tinyint(1) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `can_delete` (`can_delete`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+  `can_delete` tinyint(1) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `wp_bp_xprofile_groups`
+-- Bolcant dades de la taula `wp_bp_xprofile_groups`
 --
 
 INSERT INTO `wp_bp_xprofile_groups` (`id`, `name`, `description`, `group_order`, `can_delete`) VALUES
@@ -671,44 +646,38 @@ INSERT INTO `wp_bp_xprofile_groups` (`id`, `name`, `description`, `group_order`,
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_xprofile_meta`
+-- Estructura de la taula `wp_bp_xprofile_meta`
 --
 
-CREATE TABLE `wp_bp_xprofile_meta` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_xprofile_meta` (
+`id` bigint(20) NOT NULL,
   `object_id` bigint(20) NOT NULL,
   `object_type` varchar(150) NOT NULL,
   `meta_key` varchar(255) DEFAULT NULL,
-  `meta_value` longtext,
-  PRIMARY KEY (`id`),
-  KEY `object_id` (`object_id`),
-  KEY `meta_key` (`meta_key`(191))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `meta_value` longtext
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_commentmeta`
+-- Estructura de la taula `wp_commentmeta`
 --
 
-CREATE TABLE `wp_commentmeta` (
-  `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_commentmeta` (
+`meta_id` bigint(20) unsigned NOT NULL,
   `comment_id` bigint(20) unsigned NOT NULL DEFAULT '0',
   `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_ci,
-  PRIMARY KEY (`meta_id`),
-  KEY `comment_id` (`comment_id`),
-  KEY `meta_key` (`meta_key`(191))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=1 ;
+  `meta_value` longtext COLLATE utf8mb4_unicode_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_comments`
+-- Estructura de la taula `wp_comments`
 --
 
-CREATE TABLE `wp_comments` (
-  `comment_ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_comments` (
+`comment_ID` bigint(20) unsigned NOT NULL,
   `comment_post_ID` bigint(20) unsigned NOT NULL DEFAULT '0',
   `comment_author` tinytext COLLATE utf8mb4_unicode_ci NOT NULL,
   `comment_author_email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
@@ -722,184 +691,233 @@ CREATE TABLE `wp_comments` (
   `comment_agent` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `comment_type` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `comment_parent` bigint(20) unsigned NOT NULL DEFAULT '0',
-  `user_id` bigint(20) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`comment_ID`),
-  KEY `comment_post_ID` (`comment_post_ID`),
-  KEY `comment_approved_date_gmt` (`comment_approved`,`comment_date_gmt`),
-  KEY `comment_date_gmt` (`comment_date_gmt`),
-  KEY `comment_parent` (`comment_parent`),
-  KEY `comment_author_email` (`comment_author_email`(10))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=1 ;
+  `user_id` bigint(20) unsigned NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_es_deliverreport`
+-- Estructura de la taula `wp_ig_blocked_emails`
 --
 
-CREATE TABLE `wp_es_deliverreport` (
-  `es_deliver_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `es_deliver_sentguid` varchar(255) NOT NULL,
-  `es_deliver_emailid` int(10) unsigned NOT NULL,
-  `es_deliver_emailmail` varchar(255) NOT NULL,
-  `es_deliver_sentdate` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `es_deliver_status` varchar(25) NOT NULL,
-  `es_deliver_viewdate` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `es_deliver_sentstatus` varchar(25) NOT NULL DEFAULT 'Sent',
-  `es_deliver_senttype` varchar(25) NOT NULL DEFAULT 'Instant Mail',
-  PRIMARY KEY (`es_deliver_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+CREATE TABLE IF NOT EXISTS `wp_ig_blocked_emails` (
+  `id` int(10) NOT NULL,
+  `email` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ip` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_es_emaillist`
+-- Estructura de la taula `wp_ig_campaigns`
 --
 
-CREATE TABLE `wp_es_emaillist` (
-  `es_email_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `es_email_name` varchar(255) NOT NULL,
-  `es_email_mail` varchar(255) NOT NULL,
-  `es_email_status` varchar(25) NOT NULL DEFAULT 'Unconfirmed',
-  `es_email_created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `es_email_viewcount` varchar(100) NOT NULL,
-  `es_email_group` varchar(255) NOT NULL DEFAULT 'Portada',
-  `es_email_guid` varchar(255) NOT NULL,
-  PRIMARY KEY (`es_email_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+CREATE TABLE IF NOT EXISTS `wp_ig_campaigns` (
+`id` int(10) NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `type` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `from_name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `from_email` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `reply_to_name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `reply_to_email` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `sequence_ids` text COLLATE utf8mb4_unicode_ci,
+  `categories` text COLLATE utf8mb4_unicode_ci,
+  `list_ids` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `base_template_id` int(10) NOT NULL,
+  `status` tinyint(4) NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `wp_es_emaillist`
+-- Bolcant dades de la taula `wp_ig_campaigns`
 --
 
-INSERT INTO `wp_es_emaillist` (`es_email_id`, `es_email_name`, `es_email_mail`, `es_email_status`, `es_email_created`, `es_email_viewcount`, `es_email_group`, `es_email_guid`) VALUES
-(1, 'Admin', 'a8000007@xtec.cat', 'Confirmed', '2016-04-05 11:56:30', '0', 'Portada', 'kzqoru-vnfzdi-suewbi-wmsvbl-trluda');
+INSERT INTO `wp_ig_campaigns` (`id`, `slug`, `name`, `type`, `from_name`, `from_email`, `reply_to_name`, `reply_to_email`, `sequence_ids`, `categories`, `list_ids`, `base_template_id`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'posttitle', '{{POSTTITLE}}', 'post_notification', 'Admin', 'a8000007@xtec.cat', 'Admin', 'a8000007@xtec.cat', '', '####Portada## ##', '1', 469, 1, '2019-05-13 07:44:10', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2, 'posttitle-2', '{{POSTTITLE}}', 'post_notification', 'Admin', 'a8000007@xtec.cat', 'Admin', 'a8000007@xtec.cat', '', '## ##ESO 1## ## ##ESO 1A## ##', '0', 470, 1, '2019-05-13 07:44:10', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3, 'posttitle-3', '{{POSTTITLE}}', 'post_notification', 'Admin', 'a8000007@xtec.cat', 'Admin', 'a8000007@xtec.cat', '', '## ##ESO 1## ## ##ESO 1B## ##', '0', 471, 1, '2019-05-13 07:44:10', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(4, 'posttitle-4', '{{POSTTITLE}}', 'post_notification', 'Admin', 'a8000007@xtec.cat', 'Admin', 'a8000007@xtec.cat', '', '## ##ESO 1## ## ##ESO 1C## ##', '0', 472, 1, '2019-05-13 07:44:10', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(5, 'posttitle-5', '{{POSTTITLE}}', 'post_notification', 'Admin', 'a8000007@xtec.cat', 'Admin', 'a8000007@xtec.cat', '', '## ##ESO 2## ## ##ESO 2A## ##', '0', 473, 1, '2019-05-13 07:44:10', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(6, 'posttitle-6', '{{POSTTITLE}}', 'post_notification', 'Admin', 'a8000007@xtec.cat', 'Admin', 'a8000007@xtec.cat', '', '## ##ESO 2## ## ##ESO 2B## ##', '0', 474, 1, '2019-05-13 07:44:10', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(7, 'posttitle-7', '{{POSTTITLE}}', 'post_notification', 'Admin', 'a8000007@xtec.cat', 'Admin', 'a8000007@xtec.cat', '', '## ##ESO 2## ## ##ESO 2C## ##', '0', 475, 1, '2019-05-13 07:44:10', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(8, 'posttitle-8', '{{POSTTITLE}}', 'post_notification', 'Admin', 'a8000007@xtec.cat', 'Admin', 'a8000007@xtec.cat', '', '## ##ESO 3## ## ##ESO 3A## ##', '0', 476, 1, '2019-05-13 07:44:10', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(9, 'posttitle-9', '{{POSTTITLE}}', 'post_notification', 'Admin', 'a8000007@xtec.cat', 'Admin', 'a8000007@xtec.cat', '', '## ##ESO 3## ## ##ESO 3B## ##', '0', 477, 1, '2019-05-13 07:44:10', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(10, 'posttitle-10', '{{POSTTITLE}}', 'post_notification', 'Admin', 'a8000007@xtec.cat', 'Admin', 'a8000007@xtec.cat', '', '## ##ESO 3## ## ##ESO 3C## ##', '0', 478, 1, '2019-05-13 07:44:10', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(11, 'posttitle-11', '{{POSTTITLE}}', 'post_notification', 'Admin', 'a8000007@xtec.cat', 'Admin', 'a8000007@xtec.cat', '', '## ##ESO 4## ## ##ESO 4A## ##', '0', 479, 1, '2019-05-13 07:44:10', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(12, 'posttitle-12', '{{POSTTITLE}}', 'post_notification', 'Admin', 'a8000007@xtec.cat', 'Admin', 'a8000007@xtec.cat', '', '## ##ESO 4## ## ##ESO 4B## ##', '0', 480, 1, '2019-05-13 07:44:10', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(13, 'posttitle-13', '{{POSTTITLE}}', 'post_notification', 'Admin', 'a8000007@xtec.cat', 'Admin', 'a8000007@xtec.cat', '', '## ##ESO 4## ## ##ESO 4C## ##', '0', 481, 1, '2019-05-13 07:44:10', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_es_notification`
+-- Estructura de la taula `wp_ig_contacts`
 --
 
-CREATE TABLE `wp_es_notification` (
-  `es_note_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `es_note_cat` text,
-  `es_note_group` varchar(255) NOT NULL,
-  `es_note_templ` int(10) unsigned NOT NULL,
-  `es_note_status` varchar(10) NOT NULL DEFAULT 'Enable',
-  PRIMARY KEY (`es_note_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+CREATE TABLE IF NOT EXISTS `wp_ig_contacts` (
+`id` int(10) NOT NULL,
+  `wp_user_id` int(10) NOT NULL DEFAULT '0',
+  `first_name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `last_name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `source` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `form_id` int(10) NOT NULL DEFAULT '0',
+  `status` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `unsubscribed` tinyint(1) NOT NULL DEFAULT '0',
+  `hash` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `is_verified` tinyint(1) DEFAULT '0',
+  `is_disposable` tinyint(1) DEFAULT '0',
+  `is_rolebased` tinyint(1) DEFAULT '0',
+  `is_webmail` tinyint(1) DEFAULT '0',
+  `is_deliverable` tinyint(1) DEFAULT '0',
+  `is_sendsafely` tinyint(1) DEFAULT '0',
+  `meta` longtext CHARACTER SET utf8
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `wp_es_notification`
+-- Bolcant dades de la taula `wp_ig_contacts`
 --
 
-INSERT INTO `wp_es_notification` (`es_note_id`, `es_note_cat`, `es_note_group`, `es_note_templ`, `es_note_status`) VALUES
-(1, '##Portada## ', 'Portada', 1, 'Enable'),
-(2, ' ##ESO 1## -- ##ESO 1A## ', 'ESO 1A', 1, 'Enable'),
-(3, ' ##ESO 1## -- ##ESO 1B## ', 'ESO 1B', 1, 'Enable'),
-(4, ' ##ESO 1## -- ##ESO 1C## ', 'ESO 1C', 1, 'Enable'),
-(5, ' ##ESO 2## -- ##ESO 2A## ', 'ESO 2A', 1, 'Enable'),
-(6, ' ##ESO 2## -- ##ESO 2B## ', 'ESO 2B', 1, 'Enable'),
-(7, ' ##ESO 2## -- ##ESO 2C## ', 'ESO 2C', 1, 'Enable'),
-(8, ' ##ESO 3## -- ##ESO 3A## ', 'ESO 3A', 1, 'Enable'),
-(9, ' ##ESO 3## -- ##ESO 3B## ', 'ESO 3B', 1, 'Enable'),
-(10, ' ##ESO 3## -- ##ESO 3C## ', 'ESO 3C', 1, 'Enable'),
-(11, ' ##ESO 4## -- ##ESO 4A## ', 'ESO 4A', 1, 'Enable'),
-(12, ' ##ESO 4## -- ##ESO 4B## ', 'ESO 4B', 1, 'Enable'),
-(13, ' ##ESO 4## -- ##ESO 4C## ', 'ESO 4C', 1, 'Enable');
+INSERT INTO `wp_ig_contacts` (`id`, `wp_user_id`, `first_name`, `last_name`, `email`, `source`, `form_id`, `status`, `unsubscribed`, `hash`, `created_at`, `updated_at`, `is_verified`, `is_disposable`, `is_rolebased`, `is_webmail`, `is_deliverable`, `is_sendsafely`, `meta`) VALUES
+(1, 0, 'Admin', '', 'a8000007@xtec.cat', 'Migrated', 0, 'verified', 0, 'kzqoru-vnfzdi-suewbi-wmsvbl-trluda', '2016-04-05 11:56:30', '2019-05-13 07:44:10', 1, 0, 0, 0, 1, 1, '');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_es_pluginconfig`
+-- Estructura de la taula `wp_ig_contacts_ips`
 --
 
-CREATE TABLE `wp_es_pluginconfig` (
-  `es_c_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `es_c_fromname` varchar(255) NOT NULL,
-  `es_c_fromemail` varchar(255) NOT NULL,
-  `es_c_mailtype` varchar(255) NOT NULL,
-  `es_c_adminmailoption` varchar(255) NOT NULL,
-  `es_c_adminemail` varchar(255) NOT NULL,
-  `es_c_adminmailsubject` varchar(255) NOT NULL,
-  `es_c_adminmailcontant` text,
-  `es_c_usermailoption` varchar(255) NOT NULL,
-  `es_c_usermailsubject` varchar(255) NOT NULL,
-  `es_c_usermailcontant` text,
-  `es_c_optinoption` varchar(255) NOT NULL,
-  `es_c_optinsubject` varchar(255) NOT NULL,
-  `es_c_optincontent` text,
-  `es_c_optinlink` varchar(255) NOT NULL,
-  `es_c_unsublink` varchar(255) NOT NULL,
-  `es_c_unsubtext` text,
-  `es_c_unsubhtml` text,
-  `es_c_subhtml` text,
-  `es_c_message1` text,
-  `es_c_message2` text,
-  PRIMARY KEY (`es_c_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
-
---
--- Volcado de datos para la tabla `wp_es_pluginconfig`
---
-
-INSERT INTO `wp_es_pluginconfig` (`es_c_id`, `es_c_fromname`, `es_c_fromemail`, `es_c_mailtype`, `es_c_adminmailoption`, `es_c_adminemail`, `es_c_adminmailsubject`, `es_c_adminmailcontant`, `es_c_usermailoption`, `es_c_usermailsubject`, `es_c_usermailcontant`, `es_c_optinoption`, `es_c_optinsubject`, `es_c_optincontent`, `es_c_optinlink`, `es_c_unsublink`, `es_c_unsubtext`, `es_c_unsubhtml`, `es_c_subhtml`, `es_c_message1`, `es_c_message2`) VALUES
-(1, 'Admin', 'a8000007@xtec.cat', 'WP HTML MAIL', 'YES', 'a8000007@xtec.cat', 'Institut L&#039;Arany Subscripci&oacute; nova de correu', 'Hola Administrador, \r\n\r\n Hem rebut una sol·licitud de subscripci&oacute; d''aquesta adre&ccedil;a de correu electr&ograve;nic per rebre els articles del nostre lloc web. \r\n\r\n Correu electr&ograve;nic : ###EMAIL### \r\n Nom : ###NAME### \r\n\r\nGr&agrave;cies\r\nInstitut L&#039;Arany', 'YES', 'Institut L&#039;Arany Benvingut al nostre butlletí', 'Hola ###NAME###, \r\n\r\n Hem rebut una sol·licitud de subscripci&oacute; d''aquesta adre&ccedil;a de correu electr&ograve;nic per rebre el bullet&iacute; del nostre lloc web.\r\n\r\nGr&agrave;cies\r\nInstitut L&#039;Arany', 'Double Opt In', 'Institut L&#039;Arany confirmeu la subscripció', 'Hola ###NAME###,\r\n\r\n Hem rebut una petici&oacute; de subscripci&oacute; d''aquesta adre&ccedil;a de correu electr&ograve;nic. Confirmeu <a href=''###LINK###''>fent clic aqu&iacute;</a>. Si no podeu fer clic a l''enlla&ccedil; anterior, si us plau, utilitzeu l''URL seg&uuml;ent.\r\n\r\n ###LINK### \r\n\r\nGr&agrave;cies\r\nInstitut L&#039;Arany', 'http://pwc-int.educacio.intranet/agora/mastersec/?es=optin&db=###DBID###&email=###EMAIL###&guid=###GUID###', 'http://pwc-int.educacio.intranet/agora/mastersec/?es=unsubscribe&db=###DBID###&email=###EMAIL###&guid=###GUID###', 'Si no esteu interessats en rebre correus des de Institut L&#039;Arany <a href=''###LINK###''>feu clic aqu&iacute;</a> per donar-vos de baixa', 'Gr&agrave;cies, heu estat donat de baixa amb &egrave;xit. Ja no haur&iacute;eu de rebre not&iacute;cies nostres.', 'Gr&agrave;cies, heu estat subscrit amb &egrave;xit al nostre butllet&iacute; de not&iacute;cies.', 'Vaja... Aquesta subscripci&oacute; no s''ha pogut completar, ho sentim. L''adre&ccedil;a de correu electr&ograve;nic est&agrave; bloquejada o ja est&agrave; subscrita. Gr&agrave;cies.', 'Vaja... Estem tenint algun error t&egrave;cnic. Torneu-ho a provar o contacteu amb l''administrador.');
+CREATE TABLE IF NOT EXISTS `wp_ig_contacts_ips` (
+  `ip` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_es_sentdetails`
+-- Estructura de la taula `wp_ig_forms`
 --
 
-CREATE TABLE `wp_es_sentdetails` (
-  `es_sent_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `es_sent_guid` varchar(255) NOT NULL,
-  `es_sent_qstring` varchar(255) NOT NULL,
-  `es_sent_source` varchar(255) NOT NULL,
-  `es_sent_starttime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `es_sent_endtime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `es_sent_count` int(10) unsigned NOT NULL,
-  `es_sent_preview` text,
-  `es_sent_status` varchar(25) NOT NULL DEFAULT 'Sent',
-  `es_sent_type` varchar(25) NOT NULL DEFAULT 'Instant Mail',
-  `es_sent_subject` varchar(255) NOT NULL,
-  PRIMARY KEY (`es_sent_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+CREATE TABLE IF NOT EXISTS `wp_ig_forms` (
+`id` int(10) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `body` longtext COLLATE utf8mb4_unicode_ci,
+  `settings` longtext COLLATE utf8mb4_unicode_ci,
+  `styles` longtext COLLATE utf8mb4_unicode_ci,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  `af_id` int(10) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Bolcant dades de la taula `wp_ig_forms`
+--
+
+INSERT INTO `wp_ig_forms` (`id`, `name`, `body`, `settings`, `styles`, `created_at`, `updated_at`, `deleted_at`, `af_id`) VALUES
+(1, 'Widget - Subscripció de correu', 'a:4:{i:0;a:5:{s:4:"type";s:4:"text";s:4:"name";s:4:"Name";s:2:"id";s:4:"name";s:6:"params";a:3:{s:5:"label";s:4:"Name";s:4:"show";b:1;s:8:"required";b:0;}s:8:"position";i:1;}i:1;a:5:{s:4:"type";s:4:"text";s:4:"name";s:5:"Email";s:2:"id";s:5:"email";s:6:"params";a:3:{s:5:"label";s:5:"Email";s:4:"show";b:1;s:8:"required";b:1;}s:8:"position";i:2;}i:2;a:5:{s:4:"type";s:8:"checkbox";s:4:"name";s:5:"Lists";s:2:"id";s:5:"lists";s:6:"params";a:4:{s:5:"label";s:5:"Lists";s:4:"show";b:0;s:8:"required";b:1;s:6:"values";a:1:{i:0;s:1:"1";}}s:8:"position";i:3;}i:3;a:5:{s:4:"type";s:6:"submit";s:4:"name";s:6:"submit";s:2:"id";s:6:"submit";s:6:"params";a:2:{s:5:"label";s:6:"Submit";s:4:"show";b:1;}s:8:"position";i:4;}}', 'a:2:{s:5:"lists";a:1:{i:0;s:1:"1";}s:4:"desc";s:35:"T''avisarem si hi ha notícies noves";}', NULL, '2019-05-13 07:44:10', NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_es_templatetable`
+-- Estructura de la taula `wp_ig_lists`
 --
 
-CREATE TABLE `wp_es_templatetable` (
-  `es_templ_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `es_templ_heading` varchar(255) NOT NULL,
-  `es_templ_body` text,
-  `es_templ_status` varchar(25) NOT NULL DEFAULT 'Published',
-  `es_email_type` varchar(100) NOT NULL DEFAULT 'Static Template',
-  PRIMARY KEY (`es_templ_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+CREATE TABLE IF NOT EXISTS `wp_ig_lists` (
+`id` int(10) NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `wp_es_templatetable`
+-- Bolcant dades de la taula `wp_ig_lists`
 --
 
-INSERT INTO `wp_es_templatetable` (`es_templ_id`, `es_templ_heading`, `es_templ_body`, `es_templ_status`, `es_email_type`) VALUES
-(1, '###POSTTITLE###', 'Hola ###NAME###,\r\n\r\nHem publicat un article nou al nostre lloc web. \r\n\r\n###POSTTITLE###\r\n###POSTDESC###\r\n\r\nPodeu veure l\\''article i els comentaris associats a ###POSTLINK###\r\nHeu rebut aquest correu perquè vau demanar que se us notifiqués la publicació d\\''articles nous\r\n\r\n', 'Published', 'Dynamic Template'),
-(2, 'Notificació d''article nou ###POSTTITLE###', 'Hola ###EMAIL###,\r\n\r\nHem publicat un article nou al nostre lloc web. ###POSTTITLE###\r\n###POSTIMAGE###\r\n###POSTFULL###\r\nPodeu veure l''últim article a ###POSTLINK###\r\nHeu rebut aquest correu perquè vau demanar que se us notifiqués la publicació d''articles nous\r\n\r\nGràcies i salutacions\r\nAdmin', 'Published', 'Dynamic Template'),
-(3, 'Butlletí d\\''exemple', '<strong style=\\"color: #990000;\\"> Subscriptors de correu</strong>\r\n\r\nL\\''extensió subscripcions de correu de correu té diferents opcions per enviar butlletins als subscriptors.\r\nTé una pàgina separada amb un editor HTML per crear un butlletí amb aquest format.\r\nL\\''extensió disposa d\\''opcions per enviar correus de notificació als subscriptors quan es publiquen articles nous al lloc web. També té una pàgina per poder afegir i eliminar les categories a les que s\\''enviaran les notificacions.\r\nUtilitzant les opcions de l\\''extensió d\\''importació i exportació els administradors podran importar fàcilment els usuaris registrats.\r\n\r\n<strong style=\\"color: #990000;\\">Característiques de l\\''extensió</strong>\r\n<ol>\r\n	<li>Correu de notificació als subscriptors quan es publiquin articles nous.</li>\r\n	<li>Giny de subscripció</li>\r\n	<li>Correu de subscripció amb confirmació per correu i subscripció simple per facilitar la subscripció.</li>\r\n	<li>Notificació per correu electrònic a l\\''administrador quan els usuaris es subscriguin (Opcional)</li>\r\n	<li>Correu de benvinguda automàtic als subscriptors (Opcional).</li>\r\n	<li>Enllaç per donar-se de baixa del correu.</li>\r\n	<li>Importació / Exportació dels correus dels subscriptors.</li>\r\n	<li>Editor d\\''HTML per redactar el butlletí.</li>\r\n</ol>\r\n<strong>Gràcies i salutacions</strong>\r\nAdmin', 'Published', 'Static Template');
+INSERT INTO `wp_ig_lists` (`id`, `slug`, `name`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'portada', 'Portada', '2019-05-13 07:44:10', NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_links`
+-- Estructura de la taula `wp_ig_lists_contacts`
 --
 
-CREATE TABLE `wp_links` (
-  `link_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_ig_lists_contacts` (
+`id` int(10) NOT NULL,
+  `list_id` int(10) NOT NULL,
+  `contact_id` int(10) NOT NULL,
+  `status` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `optin_type` tinyint(4) NOT NULL,
+  `subscribed_at` datetime DEFAULT NULL,
+  `subscribed_ip` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `unsubscribed_at` datetime DEFAULT NULL,
+  `unsubscribed_ip` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Bolcant dades de la taula `wp_ig_lists_contacts`
+--
+
+INSERT INTO `wp_ig_lists_contacts` (`id`, `list_id`, `contact_id`, `status`, `optin_type`, `subscribed_at`, `subscribed_ip`, `unsubscribed_at`, `unsubscribed_ip`) VALUES
+(1, 1, 1, 'subscribed', 2, '2016-04-05 11:56:30', NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de la taula `wp_ig_mailing_queue`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_ig_mailing_queue` (
+`id` int(10) NOT NULL,
+  `hash` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `campaign_id` int(10) NOT NULL DEFAULT '0',
+  `subject` text COLLATE utf8mb4_unicode_ci,
+  `body` longtext COLLATE utf8mb4_unicode_ci,
+  `count` int(10) unsigned NOT NULL DEFAULT '0',
+  `status` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `start_at` datetime DEFAULT NULL,
+  `finish_at` datetime DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de la taula `wp_ig_sending_queue`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_ig_sending_queue` (
+`id` int(10) NOT NULL,
+  `mailing_queue_id` int(10) NOT NULL DEFAULT '0',
+  `mailing_queue_hash` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `campaign_id` int(10) NOT NULL DEFAULT '0',
+  `contact_id` int(10) NOT NULL DEFAULT '0',
+  `contact_hash` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `links` longtext COLLATE utf8mb4_unicode_ci,
+  `opened` int(1) DEFAULT NULL,
+  `sent_at` datetime DEFAULT NULL,
+  `opened_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de la taula `wp_links`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_links` (
+`link_id` bigint(20) unsigned NOT NULL,
   `link_url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `link_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `link_image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
@@ -911,32 +929,28 @@ CREATE TABLE `wp_links` (
   `link_updated` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `link_rel` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `link_notes` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `link_rss` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  PRIMARY KEY (`link_id`),
-  KEY `link_visible` (`link_visible`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=1 ;
+  `link_rss` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_options`
+-- Estructura de la taula `wp_options`
 --
 
-CREATE TABLE `wp_options` (
-  `option_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_options` (
+`option_id` bigint(20) unsigned NOT NULL,
   `option_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `option_value` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `autoload` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'yes',
-  PRIMARY KEY (`option_id`),
-  UNIQUE KEY `option_name` (`option_name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=6684 ;
+  `autoload` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'yes'
+) ENGINE=InnoDB AUTO_INCREMENT=10369 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `wp_options`
+-- Bolcant dades de la taula `wp_options`
 --
 
 INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES
-(1, 'siteurl', 'http://pwc-int.educacio.intranet/agora/mastersec', 'yes'),
+(1, 'siteurl', 'https://pwc-int.educacio.intranet/agora/mastersec', 'yes'),
 (2, 'blogname', 'Institut L&#039;Arany', 'yes'),
 (3, 'blogdescription', 'Web en construcció', 'yes'),
 (4, 'users_can_register', '0', 'yes'),
@@ -966,8 +980,8 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (29, 'hack_file', '0', 'yes'),
 (30, 'blog_charset', 'UTF-8', 'yes'),
 (31, 'moderation_keys', '', 'no'),
-(32, 'active_plugins', 'a:29:{i:0;s:25:"add-to-any/add-to-any.php";i:1;s:42:"bbpress-enable-tinymce-visual-tab/init.php";i:2;s:19:"bbpress/bbpress.php";i:3;s:37:"blogger-importer/blogger-importer.php";i:4;s:33:"buddypress-activity-plus/bpfb.php";i:5;s:26:"buddypress-docs/loader.php";i:6;s:64:"buddypress-group-email-subscription/bp-activity-subscription.php";i:7;s:34:"buddypress-like/bp-like-loader.php";i:8;s:24:"buddypress/bp-loader.php";i:9;s:39:"email-subscribers/email-subscribers.php";i:10;s:41:"enllacos-educatius/enllacos-educatius.php";i:11;s:43:"google-analyticator/google-analyticator.php";i:12;s:49:"google-calendar-events/google-calendar-events.php";i:13;s:27:"grup-classe/grup_classe.php";i:14;s:31:"invite-anyone/invite-anyone.php";i:15;s:69:"pending-submission-notifications/pending-submission-notifications.php";i:16;s:27:"private-bp-pages/loader.php";i:17;s:25:"slideshare/slideshare.php";i:18;s:44:"slideshow-jquery-image-gallery/slideshow.php";i:19;s:27:"socialmedia/socialmedia.php";i:20;s:30:"table-of-contents-plus/toc.php";i:21;s:37:"tinymce-advanced/tinymce-advanced.php";i:22;s:71:"widget-visibility-without-jetpack/widget-visibility-without-jetpack.php";i:23;s:41:"wordpress-importer/wordpress-importer.php";i:24;s:42:"wordpress-social-login/wp-social-login.php";i:25;s:29:"wp-recaptcha/wp-recaptcha.php";i:26;s:29:"xtec-booking/xtec-booking.php";i:27;s:23:"xtec-mail/xtec-mail.php";i:28;s:25:"xtec-stats/xtec-stats.php";}', 'yes'),
-(33, 'home', 'http://pwc-int.educacio.intranet/agora/mastersec', 'yes'),
+(32, 'active_plugins', 'a:33:{i:0;s:25:"add-to-any/add-to-any.php";i:1;s:42:"bbpress-enable-tinymce-visual-tab/init.php";i:2;s:19:"bbpress/bbpress.php";i:3;s:37:"blogger-importer/blogger-importer.php";i:4;s:33:"buddypress-activity-plus/bpfb.php";i:5;s:26:"buddypress-docs/loader.php";i:6;s:64:"buddypress-group-email-subscription/bp-activity-subscription.php";i:7;s:34:"buddypress-like/bp-like-loader.php";i:8;s:24:"buddypress/bp-loader.php";i:9;s:39:"disable-gutenberg/disable-gutenberg.php";i:10;s:39:"email-subscribers/email-subscribers.php";i:11;s:41:"enllacos-educatius/enllacos-educatius.php";i:12;s:43:"google-analyticator/google-analyticator.php";i:13;s:49:"google-calendar-events/google-calendar-events.php";i:14;s:27:"grup-classe/grup_classe.php";i:15;s:67:"import-users-from-csv-with-meta/import-users-from-csv-with-meta.php";i:16;s:31:"invite-anyone/invite-anyone.php";i:17;s:69:"pending-submission-notifications/pending-submission-notifications.php";i:18;s:27:"private-bp-pages/loader.php";i:19;s:25:"slideshare/slideshare.php";i:20;s:44:"slideshow-jquery-image-gallery/slideshow.php";i:21;s:27:"socialmedia/socialmedia.php";i:22;s:30:"table-of-contents-plus/toc.php";i:23;s:37:"tinymce-advanced/tinymce-advanced.php";i:24;s:71:"widget-visibility-without-jetpack/widget-visibility-without-jetpack.php";i:25;s:41:"wordpress-importer/wordpress-importer.php";i:26;s:42:"wordpress-social-login/wp-social-login.php";i:27;s:33:"wordpress-telegram/wptelegram.php";i:28;s:29:"wp-recaptcha/wp-recaptcha.php";i:29;s:29:"xtec-booking/xtec-booking.php";i:30;s:35:"xtec-ldap-login/xtec-ldap-login.php";i:31;s:23:"xtec-mail/xtec-mail.php";i:32;s:25:"xtec-stats/xtec-stats.php";}', 'yes'),
+(33, 'home', 'https://pwc-int.educacio.intranet/agora/mastersec', 'yes'),
 (34, 'category_base', '/categoria', 'yes'),
 (35, 'ping_sites', 'http://rpc.pingomatic.com/', 'yes'),
 (37, 'comment_max_links', '3', 'yes'),
@@ -982,7 +996,7 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (46, 'html_type', 'text/html', 'yes'),
 (47, 'use_trackback', '0', 'yes'),
 (48, 'default_role', 'contributor', 'yes'),
-(49, 'db_version', '36686', 'yes'),
+(49, 'db_version', '44719', 'yes'),
 (50, 'uploads_use_yearmonth_folders', '1', 'yes'),
 (51, 'upload_path', '', 'yes'),
 (52, 'blog_public', '1', 'yes'),
@@ -1013,7 +1027,7 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (77, 'comment_order', 'asc', 'yes'),
 (78, 'sticky_posts', 'a:0:{}', 'yes'),
 (79, 'widget_categories', 'a:2:{s:12:"_multiwidget";i:1;i:1;a:0:{}}', 'yes'),
-(80, 'widget_text', 'a:13:{i:1;a:0:{}i:2;a:3:{s:5:"title";s:0:"";s:4:"text";s:431:"<a class="twitter-timeline" href="https://twitter.com/institut_larany" data-widget-id="512216549814333440">Tuits de @institut_larany</a>\r\n<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?''http'':''https'';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>";s:6:"filter";b:0;}i:3;a:4:{s:5:"title";s:11:"Benvinguts ";s:4:"text";s:232:"En aquest pàgina podeu trobar tota la informació referent a l''AMPA del nostre centre.\r\n\r\nPer contactar amb l''AMPA: \r\n\r\n<strong>Correu electrònic:</strong>\r\ncorreuampa@elnostrecentre.cat\r\n\r\n<strong>Telèfon:</strong>\r\n123 45 67 89";s:6:"filter";b:1;s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:2:{s:5:"major";s:8:"category";s:5:"minor";s:2:"31";}}}}i:17;a:4:{s:5:"title";s:17:"Dades de contacte";s:4:"text";s:501:"<span  class="dashicons dashicons-admin-users"></span> Nom del coordinador \r\n<span class="dashicons dashicons-email-alt"></span><a href=mailto:coor.cicles@elvostrecentre> coor.cicles@elvostrecentre</a>\r\n<span class="dashicons dashicons-testimonial"></span> Atenció a les famílies: dilluns 00-00\r\n\r\n<span  class="dashicons dashicons-admin-users"></span> Nom del coordinador FCT \r\n<span class="dashicons dashicons-email-alt"></span><a href=mailto:coor.FCT@elvostrecentre> coor.FCT@elvostrecentre</a>\r\n";s:6:"filter";b:1;s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:2:{s:5:"major";s:8:"category";s:5:"minor";s:2:"30";}}}}i:19;a:3:{s:5:"title";s:0:"";s:4:"text";s:0:"";s:6:"filter";b:0;}s:12:"_multiwidget";i:1;i:21;a:3:{s:5:"title";s:0:"";s:4:"text";s:0:"";s:6:"filter";b:0;}i:25;a:4:{s:5:"title";s:0:"";s:4:"text";s:185:"Aquí podeu afegir un menú personalitzat amb enllaços a documents interns i externs, etiquetes de documents etc. A la visibilitat del giny, heu de posar: Pàgina / Index de Documents.";s:6:"filter";b:1;s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:2:{s:5:"major";s:4:"page";s:5:"minor";s:10:"docs-index";}}}}i:27;a:0:{}i:29;a:4:{s:5:"title";s:0:"";s:4:"text";s:151:"<img src="http://pwc-int.educacio.intranet/agora/mastersec/wp-content/uploads/usu7/2017/03/Agrupat-01.png" title="Il·lustració de Yurko  Blagojevic">";s:6:"filter";b:0;s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:3:{s:5:"major";s:8:"category";s:5:"minor";s:1:"4";s:12:"has_children";b:0;}}}}i:31;a:4:{s:5:"title";s:0:"";s:4:"text";s:151:"<img src="http://pwc-int.educacio.intranet/agora/mastersec/wp-content/uploads/usu7/2017/03/Agrupat-02.png" title="Il·lustració de Yurko  Blagojevic">";s:6:"filter";b:0;s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:3:{s:5:"major";s:8:"category";s:5:"minor";s:1:"5";s:12:"has_children";b:0;}}}}i:33;a:4:{s:5:"title";s:0:"";s:4:"text";s:150:"<img src="http://pwc-int.educacio.intranet/agora/mastersec/wp-content/uploads/usu7/2017/03/Agrupat-03.png" title="Il·lustració de Yurko Blagojevic">";s:6:"filter";b:0;s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:3:{s:5:"major";s:8:"category";s:5:"minor";s:1:"6";s:12:"has_children";b:0;}}}}i:35;a:4:{s:5:"title";s:0:"";s:4:"text";s:151:"<img src="http://pwc-int.educacio.intranet/agora/mastersec/wp-content/uploads/usu7/2017/03/Agrupat-04.png"  title="Il·lustració de Yurko Blagojevic">";s:6:"filter";b:0;s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:3:{s:5:"major";s:8:"category";s:5:"minor";s:1:"7";s:12:"has_children";b:0;}}}}}', 'yes'),
+(80, 'widget_text', 'a:13:{i:1;a:0:{}i:2;a:3:{s:5:"title";s:0:"";s:4:"text";s:431:"<a class="twitter-timeline" href="https://twitter.com/institut_larany" data-widget-id="512216549814333440">Tuits de @institut_larany</a>\r\n<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?''http'':''https'';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>";s:6:"filter";b:0;}i:3;a:4:{s:5:"title";s:11:"Benvinguts ";s:4:"text";s:232:"En aquest pàgina podeu trobar tota la informació referent a l''AMPA del nostre centre.\r\n\r\nPer contactar amb l''AMPA: \r\n\r\n<strong>Correu electrònic:</strong>\r\ncorreuampa@elnostrecentre.cat\r\n\r\n<strong>Telèfon:</strong>\r\n123 45 67 89";s:6:"filter";b:1;s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:2:{s:5:"major";s:8:"category";s:5:"minor";s:2:"31";}}}}i:17;a:4:{s:5:"title";s:17:"Dades de contacte";s:4:"text";s:501:"<span  class="dashicons dashicons-admin-users"></span> Nom del coordinador \r\n<span class="dashicons dashicons-email-alt"></span><a href=mailto:coor.cicles@elvostrecentre> coor.cicles@elvostrecentre</a>\r\n<span class="dashicons dashicons-testimonial"></span> Atenció a les famílies: dilluns 00-00\r\n\r\n<span  class="dashicons dashicons-admin-users"></span> Nom del coordinador FCT \r\n<span class="dashicons dashicons-email-alt"></span><a href=mailto:coor.FCT@elvostrecentre> coor.FCT@elvostrecentre</a>\r\n";s:6:"filter";b:1;s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:2:{s:5:"major";s:8:"category";s:5:"minor";s:2:"30";}}}}i:19;a:3:{s:5:"title";s:0:"";s:4:"text";s:0:"";s:6:"filter";b:0;}s:12:"_multiwidget";i:1;i:21;a:3:{s:5:"title";s:0:"";s:4:"text";s:0:"";s:6:"filter";b:0;}i:25;a:4:{s:5:"title";s:0:"";s:4:"text";s:185:"Aquí podeu afegir un menú personalitzat amb enllaços a documents interns i externs, etiquetes de documents etc. A la visibilitat del giny, heu de posar: Pàgina / Index de Documents.";s:6:"filter";b:1;s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:2:{s:5:"major";s:4:"page";s:5:"minor";s:10:"docs-index";}}}}i:27;a:0:{}i:29;a:4:{s:5:"title";s:0:"";s:4:"text";s:152:"<img src="https://pwc-int.educacio.intranet/agora/mastersec/wp-content/uploads/usu7/2017/03/Agrupat-01.png" title="Il·lustració de Yurko  Blagojevic">";s:6:"filter";b:0;s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:3:{s:5:"major";s:8:"category";s:5:"minor";s:1:"4";s:12:"has_children";b:0;}}}}i:31;a:4:{s:5:"title";s:0:"";s:4:"text";s:152:"<img src="https://pwc-int.educacio.intranet/agora/mastersec/wp-content/uploads/usu7/2017/03/Agrupat-02.png" title="Il·lustració de Yurko  Blagojevic">";s:6:"filter";b:0;s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:3:{s:5:"major";s:8:"category";s:5:"minor";s:1:"5";s:12:"has_children";b:0;}}}}i:33;a:4:{s:5:"title";s:0:"";s:4:"text";s:151:"<img src="https://pwc-int.educacio.intranet/agora/mastersec/wp-content/uploads/usu7/2017/03/Agrupat-03.png" title="Il·lustració de Yurko Blagojevic">";s:6:"filter";b:0;s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:3:{s:5:"major";s:8:"category";s:5:"minor";s:1:"6";s:12:"has_children";b:0;}}}}i:35;a:4:{s:5:"title";s:0:"";s:4:"text";s:152:"<img src="https://pwc-int.educacio.intranet/agora/mastersec/wp-content/uploads/usu7/2017/03/Agrupat-04.png"  title="Il·lustració de Yurko Blagojevic">";s:6:"filter";b:0;s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:3:{s:5:"major";s:8:"category";s:5:"minor";s:1:"7";s:12:"has_children";b:0;}}}}}', 'yes'),
 (81, 'widget_rss', 'a:2:{i:1;a:0:{}s:12:"_multiwidget";i:1;}', 'yes'),
 (82, 'uninstall_plugins', 'a:0:{}', 'no'),
 (83, 'timezone_string', 'Europe/Madrid', 'yes'),
@@ -1028,8 +1042,8 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (92, 'widget_recent-comments', 'a:2:{i:2;a:3:{s:5:"title";s:18:"Comentaris recents";s:6:"number";i:5;s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:2:{s:5:"major";s:4:"page";s:5:"minor";s:14:"post_type-post";}}}}s:12:"_multiwidget";i:1;}', 'yes'),
 (93, 'widget_archives', 'a:2:{i:2;a:4:{s:5:"title";s:0:"";s:5:"count";i:0;s:8:"dropdown";i:0;s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:2:{s:5:"major";s:4:"page";s:5:"minor";s:14:"post_type-post";}}}}s:12:"_multiwidget";i:1;}', 'yes'),
 (94, 'widget_meta', 'a:2:{i:2;a:1:{s:5:"title";s:0:"";}s:12:"_multiwidget";i:1;}', 'yes'),
-(95, 'sidebars_widgets', 'a:8:{s:19:"wp_inactive_widgets";a:0:{}s:9:"categoria";a:23:{i:0;s:10:"nav_menu-2";i:1;s:7:"text-29";i:2;s:10:"nav_menu-3";i:3;s:7:"text-31";i:4;s:10:"nav_menu-4";i:5;s:7:"text-33";i:6;s:10:"nav_menu-5";i:7;s:7:"text-35";i:8;s:6:"text-3";i:9;s:20:"grup_classe_widget-2";i:10;s:20:"grup_classe_widget-3";i:11;s:20:"grup_classe_widget-4";i:12;s:20:"grup_classe_widget-5";i:13;s:20:"grup_classe_widget-6";i:14;s:20:"grup_classe_widget-7";i:15;s:20:"grup_classe_widget-9";i:16;s:21:"grup_classe_widget-10";i:17;s:21:"grup_classe_widget-11";i:18;s:21:"grup_classe_widget-12";i:19;s:21:"grup_classe_widget-13";i:20;s:21:"grup_classe_widget-14";i:21;s:20:"grup_classe_widget-8";i:22;s:7:"text-17";}s:7:"sidebar";a:12:{i:0;s:10:"nav_menu-8";i:1;s:17:"slideshowwidget-2";i:2;s:18:"bp_groups_widget-2";i:3;s:14:"recent-posts-2";i:4;s:17:"recent-comments-2";i:5;s:11:"tag_cloud-3";i:6;s:10:"archives-2";i:7;s:32:"bp_core_recently_active_widget-2";i:8;s:10:"nav_menu-6";i:9;s:7:"text-25";i:10;s:11:"nav_menu-10";i:11;s:7:"text-27";}s:9:"sidebar-2";a:0:{}s:17:"sidebar-frontpage";a:5:{i:0;s:20:"logo_centre_widget-2";i:1;s:12:"gce_widget-2";i:2;s:6:"text-2";i:3;s:13:"xtec_widget-2";i:4;s:19:"email-subscribers-3";}s:19:"sidebar-frontpage-2";a:0:{}s:14:"sidebar-footer";a:3:{i:0;s:20:"socialmedia_widget-2";i:1;s:7:"text-19";i:2;s:20:"logo_centre_widget-3";}s:13:"array_version";i:3;}', 'yes'),
-(96, 'cron', 'a:5:{i:1499939020;a:3:{s:17:"wp_update_plugins";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:16:"wp_update_themes";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:16:"wp_version_check";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}}i:1499939026;a:1:{s:19:"wp_scheduled_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1499940763;a:1:{s:30:"wp_scheduled_auto_draft_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1499960045;a:1:{s:12:"remove_stats";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}s:7:"version";i:2;}', 'yes'),
+(95, 'sidebars_widgets', 'a:8:{s:19:"wp_inactive_widgets";a:0:{}s:9:"categoria";a:23:{i:0;s:10:"nav_menu-2";i:1;s:7:"text-29";i:2;s:10:"nav_menu-3";i:3;s:7:"text-31";i:4;s:10:"nav_menu-4";i:5;s:7:"text-33";i:6;s:10:"nav_menu-5";i:7;s:7:"text-35";i:8;s:6:"text-3";i:9;s:20:"grup_classe_widget-2";i:10;s:20:"grup_classe_widget-3";i:11;s:20:"grup_classe_widget-4";i:12;s:20:"grup_classe_widget-5";i:13;s:20:"grup_classe_widget-6";i:14;s:20:"grup_classe_widget-7";i:15;s:20:"grup_classe_widget-9";i:16;s:21:"grup_classe_widget-10";i:17;s:21:"grup_classe_widget-11";i:18;s:21:"grup_classe_widget-12";i:19;s:21:"grup_classe_widget-13";i:20;s:21:"grup_classe_widget-14";i:21;s:20:"grup_classe_widget-8";i:22;s:7:"text-17";}s:7:"sidebar";a:12:{i:0;s:10:"nav_menu-8";i:1;s:17:"slideshowwidget-2";i:2;s:18:"bp_groups_widget-2";i:3;s:14:"recent-posts-2";i:4;s:17:"recent-comments-2";i:5;s:11:"tag_cloud-3";i:6;s:10:"archives-2";i:7;s:32:"bp_core_recently_active_widget-2";i:8;s:10:"nav_menu-6";i:9;s:7:"text-25";i:10;s:11:"nav_menu-10";i:11;s:7:"text-27";}s:9:"sidebar-2";a:0:{}s:17:"sidebar-frontpage";a:5:{i:0;s:20:"logo_centre_widget-2";i:1;s:12:"gce_widget-2";i:2;s:6:"text-2";i:3;s:13:"xtec_widget-2";i:4;s:24:"email-subscribers-form-3";}s:19:"sidebar-frontpage-2";a:0:{}s:14:"sidebar-footer";a:3:{i:0;s:20:"socialmedia_widget-2";i:1;s:7:"text-19";i:2;s:20:"logo_centre_widget-3";}s:13:"array_version";i:3;}', 'yes'),
+(96, 'cron', 'a:7:{i:1537436620;a:3:{s:17:"wp_update_plugins";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:16:"wp_update_themes";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:16:"wp_version_check";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}}i:1537436626;a:1:{s:19:"wp_scheduled_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1537438363;a:1:{s:30:"wp_scheduled_auto_draft_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1537457645;a:1:{s:12:"remove_stats";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1557733449;a:2:{s:34:"wp_privacy_delete_old_export_files";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:6:"hourly";s:4:"args";a:0:{}s:8:"interval";i:3600;}}s:23:"ig_es_cron_fifteen_mins";a:1:{s:32:"5ac46d732acfbb36c3d4056d1cbf41dd";a:3:{s:8:"schedule";s:27:"ig_es_fifteen_mins_interval";s:4:"args";a:2:{i:0;s:4:"cron";i:1;s:34:"wuxjvg-fagnuh-txjhpv-cwbpmz-lafyox";}s:8:"interval";i:900;}}}i:1557744280;a:1:{s:25:"delete_expired_transients";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}s:7:"version";i:2;}', 'yes'),
 (118, 'recently_activated', 'a:0:{}', 'yes'),
 (123, '_bbp_db_version', '250', 'yes'),
 (124, 'bp-deactivated-components', 'a:0:{}', 'yes'),
@@ -1066,8 +1080,8 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (162, 'bp_moderation_options', 'a:6:{s:14:"unflagged_text";s:9:"Inadequat";s:12:"flagged_text";s:16:"No és inadequat";s:12:"active_types";a:1:{s:16:"activity_comment";s:2:"on";}s:17:"warning_threshold";i:5;s:15:"warning_forward";s:17:"a8000007@xtec.cat";s:15:"warning_message";s:297:"Several user reported one of your content as inappropriate.\r\nYou can see the content in the page: %CONTENTURL%.\r\nYou posted this content with the account "%AUTHORNAME%".\r\n\r\nA community moderator will soon review and moderate this content if necessary.\r\n--------------------\r\n[%SITENAME%] %SITEURL%";}', 'yes'),
 (163, 'bp_moderation_db_version', '-100', 'yes'),
 (166, 'gce_general', 'a:7:{s:10:"stylesheet";s:0:"";s:10:"javascript";b:0;s:7:"loading";s:12:"Carregant...";s:5:"error";s:40:"Calendari no disponible en aquest moment";s:6:"fields";b:1;s:14:"old_stylesheet";b:0;s:13:"save_settings";b:1;}', 'yes'),
-(167, 'invite_anyone', 'a:22:{s:11:"max_invites";i:5;s:23:"allow_email_invitations";s:3:"all";s:23:"message_is_customizable";s:3:"yes";s:23:"subject_is_customizable";s:2:"no";s:28:"can_send_group_invites_email";s:3:"yes";s:24:"bypass_registration_lock";s:3:"yes";s:7:"version";s:5:"1.3.1";s:23:"email_visibility_toggle";s:5:"limit";s:18:"email_since_toggle";b:0;s:10:"days_since";s:1:"0";s:17:"email_role_toggle";s:3:"yes";s:12:"minimum_role";s:13:"Administrator";s:22:"email_blacklist_toggle";b:0;s:15:"email_blacklist";s:0:"";s:23:"group_invites_can_admin";s:6:"anyone";s:29:"group_invites_can_group_admin";s:6:"anyone";s:27:"group_invites_can_group_mod";s:6:"anyone";s:30:"group_invites_can_group_member";s:5:"noone";s:32:"group_invites_enable_create_step";s:3:"yes";s:19:"cloudsponge_enabled";s:3:"off";s:26:"email_limit_invites_toggle";b:0;s:22:"limit_invites_per_user";s:2:"10";}', 'yes'),
-(168, 'invite_anyone_db_version', '1.3.12', 'yes'),
+(167, 'invite_anyone', 'a:22:{s:11:"max_invites";i:5;s:23:"allow_email_invitations";s:3:"all";s:23:"message_is_customizable";s:3:"yes";s:23:"subject_is_customizable";s:2:"no";s:28:"can_send_group_invites_email";s:3:"yes";s:24:"bypass_registration_lock";s:3:"yes";s:7:"version";s:5:"1.4.0";s:23:"email_visibility_toggle";s:5:"limit";s:18:"email_since_toggle";b:0;s:10:"days_since";s:1:"0";s:17:"email_role_toggle";s:3:"yes";s:12:"minimum_role";s:13:"Administrator";s:22:"email_blacklist_toggle";b:0;s:15:"email_blacklist";s:0:"";s:23:"group_invites_can_admin";s:6:"anyone";s:29:"group_invites_can_group_admin";s:6:"anyone";s:27:"group_invites_can_group_mod";s:6:"anyone";s:30:"group_invites_can_group_member";s:5:"noone";s:32:"group_invites_enable_create_step";s:3:"yes";s:19:"cloudsponge_enabled";s:3:"off";s:26:"email_limit_invites_toggle";b:0;s:22:"limit_invites_per_user";s:2:"10";}', 'yes'),
+(168, 'invite_anyone_db_version', '1.4.0', 'yes'),
 (169, 'slideshow-plugin-updated-from-v1-x-x-to-v2-0-1', 'updated', 'yes'),
 (170, 'slideshow-plugin-updated-from-v2-to-v2-1-20', 'updated', 'yes'),
 (171, 'slideshow-jquery-image-gallery-updated-from-v2-1-20-to-v2-1-22', 'updated', 'yes'),
@@ -1260,14 +1274,12 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (3414, 'medium_large_size_w', '768', 'yes'),
 (3415, 'medium_large_size_h', '0', 'yes'),
 (3421, 'category_children', 'a:5:{i:3;a:4:{i:0;i:4;i:1;i:5;i:2;i:6;i:3;i:7;}i:4;a:3:{i:0;i:9;i:1;i:10;i:2;i:11;}i:5;a:3:{i:0;i:14;i:1;i:15;i:2;i:16;}i:6;a:3:{i:0;i:19;i:1;i:20;i:2;i:21;}i:7;a:3:{i:0;i:24;i:1;i:25;i:2;i:26;}}', 'yes'),
-(3422, '_split_terms', 'a:4:{i:4;a:1:{s:8:"nav_menu";i:70;}i:5;a:1:{s:8:"nav_menu";i:71;}i:6;a:1:{s:8:"nav_menu";i:72;}i:7;a:1:{s:8:"nav_menu";i:73;}}', 'yes'),
-(3437, 'rewrite_rules', 'a:321:{s:14:"docs/create/?$";s:52:"index.php?post_type=bp_doc&name=$matches[1]&create=1";s:17:"docs/my-groups/?$";s:55:"index.php?post_type=bp_doc&name=$matches[1]&my-groups=1";s:20:"docs/([^/]+)/edit/?$";s:50:"index.php?post_type=bp_doc&name=$matches[1]&edit=1";s:23:"docs/([^/]+)/history/?$";s:53:"index.php?post_type=bp_doc&name=$matches[1]&history=1";s:22:"docs/([^/]+)/delete/?$";s:53:"index.php?post_type=bp_doc&name=$matches[1]&history=1";s:23:"docs/([^/]+)/untrash/?$";s:53:"index.php?post_type=bp_doc&name=$matches[1]&untrash=1";s:33:"docs/([^/]+)/unlink-from-group/?$";s:63:"index.php?post_type=bp_doc&name=$matches[1]&unlink-from-group=1";s:9:"forums/?$";s:25:"index.php?post_type=forum";s:39:"forums/feed/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?post_type=forum&feed=$matches[1]";s:34:"forums/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?post_type=forum&feed=$matches[1]";s:26:"forums/page/([0-9]{1,})/?$";s:43:"index.php?post_type=forum&paged=$matches[1]";s:9:"topics/?$";s:25:"index.php?post_type=topic";s:39:"topics/feed/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?post_type=topic&feed=$matches[1]";s:34:"topics/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?post_type=topic&feed=$matches[1]";s:26:"topics/page/([0-9]{1,})/?$";s:43:"index.php?post_type=topic&paged=$matches[1]";s:28:"forums/forum/([^/]+)/edit/?$";s:34:"index.php?forum=$matches[1]&edit=1";s:28:"forums/topic/([^/]+)/edit/?$";s:34:"index.php?topic=$matches[1]&edit=1";s:28:"forums/reply/([^/]+)/edit/?$";s:34:"index.php?reply=$matches[1]&edit=1";s:32:"forums/topic-tag/([^/]+)/edit/?$";s:38:"index.php?topic-tag=$matches[1]&edit=1";s:48:"forums/users/([^/]+)/topics/page/?([0-9]{1,})/?$";s:59:"index.php?bbp_user=$matches[1]&bbp_tops=1&paged=$matches[2]";s:49:"forums/users/([^/]+)/replies/page/?([0-9]{1,})/?$";s:59:"index.php?bbp_user=$matches[1]&bbp_reps=1&paged=$matches[2]";s:51:"forums/users/([^/]+)/favorites/page/?([0-9]{1,})/?$";s:59:"index.php?bbp_user=$matches[1]&bbp_favs=1&paged=$matches[2]";s:55:"forums/users/([^/]+)/subscriptions/page/?([0-9]{1,})/?$";s:59:"index.php?bbp_user=$matches[1]&bbp_subs=1&paged=$matches[2]";s:30:"forums/users/([^/]+)/topics/?$";s:41:"index.php?bbp_user=$matches[1]&bbp_tops=1";s:31:"forums/users/([^/]+)/replies/?$";s:41:"index.php?bbp_user=$matches[1]&bbp_reps=1";s:33:"forums/users/([^/]+)/favorites/?$";s:41:"index.php?bbp_user=$matches[1]&bbp_favs=1";s:37:"forums/users/([^/]+)/subscriptions/?$";s:41:"index.php?bbp_user=$matches[1]&bbp_subs=1";s:28:"forums/users/([^/]+)/edit/?$";s:37:"index.php?bbp_user=$matches[1]&edit=1";s:23:"forums/users/([^/]+)/?$";s:30:"index.php?bbp_user=$matches[1]";s:40:"forums/view/([^/]+)/page/?([0-9]{1,})/?$";s:48:"index.php?bbp_view=$matches[1]&paged=$matches[2]";s:27:"forums/view/([^/]+)/feed/?$";s:47:"index.php?bbp_view=$matches[1]&feed=$matches[2]";s:22:"forums/view/([^/]+)/?$";s:30:"index.php?bbp_view=$matches[1]";s:34:"forums/search/page/?([0-9]{1,})/?$";s:27:"index.php?paged=$matches[1]";s:16:"forums/search/?$";s:20:"index.php?bbp_search";s:11:"^wp-json/?$";s:22:"index.php?rest_route=/";s:14:"^wp-json/(.*)?";s:33:"index.php?rest_route=/$matches[1]";s:7:"docs/?$";s:26:"index.php?post_type=bp_doc";s:37:"docs/feed/(feed|rdf|rss|rss2|atom)/?$";s:43:"index.php?post_type=bp_doc&feed=$matches[1]";s:32:"docs/(feed|rdf|rss|rss2|atom)/?$";s:43:"index.php?post_type=bp_doc&feed=$matches[1]";s:24:"docs/page/([0-9]{1,})/?$";s:44:"index.php?post_type=bp_doc&paged=$matches[1]";s:12:"slideshow/?$";s:29:"index.php?post_type=slideshow";s:42:"slideshow/feed/(feed|rdf|rss|rss2|atom)/?$";s:46:"index.php?post_type=slideshow&feed=$matches[1]";s:37:"slideshow/(feed|rdf|rss|rss2|atom)/?$";s:46:"index.php?post_type=slideshow&feed=$matches[1]";s:29:"slideshow/page/([0-9]{1,})/?$";s:47:"index.php?post_type=slideshow&paged=$matches[1]";s:48:"categoria/(.+?)/feed/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?category_name=$matches[1]&feed=$matches[2]";s:43:"categoria/(.+?)/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?category_name=$matches[1]&feed=$matches[2]";s:24:"categoria/(.+?)/embed/?$";s:46:"index.php?category_name=$matches[1]&embed=true";s:36:"categoria/(.+?)/page/?([0-9]{1,})/?$";s:53:"index.php?category_name=$matches[1]&paged=$matches[2]";s:18:"categoria/(.+?)/?$";s:35:"index.php?category_name=$matches[1]";s:44:"tag/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?tag=$matches[1]&feed=$matches[2]";s:39:"tag/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?tag=$matches[1]&feed=$matches[2]";s:20:"tag/([^/]+)/embed/?$";s:36:"index.php?tag=$matches[1]&embed=true";s:32:"tag/([^/]+)/page/?([0-9]{1,})/?$";s:43:"index.php?tag=$matches[1]&paged=$matches[2]";s:14:"tag/([^/]+)/?$";s:25:"index.php?tag=$matches[1]";s:45:"type/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?post_format=$matches[1]&feed=$matches[2]";s:40:"type/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?post_format=$matches[1]&feed=$matches[2]";s:21:"type/([^/]+)/embed/?$";s:44:"index.php?post_format=$matches[1]&embed=true";s:33:"type/([^/]+)/page/?([0-9]{1,})/?$";s:51:"index.php?post_format=$matches[1]&paged=$matches[2]";s:15:"type/([^/]+)/?$";s:33:"index.php?post_format=$matches[1]";s:38:"forums/forum/.+?/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:48:"forums/forum/.+?/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:68:"forums/forum/.+?/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:63:"forums/forum/.+?/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:63:"forums/forum/.+?/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:44:"forums/forum/.+?/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:27:"forums/forum/(.+?)/embed/?$";s:38:"index.php?forum=$matches[1]&embed=true";s:31:"forums/forum/(.+?)/trackback/?$";s:32:"index.php?forum=$matches[1]&tb=1";s:51:"forums/forum/(.+?)/feed/(feed|rdf|rss|rss2|atom)/?$";s:44:"index.php?forum=$matches[1]&feed=$matches[2]";s:46:"forums/forum/(.+?)/(feed|rdf|rss|rss2|atom)/?$";s:44:"index.php?forum=$matches[1]&feed=$matches[2]";s:39:"forums/forum/(.+?)/page/?([0-9]{1,})/?$";s:45:"index.php?forum=$matches[1]&paged=$matches[2]";s:46:"forums/forum/(.+?)/comment-page-([0-9]{1,})/?$";s:45:"index.php?forum=$matches[1]&cpage=$matches[2]";s:35:"forums/forum/(.+?)(?:/([0-9]+))?/?$";s:44:"index.php?forum=$matches[1]&page=$matches[2]";s:40:"forums/topic/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:50:"forums/topic/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:70:"forums/topic/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:65:"forums/topic/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:65:"forums/topic/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:46:"forums/topic/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:29:"forums/topic/([^/]+)/embed/?$";s:38:"index.php?topic=$matches[1]&embed=true";s:33:"forums/topic/([^/]+)/trackback/?$";s:32:"index.php?topic=$matches[1]&tb=1";s:53:"forums/topic/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:44:"index.php?topic=$matches[1]&feed=$matches[2]";s:48:"forums/topic/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:44:"index.php?topic=$matches[1]&feed=$matches[2]";s:41:"forums/topic/([^/]+)/page/?([0-9]{1,})/?$";s:45:"index.php?topic=$matches[1]&paged=$matches[2]";s:48:"forums/topic/([^/]+)/comment-page-([0-9]{1,})/?$";s:45:"index.php?topic=$matches[1]&cpage=$matches[2]";s:37:"forums/topic/([^/]+)(?:/([0-9]+))?/?$";s:44:"index.php?topic=$matches[1]&page=$matches[2]";s:29:"forums/topic/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:39:"forums/topic/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:59:"forums/topic/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:54:"forums/topic/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:54:"forums/topic/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:35:"forums/topic/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:40:"forums/reply/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:50:"forums/reply/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:70:"forums/reply/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:65:"forums/reply/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:65:"forums/reply/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:46:"forums/reply/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:29:"forums/reply/([^/]+)/embed/?$";s:38:"index.php?reply=$matches[1]&embed=true";s:33:"forums/reply/([^/]+)/trackback/?$";s:32:"index.php?reply=$matches[1]&tb=1";s:41:"forums/reply/([^/]+)/page/?([0-9]{1,})/?$";s:45:"index.php?reply=$matches[1]&paged=$matches[2]";s:48:"forums/reply/([^/]+)/comment-page-([0-9]{1,})/?$";s:45:"index.php?reply=$matches[1]&cpage=$matches[2]";s:37:"forums/reply/([^/]+)(?:/([0-9]+))?/?$";s:44:"index.php?reply=$matches[1]&page=$matches[2]";s:29:"forums/reply/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:39:"forums/reply/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:59:"forums/reply/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:54:"forums/reply/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:54:"forums/reply/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:35:"forums/reply/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:57:"forums/topic-tag/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:48:"index.php?topic-tag=$matches[1]&feed=$matches[2]";s:52:"forums/topic-tag/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:48:"index.php?topic-tag=$matches[1]&feed=$matches[2]";s:33:"forums/topic-tag/([^/]+)/embed/?$";s:42:"index.php?topic-tag=$matches[1]&embed=true";s:45:"forums/topic-tag/([^/]+)/page/?([0-9]{1,})/?$";s:49:"index.php?topic-tag=$matches[1]&paged=$matches[2]";s:27:"forums/topic-tag/([^/]+)/?$";s:31:"index.php?topic-tag=$matches[1]";s:42:"forums/search/([^/]+)/page/?([0-9]{1,})/?$";s:50:"index.php?bbp_search=$matches[1]&paged=$matches[2]";s:24:"forums/search/([^/]+)/?$";s:32:"index.php?bbp_search=$matches[1]";s:38:"ia_invites/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:48:"ia_invites/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:68:"ia_invites/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:63:"ia_invites/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:63:"ia_invites/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:44:"ia_invites/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:27:"ia_invites/([^/]+)/embed/?$";s:43:"index.php?ia_invites=$matches[1]&embed=true";s:31:"ia_invites/([^/]+)/trackback/?$";s:37:"index.php?ia_invites=$matches[1]&tb=1";s:39:"ia_invites/([^/]+)/page/?([0-9]{1,})/?$";s:50:"index.php?ia_invites=$matches[1]&paged=$matches[2]";s:46:"ia_invites/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?ia_invites=$matches[1]&cpage=$matches[2]";s:35:"ia_invites/([^/]+)(?:/([0-9]+))?/?$";s:49:"index.php?ia_invites=$matches[1]&page=$matches[2]";s:27:"ia_invites/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:37:"ia_invites/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:57:"ia_invites/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:52:"ia_invites/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:52:"ia_invites/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:33:"ia_invites/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:52:"ia_invitees/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?ia_invitees=$matches[1]&feed=$matches[2]";s:47:"ia_invitees/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?ia_invitees=$matches[1]&feed=$matches[2]";s:28:"ia_invitees/([^/]+)/embed/?$";s:44:"index.php?ia_invitees=$matches[1]&embed=true";s:40:"ia_invitees/([^/]+)/page/?([0-9]{1,})/?$";s:51:"index.php?ia_invitees=$matches[1]&paged=$matches[2]";s:22:"ia_invitees/([^/]+)/?$";s:33:"index.php?ia_invitees=$matches[1]";s:58:"ia_invited_groups/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:56:"index.php?ia_invited_groups=$matches[1]&feed=$matches[2]";s:53:"ia_invited_groups/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:56:"index.php?ia_invited_groups=$matches[1]&feed=$matches[2]";s:34:"ia_invited_groups/([^/]+)/embed/?$";s:50:"index.php?ia_invited_groups=$matches[1]&embed=true";s:46:"ia_invited_groups/([^/]+)/page/?([0-9]{1,})/?$";s:57:"index.php?ia_invited_groups=$matches[1]&paged=$matches[2]";s:28:"ia_invited_groups/([^/]+)/?$";s:39:"index.php?ia_invited_groups=$matches[1]";s:54:"calendar_feed/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?calendar_feed=$matches[1]&feed=$matches[2]";s:49:"calendar_feed/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?calendar_feed=$matches[1]&feed=$matches[2]";s:30:"calendar_feed/([^/]+)/embed/?$";s:46:"index.php?calendar_feed=$matches[1]&embed=true";s:42:"calendar_feed/([^/]+)/page/?([0-9]{1,})/?$";s:53:"index.php?calendar_feed=$matches[1]&paged=$matches[2]";s:24:"calendar_feed/([^/]+)/?$";s:35:"index.php?calendar_feed=$matches[1]";s:54:"calendar_type/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?calendar_type=$matches[1]&feed=$matches[2]";s:49:"calendar_type/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?calendar_type=$matches[1]&feed=$matches[2]";s:30:"calendar_type/([^/]+)/embed/?$";s:46:"index.php?calendar_type=$matches[1]&embed=true";s:42:"calendar_type/([^/]+)/page/?([0-9]{1,})/?$";s:53:"index.php?calendar_type=$matches[1]&paged=$matches[2]";s:24:"calendar_type/([^/]+)/?$";s:35:"index.php?calendar_type=$matches[1]";s:58:"calendar_category/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:56:"index.php?calendar_category=$matches[1]&feed=$matches[2]";s:53:"calendar_category/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:56:"index.php?calendar_category=$matches[1]&feed=$matches[2]";s:34:"calendar_category/([^/]+)/embed/?$";s:50:"index.php?calendar_category=$matches[1]&embed=true";s:46:"calendar_category/([^/]+)/page/?([0-9]{1,})/?$";s:57:"index.php?calendar_category=$matches[1]&paged=$matches[2]";s:28:"calendar_category/([^/]+)/?$";s:39:"index.php?calendar_category=$matches[1]";s:36:"calendar/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:46:"calendar/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:66:"calendar/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:61:"calendar/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:61:"calendar/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:42:"calendar/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:25:"calendar/([^/]+)/embed/?$";s:41:"index.php?calendar=$matches[1]&embed=true";s:29:"calendar/([^/]+)/trackback/?$";s:35:"index.php?calendar=$matches[1]&tb=1";s:37:"calendar/([^/]+)/page/?([0-9]{1,})/?$";s:48:"index.php?calendar=$matches[1]&paged=$matches[2]";s:44:"calendar/([^/]+)/comment-page-([0-9]{1,})/?$";s:48:"index.php?calendar=$matches[1]&cpage=$matches[2]";s:33:"calendar/([^/]+)(?:/([0-9]+))?/?$";s:47:"index.php?calendar=$matches[1]&page=$matches[2]";s:25:"calendar/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:35:"calendar/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:55:"calendar/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:50:"calendar/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:50:"calendar/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:31:"calendar/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:55:"bp_member_type/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:53:"index.php?bp_member_type=$matches[1]&feed=$matches[2]";s:50:"bp_member_type/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:53:"index.php?bp_member_type=$matches[1]&feed=$matches[2]";s:31:"bp_member_type/([^/]+)/embed/?$";s:47:"index.php?bp_member_type=$matches[1]&embed=true";s:43:"bp_member_type/([^/]+)/page/?([0-9]{1,})/?$";s:54:"index.php?bp_member_type=$matches[1]&paged=$matches[2]";s:25:"bp_member_type/([^/]+)/?$";s:36:"index.php?bp_member_type=$matches[1]";s:30:"docs/.+?/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:40:"docs/.+?/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:60:"docs/.+?/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:55:"docs/.+?/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:55:"docs/.+?/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:36:"docs/.+?/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:19:"docs/(.+?)/embed/?$";s:39:"index.php?bp_doc=$matches[1]&embed=true";s:23:"docs/(.+?)/trackback/?$";s:33:"index.php?bp_doc=$matches[1]&tb=1";s:43:"docs/(.+?)/feed/(feed|rdf|rss|rss2|atom)/?$";s:45:"index.php?bp_doc=$matches[1]&feed=$matches[2]";s:38:"docs/(.+?)/(feed|rdf|rss|rss2|atom)/?$";s:45:"index.php?bp_doc=$matches[1]&feed=$matches[2]";s:31:"docs/(.+?)/page/?([0-9]{1,})/?$";s:46:"index.php?bp_doc=$matches[1]&paged=$matches[2]";s:38:"docs/(.+?)/comment-page-([0-9]{1,})/?$";s:46:"index.php?bp_doc=$matches[1]&cpage=$matches[2]";s:27:"docs/(.+?)(?:/([0-9]+))?/?$";s:45:"index.php?bp_doc=$matches[1]&page=$matches[2]";s:45:"item/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?bp_docs_tag=$matches[1]&feed=$matches[2]";s:40:"item/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?bp_docs_tag=$matches[1]&feed=$matches[2]";s:21:"item/([^/]+)/embed/?$";s:44:"index.php?bp_docs_tag=$matches[1]&embed=true";s:33:"item/([^/]+)/page/?([0-9]{1,})/?$";s:51:"index.php?bp_docs_tag=$matches[1]&paged=$matches[2]";s:15:"item/([^/]+)/?$";s:33:"index.php?bp_docs_tag=$matches[1]";s:55:"bp_docs_access/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:67:"index.php?taxonomy=bp_docs_access&term=$matches[1]&feed=$matches[2]";s:50:"bp_docs_access/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:67:"index.php?taxonomy=bp_docs_access&term=$matches[1]&feed=$matches[2]";s:31:"bp_docs_access/([^/]+)/embed/?$";s:61:"index.php?taxonomy=bp_docs_access&term=$matches[1]&embed=true";s:43:"bp_docs_access/([^/]+)/page/?([0-9]{1,})/?$";s:68:"index.php?taxonomy=bp_docs_access&term=$matches[1]&paged=$matches[2]";s:25:"bp_docs_access/([^/]+)/?$";s:50:"index.php?taxonomy=bp_docs_access&term=$matches[1]";s:40:"bp_docs_folder/.+?/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:50:"bp_docs_folder/.+?/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:70:"bp_docs_folder/.+?/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:65:"bp_docs_folder/.+?/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:65:"bp_docs_folder/.+?/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:46:"bp_docs_folder/.+?/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:29:"bp_docs_folder/(.+?)/embed/?$";s:47:"index.php?bp_docs_folder=$matches[1]&embed=true";s:33:"bp_docs_folder/(.+?)/trackback/?$";s:41:"index.php?bp_docs_folder=$matches[1]&tb=1";s:41:"bp_docs_folder/(.+?)/page/?([0-9]{1,})/?$";s:54:"index.php?bp_docs_folder=$matches[1]&paged=$matches[2]";s:48:"bp_docs_folder/(.+?)/comment-page-([0-9]{1,})/?$";s:54:"index.php?bp_docs_folder=$matches[1]&cpage=$matches[2]";s:37:"bp_docs_folder/(.+?)(?:/([0-9]+))?/?$";s:53:"index.php?bp_docs_folder=$matches[1]&page=$matches[2]";s:62:"bp_docs_doc_in_folder/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:60:"index.php?bp_docs_doc_in_folder=$matches[1]&feed=$matches[2]";s:57:"bp_docs_doc_in_folder/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:60:"index.php?bp_docs_doc_in_folder=$matches[1]&feed=$matches[2]";s:38:"bp_docs_doc_in_folder/([^/]+)/embed/?$";s:54:"index.php?bp_docs_doc_in_folder=$matches[1]&embed=true";s:50:"bp_docs_doc_in_folder/([^/]+)/page/?([0-9]{1,})/?$";s:61:"index.php?bp_docs_doc_in_folder=$matches[1]&paged=$matches[2]";s:32:"bp_docs_doc_in_folder/([^/]+)/?$";s:43:"index.php?bp_docs_doc_in_folder=$matches[1]";s:63:"bp_docs_folder_in_user/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:61:"index.php?bp_docs_folder_in_user=$matches[1]&feed=$matches[2]";s:58:"bp_docs_folder_in_user/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:61:"index.php?bp_docs_folder_in_user=$matches[1]&feed=$matches[2]";s:39:"bp_docs_folder_in_user/([^/]+)/embed/?$";s:55:"index.php?bp_docs_folder_in_user=$matches[1]&embed=true";s:51:"bp_docs_folder_in_user/([^/]+)/page/?([0-9]{1,})/?$";s:62:"index.php?bp_docs_folder_in_user=$matches[1]&paged=$matches[2]";s:33:"bp_docs_folder_in_user/([^/]+)/?$";s:44:"index.php?bp_docs_folder_in_user=$matches[1]";s:64:"bp_docs_folder_in_group/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:62:"index.php?bp_docs_folder_in_group=$matches[1]&feed=$matches[2]";s:59:"bp_docs_folder_in_group/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:62:"index.php?bp_docs_folder_in_group=$matches[1]&feed=$matches[2]";s:40:"bp_docs_folder_in_group/([^/]+)/embed/?$";s:56:"index.php?bp_docs_folder_in_group=$matches[1]&embed=true";s:52:"bp_docs_folder_in_group/([^/]+)/page/?([0-9]{1,})/?$";s:63:"index.php?bp_docs_folder_in_group=$matches[1]&paged=$matches[2]";s:34:"bp_docs_folder_in_group/([^/]+)/?$";s:45:"index.php?bp_docs_folder_in_group=$matches[1]";s:37:"slideshow/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:47:"slideshow/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:67:"slideshow/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:62:"slideshow/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:62:"slideshow/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:43:"slideshow/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:26:"slideshow/([^/]+)/embed/?$";s:42:"index.php?slideshow=$matches[1]&embed=true";s:30:"slideshow/([^/]+)/trackback/?$";s:36:"index.php?slideshow=$matches[1]&tb=1";s:50:"slideshow/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:48:"index.php?slideshow=$matches[1]&feed=$matches[2]";s:45:"slideshow/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:48:"index.php?slideshow=$matches[1]&feed=$matches[2]";s:38:"slideshow/([^/]+)/page/?([0-9]{1,})/?$";s:49:"index.php?slideshow=$matches[1]&paged=$matches[2]";s:45:"slideshow/([^/]+)/comment-page-([0-9]{1,})/?$";s:49:"index.php?slideshow=$matches[1]&cpage=$matches[2]";s:34:"slideshow/([^/]+)(?:/([0-9]+))?/?$";s:48:"index.php?slideshow=$matches[1]&page=$matches[2]";s:26:"slideshow/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:36:"slideshow/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:56:"slideshow/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:51:"slideshow/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:51:"slideshow/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:32:"slideshow/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:48:".*wp-(atom|rdf|rss|rss2|feed|commentsrss2)\\.php$";s:18:"index.php?feed=old";s:20:".*wp-app\\.php(/.*)?$";s:19:"index.php?error=403";s:18:".*wp-register.php$";s:23:"index.php?register=true";s:32:"feed/(feed|rdf|rss|rss2|atom)/?$";s:27:"index.php?&feed=$matches[1]";s:27:"(feed|rdf|rss|rss2|atom)/?$";s:27:"index.php?&feed=$matches[1]";s:8:"embed/?$";s:21:"index.php?&embed=true";s:20:"page/?([0-9]{1,})/?$";s:28:"index.php?&paged=$matches[1]";s:27:"comment-page-([0-9]{1,})/?$";s:38:"index.php?&page_id=9&cpage=$matches[1]";s:41:"comments/feed/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?&feed=$matches[1]&withcomments=1";s:36:"comments/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?&feed=$matches[1]&withcomments=1";s:17:"comments/embed/?$";s:21:"index.php?&embed=true";s:44:"search/(.+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:40:"index.php?s=$matches[1]&feed=$matches[2]";s:39:"search/(.+)/(feed|rdf|rss|rss2|atom)/?$";s:40:"index.php?s=$matches[1]&feed=$matches[2]";s:20:"search/(.+)/embed/?$";s:34:"index.php?s=$matches[1]&embed=true";s:32:"search/(.+)/page/?([0-9]{1,})/?$";s:41:"index.php?s=$matches[1]&paged=$matches[2]";s:14:"search/(.+)/?$";s:23:"index.php?s=$matches[1]";s:47:"author/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?author_name=$matches[1]&feed=$matches[2]";s:42:"author/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?author_name=$matches[1]&feed=$matches[2]";s:23:"author/([^/]+)/embed/?$";s:44:"index.php?author_name=$matches[1]&embed=true";s:35:"author/([^/]+)/page/?([0-9]{1,})/?$";s:51:"index.php?author_name=$matches[1]&paged=$matches[2]";s:17:"author/([^/]+)/?$";s:33:"index.php?author_name=$matches[1]";s:69:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/feed/(feed|rdf|rss|rss2|atom)/?$";s:80:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]&feed=$matches[4]";s:64:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/(feed|rdf|rss|rss2|atom)/?$";s:80:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]&feed=$matches[4]";s:45:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/embed/?$";s:74:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]&embed=true";s:57:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/page/?([0-9]{1,})/?$";s:81:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]&paged=$matches[4]";s:39:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/?$";s:63:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]";s:56:"([0-9]{4})/([0-9]{1,2})/feed/(feed|rdf|rss|rss2|atom)/?$";s:64:"index.php?year=$matches[1]&monthnum=$matches[2]&feed=$matches[3]";s:51:"([0-9]{4})/([0-9]{1,2})/(feed|rdf|rss|rss2|atom)/?$";s:64:"index.php?year=$matches[1]&monthnum=$matches[2]&feed=$matches[3]";s:32:"([0-9]{4})/([0-9]{1,2})/embed/?$";s:58:"index.php?year=$matches[1]&monthnum=$matches[2]&embed=true";s:44:"([0-9]{4})/([0-9]{1,2})/page/?([0-9]{1,})/?$";s:65:"index.php?year=$matches[1]&monthnum=$matches[2]&paged=$matches[3]";s:26:"([0-9]{4})/([0-9]{1,2})/?$";s:47:"index.php?year=$matches[1]&monthnum=$matches[2]";s:43:"([0-9]{4})/feed/(feed|rdf|rss|rss2|atom)/?$";s:43:"index.php?year=$matches[1]&feed=$matches[2]";s:38:"([0-9]{4})/(feed|rdf|rss|rss2|atom)/?$";s:43:"index.php?year=$matches[1]&feed=$matches[2]";s:19:"([0-9]{4})/embed/?$";s:37:"index.php?year=$matches[1]&embed=true";s:31:"([0-9]{4})/page/?([0-9]{1,})/?$";s:44:"index.php?year=$matches[1]&paged=$matches[2]";s:13:"([0-9]{4})/?$";s:26:"index.php?year=$matches[1]";s:27:".?.+?/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:37:".?.+?/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:57:".?.+?/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:52:".?.+?/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:52:".?.+?/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:33:".?.+?/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:16:"(.?.+?)/embed/?$";s:41:"index.php?pagename=$matches[1]&embed=true";s:20:"(.?.+?)/trackback/?$";s:35:"index.php?pagename=$matches[1]&tb=1";s:40:"(.?.+?)/feed/(feed|rdf|rss|rss2|atom)/?$";s:47:"index.php?pagename=$matches[1]&feed=$matches[2]";s:35:"(.?.+?)/(feed|rdf|rss|rss2|atom)/?$";s:47:"index.php?pagename=$matches[1]&feed=$matches[2]";s:28:"(.?.+?)/page/?([0-9]{1,})/?$";s:48:"index.php?pagename=$matches[1]&paged=$matches[2]";s:35:"(.?.+?)/comment-page-([0-9]{1,})/?$";s:48:"index.php?pagename=$matches[1]&cpage=$matches[2]";s:24:"(.?.+?)(?:/([0-9]+))?/?$";s:47:"index.php?pagename=$matches[1]&page=$matches[2]";s:31:".+?/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:41:".+?/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:61:".+?/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:56:".+?/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:56:".+?/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:37:".+?/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:22:"(.+?)/([^/]+)/embed/?$";s:63:"index.php?category_name=$matches[1]&name=$matches[2]&embed=true";s:26:"(.+?)/([^/]+)/trackback/?$";s:57:"index.php?category_name=$matches[1]&name=$matches[2]&tb=1";s:46:"(.+?)/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:69:"index.php?category_name=$matches[1]&name=$matches[2]&feed=$matches[3]";s:41:"(.+?)/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:69:"index.php?category_name=$matches[1]&name=$matches[2]&feed=$matches[3]";s:34:"(.+?)/([^/]+)/page/?([0-9]{1,})/?$";s:70:"index.php?category_name=$matches[1]&name=$matches[2]&paged=$matches[3]";s:41:"(.+?)/([^/]+)/comment-page-([0-9]{1,})/?$";s:70:"index.php?category_name=$matches[1]&name=$matches[2]&cpage=$matches[3]";s:30:"(.+?)/([^/]+)(?:/([0-9]+))?/?$";s:69:"index.php?category_name=$matches[1]&name=$matches[2]&page=$matches[3]";s:20:".+?/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:30:".+?/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:50:".+?/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:45:".+?/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:45:".+?/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:26:".+?/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:38:"(.+?)/feed/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?category_name=$matches[1]&feed=$matches[2]";s:33:"(.+?)/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?category_name=$matches[1]&feed=$matches[2]";s:14:"(.+?)/embed/?$";s:46:"index.php?category_name=$matches[1]&embed=true";s:26:"(.+?)/page/?([0-9]{1,})/?$";s:53:"index.php?category_name=$matches[1]&paged=$matches[2]";s:33:"(.+?)/comment-page-([0-9]{1,})/?$";s:53:"index.php?category_name=$matches[1]&cpage=$matches[2]";s:8:"(.+?)/?$";s:35:"index.php?category_name=$matches[1]";}', 'yes'),
-(3447, 'es_c_sentreport_subject', 'Butlletí Informe enviament', 'yes'),
-(3448, 'es_c_sentreport', 'Hola Administrador,\n\nEl missatge ha estat enviat amb èxit a ###COUNT### de correu electrònic(s). Trobareu els detalls a continuació.\n\nId únic: ###UNIQUE### \nHora d''inici: ###STARTTIME### \nHora de finalització: ###ENDTIME### \nPer a més informació, accediu al tauler i aneu al menú de Correus enviats a subscriptors. \n\nGràcies \nwww.gopiplus.com \n', 'yes'),
+(3422, '_split_terms', 'a:4:{i:4;a:1:{s:8:"nav_menu";i:70;}i:5;a:1:{s:8:"nav_menu";i:71;}i:6;a:1:{s:8:"nav_menu";i:72;}i:7;a:1:{s:8:"nav_menu";i:73;}}', 'yes');
+INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES
+(3437, 'rewrite_rules', 'a:396:{s:14:"docs/create/?$";s:52:"index.php?post_type=bp_doc&name=$matches[1]&create=1";s:34:"docs/my-groups/page/([0-9]{1,})/?$";s:56:"index.php?post_type=bp_doc&my-groups=1&paged=$matches[1]";s:17:"docs/my-groups/?$";s:55:"index.php?post_type=bp_doc&name=$matches[1]&my-groups=1";s:20:"docs/([^/]+)/edit/?$";s:50:"index.php?post_type=bp_doc&name=$matches[1]&edit=1";s:23:"docs/([^/]+)/history/?$";s:53:"index.php?post_type=bp_doc&name=$matches[1]&history=1";s:22:"docs/([^/]+)/delete/?$";s:53:"index.php?post_type=bp_doc&name=$matches[1]&history=1";s:23:"docs/([^/]+)/untrash/?$";s:53:"index.php?post_type=bp_doc&name=$matches[1]&untrash=1";s:33:"docs/([^/]+)/unlink-from-group/?$";s:63:"index.php?post_type=bp_doc&name=$matches[1]&unlink-from-group=1";s:9:"forums/?$";s:25:"index.php?post_type=forum";s:39:"forums/feed/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?post_type=forum&feed=$matches[1]";s:34:"forums/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?post_type=forum&feed=$matches[1]";s:26:"forums/page/([0-9]{1,})/?$";s:43:"index.php?post_type=forum&paged=$matches[1]";s:9:"topics/?$";s:25:"index.php?post_type=topic";s:39:"topics/feed/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?post_type=topic&feed=$matches[1]";s:34:"topics/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?post_type=topic&feed=$matches[1]";s:26:"topics/page/([0-9]{1,})/?$";s:43:"index.php?post_type=topic&paged=$matches[1]";s:28:"forums/forum/([^/]+)/edit/?$";s:34:"index.php?forum=$matches[1]&edit=1";s:28:"forums/topic/([^/]+)/edit/?$";s:34:"index.php?topic=$matches[1]&edit=1";s:28:"forums/reply/([^/]+)/edit/?$";s:34:"index.php?reply=$matches[1]&edit=1";s:32:"forums/topic-tag/([^/]+)/edit/?$";s:38:"index.php?topic-tag=$matches[1]&edit=1";s:48:"forums/users/([^/]+)/topics/page/?([0-9]{1,})/?$";s:59:"index.php?bbp_user=$matches[1]&bbp_tops=1&paged=$matches[2]";s:49:"forums/users/([^/]+)/replies/page/?([0-9]{1,})/?$";s:59:"index.php?bbp_user=$matches[1]&bbp_reps=1&paged=$matches[2]";s:51:"forums/users/([^/]+)/favorites/page/?([0-9]{1,})/?$";s:59:"index.php?bbp_user=$matches[1]&bbp_favs=1&paged=$matches[2]";s:55:"forums/users/([^/]+)/subscriptions/page/?([0-9]{1,})/?$";s:59:"index.php?bbp_user=$matches[1]&bbp_subs=1&paged=$matches[2]";s:30:"forums/users/([^/]+)/topics/?$";s:41:"index.php?bbp_user=$matches[1]&bbp_tops=1";s:31:"forums/users/([^/]+)/replies/?$";s:41:"index.php?bbp_user=$matches[1]&bbp_reps=1";s:33:"forums/users/([^/]+)/favorites/?$";s:41:"index.php?bbp_user=$matches[1]&bbp_favs=1";s:37:"forums/users/([^/]+)/subscriptions/?$";s:41:"index.php?bbp_user=$matches[1]&bbp_subs=1";s:28:"forums/users/([^/]+)/edit/?$";s:37:"index.php?bbp_user=$matches[1]&edit=1";s:23:"forums/users/([^/]+)/?$";s:30:"index.php?bbp_user=$matches[1]";s:40:"forums/view/([^/]+)/page/?([0-9]{1,})/?$";s:48:"index.php?bbp_view=$matches[1]&paged=$matches[2]";s:27:"forums/view/([^/]+)/feed/?$";s:47:"index.php?bbp_view=$matches[1]&feed=$matches[2]";s:22:"forums/view/([^/]+)/?$";s:30:"index.php?bbp_view=$matches[1]";s:34:"forums/search/page/?([0-9]{1,})/?$";s:27:"index.php?paged=$matches[1]";s:16:"forums/search/?$";s:20:"index.php?bbp_search";s:11:"^wp-json/?$";s:22:"index.php?rest_route=/";s:14:"^wp-json/(.*)?";s:33:"index.php?rest_route=/$matches[1]";s:21:"^index.php/wp-json/?$";s:22:"index.php?rest_route=/";s:24:"^index.php/wp-json/(.*)?";s:33:"index.php?rest_route=/$matches[1]";s:7:"docs/?$";s:26:"index.php?post_type=bp_doc";s:37:"docs/feed/(feed|rdf|rss|rss2|atom)/?$";s:43:"index.php?post_type=bp_doc&feed=$matches[1]";s:32:"docs/(feed|rdf|rss|rss2|atom)/?$";s:43:"index.php?post_type=bp_doc&feed=$matches[1]";s:24:"docs/page/([0-9]{1,})/?$";s:44:"index.php?post_type=bp_doc&paged=$matches[1]";s:12:"slideshow/?$";s:29:"index.php?post_type=slideshow";s:42:"slideshow/feed/(feed|rdf|rss|rss2|atom)/?$";s:46:"index.php?post_type=slideshow&feed=$matches[1]";s:37:"slideshow/(feed|rdf|rss|rss2|atom)/?$";s:46:"index.php?post_type=slideshow&feed=$matches[1]";s:29:"slideshow/page/([0-9]{1,})/?$";s:47:"index.php?post_type=slideshow&paged=$matches[1]";s:48:"categoria/(.+?)/feed/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?category_name=$matches[1]&feed=$matches[2]";s:43:"categoria/(.+?)/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?category_name=$matches[1]&feed=$matches[2]";s:24:"categoria/(.+?)/embed/?$";s:46:"index.php?category_name=$matches[1]&embed=true";s:36:"categoria/(.+?)/page/?([0-9]{1,})/?$";s:53:"index.php?category_name=$matches[1]&paged=$matches[2]";s:18:"categoria/(.+?)/?$";s:35:"index.php?category_name=$matches[1]";s:44:"tag/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?tag=$matches[1]&feed=$matches[2]";s:39:"tag/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?tag=$matches[1]&feed=$matches[2]";s:20:"tag/([^/]+)/embed/?$";s:36:"index.php?tag=$matches[1]&embed=true";s:32:"tag/([^/]+)/page/?([0-9]{1,})/?$";s:43:"index.php?tag=$matches[1]&paged=$matches[2]";s:14:"tag/([^/]+)/?$";s:25:"index.php?tag=$matches[1]";s:45:"type/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?post_format=$matches[1]&feed=$matches[2]";s:40:"type/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?post_format=$matches[1]&feed=$matches[2]";s:21:"type/([^/]+)/embed/?$";s:44:"index.php?post_format=$matches[1]&embed=true";s:33:"type/([^/]+)/page/?([0-9]{1,})/?$";s:51:"index.php?post_format=$matches[1]&paged=$matches[2]";s:15:"type/([^/]+)/?$";s:33:"index.php?post_format=$matches[1]";s:38:"forums/forum/.+?/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:48:"forums/forum/.+?/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:68:"forums/forum/.+?/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:63:"forums/forum/.+?/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:63:"forums/forum/.+?/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:44:"forums/forum/.+?/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:27:"forums/forum/(.+?)/embed/?$";s:38:"index.php?forum=$matches[1]&embed=true";s:31:"forums/forum/(.+?)/trackback/?$";s:32:"index.php?forum=$matches[1]&tb=1";s:51:"forums/forum/(.+?)/feed/(feed|rdf|rss|rss2|atom)/?$";s:44:"index.php?forum=$matches[1]&feed=$matches[2]";s:46:"forums/forum/(.+?)/(feed|rdf|rss|rss2|atom)/?$";s:44:"index.php?forum=$matches[1]&feed=$matches[2]";s:39:"forums/forum/(.+?)/page/?([0-9]{1,})/?$";s:45:"index.php?forum=$matches[1]&paged=$matches[2]";s:46:"forums/forum/(.+?)/comment-page-([0-9]{1,})/?$";s:45:"index.php?forum=$matches[1]&cpage=$matches[2]";s:35:"forums/forum/(.+?)(?:/([0-9]+))?/?$";s:44:"index.php?forum=$matches[1]&page=$matches[2]";s:40:"forums/topic/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:50:"forums/topic/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:70:"forums/topic/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:65:"forums/topic/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:65:"forums/topic/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:46:"forums/topic/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:29:"forums/topic/([^/]+)/embed/?$";s:38:"index.php?topic=$matches[1]&embed=true";s:33:"forums/topic/([^/]+)/trackback/?$";s:32:"index.php?topic=$matches[1]&tb=1";s:53:"forums/topic/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:44:"index.php?topic=$matches[1]&feed=$matches[2]";s:48:"forums/topic/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:44:"index.php?topic=$matches[1]&feed=$matches[2]";s:41:"forums/topic/([^/]+)/page/?([0-9]{1,})/?$";s:45:"index.php?topic=$matches[1]&paged=$matches[2]";s:48:"forums/topic/([^/]+)/comment-page-([0-9]{1,})/?$";s:45:"index.php?topic=$matches[1]&cpage=$matches[2]";s:37:"forums/topic/([^/]+)(?:/([0-9]+))?/?$";s:44:"index.php?topic=$matches[1]&page=$matches[2]";s:29:"forums/topic/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:39:"forums/topic/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:59:"forums/topic/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:54:"forums/topic/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:54:"forums/topic/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:35:"forums/topic/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:40:"forums/reply/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:50:"forums/reply/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:70:"forums/reply/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:65:"forums/reply/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:65:"forums/reply/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:46:"forums/reply/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:29:"forums/reply/([^/]+)/embed/?$";s:38:"index.php?reply=$matches[1]&embed=true";s:33:"forums/reply/([^/]+)/trackback/?$";s:32:"index.php?reply=$matches[1]&tb=1";s:41:"forums/reply/([^/]+)/page/?([0-9]{1,})/?$";s:45:"index.php?reply=$matches[1]&paged=$matches[2]";s:48:"forums/reply/([^/]+)/comment-page-([0-9]{1,})/?$";s:45:"index.php?reply=$matches[1]&cpage=$matches[2]";s:37:"forums/reply/([^/]+)(?:/([0-9]+))?/?$";s:44:"index.php?reply=$matches[1]&page=$matches[2]";s:29:"forums/reply/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:39:"forums/reply/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:59:"forums/reply/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:54:"forums/reply/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:54:"forums/reply/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:35:"forums/reply/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:57:"forums/topic-tag/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:48:"index.php?topic-tag=$matches[1]&feed=$matches[2]";s:52:"forums/topic-tag/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:48:"index.php?topic-tag=$matches[1]&feed=$matches[2]";s:33:"forums/topic-tag/([^/]+)/embed/?$";s:42:"index.php?topic-tag=$matches[1]&embed=true";s:45:"forums/topic-tag/([^/]+)/page/?([0-9]{1,})/?$";s:49:"index.php?topic-tag=$matches[1]&paged=$matches[2]";s:27:"forums/topic-tag/([^/]+)/?$";s:31:"index.php?topic-tag=$matches[1]";s:42:"forums/search/([^/]+)/page/?([0-9]{1,})/?$";s:50:"index.php?bbp_search=$matches[1]&paged=$matches[2]";s:24:"forums/search/([^/]+)/?$";s:32:"index.php?bbp_search=$matches[1]";s:38:"ia_invites/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:48:"ia_invites/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:68:"ia_invites/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:63:"ia_invites/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:63:"ia_invites/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:44:"ia_invites/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:27:"ia_invites/([^/]+)/embed/?$";s:43:"index.php?ia_invites=$matches[1]&embed=true";s:31:"ia_invites/([^/]+)/trackback/?$";s:37:"index.php?ia_invites=$matches[1]&tb=1";s:39:"ia_invites/([^/]+)/page/?([0-9]{1,})/?$";s:50:"index.php?ia_invites=$matches[1]&paged=$matches[2]";s:46:"ia_invites/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?ia_invites=$matches[1]&cpage=$matches[2]";s:35:"ia_invites/([^/]+)(?:/([0-9]+))?/?$";s:49:"index.php?ia_invites=$matches[1]&page=$matches[2]";s:27:"ia_invites/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:37:"ia_invites/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:57:"ia_invites/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:52:"ia_invites/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:52:"ia_invites/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:33:"ia_invites/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:52:"ia_invitees/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?ia_invitees=$matches[1]&feed=$matches[2]";s:47:"ia_invitees/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?ia_invitees=$matches[1]&feed=$matches[2]";s:28:"ia_invitees/([^/]+)/embed/?$";s:44:"index.php?ia_invitees=$matches[1]&embed=true";s:40:"ia_invitees/([^/]+)/page/?([0-9]{1,})/?$";s:51:"index.php?ia_invitees=$matches[1]&paged=$matches[2]";s:22:"ia_invitees/([^/]+)/?$";s:33:"index.php?ia_invitees=$matches[1]";s:58:"ia_invited_groups/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:56:"index.php?ia_invited_groups=$matches[1]&feed=$matches[2]";s:53:"ia_invited_groups/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:56:"index.php?ia_invited_groups=$matches[1]&feed=$matches[2]";s:34:"ia_invited_groups/([^/]+)/embed/?$";s:50:"index.php?ia_invited_groups=$matches[1]&embed=true";s:46:"ia_invited_groups/([^/]+)/page/?([0-9]{1,})/?$";s:57:"index.php?ia_invited_groups=$matches[1]&paged=$matches[2]";s:28:"ia_invited_groups/([^/]+)/?$";s:39:"index.php?ia_invited_groups=$matches[1]";s:54:"calendar_feed/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?calendar_feed=$matches[1]&feed=$matches[2]";s:49:"calendar_feed/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?calendar_feed=$matches[1]&feed=$matches[2]";s:30:"calendar_feed/([^/]+)/embed/?$";s:46:"index.php?calendar_feed=$matches[1]&embed=true";s:42:"calendar_feed/([^/]+)/page/?([0-9]{1,})/?$";s:53:"index.php?calendar_feed=$matches[1]&paged=$matches[2]";s:24:"calendar_feed/([^/]+)/?$";s:35:"index.php?calendar_feed=$matches[1]";s:54:"calendar_type/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?calendar_type=$matches[1]&feed=$matches[2]";s:49:"calendar_type/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?calendar_type=$matches[1]&feed=$matches[2]";s:30:"calendar_type/([^/]+)/embed/?$";s:46:"index.php?calendar_type=$matches[1]&embed=true";s:42:"calendar_type/([^/]+)/page/?([0-9]{1,})/?$";s:53:"index.php?calendar_type=$matches[1]&paged=$matches[2]";s:24:"calendar_type/([^/]+)/?$";s:35:"index.php?calendar_type=$matches[1]";s:58:"calendar_category/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:56:"index.php?calendar_category=$matches[1]&feed=$matches[2]";s:53:"calendar_category/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:56:"index.php?calendar_category=$matches[1]&feed=$matches[2]";s:34:"calendar_category/([^/]+)/embed/?$";s:50:"index.php?calendar_category=$matches[1]&embed=true";s:46:"calendar_category/([^/]+)/page/?([0-9]{1,})/?$";s:57:"index.php?calendar_category=$matches[1]&paged=$matches[2]";s:28:"calendar_category/([^/]+)/?$";s:39:"index.php?calendar_category=$matches[1]";s:36:"calendar/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:46:"calendar/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:66:"calendar/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:61:"calendar/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:61:"calendar/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:42:"calendar/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:25:"calendar/([^/]+)/embed/?$";s:41:"index.php?calendar=$matches[1]&embed=true";s:29:"calendar/([^/]+)/trackback/?$";s:35:"index.php?calendar=$matches[1]&tb=1";s:37:"calendar/([^/]+)/page/?([0-9]{1,})/?$";s:48:"index.php?calendar=$matches[1]&paged=$matches[2]";s:44:"calendar/([^/]+)/comment-page-([0-9]{1,})/?$";s:48:"index.php?calendar=$matches[1]&cpage=$matches[2]";s:33:"calendar/([^/]+)(?:/([0-9]+))?/?$";s:47:"index.php?calendar=$matches[1]&page=$matches[2]";s:25:"calendar/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:35:"calendar/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:55:"calendar/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:50:"calendar/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:50:"calendar/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:31:"calendar/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:39:"xtec_report/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:49:"xtec_report/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:69:"xtec_report/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:64:"xtec_report/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:64:"xtec_report/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:45:"xtec_report/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:28:"xtec_report/([^/]+)/embed/?$";s:44:"index.php?xtec_report=$matches[1]&embed=true";s:32:"xtec_report/([^/]+)/trackback/?$";s:38:"index.php?xtec_report=$matches[1]&tb=1";s:40:"xtec_report/([^/]+)/page/?([0-9]{1,})/?$";s:51:"index.php?xtec_report=$matches[1]&paged=$matches[2]";s:47:"xtec_report/([^/]+)/comment-page-([0-9]{1,})/?$";s:51:"index.php?xtec_report=$matches[1]&cpage=$matches[2]";s:36:"xtec_report/([^/]+)(?:/([0-9]+))?/?$";s:50:"index.php?xtec_report=$matches[1]&page=$matches[2]";s:28:"xtec_report/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:38:"xtec_report/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:58:"xtec_report/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:53:"xtec_report/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:53:"xtec_report/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:34:"xtec_report/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:55:"bp_member_type/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:53:"index.php?bp_member_type=$matches[1]&feed=$matches[2]";s:50:"bp_member_type/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:53:"index.php?bp_member_type=$matches[1]&feed=$matches[2]";s:31:"bp_member_type/([^/]+)/embed/?$";s:47:"index.php?bp_member_type=$matches[1]&embed=true";s:43:"bp_member_type/([^/]+)/page/?([0-9]{1,})/?$";s:54:"index.php?bp_member_type=$matches[1]&paged=$matches[2]";s:25:"bp_member_type/([^/]+)/?$";s:36:"index.php?bp_member_type=$matches[1]";s:54:"bp_group_type/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?bp_group_type=$matches[1]&feed=$matches[2]";s:49:"bp_group_type/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?bp_group_type=$matches[1]&feed=$matches[2]";s:30:"bp_group_type/([^/]+)/embed/?$";s:46:"index.php?bp_group_type=$matches[1]&embed=true";s:42:"bp_group_type/([^/]+)/page/?([0-9]{1,})/?$";s:53:"index.php?bp_group_type=$matches[1]&paged=$matches[2]";s:24:"bp_group_type/([^/]+)/?$";s:35:"index.php?bp_group_type=$matches[1]";s:30:"docs/.+?/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:40:"docs/.+?/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:60:"docs/.+?/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:55:"docs/.+?/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:55:"docs/.+?/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:36:"docs/.+?/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:19:"docs/(.+?)/embed/?$";s:39:"index.php?bp_doc=$matches[1]&embed=true";s:23:"docs/(.+?)/trackback/?$";s:33:"index.php?bp_doc=$matches[1]&tb=1";s:43:"docs/(.+?)/feed/(feed|rdf|rss|rss2|atom)/?$";s:45:"index.php?bp_doc=$matches[1]&feed=$matches[2]";s:38:"docs/(.+?)/(feed|rdf|rss|rss2|atom)/?$";s:45:"index.php?bp_doc=$matches[1]&feed=$matches[2]";s:31:"docs/(.+?)/page/?([0-9]{1,})/?$";s:46:"index.php?bp_doc=$matches[1]&paged=$matches[2]";s:38:"docs/(.+?)/comment-page-([0-9]{1,})/?$";s:46:"index.php?bp_doc=$matches[1]&cpage=$matches[2]";s:27:"docs/(.+?)(?:/([0-9]+))?/?$";s:45:"index.php?bp_doc=$matches[1]&page=$matches[2]";s:45:"item/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?bp_docs_tag=$matches[1]&feed=$matches[2]";s:40:"item/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?bp_docs_tag=$matches[1]&feed=$matches[2]";s:21:"item/([^/]+)/embed/?$";s:44:"index.php?bp_docs_tag=$matches[1]&embed=true";s:33:"item/([^/]+)/page/?([0-9]{1,})/?$";s:51:"index.php?bp_docs_tag=$matches[1]&paged=$matches[2]";s:15:"item/([^/]+)/?$";s:33:"index.php?bp_docs_tag=$matches[1]";s:55:"bp_docs_access/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:67:"index.php?taxonomy=bp_docs_access&term=$matches[1]&feed=$matches[2]";s:50:"bp_docs_access/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:67:"index.php?taxonomy=bp_docs_access&term=$matches[1]&feed=$matches[2]";s:31:"bp_docs_access/([^/]+)/embed/?$";s:61:"index.php?taxonomy=bp_docs_access&term=$matches[1]&embed=true";s:43:"bp_docs_access/([^/]+)/page/?([0-9]{1,})/?$";s:68:"index.php?taxonomy=bp_docs_access&term=$matches[1]&paged=$matches[2]";s:25:"bp_docs_access/([^/]+)/?$";s:50:"index.php?taxonomy=bp_docs_access&term=$matches[1]";s:63:"bp_docs_comment_access/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:75:"index.php?taxonomy=bp_docs_comment_access&term=$matches[1]&feed=$matches[2]";s:58:"bp_docs_comment_access/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:75:"index.php?taxonomy=bp_docs_comment_access&term=$matches[1]&feed=$matches[2]";s:39:"bp_docs_comment_access/([^/]+)/embed/?$";s:69:"index.php?taxonomy=bp_docs_comment_access&term=$matches[1]&embed=true";s:51:"bp_docs_comment_access/([^/]+)/page/?([0-9]{1,})/?$";s:76:"index.php?taxonomy=bp_docs_comment_access&term=$matches[1]&paged=$matches[2]";s:33:"bp_docs_comment_access/([^/]+)/?$";s:58:"index.php?taxonomy=bp_docs_comment_access&term=$matches[1]";s:40:"bp_docs_folder/.+?/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:50:"bp_docs_folder/.+?/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:70:"bp_docs_folder/.+?/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:65:"bp_docs_folder/.+?/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:65:"bp_docs_folder/.+?/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:46:"bp_docs_folder/.+?/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:29:"bp_docs_folder/(.+?)/embed/?$";s:47:"index.php?bp_docs_folder=$matches[1]&embed=true";s:33:"bp_docs_folder/(.+?)/trackback/?$";s:41:"index.php?bp_docs_folder=$matches[1]&tb=1";s:41:"bp_docs_folder/(.+?)/page/?([0-9]{1,})/?$";s:54:"index.php?bp_docs_folder=$matches[1]&paged=$matches[2]";s:48:"bp_docs_folder/(.+?)/comment-page-([0-9]{1,})/?$";s:54:"index.php?bp_docs_folder=$matches[1]&cpage=$matches[2]";s:37:"bp_docs_folder/(.+?)(?:/([0-9]+))?/?$";s:53:"index.php?bp_docs_folder=$matches[1]&page=$matches[2]";s:62:"bp_docs_doc_in_folder/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:60:"index.php?bp_docs_doc_in_folder=$matches[1]&feed=$matches[2]";s:57:"bp_docs_doc_in_folder/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:60:"index.php?bp_docs_doc_in_folder=$matches[1]&feed=$matches[2]";s:38:"bp_docs_doc_in_folder/([^/]+)/embed/?$";s:54:"index.php?bp_docs_doc_in_folder=$matches[1]&embed=true";s:50:"bp_docs_doc_in_folder/([^/]+)/page/?([0-9]{1,})/?$";s:61:"index.php?bp_docs_doc_in_folder=$matches[1]&paged=$matches[2]";s:32:"bp_docs_doc_in_folder/([^/]+)/?$";s:43:"index.php?bp_docs_doc_in_folder=$matches[1]";s:63:"bp_docs_folder_in_user/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:61:"index.php?bp_docs_folder_in_user=$matches[1]&feed=$matches[2]";s:58:"bp_docs_folder_in_user/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:61:"index.php?bp_docs_folder_in_user=$matches[1]&feed=$matches[2]";s:39:"bp_docs_folder_in_user/([^/]+)/embed/?$";s:55:"index.php?bp_docs_folder_in_user=$matches[1]&embed=true";s:51:"bp_docs_folder_in_user/([^/]+)/page/?([0-9]{1,})/?$";s:62:"index.php?bp_docs_folder_in_user=$matches[1]&paged=$matches[2]";s:33:"bp_docs_folder_in_user/([^/]+)/?$";s:44:"index.php?bp_docs_folder_in_user=$matches[1]";s:64:"bp_docs_folder_in_group/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:62:"index.php?bp_docs_folder_in_group=$matches[1]&feed=$matches[2]";s:59:"bp_docs_folder_in_group/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:62:"index.php?bp_docs_folder_in_group=$matches[1]&feed=$matches[2]";s:40:"bp_docs_folder_in_group/([^/]+)/embed/?$";s:56:"index.php?bp_docs_folder_in_group=$matches[1]&embed=true";s:52:"bp_docs_folder_in_group/([^/]+)/page/?([0-9]{1,})/?$";s:63:"index.php?bp_docs_folder_in_group=$matches[1]&paged=$matches[2]";s:34:"bp_docs_folder_in_group/([^/]+)/?$";s:45:"index.php?bp_docs_folder_in_group=$matches[1]";s:39:"es_template/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:49:"es_template/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:69:"es_template/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:64:"es_template/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:64:"es_template/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:45:"es_template/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:28:"es_template/([^/]+)/embed/?$";s:44:"index.php?es_template=$matches[1]&embed=true";s:32:"es_template/([^/]+)/trackback/?$";s:38:"index.php?es_template=$matches[1]&tb=1";s:40:"es_template/([^/]+)/page/?([0-9]{1,})/?$";s:51:"index.php?es_template=$matches[1]&paged=$matches[2]";s:47:"es_template/([^/]+)/comment-page-([0-9]{1,})/?$";s:51:"index.php?es_template=$matches[1]&cpage=$matches[2]";s:36:"es_template/([^/]+)(?:/([0-9]+))?/?$";s:50:"index.php?es_template=$matches[1]&page=$matches[2]";s:28:"es_template/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:38:"es_template/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:58:"es_template/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:53:"es_template/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:53:"es_template/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:34:"es_template/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:35:"slideshow/.+?/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:45:"slideshow/.+?/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:65:"slideshow/.+?/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:60:"slideshow/.+?/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:60:"slideshow/.+?/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:41:"slideshow/.+?/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:24:"slideshow/(.+?)/embed/?$";s:42:"index.php?slideshow=$matches[1]&embed=true";s:28:"slideshow/(.+?)/trackback/?$";s:36:"index.php?slideshow=$matches[1]&tb=1";s:48:"slideshow/(.+?)/feed/(feed|rdf|rss|rss2|atom)/?$";s:48:"index.php?slideshow=$matches[1]&feed=$matches[2]";s:43:"slideshow/(.+?)/(feed|rdf|rss|rss2|atom)/?$";s:48:"index.php?slideshow=$matches[1]&feed=$matches[2]";s:36:"slideshow/(.+?)/page/?([0-9]{1,})/?$";s:49:"index.php?slideshow=$matches[1]&paged=$matches[2]";s:43:"slideshow/(.+?)/comment-page-([0-9]{1,})/?$";s:49:"index.php?slideshow=$matches[1]&cpage=$matches[2]";s:32:"slideshow/(.+?)(?:/([0-9]+))?/?$";s:48:"index.php?slideshow=$matches[1]&page=$matches[2]";s:44:"calendar_booking/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:54:"calendar_booking/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:74:"calendar_booking/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:69:"calendar_booking/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:69:"calendar_booking/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:50:"calendar_booking/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:33:"calendar_booking/([^/]+)/embed/?$";s:49:"index.php?calendar_booking=$matches[1]&embed=true";s:37:"calendar_booking/([^/]+)/trackback/?$";s:43:"index.php?calendar_booking=$matches[1]&tb=1";s:45:"calendar_booking/([^/]+)/page/?([0-9]{1,})/?$";s:56:"index.php?calendar_booking=$matches[1]&paged=$matches[2]";s:52:"calendar_booking/([^/]+)/comment-page-([0-9]{1,})/?$";s:56:"index.php?calendar_booking=$matches[1]&cpage=$matches[2]";s:41:"calendar_booking/([^/]+)(?:/([0-9]+))?/?$";s:55:"index.php?calendar_booking=$matches[1]&page=$matches[2]";s:33:"calendar_booking/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:43:"calendar_booking/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:63:"calendar_booking/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:58:"calendar_booking/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:58:"calendar_booking/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:39:"calendar_booking/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:46:"calendar_resources/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:56:"calendar_resources/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:76:"calendar_resources/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:71:"calendar_resources/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:71:"calendar_resources/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:52:"calendar_resources/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:35:"calendar_resources/([^/]+)/embed/?$";s:51:"index.php?calendar_resources=$matches[1]&embed=true";s:39:"calendar_resources/([^/]+)/trackback/?$";s:45:"index.php?calendar_resources=$matches[1]&tb=1";s:47:"calendar_resources/([^/]+)/page/?([0-9]{1,})/?$";s:58:"index.php?calendar_resources=$matches[1]&paged=$matches[2]";s:54:"calendar_resources/([^/]+)/comment-page-([0-9]{1,})/?$";s:58:"index.php?calendar_resources=$matches[1]&cpage=$matches[2]";s:43:"calendar_resources/([^/]+)(?:/([0-9]+))?/?$";s:57:"index.php?calendar_resources=$matches[1]&page=$matches[2]";s:35:"calendar_resources/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:45:"calendar_resources/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:65:"calendar_resources/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:60:"calendar_resources/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:60:"calendar_resources/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:41:"calendar_resources/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:48:".*wp-(atom|rdf|rss|rss2|feed|commentsrss2)\\.php$";s:18:"index.php?feed=old";s:20:".*wp-app\\.php(/.*)?$";s:19:"index.php?error=403";s:18:".*wp-register.php$";s:23:"index.php?register=true";s:32:"feed/(feed|rdf|rss|rss2|atom)/?$";s:27:"index.php?&feed=$matches[1]";s:27:"(feed|rdf|rss|rss2|atom)/?$";s:27:"index.php?&feed=$matches[1]";s:8:"embed/?$";s:21:"index.php?&embed=true";s:20:"page/?([0-9]{1,})/?$";s:28:"index.php?&paged=$matches[1]";s:27:"comment-page-([0-9]{1,})/?$";s:38:"index.php?&page_id=9&cpage=$matches[1]";s:41:"comments/feed/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?&feed=$matches[1]&withcomments=1";s:36:"comments/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?&feed=$matches[1]&withcomments=1";s:17:"comments/embed/?$";s:21:"index.php?&embed=true";s:44:"search/(.+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:40:"index.php?s=$matches[1]&feed=$matches[2]";s:39:"search/(.+)/(feed|rdf|rss|rss2|atom)/?$";s:40:"index.php?s=$matches[1]&feed=$matches[2]";s:20:"search/(.+)/embed/?$";s:34:"index.php?s=$matches[1]&embed=true";s:32:"search/(.+)/page/?([0-9]{1,})/?$";s:41:"index.php?s=$matches[1]&paged=$matches[2]";s:14:"search/(.+)/?$";s:23:"index.php?s=$matches[1]";s:47:"author/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?author_name=$matches[1]&feed=$matches[2]";s:42:"author/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?author_name=$matches[1]&feed=$matches[2]";s:23:"author/([^/]+)/embed/?$";s:44:"index.php?author_name=$matches[1]&embed=true";s:35:"author/([^/]+)/page/?([0-9]{1,})/?$";s:51:"index.php?author_name=$matches[1]&paged=$matches[2]";s:17:"author/([^/]+)/?$";s:33:"index.php?author_name=$matches[1]";s:69:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/feed/(feed|rdf|rss|rss2|atom)/?$";s:80:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]&feed=$matches[4]";s:64:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/(feed|rdf|rss|rss2|atom)/?$";s:80:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]&feed=$matches[4]";s:45:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/embed/?$";s:74:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]&embed=true";s:57:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/page/?([0-9]{1,})/?$";s:81:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]&paged=$matches[4]";s:39:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/?$";s:63:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]";s:56:"([0-9]{4})/([0-9]{1,2})/feed/(feed|rdf|rss|rss2|atom)/?$";s:64:"index.php?year=$matches[1]&monthnum=$matches[2]&feed=$matches[3]";s:51:"([0-9]{4})/([0-9]{1,2})/(feed|rdf|rss|rss2|atom)/?$";s:64:"index.php?year=$matches[1]&monthnum=$matches[2]&feed=$matches[3]";s:32:"([0-9]{4})/([0-9]{1,2})/embed/?$";s:58:"index.php?year=$matches[1]&monthnum=$matches[2]&embed=true";s:44:"([0-9]{4})/([0-9]{1,2})/page/?([0-9]{1,})/?$";s:65:"index.php?year=$matches[1]&monthnum=$matches[2]&paged=$matches[3]";s:26:"([0-9]{4})/([0-9]{1,2})/?$";s:47:"index.php?year=$matches[1]&monthnum=$matches[2]";s:43:"([0-9]{4})/feed/(feed|rdf|rss|rss2|atom)/?$";s:43:"index.php?year=$matches[1]&feed=$matches[2]";s:38:"([0-9]{4})/(feed|rdf|rss|rss2|atom)/?$";s:43:"index.php?year=$matches[1]&feed=$matches[2]";s:19:"([0-9]{4})/embed/?$";s:37:"index.php?year=$matches[1]&embed=true";s:31:"([0-9]{4})/page/?([0-9]{1,})/?$";s:44:"index.php?year=$matches[1]&paged=$matches[2]";s:13:"([0-9]{4})/?$";s:26:"index.php?year=$matches[1]";s:27:".?.+?/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:37:".?.+?/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:57:".?.+?/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:52:".?.+?/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:52:".?.+?/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:33:".?.+?/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:16:"(.?.+?)/embed/?$";s:41:"index.php?pagename=$matches[1]&embed=true";s:20:"(.?.+?)/trackback/?$";s:35:"index.php?pagename=$matches[1]&tb=1";s:40:"(.?.+?)/feed/(feed|rdf|rss|rss2|atom)/?$";s:47:"index.php?pagename=$matches[1]&feed=$matches[2]";s:35:"(.?.+?)/(feed|rdf|rss|rss2|atom)/?$";s:47:"index.php?pagename=$matches[1]&feed=$matches[2]";s:28:"(.?.+?)/page/?([0-9]{1,})/?$";s:48:"index.php?pagename=$matches[1]&paged=$matches[2]";s:35:"(.?.+?)/comment-page-([0-9]{1,})/?$";s:48:"index.php?pagename=$matches[1]&cpage=$matches[2]";s:24:"(.?.+?)(?:/([0-9]+))?/?$";s:47:"index.php?pagename=$matches[1]&page=$matches[2]";s:31:".+?/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:41:".+?/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:61:".+?/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:56:".+?/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:56:".+?/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:37:".+?/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:22:"(.+?)/([^/]+)/embed/?$";s:63:"index.php?category_name=$matches[1]&name=$matches[2]&embed=true";s:26:"(.+?)/([^/]+)/trackback/?$";s:57:"index.php?category_name=$matches[1]&name=$matches[2]&tb=1";s:46:"(.+?)/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:69:"index.php?category_name=$matches[1]&name=$matches[2]&feed=$matches[3]";s:41:"(.+?)/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:69:"index.php?category_name=$matches[1]&name=$matches[2]&feed=$matches[3]";s:34:"(.+?)/([^/]+)/page/?([0-9]{1,})/?$";s:70:"index.php?category_name=$matches[1]&name=$matches[2]&paged=$matches[3]";s:41:"(.+?)/([^/]+)/comment-page-([0-9]{1,})/?$";s:70:"index.php?category_name=$matches[1]&name=$matches[2]&cpage=$matches[3]";s:30:"(.+?)/([^/]+)(?:/([0-9]+))?/?$";s:69:"index.php?category_name=$matches[1]&name=$matches[2]&page=$matches[3]";s:20:".+?/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:30:".+?/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:50:".+?/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:45:".+?/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:45:".+?/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:26:".+?/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:38:"(.+?)/feed/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?category_name=$matches[1]&feed=$matches[2]";s:33:"(.+?)/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?category_name=$matches[1]&feed=$matches[2]";s:14:"(.+?)/embed/?$";s:46:"index.php?category_name=$matches[1]&embed=true";s:26:"(.+?)/page/?([0-9]{1,})/?$";s:53:"index.php?category_name=$matches[1]&paged=$matches[2]";s:33:"(.+?)/comment-page-([0-9]{1,})/?$";s:53:"index.php?category_name=$matches[1]&cpage=$matches[2]";s:8:"(.+?)/?$";s:35:"index.php?category_name=$matches[1]";}', 'yes'),
 (3456, 'widget_widget_recent_bp_docs', 'a:2:{i:1;a:0:{}s:12:"_multiwidget";i:1;}', 'yes'),
 (3572, 'bp_docs_associated_item_children', 'a:0:{}', 'yes'),
 (3854, 'bp-plugin-enabled-post-home', '1', 'yes'),
-(3904, 'can_compress_scripts', '1', 'yes'),
 (4333, 'calendar_feed_children', 'a:0:{}', 'yes'),
 (4334, 'calendar_type_children', 'a:0:{}', 'yes'),
 (4335, 'simple-calendar_settings_feeds', 'a:1:{s:6:"google";a:1:{s:7:"api_key";s:0:"";}}', 'yes'),
@@ -1280,29 +1292,143 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (5195, 'bp-emails-unsubscribe-salt', 'ND9VZlpOSjpVTFMkKExWWkhjLlZ4a1Z6bmwwbTtZZF4lYmRZOkczTXlEKm5GTXhnLV8uXUVsQFk+MytzezFRRQ==', 'yes'),
 (5196, '_bp_ignore_deprecated_code', '', 'yes'),
 (6215, 'widget_toc-widget', 'a:1:{s:12:"_multiwidget";i:1;}', 'yes'),
-(6546, 'es_c_emailsubscribers', 's:4:"b:0;";', 'yes'),
-(6547, 'current_sa_email_subscribers_db_version', '3.2', 'yes');
+(6547, 'current_sa_email_subscribers_db_version', '3.2', 'yes'),
+(6556, 'toc-options', 'a:43:{s:15:"fragment_prefix";s:1:"i";s:8:"position";i:2;s:5:"start";i:4;s:17:"show_heading_text";b:1;s:12:"heading_text";s:10:"Continguts";s:22:"auto_insert_post_types";a:1:{i:0;s:4:"page";}s:14:"show_heirarchy";b:1;s:12:"ordered_list";b:0;s:13:"smooth_scroll";b:1;s:20:"smooth_scroll_offset";i:40;s:10:"visibility";b:0;s:15:"visibility_show";s:4:"show";s:15:"visibility_hide";s:4:"hide";s:26:"visibility_hide_by_default";b:0;s:5:"width";s:4:"Auto";s:12:"width_custom";d:275;s:18:"width_custom_units";s:2:"px";s:8:"wrapping";i:2;s:9:"font_size";d:95;s:15:"font_size_units";s:1:"%";s:5:"theme";i:1;s:24:"custom_background_colour";s:7:"#f9f9f9";s:20:"custom_border_colour";s:7:"#aaaaaa";s:19:"custom_title_colour";s:1:"#";s:19:"custom_links_colour";s:1:"#";s:25:"custom_links_hover_colour";s:1:"#";s:27:"custom_links_visited_colour";s:1:"#";s:9:"lowercase";b:0;s:9:"hyphenate";b:0;s:14:"bullet_spacing";b:0;s:16:"include_homepage";b:0;s:11:"exclude_css";b:0;s:7:"exclude";s:0:"";s:14:"heading_levels";a:6:{i:0;s:1:"1";i:1;s:1:"2";i:2;s:1:"3";i:3;s:1:"4";i:4;s:1:"5";i:5;s:1:"6";}s:13:"restrict_path";s:6:"/docs/";s:19:"css_container_class";s:0:"";s:25:"sitemap_show_page_listing";b:1;s:29:"sitemap_show_category_listing";b:1;s:20:"sitemap_heading_type";i:3;s:13:"sitemap_pages";s:5:"Pages";s:18:"sitemap_categories";s:10:"Categories";s:23:"show_toc_in_widget_only";b:0;s:34:"show_toc_in_widget_only_post_types";a:1:{i:0;s:4:"page";}}', 'yes'),
+(9869, 'widget_media_audio', 'a:1:{s:12:"_multiwidget";i:1;}', 'yes'),
+(9870, 'widget_media_image', 'a:1:{s:12:"_multiwidget";i:1;}', 'yes'),
+(9871, 'widget_media_gallery', 'a:1:{s:12:"_multiwidget";i:1;}', 'yes'),
+(9872, 'widget_media_video', 'a:1:{s:12:"_multiwidget";i:1;}', 'yes'),
+(9873, 'widget_custom_html', 'a:1:{s:12:"_multiwidget";i:1;}', 'yes'),
+(10217, 'wptelegram_ver', '2.0.9', 'yes'),
+(10218, 'widget_email-subscribers-form', 'a:3:{i:1;a:0:{}i:3;a:2:{s:5:"title";s:22:"Subscripció de correu";s:7:"form_id";i:1;}s:12:"_multiwidget";i:1;}', 'yes'),
+(10222, 'ig_es_cronurl', 'https://pwc-int.educacio.intranet/agora/mastersec?es=cron&guid=wuxjvg-fagnuh-txjhpv-cwbpmz-lafyox', 'yes'),
+(10225, 'ig_admin_notices', 'a:0:{}', 'yes'),
+(10228, 'ig_es_sync_wp_users', 's:4:"b:0;";', 'yes'),
+(10230, 'ig_es_320_db_updated_at', '2019-05-13 07:44:09', 'no'),
+(10232, 'ig_es_327_db_updated_at', '2019-05-13 07:44:10', 'no'),
+(10233, 'ig_es_sentreport', 'Hola Administrador,\n\nEl missatge ha estat enviat amb èxit a {{COUNT}} de correu electrònic(s). Trobareu els detalls a continuació.\n\nId únic: {{UNIQUE}} \nHora d''inici: {{STARTTIME}} \nHora de finalització: {{ENDTIME}} \nPer a més informació, accediu al tauler i aneu al menú de Correus enviats a subscriptors. \n\nGràcies \nwww.gopiplus.com \n', 'yes'),
+(10234, 'ig_es_sentreport_subject', 'Butlletí Informe enviament', 'yes'),
+(10235, 'ig_es_fromname', 'Admin', 'yes'),
+(10236, 'ig_es_fromemail', 'a8000007@xtec.cat', 'yes'),
+(10237, 'ig_es_emailtype', 'WP HTML MAIL', 'yes'),
+(10238, 'ig_es_notifyadmin', 'YES', 'yes'),
+(10239, 'ig_es_adminemail', 'a8000007@xtec.cat', 'yes'),
+(10240, 'ig_es_admin_new_sub_subject', 'Institut L&#039;Arany Subscripci&oacute; nova de correu', 'yes'),
+(10241, 'ig_es_admin_new_sub_content', 'Hola Administrador, \r\n\r\n Hem rebut una sol·licitud de subscripci&oacute; d''aquesta adre&ccedil;a de correu electr&ograve;nic per rebre els articles del nostre lloc web. \r\n\r\n Correu electr&ograve;nic : {{EMAIL}} \r\n Nom : {{NAME}} \r\n\r\nGr&agrave;cies\r\nInstitut L&#039;Arany', 'yes'),
+(10242, 'ig_es_welcomeemail', 'YES', 'yes'),
+(10243, 'ig_es_welcomesubject', 'Institut L&#039;Arany Benvingut al nostre butlletí', 'yes'),
+(10244, 'ig_es_welcomecontent', 'Hola {{NAME}}, \r\n\r\n Hem rebut una sol·licitud de subscripci&oacute; d''aquesta adre&ccedil;a de correu electr&ograve;nic per rebre el bullet&iacute; del nostre lloc web.\r\n\r\nGr&agrave;cies\r\nInstitut L&#039;Arany', 'yes'),
+(10245, 'ig_es_optintype', 'Double Opt In', 'yes'),
+(10246, 'ig_es_confirmsubject', 'Institut L&#039;Arany confirmeu la subscripció', 'yes'),
+(10247, 'ig_es_confirmcontent', 'Hola {{NAME}},\r\n\r\n Hem rebut una petici&oacute; de subscripci&oacute; d''aquesta adre&ccedil;a de correu electr&ograve;nic. Confirmeu <a href=''{{LINK}}''>fent clic aqu&iacute;</a>. Si no podeu fer clic a l''enlla&ccedil; anterior, si us plau, utilitzeu l''URL seg&uuml;ent.\r\n\r\n {{LINK}} \r\n\r\nGr&agrave;cies\r\nInstitut L&#039;Arany', 'yes'),
+(10248, 'ig_es_optinlink', 'http://pwc-int.educacio.intranet/agora/mastersec/?es=optin&db={{DBID}}&email={{EMAIL}}&guid={{GUID}}', 'yes'),
+(10249, 'ig_es_unsublink', 'http://pwc-int.educacio.intranet/agora/mastersec/?es=unsubscribe&db={{DBID}}&email={{EMAIL}}&guid={{GUID}}', 'yes'),
+(10250, 'ig_es_unsubcontent', 'Si no esteu interessats en rebre correus des de Institut L&#039;Arany <a href=''{{LINK}}''>feu clic aqu&iacute;</a> per donar-vos de baixa', 'yes'),
+(10251, 'ig_es_unsubtext', 'Gr&agrave;cies, heu estat donat de baixa amb &egrave;xit. Ja no haur&iacute;eu de rebre not&iacute;cies nostres.', 'yes'),
+(10252, 'ig_es_successmsg', 'Gr&agrave;cies, heu estat subscrit amb &egrave;xit al nostre butllet&iacute; de not&iacute;cies.', 'yes'),
+(10253, 'ig_es_suberror', 'Vaja... Aquesta subscripci&oacute; no s''ha pogut completar, ho sentim. L''adre&ccedil;a de correu electr&ograve;nic est&agrave; bloquejada o ja est&agrave; subscrita. Gr&agrave;cies.', 'yes'),
+(10254, 'ig_es_unsuberror', 'Vaja... Estem tenint algun error t&egrave;cnic. Torneu-ho a provar o contacteu amb l''administrador.', 'yes'),
+(10256, 'ig_es_330_db_updated_at', '2019-05-13 07:44:10', 'no'),
+(10258, 'es_template_migration_done', 'yes', 'yes'),
+(10260, 'ig_es_340_db_updated_at', '2019-05-13 07:44:10', 'no'),
+(10262, 'ig_es_3516_db_updated_at', '2019-05-13 07:44:10', 'no'),
+(10263, 'ig_es_from_name', 'Admin', 'yes'),
+(10264, 'ig_es_from_email', 'a8000007@xtec.cat', 'yes'),
+(10265, 'ig_es_admin_new_contact_email_subject', 'Institut L&#039;Arany Subscripci&oacute; nova de correu', 'yes'),
+(10266, 'ig_es_admin_new_contact_email_content', 'Hola Administrador, \r\n\r\n Hem rebut una sol·licitud de subscripci&oacute; d''aquesta adre&ccedil;a de correu electr&ograve;nic per rebre els articles del nostre lloc web. \r\n\r\n Correu electr&ograve;nic : {{EMAIL}} \r\n Nom : {{NAME}} \r\n\r\nGr&agrave;cies\r\nInstitut L&#039;Arany', 'yes'),
+(10267, 'ig_es_admin_emails', 'a8000007@xtec.cat', 'yes'),
+(10268, 'ig_es_confirmation_mail_subject', 'Institut L&#039;Arany confirmeu la subscripció', 'yes'),
+(10269, 'ig_es_confirmation_mail_content', 'Hola {{NAME}},\r\n\r\n Hem rebut una petici&oacute; de subscripci&oacute; d''aquesta adre&ccedil;a de correu electr&ograve;nic. Confirmeu <a href=''{{LINK}}''>fent clic aqu&iacute;</a>. Si no podeu fer clic a l''enlla&ccedil; anterior, si us plau, utilitzeu l''URL seg&uuml;ent.\r\n\r\n {{LINK}} \r\n\r\nGr&agrave;cies\r\nInstitut L&#039;Arany', 'yes'),
+(10270, 'ig_es_enable_welcome_email', 'yes', 'yes'),
+(10271, 'ig_es_welcome_email_subject', 'Institut L&#039;Arany Benvingut al nostre butlletí', 'yes'),
+(10272, 'ig_es_welcome_email_content', 'Hola {{NAME}}, \r\n\r\n Hem rebut una sol·licitud de subscripci&oacute; d''aquesta adre&ccedil;a de correu electr&ograve;nic per rebre el bullet&iacute; del nostre lloc web.\r\n\r\nGr&agrave;cies\r\nInstitut L&#039;Arany', 'yes'),
+(10273, 'ig_es_sent_report_subject', 'Butlletí Informe enviament', 'yes'),
+(10274, 'ig_es_sent_report_content', 'Hola Administrador,\n\nEl missatge ha estat enviat amb èxit a {{COUNT}} de correu electrònic(s). Trobareu els detalls a continuació.\n\nId únic: {{UNIQUE}} \nHora d''inici: {{STARTTIME}} \nHora de finalització: {{ENDTIME}} \nPer a més informació, accediu al tauler i aneu al menú de Correus enviats a subscriptors. \n\nGràcies \nwww.gopiplus.com \n', 'yes'),
+(10275, 'ig_es_unsubscribe_link', 'http://pwc-int.educacio.intranet/agora/mastersec/?es=unsubscribe&db={{DBID}}&email={{EMAIL}}&guid={{GUID}}', 'yes'),
+(10276, 'ig_es_optin_link', 'http://pwc-int.educacio.intranet/agora/mastersec/?es=optin&db={{DBID}}&email={{EMAIL}}&guid={{GUID}}', 'yes'),
+(10277, 'ig_es_unsubscribe_link_content', 'Si no esteu interessats en rebre correus des de Institut L&#039;Arany <a href=''{{LINK}}''>feu clic aqu&iacute;</a> per donar-vos de baixa', 'yes'),
+(10278, 'ig_es_email_type', 'wp_html_mail', 'yes');
 INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES
-(6556, 'toc-options', 'a:43:{s:15:"fragment_prefix";s:1:"i";s:8:"position";i:2;s:5:"start";i:4;s:17:"show_heading_text";b:1;s:12:"heading_text";s:10:"Continguts";s:22:"auto_insert_post_types";a:1:{i:0;s:4:"page";}s:14:"show_heirarchy";b:1;s:12:"ordered_list";b:0;s:13:"smooth_scroll";b:1;s:20:"smooth_scroll_offset";i:40;s:10:"visibility";b:0;s:15:"visibility_show";s:4:"show";s:15:"visibility_hide";s:4:"hide";s:26:"visibility_hide_by_default";b:0;s:5:"width";s:4:"Auto";s:12:"width_custom";d:275;s:18:"width_custom_units";s:2:"px";s:8:"wrapping";i:2;s:9:"font_size";d:95;s:15:"font_size_units";s:1:"%";s:5:"theme";i:1;s:24:"custom_background_colour";s:7:"#f9f9f9";s:20:"custom_border_colour";s:7:"#aaaaaa";s:19:"custom_title_colour";s:1:"#";s:19:"custom_links_colour";s:1:"#";s:25:"custom_links_hover_colour";s:1:"#";s:27:"custom_links_visited_colour";s:1:"#";s:9:"lowercase";b:0;s:9:"hyphenate";b:0;s:14:"bullet_spacing";b:0;s:16:"include_homepage";b:0;s:11:"exclude_css";b:0;s:7:"exclude";s:0:"";s:14:"heading_levels";a:6:{i:0;s:1:"1";i:1;s:1:"2";i:2;s:1:"3";i:3;s:1:"4";i:4;s:1:"5";i:5;s:1:"6";}s:13:"restrict_path";s:6:"/docs/";s:19:"css_container_class";s:0:"";s:25:"sitemap_show_page_listing";b:1;s:29:"sitemap_show_category_listing";b:1;s:20:"sitemap_heading_type";i:3;s:13:"sitemap_pages";s:5:"Pages";s:18:"sitemap_categories";s:10:"Categories";s:23:"show_toc_in_widget_only";b:0;s:34:"show_toc_in_widget_only_post_types";a:1:{i:0;s:4:"page";}}', 'yes');
+(10279, 'ig_es_notify_admin', 'yes', 'yes'),
+(10280, 'ig_es_optin_type', 'double_opt_in', 'yes'),
+(10281, 'ig_es_subscription_error_messsage', 'Vaja... Aquesta subscripci&oacute; no s''ha pogut completar, ho sentim. L''adre&ccedil;a de correu electr&ograve;nic est&agrave; bloquejada o ja est&agrave; subscrita. Gr&agrave;cies.', 'yes'),
+(10282, 'ig_es_subscription_success_message', 'Gr&agrave;cies, heu estat subscrit amb &egrave;xit al nostre butllet&iacute; de not&iacute;cies.', 'yes'),
+(10283, 'ig_es_unsubscribe_error_message', 'Vaja... Estem tenint algun error t&egrave;cnic. Torneu-ho a provar o contacteu amb l''administrador.', 'yes'),
+(10284, 'ig_es_unsubscribe_success_message', 'Gr&agrave;cies, heu estat donat de baixa amb &egrave;xit. Ja no haur&iacute;eu de rebre not&iacute;cies nostres.', 'yes'),
+(10286, 'ig_es_400_db_updated_at', '2019-05-13 07:44:10', 'no'),
+(10288, 'ig_es_401_db_updated_at', '2019-05-13 07:44:10', 'no'),
+(10290, 'ig_es_402_db_updated_at', '2019-05-13 07:44:10', 'no'),
+(10292, 'ig_es_403_db_updated_at', '2019-05-13 07:44:10', 'no'),
+(10294, 'ig_es_405_db_updated_at', '2019-05-13 07:44:10', 'no'),
+(10295, 'ig_es_db_version', '4.0.9', 'yes'),
+(10300, 'wp_page_for_privacy_policy', '0', 'yes'),
+(10301, 'show_comments_cookies_opt_in', '1', 'yes'),
+(10307, '_ges_installed_before_39', '1', 'yes'),
+(10308, '_ges_39_subscriptions_table_created', '1', 'yes'),
+(10309, '_ges_39_queued_items_table_created', '1', 'yes'),
+(10310, '_ges_revision_date', '2019-03-20 16:00 UTC', 'yes'),
+(10320, 'can_compress_scripts', '1', 'no'),
+(10321, '_ges_39_subscriptions_migrated', '1', 'yes'),
+(10323, '_ges_39_digest_queue_migrated', '1', 'yes'),
+(10326, 'acui_columns', 'a:0:{}', 'yes'),
+(10327, 'acui_mail_subject', 'Benvinguts a Institut L&#039;Arany', 'yes'),
+(10328, 'acui_mail_body', 'Benvinguts,<br/>Les vostres dades per iniciar sessió en aquest lloc són:<br/><ul><li>Adreça d''inici de sessió (URL): **loginurl**</li><li>Nom d''usuari= **username**</li><li>Password = **password**</li></ul>', 'yes'),
+(10329, 'acui_mail_template_id', '0', 'yes'),
+(10330, 'acui_mail_attachment_id', '0', 'yes'),
+(10331, 'acui_enable_email_templates', '', 'yes'),
+(10332, 'acui_cron_activated', '', 'yes'),
+(10333, 'acui_cron_send_mail', '', 'yes'),
+(10334, 'acui_cron_send_mail_updated', '', 'yes'),
+(10335, 'acui_cron_delete_users', '', 'yes'),
+(10336, 'acui_cron_delete_users_assign_posts', '0', 'yes'),
+(10337, 'acui_cron_change_role_not_present', '', 'yes'),
+(10338, 'acui_cron_change_role_not_present_role', '0', 'yes'),
+(10339, 'acui_cron_path_to_file', '', 'yes'),
+(10340, 'acui_cron_path_to_move', '', 'yes'),
+(10341, 'acui_cron_path_to_move_auto_rename', '', 'yes'),
+(10342, 'acui_cron_period', '', 'yes'),
+(10343, 'acui_cron_role', '', 'yes'),
+(10344, 'acui_cron_update_roles_existing_users', '', 'yes'),
+(10345, 'acui_cron_log', '', 'yes'),
+(10346, 'acui_cron_allow_multiple_accounts', 'not_allowed', 'yes'),
+(10347, 'acui_frontend_send_mail', '', 'yes'),
+(10348, 'acui_frontend_send_mail_updated', '', 'yes'),
+(10349, 'acui_frontend_delete_users', '', 'yes'),
+(10350, 'acui_frontend_delete_users_assign_posts', '0', 'yes'),
+(10351, 'acui_frontend_change_role_not_present', '', 'yes'),
+(10352, 'acui_frontend_change_role_not_present_role', '0', 'yes'),
+(10353, 'acui_frontend_role', '', 'yes'),
+(10354, 'acui_manually_send_mail', '', 'yes'),
+(10355, 'acui_manually_send_mail_updated', '', 'yes'),
+(10356, 'acui_automatic_wordpress_email', '', 'yes'),
+(10357, 'acui_show_profile_fields', '', 'yes'),
+(10358, 'acui_settings', 'wordpress', 'yes'),
+(10359, 'acui_mail_from', '', 'yes'),
+(10360, 'acui_mail_from_name', '', 'yes'),
+(10361, 'acui_mailer', 'smtp', 'yes'),
+(10362, 'acui_mail_set_return_path', 'false', 'yes'),
+(10363, 'acui_smtp_host', 'localhost', 'yes'),
+(10364, 'acui_smtp_port', '25', 'yes'),
+(10365, 'acui_smtp_ssl', 'none', 'yes'),
+(10366, 'acui_smtp_auth', '', 'yes'),
+(10367, 'acui_smtp_user', '', 'yes'),
+(10368, 'acui_smtp_pass', '', 'yes');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_postmeta`
+-- Estructura de la taula `wp_postmeta`
 --
 
-CREATE TABLE `wp_postmeta` (
-  `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_postmeta` (
+`meta_id` bigint(20) unsigned NOT NULL,
   `post_id` bigint(20) unsigned NOT NULL DEFAULT '0',
   `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_ci,
-  PRIMARY KEY (`meta_id`),
-  KEY `post_id` (`post_id`),
-  KEY `meta_key` (`meta_key`(191))
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=1978 ;
+  `meta_value` longtext COLLATE utf8mb4_unicode_ci
+) ENGINE=InnoDB AUTO_INCREMENT=1993 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `wp_postmeta`
+-- Bolcant dades de la taula `wp_postmeta`
 --
 
 INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUES
@@ -2606,16 +2732,32 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (1974, 466, '_wp_attached_file', '2017/03/Agrupat-06-2.png'),
 (1975, 466, '_wp_attachment_metadata', 'a:5:{s:5:"width";i:1667;s:6:"height";i:1667;s:4:"file";s:24:"2017/03/Agrupat-06-2.png";s:5:"sizes";a:6:{s:9:"thumbnail";a:4:{s:4:"file";s:24:"Agrupat-06-2-150x150.png";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:9:"image/png";}s:6:"medium";a:4:{s:4:"file";s:24:"Agrupat-06-2-300x300.png";s:5:"width";i:300;s:6:"height";i:300;s:9:"mime-type";s:9:"image/png";}s:12:"medium_large";a:4:{s:4:"file";s:24:"Agrupat-06-2-768x768.png";s:5:"width";i:768;s:6:"height";i:768;s:9:"mime-type";s:9:"image/png";}s:5:"large";a:4:{s:4:"file";s:26:"Agrupat-06-2-1024x1024.png";s:5:"width";i:1024;s:6:"height";i:1024;s:9:"mime-type";s:9:"image/png";}s:9:"thumb-300";a:4:{s:4:"file";s:24:"Agrupat-06-2-300x250.png";s:5:"width";i:300;s:6:"height";i:250;s:9:"mime-type";s:9:"image/png";}s:9:"thumb-200";a:4:{s:4:"file";s:24:"Agrupat-06-2-200x150.png";s:5:"width";i:200;s:6:"height";i:150;s:9:"mime-type";s:9:"image/png";}}s:10:"image_meta";a:12:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";s:11:"orientation";s:1:"0";s:8:"keywords";a:0:{}}}'),
 (1976, 467, '_wp_attached_file', '2017/03/Agrupat-05-1.png'),
-(1977, 467, '_wp_attachment_metadata', 'a:5:{s:5:"width";i:1667;s:6:"height";i:1667;s:4:"file";s:24:"2017/03/Agrupat-05-1.png";s:5:"sizes";a:6:{s:9:"thumbnail";a:4:{s:4:"file";s:24:"Agrupat-05-1-150x150.png";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:9:"image/png";}s:6:"medium";a:4:{s:4:"file";s:24:"Agrupat-05-1-300x300.png";s:5:"width";i:300;s:6:"height";i:300;s:9:"mime-type";s:9:"image/png";}s:12:"medium_large";a:4:{s:4:"file";s:24:"Agrupat-05-1-768x768.png";s:5:"width";i:768;s:6:"height";i:768;s:9:"mime-type";s:9:"image/png";}s:5:"large";a:4:{s:4:"file";s:26:"Agrupat-05-1-1024x1024.png";s:5:"width";i:1024;s:6:"height";i:1024;s:9:"mime-type";s:9:"image/png";}s:9:"thumb-300";a:4:{s:4:"file";s:24:"Agrupat-05-1-300x250.png";s:5:"width";i:300;s:6:"height";i:250;s:9:"mime-type";s:9:"image/png";}s:9:"thumb-200";a:4:{s:4:"file";s:24:"Agrupat-05-1-200x150.png";s:5:"width";i:200;s:6:"height";i:150;s:9:"mime-type";s:9:"image/png";}}s:10:"image_meta";a:12:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";s:11:"orientation";s:1:"0";s:8:"keywords";a:0:{}}}');
+(1977, 467, '_wp_attachment_metadata', 'a:5:{s:5:"width";i:1667;s:6:"height";i:1667;s:4:"file";s:24:"2017/03/Agrupat-05-1.png";s:5:"sizes";a:6:{s:9:"thumbnail";a:4:{s:4:"file";s:24:"Agrupat-05-1-150x150.png";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:9:"image/png";}s:6:"medium";a:4:{s:4:"file";s:24:"Agrupat-05-1-300x300.png";s:5:"width";i:300;s:6:"height";i:300;s:9:"mime-type";s:9:"image/png";}s:12:"medium_large";a:4:{s:4:"file";s:24:"Agrupat-05-1-768x768.png";s:5:"width";i:768;s:6:"height";i:768;s:9:"mime-type";s:9:"image/png";}s:5:"large";a:4:{s:4:"file";s:26:"Agrupat-05-1-1024x1024.png";s:5:"width";i:1024;s:6:"height";i:1024;s:9:"mime-type";s:9:"image/png";}s:9:"thumb-300";a:4:{s:4:"file";s:24:"Agrupat-05-1-300x250.png";s:5:"width";i:300;s:6:"height";i:250;s:9:"mime-type";s:9:"image/png";}s:9:"thumb-200";a:4:{s:4:"file";s:24:"Agrupat-05-1-200x150.png";s:5:"width";i:200;s:6:"height";i:150;s:9:"mime-type";s:9:"image/png";}}s:10:"image_meta";a:12:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";s:11:"orientation";s:1:"0";s:8:"keywords";a:0:{}}}'),
+(1978, 469, 'es_template_type', 'post_notification'),
+(1979, 470, 'es_template_type', 'post_notification'),
+(1980, 471, 'es_template_type', 'post_notification'),
+(1981, 472, 'es_template_type', 'post_notification'),
+(1982, 473, 'es_template_type', 'post_notification'),
+(1983, 474, 'es_template_type', 'post_notification'),
+(1984, 475, 'es_template_type', 'post_notification'),
+(1985, 476, 'es_template_type', 'post_notification'),
+(1986, 477, 'es_template_type', 'post_notification'),
+(1987, 478, 'es_template_type', 'post_notification'),
+(1988, 479, 'es_template_type', 'post_notification'),
+(1989, 480, 'es_template_type', 'post_notification'),
+(1990, 481, 'es_template_type', 'post_notification'),
+(1991, 482, 'es_template_type', 'post_notification');
+INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUES
+(1992, 483, 'es_template_type', 'Newsletter');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_posts`
+-- Estructura de la taula `wp_posts`
 --
 
-CREATE TABLE `wp_posts` (
-  `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_posts` (
+`ID` bigint(20) unsigned NOT NULL,
   `post_author` bigint(20) unsigned NOT NULL DEFAULT '0',
   `post_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `post_date_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -2625,7 +2767,7 @@ CREATE TABLE `wp_posts` (
   `post_status` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'publish',
   `comment_status` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'open',
   `ping_status` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'open',
-  `post_password` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `post_password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `post_name` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `to_ping` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `pinged` text COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2637,16 +2779,11 @@ CREATE TABLE `wp_posts` (
   `menu_order` int(11) NOT NULL DEFAULT '0',
   `post_type` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'post',
   `post_mime_type` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `comment_count` bigint(20) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`ID`),
-  KEY `type_status_date` (`post_type`,`post_status`,`post_date`,`ID`),
-  KEY `post_parent` (`post_parent`),
-  KEY `post_author` (`post_author`),
-  KEY `post_name` (`post_name`(191))
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=468 ;
+  `comment_count` bigint(20) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=488 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `wp_posts`
+-- Bolcant dades de la taula `wp_posts`
 --
 
 INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_title`, `post_excerpt`, `post_status`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_content_filtered`, `post_parent`, `guid`, `menu_order`, `post_type`, `post_mime_type`, `comment_count`) VALUES
@@ -2873,16 +3010,37 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 (464, 1, '2017-03-24 11:59:48', '2017-03-24 10:59:48', '', 'agrupat-08-1', '', 'inherit', 'open', 'closed', '', 'agrupat-08-1', '', '', '2017-03-24 11:59:48', '2017-03-24 10:59:48', '', 0, 'http://pwc-int.educacio.intranet/agora/mastersec/wp-content/uploads/usu7/2017/03/Agrupat-08-1.png', 0, 'attachment', 'image/png', 0),
 (465, 1, '2017-03-24 11:59:50', '2017-03-24 10:59:50', '', 'agrupat-07-1', '', 'inherit', 'open', 'closed', '', 'agrupat-07-1', '', '', '2017-03-24 11:59:50', '2017-03-24 10:59:50', '', 0, 'http://pwc-int.educacio.intranet/agora/mastersec/wp-content/uploads/usu7/2017/03/Agrupat-07-1.png', 0, 'attachment', 'image/png', 0),
 (466, 1, '2017-03-24 11:59:53', '2017-03-24 10:59:53', '', 'agrupat-06-2', '', 'inherit', 'open', 'closed', '', 'agrupat-06-2', '', '', '2017-03-24 11:59:53', '2017-03-24 10:59:53', '', 0, 'http://pwc-int.educacio.intranet/agora/mastersec/wp-content/uploads/usu7/2017/03/Agrupat-06-2.png', 0, 'attachment', 'image/png', 0),
-(467, 1, '2017-03-24 11:59:55', '2017-03-24 10:59:55', '', 'agrupat-05-1', '', 'inherit', 'open', 'closed', '', 'agrupat-05-1', '', '', '2017-03-24 11:59:55', '2017-03-24 10:59:55', '', 0, 'http://pwc-int.educacio.intranet/agora/mastersec/wp-content/uploads/usu7/2017/03/Agrupat-05-1.png', 0, 'attachment', 'image/png', 0);
+(467, 1, '2017-03-24 11:59:55', '2017-03-24 10:59:55', '', 'agrupat-05-1', '', 'inherit', 'open', 'closed', '', 'agrupat-05-1', '', '', '2017-03-24 11:59:55', '2017-03-24 10:59:55', '', 0, 'http://pwc-int.educacio.intranet/agora/mastersec/wp-content/uploads/usu7/2017/03/Agrupat-05-1.png', 0, 'attachment', 'image/png', 0),
+(468, 0, '2019-05-13 09:44:08', '2019-05-13 07:44:08', '{{{ia.content}}}<br /><hr><a href="{{{ia.accept_url}}}">Accepteu o rebutgeu aquesta invitació</a> &middot; <a href="{{{ia.opt_out_url}}}">Desactiveu les invitacions futures</a>', '[{{{site.name}}}] {{{ia.subject}}}', '{{{ia.content_plaintext}}}', 'publish', 'closed', 'closed', '', 'site-name-ia-subject', '', '', '2019-05-13 09:44:08', '2019-05-13 07:44:08', '', 0, 'https://pwc-int.educacio.intranet/agora/mastersec/general/site-name-ia-subject/', 0, 'bp-email', '', 0),
+(469, 0, '2019-05-13 09:44:10', '2019-05-13 07:44:10', 'Hola {{NAME}},\r\n\r\nHem publicat un article nou al nostre lloc web. \r\n\r\n{{POSTTITLE}}\r\n{{POSTDESC}}\r\n\r\nPodeu veure l''article i els comentaris associats a {{POSTLINK}}\r\nHeu rebut aquest correu perquè vau demanar que se us notifiqués la publicació d''articles nous\r\n\r\n', '{{POSTTITLE}}', '', 'publish', 'closed', 'closed', '', 'posttitle', '', '', '2019-05-13 09:44:10', '2019-05-13 07:44:10', '', 0, 'http://pwc-int.educacio.intranet/agora/mastersec/es_template/posttitle/', 0, 'es_template', '', 0),
+(470, 0, '2019-05-13 09:44:10', '2019-05-13 07:44:10', 'Hola {{NAME}},\r\n\r\nHem publicat un article nou al nostre lloc web. \r\n\r\n{{POSTTITLE}}\r\n{{POSTDESC}}\r\n\r\nPodeu veure l''article i els comentaris associats a {{POSTLINK}}\r\nHeu rebut aquest correu perquè vau demanar que se us notifiqués la publicació d''articles nous\r\n\r\n', '{{POSTTITLE}}', '', 'publish', 'closed', 'closed', '', 'posttitle-2', '', '', '2019-05-13 09:44:10', '2019-05-13 07:44:10', '', 0, 'http://pwc-int.educacio.intranet/agora/mastersec/es_template/posttitle-2/', 0, 'es_template', '', 0),
+(471, 0, '2019-05-13 09:44:10', '2019-05-13 07:44:10', 'Hola {{NAME}},\r\n\r\nHem publicat un article nou al nostre lloc web. \r\n\r\n{{POSTTITLE}}\r\n{{POSTDESC}}\r\n\r\nPodeu veure l''article i els comentaris associats a {{POSTLINK}}\r\nHeu rebut aquest correu perquè vau demanar que se us notifiqués la publicació d''articles nous\r\n\r\n', '{{POSTTITLE}}', '', 'publish', 'closed', 'closed', '', 'posttitle-3', '', '', '2019-05-13 09:44:10', '2019-05-13 07:44:10', '', 0, 'http://pwc-int.educacio.intranet/agora/mastersec/es_template/posttitle-3/', 0, 'es_template', '', 0),
+(472, 0, '2019-05-13 09:44:10', '2019-05-13 07:44:10', 'Hola {{NAME}},\r\n\r\nHem publicat un article nou al nostre lloc web. \r\n\r\n{{POSTTITLE}}\r\n{{POSTDESC}}\r\n\r\nPodeu veure l''article i els comentaris associats a {{POSTLINK}}\r\nHeu rebut aquest correu perquè vau demanar que se us notifiqués la publicació d''articles nous\r\n\r\n', '{{POSTTITLE}}', '', 'publish', 'closed', 'closed', '', 'posttitle-4', '', '', '2019-05-13 09:44:10', '2019-05-13 07:44:10', '', 0, 'http://pwc-int.educacio.intranet/agora/mastersec/es_template/posttitle-4/', 0, 'es_template', '', 0),
+(473, 0, '2019-05-13 09:44:10', '2019-05-13 07:44:10', 'Hola {{NAME}},\r\n\r\nHem publicat un article nou al nostre lloc web. \r\n\r\n{{POSTTITLE}}\r\n{{POSTDESC}}\r\n\r\nPodeu veure l''article i els comentaris associats a {{POSTLINK}}\r\nHeu rebut aquest correu perquè vau demanar que se us notifiqués la publicació d''articles nous\r\n\r\n', '{{POSTTITLE}}', '', 'publish', 'closed', 'closed', '', 'posttitle-5', '', '', '2019-05-13 09:44:10', '2019-05-13 07:44:10', '', 0, 'http://pwc-int.educacio.intranet/agora/mastersec/es_template/posttitle-5/', 0, 'es_template', '', 0),
+(474, 0, '2019-05-13 09:44:10', '2019-05-13 07:44:10', 'Hola {{NAME}},\r\n\r\nHem publicat un article nou al nostre lloc web. \r\n\r\n{{POSTTITLE}}\r\n{{POSTDESC}}\r\n\r\nPodeu veure l''article i els comentaris associats a {{POSTLINK}}\r\nHeu rebut aquest correu perquè vau demanar que se us notifiqués la publicació d''articles nous\r\n\r\n', '{{POSTTITLE}}', '', 'publish', 'closed', 'closed', '', 'posttitle-6', '', '', '2019-05-13 09:44:10', '2019-05-13 07:44:10', '', 0, 'http://pwc-int.educacio.intranet/agora/mastersec/es_template/posttitle-6/', 0, 'es_template', '', 0),
+(475, 0, '2019-05-13 09:44:10', '2019-05-13 07:44:10', 'Hola {{NAME}},\r\n\r\nHem publicat un article nou al nostre lloc web. \r\n\r\n{{POSTTITLE}}\r\n{{POSTDESC}}\r\n\r\nPodeu veure l''article i els comentaris associats a {{POSTLINK}}\r\nHeu rebut aquest correu perquè vau demanar que se us notifiqués la publicació d''articles nous\r\n\r\n', '{{POSTTITLE}}', '', 'publish', 'closed', 'closed', '', 'posttitle-7', '', '', '2019-05-13 09:44:10', '2019-05-13 07:44:10', '', 0, 'http://pwc-int.educacio.intranet/agora/mastersec/es_template/posttitle-7/', 0, 'es_template', '', 0),
+(476, 0, '2019-05-13 09:44:10', '2019-05-13 07:44:10', 'Hola {{NAME}},\r\n\r\nHem publicat un article nou al nostre lloc web. \r\n\r\n{{POSTTITLE}}\r\n{{POSTDESC}}\r\n\r\nPodeu veure l''article i els comentaris associats a {{POSTLINK}}\r\nHeu rebut aquest correu perquè vau demanar que se us notifiqués la publicació d''articles nous\r\n\r\n', '{{POSTTITLE}}', '', 'publish', 'closed', 'closed', '', 'posttitle-8', '', '', '2019-05-13 09:44:10', '2019-05-13 07:44:10', '', 0, 'http://pwc-int.educacio.intranet/agora/mastersec/es_template/posttitle-8/', 0, 'es_template', '', 0),
+(477, 0, '2019-05-13 09:44:10', '2019-05-13 07:44:10', 'Hola {{NAME}},\r\n\r\nHem publicat un article nou al nostre lloc web. \r\n\r\n{{POSTTITLE}}\r\n{{POSTDESC}}\r\n\r\nPodeu veure l''article i els comentaris associats a {{POSTLINK}}\r\nHeu rebut aquest correu perquè vau demanar que se us notifiqués la publicació d''articles nous\r\n\r\n', '{{POSTTITLE}}', '', 'publish', 'closed', 'closed', '', 'posttitle-9', '', '', '2019-05-13 09:44:10', '2019-05-13 07:44:10', '', 0, 'http://pwc-int.educacio.intranet/agora/mastersec/es_template/posttitle-9/', 0, 'es_template', '', 0),
+(478, 0, '2019-05-13 09:44:10', '2019-05-13 07:44:10', 'Hola {{NAME}},\r\n\r\nHem publicat un article nou al nostre lloc web. \r\n\r\n{{POSTTITLE}}\r\n{{POSTDESC}}\r\n\r\nPodeu veure l''article i els comentaris associats a {{POSTLINK}}\r\nHeu rebut aquest correu perquè vau demanar que se us notifiqués la publicació d''articles nous\r\n\r\n', '{{POSTTITLE}}', '', 'publish', 'closed', 'closed', '', 'posttitle-10', '', '', '2019-05-13 09:44:10', '2019-05-13 07:44:10', '', 0, 'http://pwc-int.educacio.intranet/agora/mastersec/es_template/posttitle-10/', 0, 'es_template', '', 0);
+INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_title`, `post_excerpt`, `post_status`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_content_filtered`, `post_parent`, `guid`, `menu_order`, `post_type`, `post_mime_type`, `comment_count`) VALUES
+(479, 0, '2019-05-13 09:44:10', '2019-05-13 07:44:10', 'Hola {{NAME}},\r\n\r\nHem publicat un article nou al nostre lloc web. \r\n\r\n{{POSTTITLE}}\r\n{{POSTDESC}}\r\n\r\nPodeu veure l''article i els comentaris associats a {{POSTLINK}}\r\nHeu rebut aquest correu perquè vau demanar que se us notifiqués la publicació d''articles nous\r\n\r\n', '{{POSTTITLE}}', '', 'publish', 'closed', 'closed', '', 'posttitle-11', '', '', '2019-05-13 09:44:10', '2019-05-13 07:44:10', '', 0, 'http://pwc-int.educacio.intranet/agora/mastersec/es_template/posttitle-11/', 0, 'es_template', '', 0),
+(480, 0, '2019-05-13 09:44:10', '2019-05-13 07:44:10', 'Hola {{NAME}},\r\n\r\nHem publicat un article nou al nostre lloc web. \r\n\r\n{{POSTTITLE}}\r\n{{POSTDESC}}\r\n\r\nPodeu veure l''article i els comentaris associats a {{POSTLINK}}\r\nHeu rebut aquest correu perquè vau demanar que se us notifiqués la publicació d''articles nous\r\n\r\n', '{{POSTTITLE}}', '', 'publish', 'closed', 'closed', '', 'posttitle-12', '', '', '2019-05-13 09:44:10', '2019-05-13 07:44:10', '', 0, 'http://pwc-int.educacio.intranet/agora/mastersec/es_template/posttitle-12/', 0, 'es_template', '', 0),
+(481, 0, '2019-05-13 09:44:10', '2019-05-13 07:44:10', 'Hola {{NAME}},\r\n\r\nHem publicat un article nou al nostre lloc web. \r\n\r\n{{POSTTITLE}}\r\n{{POSTDESC}}\r\n\r\nPodeu veure l''article i els comentaris associats a {{POSTLINK}}\r\nHeu rebut aquest correu perquè vau demanar que se us notifiqués la publicació d''articles nous\r\n\r\n', '{{POSTTITLE}}', '', 'publish', 'closed', 'closed', '', 'posttitle-13', '', '', '2019-05-13 09:44:10', '2019-05-13 07:44:10', '', 0, 'http://pwc-int.educacio.intranet/agora/mastersec/es_template/posttitle-13/', 0, 'es_template', '', 0),
+(482, 0, '2019-05-13 09:44:10', '2019-05-13 07:44:10', 'Hola {{EMAIL}},\r\n\r\nHem publicat un article nou al nostre lloc web. {{POSTTITLE}}\r\n{{POSTIMAGE}}\r\n{{POSTFULL}}\r\nPodeu veure l''últim article a {{POSTLINK}}\r\nHeu rebut aquest correu perquè vau demanar que se us notifiqués la publicació d''articles nous\r\n\r\nGràcies i salutacions\r\nAdmin', 'Notificació d''article nou {{POSTTITLE}}', '', 'publish', 'closed', 'closed', '', 'notificacio-darticle-nou-posttitle', '', '', '2019-05-13 09:44:10', '2019-05-13 07:44:10', '', 0, 'http://pwc-int.educacio.intranet/agora/mastersec/es_template/notificacio-darticle-nou-posttitle/', 0, 'es_template', '', 0),
+(483, 0, '2019-05-13 09:44:10', '2019-05-13 07:44:10', '<strong style="color: #990000"> Subscriptors de correu</strong>\r\n\r\nL''extensió subscripcions de correu de correu té diferents opcions per enviar butlletins als subscriptors.\r\nTé una pàgina separada amb un editor HTML per crear un butlletí amb aquest format.\r\nL''extensió disposa d''opcions per enviar correus de notificació als subscriptors quan es publiquen articles nous al lloc web. També té una pàgina per poder afegir i eliminar les categories a les que s''enviaran les notificacions.\r\nUtilitzant les opcions de l''extensió d''importació i exportació els administradors podran importar fàcilment els usuaris registrats.\r\n\r\n<strong style="color: #990000">Característiques de l''extensió</strong>\r\n<ol>\r\n	<li>Correu de notificació als subscriptors quan es publiquin articles nous.</li>\r\n	<li>Giny de subscripció</li>\r\n	<li>Correu de subscripció amb confirmació per correu i subscripció simple per facilitar la subscripció.</li>\r\n	<li>Notificació per correu electrònic a l''administrador quan els usuaris es subscriguin (Opcional)</li>\r\n	<li>Correu de benvinguda automàtic als subscriptors (Opcional).</li>\r\n	<li>Enllaç per donar-se de baixa del correu.</li>\r\n	<li>Importació / Exportació dels correus dels subscriptors.</li>\r\n	<li>Editor d''HTML per redactar el butlletí.</li>\r\n</ol>\r\n<strong>Gràcies i salutacions</strong>\r\nAdmin', 'Butlletí d''exemple', '', 'publish', 'closed', 'closed', '', 'butlleti-dexemple', '', '', '2019-05-13 09:44:10', '2019-05-13 07:44:10', '', 0, 'http://pwc-int.educacio.intranet/agora/mastersec/es_template/butlleti-dexemple/', 0, 'es_template', '', 0),
+(484, 2, '2019-05-13 12:44:42', '2019-05-13 10:44:42', '{{{ges.action}}}:\n\n<blockquote>{{{usermessage}}}</blockquote>\n&ndash;\n<a href="{{{thread.url}}}">Ves a la discussió</a> per respondre o posar-se al dia de la conversa.\n{{{ges.email-setting-description}}}', '[{{{site.name}}}] {{{ges.subject}}}', '{{{ges.action}}}:\n\n"{{{usermessage}}}"\n\nVes a la discussió per respondre o posar-te al dia de la conversa:\n{{{thread.url}}}\n\n----\n\n{{{ges.email-setting-description}}}\n\n{{{ges.email-setting-links}}}', 'publish', 'closed', 'closed', '', 'site-name-ges-subject', '', '', '2019-05-13 12:44:42', '2019-05-13 10:44:42', '', 0, 'http://pwc-int.educacio.intranet/agora/mastersec/general/site-name-ges-subject/', 0, 'bp-email', '', 0),
+(485, 2, '2019-05-13 12:44:42', '2019-05-13 10:44:42', '{{{ges.digest-summary}}}{{{usermessage}}}\n&ndash;\nHeu rebut aquest missatge perquè esteu subscrit per rebre el resum de l''activitat en algun dels vostres grups a {{site.name}}.', '[{{{site.name}}}] {{{ges.subject}}}', '{{{ges.digest-summary}}}\n\n{{{usermessage}}}\n\n----\n\nHeu rebut aquest missatge perquè esteu subscrit per rebre el resum de l''activitat en algun dels vostres grups a {{{site.name}}}.\n\nPer desactivar aquestes notificacions per grup, inicieu sessió i [visiteu la pàgina dels vostres grups]({{{ges.settings-link}}}) on podreu gestionar la configuració del correu per cada grup.', 'publish', 'closed', 'closed', '', 'site-name-ges-subject-2', '', '', '2019-05-13 12:44:42', '2019-05-13 10:44:42', '', 0, 'http://pwc-int.educacio.intranet/agora/mastersec/general/site-name-ges-subject-2/', 0, 'bp-email', '', 0),
+(486, 2, '2019-05-13 12:44:42', '2019-05-13 10:44:42', 'Aquesta és una notificació del grup {{{group.link}}}:\n\n{{{usermessage}}}\n\n&ndash;\n<strong>Tingueu en compte:</strong> les notificacions d''administració s''envien a tothom del node i no es poden deshabilitar.\nSi creieu que el servei s''està utilitzant malament contacteu amb l''administrador del lloc web.', '[{{{site.name}}}] {{{ges.subject}}} - del node "{{{group.name}}}"', 'Aquesta és una notificació del grup "{{{group.name}}}":\n\n"{{{usermessage}}}"\n\n----\n\nTingueu en compte: les notificacions d''administració s''envien a tothom del node i no es poden deshabilitar.\n\nSi creieu que el servei s''està utilitzant malament contacteu amb l''administrador del lloc web.\n\nVisiteu la pàgina d''inici del node en aquest enllaç:\n{{{group.url}}}', 'publish', 'closed', 'closed', '', 'site-name-ges-subject-del-node-group-name', '', '', '2019-05-13 12:44:42', '2019-05-13 10:44:42', '', 0, 'http://pwc-int.educacio.intranet/agora/mastersec/general/site-name-ges-subject-del-node-group-name/', 0, 'bp-email', '', 0),
+(487, 2, '2019-05-13 12:44:42', '2019-05-13 10:44:42', '{{{usermessage}}}', '[{{{site.name}}}] {{{ges.subject}}}', '{{{usermessage}}}', 'publish', 'closed', 'closed', '', 'site-name-ges-subject-3', '', '', '2019-05-13 12:44:42', '2019-05-13 10:44:42', '', 0, 'http://pwc-int.educacio.intranet/agora/mastersec/general/site-name-ges-subject-3/', 0, 'bp-email', '', 0);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_signups`
+-- Estructura de la taula `wp_signups`
 --
 
-CREATE TABLE `wp_signups` (
-  `signup_id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_signups` (
+`signup_id` bigint(20) NOT NULL,
   `domain` varchar(200) NOT NULL DEFAULT '',
   `path` varchar(100) NOT NULL DEFAULT '',
   `title` longtext NOT NULL,
@@ -2892,22 +3050,17 @@ CREATE TABLE `wp_signups` (
   `activated` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `active` tinyint(1) NOT NULL DEFAULT '0',
   `activation_key` varchar(50) NOT NULL DEFAULT '',
-  `meta` longtext,
-  PRIMARY KEY (`signup_id`),
-  KEY `activation_key` (`activation_key`),
-  KEY `user_email` (`user_email`),
-  KEY `user_login_email` (`user_login`,`user_email`),
-  KEY `domain_path` (`domain`,`path`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `meta` longtext
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_stats`
+-- Estructura de la taula `wp_stats`
 --
 
-CREATE TABLE `wp_stats` (
-  `stat_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_stats` (
+`stat_id` int(11) NOT NULL,
   `datetime` datetime NOT NULL DEFAULT '1970-01-01 00:00:00',
   `ip` varchar(15) NOT NULL,
   `ipForward` varchar(15) NOT NULL,
@@ -2918,50 +3071,37 @@ CREATE TABLE `wp_stats` (
   `isadmin` tinyint(4) NOT NULL DEFAULT '0',
   `username` varchar(60) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `content` longtext,
-  PRIMARY KEY (`stat_id`),
-  KEY `uid` (`uid`),
-  KEY `ip` (`ip`),
-  KEY `ipForward` (`ipForward`),
-  KEY `ipClient` (`ipClient`),
-  KEY `userAgent` (`userAgent`),
-  KEY `isadmin` (`isadmin`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `content` longtext
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_termmeta`
+-- Estructura de la taula `wp_termmeta`
 --
 
-CREATE TABLE `wp_termmeta` (
-  `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_termmeta` (
+`meta_id` bigint(20) unsigned NOT NULL,
   `term_id` bigint(20) unsigned NOT NULL DEFAULT '0',
   `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_ci,
-  PRIMARY KEY (`meta_id`),
-  KEY `term_id` (`term_id`),
-  KEY `meta_key` (`meta_key`(191))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=1 ;
+  `meta_value` longtext COLLATE utf8mb4_unicode_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_terms`
+-- Estructura de la taula `wp_terms`
 --
 
-CREATE TABLE `wp_terms` (
-  `term_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_terms` (
+`term_id` bigint(20) unsigned NOT NULL,
   `name` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `slug` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `term_group` bigint(10) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`term_id`),
-  KEY `name` (`name`(191)),
-  KEY `slug` (`slug`(191))
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=99 ;
+  `term_group` bigint(10) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=104 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `wp_terms`
+-- Bolcant dades de la taula `wp_terms`
 --
 
 INSERT INTO `wp_terms` (`term_id`, `name`, `slug`, `term_group`) VALUES
@@ -3047,24 +3187,27 @@ INSERT INTO `wp_terms` (`term_id`, `name`, `slug`, `term_group`) VALUES
 (95, 'groups-membership-request-accepted', 'groups-membership-request-accepted', 0),
 (96, 'groups-membership-request-rejected', 'groups-membership-request-rejected', 0),
 (97, 'google', 'google', 0),
-(98, 'default-calendar', 'default-calendar', 0);
+(98, 'default-calendar', 'default-calendar', 0),
+(99, 'invite-anyone-invitation', 'invite-anyone-invitation', 0),
+(100, 'bp-ges-single', 'bp-ges-single', 0),
+(101, 'bp-ges-digest', 'bp-ges-digest', 0),
+(102, 'bp-ges-notice', 'bp-ges-notice', 0),
+(103, 'bp-ges-welcome', 'bp-ges-welcome', 0);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_term_relationships`
+-- Estructura de la taula `wp_term_relationships`
 --
 
-CREATE TABLE `wp_term_relationships` (
+CREATE TABLE IF NOT EXISTS `wp_term_relationships` (
   `object_id` bigint(20) unsigned NOT NULL DEFAULT '0',
   `term_taxonomy_id` bigint(20) unsigned NOT NULL DEFAULT '0',
-  `term_order` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`object_id`,`term_taxonomy_id`),
-  KEY `term_taxonomy_id` (`term_taxonomy_id`)
+  `term_order` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `wp_term_relationships`
+-- Bolcant dades de la taula `wp_term_relationships`
 --
 
 INSERT INTO `wp_term_relationships` (`object_id`, `term_taxonomy_id`, `term_order`) VALUES
@@ -3340,28 +3483,30 @@ INSERT INTO `wp_term_relationships` (`object_id`, `term_taxonomy_id`, `term_orde
 (447, 93, 0),
 (448, 94, 0),
 (449, 95, 0),
-(450, 96, 0);
+(450, 96, 0),
+(468, 99, 0),
+(484, 100, 0),
+(485, 101, 0),
+(486, 102, 0),
+(487, 103, 0);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_term_taxonomy`
+-- Estructura de la taula `wp_term_taxonomy`
 --
 
-CREATE TABLE `wp_term_taxonomy` (
-  `term_taxonomy_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_term_taxonomy` (
+`term_taxonomy_id` bigint(20) unsigned NOT NULL,
   `term_id` bigint(20) unsigned NOT NULL DEFAULT '0',
   `taxonomy` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `parent` bigint(20) unsigned NOT NULL DEFAULT '0',
-  `count` bigint(20) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`term_taxonomy_id`),
-  UNIQUE KEY `term_id_taxonomy` (`term_id`,`taxonomy`),
-  KEY `taxonomy` (`taxonomy`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=99 ;
+  `count` bigint(20) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=104 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `wp_term_taxonomy`
+-- Bolcant dades de la taula `wp_term_taxonomy`
 --
 
 INSERT INTO `wp_term_taxonomy` (`term_taxonomy_id`, `term_id`, `taxonomy`, `description`, `parent`, `count`) VALUES
@@ -3447,26 +3592,28 @@ INSERT INTO `wp_term_taxonomy` (`term_taxonomy_id`, `term_id`, `taxonomy`, `desc
 (95, 95, 'bp-email-type', 'Recipient had requested to join a group, which was accepted.', 0, 0),
 (96, 96, 'bp-email-type', 'Recipient had requested to join a group, which was rejected.', 0, 0),
 (97, 97, 'calendar_feed', '', 0, 2),
-(98, 98, 'calendar_type', '', 0, 2);
+(98, 98, 'calendar_type', '', 0, 2),
+(99, 99, 'bp-email-type', 'Es convida un usuari a unir-se al lloc per correu electrònic. Utilitzat pel connector Invite Anyone.', 0, 0),
+(100, 100, 'bp-email-type', 'Un membre ha creat una activitat grupal. Utilitzat pel connector de Subscripció de correu electrònic del node durant enviaments immediats.', 0, 0),
+(101, 101, 'bp-email-type', 'S''ha enviat un correu de resum a un membre. Utilitzat pel connector de Subscripció de correu electrònic del node durant els enviaments de resums diaris o setmanals.', 0, 0),
+(102, 102, 'bp-email-type', 'L''administrador del node ha enviat una notificació a tots els membres del grup. Utilitzat pel connector de Subscripció de correu electrònic del node.', 0, 0),
+(103, 103, 'bp-email-type', 'S''ha enviat un correu de benvinguda als nous membres del node. Utilitzat pel connector de Subscripció de correu electrònic del node.', 0, 0);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_usermeta`
+-- Estructura de la taula `wp_usermeta`
 --
 
-CREATE TABLE `wp_usermeta` (
-  `umeta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_usermeta` (
+`umeta_id` bigint(20) unsigned NOT NULL,
   `user_id` bigint(20) unsigned NOT NULL DEFAULT '0',
   `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_ci,
-  PRIMARY KEY (`umeta_id`),
-  KEY `user_id` (`user_id`),
-  KEY `meta_key` (`meta_key`(191))
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=183 ;
+  `meta_value` longtext COLLATE utf8mb4_unicode_ci
+) ENGINE=InnoDB AUTO_INCREMENT=185 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `wp_usermeta`
+-- Bolcant dades de la taula `wp_usermeta`
 --
 
 INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALUES
@@ -3495,9 +3642,9 @@ INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALU
 (23, 2, 'show_admin_bar_front', 'true'),
 (24, 2, 'wp_capabilities', 'a:2:{s:13:"administrator";b:1;s:13:"bbp_keymaster";b:1;}'),
 (25, 2, 'wp_user_level', '10'),
-(26, 2, 'dismissed_wp_pointers', 'wp350_media,wp360_revisions,wp360_locks,wp390_widgets,wp410_dfw,addtoany_settings_pointer'),
+(26, 2, 'dismissed_wp_pointers', 'wp350_media,wp360_revisions,wp360_locks,wp390_widgets,wp410_dfw,addtoany_settings_pointer,wp496_privacy'),
 (27, 2, 'wp_dashboard_quick_press_last_post_id', '4'),
-(28, 2, 'last_activity', '2017-06-27 17:13:40'),
+(28, 2, 'last_activity', '2019-05-13 12:44:25'),
 (29, 2, 'closedpostboxes_slideshow', 'a:1:{i:2;s:5:"style";}'),
 (30, 2, 'metaboxhidden_slideshow', 'a:2:{i:3;s:7:"slugdiv";i:4;s:5:"style";}'),
 (31, 2, 'managenav-menuscolumnshidden', 'a:4:{i:0;s:11:"link-target";i:1;s:11:"css-classes";i:2;s:3:"xfn";i:3;s:11:"description";}'),
@@ -3543,16 +3690,16 @@ INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALU
 (172, 1, 'metaboxhidden_page', 'a:5:{i:0;s:9:"authordiv";i:1;s:11:"commentsdiv";i:2;s:16:"commentstatusdiv";i:3;s:12:"revisionsdiv";i:4;s:7:"slugdiv";}'),
 (173, 1, 'closedpostboxes_page', 'a:1:{i:0;s:11:"layout_meta";}'),
 (178, 1, 'session_tokens', 'a:1:{s:64:"5dce2a44717ba9bfae444473082ef52a9ca941d3c0d1d36d4dbfa4fc9b0f6429";a:4:{s:10:"expiration";i:1490522165;s:2:"ip";s:11:"10.155.7.35";s:2:"ua";s:104:"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.75 Safari/537.36";s:5:"login";i:1490349365;}}'),
-(182, 2, 'session_tokens', 'a:1:{s:64:"f99b2a0a941aba8d0276520ea607b31bb42a96ecb091ef108f862fc2aea8902e";a:4:{s:10:"expiration";i:1498736013;s:2:"ip";s:11:"10.155.7.35";s:2:"ua";s:104:"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.75 Safari/537.36";s:5:"login";i:1498563213;}}');
+(182, 2, 'session_tokens', 'a:1:{s:64:"1f4a50fe2b86ac707cb58614039fa984341152da2dc9a414ad7ff9bb9abb7a22";a:4:{s:10:"expiration";i:1557917065;s:2:"ip";s:11:"10.155.7.35";s:2:"ua";s:76:"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0";s:5:"login";i:1557744265;}}');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_users`
+-- Estructura de la taula `wp_users`
 --
 
-CREATE TABLE `wp_users` (
-  `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_users` (
+`ID` bigint(20) unsigned NOT NULL,
   `user_login` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `user_pass` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `user_nicename` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
@@ -3561,15 +3708,11 @@ CREATE TABLE `wp_users` (
   `user_registered` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `user_activation_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `user_status` int(11) NOT NULL DEFAULT '0',
-  `display_name` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  PRIMARY KEY (`ID`),
-  KEY `user_login_key` (`user_login`),
-  KEY `user_nicename` (`user_nicename`),
-  KEY `user_email` (`user_email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=3 ;
+  `display_name` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `wp_users`
+-- Bolcant dades de la taula `wp_users`
 --
 
 INSERT INTO `wp_users` (`ID`, `user_login`, `user_pass`, `user_nicename`, `user_email`, `user_url`, `user_registered`, `user_activation_key`, `user_status`, `display_name`) VALUES
@@ -3579,31 +3722,28 @@ INSERT INTO `wp_users` (`ID`, `user_login`, `user_pass`, `user_nicename`, `user_
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_wsluserscontacts`
+-- Estructura de la taula `wp_wsluserscontacts`
 --
 
-CREATE TABLE `wp_wsluserscontacts` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_wsluserscontacts` (
+`id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `provider` varchar(50) NOT NULL,
   `identifier` varchar(255) NOT NULL,
   `full_name` varchar(150) NOT NULL,
   `email` varchar(255) NOT NULL,
   `profile_url` varchar(255) NOT NULL,
-  `photo_url` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id` (`id`),
-  KEY `user_id` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `photo_url` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_wslusersprofiles`
+-- Estructura de la taula `wp_wslusersprofiles`
 --
 
-CREATE TABLE `wp_wslusersprofiles` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_wslusersprofiles` (
+`id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `provider` varchar(50) NOT NULL,
   `object_sha` varchar(45) NOT NULL,
@@ -3628,13 +3768,497 @@ CREATE TABLE `wp_wslusersprofiles` (
   `country` varchar(75) NOT NULL,
   `region` varchar(50) NOT NULL,
   `city` varchar(50) NOT NULL,
-  `zip` varchar(25) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id` (`id`),
-  KEY `user_id` (`user_id`),
-  KEY `provider` (`provider`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `zip` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `wp_bpges_queued_items`
+--
+ALTER TABLE `wp_bpges_queued_items`
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `user_group_activity_type` (`user_id`,`group_id`,`activity_id`,`type`), ADD KEY `user_id` (`user_id`), ADD KEY `group_id` (`group_id`), ADD KEY `activity_id` (`activity_id`), ADD KEY `user_group_type_date` (`user_id`,`type`,`date_recorded`);
+
+--
+-- Indexes for table `wp_bpges_subscriptions`
+--
+ALTER TABLE `wp_bpges_subscriptions`
+ ADD PRIMARY KEY (`id`), ADD KEY `user_id` (`user_id`), ADD KEY `group_id` (`group_id`), ADD KEY `user_type` (`user_id`,`type`);
+
+--
+-- Indexes for table `wp_bp_activity`
+--
+ALTER TABLE `wp_bp_activity`
+ ADD PRIMARY KEY (`id`), ADD KEY `date_recorded` (`date_recorded`), ADD KEY `user_id` (`user_id`), ADD KEY `item_id` (`item_id`), ADD KEY `secondary_item_id` (`secondary_item_id`), ADD KEY `component` (`component`), ADD KEY `type` (`type`), ADD KEY `mptt_left` (`mptt_left`), ADD KEY `mptt_right` (`mptt_right`), ADD KEY `hide_sitewide` (`hide_sitewide`), ADD KEY `is_spam` (`is_spam`);
+
+--
+-- Indexes for table `wp_bp_activity_meta`
+--
+ALTER TABLE `wp_bp_activity_meta`
+ ADD PRIMARY KEY (`id`), ADD KEY `activity_id` (`activity_id`), ADD KEY `meta_key` (`meta_key`(191));
+
+--
+-- Indexes for table `wp_bp_friends`
+--
+ALTER TABLE `wp_bp_friends`
+ ADD PRIMARY KEY (`id`), ADD KEY `initiator_user_id` (`initiator_user_id`), ADD KEY `friend_user_id` (`friend_user_id`);
+
+--
+-- Indexes for table `wp_bp_groups`
+--
+ALTER TABLE `wp_bp_groups`
+ ADD PRIMARY KEY (`id`), ADD KEY `creator_id` (`creator_id`), ADD KEY `status` (`status`), ADD KEY `parent_id` (`parent_id`);
+
+--
+-- Indexes for table `wp_bp_groups_groupmeta`
+--
+ALTER TABLE `wp_bp_groups_groupmeta`
+ ADD PRIMARY KEY (`id`), ADD KEY `group_id` (`group_id`), ADD KEY `meta_key` (`meta_key`(191));
+
+--
+-- Indexes for table `wp_bp_groups_members`
+--
+ALTER TABLE `wp_bp_groups_members`
+ ADD PRIMARY KEY (`id`), ADD KEY `group_id` (`group_id`), ADD KEY `is_admin` (`is_admin`), ADD KEY `is_mod` (`is_mod`), ADD KEY `user_id` (`user_id`), ADD KEY `inviter_id` (`inviter_id`), ADD KEY `is_confirmed` (`is_confirmed`);
+
+--
+-- Indexes for table `wp_bp_messages_messages`
+--
+ALTER TABLE `wp_bp_messages_messages`
+ ADD PRIMARY KEY (`id`), ADD KEY `sender_id` (`sender_id`), ADD KEY `thread_id` (`thread_id`);
+
+--
+-- Indexes for table `wp_bp_messages_meta`
+--
+ALTER TABLE `wp_bp_messages_meta`
+ ADD PRIMARY KEY (`id`), ADD KEY `message_id` (`message_id`), ADD KEY `meta_key` (`meta_key`(191));
+
+--
+-- Indexes for table `wp_bp_messages_notices`
+--
+ALTER TABLE `wp_bp_messages_notices`
+ ADD PRIMARY KEY (`id`), ADD KEY `is_active` (`is_active`);
+
+--
+-- Indexes for table `wp_bp_messages_recipients`
+--
+ALTER TABLE `wp_bp_messages_recipients`
+ ADD PRIMARY KEY (`id`), ADD KEY `user_id` (`user_id`), ADD KEY `thread_id` (`thread_id`), ADD KEY `is_deleted` (`is_deleted`), ADD KEY `sender_only` (`sender_only`), ADD KEY `unread_count` (`unread_count`);
+
+--
+-- Indexes for table `wp_bp_mod_contents`
+--
+ALTER TABLE `wp_bp_mod_contents`
+ ADD PRIMARY KEY (`content_id`), ADD KEY `item_type` (`item_type`), ADD KEY `item_id` (`item_id`), ADD KEY `item_id2` (`item_id2`), ADD KEY `item_author` (`item_author`), ADD KEY `item_date` (`item_date`), ADD KEY `status` (`status`);
+
+--
+-- Indexes for table `wp_bp_mod_flags`
+--
+ALTER TABLE `wp_bp_mod_flags`
+ ADD PRIMARY KEY (`flag_id`), ADD KEY `content_id` (`content_id`), ADD KEY `reporter_id` (`reporter_id`), ADD KEY `date` (`date`);
+
+--
+-- Indexes for table `wp_bp_notifications`
+--
+ALTER TABLE `wp_bp_notifications`
+ ADD PRIMARY KEY (`id`), ADD KEY `item_id` (`item_id`), ADD KEY `secondary_item_id` (`secondary_item_id`), ADD KEY `user_id` (`user_id`), ADD KEY `is_new` (`is_new`), ADD KEY `component_name` (`component_name`), ADD KEY `component_action` (`component_action`), ADD KEY `useritem` (`user_id`,`is_new`);
+
+--
+-- Indexes for table `wp_bp_notifications_meta`
+--
+ALTER TABLE `wp_bp_notifications_meta`
+ ADD PRIMARY KEY (`id`), ADD KEY `notification_id` (`notification_id`), ADD KEY `meta_key` (`meta_key`(191));
+
+--
+-- Indexes for table `wp_bp_xprofile_data`
+--
+ALTER TABLE `wp_bp_xprofile_data`
+ ADD PRIMARY KEY (`id`), ADD KEY `field_id` (`field_id`), ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `wp_bp_xprofile_fields`
+--
+ALTER TABLE `wp_bp_xprofile_fields`
+ ADD PRIMARY KEY (`id`), ADD KEY `group_id` (`group_id`), ADD KEY `parent_id` (`parent_id`), ADD KEY `field_order` (`field_order`), ADD KEY `can_delete` (`can_delete`), ADD KEY `is_required` (`is_required`);
+
+--
+-- Indexes for table `wp_bp_xprofile_groups`
+--
+ALTER TABLE `wp_bp_xprofile_groups`
+ ADD PRIMARY KEY (`id`), ADD KEY `can_delete` (`can_delete`);
+
+--
+-- Indexes for table `wp_bp_xprofile_meta`
+--
+ALTER TABLE `wp_bp_xprofile_meta`
+ ADD PRIMARY KEY (`id`), ADD KEY `object_id` (`object_id`), ADD KEY `meta_key` (`meta_key`(191));
+
+--
+-- Indexes for table `wp_commentmeta`
+--
+ALTER TABLE `wp_commentmeta`
+ ADD PRIMARY KEY (`meta_id`), ADD KEY `comment_id` (`comment_id`), ADD KEY `meta_key` (`meta_key`(191));
+
+--
+-- Indexes for table `wp_comments`
+--
+ALTER TABLE `wp_comments`
+ ADD PRIMARY KEY (`comment_ID`), ADD KEY `comment_post_ID` (`comment_post_ID`), ADD KEY `comment_approved_date_gmt` (`comment_approved`,`comment_date_gmt`), ADD KEY `comment_date_gmt` (`comment_date_gmt`), ADD KEY `comment_parent` (`comment_parent`), ADD KEY `comment_author_email` (`comment_author_email`(10));
+
+--
+-- Indexes for table `wp_ig_blocked_emails`
+--
+ALTER TABLE `wp_ig_blocked_emails`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `wp_ig_campaigns`
+--
+ALTER TABLE `wp_ig_campaigns`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `wp_ig_contacts`
+--
+ALTER TABLE `wp_ig_contacts`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `wp_ig_contacts_ips`
+--
+ALTER TABLE `wp_ig_contacts_ips`
+ ADD PRIMARY KEY (`created_on`,`ip`), ADD KEY `ip` (`ip`);
+
+--
+-- Indexes for table `wp_ig_forms`
+--
+ALTER TABLE `wp_ig_forms`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `wp_ig_lists`
+--
+ALTER TABLE `wp_ig_lists`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `wp_ig_lists_contacts`
+--
+ALTER TABLE `wp_ig_lists_contacts`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `wp_ig_mailing_queue`
+--
+ALTER TABLE `wp_ig_mailing_queue`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `wp_ig_sending_queue`
+--
+ALTER TABLE `wp_ig_sending_queue`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `wp_links`
+--
+ALTER TABLE `wp_links`
+ ADD PRIMARY KEY (`link_id`), ADD KEY `link_visible` (`link_visible`);
+
+--
+-- Indexes for table `wp_options`
+--
+ALTER TABLE `wp_options`
+ ADD PRIMARY KEY (`option_id`), ADD UNIQUE KEY `option_name` (`option_name`);
+
+--
+-- Indexes for table `wp_postmeta`
+--
+ALTER TABLE `wp_postmeta`
+ ADD PRIMARY KEY (`meta_id`), ADD KEY `post_id` (`post_id`), ADD KEY `meta_key` (`meta_key`(191));
+
+--
+-- Indexes for table `wp_posts`
+--
+ALTER TABLE `wp_posts`
+ ADD PRIMARY KEY (`ID`), ADD KEY `type_status_date` (`post_type`,`post_status`,`post_date`,`ID`), ADD KEY `post_parent` (`post_parent`), ADD KEY `post_author` (`post_author`), ADD KEY `post_name` (`post_name`(191));
+
+--
+-- Indexes for table `wp_signups`
+--
+ALTER TABLE `wp_signups`
+ ADD PRIMARY KEY (`signup_id`), ADD KEY `activation_key` (`activation_key`), ADD KEY `user_email` (`user_email`), ADD KEY `user_login_email` (`user_login`,`user_email`), ADD KEY `domain_path` (`domain`,`path`);
+
+--
+-- Indexes for table `wp_stats`
+--
+ALTER TABLE `wp_stats`
+ ADD PRIMARY KEY (`stat_id`), ADD KEY `uid` (`uid`), ADD KEY `ip` (`ip`), ADD KEY `ipForward` (`ipForward`), ADD KEY `ipClient` (`ipClient`), ADD KEY `userAgent` (`userAgent`), ADD KEY `isadmin` (`isadmin`);
+
+--
+-- Indexes for table `wp_termmeta`
+--
+ALTER TABLE `wp_termmeta`
+ ADD PRIMARY KEY (`meta_id`), ADD KEY `term_id` (`term_id`), ADD KEY `meta_key` (`meta_key`(191));
+
+--
+-- Indexes for table `wp_terms`
+--
+ALTER TABLE `wp_terms`
+ ADD PRIMARY KEY (`term_id`), ADD KEY `name` (`name`(191)), ADD KEY `slug` (`slug`(191));
+
+--
+-- Indexes for table `wp_term_relationships`
+--
+ALTER TABLE `wp_term_relationships`
+ ADD PRIMARY KEY (`object_id`,`term_taxonomy_id`), ADD KEY `term_taxonomy_id` (`term_taxonomy_id`);
+
+--
+-- Indexes for table `wp_term_taxonomy`
+--
+ALTER TABLE `wp_term_taxonomy`
+ ADD PRIMARY KEY (`term_taxonomy_id`), ADD UNIQUE KEY `term_id_taxonomy` (`term_id`,`taxonomy`), ADD KEY `taxonomy` (`taxonomy`);
+
+--
+-- Indexes for table `wp_usermeta`
+--
+ALTER TABLE `wp_usermeta`
+ ADD PRIMARY KEY (`umeta_id`), ADD KEY `user_id` (`user_id`), ADD KEY `meta_key` (`meta_key`(191));
+
+--
+-- Indexes for table `wp_users`
+--
+ALTER TABLE `wp_users`
+ ADD PRIMARY KEY (`ID`), ADD KEY `user_login_key` (`user_login`), ADD KEY `user_nicename` (`user_nicename`), ADD KEY `user_email` (`user_email`);
+
+--
+-- Indexes for table `wp_wsluserscontacts`
+--
+ALTER TABLE `wp_wsluserscontacts`
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `id` (`id`), ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `wp_wslusersprofiles`
+--
+ALTER TABLE `wp_wslusersprofiles`
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `id` (`id`), ADD KEY `user_id` (`user_id`), ADD KEY `provider` (`provider`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `wp_bpges_queued_items`
+--
+ALTER TABLE `wp_bpges_queued_items`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_bpges_subscriptions`
+--
+ALTER TABLE `wp_bpges_subscriptions`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
+--
+-- AUTO_INCREMENT for table `wp_bp_activity`
+--
+ALTER TABLE `wp_bp_activity`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=151;
+--
+-- AUTO_INCREMENT for table `wp_bp_activity_meta`
+--
+ALTER TABLE `wp_bp_activity_meta`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
+--
+-- AUTO_INCREMENT for table `wp_bp_friends`
+--
+ALTER TABLE `wp_bp_friends`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_bp_groups`
+--
+ALTER TABLE `wp_bp_groups`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
+--
+-- AUTO_INCREMENT for table `wp_bp_groups_groupmeta`
+--
+ALTER TABLE `wp_bp_groups_groupmeta`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=151;
+--
+-- AUTO_INCREMENT for table `wp_bp_groups_members`
+--
+ALTER TABLE `wp_bp_groups_members`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
+--
+-- AUTO_INCREMENT for table `wp_bp_messages_messages`
+--
+ALTER TABLE `wp_bp_messages_messages`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_bp_messages_meta`
+--
+ALTER TABLE `wp_bp_messages_meta`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_bp_messages_notices`
+--
+ALTER TABLE `wp_bp_messages_notices`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_bp_messages_recipients`
+--
+ALTER TABLE `wp_bp_messages_recipients`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_bp_mod_contents`
+--
+ALTER TABLE `wp_bp_mod_contents`
+MODIFY `content_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_bp_mod_flags`
+--
+ALTER TABLE `wp_bp_mod_flags`
+MODIFY `flag_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_bp_notifications`
+--
+ALTER TABLE `wp_bp_notifications`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=76;
+--
+-- AUTO_INCREMENT for table `wp_bp_notifications_meta`
+--
+ALTER TABLE `wp_bp_notifications_meta`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_bp_xprofile_data`
+--
+ALTER TABLE `wp_bp_xprofile_data`
+MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `wp_bp_xprofile_fields`
+--
+ALTER TABLE `wp_bp_xprofile_fields`
+MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `wp_bp_xprofile_groups`
+--
+ALTER TABLE `wp_bp_xprofile_groups`
+MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `wp_bp_xprofile_meta`
+--
+ALTER TABLE `wp_bp_xprofile_meta`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_commentmeta`
+--
+ALTER TABLE `wp_commentmeta`
+MODIFY `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_comments`
+--
+ALTER TABLE `wp_comments`
+MODIFY `comment_ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_ig_campaigns`
+--
+ALTER TABLE `wp_ig_campaigns`
+MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
+--
+-- AUTO_INCREMENT for table `wp_ig_contacts`
+--
+ALTER TABLE `wp_ig_contacts`
+MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `wp_ig_forms`
+--
+ALTER TABLE `wp_ig_forms`
+MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `wp_ig_lists`
+--
+ALTER TABLE `wp_ig_lists`
+MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `wp_ig_lists_contacts`
+--
+ALTER TABLE `wp_ig_lists_contacts`
+MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `wp_ig_mailing_queue`
+--
+ALTER TABLE `wp_ig_mailing_queue`
+MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_ig_sending_queue`
+--
+ALTER TABLE `wp_ig_sending_queue`
+MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_links`
+--
+ALTER TABLE `wp_links`
+MODIFY `link_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_options`
+--
+ALTER TABLE `wp_options`
+MODIFY `option_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10369;
+--
+-- AUTO_INCREMENT for table `wp_postmeta`
+--
+ALTER TABLE `wp_postmeta`
+MODIFY `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1993;
+--
+-- AUTO_INCREMENT for table `wp_posts`
+--
+ALTER TABLE `wp_posts`
+MODIFY `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=488;
+--
+-- AUTO_INCREMENT for table `wp_signups`
+--
+ALTER TABLE `wp_signups`
+MODIFY `signup_id` bigint(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_stats`
+--
+ALTER TABLE `wp_stats`
+MODIFY `stat_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_termmeta`
+--
+ALTER TABLE `wp_termmeta`
+MODIFY `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_terms`
+--
+ALTER TABLE `wp_terms`
+MODIFY `term_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=104;
+--
+-- AUTO_INCREMENT for table `wp_term_taxonomy`
+--
+ALTER TABLE `wp_term_taxonomy`
+MODIFY `term_taxonomy_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=104;
+--
+-- AUTO_INCREMENT for table `wp_usermeta`
+--
+ALTER TABLE `wp_usermeta`
+MODIFY `umeta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=185;
+--
+-- AUTO_INCREMENT for table `wp_users`
+--
+ALTER TABLE `wp_users`
+MODIFY `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `wp_wsluserscontacts`
+--
+ALTER TABLE `wp_wsluserscontacts`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_wslusersprofiles`
+--
+ALTER TABLE `wp_wslusersprofiles`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

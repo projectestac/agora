@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.3.2
+-- version 4.2.13.3
 -- http://www.phpmyadmin.net
 --
--- Servidor: pdb-int:3308
--- Tiempo de generación: 13-07-2017 a las 11:14:50
--- Versión del servidor: 5.6.35
--- Versión de PHP: 5.4.16
+-- Host: pdb-int:3308
+-- Generation Time: 18-10-2019 a les 11:45:53
+-- Versió del servidor: 5.6.35-log
+-- PHP Version: 7.0.27
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -17,17 +17,57 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de datos: `usu4`
+-- Database: `usu4`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_activity`
+-- Estructura de la taula `wp_bpges_queued_items`
 --
 
-CREATE TABLE `wp_bp_activity` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bpges_queued_items` (
+`id` bigint(20) NOT NULL,
+  `user_id` bigint(20) NOT NULL,
+  `group_id` bigint(20) NOT NULL,
+  `activity_id` bigint(20) NOT NULL,
+  `type` varchar(75) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `date_recorded` datetime NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de la taula `wp_bpges_subscriptions`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_bpges_subscriptions` (
+`id` bigint(20) NOT NULL,
+  `user_id` bigint(20) NOT NULL,
+  `group_id` bigint(20) NOT NULL,
+  `type` varchar(75) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Bolcant dades de la taula `wp_bpges_subscriptions`
+--
+
+INSERT INTO `wp_bpges_subscriptions` (`id`, `user_id`, `group_id`, `type`) VALUES
+(1, 1, 34, 'dig'),
+(2, 1, 35, 'dig'),
+(3, 1, 36, 'dig'),
+(4, 1, 37, 'dig'),
+(5, 1, 38, 'dig'),
+(6, 1, 39, 'dig');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de la taula `wp_bp_activity`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_bp_activity` (
+`id` bigint(20) NOT NULL,
   `user_id` bigint(20) NOT NULL,
   `component` varchar(75) NOT NULL,
   `type` varchar(75) NOT NULL,
@@ -40,53 +80,39 @@ CREATE TABLE `wp_bp_activity` (
   `hide_sitewide` tinyint(1) DEFAULT '0',
   `mptt_left` int(11) NOT NULL DEFAULT '0',
   `mptt_right` int(11) NOT NULL DEFAULT '0',
-  `is_spam` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `date_recorded` (`date_recorded`),
-  KEY `user_id` (`user_id`),
-  KEY `item_id` (`item_id`),
-  KEY `secondary_item_id` (`secondary_item_id`),
-  KEY `component` (`component`),
-  KEY `type` (`type`),
-  KEY `mptt_left` (`mptt_left`),
-  KEY `mptt_right` (`mptt_right`),
-  KEY `hide_sitewide` (`hide_sitewide`),
-  KEY `is_spam` (`is_spam`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=94 ;
+  `is_spam` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=94 DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `wp_bp_activity`
+-- Bolcant dades de la taula `wp_bp_activity`
 --
 
 INSERT INTO `wp_bp_activity` (`id`, `user_id`, `component`, `type`, `action`, `content`, `primary_link`, `item_id`, `secondary_item_id`, `date_recorded`, `hide_sitewide`, `mptt_left`, `mptt_right`, `is_spam`) VALUES
-(1, 2, 'members', 'last_activity', '', '', '', 0, NULL, '2017-02-23 12:24:08', 0, 0, 0, 0),
+(1, 2, 'members', 'last_activity', '', '', '', 0, NULL, '2019-05-13 12:48:06', 0, 0, 0, 0),
 (6, 1, 'members', 'last_activity', '', '', '', 0, NULL, '2016-06-22 14:00:16', 0, 0, 0, 0),
-(62, 1, 'bp_docs', 'bp_doc_edited', '<a href="http://pwc-int.educacio.intranet/agora/mastercda/membres/admin/" title="admin">admin</a> ha editat el document <a href="http://pwc-int.educacio.intranet/agora/mastercda/docs/eap-professionals-adscrits/">EAP – Professionals adscrits</a>', '', 'http://pwc-int.educacio.intranet/agora/mastercda/docs/eap-professionals-adscrits/', 0, 732, '2015-11-30 15:56:03', 1, 0, 0, 0),
-(83, 1, 'bp_docs', 'bp_doc_edited', '<a href="http://pwc-int.educacio.intranet/agora/mastercda/membres/admin/" title="admin">admin</a> ha editat el document <a href="http://pwc-int.educacio.intranet/agora/mastercda/docs/distribucio-de-professionals-per-centres/">Distribució de professionals per centres</a>', '', 'http://pwc-int.educacio.intranet/agora/mastercda/docs/distribucio-de-professionals-per-centres/', 0, 739, '2015-12-01 11:16:09', 1, 0, 0, 0),
-(89, 1, 'groups', 'created_group', '<a href="http://pwc-int.educacio.intranet/agora/mastercda/membres/admin/" title="admin">admin</a> ha creat el node <a href="http://pwc-int.educacio.intranet/agora/mastercda/nodes/escola-charles-darwin/">Escola Charles Darwin</a>', '', 'http://pwc-int.educacio.intranet/agora/mastercda/membres/admin/', 34, 0, '2016-06-21 11:03:41', 1, 0, 0, 0),
-(90, 1, 'groups', 'created_group', '<a href="http://pwc-int.educacio.intranet/agora/mastercda/membres/admin/" title="admin">admin</a> ha creat el node <a href="http://pwc-int.educacio.intranet/agora/mastercda/nodes/el-gegant-del-rec/">El gegant del rec</a>', '', 'http://pwc-int.educacio.intranet/agora/mastercda/membres/admin/', 37, 0, '2016-06-21 11:07:48', 1, 0, 0, 0),
-(91, 1, 'groups', 'created_group', '<a href="http://pwc-int.educacio.intranet/agora/mastercda/membres/admin/" title="admin">admin</a> ha creat el node <a href="http://pwc-int.educacio.intranet/agora/mastercda/nodes/escola-quatre-vents/">Escola Quatre Vents</a>', '', 'http://pwc-int.educacio.intranet/agora/mastercda/membres/admin/', 39, 0, '2016-06-21 12:28:59', 1, 0, 0, 0),
-(92, 1, 'groups', 'activity_update', '<a href="http://pwc-int.educacio.intranet/agora/mastercda/membres/admin/" title="admin">admin</a> ha publicat una actualització en el node <a href="http://pwc-int.educacio.intranet/agora/mastercda/nodes/escola-quatre-vents/">Escola Quatre Vents</a>', 'Aquest espai és un espai privat de comunicació amb els centres educatius que visitin el vostre camp d\\''aprenentatge. Podeu compartir fotos, vídeos, documents...', 'http://pwc-int.educacio.intranet/agora/mastercda/membres/admin/', 39, 0, '2016-06-22 10:28:42', 1, 0, 0, 0),
-(93, 1, 'groups', 'activity_update', '<a href="http://pwc-int.educacio.intranet/agora/mastercda/membres/admin/" title="admin">admin</a> ha publicat una actualització en el node <a href="http://pwc-int.educacio.intranet/agora/mastercda/nodes/escola-quatre-vents/">Escola Quatre Vents</a>', 'Un parell de vídeos que explica com funciona la xarxa nodes: \nhttps://vimeo.com/album/3772376/video/158842890\nhttps://vimeo.com/album/3772376/video/158843858', 'http://pwc-int.educacio.intranet/agora/mastercda/membres/admin/', 39, 0, '2016-06-22 10:33:18', 1, 0, 0, 0);
+(62, 1, 'bp_docs', 'bp_doc_edited', '<a href="https://pwc-int.educacio.intranet/agora/mastercda/membres/admin/" title="admin">admin</a> ha editat el document <a href="https://pwc-int.educacio.intranet/agora/mastercda/docs/eap-professionals-adscrits/">EAP – Professionals adscrits</a>', '', 'https://pwc-int.educacio.intranet/agora/mastercda/docs/eap-professionals-adscrits/', 0, 732, '2015-11-30 15:56:03', 1, 0, 0, 0),
+(83, 1, 'bp_docs', 'bp_doc_edited', '<a href="https://pwc-int.educacio.intranet/agora/mastercda/membres/admin/" title="admin">admin</a> ha editat el document <a href="https://pwc-int.educacio.intranet/agora/mastercda/docs/distribucio-de-professionals-per-centres/">Distribució de professionals per centres</a>', '', 'https://pwc-int.educacio.intranet/agora/mastercda/docs/distribucio-de-professionals-per-centres/', 0, 739, '2015-12-01 11:16:09', 1, 0, 0, 0),
+(89, 1, 'groups', 'created_group', '<a href="https://pwc-int.educacio.intranet/agora/mastercda/membres/admin/" title="admin">admin</a> ha creat el node <a href="https://pwc-int.educacio.intranet/agora/mastercda/nodes/escola-charles-darwin/">Escola Charles Darwin</a>', '', 'https://pwc-int.educacio.intranet/agora/mastercda/membres/admin/', 34, 0, '2016-06-21 11:03:41', 1, 0, 0, 0),
+(90, 1, 'groups', 'created_group', '<a href="https://pwc-int.educacio.intranet/agora/mastercda/membres/admin/" title="admin">admin</a> ha creat el node <a href="https://pwc-int.educacio.intranet/agora/mastercda/nodes/el-gegant-del-rec/">El gegant del rec</a>', '', 'https://pwc-int.educacio.intranet/agora/mastercda/membres/admin/', 37, 0, '2016-06-21 11:07:48', 1, 0, 0, 0),
+(91, 1, 'groups', 'created_group', '<a href="https://pwc-int.educacio.intranet/agora/mastercda/membres/admin/" title="admin">admin</a> ha creat el node <a href="https://pwc-int.educacio.intranet/agora/mastercda/nodes/escola-quatre-vents/">Escola Quatre Vents</a>', '', 'https://pwc-int.educacio.intranet/agora/mastercda/membres/admin/', 39, 0, '2016-06-21 12:28:59', 1, 0, 0, 0),
+(92, 1, 'groups', 'activity_update', '<a href="https://pwc-int.educacio.intranet/agora/mastercda/membres/admin/" title="admin">admin</a> ha publicat una actualització en el node <a href="https://pwc-int.educacio.intranet/agora/mastercda/nodes/escola-quatre-vents/">Escola Quatre Vents</a>', 'Aquest espai és un espai privat de comunicació amb els centres educatius que visitin el vostre camp d\\''aprenentatge. Podeu compartir fotos, vídeos, documents...', 'https://pwc-int.educacio.intranet/agora/mastercda/membres/admin/', 39, 0, '2016-06-22 10:28:42', 1, 0, 0, 0),
+(93, 1, 'groups', 'activity_update', '<a href="https://pwc-int.educacio.intranet/agora/mastercda/membres/admin/" title="admin">admin</a> ha publicat una actualització en el node <a href="https://pwc-int.educacio.intranet/agora/mastercda/nodes/escola-quatre-vents/">Escola Quatre Vents</a>', 'Un parell de vídeos que explica com funciona la xarxa nodes: \nhttps://vimeo.com/album/3772376/video/158842890\nhttps://vimeo.com/album/3772376/video/158843858', 'https://pwc-int.educacio.intranet/agora/mastercda/membres/admin/', 39, 0, '2016-06-22 10:33:18', 1, 0, 0, 0);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_activity_meta`
+-- Estructura de la taula `wp_bp_activity_meta`
 --
 
-CREATE TABLE `wp_bp_activity_meta` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_activity_meta` (
+`id` bigint(20) NOT NULL,
   `activity_id` bigint(20) NOT NULL,
   `meta_key` varchar(255) DEFAULT NULL,
-  `meta_value` longtext,
-  PRIMARY KEY (`id`),
-  KEY `activity_id` (`activity_id`),
-  KEY `meta_key` (`meta_key`(191))
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+  `meta_value` longtext
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `wp_bp_activity_meta`
+-- Bolcant dades de la taula `wp_bp_activity_meta`
 --
 
 INSERT INTO `wp_bp_activity_meta` (`id`, `activity_id`, `meta_key`, `meta_value`) VALUES
@@ -96,29 +122,26 @@ INSERT INTO `wp_bp_activity_meta` (`id`, `activity_id`, `meta_key`, `meta_value`
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_friends`
+-- Estructura de la taula `wp_bp_friends`
 --
 
-CREATE TABLE `wp_bp_friends` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_friends` (
+`id` bigint(20) NOT NULL,
   `initiator_user_id` bigint(20) NOT NULL,
   `friend_user_id` bigint(20) NOT NULL,
   `is_confirmed` tinyint(1) DEFAULT '0',
   `is_limited` tinyint(1) DEFAULT '0',
-  `date_created` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `initiator_user_id` (`initiator_user_id`),
-  KEY `friend_user_id` (`friend_user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `date_created` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_groups`
+-- Estructura de la taula `wp_bp_groups`
 --
 
-CREATE TABLE `wp_bp_groups` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_groups` (
+`id` bigint(20) NOT NULL,
   `creator_id` bigint(20) NOT NULL,
   `name` varchar(100) NOT NULL,
   `slug` varchar(200) NOT NULL,
@@ -126,15 +149,11 @@ CREATE TABLE `wp_bp_groups` (
   `status` varchar(10) NOT NULL DEFAULT 'public',
   `enable_forum` tinyint(1) NOT NULL DEFAULT '1',
   `date_created` datetime NOT NULL,
-  `parent_id` bigint(20) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `creator_id` (`creator_id`),
-  KEY `status` (`status`),
-  KEY `parent_id` (`parent_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=40 ;
+  `parent_id` bigint(20) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `wp_bp_groups`
+-- Bolcant dades de la taula `wp_bp_groups`
 --
 
 INSERT INTO `wp_bp_groups` (`id`, `creator_id`, `name`, `slug`, `description`, `status`, `enable_forum`, `date_created`, `parent_id`) VALUES
@@ -148,21 +167,18 @@ INSERT INTO `wp_bp_groups` (`id`, `creator_id`, `name`, `slug`, `description`, `
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_groups_groupmeta`
+-- Estructura de la taula `wp_bp_groups_groupmeta`
 --
 
-CREATE TABLE `wp_bp_groups_groupmeta` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_groups_groupmeta` (
+`id` bigint(20) NOT NULL,
   `group_id` bigint(20) NOT NULL,
   `meta_key` varchar(255) DEFAULT NULL,
-  `meta_value` longtext,
-  PRIMARY KEY (`id`),
-  KEY `group_id` (`group_id`),
-  KEY `meta_key` (`meta_key`(191))
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=271 ;
+  `meta_value` longtext
+) ENGINE=InnoDB AUTO_INCREMENT=271 DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `wp_bp_groups_groupmeta`
+-- Bolcant dades de la taula `wp_bp_groups_groupmeta`
 --
 
 INSERT INTO `wp_bp_groups_groupmeta` (`id`, `group_id`, `meta_key`, `meta_value`) VALUES
@@ -213,11 +229,11 @@ INSERT INTO `wp_bp_groups_groupmeta` (`id`, `group_id`, `meta_key`, `meta_value`
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_groups_members`
+-- Estructura de la taula `wp_bp_groups_members`
 --
 
-CREATE TABLE `wp_bp_groups_members` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_groups_members` (
+`id` bigint(20) NOT NULL,
   `group_id` bigint(20) NOT NULL,
   `user_id` bigint(20) NOT NULL,
   `inviter_id` bigint(20) NOT NULL,
@@ -228,18 +244,11 @@ CREATE TABLE `wp_bp_groups_members` (
   `comments` longtext NOT NULL,
   `is_confirmed` tinyint(1) NOT NULL DEFAULT '0',
   `is_banned` tinyint(1) NOT NULL DEFAULT '0',
-  `invite_sent` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `group_id` (`group_id`),
-  KEY `is_admin` (`is_admin`),
-  KEY `is_mod` (`is_mod`),
-  KEY `user_id` (`user_id`),
-  KEY `inviter_id` (`inviter_id`),
-  KEY `is_confirmed` (`is_confirmed`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=46 ;
+  `invite_sent` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `wp_bp_groups_members`
+-- Bolcant dades de la taula `wp_bp_groups_members`
 --
 
 INSERT INTO `wp_bp_groups_members` (`id`, `group_id`, `user_id`, `inviter_id`, `is_admin`, `is_mod`, `user_title`, `date_modified`, `comments`, `is_confirmed`, `is_banned`, `invite_sent`) VALUES
@@ -253,185 +262,136 @@ INSERT INTO `wp_bp_groups_members` (`id`, `group_id`, `user_id`, `inviter_id`, `
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_messages_messages`
+-- Estructura de la taula `wp_bp_messages_messages`
 --
 
-CREATE TABLE `wp_bp_messages_messages` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_messages_messages` (
+`id` bigint(20) NOT NULL,
   `thread_id` bigint(20) NOT NULL,
   `sender_id` bigint(20) NOT NULL,
   `subject` varchar(200) NOT NULL,
   `message` longtext NOT NULL,
-  `date_sent` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `sender_id` (`sender_id`),
-  KEY `thread_id` (`thread_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `date_sent` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_messages_meta`
+-- Estructura de la taula `wp_bp_messages_meta`
 --
 
-CREATE TABLE `wp_bp_messages_meta` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_messages_meta` (
+`id` bigint(20) NOT NULL,
   `message_id` bigint(20) NOT NULL,
   `meta_key` varchar(255) DEFAULT NULL,
-  `meta_value` longtext,
-  PRIMARY KEY (`id`),
-  KEY `message_id` (`message_id`),
-  KEY `meta_key` (`meta_key`(191))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=1 ;
+  `meta_value` longtext
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_messages_notices`
+-- Estructura de la taula `wp_bp_messages_notices`
 --
 
-CREATE TABLE `wp_bp_messages_notices` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_messages_notices` (
+`id` bigint(20) NOT NULL,
   `subject` varchar(200) NOT NULL,
   `message` longtext NOT NULL,
   `date_sent` datetime NOT NULL,
-  `is_active` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `is_active` (`is_active`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `is_active` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_messages_recipients`
+-- Estructura de la taula `wp_bp_messages_recipients`
 --
 
-CREATE TABLE `wp_bp_messages_recipients` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_messages_recipients` (
+`id` bigint(20) NOT NULL,
   `user_id` bigint(20) NOT NULL,
   `thread_id` bigint(20) NOT NULL,
   `unread_count` int(10) NOT NULL DEFAULT '0',
   `sender_only` tinyint(1) NOT NULL DEFAULT '0',
-  `is_deleted` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `user_id` (`user_id`),
-  KEY `thread_id` (`thread_id`),
-  KEY `is_deleted` (`is_deleted`),
-  KEY `sender_only` (`sender_only`),
-  KEY `unread_count` (`unread_count`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `is_deleted` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_mod_contents`
+-- Estructura de la taula `wp_bp_mod_contents`
 --
 
-CREATE TABLE `wp_bp_mod_contents` (
-  `content_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_mod_contents` (
+`content_id` bigint(20) unsigned NOT NULL,
   `item_type` varchar(42) NOT NULL DEFAULT '',
   `item_id` bigint(20) unsigned NOT NULL DEFAULT '0',
   `item_id2` bigint(20) unsigned NOT NULL DEFAULT '0',
   `item_author` bigint(20) unsigned NOT NULL DEFAULT '0',
   `item_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `item_url` varchar(250) NOT NULL DEFAULT '',
-  `status` enum('new','warned','ignored','moderated','edited','deleted') NOT NULL DEFAULT 'new',
-  PRIMARY KEY (`content_id`),
-  KEY `item_type` (`item_type`),
-  KEY `item_id` (`item_id`),
-  KEY `item_id2` (`item_id2`),
-  KEY `item_author` (`item_author`),
-  KEY `item_date` (`item_date`),
-  KEY `status` (`status`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `status` enum('new','warned','ignored','moderated','edited','deleted') NOT NULL DEFAULT 'new'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_mod_flags`
+-- Estructura de la taula `wp_bp_mod_flags`
 --
 
-CREATE TABLE `wp_bp_mod_flags` (
-  `flag_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_mod_flags` (
+`flag_id` bigint(20) unsigned NOT NULL,
   `content_id` bigint(20) unsigned NOT NULL DEFAULT '0',
   `reporter_id` bigint(20) unsigned NOT NULL DEFAULT '0',
-  `date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`flag_id`),
-  KEY `content_id` (`content_id`),
-  KEY `reporter_id` (`reporter_id`),
-  KEY `date` (`date`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_notifications`
+-- Estructura de la taula `wp_bp_notifications`
 --
 
-CREATE TABLE `wp_bp_notifications` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_notifications` (
+`id` bigint(20) NOT NULL,
   `user_id` bigint(20) NOT NULL,
   `item_id` bigint(20) NOT NULL,
   `secondary_item_id` bigint(20) DEFAULT NULL,
   `component_name` varchar(75) NOT NULL,
   `component_action` varchar(75) NOT NULL,
   `date_notified` datetime NOT NULL,
-  `is_new` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `item_id` (`item_id`),
-  KEY `secondary_item_id` (`secondary_item_id`),
-  KEY `user_id` (`user_id`),
-  KEY `is_new` (`is_new`),
-  KEY `component_name` (`component_name`),
-  KEY `component_action` (`component_action`),
-  KEY `useritem` (`user_id`,`is_new`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=76 ;
-
---
--- Volcado de datos para la tabla `wp_bp_notifications`
---
-
-INSERT INTO `wp_bp_notifications` (`id`, `user_id`, `item_id`, `secondary_item_id`, `component_name`, `component_action`, `date_notified`, `is_new`) VALUES
-(72, 1, 163, -1, 'social_articles', 'new_article163', '2014-11-18 12:06:46', 1),
-(73, 1, 163, -1, 'social_articles', 'new_article163', '2014-11-18 12:07:23', 1),
-(74, 1, 163, -1, 'social_articles', 'new_article163', '2014-12-01 12:22:10', 1),
-(75, 1, 163, -1, 'social_articles', 'new_article163', '2015-02-24 11:45:24', 1);
+  `is_new` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_notifications_meta`
+-- Estructura de la taula `wp_bp_notifications_meta`
 --
 
-CREATE TABLE `wp_bp_notifications_meta` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_notifications_meta` (
+`id` bigint(20) NOT NULL,
   `notification_id` bigint(20) NOT NULL,
   `meta_key` varchar(255) DEFAULT NULL,
-  `meta_value` longtext,
-  PRIMARY KEY (`id`),
-  KEY `notification_id` (`notification_id`),
-  KEY `meta_key` (`meta_key`(191))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=1 ;
+  `meta_value` longtext
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_xprofile_data`
+-- Estructura de la taula `wp_bp_xprofile_data`
 --
 
-CREATE TABLE `wp_bp_xprofile_data` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_xprofile_data` (
+`id` bigint(20) unsigned NOT NULL,
   `field_id` bigint(20) unsigned NOT NULL,
   `user_id` bigint(20) unsigned NOT NULL,
   `value` longtext NOT NULL,
-  `last_updated` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `field_id` (`field_id`),
-  KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `last_updated` datetime NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `wp_bp_xprofile_data`
+-- Bolcant dades de la taula `wp_bp_xprofile_data`
 --
 
 INSERT INTO `wp_bp_xprofile_data` (`id`, `field_id`, `user_id`, `value`, `last_updated`) VALUES
@@ -441,11 +401,11 @@ INSERT INTO `wp_bp_xprofile_data` (`id`, `field_id`, `user_id`, `value`, `last_u
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_xprofile_fields`
+-- Estructura de la taula `wp_bp_xprofile_fields`
 --
 
-CREATE TABLE `wp_bp_xprofile_fields` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_xprofile_fields` (
+`id` bigint(20) unsigned NOT NULL,
   `group_id` bigint(20) unsigned NOT NULL,
   `parent_id` bigint(20) unsigned NOT NULL,
   `type` varchar(150) NOT NULL,
@@ -456,17 +416,11 @@ CREATE TABLE `wp_bp_xprofile_fields` (
   `field_order` bigint(20) NOT NULL DEFAULT '0',
   `option_order` bigint(20) NOT NULL DEFAULT '0',
   `order_by` varchar(15) NOT NULL DEFAULT '',
-  `can_delete` tinyint(1) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`id`),
-  KEY `group_id` (`group_id`),
-  KEY `parent_id` (`parent_id`),
-  KEY `field_order` (`field_order`),
-  KEY `can_delete` (`can_delete`),
-  KEY `is_required` (`is_required`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+  `can_delete` tinyint(1) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `wp_bp_xprofile_fields`
+-- Bolcant dades de la taula `wp_bp_xprofile_fields`
 --
 
 INSERT INTO `wp_bp_xprofile_fields` (`id`, `group_id`, `parent_id`, `type`, `name`, `description`, `is_required`, `is_default_option`, `field_order`, `option_order`, `order_by`, `can_delete`) VALUES
@@ -475,21 +429,19 @@ INSERT INTO `wp_bp_xprofile_fields` (`id`, `group_id`, `parent_id`, `type`, `nam
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_xprofile_groups`
+-- Estructura de la taula `wp_bp_xprofile_groups`
 --
 
-CREATE TABLE `wp_bp_xprofile_groups` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_xprofile_groups` (
+`id` bigint(20) unsigned NOT NULL,
   `name` varchar(150) NOT NULL,
   `description` mediumtext NOT NULL,
   `group_order` bigint(20) NOT NULL DEFAULT '0',
-  `can_delete` tinyint(1) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `can_delete` (`can_delete`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+  `can_delete` tinyint(1) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `wp_bp_xprofile_groups`
+-- Bolcant dades de la taula `wp_bp_xprofile_groups`
 --
 
 INSERT INTO `wp_bp_xprofile_groups` (`id`, `name`, `description`, `group_order`, `can_delete`) VALUES
@@ -498,44 +450,38 @@ INSERT INTO `wp_bp_xprofile_groups` (`id`, `name`, `description`, `group_order`,
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_xprofile_meta`
+-- Estructura de la taula `wp_bp_xprofile_meta`
 --
 
-CREATE TABLE `wp_bp_xprofile_meta` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_xprofile_meta` (
+`id` bigint(20) NOT NULL,
   `object_id` bigint(20) NOT NULL,
   `object_type` varchar(150) NOT NULL,
   `meta_key` varchar(255) DEFAULT NULL,
-  `meta_value` longtext,
-  PRIMARY KEY (`id`),
-  KEY `object_id` (`object_id`),
-  KEY `meta_key` (`meta_key`(191))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `meta_value` longtext
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_commentmeta`
+-- Estructura de la taula `wp_commentmeta`
 --
 
-CREATE TABLE `wp_commentmeta` (
-  `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_commentmeta` (
+`meta_id` bigint(20) unsigned NOT NULL,
   `comment_id` bigint(20) unsigned NOT NULL DEFAULT '0',
   `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_ci,
-  PRIMARY KEY (`meta_id`),
-  KEY `comment_id` (`comment_id`),
-  KEY `meta_key` (`meta_key`(191))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=1 ;
+  `meta_value` longtext COLLATE utf8mb4_unicode_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_comments`
+-- Estructura de la taula `wp_comments`
 --
 
-CREATE TABLE `wp_comments` (
-  `comment_ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_comments` (
+`comment_ID` bigint(20) unsigned NOT NULL,
   `comment_post_ID` bigint(20) unsigned NOT NULL DEFAULT '0',
   `comment_author` tinytext COLLATE utf8mb4_unicode_ci NOT NULL,
   `comment_author_email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
@@ -549,172 +495,221 @@ CREATE TABLE `wp_comments` (
   `comment_agent` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `comment_type` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `comment_parent` bigint(20) unsigned NOT NULL DEFAULT '0',
-  `user_id` bigint(20) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`comment_ID`),
-  KEY `comment_post_ID` (`comment_post_ID`),
-  KEY `comment_approved_date_gmt` (`comment_approved`,`comment_date_gmt`),
-  KEY `comment_date_gmt` (`comment_date_gmt`),
-  KEY `comment_parent` (`comment_parent`),
-  KEY `comment_author_email` (`comment_author_email`(10))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=1 ;
+  `user_id` bigint(20) unsigned NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_es_deliverreport`
+-- Estructura de la taula `wp_ig_blocked_emails`
 --
 
-CREATE TABLE `wp_es_deliverreport` (
-  `es_deliver_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `es_deliver_sentguid` varchar(255) NOT NULL,
-  `es_deliver_emailid` int(10) unsigned NOT NULL,
-  `es_deliver_emailmail` varchar(255) NOT NULL,
-  `es_deliver_sentdate` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `es_deliver_status` varchar(25) NOT NULL,
-  `es_deliver_viewdate` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `es_deliver_sentstatus` varchar(25) NOT NULL DEFAULT 'Sent',
-  `es_deliver_senttype` varchar(25) NOT NULL DEFAULT 'Instant Mail',
-  PRIMARY KEY (`es_deliver_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+CREATE TABLE IF NOT EXISTS `wp_ig_blocked_emails` (
+  `id` int(10) NOT NULL,
+  `email` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ip` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_es_emaillist`
+-- Estructura de la taula `wp_ig_campaigns`
 --
 
-CREATE TABLE `wp_es_emaillist` (
-  `es_email_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `es_email_name` varchar(255) NOT NULL,
-  `es_email_mail` varchar(255) NOT NULL,
-  `es_email_status` varchar(25) NOT NULL DEFAULT 'Unconfirmed',
-  `es_email_created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `es_email_viewcount` varchar(100) NOT NULL,
-  `es_email_group` varchar(255) NOT NULL DEFAULT 'Public',
-  `es_email_guid` varchar(255) NOT NULL,
-  PRIMARY KEY (`es_email_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+CREATE TABLE IF NOT EXISTS `wp_ig_campaigns` (
+`id` int(10) NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `type` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `from_name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `from_email` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `reply_to_name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `reply_to_email` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `sequence_ids` text COLLATE utf8mb4_unicode_ci,
+  `categories` text COLLATE utf8mb4_unicode_ci,
+  `list_ids` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `base_template_id` int(10) NOT NULL,
+  `status` tinyint(4) NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `wp_es_emaillist`
+-- Bolcant dades de la taula `wp_ig_campaigns`
 --
 
-INSERT INTO `wp_es_emaillist` (`es_email_id`, `es_email_name`, `es_email_mail`, `es_email_status`, `es_email_created`, `es_email_viewcount`, `es_email_group`, `es_email_guid`) VALUES
-(1, 'Admin', 'a8000004@xtec.cat', 'Confirmed', '2016-03-16 11:43:07', '0', 'Portada', 'vnewsd-osyjgw-tdaing-ivetlr-dhimne');
+INSERT INTO `wp_ig_campaigns` (`id`, `slug`, `name`, `type`, `from_name`, `from_email`, `reply_to_name`, `reply_to_email`, `sequence_ids`, `categories`, `list_ids`, `base_template_id`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'sha-publicat-un-article-nou-posttitle', 'S''ha publicat un article nou:  {{POSTTITLE}}', 'post_notification', 'Admin', 'a8000006@xtec.cat', 'Admin', 'a8000006@xtec.cat', '', '####Portada## ##', '1', 459, 1, '2019-05-13 07:44:20', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_es_notification`
+-- Estructura de la taula `wp_ig_contacts`
 --
 
-CREATE TABLE `wp_es_notification` (
-  `es_note_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `es_note_cat` text,
-  `es_note_group` varchar(255) NOT NULL,
-  `es_note_templ` int(10) unsigned NOT NULL,
-  `es_note_status` varchar(10) NOT NULL DEFAULT 'Enable',
-  PRIMARY KEY (`es_note_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+CREATE TABLE IF NOT EXISTS `wp_ig_contacts` (
+`id` int(10) NOT NULL,
+  `wp_user_id` int(10) NOT NULL DEFAULT '0',
+  `first_name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `last_name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `source` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `form_id` int(10) NOT NULL DEFAULT '0',
+  `status` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `unsubscribed` tinyint(1) NOT NULL DEFAULT '0',
+  `hash` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `is_verified` tinyint(1) DEFAULT '0',
+  `is_disposable` tinyint(1) DEFAULT '0',
+  `is_rolebased` tinyint(1) DEFAULT '0',
+  `is_webmail` tinyint(1) DEFAULT '0',
+  `is_deliverable` tinyint(1) DEFAULT '0',
+  `is_sendsafely` tinyint(1) DEFAULT '0',
+  `meta` longtext CHARACTER SET utf8
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `wp_es_notification`
+-- Bolcant dades de la taula `wp_ig_contacts`
 --
 
-INSERT INTO `wp_es_notification` (`es_note_id`, `es_note_cat`, `es_note_group`, `es_note_templ`, `es_note_status`) VALUES
-(1, '##Portada## ', 'Portada', 1, 'Enable');
+INSERT INTO `wp_ig_contacts` (`id`, `wp_user_id`, `first_name`, `last_name`, `email`, `source`, `form_id`, `status`, `unsubscribed`, `hash`, `created_at`, `updated_at`, `is_verified`, `is_disposable`, `is_rolebased`, `is_webmail`, `is_deliverable`, `is_sendsafely`, `meta`) VALUES
+(1, 0, 'Admin', '', 'a8000004@xtec.cat', 'Migrated', 0, 'verified', 0, 'nyboat-nrdukw-uwebnv-vkjqxt-gyfatk', '2016-04-05 11:55:56', '2019-05-13 07:44:20', 1, 0, 0, 0, 1, 1, '');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_es_pluginconfig`
+-- Estructura de la taula `wp_ig_contacts_ips`
 --
 
-CREATE TABLE `wp_es_pluginconfig` (
-  `es_c_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `es_c_fromname` varchar(255) NOT NULL,
-  `es_c_fromemail` varchar(255) NOT NULL,
-  `es_c_mailtype` varchar(255) NOT NULL,
-  `es_c_adminmailoption` varchar(255) NOT NULL,
-  `es_c_adminemail` varchar(255) NOT NULL,
-  `es_c_adminmailsubject` varchar(255) NOT NULL,
-  `es_c_adminmailcontant` text,
-  `es_c_usermailoption` varchar(255) NOT NULL,
-  `es_c_usermailsubject` varchar(255) NOT NULL,
-  `es_c_usermailcontant` text,
-  `es_c_optinoption` varchar(255) NOT NULL,
-  `es_c_optinsubject` varchar(255) NOT NULL,
-  `es_c_optincontent` text,
-  `es_c_optinlink` varchar(255) NOT NULL,
-  `es_c_unsublink` varchar(255) NOT NULL,
-  `es_c_unsubtext` text,
-  `es_c_unsubhtml` text,
-  `es_c_subhtml` text,
-  `es_c_message1` text,
-  `es_c_message2` text,
-  PRIMARY KEY (`es_c_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
-
---
--- Volcado de datos para la tabla `wp_es_pluginconfig`
---
-
-INSERT INTO `wp_es_pluginconfig` (`es_c_id`, `es_c_fromname`, `es_c_fromemail`, `es_c_mailtype`, `es_c_adminmailoption`, `es_c_adminemail`, `es_c_adminmailsubject`, `es_c_adminmailcontant`, `es_c_usermailoption`, `es_c_usermailsubject`, `es_c_usermailcontant`, `es_c_optinoption`, `es_c_optinsubject`, `es_c_optincontent`, `es_c_optinlink`, `es_c_unsublink`, `es_c_unsubtext`, `es_c_unsubhtml`, `es_c_subhtml`, `es_c_message1`, `es_c_message2`) VALUES
-(1, 'Admin', 'a8000004@xtec.cat', 'WP HTML MAIL', 'YES', 'a8000004@xtec.cat', 'Màster CdA Subscripci&oacute; nova de correu', 'Hola Administrador, \r\n\r\n Hem rebut una sol·licitud de subscripci&oacute; d''aquesta adre&ccedil;a de correu electr&ograve;nic per rebre els articles del nostre lloc web. \r\n\r\n Correu electr&ograve;nic : ###EMAIL### \r\n Nom : ###NAME### \r\n\r\nGr&agrave;cies\r\nMàster CdA', 'YES', 'Màster CdA Benvingut al nostre butlletí', 'Hola ###NAME###, \r\n\r\n Hem rebut una sol·licitud de subscripci&oacute; d''aquesta adre&ccedil;a de correu electr&ograve;nic per rebre el bullet&iacute; del nostre lloc web.\r\n\r\nGr&agrave;cies\r\nMàster CdA', 'Double Opt In', 'Màster CdA confirmeu la subscripció', 'Hola ###NAME###,\r\n\r\n Hem rebut una petici&oacute; de subscripci&oacute; d''aquesta adre&ccedil;a de correu electr&ograve;nic. Confirmeu <a href=''###LINK###''>fent clic aqu&iacute;</a>. Si no podeu fer clic a l''enlla&ccedil; anterior, si us plau, utilitzeu l''URL seg&uuml;ent.\r\n\r\n ###LINK### \r\n\r\nGr&agrave;cies\r\nMàster CdA', 'http://pwc-int.educacio.intranet/agora/mastercda/?es=optin&db=###DBID###&email=###EMAIL###&guid=###GUID###', 'http://pwc-int.educacio.intranet/agora/mastercda/?es=unsubscribe&db=###DBID###&email=###EMAIL###&guid=###GUID###', 'Si no esteu interessats en rebre correus des de Màster Serveis Educatius <a href=''###LINK###''>feu clic aqu&iacute;</a> per donar-vos de baixa', 'Gr&agrave;cies, heu estat donat de baixa amb &egrave;xit. Ja no haur&iacute;eu de rebre not&iacute;cies nostres.', 'Gr&agrave;cies, heu estat subscrit amb &egrave;xit al nostre butllet&iacute; de not&iacute;cies.', 'Vaja... Aquesta subscripci&oacute; no s''ha pogut completar, ho sentim. L''adre&ccedil;a de correu electr&ograve;nic est&agrave; bloquejada o ja est&agrave; subscrita. Gr&agrave;cies.', 'Vaja... Estem tenint algun error t&egrave;cnic. Torneu-ho a provar o contacteu amb l''administrador.');
+CREATE TABLE IF NOT EXISTS `wp_ig_contacts_ips` (
+  `ip` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_es_sentdetails`
+-- Estructura de la taula `wp_ig_forms`
 --
 
-CREATE TABLE `wp_es_sentdetails` (
-  `es_sent_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `es_sent_guid` varchar(255) NOT NULL,
-  `es_sent_qstring` varchar(255) NOT NULL,
-  `es_sent_source` varchar(255) NOT NULL,
-  `es_sent_starttime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `es_sent_endtime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `es_sent_count` int(10) unsigned NOT NULL,
-  `es_sent_preview` text,
-  `es_sent_status` varchar(25) NOT NULL DEFAULT 'Sent',
-  `es_sent_type` varchar(25) NOT NULL DEFAULT 'Instant Mail',
-  `es_sent_subject` varchar(255) NOT NULL,
-  PRIMARY KEY (`es_sent_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+CREATE TABLE IF NOT EXISTS `wp_ig_forms` (
+`id` int(10) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `body` longtext COLLATE utf8mb4_unicode_ci,
+  `settings` longtext COLLATE utf8mb4_unicode_ci,
+  `styles` longtext COLLATE utf8mb4_unicode_ci,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  `af_id` int(10) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Bolcant dades de la taula `wp_ig_forms`
+--
+
+INSERT INTO `wp_ig_forms` (`id`, `name`, `body`, `settings`, `styles`, `created_at`, `updated_at`, `deleted_at`, `af_id`) VALUES
+(1, 'Widget - Subscripció de correu', 'a:4:{i:0;a:5:{s:4:"type";s:4:"text";s:4:"name";s:4:"Name";s:2:"id";s:4:"name";s:6:"params";a:3:{s:5:"label";s:4:"Name";s:4:"show";b:1;s:8:"required";b:0;}s:8:"position";i:1;}i:1;a:5:{s:4:"type";s:4:"text";s:4:"name";s:5:"Email";s:2:"id";s:5:"email";s:6:"params";a:3:{s:5:"label";s:5:"Email";s:4:"show";b:1;s:8:"required";b:1;}s:8:"position";i:2;}i:2;a:5:{s:4:"type";s:8:"checkbox";s:4:"name";s:5:"Lists";s:2:"id";s:5:"lists";s:6:"params";a:4:{s:5:"label";s:5:"Lists";s:4:"show";b:0;s:8:"required";b:1;s:6:"values";a:1:{i:0;s:1:"1";}}s:8:"position";i:3;}i:3;a:5:{s:4:"type";s:6:"submit";s:4:"name";s:6:"submit";s:2:"id";s:6:"submit";s:6:"params";a:2:{s:5:"label";s:6:"Submit";s:4:"show";b:1;}s:8:"position";i:4;}}', 'a:2:{s:5:"lists";a:1:{i:0;s:1:"1";}s:4:"desc";s:35:"T''avisarem si hi ha notícies noves";}', NULL, '2019-05-13 07:44:20', NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_es_templatetable`
+-- Estructura de la taula `wp_ig_lists`
 --
 
-CREATE TABLE `wp_es_templatetable` (
-  `es_templ_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `es_templ_heading` varchar(255) NOT NULL,
-  `es_templ_body` text,
-  `es_templ_status` varchar(25) NOT NULL DEFAULT 'Published',
-  `es_email_type` varchar(100) NOT NULL DEFAULT 'Static Template',
-  PRIMARY KEY (`es_templ_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+CREATE TABLE IF NOT EXISTS `wp_ig_lists` (
+`id` int(10) NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `wp_es_templatetable`
+-- Bolcant dades de la taula `wp_ig_lists`
 --
 
-INSERT INTO `wp_es_templatetable` (`es_templ_id`, `es_templ_heading`, `es_templ_body`, `es_templ_status`, `es_email_type`) VALUES
-(1, 'S''ha publicat un article nou:  ###POSTTITLE###', 'Hola ###NAME###,\r\n\r\nHem publicat un article nou al nostre lloc web. ###POSTTITLE###\r\n###POSTDESC###\r\nPodeu veure l''últim article a ###POSTLINK###\r\nHeu rebut aquest correu perquè vau demanar que se us notifiqués la publicació d''articles nous\r\n\r\nGràcies i salutacions\r\nAdmin', 'Published', 'Dynamic Template'),
-(2, 'Notificació d''article nou ###POSTTITLE###', 'Hola ###EMAIL###,\r\n\r\nHem publicat un article nou al nostre lloc web. ###POSTTITLE###\r\n###POSTIMAGE###\r\n###POSTFULL###\r\nPodeu veure l''últim article a ###POSTLINK###\r\nHeu rebut aquest correu perquè vau demanar que se us notifiqués la publicació d''articles nous\r\n\r\nGràcies i salutacions\r\nAdmin', 'Published', 'Dynamic Template'),
-(3, 'Butlletí Hola Món', '<strong style="color: #990000"> Subscriptors de correu</strong><p>\r\n							L\\''extensió subscripcions de correu de correu té diferents opcions per enviar butlletins als subscriptors.\r\n							Té una pàgina separada amb un editor HTML per crear	un butlletí amb aquest format.\r\n							L\\''extensió disposa d\\''opcions per enviar correus de notificació als subscriptors quan es publiquen articles nous al lloc web. També té una pàgina per poder afegir i eliminar les categories a les que s\\''enviaran les notificacions.\r\n							Utilitzant les opcions de l\\''extensió d\\''importació i exportació els administradors podran importar fàcilment els usuaris registrats.\r\n						</p> <strong style="color: #990000">Característiques de l''extensió</strong><ol> <li>Correu de notificació als subscriptors quan es publiquin articles nous.</li> <li>Giny de subscripció</li><li>Correu de subscripció amb confirmació per correu i subscripció simple per facilitar la subscripció.</li> <li>Notificació per correu electrònic a l\\''administrador quan els usuaris es subscriguin (Opcional)</li> <li>Correu de benvinguda automàtic als subscriptors (Opcional).</li> <li>Enllaç per donar-se de baixa del correu.</li> <li>Importació / Exportació dels correus dels subscriptors.</li> <li>Editor d\\''HTML per redactar el butlletí.</li> </ol> <strong>Gràcies i salutacions</strong><br>Admin', 'Published', 'Static Template');
+INSERT INTO `wp_ig_lists` (`id`, `slug`, `name`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'portada', 'Portada', '2019-05-13 07:44:20', NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_links`
+-- Estructura de la taula `wp_ig_lists_contacts`
 --
 
-CREATE TABLE `wp_links` (
-  `link_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_ig_lists_contacts` (
+`id` int(10) NOT NULL,
+  `list_id` int(10) NOT NULL,
+  `contact_id` int(10) NOT NULL,
+  `status` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `optin_type` tinyint(4) NOT NULL,
+  `subscribed_at` datetime DEFAULT NULL,
+  `subscribed_ip` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `unsubscribed_at` datetime DEFAULT NULL,
+  `unsubscribed_ip` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Bolcant dades de la taula `wp_ig_lists_contacts`
+--
+
+INSERT INTO `wp_ig_lists_contacts` (`id`, `list_id`, `contact_id`, `status`, `optin_type`, `subscribed_at`, `subscribed_ip`, `unsubscribed_at`, `unsubscribed_ip`) VALUES
+(1, 1, 1, 'subscribed', 2, '2016-04-05 11:55:56', NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de la taula `wp_ig_mailing_queue`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_ig_mailing_queue` (
+`id` int(10) NOT NULL,
+  `hash` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `campaign_id` int(10) NOT NULL DEFAULT '0',
+  `subject` text COLLATE utf8mb4_unicode_ci,
+  `body` longtext COLLATE utf8mb4_unicode_ci,
+  `count` int(10) unsigned NOT NULL DEFAULT '0',
+  `status` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `start_at` datetime DEFAULT NULL,
+  `finish_at` datetime DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de la taula `wp_ig_sending_queue`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_ig_sending_queue` (
+`id` int(10) NOT NULL,
+  `mailing_queue_id` int(10) NOT NULL DEFAULT '0',
+  `mailing_queue_hash` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `campaign_id` int(10) NOT NULL DEFAULT '0',
+  `contact_id` int(10) NOT NULL DEFAULT '0',
+  `contact_hash` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `links` longtext COLLATE utf8mb4_unicode_ci,
+  `opened` int(1) DEFAULT NULL,
+  `sent_at` datetime DEFAULT NULL,
+  `opened_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de la taula `wp_links`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_links` (
+`link_id` bigint(20) unsigned NOT NULL,
   `link_url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `link_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `link_image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
@@ -726,38 +721,34 @@ CREATE TABLE `wp_links` (
   `link_updated` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `link_rel` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `link_notes` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `link_rss` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  PRIMARY KEY (`link_id`),
-  KEY `link_visible` (`link_visible`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=1 ;
+  `link_rss` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_options`
+-- Estructura de la taula `wp_options`
 --
 
-CREATE TABLE `wp_options` (
-  `option_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_options` (
+`option_id` bigint(20) unsigned NOT NULL,
   `option_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `option_value` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `autoload` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'yes',
-  PRIMARY KEY (`option_id`),
-  UNIQUE KEY `option_name` (`option_name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=8069 ;
+  `autoload` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'yes'
+) ENGINE=InnoDB AUTO_INCREMENT=10574 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `wp_options`
+-- Bolcant dades de la taula `wp_options`
 --
 
 INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES
-(1, 'siteurl', 'http://pwc-int.educacio.intranet/agora/mastercda/', 'yes'),
+(1, 'siteurl', 'https://pwc-int.educacio.intranet/agora/mastercda/', 'yes'),
 (2, 'blogname', 'Màster CdA', 'yes'),
 (3, 'blogdescription', 'Web en construcció', 'yes'),
 (4, 'users_can_register', '0', 'yes'),
 (5, 'admin_email', 'a8000004@xtec.cat', 'yes'),
 (6, 'start_of_week', '1', 'yes'),
-(7, 'use_balanceTags', '', 'yes'),
+(7, 'use_balanceTags', '0', 'yes'),
 (8, 'use_smilies', '1', 'yes'),
 (9, 'require_name_email', '1', 'yes'),
 (10, 'comments_notify', '1', 'yes'),
@@ -781,8 +772,8 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (29, 'hack_file', '0', 'yes'),
 (30, 'blog_charset', 'UTF-8', 'yes'),
 (31, 'moderation_keys', '', 'no'),
-(32, 'active_plugins', 'a:30:{i:0;s:25:"add-to-any/add-to-any.php";i:1;s:42:"bbpress-enable-tinymce-visual-tab/init.php";i:2;s:19:"bbpress/bbpress.php";i:3;s:37:"blogger-importer/blogger-importer.php";i:4;s:33:"buddypress-activity-plus/bpfb.php";i:5;s:26:"buddypress-docs/loader.php";i:6;s:64:"buddypress-group-email-subscription/bp-activity-subscription.php";i:7;s:34:"buddypress-like/bp-like-loader.php";i:8;s:24:"buddypress/bp-loader.php";i:9;s:39:"email-subscribers/email-subscribers.php";i:10;s:41:"enllacos-educatius/enllacos-educatius.php";i:11;s:43:"google-analyticator/google-analyticator.php";i:12;s:49:"google-calendar-events/google-calendar-events.php";i:13;s:27:"grup-classe/grup_classe.php";i:14;s:31:"invite-anyone/invite-anyone.php";i:15;s:69:"pending-submission-notifications/pending-submission-notifications.php";i:16;s:27:"private-bp-pages/loader.php";i:17;s:25:"slideshare/slideshare.php";i:18;s:44:"slideshow-jquery-image-gallery/slideshow.php";i:19;s:27:"socialmedia/socialmedia.php";i:20;s:30:"table-of-contents-plus/toc.php";i:21;s:37:"tinymce-advanced/tinymce-advanced.php";i:22;s:71:"widget-visibility-without-jetpack/widget-visibility-without-jetpack.php";i:23;s:41:"wordpress-importer/wordpress-importer.php";i:24;s:42:"wordpress-social-login/wp-social-login.php";i:25;s:29:"wp-recaptcha/wp-recaptcha.php";i:26;s:29:"xtec-booking/xtec-booking.php";i:27;s:35:"xtec-ldap-login/xtec-ldap-login.php";i:28;s:23:"xtec-mail/xtec-mail.php";i:29;s:25:"xtec-stats/xtec-stats.php";}', 'yes'),
-(33, 'home', 'http://pwc-int.educacio.intranet/agora/mastercda/', 'yes'),
+(32, 'active_plugins', 'a:33:{i:0;s:25:"add-to-any/add-to-any.php";i:1;s:42:"bbpress-enable-tinymce-visual-tab/init.php";i:2;s:19:"bbpress/bbpress.php";i:3;s:37:"blogger-importer/blogger-importer.php";i:4;s:33:"buddypress-activity-plus/bpfb.php";i:5;s:26:"buddypress-docs/loader.php";i:6;s:64:"buddypress-group-email-subscription/bp-activity-subscription.php";i:7;s:34:"buddypress-like/bp-like-loader.php";i:8;s:24:"buddypress/bp-loader.php";i:9;s:39:"disable-gutenberg/disable-gutenberg.php";i:10;s:39:"email-subscribers/email-subscribers.php";i:11;s:41:"enllacos-educatius/enllacos-educatius.php";i:12;s:43:"google-analyticator/google-analyticator.php";i:13;s:49:"google-calendar-events/google-calendar-events.php";i:14;s:27:"grup-classe/grup_classe.php";i:15;s:67:"import-users-from-csv-with-meta/import-users-from-csv-with-meta.php";i:16;s:31:"invite-anyone/invite-anyone.php";i:17;s:69:"pending-submission-notifications/pending-submission-notifications.php";i:18;s:27:"private-bp-pages/loader.php";i:19;s:25:"slideshare/slideshare.php";i:20;s:44:"slideshow-jquery-image-gallery/slideshow.php";i:21;s:27:"socialmedia/socialmedia.php";i:22;s:30:"table-of-contents-plus/toc.php";i:23;s:37:"tinymce-advanced/tinymce-advanced.php";i:24;s:71:"widget-visibility-without-jetpack/widget-visibility-without-jetpack.php";i:25;s:41:"wordpress-importer/wordpress-importer.php";i:26;s:42:"wordpress-social-login/wp-social-login.php";i:27;s:33:"wordpress-telegram/wptelegram.php";i:28;s:29:"wp-recaptcha/wp-recaptcha.php";i:29;s:29:"xtec-booking/xtec-booking.php";i:30;s:35:"xtec-ldap-login/xtec-ldap-login.php";i:31;s:23:"xtec-mail/xtec-mail.php";i:32;s:25:"xtec-stats/xtec-stats.php";}', 'yes'),
+(33, 'home', 'https://pwc-int.educacio.intranet/agora/mastercda/', 'yes'),
 (34, 'category_base', '/categoria', 'yes'),
 (35, 'ping_sites', 'http://rpc.pingomatic.com/', 'yes'),
 (37, 'comment_max_links', '3', 'yes'),
@@ -797,7 +788,7 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (46, 'html_type', 'text/html', 'yes'),
 (47, 'use_trackback', '0', 'yes'),
 (48, 'default_role', 'contributor', 'yes'),
-(49, 'db_version', '36686', 'yes'),
+(49, 'db_version', '44719', 'yes'),
 (50, 'uploads_use_yearmonth_folders', '1', 'yes'),
 (51, 'upload_path', '', 'yes'),
 (52, 'blog_public', '1', 'yes'),
@@ -828,7 +819,7 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (77, 'comment_order', 'asc', 'yes'),
 (78, 'sticky_posts', 'a:0:{}', 'yes'),
 (79, 'widget_categories', 'a:2:{s:12:"_multiwidget";i:1;i:1;a:0:{}}', 'yes'),
-(80, 'widget_text', 'a:21:{i:1;a:0:{}i:2;a:3:{s:5:"title";s:0:"";s:4:"text";s:180:"<a class="twitter-timeline" data-height="450" href="https://twitter.com/cdaboi">Tweets by cdaboi</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>";s:6:"filter";b:0;}i:19;a:3:{s:5:"title";s:0:"";s:4:"text";s:0:"";s:6:"filter";s:0:"";}i:30;a:4:{s:5:"title";s:8:"Aparells";s:4:"text";s:632:"El període de préstec habitual és de 15 dies, prorrogable. Per fer una reserva:\r\n<ul>\r\n<li> Consulteu que l''aparell està disponible a la llista de reserves.\r\n<li> Afegiu un comentari dins de l''article de l''aparell amb la data d''inici i de fi.\r\n<li> Quan acceptem la vostra demanda,  apareixerà a la llista de reserves.\r\n</ul>\r\n\r\nEn el moment de recollir els aparells cal portar una <a target="_blank" href="https://pwc-int.educacio.intranet/agora/mastercda/docs/fitxa-de-peticio-de-recursos/">autorització </a>segellada i signada per la direcció del centre. Els dies de vacances el material ha de romandre al servei educatiu.";s:6:"filter";s:1:"1";s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:2:{s:5:"major";s:8:"category";s:5:"minor";s:2:"80";}}}}i:31;a:4:{s:5:"title";s:29:"Fòrum de treballs de recerca";s:4:"text";s:681:"Trobada anual on l''alumnat de Batxillerat i de Cicles formatius, exposa els seus Treballs de Recerca realitzats durant el curs. \r\n<img src="http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2015/11/search.png">\r\nEn aquest acte assisteixen les seves famílies, companys i companyes, professorat i d''altres persones interessades en observar una mostra de les produccions del món educatiu.\r\n\r\n<a href="http://pwc-int.educacio.intranet/agora/mastercda/docs/?bpd_tag=f%C3%B2rum-recerca-2015">Documentació de referència (bases, models, programa...)</a>\r\n<a href="http://xtec.gencat.cat/ca/curriculum/batxillerat/treballrecerca/">Treballs de recerca (XTEC)</a>\r\n";s:6:"filter";s:1:"1";s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:2:{s:5:"major";s:8:"category";s:5:"minor";s:2:"70";}}}}i:32;a:4:{s:5:"title";s:29:"Apadrinem el nostre patrimoni";s:4:"text";s:929:"El coneixement del patrimoni local des d’un punt de vista històric, artístic, cultural, natural i científic és important per fomentar la implicació dels alumnes en el territori i la societat. El programa <strong>Apadrinem el nostre patrimoni</strong> es basa en la idea de l’apadrinament per part d’un centre educatiu d’un element del patrimoni monumental, cultural immaterial o natural.\r\n\r\n<a href="http://xtec.gencat.cat/ca/projectes/apadrinemnostrepatrimoni/">Més informació (XTEC)</a>\r\n\r\n<h4>Mobile History Map (MHM)</h4>\r\nPermet incorporar els apadrinaments en una plataforma consultable des del web i des d''una app. \r\n\r\n<a href="http://mhm.mobileworldcapital.com/">Web</a>\r\n<a href="http://blocs.xtec.cat/mhm">Blog</a>\r\n<a href="https://play.google.com/store/apps/details?id=com.itinerarium.mhm">App (Android)</a>\r\n<a href="https://itunes.apple.com/es/app/mobile-history-map/id881510667?mt=8">App (IOS)</a>\r\n";s:6:"filter";s:1:"1";s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:2:{s:5:"major";s:8:"category";s:5:"minor";s:2:"79";}}}}i:33;a:4:{s:5:"title";s:17:"Servei comunitari";s:4:"text";s:466:"Els alumnes protagonitzen accions de compromís cívic posant en joc els seus coneixements i capacitats al servei de la comunitat.\r\n\r\n<iframe width=100% src="https://www.youtube.com/embed/5xYU9UtO9Os?rel=0" frameborder="0" allowfullscreen></iframe>\r\n\r\n<a href="http://pwc-int.educacio.intranet/agora/mastercda/docs/?bpd_tag=Servei+comunitari">Documents associats </a>\r\n<a href="http://xtec.gencat.cat/ca/comunitat/serveicomunitari/">Serveis comunitaris a XTEC</a>\r\n";s:6:"filter";s:1:"1";s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:2:{s:5:"major";s:8:"category";s:5:"minor";s:2:"77";}}}}i:34;a:4:{s:5:"title";s:8:"Contacte";s:4:"text";s:100:"<i class="fa fa-phone"></i>   555 456 789\r\n<i class="fa fa-envelope-o"></i>    se-XXXXXXXX@xtec.cat ";s:6:"filter";s:1:"1";s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:5:{i:0;a:2:{s:5:"major";s:8:"category";s:5:"minor";s:2:"63";}i:1;a:2:{s:5:"major";s:8:"category";s:5:"minor";s:2:"82";}i:2;a:2:{s:5:"major";s:4:"page";s:5:"minor";s:3:"889";}i:3;a:2:{s:5:"major";s:4:"page";s:5:"minor";s:3:"548";}i:4;a:2:{s:5:"major";s:8:"category";s:5:"minor";s:2:"80";}}}}i:36;a:4:{s:5:"title";s:22:"Motxilla bioclimàtica";s:4:"text";s:514:"<img src=https://pwc-int.educacio.intranet/agora/mastercda//wp-content/uploads/usu4/2015/11/motxillabio.png>\r\n\r\nLa motxilla bioclimàtica és un programa educatiu per a ESO i Batxillerat que pretén fomentar el diàleg entre l''educació ambiental, l''educació per la salut i l''educació científica a partir d’unes propostes didàctiques.\r\n\r\nConsulteu la disponibilitat a l''apartat <a href="https://pwc-int.educacio.intranet/agora/mastercda/categoria/recursos/maletes-pedagogiques/"> Maletes pedagògiques</a>.\r\n";s:6:"filter";s:1:"1";s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:2:{s:5:"major";s:8:"category";s:5:"minor";s:2:"74";}}}}i:37;a:4:{s:5:"title";s:0:"";s:4:"text";s:586:"<img src="https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2015/11/jocsflorals.jpg">\r\nAmb l’objectiu de potenciar i estimular l’expressió i la producció escrites dels nois i noies i fomentar i difondre una tradició cultural pròpia i arrelada al país, el Departament d''Ensenyament convoca els II Jocs florals escolars de Catalunya.\r\n\r\n<a href="https://pwc-int.educacio.intranet/agora/mastercda/docs/?bpd_tag=jocs+florals">Documentació de referència</a>\r\n<a href=http://xtec.gencat.cat/ca/centres/alscentres/premis/jocsflorals>Jocs florals (XTEC)</a>\r\n";s:6:"filter";s:1:"1";s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:2:{s:5:"major";s:8:"category";s:5:"minor";s:2:"71";}}}}i:38;a:4:{s:5:"title";s:27:"Pla Educatiu d''Entorn (PEE)";s:4:"text";s:533:"Instrument per donar una resposta integrada i comunitària a les necessitats educatives del alumnes més enllà de l’àmbit acadèmic.<img src="https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2015/11/peelogo.jpg">\r\nEs tracta de construir una xarxa estable de suport a la comunitat educativa, que permeti un treball formatiu fora de l''entorn escolar amb la col·laboració dels diferents serveis i recursos municipals i també de les altres institucions i entitats dels àmbits social, cultural i esportiu.";s:6:"filter";s:1:"1";s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:2:{s:5:"major";s:8:"category";s:5:"minor";s:2:"75";}}}}i:42;a:4:{s:5:"title";s:0:"";s:4:"text";s:343:"El servei educatiu està subscrit a totes les revistes educatives que es publiquen a Catalunya.\r\n\r\nPodeu fer la reserva afegint un comentari en aquesta mateixa pàgina. El període de préstec habitual és de 15 dies, prorrogable. \r\n\r\n<img src="http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2015/11/revistes2.jpg">\r\n";s:6:"filter";s:1:"1";s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:2:{s:5:"major";s:4:"page";s:5:"minor";s:3:"889";}}}}i:44;a:4:{s:5:"title";s:8:"Contacte";s:4:"text";s:100:"<i class="fa fa-phone"></i>   555 456 789\r\n<i class="fa fa-envelope-o"></i>    se-XXXXXXXX@xtec.cat ";s:6:"filter";s:1:"1";s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:2:{i:0;a:2:{s:5:"major";s:4:"page";s:5:"minor";s:3:"889";}i:1;a:2:{s:5:"major";s:4:"page";s:5:"minor";s:3:"906";}}}}i:46;a:4:{s:5:"title";s:3:"TAC";s:4:"text";s:1204:"Tecnologies per a l''Aprenentatge i el Coneixement\r\n<a href="https://sites.google.com/a/xtec.cat/seminaris-tac/">\r\n<img src="http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2015/11/semtac.png"></a>\r\n\r\n<a href="http://pwc-int.educacio.intranet/agora/mastercda/?attachment_id=1140">Seminaris TAC</a>\r\n<a href="http://pwc-int.educacio.intranet/agora/mastercda/nodes/tac/">Node TAC</a>\r\n\r\n<h4>Serveis i aplicacions</h4>\r\n<a href="http://agora.xtec.cat/moodle/moodle/mod/page/view.php?id=2121">Moodle</a>\r\nEntorn virtual d''aprenentatge de centre\r\n<a href="http://agora.xtec.cat/nodes">Nodes</a>\r\nEspai web i xarxa social de centre\r\n<a href="http://apliense.xtec.cat/arc/">ARC</a>\r\nAplicació de recursos al currículum\r\n<a href="http://alexandria.xtec.cat/">Alexandria</a>\r\nBiblioteca de cursos Moodle\r\n<a href="http://blocs.xtec.cat/">XTECBlocs</a>\r\nBlogs educatius\r\n<a href="http://clic.xtec.cat/ca/">JClic </a>\r\nActivitats educatives interactives\r\n<a href="http://linkat.xtec.cat/">Linkat</a>\r\nLinux educatiu en català\r\n<a href="http://toolbox.mobileworldcapital.com/">Toolbox</a>\r\nApps educatives validades per docents\r\n<a href="">Merlí</a>\r\nCatàleg de recursos educatius\r\n</ul>";s:6:"filter";s:1:"1";s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:2:{s:5:"major";s:8:"category";s:5:"minor";s:2:"78";}}}}i:48;a:4:{s:5:"title";s:18:"Biblioteca escolar";s:4:"text";s:609:"En aquest apartat us compartirem tot tipus de recursos relacionats amb les biblioteques escolars i la dinamització de la lectura.\r\n\r\n\r\n<img src="http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2015/12/biblioturu.png">\r\n\r\n<a href="http://xtec.gencat.cat/ca/projectes/biblioteca/">Biblioteca escolar (XTEC)</a>\r\n\r\n<a href="">ePergam</a>\r\nAplicació per a la gestió de llibres de la biblioteca escolar\r\n\r\n<a href="http://xtec.gencat.cat/ca/projectes/lectura/gustperlalectura/">El gust per la lectura</a>\r\nMaterial didàctic, estratègies i recursos per a la dinamització de la lectura";s:6:"filter";s:1:"1";s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:2:{s:5:"major";s:8:"category";s:5:"minor";s:2:"81";}}}}i:50;a:4:{s:5:"title";s:19:"Lectura en veu alta";s:4:"text";s:488:"<img src="http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2015/12/logoveu.png">\r\n<ul>\r\n<li>Practicar l’entonació, el ritme, les pauses i la fonètica.\r\n<li>Afavorir la comprensió lectora.\r\n<li>Treballar alguns aspectes gramaticals.\r\n<li>Afavorir l’ampliació de lèxic i vocabulari.\r\n<li>Prendre consciència de l’organització de la informació.\r\n</ul>\r\n<a href="http://www.lecturaenveualta.cat/">Lectura en veu alta (Fundació Enciclopedia Catalana)</a>";s:6:"filter";s:1:"1";s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:2:{s:5:"major";s:8:"category";s:5:"minor";s:2:"72";}}}}i:52;a:3:{s:5:"title";s:0:"";s:4:"text";s:169:"<a target="_blank" href="http://xtec.gencat.cat/ca/serveis/cda/inscripcio/" class="button big radius" style="background:#418000;\r\ncolor:white !important">Inscripció</a>";s:6:"filter";b:0;}i:54;a:3:{s:5:"title";s:11:"Xarxa meteo";s:4:"text";s:2110:"<!--Edumet-->\r\n<a href=''https://edumet.cat'' target=''_blank''><img src=''http://edumet.cat/edumet/meteo_2/imatges/xarxes/edumet.jpeg'' style=''margin-top: 10px''/></a>\r\n\r\n<!--Pronostic\r\n<a href=''http://edumet.cat/edumet/meto_2/dadespronostic.php?'' target=''_blank''><img src=''http://edumet.cat/edumet/meteo_2/imatges/xarxes/pronostic.jpg'' style=''margin-top: 10px''/></a>\r\n\r\n<!--Satčl·lit\r\n<a href=''http://edumet.cat/edumet/meto_2/dadessatelit.php'' target=''_blank''><img src=''http://edumet.cat/edumet/meteo_2/imatges/xarxes/botosatelit.jpg'' style=''margin-top: 10px''/></a>\r\n\r\n<!--Meteocat\r\n<a href=''http://edumet.cat/edumet/meto_2/dadesradar.php'' target=''_blank''><img src=''http://edumet.cat/edumet/meteo_2/imatges/xarxes/botoradar.jpeg'' style=''margin-top: 10px''/></a>\r\n\r\n<hr>\r\n<!--Meteocat\r\n<a href=''http://www.meteo.cat/'' target=''_blank''><img src=''http://edumet.cat/edumet/meteo_2/imatges/xarxes/meteocat.jpeg'' style=''margin-top: 10px''/></a>\r\n\r\n<!--MeteoPirineu-->\r\n<a href=''http://www.meteopirineu.com/'' target=''_blank''><img src=''http://edumet.cat/edumet/meteo_2/imatges/xarxes/meteopirineu.jpeg'' style=''margin-top: 10px''/></a>\r\n\r\n<!--MeteoPrades-->\r\n<a href=''http://www.meteoprades.net/estacions/'' target=''_blank''><img src=''http://edumet.cat/edumet/meteo_2/imatges/xarxes/meteoprades.jpeg'' style=''margin-top: 10px''/></a>\r\n\r\n<!--Metoclimatic-->\r\n<a href=''http://www.meteoclimatic.net/perfil/ESCAT2500000025527A'' target=''_blank''><img src=''http://edumet.cat/edumet/meteo_2/imatges/xarxes/meteoclimatic.jpeg'' style=''margin-top: 10px''/></a>\r\n\r\n<!--MeteoLillet-->\r\n<a href=''http://eltemps.lillet.net/'' target=''_blank''><img src=''http://edumet.cat/edumet/meteo_2/imatges/xarxes/meteollilet.jpeg'' style=''margin-top: 10px''/></a>\r\n\r\n<!--WeatherCloud-->\r\n<a href=''https://app.weathercloud.net/map'' target=''_blank''><img src=''http://edumet.cat/edumet/meteo_2/imatges/xarxes/weathercloud.jpeg'' style=''margin-top: 10px''/></a>\r\n\r\n<!--Clima y nieve pirineos/-->\r\n<a href=''http://www.climaynievepirineos.com/'' target=''_blank''><img src=''http://edumet.cat/edumet/meteo_2/imatges/xarxes/nieveypirineo.jpeg'' style=''margin-top: 10px''/></a>\r\n";s:6:"filter";b:0;}i:56;a:3:{s:5:"title";s:0:"";s:4:"text";s:239:"<br>\r\n<iframe src=''http://edumet.cat/edumet/meteo_2/pastilla.php?Codi_estacio=25911027&Temp&Hum&Vent&Pres&Pre&Pro&Color=f2f2f2'' height=''280px'' width=''100%'' hspace=''0'' marginheight=''0'' marginwidth=''0'' vspace=''0'' frameborder=''0'' ></iframe>\r\n";s:6:"filter";b:0;}i:58;a:4:{s:5:"title";s:21:"Xarxa de Meteorologia";s:4:"text";s:1918:"<!--Edumet-->\r\n<a href=''https://edumet.cat'' target=''_blank''><img src=''http://edumet.cat/edumet/meteo_2/imatges/xarxes/edumet.jpeg'' style=''margin-top: 10px''/></a>\r\n<!--Pronostic -->\r\n<a href=''http://edumet.cat/edumet/meteo_2/dadespronostic.php?'' target=''_blank''><img src=''http://edumet.cat/edumet/meteo_2/imatges/xarxes/pronostic.jpg'' style=''margin-top: 10px''/></a>\r\n\r\n<!--Satčl·lit -->\r\n<a href=''http://edumet.cat/edumet/meteo_2/dadessatelit.php'' target=''_blank''><img src=''http://edumet.cat/edumet/meteo_2/imatges/xarxes/botosatelit.jpg'' style=''margin-top: 10px''/></a>\r\n\r\n<!-- Radar -->\r\n<a href=''http://edumet.cat/edumet/meteo_2/dadesradar.php'' target=''_blank''><img src=''http://edumet.cat/edumet/meteo_2/imatges/xarxes/botoradar.jpg'' style=''margin-top: 10px''/></a>\r\n\r\n<hr>\r\n<!--Meteocat -->\r\n<a href=''http://www.meteo.cat/'' target=''_blank''><img src=''http://edumet.cat/edumet/meteo_2/imatges/xarxes/meteocat.jpeg'' style=''margin-top: 10px''/></a>\r\n\r\n<!--MeteoPirineu-->\r\n<a href=''http://www.meteopirineu.com/'' target=''_blank''><img src=''http://edumet.cat/edumet/meteo_2/imatges/xarxes/meteopirineu.jpeg'' style=''margin-top: 10px''/></a>\r\n\r\n<!--MeteoPrades-->\r\n<a href=''http://www.meteoprades.net/estacions/'' target=''_blank''><img src=''http://edumet.cat/edumet/meteo_2/imatges/xarxes/meteoprades.jpeg'' style=''margin-top: 10px''/></a>\r\n\r\n<!--Metoclimatic-->\r\n<a href=''http://www.meteoclimatic.net/perfil/ESCAT2500000025527A'' target=''_blank''><img src=''http://edumet.cat/edumet/meteo_2/imatges/xarxes/meteoclimatic.jpeg'' style=''margin-top: 10px''/></a>\r\n\r\n<!--MeteoLillet-->\r\n<a href=''http://eltemps.lillet.net/'' target=''_blank''><img src=''http://edumet.cat/edumet/meteo_2/imatges/xarxes/meteolillet.jpeg'' style=''margin-top: 10px''/></a>\r\n\r\n<!--WeatherCloud-->\r\n<a href=''https://app.weathercloud.net/map'' target=''_blank''><img src=''http://edumet.cat/edumet/meteo_2/imatges/xarxes/weathercloud.jpeg'' style=''margin-top: 10px''/></a>\r\n";s:6:"filter";b:0;s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:3:{s:5:"major";s:4:"page";s:5:"minor";s:3:"433";s:12:"has_children";b:0;}}}}s:12:"_multiwidget";i:1;}', 'yes'),
+(80, 'widget_text', 'a:21:{i:1;a:0:{}i:2;a:3:{s:5:"title";s:0:"";s:4:"text";s:180:"<a class="twitter-timeline" data-height="450" href="https://twitter.com/cdaboi">Tweets by cdaboi</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>";s:6:"filter";b:0;}i:19;a:3:{s:5:"title";s:0:"";s:4:"text";s:0:"";s:6:"filter";s:0:"";}i:30;a:4:{s:5:"title";s:8:"Aparells";s:4:"text";s:632:"El període de préstec habitual és de 15 dies, prorrogable. Per fer una reserva:\r\n<ul>\r\n<li> Consulteu que l''aparell està disponible a la llista de reserves.\r\n<li> Afegiu un comentari dins de l''article de l''aparell amb la data d''inici i de fi.\r\n<li> Quan acceptem la vostra demanda,  apareixerà a la llista de reserves.\r\n</ul>\r\n\r\nEn el moment de recollir els aparells cal portar una <a target="_blank" href="https://pwc-int.educacio.intranet/agora/mastercda/docs/fitxa-de-peticio-de-recursos/">autorització </a>segellada i signada per la direcció del centre. Els dies de vacances el material ha de romandre al servei educatiu.";s:6:"filter";s:1:"1";s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:2:{s:5:"major";s:8:"category";s:5:"minor";s:2:"80";}}}}i:31;a:4:{s:5:"title";s:29:"Fòrum de treballs de recerca";s:4:"text";s:683:"Trobada anual on l''alumnat de Batxillerat i de Cicles formatius, exposa els seus Treballs de Recerca realitzats durant el curs. \r\n<img src="https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2015/11/search.png">\r\nEn aquest acte assisteixen les seves famílies, companys i companyes, professorat i d''altres persones interessades en observar una mostra de les produccions del món educatiu.\r\n\r\n<a href="https://pwc-int.educacio.intranet/agora/mastercda/docs/?bpd_tag=f%C3%B2rum-recerca-2015">Documentació de referència (bases, models, programa...)</a>\r\n<a href="http://xtec.gencat.cat/ca/curriculum/batxillerat/treballrecerca/">Treballs de recerca (XTEC)</a>\r\n";s:6:"filter";s:1:"1";s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:2:{s:5:"major";s:8:"category";s:5:"minor";s:2:"70";}}}}i:32;a:4:{s:5:"title";s:29:"Apadrinem el nostre patrimoni";s:4:"text";s:929:"El coneixement del patrimoni local des d’un punt de vista històric, artístic, cultural, natural i científic és important per fomentar la implicació dels alumnes en el territori i la societat. El programa <strong>Apadrinem el nostre patrimoni</strong> es basa en la idea de l’apadrinament per part d’un centre educatiu d’un element del patrimoni monumental, cultural immaterial o natural.\r\n\r\n<a href="http://xtec.gencat.cat/ca/projectes/apadrinemnostrepatrimoni/">Més informació (XTEC)</a>\r\n\r\n<h4>Mobile History Map (MHM)</h4>\r\nPermet incorporar els apadrinaments en una plataforma consultable des del web i des d''una app. \r\n\r\n<a href="http://mhm.mobileworldcapital.com/">Web</a>\r\n<a href="http://blocs.xtec.cat/mhm">Blog</a>\r\n<a href="https://play.google.com/store/apps/details?id=com.itinerarium.mhm">App (Android)</a>\r\n<a href="https://itunes.apple.com/es/app/mobile-history-map/id881510667?mt=8">App (IOS)</a>\r\n";s:6:"filter";s:1:"1";s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:2:{s:5:"major";s:8:"category";s:5:"minor";s:2:"79";}}}}i:33;a:4:{s:5:"title";s:17:"Servei comunitari";s:4:"text";s:467:"Els alumnes protagonitzen accions de compromís cívic posant en joc els seus coneixements i capacitats al servei de la comunitat.\r\n\r\n<iframe width=100% src="https://www.youtube.com/embed/5xYU9UtO9Os?rel=0" frameborder="0" allowfullscreen></iframe>\r\n\r\n<a href="https://pwc-int.educacio.intranet/agora/mastercda/docs/?bpd_tag=Servei+comunitari">Documents associats </a>\r\n<a href="http://xtec.gencat.cat/ca/comunitat/serveicomunitari/">Serveis comunitaris a XTEC</a>\r\n";s:6:"filter";s:1:"1";s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:2:{s:5:"major";s:8:"category";s:5:"minor";s:2:"77";}}}}i:34;a:4:{s:5:"title";s:8:"Contacte";s:4:"text";s:100:"<i class="fa fa-phone"></i>   555 456 789\r\n<i class="fa fa-envelope-o"></i>    se-XXXXXXXX@xtec.cat ";s:6:"filter";s:1:"1";s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:5:{i:0;a:2:{s:5:"major";s:8:"category";s:5:"minor";s:2:"63";}i:1;a:2:{s:5:"major";s:8:"category";s:5:"minor";s:2:"82";}i:2;a:2:{s:5:"major";s:4:"page";s:5:"minor";s:3:"889";}i:3;a:2:{s:5:"major";s:4:"page";s:5:"minor";s:3:"548";}i:4;a:2:{s:5:"major";s:8:"category";s:5:"minor";s:2:"80";}}}}i:36;a:4:{s:5:"title";s:22:"Motxilla bioclimàtica";s:4:"text";s:514:"<img src=https://pwc-int.educacio.intranet/agora/mastercda//wp-content/uploads/usu4/2015/11/motxillabio.png>\r\n\r\nLa motxilla bioclimàtica és un programa educatiu per a ESO i Batxillerat que pretén fomentar el diàleg entre l''educació ambiental, l''educació per la salut i l''educació científica a partir d’unes propostes didàctiques.\r\n\r\nConsulteu la disponibilitat a l''apartat <a href="https://pwc-int.educacio.intranet/agora/mastercda/categoria/recursos/maletes-pedagogiques/"> Maletes pedagògiques</a>.\r\n";s:6:"filter";s:1:"1";s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:2:{s:5:"major";s:8:"category";s:5:"minor";s:2:"74";}}}}i:37;a:4:{s:5:"title";s:0:"";s:4:"text";s:586:"<img src="https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2015/11/jocsflorals.jpg">\r\nAmb l’objectiu de potenciar i estimular l’expressió i la producció escrites dels nois i noies i fomentar i difondre una tradició cultural pròpia i arrelada al país, el Departament d''Ensenyament convoca els II Jocs florals escolars de Catalunya.\r\n\r\n<a href="https://pwc-int.educacio.intranet/agora/mastercda/docs/?bpd_tag=jocs+florals">Documentació de referència</a>\r\n<a href=http://xtec.gencat.cat/ca/centres/alscentres/premis/jocsflorals>Jocs florals (XTEC)</a>\r\n";s:6:"filter";s:1:"1";s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:2:{s:5:"major";s:8:"category";s:5:"minor";s:2:"71";}}}}i:38;a:4:{s:5:"title";s:27:"Pla Educatiu d''Entorn (PEE)";s:4:"text";s:533:"Instrument per donar una resposta integrada i comunitària a les necessitats educatives del alumnes més enllà de l’àmbit acadèmic.<img src="https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2015/11/peelogo.jpg">\r\nEs tracta de construir una xarxa estable de suport a la comunitat educativa, que permeti un treball formatiu fora de l''entorn escolar amb la col·laboració dels diferents serveis i recursos municipals i també de les altres institucions i entitats dels àmbits social, cultural i esportiu.";s:6:"filter";s:1:"1";s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:2:{s:5:"major";s:8:"category";s:5:"minor";s:2:"75";}}}}i:42;a:4:{s:5:"title";s:0:"";s:4:"text";s:344:"El servei educatiu està subscrit a totes les revistes educatives que es publiquen a Catalunya.\r\n\r\nPodeu fer la reserva afegint un comentari en aquesta mateixa pàgina. El període de préstec habitual és de 15 dies, prorrogable. \r\n\r\n<img src="https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2015/11/revistes2.jpg">\r\n";s:6:"filter";s:1:"1";s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:2:{s:5:"major";s:4:"page";s:5:"minor";s:3:"889";}}}}i:44;a:4:{s:5:"title";s:8:"Contacte";s:4:"text";s:100:"<i class="fa fa-phone"></i>   555 456 789\r\n<i class="fa fa-envelope-o"></i>    se-XXXXXXXX@xtec.cat ";s:6:"filter";s:1:"1";s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:2:{i:0;a:2:{s:5:"major";s:4:"page";s:5:"minor";s:3:"889";}i:1;a:2:{s:5:"major";s:4:"page";s:5:"minor";s:3:"906";}}}}i:46;a:4:{s:5:"title";s:3:"TAC";s:4:"text";s:1207:"Tecnologies per a l''Aprenentatge i el Coneixement\r\n<a href="https://sites.google.com/a/xtec.cat/seminaris-tac/">\r\n<img src="httpa://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2015/11/semtac.png"></a>\r\n\r\n<a href="https://pwc-int.educacio.intranet/agora/mastercda/?attachment_id=1140">Seminaris TAC</a>\r\n<a href="https://pwc-int.educacio.intranet/agora/mastercda/nodes/tac/">Node TAC</a>\r\n\r\n<h4>Serveis i aplicacions</h4>\r\n<a href="http://agora.xtec.cat/moodle/moodle/mod/page/view.php?id=2121">Moodle</a>\r\nEntorn virtual d''aprenentatge de centre\r\n<a href="http://agora.xtec.cat/nodes">Nodes</a>\r\nEspai web i xarxa social de centre\r\n<a href="http://apliense.xtec.cat/arc/">ARC</a>\r\nAplicació de recursos al currículum\r\n<a href="http://alexandria.xtec.cat/">Alexandria</a>\r\nBiblioteca de cursos Moodle\r\n<a href="http://blocs.xtec.cat/">XTECBlocs</a>\r\nBlogs educatius\r\n<a href="http://clic.xtec.cat/ca/">JClic </a>\r\nActivitats educatives interactives\r\n<a href="http://linkat.xtec.cat/">Linkat</a>\r\nLinux educatiu en català\r\n<a href="http://toolbox.mobileworldcapital.com/">Toolbox</a>\r\nApps educatives validades per docents\r\n<a href="">Merlí</a>\r\nCatàleg de recursos educatius\r\n</ul>";s:6:"filter";s:1:"1";s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:2:{s:5:"major";s:8:"category";s:5:"minor";s:2:"78";}}}}i:48;a:4:{s:5:"title";s:18:"Biblioteca escolar";s:4:"text";s:610:"En aquest apartat us compartirem tot tipus de recursos relacionats amb les biblioteques escolars i la dinamització de la lectura.\r\n\r\n\r\n<img src="https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2015/12/biblioturu.png">\r\n\r\n<a href="http://xtec.gencat.cat/ca/projectes/biblioteca/">Biblioteca escolar (XTEC)</a>\r\n\r\n<a href="">ePergam</a>\r\nAplicació per a la gestió de llibres de la biblioteca escolar\r\n\r\n<a href="http://xtec.gencat.cat/ca/projectes/lectura/gustperlalectura/">El gust per la lectura</a>\r\nMaterial didàctic, estratègies i recursos per a la dinamització de la lectura";s:6:"filter";s:1:"1";s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:2:{s:5:"major";s:8:"category";s:5:"minor";s:2:"81";}}}}i:50;a:4:{s:5:"title";s:19:"Lectura en veu alta";s:4:"text";s:489:"<img src="https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2015/12/logoveu.png">\r\n<ul>\r\n<li>Practicar l’entonació, el ritme, les pauses i la fonètica.\r\n<li>Afavorir la comprensió lectora.\r\n<li>Treballar alguns aspectes gramaticals.\r\n<li>Afavorir l’ampliació de lèxic i vocabulari.\r\n<li>Prendre consciència de l’organització de la informació.\r\n</ul>\r\n<a href="http://www.lecturaenveualta.cat/">Lectura en veu alta (Fundació Enciclopedia Catalana)</a>";s:6:"filter";s:1:"1";s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:2:{s:5:"major";s:8:"category";s:5:"minor";s:2:"72";}}}}i:52;a:3:{s:5:"title";s:0:"";s:4:"text";s:169:"<a target="_blank" href="http://xtec.gencat.cat/ca/serveis/cda/inscripcio/" class="button big radius" style="background:#418000;\r\ncolor:white !important">Inscripció</a>";s:6:"filter";b:0;}i:54;a:3:{s:5:"title";s:11:"Xarxa meteo";s:4:"text";s:2110:"<!--Edumet-->\r\n<a href=''https://edumet.cat'' target=''_blank''><img src=''http://edumet.cat/edumet/meteo_2/imatges/xarxes/edumet.jpeg'' style=''margin-top: 10px''/></a>\r\n\r\n<!--Pronostic\r\n<a href=''http://edumet.cat/edumet/meto_2/dadespronostic.php?'' target=''_blank''><img src=''http://edumet.cat/edumet/meteo_2/imatges/xarxes/pronostic.jpg'' style=''margin-top: 10px''/></a>\r\n\r\n<!--Satčl·lit\r\n<a href=''http://edumet.cat/edumet/meto_2/dadessatelit.php'' target=''_blank''><img src=''http://edumet.cat/edumet/meteo_2/imatges/xarxes/botosatelit.jpg'' style=''margin-top: 10px''/></a>\r\n\r\n<!--Meteocat\r\n<a href=''http://edumet.cat/edumet/meto_2/dadesradar.php'' target=''_blank''><img src=''http://edumet.cat/edumet/meteo_2/imatges/xarxes/botoradar.jpeg'' style=''margin-top: 10px''/></a>\r\n\r\n<hr>\r\n<!--Meteocat\r\n<a href=''http://www.meteo.cat/'' target=''_blank''><img src=''http://edumet.cat/edumet/meteo_2/imatges/xarxes/meteocat.jpeg'' style=''margin-top: 10px''/></a>\r\n\r\n<!--MeteoPirineu-->\r\n<a href=''http://www.meteopirineu.com/'' target=''_blank''><img src=''http://edumet.cat/edumet/meteo_2/imatges/xarxes/meteopirineu.jpeg'' style=''margin-top: 10px''/></a>\r\n\r\n<!--MeteoPrades-->\r\n<a href=''http://www.meteoprades.net/estacions/'' target=''_blank''><img src=''http://edumet.cat/edumet/meteo_2/imatges/xarxes/meteoprades.jpeg'' style=''margin-top: 10px''/></a>\r\n\r\n<!--Metoclimatic-->\r\n<a href=''http://www.meteoclimatic.net/perfil/ESCAT2500000025527A'' target=''_blank''><img src=''http://edumet.cat/edumet/meteo_2/imatges/xarxes/meteoclimatic.jpeg'' style=''margin-top: 10px''/></a>\r\n\r\n<!--MeteoLillet-->\r\n<a href=''http://eltemps.lillet.net/'' target=''_blank''><img src=''http://edumet.cat/edumet/meteo_2/imatges/xarxes/meteollilet.jpeg'' style=''margin-top: 10px''/></a>\r\n\r\n<!--WeatherCloud-->\r\n<a href=''https://app.weathercloud.net/map'' target=''_blank''><img src=''http://edumet.cat/edumet/meteo_2/imatges/xarxes/weathercloud.jpeg'' style=''margin-top: 10px''/></a>\r\n\r\n<!--Clima y nieve pirineos/-->\r\n<a href=''http://www.climaynievepirineos.com/'' target=''_blank''><img src=''http://edumet.cat/edumet/meteo_2/imatges/xarxes/nieveypirineo.jpeg'' style=''margin-top: 10px''/></a>\r\n";s:6:"filter";b:0;}i:56;a:3:{s:5:"title";s:0:"";s:4:"text";s:239:"<br>\r\n<iframe src=''http://edumet.cat/edumet/meteo_2/pastilla.php?Codi_estacio=25911027&Temp&Hum&Vent&Pres&Pre&Pro&Color=f2f2f2'' height=''280px'' width=''100%'' hspace=''0'' marginheight=''0'' marginwidth=''0'' vspace=''0'' frameborder=''0'' ></iframe>\r\n";s:6:"filter";b:0;}i:58;a:4:{s:5:"title";s:21:"Xarxa de Meteorologia";s:4:"text";s:1918:"<!--Edumet-->\r\n<a href=''https://edumet.cat'' target=''_blank''><img src=''http://edumet.cat/edumet/meteo_2/imatges/xarxes/edumet.jpeg'' style=''margin-top: 10px''/></a>\r\n<!--Pronostic -->\r\n<a href=''http://edumet.cat/edumet/meteo_2/dadespronostic.php?'' target=''_blank''><img src=''http://edumet.cat/edumet/meteo_2/imatges/xarxes/pronostic.jpg'' style=''margin-top: 10px''/></a>\r\n\r\n<!--Satčl·lit -->\r\n<a href=''http://edumet.cat/edumet/meteo_2/dadessatelit.php'' target=''_blank''><img src=''http://edumet.cat/edumet/meteo_2/imatges/xarxes/botosatelit.jpg'' style=''margin-top: 10px''/></a>\r\n\r\n<!-- Radar -->\r\n<a href=''http://edumet.cat/edumet/meteo_2/dadesradar.php'' target=''_blank''><img src=''http://edumet.cat/edumet/meteo_2/imatges/xarxes/botoradar.jpg'' style=''margin-top: 10px''/></a>\r\n\r\n<hr>\r\n<!--Meteocat -->\r\n<a href=''http://www.meteo.cat/'' target=''_blank''><img src=''http://edumet.cat/edumet/meteo_2/imatges/xarxes/meteocat.jpeg'' style=''margin-top: 10px''/></a>\r\n\r\n<!--MeteoPirineu-->\r\n<a href=''http://www.meteopirineu.com/'' target=''_blank''><img src=''http://edumet.cat/edumet/meteo_2/imatges/xarxes/meteopirineu.jpeg'' style=''margin-top: 10px''/></a>\r\n\r\n<!--MeteoPrades-->\r\n<a href=''http://www.meteoprades.net/estacions/'' target=''_blank''><img src=''http://edumet.cat/edumet/meteo_2/imatges/xarxes/meteoprades.jpeg'' style=''margin-top: 10px''/></a>\r\n\r\n<!--Metoclimatic-->\r\n<a href=''http://www.meteoclimatic.net/perfil/ESCAT2500000025527A'' target=''_blank''><img src=''http://edumet.cat/edumet/meteo_2/imatges/xarxes/meteoclimatic.jpeg'' style=''margin-top: 10px''/></a>\r\n\r\n<!--MeteoLillet-->\r\n<a href=''http://eltemps.lillet.net/'' target=''_blank''><img src=''http://edumet.cat/edumet/meteo_2/imatges/xarxes/meteolillet.jpeg'' style=''margin-top: 10px''/></a>\r\n\r\n<!--WeatherCloud-->\r\n<a href=''https://app.weathercloud.net/map'' target=''_blank''><img src=''http://edumet.cat/edumet/meteo_2/imatges/xarxes/weathercloud.jpeg'' style=''margin-top: 10px''/></a>\r\n";s:6:"filter";b:0;s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:3:{s:5:"major";s:4:"page";s:5:"minor";s:3:"433";s:12:"has_children";b:0;}}}}s:12:"_multiwidget";i:1;}', 'yes'),
 (81, 'widget_rss', 'a:2:{i:1;a:0:{}s:12:"_multiwidget";i:1;}', 'yes'),
 (82, 'uninstall_plugins', 'a:0:{}', 'no'),
 (83, 'timezone_string', 'Europe/Madrid', 'yes'),
@@ -844,7 +835,7 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (93, 'widget_archives', 'a:2:{i:2;a:4:{s:5:"title";s:0:"";s:5:"count";i:0;s:8:"dropdown";i:0;s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:2:{s:5:"major";s:4:"page";s:5:"minor";s:14:"post_type-post";}}}}s:12:"_multiwidget";i:1;}', 'yes'),
 (94, 'widget_meta', 'a:2:{i:2;a:1:{s:5:"title";s:0:"";}s:12:"_multiwidget";i:1;}', 'yes'),
 (95, 'sidebars_widgets', 'a:8:{s:19:"wp_inactive_widgets";a:0:{}s:9:"categoria";a:16:{i:0;s:12:"gce_widget-4";i:1;s:7:"text-36";i:2;s:7:"text-30";i:3;s:12:"gce_widget-6";i:4;s:7:"text-31";i:5;s:7:"text-32";i:6;s:7:"text-33";i:7;s:7:"text-38";i:8;s:7:"text-34";i:9;s:7:"text-37";i:10;s:7:"text-46";i:11;s:7:"text-48";i:12;s:7:"text-50";i:13;s:11:"nav_menu-10";i:14;s:11:"nav_menu-16";i:15;s:13:"xtec_widget-6";}s:7:"sidebar";a:15:{i:0;s:10:"nav_menu-8";i:1;s:17:"slideshowwidget-2";i:2;s:18:"bp_groups_widget-2";i:3;s:14:"recent-posts-2";i:4;s:17:"recent-comments-2";i:5;s:11:"tag_cloud-3";i:6;s:10:"archives-2";i:7;s:32:"bp_core_recently_active_widget-2";i:8;s:7:"text-42";i:9;s:7:"text-44";i:10;s:11:"tag_cloud-5";i:11;s:11:"nav_menu-12";i:12;s:11:"nav_menu-14";i:13;s:13:"xtec_widget-8";i:14;s:7:"text-58";}s:9:"sidebar-2";a:0:{}s:17:"sidebar-frontpage";a:7:{i:0;s:20:"logo_centre_widget-5";i:1;s:7:"text-52";i:2;s:12:"gce_widget-2";i:3;s:7:"text-56";i:4;s:6:"text-2";i:5;s:13:"xtec_widget-2";i:6;s:19:"email-subscribers-2";}s:19:"sidebar-frontpage-2";a:0:{}s:14:"sidebar-footer";a:3:{i:0;s:20:"socialmedia_widget-2";i:1;s:7:"text-19";i:2;s:20:"logo_centre_widget-3";}s:13:"array_version";i:3;}', 'yes'),
-(96, 'cron', 'a:5:{i:1499939020;a:3:{s:17:"wp_update_plugins";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:16:"wp_update_themes";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:16:"wp_version_check";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}}i:1499939026;a:1:{s:19:"wp_scheduled_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1499940763;a:1:{s:30:"wp_scheduled_auto_draft_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1499960056;a:1:{s:12:"remove_stats";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}s:7:"version";i:2;}', 'yes'),
+(96, 'cron', 'a:8:{i:1537436620;a:3:{s:17:"wp_update_plugins";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:16:"wp_update_themes";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:16:"wp_version_check";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}}i:1537436626;a:1:{s:19:"wp_scheduled_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1537438363;a:1:{s:30:"wp_scheduled_auto_draft_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1537457656;a:1:{s:12:"remove_stats";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1557733488;a:2:{s:34:"wp_privacy_delete_old_export_files";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:6:"hourly";s:4:"args";a:0:{}s:8:"interval";i:3600;}}s:23:"ig_es_cron_fifteen_mins";a:1:{s:32:"e91d5a7a882e4ebaebb135f70ee4b675";a:3:{s:8:"schedule";s:27:"ig_es_fifteen_mins_interval";s:4:"args";a:2:{i:0;s:4:"cron";i:1;s:34:"whdxjs-qvybwp-wkdtob-dsemzu-amknid";}s:8:"interval";i:900;}}}i:1557744085;a:1:{s:25:"delete_expired_transients";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1571754039;a:1:{s:23:"ig_es_cron_fifteen_mins";a:1:{s:32:"3533f9d17b8da8f5010cc25ee58dc062";a:3:{s:8:"schedule";s:27:"ig_es_fifteen_mins_interval";s:4:"args";a:2:{i:0;s:4:"cron";i:1;s:34:"wyifls-ikzlmd-adwxps-vhtubl-rtkpow";}s:8:"interval";i:900;}}}s:7:"version";i:2;}', 'yes'),
 (118, 'recently_activated', 'a:0:{}', 'yes'),
 (123, '_bbp_db_version', '250', 'yes'),
 (124, 'bp-deactivated-components', 'a:0:{}', 'yes'),
@@ -881,8 +872,8 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (162, 'bp_moderation_options', 'a:6:{s:14:"unflagged_text";s:9:"Inadequat";s:12:"flagged_text";s:16:"No és inadequat";s:12:"active_types";a:1:{s:16:"activity_comment";s:2:"on";}s:17:"warning_threshold";i:5;s:15:"warning_forward";s:17:"a8000007@xtec.cat";s:15:"warning_message";s:297:"Several user reported one of your content as inappropriate.\r\nYou can see the content in the page: %CONTENTURL%.\r\nYou posted this content with the account "%AUTHORNAME%".\r\n\r\nA community moderator will soon review and moderate this content if necessary.\r\n--------------------\r\n[%SITENAME%] %SITEURL%";}', 'yes'),
 (163, 'bp_moderation_db_version', '-100', 'yes'),
 (166, 'gce_general', 'a:7:{s:10:"stylesheet";s:0:"";s:10:"javascript";b:0;s:7:"loading";s:12:"Carregant...";s:5:"error";s:40:"Calendari no disponible en aquest moment";s:6:"fields";b:1;s:14:"old_stylesheet";b:0;s:13:"save_settings";b:1;}', 'yes'),
-(167, 'invite_anyone', 'a:22:{s:11:"max_invites";i:5;s:23:"allow_email_invitations";s:3:"all";s:23:"message_is_customizable";s:3:"yes";s:23:"subject_is_customizable";s:2:"no";s:28:"can_send_group_invites_email";s:3:"yes";s:24:"bypass_registration_lock";s:3:"yes";s:7:"version";s:5:"1.3.1";s:23:"email_visibility_toggle";s:5:"limit";s:18:"email_since_toggle";b:0;s:10:"days_since";s:1:"0";s:17:"email_role_toggle";s:3:"yes";s:12:"minimum_role";s:13:"Administrator";s:22:"email_blacklist_toggle";b:0;s:15:"email_blacklist";s:0:"";s:23:"group_invites_can_admin";s:6:"anyone";s:29:"group_invites_can_group_admin";s:6:"anyone";s:27:"group_invites_can_group_mod";s:6:"anyone";s:30:"group_invites_can_group_member";s:5:"noone";s:32:"group_invites_enable_create_step";s:3:"yes";s:19:"cloudsponge_enabled";s:3:"off";s:26:"email_limit_invites_toggle";b:0;s:22:"limit_invites_per_user";s:2:"10";}', 'yes'),
-(168, 'invite_anyone_db_version', '1.3.12', 'yes'),
+(167, 'invite_anyone', 'a:22:{s:11:"max_invites";i:5;s:23:"allow_email_invitations";s:3:"all";s:23:"message_is_customizable";s:3:"yes";s:23:"subject_is_customizable";s:2:"no";s:28:"can_send_group_invites_email";s:3:"yes";s:24:"bypass_registration_lock";s:3:"yes";s:7:"version";s:5:"1.4.0";s:23:"email_visibility_toggle";s:5:"limit";s:18:"email_since_toggle";b:0;s:10:"days_since";s:1:"0";s:17:"email_role_toggle";s:3:"yes";s:12:"minimum_role";s:13:"Administrator";s:22:"email_blacklist_toggle";b:0;s:15:"email_blacklist";s:0:"";s:23:"group_invites_can_admin";s:6:"anyone";s:29:"group_invites_can_group_admin";s:6:"anyone";s:27:"group_invites_can_group_mod";s:6:"anyone";s:30:"group_invites_can_group_member";s:5:"noone";s:32:"group_invites_enable_create_step";s:3:"yes";s:19:"cloudsponge_enabled";s:3:"off";s:26:"email_limit_invites_toggle";b:0;s:22:"limit_invites_per_user";s:2:"10";}', 'yes'),
+(168, 'invite_anyone_db_version', '1.4.0', 'yes'),
 (169, 'slideshow-plugin-updated-from-v1-x-x-to-v2-0-1', 'updated', 'yes'),
 (170, 'slideshow-plugin-updated-from-v2-to-v2-1-20', 'updated', 'yes'),
 (171, 'slideshow-jquery-image-gallery-updated-from-v2-1-20-to-v2-1-22', 'updated', 'yes'),
@@ -902,7 +893,7 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (186, 'wsl_components_bouncer_enabled', '1', 'yes'),
 (187, 'wsl_components_diagnostics_enabled', '1', 'yes'),
 (188, 'wsl_settings_welcome_panel_enabled', '1', 'yes'),
-(189, 'wsl_settings_redirect_url', 'http://pwc-int.educacio.intranet/agora/mastercda/', 'yes'),
+(189, 'wsl_settings_redirect_url', 'https://pwc-int.educacio.intranet/agora/mastercda/', 'yes'),
 (190, 'wsl_settings_connect_with_label', 'Entra amb:', 'yes'),
 (191, 'wsl_settings_use_popup', '2', 'yes'),
 (192, 'wsl_settings_widget_display', '1', 'yes'),
@@ -962,14 +953,14 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (247, 'widget_gce_widget', 'a:4:{i:2;a:2:{s:5:"title";s:0:"";s:11:"calendar_id";i:1038;}i:4;a:2:{s:5:"title";s:0:"";s:11:"calendar_id";i:602;}i:6;a:2:{s:5:"title";s:0:"";s:11:"calendar_id";i:882;}s:12:"_multiwidget";i:1;}', 'yes'),
 (248, 'widget_slideshowwidget', 'a:3:{i:1;a:0:{}i:2;a:3:{s:5:"title";s:8:"Destacat";s:11:"slideshowId";s:3:"202";s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:2:{s:5:"major";s:4:"page";s:5:"minor";s:1:"5";}}}}s:12:"_multiwidget";i:1;}', 'yes'),
 (249, 'widget_invite-anyone-widget', 'a:2:{i:1;a:0:{}s:12:"_multiwidget";i:1;}', 'yes'),
-(250, 'widget_xtec_widget', 'a:5:{i:1;a:0:{}i:2;a:31:{s:5:"title";s:0:"";s:11:"ensenyament";s:0:"";s:4:"xtec";s:2:"on";s:6:"edu365";s:0:"";s:4:"edu3";s:0:"";s:12:"xarxa-docent";s:0:"";s:6:"ateneu";s:0:"";s:10:"alexandria";s:0:"";s:6:"linkat";s:0:"";s:5:"jclic";s:0:"";s:5:"merli";s:2:"on";s:3:"arc";s:2:"on";s:7:"odissea";s:0:"";s:4:"ampa";s:0:"";s:12:"escola-verda";s:0:"";s:4:"atri";s:0:"";s:4:"saga";s:0:"";s:14:"familia-escola";s:2:"on";s:15:"internet-segura";s:0:"";s:6:"moodle";s:0:"";s:12:"portalcentre";s:0:"";s:8:"intraweb";s:0:"";s:7:"epergam";s:0:"";s:10:"lamevaxtec";s:0:"";s:16:"serveiseducatius";s:0:"";s:9:"classroom";s:0:"";s:8:"ampa_url";s:53:"http://pwc-int.educacio.intranet/agora/mastercda/ampa";s:16:"escola-verda_url";s:127:"http://mediambient.gencat.cat/ca/05_ambits_dactuacio/educacio_i_sostenibilitat/educacio_per_a_la_sostenibilitat/escoles_verdes/";s:10:"moodle_url";s:55:"http://pwc-int.educacio.intranet/agora/mastercda/moodle";s:20:"serveiseducatius_url";s:30:"poseu-el-votre-servei-educatiu";s:13:"classroom_url";s:29:"https://classroom.google.com/";}i:6;a:28:{s:5:"title";s:19:"Enllaços educatius";s:11:"ensenyament";s:0:"";s:4:"xtec";s:0:"";s:6:"edu365";s:0:"";s:4:"edu3";s:0:"";s:12:"xarxa-docent";s:0:"";s:6:"ateneu";s:2:"on";s:10:"alexandria";s:0:"";s:6:"linkat";s:0:"";s:5:"jclic";s:0:"";s:5:"merli";s:0:"";s:3:"arc";s:0:"";s:7:"odissea";s:2:"on";s:4:"ampa";s:0:"";s:12:"escola-verda";s:0:"";s:4:"atri";s:0:"";s:4:"saga";s:0:"";s:14:"familia-escola";s:0:"";s:15:"internet-segura";s:0:"";s:6:"moodle";s:2:"on";s:12:"portalcentre";s:0:"";s:8:"intraweb";s:0:"";s:7:"epergam";s:0:"";s:10:"lamevaxtec";s:0:"";s:8:"ampa_url";s:53:"http://pwc-int.educacio.intranet/agora/mastercda/ampa";s:16:"escola-verda_url";s:44:"http://www.gencat.cat/mediamb/escolesverdes/";s:10:"moodle_url";s:55:"http://pwc-int.educacio.intranet/agora/mastercda/moodle";s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:4:{i:0;a:2:{s:5:"major";s:8:"category";s:5:"minor";s:3:"154";}i:1;a:2:{s:5:"major";s:8:"category";s:5:"minor";s:3:"156";}i:2;a:2:{s:5:"major";s:8:"category";s:5:"minor";s:3:"235";}i:3;a:2:{s:5:"major";s:8:"category";s:5:"minor";s:3:"153";}}}}i:8;a:28:{s:5:"title";s:19:"Enllaços educatius";s:11:"ensenyament";s:0:"";s:4:"xtec";s:0:"";s:6:"edu365";s:0:"";s:4:"edu3";s:0:"";s:12:"xarxa-docent";s:0:"";s:6:"ateneu";s:2:"on";s:10:"alexandria";s:0:"";s:6:"linkat";s:0:"";s:5:"jclic";s:0:"";s:5:"merli";s:0:"";s:3:"arc";s:0:"";s:7:"odissea";s:2:"on";s:4:"ampa";s:0:"";s:12:"escola-verda";s:0:"";s:4:"atri";s:0:"";s:4:"saga";s:0:"";s:14:"familia-escola";s:0:"";s:15:"internet-segura";s:0:"";s:6:"moodle";s:2:"on";s:12:"portalcentre";s:0:"";s:8:"intraweb";s:0:"";s:7:"epergam";s:0:"";s:10:"lamevaxtec";s:0:"";s:8:"ampa_url";s:53:"http://pwc-int.educacio.intranet/agora/mastercda/ampa";s:16:"escola-verda_url";s:44:"http://www.gencat.cat/mediamb/escolesverdes/";s:10:"moodle_url";s:55:"http://pwc-int.educacio.intranet/agora/mastercda/moodle";s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:8:{i:0;a:2:{s:5:"major";s:4:"page";s:5:"minor";s:3:"434";}i:1;a:2:{s:5:"major";s:4:"page";s:5:"minor";s:3:"541";}i:2;a:2:{s:5:"major";s:4:"page";s:5:"minor";s:4:"1314";}i:3;a:2:{s:5:"major";s:4:"page";s:5:"minor";s:3:"420";}i:4;a:2:{s:5:"major";s:4:"page";s:5:"minor";s:3:"448";}i:5;a:2:{s:5:"major";s:4:"page";s:5:"minor";s:3:"548";}i:6;a:2:{s:5:"major";s:4:"page";s:5:"minor";s:3:"572";}i:7;a:2:{s:5:"major";s:4:"page";s:5:"minor";s:3:"416";}}}}s:12:"_multiwidget";i:1;}', 'yes'),
+(250, 'widget_xtec_widget', 'a:5:{i:1;a:0:{}i:2;a:31:{s:5:"title";s:0:"";s:11:"ensenyament";s:0:"";s:4:"xtec";s:2:"on";s:6:"edu365";s:0:"";s:4:"edu3";s:0:"";s:12:"xarxa-docent";s:0:"";s:6:"ateneu";s:0:"";s:10:"alexandria";s:0:"";s:6:"linkat";s:0:"";s:5:"jclic";s:0:"";s:5:"merli";s:2:"on";s:3:"arc";s:2:"on";s:7:"odissea";s:0:"";s:4:"ampa";s:0:"";s:12:"escola-verda";s:0:"";s:4:"atri";s:0:"";s:4:"saga";s:0:"";s:14:"familia-escola";s:2:"on";s:15:"internet-segura";s:0:"";s:6:"moodle";s:0:"";s:12:"portalcentre";s:0:"";s:8:"intraweb";s:0:"";s:7:"epergam";s:0:"";s:10:"lamevaxtec";s:0:"";s:16:"serveiseducatius";s:0:"";s:9:"classroom";s:0:"";s:8:"ampa_url";s:54:"https://pwc-int.educacio.intranet/agora/mastercda/ampa";s:16:"escola-verda_url";s:127:"http://mediambient.gencat.cat/ca/05_ambits_dactuacio/educacio_i_sostenibilitat/educacio_per_a_la_sostenibilitat/escoles_verdes/";s:10:"moodle_url";s:56:"https://pwc-int.educacio.intranet/agora/mastercda/moodle";s:20:"serveiseducatius_url";s:30:"poseu-el-votre-servei-educatiu";s:13:"classroom_url";s:29:"https://classroom.google.com/";}i:6;a:28:{s:5:"title";s:19:"Enllaços educatius";s:11:"ensenyament";s:0:"";s:4:"xtec";s:0:"";s:6:"edu365";s:0:"";s:4:"edu3";s:0:"";s:12:"xarxa-docent";s:0:"";s:6:"ateneu";s:2:"on";s:10:"alexandria";s:0:"";s:6:"linkat";s:0:"";s:5:"jclic";s:0:"";s:5:"merli";s:0:"";s:3:"arc";s:0:"";s:7:"odissea";s:2:"on";s:4:"ampa";s:0:"";s:12:"escola-verda";s:0:"";s:4:"atri";s:0:"";s:4:"saga";s:0:"";s:14:"familia-escola";s:0:"";s:15:"internet-segura";s:0:"";s:6:"moodle";s:2:"on";s:12:"portalcentre";s:0:"";s:8:"intraweb";s:0:"";s:7:"epergam";s:0:"";s:10:"lamevaxtec";s:0:"";s:8:"ampa_url";s:54:"https://pwc-int.educacio.intranet/agora/mastercda/ampa";s:16:"escola-verda_url";s:44:"http://www.gencat.cat/mediamb/escolesverdes/";s:10:"moodle_url";s:56:"https://pwc-int.educacio.intranet/agora/mastercda/moodle";s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:4:{i:0;a:2:{s:5:"major";s:8:"category";s:5:"minor";s:3:"154";}i:1;a:2:{s:5:"major";s:8:"category";s:5:"minor";s:3:"156";}i:2;a:2:{s:5:"major";s:8:"category";s:5:"minor";s:3:"235";}i:3;a:2:{s:5:"major";s:8:"category";s:5:"minor";s:3:"153";}}}}i:8;a:28:{s:5:"title";s:19:"Enllaços educatius";s:11:"ensenyament";s:0:"";s:4:"xtec";s:0:"";s:6:"edu365";s:0:"";s:4:"edu3";s:0:"";s:12:"xarxa-docent";s:0:"";s:6:"ateneu";s:2:"on";s:10:"alexandria";s:0:"";s:6:"linkat";s:0:"";s:5:"jclic";s:0:"";s:5:"merli";s:0:"";s:3:"arc";s:0:"";s:7:"odissea";s:2:"on";s:4:"ampa";s:0:"";s:12:"escola-verda";s:0:"";s:4:"atri";s:0:"";s:4:"saga";s:0:"";s:14:"familia-escola";s:0:"";s:15:"internet-segura";s:0:"";s:6:"moodle";s:2:"on";s:12:"portalcentre";s:0:"";s:8:"intraweb";s:0:"";s:7:"epergam";s:0:"";s:10:"lamevaxtec";s:0:"";s:8:"ampa_url";s:54:"https://pwc-int.educacio.intranet/agora/mastercda/ampa";s:16:"escola-verda_url";s:44:"http://www.gencat.cat/mediamb/escolesverdes/";s:10:"moodle_url";s:56:"https://pwc-int.educacio.intranet/agora/mastercda/moodle";s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:8:{i:0;a:2:{s:5:"major";s:4:"page";s:5:"minor";s:3:"434";}i:1;a:2:{s:5:"major";s:4:"page";s:5:"minor";s:3:"541";}i:2;a:2:{s:5:"major";s:4:"page";s:5:"minor";s:4:"1314";}i:3;a:2:{s:5:"major";s:4:"page";s:5:"minor";s:3:"420";}i:4;a:2:{s:5:"major";s:4:"page";s:5:"minor";s:3:"448";}i:5;a:2:{s:5:"major";s:4:"page";s:5:"minor";s:3:"548";}i:6;a:2:{s:5:"major";s:4:"page";s:5:"minor";s:3:"572";}i:7;a:2:{s:5:"major";s:4:"page";s:5:"minor";s:3:"416";}}}}s:12:"_multiwidget";i:1;}', 'yes'),
 (251, 'widget_logo_centre_widget', 'a:4:{i:1;a:0:{}i:3;a:1:{s:5:"title";s:0:"";}s:12:"_multiwidget";i:1;i:5;a:0:{}}', 'yes'),
-(252, 'reactor_options', 'a:23:{s:15:"tamany_font_nom";s:5:"2.5vw";s:16:"imatge_capcalera";s:0:"";s:8:"carrusel";s:3:"107";s:10:"logo_image";s:93:"http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2016/06/garrotxa.png";s:16:"nomCanonicCentre";s:11:"Màster CdA";s:14:"direccioCentre";s:16:"Via Augusta, 202";s:8:"cpCentre";s:21:"08021 Abella de Xerta";s:9:"telCentre";s:10:"12 345 678";s:10:"googleMaps";s:60:"https://www.google.com/maps/@41.605896,1.723144,10z?hl=ca-ES";s:13:"paleta_colors";s:5:"verds";s:14:"frontpage_page";s:1:"9";s:23:"frontpage_post_category";s:2:"29";s:16:"frontpage_layout";s:4:"2c-l";s:26:"frontpage_posts_per_fila_1";s:1:"2";s:26:"frontpage_posts_per_fila_2";s:1:"2";s:26:"frontpage_posts_per_fila_n";s:1:"2";s:22:"frontpage_number_posts";s:2:"15";s:21:"frontpage_link_titles";s:1:"1";s:13:"post_readmore";s:14:"Llegeix més»";s:13:"favicon_image";s:92:"http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2015/12/favicon.ico";s:11:"logo_inline";s:1:"1";s:14:"contacteCentre";s:65:"http://pwc-int.educacio.intranet/agora/mastercda/linstitut/on-som";s:12:"correuCentre";s:0:"";}', 'yes'),
+(252, 'reactor_options', 'a:23:{s:15:"tamany_font_nom";s:5:"2.5vw";s:16:"imatge_capcalera";s:0:"";s:8:"carrusel";s:3:"107";s:10:"logo_image";s:94:"https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2016/06/garrotxa.png";s:16:"nomCanonicCentre";s:11:"Màster CdA";s:14:"direccioCentre";s:16:"Via Augusta, 202";s:8:"cpCentre";s:21:"08021 Abella de Xerta";s:9:"telCentre";s:10:"12 345 678";s:10:"googleMaps";s:60:"https://www.google.com/maps/@41.605896,1.723144,10z?hl=ca-ES";s:13:"paleta_colors";s:5:"verds";s:14:"frontpage_page";s:1:"9";s:23:"frontpage_post_category";s:2:"29";s:16:"frontpage_layout";s:4:"2c-l";s:26:"frontpage_posts_per_fila_1";s:1:"2";s:26:"frontpage_posts_per_fila_2";s:1:"2";s:26:"frontpage_posts_per_fila_n";s:1:"2";s:22:"frontpage_number_posts";s:2:"15";s:21:"frontpage_link_titles";s:1:"1";s:13:"post_readmore";s:14:"Llegeix més»";s:13:"favicon_image";s:93:"https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2015/12/favicon.ico";s:11:"logo_inline";s:1:"1";s:14:"contacteCentre";s:66:"https://pwc-int.educacio.intranet/agora/mastercda/linstitut/on-som";s:12:"correuCentre";s:0:"";}', 'yes'),
 (253, 'icones_capcalera', '', 'yes'),
 (256, 'tadv_settings', 'a:6:{s:7:"options";s:15:"menubar,advlist";s:9:"toolbar_1";s:117:"bold,italic,blockquote,bullist,numlist,alignleft,aligncenter,alignright,link,unlink,table,fullscreen,undo,redo,wp_adv";s:9:"toolbar_2";s:121:"formatselect,alignjustify,strikethrough,outdent,indent,pastetext,removeformat,charmap,wp_more,emoticons,forecolor,wp_help";s:9:"toolbar_3";s:0:"";s:9:"toolbar_4";s:0:"";s:7:"plugins";s:107:"anchor,code,insertdatetime,nonbreaking,print,searchreplace,table,visualblocks,visualchars,emoticons,advlist";}', 'yes'),
 (257, 'tadv_admin_settings', 'a:1:{s:7:"options";a:0:{}}', 'yes'),
 (258, 'tadv_version', '4000', 'yes'),
-(290, 'my_option_name', 'a:16:{s:5:"icon1";s:10:"admin-home";s:10:"link_icon1";s:0:"";s:11:"title_icon1";s:5:"Inici";s:5:"icon2";s:14:"format-gallery";s:10:"link_icon2";s:70:"http://pwc-int.educacio.intranet/agora/mastercda/visites/fotos-videos/";s:11:"title_icon2";s:5:"Fotos";s:5:"icon3";s:18:"welcome-write-blog";s:10:"link_icon3";s:49:"http://xtec.gencat.cat/ca/serveis/cda/inscripcio/";s:11:"title_icon3";s:11:"Inscripció";s:5:"icon4";s:5:"cloud";s:10:"link_icon4";s:12:"meteorologia";s:11:"title_icon4";s:5:"meteo";s:5:"icon5";s:6:"groups";s:10:"link_icon5";s:9:"activitat";s:11:"title_icon5";s:8:"intranet";s:14:"show_text_icon";s:2:"si";}', 'yes'),
+(290, 'my_option_name', 'a:16:{s:5:"icon1";s:10:"admin-home";s:10:"link_icon1";s:0:"";s:11:"title_icon1";s:5:"Inici";s:5:"icon2";s:14:"format-gallery";s:10:"link_icon2";s:71:"https://pwc-int.educacio.intranet/agora/mastercda/visites/fotos-videos/";s:11:"title_icon2";s:5:"Fotos";s:5:"icon3";s:18:"welcome-write-blog";s:10:"link_icon3";s:49:"http://xtec.gencat.cat/ca/serveis/cda/inscripcio/";s:11:"title_icon3";s:11:"Inscripció";s:5:"icon4";s:5:"cloud";s:10:"link_icon4";s:12:"meteorologia";s:11:"title_icon4";s:5:"meteo";s:5:"icon5";s:6:"groups";s:10:"link_icon5";s:9:"activitat";s:11:"title_icon5";s:8:"intranet";s:14:"show_text_icon";s:2:"si";}', 'yes'),
 (308, 'widget_bp_core_friends_widget', 'a:2:{i:1;a:0:{}s:12:"_multiwidget";i:1;}', 'yes'),
 (353, 'nav_menu_options', 'a:2:{i:0;b:0;s:8:"auto_add";a:0:{}}', 'yes'),
 (484, 'bpfb', 'a:5:{s:5:"theme";s:3:"new";s:9:"alignment";s:4:"left";s:12:"oembed_width";i:450;s:20:"thumbnail_size_width";i:450;s:21:"thumbnail_size_height";i:450;}', 'yes'),
@@ -1005,7 +996,7 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (1126, 'ga_annon', '', 'yes'),
 (1127, 'ga_defaults', 'yes', 'yes'),
 (1128, 'ga_google_token', '', 'yes'),
-(1145, 'widget_socialmedia_widget', 'a:3:{i:1;a:0:{}i:2;a:21:{s:5:"title";s:12:"Segueix-nos!";s:4:"mida";s:7:"fa-2-5x";s:11:"twitter_url";s:16:"twitter institut";s:12:"facebook_url";s:17:"facebook institut";s:15:"google-plus_url";s:0:"";s:11:"youtube_url";s:16:"youtube institut";s:9:"vimeo_url";s:0:"";s:10:"picasa_url";s:0:"";s:10:"flickr_url";s:0:"";s:13:"pinterest_url";s:0:"";s:13:"instagram_url";s:0:"";s:10:"tumblr_url";s:0:"";s:14:"soundcloud_url";s:0:"";s:11:"dropbox_url";s:0:"";s:7:"rss_url";s:53:"http://pwc-int.educacio.intranet/agora/mastercda/feed";s:9:"email_url";s:0:"";s:10:"moodle_url";s:0:"";s:14:"xarxanodes_url";s:0:"";s:8:"docs_url";s:0:"";s:9:"fotos_url";s:0:"";s:9:"video_url";s:0:"";}s:12:"_multiwidget";i:1;}', 'yes'),
+(1145, 'widget_socialmedia_widget', 'a:3:{i:1;a:0:{}i:2;a:21:{s:5:"title";s:12:"Segueix-nos!";s:4:"mida";s:7:"fa-2-5x";s:11:"twitter_url";s:16:"twitter institut";s:12:"facebook_url";s:17:"facebook institut";s:15:"google-plus_url";s:0:"";s:11:"youtube_url";s:16:"youtube institut";s:9:"vimeo_url";s:0:"";s:10:"picasa_url";s:0:"";s:10:"flickr_url";s:0:"";s:13:"pinterest_url";s:0:"";s:13:"instagram_url";s:0:"";s:10:"tumblr_url";s:0:"";s:14:"soundcloud_url";s:0:"";s:11:"dropbox_url";s:0:"";s:7:"rss_url";s:54:"https://pwc-int.educacio.intranet/agora/mastercda/feed";s:9:"email_url";s:0:"";s:10:"moodle_url";s:0:"";s:14:"xarxanodes_url";s:0:"";s:8:"docs_url";s:0:"";s:9:"fotos_url";s:0:"";s:9:"video_url";s:0:"";}s:12:"_multiwidget";i:1;}', 'yes'),
 (1177, 'wsl_settings_Google_app_scope', 'profile https://www.googleapis.com/auth/plus.profile.emails.read', 'yes'),
 (1280, 'WPLANG', 'ca', 'yes'),
 (1281, 'db_upgraded', '', 'yes'),
@@ -1092,7 +1083,7 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (4625, 'widget_widget_recent_bp_docs', 'a:2:{i:1;a:0:{}s:12:"_multiwidget";i:1;}', 'yes'),
 (4738, 'bp_docs_associated_item_children', 'a:0:{}', 'yes');
 INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES
-(4739, 'rewrite_rules', 'a:321:{s:14:"docs/create/?$";s:52:"index.php?post_type=bp_doc&name=$matches[1]&create=1";s:17:"docs/my-groups/?$";s:55:"index.php?post_type=bp_doc&name=$matches[1]&my-groups=1";s:20:"docs/([^/]+)/edit/?$";s:50:"index.php?post_type=bp_doc&name=$matches[1]&edit=1";s:23:"docs/([^/]+)/history/?$";s:53:"index.php?post_type=bp_doc&name=$matches[1]&history=1";s:22:"docs/([^/]+)/delete/?$";s:53:"index.php?post_type=bp_doc&name=$matches[1]&history=1";s:23:"docs/([^/]+)/untrash/?$";s:53:"index.php?post_type=bp_doc&name=$matches[1]&untrash=1";s:33:"docs/([^/]+)/unlink-from-group/?$";s:63:"index.php?post_type=bp_doc&name=$matches[1]&unlink-from-group=1";s:9:"forums/?$";s:25:"index.php?post_type=forum";s:39:"forums/feed/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?post_type=forum&feed=$matches[1]";s:34:"forums/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?post_type=forum&feed=$matches[1]";s:26:"forums/page/([0-9]{1,})/?$";s:43:"index.php?post_type=forum&paged=$matches[1]";s:9:"topics/?$";s:25:"index.php?post_type=topic";s:39:"topics/feed/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?post_type=topic&feed=$matches[1]";s:34:"topics/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?post_type=topic&feed=$matches[1]";s:26:"topics/page/([0-9]{1,})/?$";s:43:"index.php?post_type=topic&paged=$matches[1]";s:28:"forums/forum/([^/]+)/edit/?$";s:34:"index.php?forum=$matches[1]&edit=1";s:28:"forums/topic/([^/]+)/edit/?$";s:34:"index.php?topic=$matches[1]&edit=1";s:28:"forums/reply/([^/]+)/edit/?$";s:34:"index.php?reply=$matches[1]&edit=1";s:32:"forums/topic-tag/([^/]+)/edit/?$";s:38:"index.php?topic-tag=$matches[1]&edit=1";s:48:"forums/users/([^/]+)/topics/page/?([0-9]{1,})/?$";s:59:"index.php?bbp_user=$matches[1]&bbp_tops=1&paged=$matches[2]";s:49:"forums/users/([^/]+)/replies/page/?([0-9]{1,})/?$";s:59:"index.php?bbp_user=$matches[1]&bbp_reps=1&paged=$matches[2]";s:51:"forums/users/([^/]+)/favorites/page/?([0-9]{1,})/?$";s:59:"index.php?bbp_user=$matches[1]&bbp_favs=1&paged=$matches[2]";s:55:"forums/users/([^/]+)/subscriptions/page/?([0-9]{1,})/?$";s:59:"index.php?bbp_user=$matches[1]&bbp_subs=1&paged=$matches[2]";s:30:"forums/users/([^/]+)/topics/?$";s:41:"index.php?bbp_user=$matches[1]&bbp_tops=1";s:31:"forums/users/([^/]+)/replies/?$";s:41:"index.php?bbp_user=$matches[1]&bbp_reps=1";s:33:"forums/users/([^/]+)/favorites/?$";s:41:"index.php?bbp_user=$matches[1]&bbp_favs=1";s:37:"forums/users/([^/]+)/subscriptions/?$";s:41:"index.php?bbp_user=$matches[1]&bbp_subs=1";s:28:"forums/users/([^/]+)/edit/?$";s:37:"index.php?bbp_user=$matches[1]&edit=1";s:23:"forums/users/([^/]+)/?$";s:30:"index.php?bbp_user=$matches[1]";s:40:"forums/view/([^/]+)/page/?([0-9]{1,})/?$";s:48:"index.php?bbp_view=$matches[1]&paged=$matches[2]";s:27:"forums/view/([^/]+)/feed/?$";s:47:"index.php?bbp_view=$matches[1]&feed=$matches[2]";s:22:"forums/view/([^/]+)/?$";s:30:"index.php?bbp_view=$matches[1]";s:34:"forums/search/page/?([0-9]{1,})/?$";s:27:"index.php?paged=$matches[1]";s:16:"forums/search/?$";s:20:"index.php?bbp_search";s:11:"^wp-json/?$";s:22:"index.php?rest_route=/";s:14:"^wp-json/(.*)?";s:33:"index.php?rest_route=/$matches[1]";s:7:"docs/?$";s:26:"index.php?post_type=bp_doc";s:37:"docs/feed/(feed|rdf|rss|rss2|atom)/?$";s:43:"index.php?post_type=bp_doc&feed=$matches[1]";s:32:"docs/(feed|rdf|rss|rss2|atom)/?$";s:43:"index.php?post_type=bp_doc&feed=$matches[1]";s:24:"docs/page/([0-9]{1,})/?$";s:44:"index.php?post_type=bp_doc&paged=$matches[1]";s:12:"slideshow/?$";s:29:"index.php?post_type=slideshow";s:42:"slideshow/feed/(feed|rdf|rss|rss2|atom)/?$";s:46:"index.php?post_type=slideshow&feed=$matches[1]";s:37:"slideshow/(feed|rdf|rss|rss2|atom)/?$";s:46:"index.php?post_type=slideshow&feed=$matches[1]";s:29:"slideshow/page/([0-9]{1,})/?$";s:47:"index.php?post_type=slideshow&paged=$matches[1]";s:48:"categoria/(.+?)/feed/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?category_name=$matches[1]&feed=$matches[2]";s:43:"categoria/(.+?)/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?category_name=$matches[1]&feed=$matches[2]";s:24:"categoria/(.+?)/embed/?$";s:46:"index.php?category_name=$matches[1]&embed=true";s:36:"categoria/(.+?)/page/?([0-9]{1,})/?$";s:53:"index.php?category_name=$matches[1]&paged=$matches[2]";s:18:"categoria/(.+?)/?$";s:35:"index.php?category_name=$matches[1]";s:44:"tag/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?tag=$matches[1]&feed=$matches[2]";s:39:"tag/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?tag=$matches[1]&feed=$matches[2]";s:20:"tag/([^/]+)/embed/?$";s:36:"index.php?tag=$matches[1]&embed=true";s:32:"tag/([^/]+)/page/?([0-9]{1,})/?$";s:43:"index.php?tag=$matches[1]&paged=$matches[2]";s:14:"tag/([^/]+)/?$";s:25:"index.php?tag=$matches[1]";s:45:"type/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?post_format=$matches[1]&feed=$matches[2]";s:40:"type/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?post_format=$matches[1]&feed=$matches[2]";s:21:"type/([^/]+)/embed/?$";s:44:"index.php?post_format=$matches[1]&embed=true";s:33:"type/([^/]+)/page/?([0-9]{1,})/?$";s:51:"index.php?post_format=$matches[1]&paged=$matches[2]";s:15:"type/([^/]+)/?$";s:33:"index.php?post_format=$matches[1]";s:38:"forums/forum/.+?/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:48:"forums/forum/.+?/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:68:"forums/forum/.+?/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:63:"forums/forum/.+?/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:63:"forums/forum/.+?/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:44:"forums/forum/.+?/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:27:"forums/forum/(.+?)/embed/?$";s:38:"index.php?forum=$matches[1]&embed=true";s:31:"forums/forum/(.+?)/trackback/?$";s:32:"index.php?forum=$matches[1]&tb=1";s:51:"forums/forum/(.+?)/feed/(feed|rdf|rss|rss2|atom)/?$";s:44:"index.php?forum=$matches[1]&feed=$matches[2]";s:46:"forums/forum/(.+?)/(feed|rdf|rss|rss2|atom)/?$";s:44:"index.php?forum=$matches[1]&feed=$matches[2]";s:39:"forums/forum/(.+?)/page/?([0-9]{1,})/?$";s:45:"index.php?forum=$matches[1]&paged=$matches[2]";s:46:"forums/forum/(.+?)/comment-page-([0-9]{1,})/?$";s:45:"index.php?forum=$matches[1]&cpage=$matches[2]";s:35:"forums/forum/(.+?)(?:/([0-9]+))?/?$";s:44:"index.php?forum=$matches[1]&page=$matches[2]";s:40:"forums/topic/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:50:"forums/topic/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:70:"forums/topic/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:65:"forums/topic/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:65:"forums/topic/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:46:"forums/topic/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:29:"forums/topic/([^/]+)/embed/?$";s:38:"index.php?topic=$matches[1]&embed=true";s:33:"forums/topic/([^/]+)/trackback/?$";s:32:"index.php?topic=$matches[1]&tb=1";s:53:"forums/topic/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:44:"index.php?topic=$matches[1]&feed=$matches[2]";s:48:"forums/topic/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:44:"index.php?topic=$matches[1]&feed=$matches[2]";s:41:"forums/topic/([^/]+)/page/?([0-9]{1,})/?$";s:45:"index.php?topic=$matches[1]&paged=$matches[2]";s:48:"forums/topic/([^/]+)/comment-page-([0-9]{1,})/?$";s:45:"index.php?topic=$matches[1]&cpage=$matches[2]";s:37:"forums/topic/([^/]+)(?:/([0-9]+))?/?$";s:44:"index.php?topic=$matches[1]&page=$matches[2]";s:29:"forums/topic/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:39:"forums/topic/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:59:"forums/topic/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:54:"forums/topic/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:54:"forums/topic/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:35:"forums/topic/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:40:"forums/reply/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:50:"forums/reply/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:70:"forums/reply/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:65:"forums/reply/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:65:"forums/reply/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:46:"forums/reply/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:29:"forums/reply/([^/]+)/embed/?$";s:38:"index.php?reply=$matches[1]&embed=true";s:33:"forums/reply/([^/]+)/trackback/?$";s:32:"index.php?reply=$matches[1]&tb=1";s:41:"forums/reply/([^/]+)/page/?([0-9]{1,})/?$";s:45:"index.php?reply=$matches[1]&paged=$matches[2]";s:48:"forums/reply/([^/]+)/comment-page-([0-9]{1,})/?$";s:45:"index.php?reply=$matches[1]&cpage=$matches[2]";s:37:"forums/reply/([^/]+)(?:/([0-9]+))?/?$";s:44:"index.php?reply=$matches[1]&page=$matches[2]";s:29:"forums/reply/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:39:"forums/reply/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:59:"forums/reply/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:54:"forums/reply/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:54:"forums/reply/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:35:"forums/reply/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:57:"forums/topic-tag/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:48:"index.php?topic-tag=$matches[1]&feed=$matches[2]";s:52:"forums/topic-tag/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:48:"index.php?topic-tag=$matches[1]&feed=$matches[2]";s:33:"forums/topic-tag/([^/]+)/embed/?$";s:42:"index.php?topic-tag=$matches[1]&embed=true";s:45:"forums/topic-tag/([^/]+)/page/?([0-9]{1,})/?$";s:49:"index.php?topic-tag=$matches[1]&paged=$matches[2]";s:27:"forums/topic-tag/([^/]+)/?$";s:31:"index.php?topic-tag=$matches[1]";s:42:"forums/search/([^/]+)/page/?([0-9]{1,})/?$";s:50:"index.php?bbp_search=$matches[1]&paged=$matches[2]";s:24:"forums/search/([^/]+)/?$";s:32:"index.php?bbp_search=$matches[1]";s:38:"ia_invites/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:48:"ia_invites/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:68:"ia_invites/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:63:"ia_invites/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:63:"ia_invites/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:44:"ia_invites/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:27:"ia_invites/([^/]+)/embed/?$";s:43:"index.php?ia_invites=$matches[1]&embed=true";s:31:"ia_invites/([^/]+)/trackback/?$";s:37:"index.php?ia_invites=$matches[1]&tb=1";s:39:"ia_invites/([^/]+)/page/?([0-9]{1,})/?$";s:50:"index.php?ia_invites=$matches[1]&paged=$matches[2]";s:46:"ia_invites/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?ia_invites=$matches[1]&cpage=$matches[2]";s:35:"ia_invites/([^/]+)(?:/([0-9]+))?/?$";s:49:"index.php?ia_invites=$matches[1]&page=$matches[2]";s:27:"ia_invites/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:37:"ia_invites/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:57:"ia_invites/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:52:"ia_invites/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:52:"ia_invites/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:33:"ia_invites/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:52:"ia_invitees/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?ia_invitees=$matches[1]&feed=$matches[2]";s:47:"ia_invitees/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?ia_invitees=$matches[1]&feed=$matches[2]";s:28:"ia_invitees/([^/]+)/embed/?$";s:44:"index.php?ia_invitees=$matches[1]&embed=true";s:40:"ia_invitees/([^/]+)/page/?([0-9]{1,})/?$";s:51:"index.php?ia_invitees=$matches[1]&paged=$matches[2]";s:22:"ia_invitees/([^/]+)/?$";s:33:"index.php?ia_invitees=$matches[1]";s:58:"ia_invited_groups/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:56:"index.php?ia_invited_groups=$matches[1]&feed=$matches[2]";s:53:"ia_invited_groups/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:56:"index.php?ia_invited_groups=$matches[1]&feed=$matches[2]";s:34:"ia_invited_groups/([^/]+)/embed/?$";s:50:"index.php?ia_invited_groups=$matches[1]&embed=true";s:46:"ia_invited_groups/([^/]+)/page/?([0-9]{1,})/?$";s:57:"index.php?ia_invited_groups=$matches[1]&paged=$matches[2]";s:28:"ia_invited_groups/([^/]+)/?$";s:39:"index.php?ia_invited_groups=$matches[1]";s:54:"calendar_feed/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:66:"index.php?taxonomy=calendar_feed&term=$matches[1]&feed=$matches[2]";s:49:"calendar_feed/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:66:"index.php?taxonomy=calendar_feed&term=$matches[1]&feed=$matches[2]";s:30:"calendar_feed/([^/]+)/embed/?$";s:60:"index.php?taxonomy=calendar_feed&term=$matches[1]&embed=true";s:42:"calendar_feed/([^/]+)/page/?([0-9]{1,})/?$";s:67:"index.php?taxonomy=calendar_feed&term=$matches[1]&paged=$matches[2]";s:24:"calendar_feed/([^/]+)/?$";s:49:"index.php?taxonomy=calendar_feed&term=$matches[1]";s:54:"calendar_type/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:66:"index.php?taxonomy=calendar_type&term=$matches[1]&feed=$matches[2]";s:49:"calendar_type/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:66:"index.php?taxonomy=calendar_type&term=$matches[1]&feed=$matches[2]";s:30:"calendar_type/([^/]+)/embed/?$";s:60:"index.php?taxonomy=calendar_type&term=$matches[1]&embed=true";s:42:"calendar_type/([^/]+)/page/?([0-9]{1,})/?$";s:67:"index.php?taxonomy=calendar_type&term=$matches[1]&paged=$matches[2]";s:24:"calendar_type/([^/]+)/?$";s:49:"index.php?taxonomy=calendar_type&term=$matches[1]";s:58:"calendar_category/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:56:"index.php?calendar_category=$matches[1]&feed=$matches[2]";s:53:"calendar_category/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:56:"index.php?calendar_category=$matches[1]&feed=$matches[2]";s:34:"calendar_category/([^/]+)/embed/?$";s:50:"index.php?calendar_category=$matches[1]&embed=true";s:46:"calendar_category/([^/]+)/page/?([0-9]{1,})/?$";s:57:"index.php?calendar_category=$matches[1]&paged=$matches[2]";s:28:"calendar_category/([^/]+)/?$";s:39:"index.php?calendar_category=$matches[1]";s:36:"calendar/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:46:"calendar/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:66:"calendar/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:61:"calendar/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:61:"calendar/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:42:"calendar/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:25:"calendar/([^/]+)/embed/?$";s:41:"index.php?calendar=$matches[1]&embed=true";s:29:"calendar/([^/]+)/trackback/?$";s:35:"index.php?calendar=$matches[1]&tb=1";s:37:"calendar/([^/]+)/page/?([0-9]{1,})/?$";s:48:"index.php?calendar=$matches[1]&paged=$matches[2]";s:44:"calendar/([^/]+)/comment-page-([0-9]{1,})/?$";s:48:"index.php?calendar=$matches[1]&cpage=$matches[2]";s:33:"calendar/([^/]+)(?:/([0-9]+))?/?$";s:47:"index.php?calendar=$matches[1]&page=$matches[2]";s:25:"calendar/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:35:"calendar/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:55:"calendar/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:50:"calendar/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:50:"calendar/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:31:"calendar/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:55:"bp_member_type/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:67:"index.php?taxonomy=bp_member_type&term=$matches[1]&feed=$matches[2]";s:50:"bp_member_type/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:67:"index.php?taxonomy=bp_member_type&term=$matches[1]&feed=$matches[2]";s:31:"bp_member_type/([^/]+)/embed/?$";s:61:"index.php?taxonomy=bp_member_type&term=$matches[1]&embed=true";s:43:"bp_member_type/([^/]+)/page/?([0-9]{1,})/?$";s:68:"index.php?taxonomy=bp_member_type&term=$matches[1]&paged=$matches[2]";s:25:"bp_member_type/([^/]+)/?$";s:50:"index.php?taxonomy=bp_member_type&term=$matches[1]";s:30:"docs/.+?/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:40:"docs/.+?/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:60:"docs/.+?/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:55:"docs/.+?/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:55:"docs/.+?/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:36:"docs/.+?/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:19:"docs/(.+?)/embed/?$";s:39:"index.php?bp_doc=$matches[1]&embed=true";s:23:"docs/(.+?)/trackback/?$";s:33:"index.php?bp_doc=$matches[1]&tb=1";s:43:"docs/(.+?)/feed/(feed|rdf|rss|rss2|atom)/?$";s:45:"index.php?bp_doc=$matches[1]&feed=$matches[2]";s:38:"docs/(.+?)/(feed|rdf|rss|rss2|atom)/?$";s:45:"index.php?bp_doc=$matches[1]&feed=$matches[2]";s:31:"docs/(.+?)/page/?([0-9]{1,})/?$";s:46:"index.php?bp_doc=$matches[1]&paged=$matches[2]";s:38:"docs/(.+?)/comment-page-([0-9]{1,})/?$";s:46:"index.php?bp_doc=$matches[1]&cpage=$matches[2]";s:27:"docs/(.+?)(?:/([0-9]+))?/?$";s:45:"index.php?bp_doc=$matches[1]&page=$matches[2]";s:45:"item/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?bp_docs_tag=$matches[1]&feed=$matches[2]";s:40:"item/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?bp_docs_tag=$matches[1]&feed=$matches[2]";s:21:"item/([^/]+)/embed/?$";s:44:"index.php?bp_docs_tag=$matches[1]&embed=true";s:33:"item/([^/]+)/page/?([0-9]{1,})/?$";s:51:"index.php?bp_docs_tag=$matches[1]&paged=$matches[2]";s:15:"item/([^/]+)/?$";s:33:"index.php?bp_docs_tag=$matches[1]";s:55:"bp_docs_access/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:67:"index.php?taxonomy=bp_docs_access&term=$matches[1]&feed=$matches[2]";s:50:"bp_docs_access/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:67:"index.php?taxonomy=bp_docs_access&term=$matches[1]&feed=$matches[2]";s:31:"bp_docs_access/([^/]+)/embed/?$";s:61:"index.php?taxonomy=bp_docs_access&term=$matches[1]&embed=true";s:43:"bp_docs_access/([^/]+)/page/?([0-9]{1,})/?$";s:68:"index.php?taxonomy=bp_docs_access&term=$matches[1]&paged=$matches[2]";s:25:"bp_docs_access/([^/]+)/?$";s:50:"index.php?taxonomy=bp_docs_access&term=$matches[1]";s:40:"bp_docs_folder/.+?/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:50:"bp_docs_folder/.+?/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:70:"bp_docs_folder/.+?/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:65:"bp_docs_folder/.+?/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:65:"bp_docs_folder/.+?/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:46:"bp_docs_folder/.+?/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:29:"bp_docs_folder/(.+?)/embed/?$";s:47:"index.php?bp_docs_folder=$matches[1]&embed=true";s:33:"bp_docs_folder/(.+?)/trackback/?$";s:41:"index.php?bp_docs_folder=$matches[1]&tb=1";s:41:"bp_docs_folder/(.+?)/page/?([0-9]{1,})/?$";s:54:"index.php?bp_docs_folder=$matches[1]&paged=$matches[2]";s:48:"bp_docs_folder/(.+?)/comment-page-([0-9]{1,})/?$";s:54:"index.php?bp_docs_folder=$matches[1]&cpage=$matches[2]";s:37:"bp_docs_folder/(.+?)(?:/([0-9]+))?/?$";s:53:"index.php?bp_docs_folder=$matches[1]&page=$matches[2]";s:62:"bp_docs_doc_in_folder/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:74:"index.php?taxonomy=bp_docs_doc_in_folder&term=$matches[1]&feed=$matches[2]";s:57:"bp_docs_doc_in_folder/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:74:"index.php?taxonomy=bp_docs_doc_in_folder&term=$matches[1]&feed=$matches[2]";s:38:"bp_docs_doc_in_folder/([^/]+)/embed/?$";s:68:"index.php?taxonomy=bp_docs_doc_in_folder&term=$matches[1]&embed=true";s:50:"bp_docs_doc_in_folder/([^/]+)/page/?([0-9]{1,})/?$";s:75:"index.php?taxonomy=bp_docs_doc_in_folder&term=$matches[1]&paged=$matches[2]";s:32:"bp_docs_doc_in_folder/([^/]+)/?$";s:57:"index.php?taxonomy=bp_docs_doc_in_folder&term=$matches[1]";s:63:"bp_docs_folder_in_user/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:61:"index.php?bp_docs_folder_in_user=$matches[1]&feed=$matches[2]";s:58:"bp_docs_folder_in_user/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:61:"index.php?bp_docs_folder_in_user=$matches[1]&feed=$matches[2]";s:39:"bp_docs_folder_in_user/([^/]+)/embed/?$";s:55:"index.php?bp_docs_folder_in_user=$matches[1]&embed=true";s:51:"bp_docs_folder_in_user/([^/]+)/page/?([0-9]{1,})/?$";s:62:"index.php?bp_docs_folder_in_user=$matches[1]&paged=$matches[2]";s:33:"bp_docs_folder_in_user/([^/]+)/?$";s:44:"index.php?bp_docs_folder_in_user=$matches[1]";s:64:"bp_docs_folder_in_group/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:62:"index.php?bp_docs_folder_in_group=$matches[1]&feed=$matches[2]";s:59:"bp_docs_folder_in_group/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:62:"index.php?bp_docs_folder_in_group=$matches[1]&feed=$matches[2]";s:40:"bp_docs_folder_in_group/([^/]+)/embed/?$";s:56:"index.php?bp_docs_folder_in_group=$matches[1]&embed=true";s:52:"bp_docs_folder_in_group/([^/]+)/page/?([0-9]{1,})/?$";s:63:"index.php?bp_docs_folder_in_group=$matches[1]&paged=$matches[2]";s:34:"bp_docs_folder_in_group/([^/]+)/?$";s:45:"index.php?bp_docs_folder_in_group=$matches[1]";s:37:"slideshow/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:47:"slideshow/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:67:"slideshow/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:62:"slideshow/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:62:"slideshow/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:43:"slideshow/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:26:"slideshow/([^/]+)/embed/?$";s:42:"index.php?slideshow=$matches[1]&embed=true";s:30:"slideshow/([^/]+)/trackback/?$";s:36:"index.php?slideshow=$matches[1]&tb=1";s:50:"slideshow/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:48:"index.php?slideshow=$matches[1]&feed=$matches[2]";s:45:"slideshow/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:48:"index.php?slideshow=$matches[1]&feed=$matches[2]";s:38:"slideshow/([^/]+)/page/?([0-9]{1,})/?$";s:49:"index.php?slideshow=$matches[1]&paged=$matches[2]";s:45:"slideshow/([^/]+)/comment-page-([0-9]{1,})/?$";s:49:"index.php?slideshow=$matches[1]&cpage=$matches[2]";s:34:"slideshow/([^/]+)(?:/([0-9]+))?/?$";s:48:"index.php?slideshow=$matches[1]&page=$matches[2]";s:26:"slideshow/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:36:"slideshow/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:56:"slideshow/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:51:"slideshow/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:51:"slideshow/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:32:"slideshow/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:48:".*wp-(atom|rdf|rss|rss2|feed|commentsrss2)\\.php$";s:18:"index.php?feed=old";s:20:".*wp-app\\.php(/.*)?$";s:19:"index.php?error=403";s:18:".*wp-register.php$";s:23:"index.php?register=true";s:32:"feed/(feed|rdf|rss|rss2|atom)/?$";s:27:"index.php?&feed=$matches[1]";s:27:"(feed|rdf|rss|rss2|atom)/?$";s:27:"index.php?&feed=$matches[1]";s:8:"embed/?$";s:21:"index.php?&embed=true";s:20:"page/?([0-9]{1,})/?$";s:28:"index.php?&paged=$matches[1]";s:27:"comment-page-([0-9]{1,})/?$";s:38:"index.php?&page_id=9&cpage=$matches[1]";s:41:"comments/feed/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?&feed=$matches[1]&withcomments=1";s:36:"comments/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?&feed=$matches[1]&withcomments=1";s:17:"comments/embed/?$";s:21:"index.php?&embed=true";s:44:"search/(.+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:40:"index.php?s=$matches[1]&feed=$matches[2]";s:39:"search/(.+)/(feed|rdf|rss|rss2|atom)/?$";s:40:"index.php?s=$matches[1]&feed=$matches[2]";s:20:"search/(.+)/embed/?$";s:34:"index.php?s=$matches[1]&embed=true";s:32:"search/(.+)/page/?([0-9]{1,})/?$";s:41:"index.php?s=$matches[1]&paged=$matches[2]";s:14:"search/(.+)/?$";s:23:"index.php?s=$matches[1]";s:47:"author/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?author_name=$matches[1]&feed=$matches[2]";s:42:"author/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?author_name=$matches[1]&feed=$matches[2]";s:23:"author/([^/]+)/embed/?$";s:44:"index.php?author_name=$matches[1]&embed=true";s:35:"author/([^/]+)/page/?([0-9]{1,})/?$";s:51:"index.php?author_name=$matches[1]&paged=$matches[2]";s:17:"author/([^/]+)/?$";s:33:"index.php?author_name=$matches[1]";s:69:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/feed/(feed|rdf|rss|rss2|atom)/?$";s:80:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]&feed=$matches[4]";s:64:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/(feed|rdf|rss|rss2|atom)/?$";s:80:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]&feed=$matches[4]";s:45:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/embed/?$";s:74:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]&embed=true";s:57:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/page/?([0-9]{1,})/?$";s:81:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]&paged=$matches[4]";s:39:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/?$";s:63:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]";s:56:"([0-9]{4})/([0-9]{1,2})/feed/(feed|rdf|rss|rss2|atom)/?$";s:64:"index.php?year=$matches[1]&monthnum=$matches[2]&feed=$matches[3]";s:51:"([0-9]{4})/([0-9]{1,2})/(feed|rdf|rss|rss2|atom)/?$";s:64:"index.php?year=$matches[1]&monthnum=$matches[2]&feed=$matches[3]";s:32:"([0-9]{4})/([0-9]{1,2})/embed/?$";s:58:"index.php?year=$matches[1]&monthnum=$matches[2]&embed=true";s:44:"([0-9]{4})/([0-9]{1,2})/page/?([0-9]{1,})/?$";s:65:"index.php?year=$matches[1]&monthnum=$matches[2]&paged=$matches[3]";s:26:"([0-9]{4})/([0-9]{1,2})/?$";s:47:"index.php?year=$matches[1]&monthnum=$matches[2]";s:43:"([0-9]{4})/feed/(feed|rdf|rss|rss2|atom)/?$";s:43:"index.php?year=$matches[1]&feed=$matches[2]";s:38:"([0-9]{4})/(feed|rdf|rss|rss2|atom)/?$";s:43:"index.php?year=$matches[1]&feed=$matches[2]";s:19:"([0-9]{4})/embed/?$";s:37:"index.php?year=$matches[1]&embed=true";s:31:"([0-9]{4})/page/?([0-9]{1,})/?$";s:44:"index.php?year=$matches[1]&paged=$matches[2]";s:13:"([0-9]{4})/?$";s:26:"index.php?year=$matches[1]";s:27:".?.+?/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:37:".?.+?/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:57:".?.+?/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:52:".?.+?/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:52:".?.+?/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:33:".?.+?/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:16:"(.?.+?)/embed/?$";s:41:"index.php?pagename=$matches[1]&embed=true";s:20:"(.?.+?)/trackback/?$";s:35:"index.php?pagename=$matches[1]&tb=1";s:40:"(.?.+?)/feed/(feed|rdf|rss|rss2|atom)/?$";s:47:"index.php?pagename=$matches[1]&feed=$matches[2]";s:35:"(.?.+?)/(feed|rdf|rss|rss2|atom)/?$";s:47:"index.php?pagename=$matches[1]&feed=$matches[2]";s:28:"(.?.+?)/page/?([0-9]{1,})/?$";s:48:"index.php?pagename=$matches[1]&paged=$matches[2]";s:35:"(.?.+?)/comment-page-([0-9]{1,})/?$";s:48:"index.php?pagename=$matches[1]&cpage=$matches[2]";s:24:"(.?.+?)(?:/([0-9]+))?/?$";s:47:"index.php?pagename=$matches[1]&page=$matches[2]";s:31:".+?/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:41:".+?/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:61:".+?/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:56:".+?/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:56:".+?/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:37:".+?/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:22:"(.+?)/([^/]+)/embed/?$";s:63:"index.php?category_name=$matches[1]&name=$matches[2]&embed=true";s:26:"(.+?)/([^/]+)/trackback/?$";s:57:"index.php?category_name=$matches[1]&name=$matches[2]&tb=1";s:46:"(.+?)/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:69:"index.php?category_name=$matches[1]&name=$matches[2]&feed=$matches[3]";s:41:"(.+?)/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:69:"index.php?category_name=$matches[1]&name=$matches[2]&feed=$matches[3]";s:34:"(.+?)/([^/]+)/page/?([0-9]{1,})/?$";s:70:"index.php?category_name=$matches[1]&name=$matches[2]&paged=$matches[3]";s:41:"(.+?)/([^/]+)/comment-page-([0-9]{1,})/?$";s:70:"index.php?category_name=$matches[1]&name=$matches[2]&cpage=$matches[3]";s:30:"(.+?)/([^/]+)(?:/([0-9]+))?/?$";s:69:"index.php?category_name=$matches[1]&name=$matches[2]&page=$matches[3]";s:20:".+?/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:30:".+?/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:50:".+?/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:45:".+?/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:45:".+?/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:26:".+?/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:38:"(.+?)/feed/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?category_name=$matches[1]&feed=$matches[2]";s:33:"(.+?)/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?category_name=$matches[1]&feed=$matches[2]";s:14:"(.+?)/embed/?$";s:46:"index.php?category_name=$matches[1]&embed=true";s:26:"(.+?)/page/?([0-9]{1,})/?$";s:53:"index.php?category_name=$matches[1]&paged=$matches[2]";s:33:"(.+?)/comment-page-([0-9]{1,})/?$";s:53:"index.php?category_name=$matches[1]&cpage=$matches[2]";s:8:"(.+?)/?$";s:35:"index.php?category_name=$matches[1]";}', 'yes'),
+(4739, 'rewrite_rules', 'a:396:{s:14:"docs/create/?$";s:52:"index.php?post_type=bp_doc&name=$matches[1]&create=1";s:34:"docs/my-groups/page/([0-9]{1,})/?$";s:56:"index.php?post_type=bp_doc&my-groups=1&paged=$matches[1]";s:17:"docs/my-groups/?$";s:55:"index.php?post_type=bp_doc&name=$matches[1]&my-groups=1";s:20:"docs/([^/]+)/edit/?$";s:50:"index.php?post_type=bp_doc&name=$matches[1]&edit=1";s:23:"docs/([^/]+)/history/?$";s:53:"index.php?post_type=bp_doc&name=$matches[1]&history=1";s:22:"docs/([^/]+)/delete/?$";s:53:"index.php?post_type=bp_doc&name=$matches[1]&history=1";s:23:"docs/([^/]+)/untrash/?$";s:53:"index.php?post_type=bp_doc&name=$matches[1]&untrash=1";s:33:"docs/([^/]+)/unlink-from-group/?$";s:63:"index.php?post_type=bp_doc&name=$matches[1]&unlink-from-group=1";s:9:"forums/?$";s:25:"index.php?post_type=forum";s:39:"forums/feed/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?post_type=forum&feed=$matches[1]";s:34:"forums/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?post_type=forum&feed=$matches[1]";s:26:"forums/page/([0-9]{1,})/?$";s:43:"index.php?post_type=forum&paged=$matches[1]";s:9:"topics/?$";s:25:"index.php?post_type=topic";s:39:"topics/feed/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?post_type=topic&feed=$matches[1]";s:34:"topics/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?post_type=topic&feed=$matches[1]";s:26:"topics/page/([0-9]{1,})/?$";s:43:"index.php?post_type=topic&paged=$matches[1]";s:28:"forums/forum/([^/]+)/edit/?$";s:34:"index.php?forum=$matches[1]&edit=1";s:28:"forums/topic/([^/]+)/edit/?$";s:34:"index.php?topic=$matches[1]&edit=1";s:28:"forums/reply/([^/]+)/edit/?$";s:34:"index.php?reply=$matches[1]&edit=1";s:32:"forums/topic-tag/([^/]+)/edit/?$";s:38:"index.php?topic-tag=$matches[1]&edit=1";s:48:"forums/users/([^/]+)/topics/page/?([0-9]{1,})/?$";s:59:"index.php?bbp_user=$matches[1]&bbp_tops=1&paged=$matches[2]";s:49:"forums/users/([^/]+)/replies/page/?([0-9]{1,})/?$";s:59:"index.php?bbp_user=$matches[1]&bbp_reps=1&paged=$matches[2]";s:51:"forums/users/([^/]+)/favorites/page/?([0-9]{1,})/?$";s:59:"index.php?bbp_user=$matches[1]&bbp_favs=1&paged=$matches[2]";s:55:"forums/users/([^/]+)/subscriptions/page/?([0-9]{1,})/?$";s:59:"index.php?bbp_user=$matches[1]&bbp_subs=1&paged=$matches[2]";s:30:"forums/users/([^/]+)/topics/?$";s:41:"index.php?bbp_user=$matches[1]&bbp_tops=1";s:31:"forums/users/([^/]+)/replies/?$";s:41:"index.php?bbp_user=$matches[1]&bbp_reps=1";s:33:"forums/users/([^/]+)/favorites/?$";s:41:"index.php?bbp_user=$matches[1]&bbp_favs=1";s:37:"forums/users/([^/]+)/subscriptions/?$";s:41:"index.php?bbp_user=$matches[1]&bbp_subs=1";s:28:"forums/users/([^/]+)/edit/?$";s:37:"index.php?bbp_user=$matches[1]&edit=1";s:23:"forums/users/([^/]+)/?$";s:30:"index.php?bbp_user=$matches[1]";s:40:"forums/view/([^/]+)/page/?([0-9]{1,})/?$";s:48:"index.php?bbp_view=$matches[1]&paged=$matches[2]";s:27:"forums/view/([^/]+)/feed/?$";s:47:"index.php?bbp_view=$matches[1]&feed=$matches[2]";s:22:"forums/view/([^/]+)/?$";s:30:"index.php?bbp_view=$matches[1]";s:34:"forums/search/page/?([0-9]{1,})/?$";s:27:"index.php?paged=$matches[1]";s:16:"forums/search/?$";s:20:"index.php?bbp_search";s:11:"^wp-json/?$";s:22:"index.php?rest_route=/";s:14:"^wp-json/(.*)?";s:33:"index.php?rest_route=/$matches[1]";s:21:"^index.php/wp-json/?$";s:22:"index.php?rest_route=/";s:24:"^index.php/wp-json/(.*)?";s:33:"index.php?rest_route=/$matches[1]";s:7:"docs/?$";s:26:"index.php?post_type=bp_doc";s:37:"docs/feed/(feed|rdf|rss|rss2|atom)/?$";s:43:"index.php?post_type=bp_doc&feed=$matches[1]";s:32:"docs/(feed|rdf|rss|rss2|atom)/?$";s:43:"index.php?post_type=bp_doc&feed=$matches[1]";s:24:"docs/page/([0-9]{1,})/?$";s:44:"index.php?post_type=bp_doc&paged=$matches[1]";s:12:"slideshow/?$";s:29:"index.php?post_type=slideshow";s:42:"slideshow/feed/(feed|rdf|rss|rss2|atom)/?$";s:46:"index.php?post_type=slideshow&feed=$matches[1]";s:37:"slideshow/(feed|rdf|rss|rss2|atom)/?$";s:46:"index.php?post_type=slideshow&feed=$matches[1]";s:29:"slideshow/page/([0-9]{1,})/?$";s:47:"index.php?post_type=slideshow&paged=$matches[1]";s:48:"categoria/(.+?)/feed/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?category_name=$matches[1]&feed=$matches[2]";s:43:"categoria/(.+?)/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?category_name=$matches[1]&feed=$matches[2]";s:24:"categoria/(.+?)/embed/?$";s:46:"index.php?category_name=$matches[1]&embed=true";s:36:"categoria/(.+?)/page/?([0-9]{1,})/?$";s:53:"index.php?category_name=$matches[1]&paged=$matches[2]";s:18:"categoria/(.+?)/?$";s:35:"index.php?category_name=$matches[1]";s:44:"tag/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?tag=$matches[1]&feed=$matches[2]";s:39:"tag/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?tag=$matches[1]&feed=$matches[2]";s:20:"tag/([^/]+)/embed/?$";s:36:"index.php?tag=$matches[1]&embed=true";s:32:"tag/([^/]+)/page/?([0-9]{1,})/?$";s:43:"index.php?tag=$matches[1]&paged=$matches[2]";s:14:"tag/([^/]+)/?$";s:25:"index.php?tag=$matches[1]";s:45:"type/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?post_format=$matches[1]&feed=$matches[2]";s:40:"type/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?post_format=$matches[1]&feed=$matches[2]";s:21:"type/([^/]+)/embed/?$";s:44:"index.php?post_format=$matches[1]&embed=true";s:33:"type/([^/]+)/page/?([0-9]{1,})/?$";s:51:"index.php?post_format=$matches[1]&paged=$matches[2]";s:15:"type/([^/]+)/?$";s:33:"index.php?post_format=$matches[1]";s:38:"forums/forum/.+?/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:48:"forums/forum/.+?/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:68:"forums/forum/.+?/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:63:"forums/forum/.+?/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:63:"forums/forum/.+?/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:44:"forums/forum/.+?/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:27:"forums/forum/(.+?)/embed/?$";s:38:"index.php?forum=$matches[1]&embed=true";s:31:"forums/forum/(.+?)/trackback/?$";s:32:"index.php?forum=$matches[1]&tb=1";s:51:"forums/forum/(.+?)/feed/(feed|rdf|rss|rss2|atom)/?$";s:44:"index.php?forum=$matches[1]&feed=$matches[2]";s:46:"forums/forum/(.+?)/(feed|rdf|rss|rss2|atom)/?$";s:44:"index.php?forum=$matches[1]&feed=$matches[2]";s:39:"forums/forum/(.+?)/page/?([0-9]{1,})/?$";s:45:"index.php?forum=$matches[1]&paged=$matches[2]";s:46:"forums/forum/(.+?)/comment-page-([0-9]{1,})/?$";s:45:"index.php?forum=$matches[1]&cpage=$matches[2]";s:35:"forums/forum/(.+?)(?:/([0-9]+))?/?$";s:44:"index.php?forum=$matches[1]&page=$matches[2]";s:40:"forums/topic/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:50:"forums/topic/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:70:"forums/topic/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:65:"forums/topic/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:65:"forums/topic/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:46:"forums/topic/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:29:"forums/topic/([^/]+)/embed/?$";s:38:"index.php?topic=$matches[1]&embed=true";s:33:"forums/topic/([^/]+)/trackback/?$";s:32:"index.php?topic=$matches[1]&tb=1";s:53:"forums/topic/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:44:"index.php?topic=$matches[1]&feed=$matches[2]";s:48:"forums/topic/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:44:"index.php?topic=$matches[1]&feed=$matches[2]";s:41:"forums/topic/([^/]+)/page/?([0-9]{1,})/?$";s:45:"index.php?topic=$matches[1]&paged=$matches[2]";s:48:"forums/topic/([^/]+)/comment-page-([0-9]{1,})/?$";s:45:"index.php?topic=$matches[1]&cpage=$matches[2]";s:37:"forums/topic/([^/]+)(?:/([0-9]+))?/?$";s:44:"index.php?topic=$matches[1]&page=$matches[2]";s:29:"forums/topic/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:39:"forums/topic/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:59:"forums/topic/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:54:"forums/topic/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:54:"forums/topic/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:35:"forums/topic/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:40:"forums/reply/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:50:"forums/reply/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:70:"forums/reply/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:65:"forums/reply/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:65:"forums/reply/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:46:"forums/reply/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:29:"forums/reply/([^/]+)/embed/?$";s:38:"index.php?reply=$matches[1]&embed=true";s:33:"forums/reply/([^/]+)/trackback/?$";s:32:"index.php?reply=$matches[1]&tb=1";s:41:"forums/reply/([^/]+)/page/?([0-9]{1,})/?$";s:45:"index.php?reply=$matches[1]&paged=$matches[2]";s:48:"forums/reply/([^/]+)/comment-page-([0-9]{1,})/?$";s:45:"index.php?reply=$matches[1]&cpage=$matches[2]";s:37:"forums/reply/([^/]+)(?:/([0-9]+))?/?$";s:44:"index.php?reply=$matches[1]&page=$matches[2]";s:29:"forums/reply/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:39:"forums/reply/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:59:"forums/reply/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:54:"forums/reply/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:54:"forums/reply/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:35:"forums/reply/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:57:"forums/topic-tag/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:48:"index.php?topic-tag=$matches[1]&feed=$matches[2]";s:52:"forums/topic-tag/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:48:"index.php?topic-tag=$matches[1]&feed=$matches[2]";s:33:"forums/topic-tag/([^/]+)/embed/?$";s:42:"index.php?topic-tag=$matches[1]&embed=true";s:45:"forums/topic-tag/([^/]+)/page/?([0-9]{1,})/?$";s:49:"index.php?topic-tag=$matches[1]&paged=$matches[2]";s:27:"forums/topic-tag/([^/]+)/?$";s:31:"index.php?topic-tag=$matches[1]";s:42:"forums/search/([^/]+)/page/?([0-9]{1,})/?$";s:50:"index.php?bbp_search=$matches[1]&paged=$matches[2]";s:24:"forums/search/([^/]+)/?$";s:32:"index.php?bbp_search=$matches[1]";s:38:"ia_invites/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:48:"ia_invites/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:68:"ia_invites/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:63:"ia_invites/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:63:"ia_invites/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:44:"ia_invites/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:27:"ia_invites/([^/]+)/embed/?$";s:43:"index.php?ia_invites=$matches[1]&embed=true";s:31:"ia_invites/([^/]+)/trackback/?$";s:37:"index.php?ia_invites=$matches[1]&tb=1";s:39:"ia_invites/([^/]+)/page/?([0-9]{1,})/?$";s:50:"index.php?ia_invites=$matches[1]&paged=$matches[2]";s:46:"ia_invites/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?ia_invites=$matches[1]&cpage=$matches[2]";s:35:"ia_invites/([^/]+)(?:/([0-9]+))?/?$";s:49:"index.php?ia_invites=$matches[1]&page=$matches[2]";s:27:"ia_invites/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:37:"ia_invites/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:57:"ia_invites/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:52:"ia_invites/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:52:"ia_invites/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:33:"ia_invites/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:52:"ia_invitees/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?ia_invitees=$matches[1]&feed=$matches[2]";s:47:"ia_invitees/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?ia_invitees=$matches[1]&feed=$matches[2]";s:28:"ia_invitees/([^/]+)/embed/?$";s:44:"index.php?ia_invitees=$matches[1]&embed=true";s:40:"ia_invitees/([^/]+)/page/?([0-9]{1,})/?$";s:51:"index.php?ia_invitees=$matches[1]&paged=$matches[2]";s:22:"ia_invitees/([^/]+)/?$";s:33:"index.php?ia_invitees=$matches[1]";s:58:"ia_invited_groups/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:56:"index.php?ia_invited_groups=$matches[1]&feed=$matches[2]";s:53:"ia_invited_groups/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:56:"index.php?ia_invited_groups=$matches[1]&feed=$matches[2]";s:34:"ia_invited_groups/([^/]+)/embed/?$";s:50:"index.php?ia_invited_groups=$matches[1]&embed=true";s:46:"ia_invited_groups/([^/]+)/page/?([0-9]{1,})/?$";s:57:"index.php?ia_invited_groups=$matches[1]&paged=$matches[2]";s:28:"ia_invited_groups/([^/]+)/?$";s:39:"index.php?ia_invited_groups=$matches[1]";s:54:"calendar_feed/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?calendar_feed=$matches[1]&feed=$matches[2]";s:49:"calendar_feed/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?calendar_feed=$matches[1]&feed=$matches[2]";s:30:"calendar_feed/([^/]+)/embed/?$";s:46:"index.php?calendar_feed=$matches[1]&embed=true";s:42:"calendar_feed/([^/]+)/page/?([0-9]{1,})/?$";s:53:"index.php?calendar_feed=$matches[1]&paged=$matches[2]";s:24:"calendar_feed/([^/]+)/?$";s:35:"index.php?calendar_feed=$matches[1]";s:54:"calendar_type/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?calendar_type=$matches[1]&feed=$matches[2]";s:49:"calendar_type/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?calendar_type=$matches[1]&feed=$matches[2]";s:30:"calendar_type/([^/]+)/embed/?$";s:46:"index.php?calendar_type=$matches[1]&embed=true";s:42:"calendar_type/([^/]+)/page/?([0-9]{1,})/?$";s:53:"index.php?calendar_type=$matches[1]&paged=$matches[2]";s:24:"calendar_type/([^/]+)/?$";s:35:"index.php?calendar_type=$matches[1]";s:58:"calendar_category/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:56:"index.php?calendar_category=$matches[1]&feed=$matches[2]";s:53:"calendar_category/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:56:"index.php?calendar_category=$matches[1]&feed=$matches[2]";s:34:"calendar_category/([^/]+)/embed/?$";s:50:"index.php?calendar_category=$matches[1]&embed=true";s:46:"calendar_category/([^/]+)/page/?([0-9]{1,})/?$";s:57:"index.php?calendar_category=$matches[1]&paged=$matches[2]";s:28:"calendar_category/([^/]+)/?$";s:39:"index.php?calendar_category=$matches[1]";s:36:"calendar/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:46:"calendar/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:66:"calendar/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:61:"calendar/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:61:"calendar/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:42:"calendar/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:25:"calendar/([^/]+)/embed/?$";s:41:"index.php?calendar=$matches[1]&embed=true";s:29:"calendar/([^/]+)/trackback/?$";s:35:"index.php?calendar=$matches[1]&tb=1";s:37:"calendar/([^/]+)/page/?([0-9]{1,})/?$";s:48:"index.php?calendar=$matches[1]&paged=$matches[2]";s:44:"calendar/([^/]+)/comment-page-([0-9]{1,})/?$";s:48:"index.php?calendar=$matches[1]&cpage=$matches[2]";s:33:"calendar/([^/]+)(?:/([0-9]+))?/?$";s:47:"index.php?calendar=$matches[1]&page=$matches[2]";s:25:"calendar/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:35:"calendar/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:55:"calendar/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:50:"calendar/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:50:"calendar/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:31:"calendar/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:39:"xtec_report/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:49:"xtec_report/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:69:"xtec_report/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:64:"xtec_report/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:64:"xtec_report/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:45:"xtec_report/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:28:"xtec_report/([^/]+)/embed/?$";s:44:"index.php?xtec_report=$matches[1]&embed=true";s:32:"xtec_report/([^/]+)/trackback/?$";s:38:"index.php?xtec_report=$matches[1]&tb=1";s:40:"xtec_report/([^/]+)/page/?([0-9]{1,})/?$";s:51:"index.php?xtec_report=$matches[1]&paged=$matches[2]";s:47:"xtec_report/([^/]+)/comment-page-([0-9]{1,})/?$";s:51:"index.php?xtec_report=$matches[1]&cpage=$matches[2]";s:36:"xtec_report/([^/]+)(?:/([0-9]+))?/?$";s:50:"index.php?xtec_report=$matches[1]&page=$matches[2]";s:28:"xtec_report/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:38:"xtec_report/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:58:"xtec_report/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:53:"xtec_report/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:53:"xtec_report/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:34:"xtec_report/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:55:"bp_member_type/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:53:"index.php?bp_member_type=$matches[1]&feed=$matches[2]";s:50:"bp_member_type/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:53:"index.php?bp_member_type=$matches[1]&feed=$matches[2]";s:31:"bp_member_type/([^/]+)/embed/?$";s:47:"index.php?bp_member_type=$matches[1]&embed=true";s:43:"bp_member_type/([^/]+)/page/?([0-9]{1,})/?$";s:54:"index.php?bp_member_type=$matches[1]&paged=$matches[2]";s:25:"bp_member_type/([^/]+)/?$";s:36:"index.php?bp_member_type=$matches[1]";s:54:"bp_group_type/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?bp_group_type=$matches[1]&feed=$matches[2]";s:49:"bp_group_type/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?bp_group_type=$matches[1]&feed=$matches[2]";s:30:"bp_group_type/([^/]+)/embed/?$";s:46:"index.php?bp_group_type=$matches[1]&embed=true";s:42:"bp_group_type/([^/]+)/page/?([0-9]{1,})/?$";s:53:"index.php?bp_group_type=$matches[1]&paged=$matches[2]";s:24:"bp_group_type/([^/]+)/?$";s:35:"index.php?bp_group_type=$matches[1]";s:30:"docs/.+?/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:40:"docs/.+?/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:60:"docs/.+?/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:55:"docs/.+?/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:55:"docs/.+?/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:36:"docs/.+?/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:19:"docs/(.+?)/embed/?$";s:39:"index.php?bp_doc=$matches[1]&embed=true";s:23:"docs/(.+?)/trackback/?$";s:33:"index.php?bp_doc=$matches[1]&tb=1";s:43:"docs/(.+?)/feed/(feed|rdf|rss|rss2|atom)/?$";s:45:"index.php?bp_doc=$matches[1]&feed=$matches[2]";s:38:"docs/(.+?)/(feed|rdf|rss|rss2|atom)/?$";s:45:"index.php?bp_doc=$matches[1]&feed=$matches[2]";s:31:"docs/(.+?)/page/?([0-9]{1,})/?$";s:46:"index.php?bp_doc=$matches[1]&paged=$matches[2]";s:38:"docs/(.+?)/comment-page-([0-9]{1,})/?$";s:46:"index.php?bp_doc=$matches[1]&cpage=$matches[2]";s:27:"docs/(.+?)(?:/([0-9]+))?/?$";s:45:"index.php?bp_doc=$matches[1]&page=$matches[2]";s:45:"item/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?bp_docs_tag=$matches[1]&feed=$matches[2]";s:40:"item/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?bp_docs_tag=$matches[1]&feed=$matches[2]";s:21:"item/([^/]+)/embed/?$";s:44:"index.php?bp_docs_tag=$matches[1]&embed=true";s:33:"item/([^/]+)/page/?([0-9]{1,})/?$";s:51:"index.php?bp_docs_tag=$matches[1]&paged=$matches[2]";s:15:"item/([^/]+)/?$";s:33:"index.php?bp_docs_tag=$matches[1]";s:55:"bp_docs_access/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:67:"index.php?taxonomy=bp_docs_access&term=$matches[1]&feed=$matches[2]";s:50:"bp_docs_access/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:67:"index.php?taxonomy=bp_docs_access&term=$matches[1]&feed=$matches[2]";s:31:"bp_docs_access/([^/]+)/embed/?$";s:61:"index.php?taxonomy=bp_docs_access&term=$matches[1]&embed=true";s:43:"bp_docs_access/([^/]+)/page/?([0-9]{1,})/?$";s:68:"index.php?taxonomy=bp_docs_access&term=$matches[1]&paged=$matches[2]";s:25:"bp_docs_access/([^/]+)/?$";s:50:"index.php?taxonomy=bp_docs_access&term=$matches[1]";s:63:"bp_docs_comment_access/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:75:"index.php?taxonomy=bp_docs_comment_access&term=$matches[1]&feed=$matches[2]";s:58:"bp_docs_comment_access/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:75:"index.php?taxonomy=bp_docs_comment_access&term=$matches[1]&feed=$matches[2]";s:39:"bp_docs_comment_access/([^/]+)/embed/?$";s:69:"index.php?taxonomy=bp_docs_comment_access&term=$matches[1]&embed=true";s:51:"bp_docs_comment_access/([^/]+)/page/?([0-9]{1,})/?$";s:76:"index.php?taxonomy=bp_docs_comment_access&term=$matches[1]&paged=$matches[2]";s:33:"bp_docs_comment_access/([^/]+)/?$";s:58:"index.php?taxonomy=bp_docs_comment_access&term=$matches[1]";s:40:"bp_docs_folder/.+?/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:50:"bp_docs_folder/.+?/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:70:"bp_docs_folder/.+?/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:65:"bp_docs_folder/.+?/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:65:"bp_docs_folder/.+?/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:46:"bp_docs_folder/.+?/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:29:"bp_docs_folder/(.+?)/embed/?$";s:47:"index.php?bp_docs_folder=$matches[1]&embed=true";s:33:"bp_docs_folder/(.+?)/trackback/?$";s:41:"index.php?bp_docs_folder=$matches[1]&tb=1";s:41:"bp_docs_folder/(.+?)/page/?([0-9]{1,})/?$";s:54:"index.php?bp_docs_folder=$matches[1]&paged=$matches[2]";s:48:"bp_docs_folder/(.+?)/comment-page-([0-9]{1,})/?$";s:54:"index.php?bp_docs_folder=$matches[1]&cpage=$matches[2]";s:37:"bp_docs_folder/(.+?)(?:/([0-9]+))?/?$";s:53:"index.php?bp_docs_folder=$matches[1]&page=$matches[2]";s:62:"bp_docs_doc_in_folder/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:60:"index.php?bp_docs_doc_in_folder=$matches[1]&feed=$matches[2]";s:57:"bp_docs_doc_in_folder/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:60:"index.php?bp_docs_doc_in_folder=$matches[1]&feed=$matches[2]";s:38:"bp_docs_doc_in_folder/([^/]+)/embed/?$";s:54:"index.php?bp_docs_doc_in_folder=$matches[1]&embed=true";s:50:"bp_docs_doc_in_folder/([^/]+)/page/?([0-9]{1,})/?$";s:61:"index.php?bp_docs_doc_in_folder=$matches[1]&paged=$matches[2]";s:32:"bp_docs_doc_in_folder/([^/]+)/?$";s:43:"index.php?bp_docs_doc_in_folder=$matches[1]";s:63:"bp_docs_folder_in_user/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:61:"index.php?bp_docs_folder_in_user=$matches[1]&feed=$matches[2]";s:58:"bp_docs_folder_in_user/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:61:"index.php?bp_docs_folder_in_user=$matches[1]&feed=$matches[2]";s:39:"bp_docs_folder_in_user/([^/]+)/embed/?$";s:55:"index.php?bp_docs_folder_in_user=$matches[1]&embed=true";s:51:"bp_docs_folder_in_user/([^/]+)/page/?([0-9]{1,})/?$";s:62:"index.php?bp_docs_folder_in_user=$matches[1]&paged=$matches[2]";s:33:"bp_docs_folder_in_user/([^/]+)/?$";s:44:"index.php?bp_docs_folder_in_user=$matches[1]";s:64:"bp_docs_folder_in_group/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:62:"index.php?bp_docs_folder_in_group=$matches[1]&feed=$matches[2]";s:59:"bp_docs_folder_in_group/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:62:"index.php?bp_docs_folder_in_group=$matches[1]&feed=$matches[2]";s:40:"bp_docs_folder_in_group/([^/]+)/embed/?$";s:56:"index.php?bp_docs_folder_in_group=$matches[1]&embed=true";s:52:"bp_docs_folder_in_group/([^/]+)/page/?([0-9]{1,})/?$";s:63:"index.php?bp_docs_folder_in_group=$matches[1]&paged=$matches[2]";s:34:"bp_docs_folder_in_group/([^/]+)/?$";s:45:"index.php?bp_docs_folder_in_group=$matches[1]";s:39:"es_template/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:49:"es_template/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:69:"es_template/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:64:"es_template/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:64:"es_template/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:45:"es_template/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:28:"es_template/([^/]+)/embed/?$";s:44:"index.php?es_template=$matches[1]&embed=true";s:32:"es_template/([^/]+)/trackback/?$";s:38:"index.php?es_template=$matches[1]&tb=1";s:40:"es_template/([^/]+)/page/?([0-9]{1,})/?$";s:51:"index.php?es_template=$matches[1]&paged=$matches[2]";s:47:"es_template/([^/]+)/comment-page-([0-9]{1,})/?$";s:51:"index.php?es_template=$matches[1]&cpage=$matches[2]";s:36:"es_template/([^/]+)(?:/([0-9]+))?/?$";s:50:"index.php?es_template=$matches[1]&page=$matches[2]";s:28:"es_template/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:38:"es_template/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:58:"es_template/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:53:"es_template/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:53:"es_template/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:34:"es_template/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:35:"slideshow/.+?/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:45:"slideshow/.+?/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:65:"slideshow/.+?/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:60:"slideshow/.+?/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:60:"slideshow/.+?/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:41:"slideshow/.+?/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:24:"slideshow/(.+?)/embed/?$";s:42:"index.php?slideshow=$matches[1]&embed=true";s:28:"slideshow/(.+?)/trackback/?$";s:36:"index.php?slideshow=$matches[1]&tb=1";s:48:"slideshow/(.+?)/feed/(feed|rdf|rss|rss2|atom)/?$";s:48:"index.php?slideshow=$matches[1]&feed=$matches[2]";s:43:"slideshow/(.+?)/(feed|rdf|rss|rss2|atom)/?$";s:48:"index.php?slideshow=$matches[1]&feed=$matches[2]";s:36:"slideshow/(.+?)/page/?([0-9]{1,})/?$";s:49:"index.php?slideshow=$matches[1]&paged=$matches[2]";s:43:"slideshow/(.+?)/comment-page-([0-9]{1,})/?$";s:49:"index.php?slideshow=$matches[1]&cpage=$matches[2]";s:32:"slideshow/(.+?)(?:/([0-9]+))?/?$";s:48:"index.php?slideshow=$matches[1]&page=$matches[2]";s:44:"calendar_booking/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:54:"calendar_booking/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:74:"calendar_booking/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:69:"calendar_booking/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:69:"calendar_booking/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:50:"calendar_booking/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:33:"calendar_booking/([^/]+)/embed/?$";s:49:"index.php?calendar_booking=$matches[1]&embed=true";s:37:"calendar_booking/([^/]+)/trackback/?$";s:43:"index.php?calendar_booking=$matches[1]&tb=1";s:45:"calendar_booking/([^/]+)/page/?([0-9]{1,})/?$";s:56:"index.php?calendar_booking=$matches[1]&paged=$matches[2]";s:52:"calendar_booking/([^/]+)/comment-page-([0-9]{1,})/?$";s:56:"index.php?calendar_booking=$matches[1]&cpage=$matches[2]";s:41:"calendar_booking/([^/]+)(?:/([0-9]+))?/?$";s:55:"index.php?calendar_booking=$matches[1]&page=$matches[2]";s:33:"calendar_booking/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:43:"calendar_booking/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:63:"calendar_booking/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:58:"calendar_booking/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:58:"calendar_booking/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:39:"calendar_booking/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:46:"calendar_resources/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:56:"calendar_resources/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:76:"calendar_resources/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:71:"calendar_resources/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:71:"calendar_resources/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:52:"calendar_resources/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:35:"calendar_resources/([^/]+)/embed/?$";s:51:"index.php?calendar_resources=$matches[1]&embed=true";s:39:"calendar_resources/([^/]+)/trackback/?$";s:45:"index.php?calendar_resources=$matches[1]&tb=1";s:47:"calendar_resources/([^/]+)/page/?([0-9]{1,})/?$";s:58:"index.php?calendar_resources=$matches[1]&paged=$matches[2]";s:54:"calendar_resources/([^/]+)/comment-page-([0-9]{1,})/?$";s:58:"index.php?calendar_resources=$matches[1]&cpage=$matches[2]";s:43:"calendar_resources/([^/]+)(?:/([0-9]+))?/?$";s:57:"index.php?calendar_resources=$matches[1]&page=$matches[2]";s:35:"calendar_resources/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:45:"calendar_resources/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:65:"calendar_resources/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:60:"calendar_resources/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:60:"calendar_resources/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:41:"calendar_resources/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:48:".*wp-(atom|rdf|rss|rss2|feed|commentsrss2)\\.php$";s:18:"index.php?feed=old";s:20:".*wp-app\\.php(/.*)?$";s:19:"index.php?error=403";s:18:".*wp-register.php$";s:23:"index.php?register=true";s:32:"feed/(feed|rdf|rss|rss2|atom)/?$";s:27:"index.php?&feed=$matches[1]";s:27:"(feed|rdf|rss|rss2|atom)/?$";s:27:"index.php?&feed=$matches[1]";s:8:"embed/?$";s:21:"index.php?&embed=true";s:20:"page/?([0-9]{1,})/?$";s:28:"index.php?&paged=$matches[1]";s:27:"comment-page-([0-9]{1,})/?$";s:38:"index.php?&page_id=9&cpage=$matches[1]";s:41:"comments/feed/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?&feed=$matches[1]&withcomments=1";s:36:"comments/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?&feed=$matches[1]&withcomments=1";s:17:"comments/embed/?$";s:21:"index.php?&embed=true";s:44:"search/(.+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:40:"index.php?s=$matches[1]&feed=$matches[2]";s:39:"search/(.+)/(feed|rdf|rss|rss2|atom)/?$";s:40:"index.php?s=$matches[1]&feed=$matches[2]";s:20:"search/(.+)/embed/?$";s:34:"index.php?s=$matches[1]&embed=true";s:32:"search/(.+)/page/?([0-9]{1,})/?$";s:41:"index.php?s=$matches[1]&paged=$matches[2]";s:14:"search/(.+)/?$";s:23:"index.php?s=$matches[1]";s:47:"author/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?author_name=$matches[1]&feed=$matches[2]";s:42:"author/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?author_name=$matches[1]&feed=$matches[2]";s:23:"author/([^/]+)/embed/?$";s:44:"index.php?author_name=$matches[1]&embed=true";s:35:"author/([^/]+)/page/?([0-9]{1,})/?$";s:51:"index.php?author_name=$matches[1]&paged=$matches[2]";s:17:"author/([^/]+)/?$";s:33:"index.php?author_name=$matches[1]";s:69:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/feed/(feed|rdf|rss|rss2|atom)/?$";s:80:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]&feed=$matches[4]";s:64:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/(feed|rdf|rss|rss2|atom)/?$";s:80:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]&feed=$matches[4]";s:45:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/embed/?$";s:74:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]&embed=true";s:57:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/page/?([0-9]{1,})/?$";s:81:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]&paged=$matches[4]";s:39:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/?$";s:63:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]";s:56:"([0-9]{4})/([0-9]{1,2})/feed/(feed|rdf|rss|rss2|atom)/?$";s:64:"index.php?year=$matches[1]&monthnum=$matches[2]&feed=$matches[3]";s:51:"([0-9]{4})/([0-9]{1,2})/(feed|rdf|rss|rss2|atom)/?$";s:64:"index.php?year=$matches[1]&monthnum=$matches[2]&feed=$matches[3]";s:32:"([0-9]{4})/([0-9]{1,2})/embed/?$";s:58:"index.php?year=$matches[1]&monthnum=$matches[2]&embed=true";s:44:"([0-9]{4})/([0-9]{1,2})/page/?([0-9]{1,})/?$";s:65:"index.php?year=$matches[1]&monthnum=$matches[2]&paged=$matches[3]";s:26:"([0-9]{4})/([0-9]{1,2})/?$";s:47:"index.php?year=$matches[1]&monthnum=$matches[2]";s:43:"([0-9]{4})/feed/(feed|rdf|rss|rss2|atom)/?$";s:43:"index.php?year=$matches[1]&feed=$matches[2]";s:38:"([0-9]{4})/(feed|rdf|rss|rss2|atom)/?$";s:43:"index.php?year=$matches[1]&feed=$matches[2]";s:19:"([0-9]{4})/embed/?$";s:37:"index.php?year=$matches[1]&embed=true";s:31:"([0-9]{4})/page/?([0-9]{1,})/?$";s:44:"index.php?year=$matches[1]&paged=$matches[2]";s:13:"([0-9]{4})/?$";s:26:"index.php?year=$matches[1]";s:27:".?.+?/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:37:".?.+?/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:57:".?.+?/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:52:".?.+?/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:52:".?.+?/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:33:".?.+?/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:16:"(.?.+?)/embed/?$";s:41:"index.php?pagename=$matches[1]&embed=true";s:20:"(.?.+?)/trackback/?$";s:35:"index.php?pagename=$matches[1]&tb=1";s:40:"(.?.+?)/feed/(feed|rdf|rss|rss2|atom)/?$";s:47:"index.php?pagename=$matches[1]&feed=$matches[2]";s:35:"(.?.+?)/(feed|rdf|rss|rss2|atom)/?$";s:47:"index.php?pagename=$matches[1]&feed=$matches[2]";s:28:"(.?.+?)/page/?([0-9]{1,})/?$";s:48:"index.php?pagename=$matches[1]&paged=$matches[2]";s:35:"(.?.+?)/comment-page-([0-9]{1,})/?$";s:48:"index.php?pagename=$matches[1]&cpage=$matches[2]";s:24:"(.?.+?)(?:/([0-9]+))?/?$";s:47:"index.php?pagename=$matches[1]&page=$matches[2]";s:31:".+?/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:41:".+?/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:61:".+?/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:56:".+?/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:56:".+?/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:37:".+?/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:22:"(.+?)/([^/]+)/embed/?$";s:63:"index.php?category_name=$matches[1]&name=$matches[2]&embed=true";s:26:"(.+?)/([^/]+)/trackback/?$";s:57:"index.php?category_name=$matches[1]&name=$matches[2]&tb=1";s:46:"(.+?)/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:69:"index.php?category_name=$matches[1]&name=$matches[2]&feed=$matches[3]";s:41:"(.+?)/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:69:"index.php?category_name=$matches[1]&name=$matches[2]&feed=$matches[3]";s:34:"(.+?)/([^/]+)/page/?([0-9]{1,})/?$";s:70:"index.php?category_name=$matches[1]&name=$matches[2]&paged=$matches[3]";s:41:"(.+?)/([^/]+)/comment-page-([0-9]{1,})/?$";s:70:"index.php?category_name=$matches[1]&name=$matches[2]&cpage=$matches[3]";s:30:"(.+?)/([^/]+)(?:/([0-9]+))?/?$";s:69:"index.php?category_name=$matches[1]&name=$matches[2]&page=$matches[3]";s:20:".+?/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:30:".+?/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:50:".+?/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:45:".+?/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:45:".+?/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:26:".+?/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:38:"(.+?)/feed/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?category_name=$matches[1]&feed=$matches[2]";s:33:"(.+?)/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?category_name=$matches[1]&feed=$matches[2]";s:14:"(.+?)/embed/?$";s:46:"index.php?category_name=$matches[1]&embed=true";s:26:"(.+?)/page/?([0-9]{1,})/?$";s:53:"index.php?category_name=$matches[1]&paged=$matches[2]";s:33:"(.+?)/comment-page-([0-9]{1,})/?$";s:53:"index.php?category_name=$matches[1]&cpage=$matches[2]";s:8:"(.+?)/?$";s:35:"index.php?category_name=$matches[1]";}', 'yes'),
 (4908, '_bbp_private_forums', 'a:25:{i:0;i:8336;i:1;i:8335;i:2;i:8333;i:3;i:8332;i:4;i:8331;i:5;i:8330;i:6;i:1256;i:7;i:1255;i:8;i:1242;i:9;i:1167;i:10;i:1165;i:11;i:1120;i:12;i:768;i:13;i:179;i:14;i:178;i:15;i:177;i:16;i:176;i:17;i:175;i:18;i:174;i:19;i:173;i:20;i:172;i:21;i:171;i:22;i:170;i:23;i:115;i:24;i:113;}', 'yes'),
 (4909, '_bbp_hidden_forums', 'a:25:{i:0;i:8336;i:1;i:8335;i:2;i:8333;i:3;i:8332;i:4;i:8331;i:5;i:8330;i:6;i:1256;i:7;i:1255;i:8;i:1242;i:9;i:1167;i:10;i:1165;i:11;i:1120;i:12;i:768;i:13;i:179;i:14;i:178;i:15;i:177;i:16;i:176;i:17;i:175;i:18;i:174;i:19;i:173;i:20;i:172;i:21;i:171;i:22;i:170;i:23;i:115;i:24;i:113;}', 'yes'),
 (5036, 'category_children', 'a:0:{}', 'yes'),
@@ -1106,26 +1097,143 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (5807, 'simple-calendar_admin_notices', 'a:0:{}', 'yes'),
 (6668, 'bp-emails-unsubscribe-salt', 'P1pqVTttWEBleU0tXzp9UnoqZWt1QElGQE8uLmM2Sl5tV0tgczYqP0JhSVY1RU1XRXQgcHhmMEtOYHtmWz9VUQ==', 'yes'),
 (6669, '_bp_ignore_deprecated_code', '', 'yes'),
-(7619, 'widget_toc-widget', 'a:1:{s:12:"_multiwidget";i:1;}', 'yes');
+(7500, 'widget_toc-widget', 'a:1:{s:12:"_multiwidget";i:1;}', 'yes'),
+(7501, 'current_sa_email_subscribers_db_version', '3.2', 'yes'),
+(7502, 'toc-options', 'a:43:{s:15:"fragment_prefix";s:1:"i";s:8:"position";i:2;s:5:"start";i:4;s:17:"show_heading_text";b:1;s:12:"heading_text";s:10:"Continguts";s:22:"auto_insert_post_types";a:1:{i:0;s:4:"page";}s:14:"show_heirarchy";b:1;s:12:"ordered_list";b:0;s:13:"smooth_scroll";b:1;s:20:"smooth_scroll_offset";i:40;s:10:"visibility";b:0;s:15:"visibility_show";s:4:"show";s:15:"visibility_hide";s:4:"hide";s:26:"visibility_hide_by_default";b:0;s:5:"width";s:4:"Auto";s:12:"width_custom";d:275;s:18:"width_custom_units";s:2:"px";s:8:"wrapping";i:2;s:9:"font_size";d:95;s:15:"font_size_units";s:1:"%";s:5:"theme";i:1;s:24:"custom_background_colour";s:7:"#f9f9f9";s:20:"custom_border_colour";s:7:"#aaaaaa";s:19:"custom_title_colour";s:1:"#";s:19:"custom_links_colour";s:1:"#";s:25:"custom_links_hover_colour";s:1:"#";s:27:"custom_links_visited_colour";s:1:"#";s:9:"lowercase";b:0;s:9:"hyphenate";b:0;s:14:"bullet_spacing";b:0;s:16:"include_homepage";b:0;s:11:"exclude_css";b:0;s:7:"exclude";s:0:"";s:14:"heading_levels";a:6:{i:0;s:1:"1";i:1;s:1:"2";i:2;s:1:"3";i:3;s:1:"4";i:4;s:1:"5";i:5;s:1:"6";}s:13:"restrict_path";s:6:"/docs/";s:19:"css_container_class";s:0:"";s:25:"sitemap_show_page_listing";b:1;s:29:"sitemap_show_category_listing";b:1;s:20:"sitemap_heading_type";i:3;s:13:"sitemap_pages";s:5:"Pages";s:18:"sitemap_categories";s:10:"Categories";s:23:"show_toc_in_widget_only";b:0;s:34:"show_toc_in_widget_only_post_types";a:1:{i:0;s:4:"page";}}', 'yes'),
+(7503, 'widget_media_audio', 'a:1:{s:12:"_multiwidget";i:1;}', 'yes'),
+(7504, 'widget_media_image', 'a:1:{s:12:"_multiwidget";i:1;}', 'yes'),
+(7505, 'widget_media_gallery', 'a:1:{s:12:"_multiwidget";i:1;}', 'yes'),
+(7506, 'widget_media_video', 'a:1:{s:12:"_multiwidget";i:1;}', 'yes'),
+(7507, 'widget_custom_html', 'a:1:{s:12:"_multiwidget";i:1;}', 'yes'),
+(7508, 'wptelegram_ver', '2.0.9', 'yes'),
+(7509, 'widget_email-subscribers-form', 'a:2:{s:12:"_multiwidget";i:1;i:3;a:2:{s:5:"title";s:22:"Subscripció de correu";s:7:"form_id";i:1;}}', 'yes'),
+(7510, 'ig_es_cronurl', 'https://pwc-int.educacio.intranet/agora/masterpri?es=cron&guid=wyifls-ikzlmd-adwxps-vhtubl-rtkpow', 'yes'),
+(7511, 'ig_admin_notices', 'a:0:{}', 'yes'),
+(7512, 'ig_es_sync_wp_users', 's:4:"b:0;";', 'yes'),
+(7513, 'ig_es_320_db_updated_at', '2019-05-13 07:44:20', 'no'),
+(7514, 'ig_es_327_db_updated_at', '2019-05-13 07:44:20', 'no'),
+(7515, 'ig_es_sentreport', 'Hola Administrador,\n\nEl missatge ha estat enviat amb èxit a {{COUNT}} de correu electrònic(s). Trobareu els detalls a continuació.\n\nId únic: {{UNIQUE}} \nHora d''inici: {{STARTTIME}} \nHora de finalització: {{ENDTIME}} \nPer a més informació, accediu al tauler i aneu al menú de Correus enviats a subscriptors. \n\nGràcies \nwww.gopiplus.com \n', 'yes'),
+(7516, 'ig_es_sentreport_subject', 'Butlletí Informe enviament', 'yes'),
+(7517, 'ig_es_fromname', 'Admin', 'yes'),
+(7518, 'ig_es_fromemail', 'a8000006@xtec.cat', 'yes'),
+(7519, 'ig_es_emailtype', 'WP HTML MAIL', 'yes'),
+(7520, 'ig_es_notifyadmin', 'YES', 'yes'),
+(7521, 'ig_es_adminemail', 'a8000004@xtec.cat', 'yes'),
+(7522, 'ig_es_admin_new_sub_subject', 'Escola L&#039;Arany Subscripci&oacute; nova de correu', 'yes'),
+(7523, 'ig_es_admin_new_sub_content', 'Hola Administrador, \r\n\r\n Hem rebut una sol·licitud de subscripci&oacute; d''aquesta adre&ccedil;a de correu electr&ograve;nic per rebre els articles del nostre lloc web. \r\n\r\n Correu electr&ograve;nic : {{EMAIL}} \r\n Nom : {{NAME}} \r\n\r\nGr&agrave;cies\r\nEscola L&#039;Arany', 'yes'),
+(7524, 'ig_es_welcomeemail', 'YES', 'yes'),
+(10448, 'ig_es_welcomesubject', 'Escola L&#039;Arany Benvingut al nostre butlletí', 'yes'),
+(10449, 'ig_es_welcomecontent', 'Hola {{NAME}}, \r\n\r\n Hem rebut una sol·licitud de subscripci&oacute; d''aquesta adre&ccedil;a de correu electr&ograve;nic per rebre el bullet&iacute; del nostre lloc web.\r\n\r\nGr&agrave;cies\r\nEscola L&#039;Arany', 'yes'),
+(10450, 'ig_es_optintype', 'Double Opt In', 'yes'),
+(10451, 'ig_es_confirmsubject', 'Escola L&#039;Arany confirmeu la subscripció', 'yes'),
+(10452, 'ig_es_confirmcontent', 'Hola {{NAME}},\r\n\r\n Hem rebut una petici&oacute; de subscripci&oacute; d''aquesta adre&ccedil;a de correu electr&ograve;nic. Confirmeu <a href=''{{LINK}}''>fent clic aqu&iacute;</a>. Si no podeu fer clic a l''enlla&ccedil; anterior, si us plau, utilitzeu l''URL seg&uuml;ent.\r\n\r\n {{LINK}} \r\n\r\nGr&agrave;cies\r\nEscola L&#039;Arany', 'yes'),
+(10453, 'ig_es_optinlink', 'http://pwc-int.educacio.intranet/agora/masterpri/?es=optin&db={{DBID}}&email={{EMAIL}}&guid={{GUID}}', 'yes'),
+(10454, 'ig_es_unsublink', 'http://pwc-int.educacio.intranet/agora/masterpri/?es=unsubscribe&db={{DBID}}&email={{EMAIL}}&guid={{GUID}}', 'yes'),
+(10455, 'ig_es_unsubcontent', 'Si no esteu interessats en rebre correus des de Escola L&#039;Arany <a href=''{{LINK}}''>feu clic aqu&iacute;</a> per donar-vos de baixa', 'yes'),
+(10456, 'ig_es_unsubtext', 'Gr&agrave;cies, heu estat donat de baixa amb &egrave;xit. Ja no haur&iacute;eu de rebre not&iacute;cies nostres.', 'yes'),
+(10457, 'ig_es_successmsg', 'Gr&agrave;cies, heu estat subscrit amb &egrave;xit al nostre butllet&iacute; de not&iacute;cies.', 'yes'),
+(10458, 'ig_es_suberror', 'Vaja... Aquesta subscripci&oacute; no s''ha pogut completar, ho sentim. L''adre&ccedil;a de correu electr&ograve;nic est&agrave; bloquejada o ja est&agrave; subscrita. Gr&agrave;cies.', 'yes'),
+(10459, 'ig_es_unsuberror', 'Vaja... Estem tenint algun error t&egrave;cnic. Torneu-ho a provar o contacteu amb l''administrador.', 'yes'),
+(10461, 'ig_es_330_db_updated_at', '2019-05-13 07:44:20', 'no'),
+(10463, 'es_template_migration_done', 'yes', 'yes'),
+(10465, 'ig_es_340_db_updated_at', '2019-05-13 07:44:20', 'no'),
+(10467, 'ig_es_3516_db_updated_at', '2019-05-13 07:44:20', 'no'),
+(10468, 'ig_es_from_name', 'Admin', 'yes'),
+(10469, 'ig_es_from_email', 'a8000006@xtec.cat', 'yes'),
+(10470, 'ig_es_admin_new_contact_email_subject', 'Escola L&#039;Arany Subscripci&oacute; nova de correu', 'yes'),
+(10471, 'ig_es_admin_new_contact_email_content', 'Hola Administrador, \r\n\r\n Hem rebut una sol·licitud de subscripci&oacute; d''aquesta adre&ccedil;a de correu electr&ograve;nic per rebre els articles del nostre lloc web. \r\n\r\n Correu electr&ograve;nic : {{EMAIL}} \r\n Nom : {{NAME}} \r\n\r\nGr&agrave;cies\r\nEscola L&#039;Arany', 'yes'),
+(10472, 'ig_es_admin_emails', 'a8000006@xtec.cat', 'yes'),
+(10473, 'ig_es_confirmation_mail_subject', 'Escola L&#039;Arany confirmeu la subscripció', 'yes'),
+(10474, 'ig_es_confirmation_mail_content', 'Hola {{NAME}},\r\n\r\n Hem rebut una petici&oacute; de subscripci&oacute; d''aquesta adre&ccedil;a de correu electr&ograve;nic. Confirmeu <a href=''{{LINK}}''>fent clic aqu&iacute;</a>. Si no podeu fer clic a l''enlla&ccedil; anterior, si us plau, utilitzeu l''URL seg&uuml;ent.\r\n\r\n {{LINK}} \r\n\r\nGr&agrave;cies\r\nEscola L&#039;Arany', 'yes'),
+(10475, 'ig_es_enable_welcome_email', 'yes', 'yes'),
+(10476, 'ig_es_welcome_email_subject', 'Escola L&#039;Arany Benvingut al nostre butlletí', 'yes'),
+(10477, 'ig_es_welcome_email_content', 'Hola {{NAME}}, \r\n\r\n Hem rebut una sol·licitud de subscripci&oacute; d''aquesta adre&ccedil;a de correu electr&ograve;nic per rebre el bullet&iacute; del nostre lloc web.\r\n\r\nGr&agrave;cies\r\nEscola L&#039;Arany', 'yes'),
+(10478, 'ig_es_sent_report_subject', 'Butlletí Informe enviament', 'yes'),
+(10479, 'ig_es_sent_report_content', 'Hola Administrador,\n\nEl missatge ha estat enviat amb èxit a {{COUNT}} de correu electrònic(s). Trobareu els detalls a continuació.\n\nId únic: {{UNIQUE}} \nHora d''inici: {{STARTTIME}} \nHora de finalització: {{ENDTIME}} \nPer a més informació, accediu al tauler i aneu al menú de Correus enviats a subscriptors. \n\nGràcies \nwww.gopiplus.com \n', 'yes');
+INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES
+(10480, 'ig_es_unsubscribe_link', 'http://pwc-int.educacio.intranet/agora/masterpri/?es=unsubscribe&db={{DBID}}&email={{EMAIL}}&guid={{GUID}}', 'yes'),
+(10481, 'ig_es_optin_link', 'http://pwc-int.educacio.intranet/agora/masterpri/?es=optin&db={{DBID}}&email={{EMAIL}}&guid={{GUID}}', 'yes'),
+(10482, 'ig_es_unsubscribe_link_content', 'Si no esteu interessats en rebre correus des de Escola L&#039;Arany <a href=''{{LINK}}''>feu clic aqu&iacute;</a> per donar-vos de baixa', 'yes'),
+(10483, 'ig_es_email_type', 'wp_html_mail', 'yes'),
+(10484, 'ig_es_notify_admin', 'yes', 'yes'),
+(10485, 'ig_es_optin_type', 'double_opt_in', 'yes'),
+(10486, 'ig_es_subscription_error_messsage', 'Vaja... Aquesta subscripci&oacute; no s''ha pogut completar, ho sentim. L''adre&ccedil;a de correu electr&ograve;nic est&agrave; bloquejada o ja est&agrave; subscrita. Gr&agrave;cies.', 'yes'),
+(10487, 'ig_es_subscription_success_message', 'Gr&agrave;cies, heu estat subscrit amb &egrave;xit al nostre butllet&iacute; de not&iacute;cies.', 'yes'),
+(10488, 'ig_es_unsubscribe_error_message', 'Vaja... Estem tenint algun error t&egrave;cnic. Torneu-ho a provar o contacteu amb l''administrador.', 'yes'),
+(10489, 'ig_es_unsubscribe_success_message', 'Gr&agrave;cies, heu estat donat de baixa amb &egrave;xit. Ja no haur&iacute;eu de rebre not&iacute;cies nostres.', 'yes'),
+(10491, 'ig_es_400_db_updated_at', '2019-05-13 07:44:20', 'no'),
+(10493, 'ig_es_401_db_updated_at', '2019-05-13 07:44:20', 'no'),
+(10495, 'ig_es_402_db_updated_at', '2019-05-13 07:44:20', 'no'),
+(10497, 'ig_es_403_db_updated_at', '2019-05-13 07:44:20', 'no'),
+(10499, 'ig_es_405_db_updated_at', '2019-05-13 07:44:20', 'no'),
+(10500, 'ig_es_db_version', '4.0.9', 'yes'),
+(10505, 'wp_page_for_privacy_policy', '0', 'yes'),
+(10506, 'show_comments_cookies_opt_in', '1', 'yes'),
+(10512, '_ges_installed_before_39', '1', 'yes'),
+(10513, '_ges_39_subscriptions_table_created', '1', 'yes'),
+(10514, '_ges_39_queued_items_table_created', '1', 'yes'),
+(10515, '_ges_revision_date', '2019-03-20 16:00 UTC', 'yes'),
+(10525, '_ges_39_subscriptions_migrated', '1', 'yes'),
+(10527, '_ges_39_digest_queue_migrated', '1', 'yes'),
+(10531, 'acui_columns', 'a:0:{}', 'yes'),
+(10532, 'acui_mail_subject', 'Benvinguts a Escola L&#039;Arany', 'yes'),
+(10533, 'acui_mail_body', 'Benvinguts,<br/>Les vostres dades per iniciar sessió en aquest lloc són:<br/><ul><li>Adreça d''inici de sessió (URL): **loginurl**</li><li>Nom d''usuari= **username**</li><li>Password = **password**</li></ul>', 'yes'),
+(10534, 'acui_mail_template_id', '0', 'yes'),
+(10535, 'acui_mail_attachment_id', '0', 'yes'),
+(10536, 'acui_enable_email_templates', '', 'yes'),
+(10537, 'acui_cron_activated', '', 'yes'),
+(10538, 'acui_cron_send_mail', '', 'yes'),
+(10539, 'acui_cron_send_mail_updated', '', 'yes'),
+(10540, 'acui_cron_delete_users', '', 'yes'),
+(10541, 'acui_cron_delete_users_assign_posts', '0', 'yes'),
+(10542, 'acui_cron_change_role_not_present', '', 'yes'),
+(10543, 'acui_cron_change_role_not_present_role', '0', 'yes'),
+(10544, 'acui_cron_path_to_file', '', 'yes'),
+(10545, 'acui_cron_path_to_move', '', 'yes'),
+(10546, 'acui_cron_path_to_move_auto_rename', '', 'yes'),
+(10547, 'acui_cron_period', '', 'yes'),
+(10548, 'acui_cron_role', '', 'yes'),
+(10549, 'acui_cron_update_roles_existing_users', '', 'yes'),
+(10550, 'acui_cron_log', '', 'yes'),
+(10551, 'acui_cron_allow_multiple_accounts', 'not_allowed', 'yes'),
+(10552, 'acui_frontend_send_mail', '', 'yes'),
+(10553, 'acui_frontend_send_mail_updated', '', 'yes'),
+(10554, 'acui_frontend_delete_users', '', 'yes'),
+(10555, 'acui_frontend_delete_users_assign_posts', '0', 'yes'),
+(10556, 'acui_frontend_change_role_not_present', '', 'yes'),
+(10557, 'acui_frontend_change_role_not_present_role', '0', 'yes'),
+(10558, 'acui_frontend_role', '', 'yes'),
+(10559, 'acui_manually_send_mail', '', 'yes'),
+(10560, 'acui_manually_send_mail_updated', '', 'yes'),
+(10561, 'acui_automatic_wordpress_email', '', 'yes'),
+(10562, 'acui_show_profile_fields', '', 'yes'),
+(10563, 'acui_settings', 'wordpress', 'yes'),
+(10564, 'acui_mail_from', '', 'yes'),
+(10565, 'acui_mail_from_name', '', 'yes'),
+(10566, 'acui_mailer', 'smtp', 'yes'),
+(10567, 'acui_mail_set_return_path', 'false', 'yes'),
+(10568, 'acui_smtp_host', 'localhost', 'yes'),
+(10569, 'acui_smtp_port', '25', 'yes'),
+(10570, 'acui_smtp_ssl', 'none', 'yes'),
+(10571, 'acui_smtp_auth', '', 'yes'),
+(10572, 'acui_smtp_user', '', 'yes'),
+(10573, 'acui_smtp_pass', '', 'yes');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_postmeta`
+-- Estructura de la taula `wp_postmeta`
 --
 
-CREATE TABLE `wp_postmeta` (
-  `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_postmeta` (
+`meta_id` bigint(20) unsigned NOT NULL,
   `post_id` bigint(20) unsigned NOT NULL DEFAULT '0',
   `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_ci,
-  PRIMARY KEY (`meta_id`),
-  KEY `post_id` (`post_id`),
-  KEY `meta_key` (`meta_key`(191))
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=6026 ;
+  `meta_value` longtext COLLATE utf8mb4_unicode_ci
+) ENGINE=InnoDB AUTO_INCREMENT=6028 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `wp_postmeta`
+-- Bolcant dades de la taula `wp_postmeta`
 --
 
 INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUES
@@ -1158,7 +1266,7 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (85, 37, '_wp_attachment_metadata', 'a:5:{s:5:"width";i:180;s:6:"height";i:90;s:4:"file";s:20:"2014/09/exemple2.png";s:5:"sizes";a:1:{s:9:"thumbnail";a:4:{s:4:"file";s:19:"exemple2-150x90.png";s:5:"width";i:150;s:6:"height";i:90;s:9:"mime-type";s:9:"image/png";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}'),
 (406, 107, '_edit_lock', '1466602840:1'),
 (407, 107, '_edit_last', '1'),
-(410, 107, 'settings', 'a:26:{s:9:"animation";s:5:"slide";s:10:"slideSpeed";s:1:"1";s:16:"descriptionSpeed";s:3:"0.4";s:13:"intervalSpeed";s:3:"300";s:13:"slidesPerView";s:1:"3";s:8:"maxWidth";s:1:"0";s:11:"aspectRatio";s:3:"3:1";s:6:"height";s:3:"179";s:14:"imageBehaviour";s:4:"crop";s:15:"showDescription";s:4:"true";s:15:"hideDescription";s:4:"true";s:27:"preserveSlideshowDimensions";s:5:"false";s:20:"enableResponsiveness";s:4:"true";s:4:"play";s:5:"false";s:4:"loop";s:4:"true";s:12:"pauseOnHover";s:4:"true";s:12:"controllable";s:4:"true";s:21:"hideNavigationButtons";s:4:"true";s:14:"showPagination";s:5:"false";s:14:"hidePagination";s:4:"true";s:12:"controlPanel";s:5:"false";s:16:"hideControlPanel";s:4:"true";s:15:"waitUntilLoaded";s:4:"true";s:15:"showLoadingIcon";s:4:"true";s:6:"random";s:5:"false";s:11:"avoidFilter";s:4:"true";}'),
+(410, 107, 'settings', 'a:26:{s:9:"animation";s:5:"slide";s:10:"slideSpeed";s:1:"1";s:16:"descriptionSpeed";s:3:"0.4";s:13:"intervalSpeed";s:3:"300";s:13:"slidesPerView";s:1:"3";s:8:"maxWidth";s:1:"0";s:11:"aspectRatio";s:3:"3:1";s:6:"height";s:3:"179";s:14:"imageBehaviour";s:4:"crop";s:15:"showDescription";s:4:"true";s:15:"hideDescription";s:4:"true";s:27:"preserveSlideshowDimensions";s:5:"false";s:20:"enableResponsiveness";s:5:"false";s:4:"play";s:5:"false";s:4:"loop";s:4:"true";s:12:"pauseOnHover";s:4:"true";s:12:"controllable";s:4:"true";s:21:"hideNavigationButtons";s:4:"true";s:14:"showPagination";s:5:"false";s:14:"hidePagination";s:4:"true";s:12:"controlPanel";s:5:"false";s:16:"hideControlPanel";s:4:"true";s:15:"waitUntilLoaded";s:4:"true";s:15:"showLoadingIcon";s:4:"true";s:6:"random";s:5:"false";s:11:"avoidFilter";s:4:"true";}'),
 (411, 107, 'styleSettings', 'a:1:{s:5:"style";s:15:"style-light.css";}'),
 (412, 107, 'slides', 'a:8:{i:1;a:9:{s:17:"titleElementTagID";s:1:"0";s:5:"title";s:17:"Observatori Fabra";s:23:"descriptionElementTagID";s:1:"0";s:11:"description";s:0:"";s:3:"url";s:0:"";s:9:"urlTarget";s:5:"_self";s:15:"alternativeText";s:0:"";s:4:"type";s:10:"attachment";s:6:"postId";s:4:"8295";}i:2;a:9:{s:17:"titleElementTagID";s:1:"0";s:5:"title";s:17:"Activitats al riu";s:23:"descriptionElementTagID";s:1:"0";s:11:"description";s:0:"";s:3:"url";s:0:"";s:9:"urlTarget";s:5:"_self";s:15:"alternativeText";s:0:"";s:4:"type";s:10:"attachment";s:6:"postId";s:4:"8293";}i:3;a:9:{s:17:"titleElementTagID";s:1:"0";s:5:"title";s:8:"Mesurant";s:23:"descriptionElementTagID";s:1:"0";s:11:"description";s:0:"";s:3:"url";s:0:"";s:9:"urlTarget";s:5:"_self";s:15:"alternativeText";s:0:"";s:4:"type";s:10:"attachment";s:6:"postId";s:4:"8296";}i:4;a:3:{s:7:"videoId";s:11:"BVHpTBC0egE";s:17:"showRelatedVideos";s:5:"false";s:4:"type";s:5:"video";}i:5;a:9:{s:17:"titleElementTagID";s:1:"0";s:5:"title";s:18:"Taller Lorem Ipsum";s:23:"descriptionElementTagID";s:1:"0";s:11:"description";s:108:"Podeu afegir qualsevol text aquí. Cada diapositiva es pot vincular amb un enllaç. Prova a fer clic aquí. ";s:9:"textColor";s:7:"#ffffff";s:5:"color";s:7:"#ffffff";s:3:"url";s:27:"http://tafanodes.skills.cat";s:9:"urlTarget";s:6:"_blank";s:4:"type";s:4:"text";}i:6;a:9:{s:17:"titleElementTagID";s:1:"0";s:5:"title";s:7:"Panells";s:23:"descriptionElementTagID";s:1:"0";s:11:"description";s:0:"";s:3:"url";s:0:"";s:9:"urlTarget";s:5:"_self";s:15:"alternativeText";s:0:"";s:4:"type";s:10:"attachment";s:6:"postId";s:4:"8294";}i:7;a:9:{s:17:"titleElementTagID";s:1:"0";s:5:"title";s:17:"Mirant Montserrat";s:23:"descriptionElementTagID";s:1:"0";s:11:"description";s:0:"";s:3:"url";s:0:"";s:9:"urlTarget";s:5:"_self";s:15:"alternativeText";s:0:"";s:4:"type";s:10:"attachment";s:6:"postId";s:4:"8291";}i:8;a:3:{s:7:"videoId";s:43:"https://www.youtube.com/watch?v=sLOyKqtF-vs";s:17:"showRelatedVideos";s:5:"false";s:4:"type";s:5:"video";}}'),
 (437, 113, '_bbp_reply_count', '0'),
@@ -1397,7 +1505,7 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (1422, 289, '_menu_item_classes', 'a:1:{i:0;s:0:"";}'),
 (1423, 289, '_menu_item_xfn', ''),
 (1424, 289, '_menu_item_url', ''),
-(1595, 107, 'picasa_album', 'https://picasaweb.google.com/data/feed/base/user/117832835998585102951/albumid/6199679598237752241?alt=rss&kind=photo&hl=en_US'),
+(1595, 107, 'picasa_album', ''),
 (1596, 107, 'googlephotos_album', ''),
 (1665, 146, '_wp_attachment_image_alt', 'Photo by Anna Armstrong'),
 (1666, 146, '_edit_last', '1'),
@@ -1716,7 +1824,7 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (2360, 1055, '_menu_item_target', ''),
 (2361, 1055, '_menu_item_classes', 'a:1:{i:0;s:0:"";}'),
 (2362, 1055, '_menu_item_xfn', ''),
-(2363, 1055, '_menu_item_url', 'http://pwc-int.educacio.intranet/agora/mastercda/activitat'),
+(2363, 1055, '_menu_item_url', 'https://pwc-int.educacio.intranet/agora/mastercda/activitat'),
 (2396, 1060, '_menu_item_type', 'custom'),
 (2397, 1060, '_menu_item_menu_item_parent', '1046'),
 (2398, 1060, '_menu_item_object_id', '1060'),
@@ -1769,12 +1877,6 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (2521, 341, '_wp_page_template', 'page-templates/side-menu.php'),
 (2522, 341, '_template_layout', '2c-l'),
 (2523, 341, 'sharing_disabled', '1'),
-(3010, 107, '_edit_last', '1'),
-(3011, 107, 'settings', 'a:26:{s:9:"animation";s:5:"slide";s:10:"slideSpeed";s:1:"1";s:16:"descriptionSpeed";s:3:"0.4";s:13:"intervalSpeed";s:3:"300";s:13:"slidesPerView";s:1:"3";s:8:"maxWidth";s:1:"0";s:11:"aspectRatio";s:3:"3:1";s:6:"height";s:3:"179";s:14:"imageBehaviour";s:4:"crop";s:15:"showDescription";s:4:"true";s:15:"hideDescription";s:4:"true";s:27:"preserveSlideshowDimensions";s:5:"false";s:20:"enableResponsiveness";s:4:"true";s:4:"play";s:5:"false";s:4:"loop";s:4:"true";s:12:"pauseOnHover";s:4:"true";s:12:"controllable";s:4:"true";s:21:"hideNavigationButtons";s:4:"true";s:14:"showPagination";s:5:"false";s:14:"hidePagination";s:4:"true";s:12:"controlPanel";s:5:"false";s:16:"hideControlPanel";s:4:"true";s:15:"waitUntilLoaded";s:4:"true";s:15:"showLoadingIcon";s:4:"true";s:6:"random";s:5:"false";s:11:"avoidFilter";s:4:"true";}'),
-(3012, 107, 'styleSettings', 'a:1:{s:5:"style";s:15:"style-light.css";}'),
-(3013, 107, 'slides', 'a:8:{i:1;a:9:{s:17:"titleElementTagID";s:1:"0";s:5:"title";s:17:"Observatori Fabra";s:23:"descriptionElementTagID";s:1:"0";s:11:"description";s:0:"";s:3:"url";s:0:"";s:9:"urlTarget";s:5:"_self";s:15:"alternativeText";s:0:"";s:4:"type";s:10:"attachment";s:6:"postId";s:4:"8295";}i:2;a:9:{s:17:"titleElementTagID";s:1:"0";s:5:"title";s:17:"Activitats al riu";s:23:"descriptionElementTagID";s:1:"0";s:11:"description";s:0:"";s:3:"url";s:0:"";s:9:"urlTarget";s:5:"_self";s:15:"alternativeText";s:0:"";s:4:"type";s:10:"attachment";s:6:"postId";s:4:"8293";}i:3;a:9:{s:17:"titleElementTagID";s:1:"0";s:5:"title";s:8:"Mesurant";s:23:"descriptionElementTagID";s:1:"0";s:11:"description";s:0:"";s:3:"url";s:0:"";s:9:"urlTarget";s:5:"_self";s:15:"alternativeText";s:0:"";s:4:"type";s:10:"attachment";s:6:"postId";s:4:"8296";}i:4;a:3:{s:7:"videoId";s:11:"BVHpTBC0egE";s:17:"showRelatedVideos";s:5:"false";s:4:"type";s:5:"video";}i:5;a:9:{s:17:"titleElementTagID";s:1:"0";s:5:"title";s:18:"Taller Lorem Ipsum";s:23:"descriptionElementTagID";s:1:"0";s:11:"description";s:108:"Podeu afegir qualsevol text aquí. Cada diapositiva es pot vincular amb un enllaç. Prova a fer clic aquí. ";s:9:"textColor";s:7:"#ffffff";s:5:"color";s:7:"#ffffff";s:3:"url";s:27:"http://tafanodes.skills.cat";s:9:"urlTarget";s:6:"_blank";s:4:"type";s:4:"text";}i:6;a:9:{s:17:"titleElementTagID";s:1:"0";s:5:"title";s:7:"Panells";s:23:"descriptionElementTagID";s:1:"0";s:11:"description";s:0:"";s:3:"url";s:0:"";s:9:"urlTarget";s:5:"_self";s:15:"alternativeText";s:0:"";s:4:"type";s:10:"attachment";s:6:"postId";s:4:"8294";}i:7;a:9:{s:17:"titleElementTagID";s:1:"0";s:5:"title";s:17:"Mirant Montserrat";s:23:"descriptionElementTagID";s:1:"0";s:11:"description";s:0:"";s:3:"url";s:0:"";s:9:"urlTarget";s:5:"_self";s:15:"alternativeText";s:0:"";s:4:"type";s:10:"attachment";s:6:"postId";s:4:"8291";}i:8;a:3:{s:7:"videoId";s:43:"https://www.youtube.com/watch?v=sLOyKqtF-vs";s:17:"showRelatedVideos";s:5:"false";s:4:"type";s:5:"video";}}'),
-(3014, 107, 'picasa_album', 'https://picasaweb.google.com/data/feed/base/user/117832835998585102951/albumid/6199679598237752241?alt=rss&kind=photo&hl=en_US'),
-(3015, 107, 'googlephotos_album', ''),
 (3016, 148, '_edit_last', '1'),
 (3017, 148, 'settings', 'a:26:{s:9:"animation";s:5:"slide";s:10:"slideSpeed";s:1:"1";s:16:"descriptionSpeed";s:3:"0.4";s:13:"intervalSpeed";s:1:"8";s:13:"slidesPerView";s:1:"1";s:8:"maxWidth";s:1:"0";s:11:"aspectRatio";s:3:"3:1";s:6:"height";s:3:"500";s:14:"imageBehaviour";s:4:"crop";s:15:"showDescription";s:4:"true";s:15:"hideDescription";s:4:"true";s:27:"preserveSlideshowDimensions";s:5:"false";s:20:"enableResponsiveness";s:4:"true";s:4:"play";s:4:"true";s:4:"loop";s:4:"true";s:12:"pauseOnHover";s:4:"true";s:12:"controllable";s:4:"true";s:21:"hideNavigationButtons";s:5:"false";s:14:"showPagination";s:4:"true";s:14:"hidePagination";s:4:"true";s:12:"controlPanel";s:5:"false";s:16:"hideControlPanel";s:4:"true";s:15:"waitUntilLoaded";s:4:"true";s:15:"showLoadingIcon";s:4:"true";s:6:"random";s:5:"false";s:11:"avoidFilter";s:4:"true";}'),
 (3018, 148, 'styleSettings', 'a:1:{s:5:"style";s:15:"style-light.css";}'),
@@ -3069,16 +3171,18 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (6022, 1038, '_default_calendar_limit_visible_events', 'no'),
 (6023, 1038, '_default_calendar_visible_events', '3'),
 (6024, 1038, '_default_calendar_trim_titles', 'no'),
-(6025, 1038, '_default_calendar_trim_titles_chars', '20');
+(6025, 1038, '_default_calendar_trim_titles_chars', '20'),
+(6026, 8397, 'es_template_type', 'newsletter'),
+(6027, 8398, 'es_template_type', 'post_notification');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_posts`
+-- Estructura de la taula `wp_posts`
 --
 
-CREATE TABLE `wp_posts` (
-  `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_posts` (
+`ID` bigint(20) unsigned NOT NULL,
   `post_author` bigint(20) unsigned NOT NULL DEFAULT '0',
   `post_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `post_date_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -3088,7 +3192,7 @@ CREATE TABLE `wp_posts` (
   `post_status` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'publish',
   `comment_status` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'open',
   `ping_status` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'open',
-  `post_password` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `post_password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `post_name` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `to_ping` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `pinged` text COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -3100,313 +3204,316 @@ CREATE TABLE `wp_posts` (
   `menu_order` int(11) NOT NULL DEFAULT '0',
   `post_type` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'post',
   `post_mime_type` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `comment_count` bigint(20) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`ID`),
-  KEY `type_status_date` (`post_type`,`post_status`,`post_date`,`ID`),
-  KEY `post_parent` (`post_parent`),
-  KEY `post_author` (`post_author`),
-  KEY `post_name` (`post_name`(191))
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=8398 ;
+  `comment_count` bigint(20) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=8405 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `wp_posts`
+-- Bolcant dades de la taula `wp_posts`
 --
 
 INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_title`, `post_excerpt`, `post_status`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_content_filtered`, `post_parent`, `guid`, `menu_order`, `post_type`, `post_mime_type`, `comment_count`) VALUES
-(4, 1, '2013-12-09 11:57:37', '2013-12-09 11:57:37', 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/cropped-capcda4.png', 'cropped-capcda4.png', '', 'inherit', 'closed', 'open', '', 'cropped-capcda4-png', '', '', '2013-12-09 11:57:37', '2013-12-09 11:57:37', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/cropped-capcda4.png', 0, 'attachment', 'image/png', 0),
-(5, 1, '2014-09-12 09:46:02', '2014-09-12 09:46:02', '', 'Activitat a tot el lloc web', '', 'publish', 'closed', 'closed', '', 'activitat', '', '', '2017-01-17 10:42:08', '2017-01-17 09:42:08', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/?page_id=5', 0, 'page', '', 0),
-(6, 1, '2014-09-12 09:46:02', '2014-09-12 09:46:02', '', 'Membres', '', 'publish', 'closed', 'closed', '', 'membres', '', '', '2014-09-22 14:13:29', '2014-09-22 14:13:29', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/?page_id=6', 0, 'page', '', 0),
-(7, 1, '2014-09-12 10:14:31', '2014-09-12 10:14:31', '', 'Pàgines d''inici', '', 'publish', 'closed', 'closed', '', 'pagines-dinici', '', '', '2014-09-22 14:13:29', '2014-09-22 14:13:29', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/?page_id=7', 0, 'page', '', 0),
-(9, 1, '2014-09-12 10:15:01', '2014-09-12 10:15:01', '', 'Inici', '', 'publish', 'closed', 'closed', '', 'pagina-dinici-buida', '', '', '2016-06-21 09:28:10', '2016-06-21 08:28:10', '', 7, 'http://pwc-int.educacio.intranet/agora/mastercda/?page_id=9', 0, 'page', '', 0),
-(13, 1, '2014-09-12 11:05:02', '2014-09-12 11:05:02', 'Pàgina d''avís', 'Avís', '', 'publish', 'closed', 'closed', '', 'avis', '', '', '2014-09-22 14:13:29', '2014-09-22 14:13:29', '', 7, 'http://pwc-int.educacio.intranet/agora/mastercda/?page_id=13', 0, 'page', '', 0),
-(16, 1, '2014-09-12 12:40:45', '2014-09-12 12:40:45', '', 'Nodes', '', 'publish', 'closed', 'closed', '', 'nodes', '', '', '2014-09-22 14:13:29', '2014-09-22 14:13:29', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/nodes/', 0, 'page', '', 0),
-(32, 1, '2014-09-17 16:29:37', '2014-09-17 16:29:37', '', 'exemple1', '', 'inherit', 'open', 'open', '', 'exemple1', '', '', '2014-09-17 16:29:37', '2014-09-17 16:29:37', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2014/09/exemple1.png', 0, 'attachment', 'image/png', 0),
-(33, 1, '2014-09-17 16:29:38', '2014-09-17 16:29:38', '', 'exemple1b', '', 'inherit', 'open', 'open', '', 'exemple1b', '', '', '2014-09-17 16:29:38', '2014-09-17 16:29:38', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2014/09/exemple1b.png', 0, 'attachment', 'image/png', 0),
-(34, 1, '2014-09-17 16:29:39', '2014-09-17 16:29:39', '', 'exemple2b', '', 'inherit', 'open', 'open', '', 'exemple2b', '', '', '2014-09-17 16:29:39', '2014-09-17 16:29:39', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2014/09/exemple2b.png', 0, 'attachment', 'image/png', 0),
-(35, 1, '2014-09-17 16:29:40', '2014-09-17 16:29:40', '', 'exemple3', '', 'inherit', 'open', 'open', '', 'exemple3', '', '', '2014-09-17 16:29:40', '2014-09-17 16:29:40', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2014/09/exemple3.png', 0, 'attachment', 'image/png', 0),
-(36, 1, '2014-09-17 16:29:41', '2014-09-17 16:29:41', '', 'exemple3b', '', 'inherit', 'open', 'open', '', 'exemple3b', '', '', '2014-09-17 16:29:41', '2014-09-17 16:29:41', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2014/09/exemple3b.png', 0, 'attachment', 'image/png', 0),
-(37, 1, '2014-09-17 16:31:11', '2014-09-17 16:31:11', '', 'exemple2', '', 'inherit', 'open', 'open', '', 'exemple2', '', '', '2014-09-17 16:31:11', '2014-09-17 16:31:11', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2014/09/exemple2.png', 0, 'attachment', 'image/png', 0),
-(54, 1, '2013-11-14 18:56:33', '2013-11-14 17:56:33', 'El <strong>Camp d’Aprenentatge<sup>1</sup> de l’Alt Berguedà</strong> està situat al Prepirineu català, en una zona de muntanya mitjana i alta, al costat del <strong>Parc Natural Cadí-Moixeró</strong> i té com a àmbits de treball més significatius:\r\n<ul>\r\n	<li><strong>el riu</strong> (morfologia, vegetació de ribera i qualitat de l''aigua)</li>\r\n	<li><strong>el bosc</strong> (vegetació i rastres animals)</li>\r\n	<li>els <strong>fongs</strong> i els <strong>bolets</strong> (morfologia i identificació)</li>\r\n	<li>l''estudi del <strong>Pedraforca</strong>, <strong>la cova de la Tuta</strong> i <strong><strong>les fonts del Llobregat</strong></strong></li>\r\n</ul>\r\n<iframe src="//www.youtube.com/embed/u7vJ1HAqYYE" width="640" height="480" frameborder="0" allowfullscreen="allowfullscreen"></iframe>\r\n\r\nLes activitats d''aquest camp són adequades als alumnes dels següents nivells educatius:\r\n\r\n<a href="http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/2013-11-17_1231.png"><img class="size-full wp-image-275 aligncenter" src="http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/2013-11-17_1231.png" alt="graella nivells educatius" width="656" height="110" /></a>\r\n<h4><strong>Una mica d''historia</strong></h4>\r\nEl CdA Els Monestirs es va crear durant el curs 1990-1991 per una acord entre Departament d''Ensenyament i el llavors Abat de Poblet Dom Maur Esteva per a descobrir els monestirs. Actualment comparteix el Servei i ha ampliat les activitats amb el Paratge Natural d’Interès Nacional de Poblet (PNIN).\r\n<h4>Qui som</h4>\r\nActualment hi treballem tres mestres de primària (<span style="color: #000000;">Nom1</span>, Nom2, Nom3) i una professora de secundària (Nom4) del Departament d''Educació de la Generalitat.  La nostra tasca docent amb els alumnes es desenvolupa seguint l''horari escolar, aproximadament les 9 del matí fins a les 5 de la tarda.\r\n\r\nEls centres educatius que fan estada de tres a cinc dies al nostre Camp, s''allotgen i realitzen les activitats programades a <strong>la casa de La Sala</strong>, situada entre <strong>Guardiola de Berguedà</strong> i <strong>La Pobla de Lillet</strong>. Podeu trobar més informació sobre el nostre camp a les seccions de <a title="On som" href="http://blocs.xtec.cat/plantillacda/on-som/">On Som</a> i <a title="Al·lotjament" href="http://blocs.xtec.cat/plantillacda/al%c2%b7lotjament/">Allotjament</a>.\r\n\r\n<a href="http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/cda-qui-som2.png"><img class="size-full wp-image-484 aligncenter" src="http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/cda-qui-som2.png" alt="cda-qui-som" width="711" height="291" /></a>\r\n<h4>Objectius</h4>\r\n<ul>\r\n	<li>Posar a l’abast dels centres els mitjans didàctics necessaris per al coneixement i la comprensió de les restes d’una ciutat que canvia i evoluciona al llarg del temps: època romana, medieval, etc.</li>\r\n	<li>Fer conèixer als alumnes la necessitat de les relacions i la interdependència de la ciutat amb el seu territori.</li>\r\n	<li>Conèixer i comprendre l’estructura urbana d’una ciutat.</li>\r\n	<li>Entendre la ciutat com a ecosistema.</li>\r\n	<li>Potenciar el treball de camp com una eina didàctica bàsica per al coneixement de l’entorn.</li>\r\n	<li>Sensibilitzar als estudiants vers la necessitat de conèixer, respectar i estimar el medi que ens envolta.</li>\r\n	<li>Posar els nois/es en contacte amb el medi físic, econòmic, industrial i social de la ciutat i el seu camp d’influència.</li>\r\n	<li>Procurar que els alumnes desenvolupin tècniques d’investigació i de treball científic conforme les indicacions del Departament d’Educació.</li>\r\n</ul>\r\n<strong><span style="font-size: large;">Us hi esperem!</span></strong>\r\n\r\n<hr />\r\n\r\n<span style="color: #808080;"><span style="font-size: small;"><sup>1</sup></span><span style="font-size: small;">Els camps d''aprenentatge són serveis educatius del Departament d''Ensenyament que ofereixen al professorat i als centres docents la possibilitat de desenvolupar projectes de treball per a l''estudi i l''experimentació en un medi singular de Catalunya; s''adrecen principalment a alumnes d''educació primària, secundària, cicles formatius i batxillerat. Podeu trobar més informació a: <a href="http://xtec.gencat.cat/ca/serveis/cda/queson/" target="_blank">http://xtec.gencat.cat/ca/serveis/cda/queson/</a></span></span>', 'Presentació', '', 'publish', 'closed', 'closed', '', 'presentacio', '', '', '2016-06-22 10:45:31', '2016-06-22 09:45:31', '', 8225, 'http://blocs.xtec.cat/plantillacda/?page_id=54', 10, 'page', '', 0),
-(62, 1, '2013-11-14 19:17:27', '2013-11-14 18:17:27', '', 'cda-qui-som', '', 'inherit', 'open', 'open', '', 'cda-qui-som', '', '', '2013-11-14 19:17:27', '2013-11-14 18:17:27', '', 54, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/cda-qui-som.png', 0, 'attachment', 'image/png', 0),
-(65, 1, '2013-11-14 19:20:15', '2013-11-14 18:20:15', '', 'cda-qui-som', '', 'inherit', 'open', 'open', '', 'cda-qui-som-2', '', '', '2013-11-14 19:20:15', '2013-11-14 18:20:15', '', 54, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/cda-qui-som1.png', 0, 'attachment', 'image/png', 0),
-(71, 1, '2013-11-14 19:47:14', '2013-11-14 18:47:14', 'La seu del CdA està ubicada a <strong>Guardiola de Berguedà</strong> i la casa on es realitzen les estades a <strong>4km</strong> de <strong>La Pobla de Lillet</strong>.\r\n\r\n<iframe style="border: 0;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47865.917017106796!2d2.0617567482464763!3d41.42577094572662!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a490bd9b7b01ed%3A0x4535064cf8aa1b44!2sCamp+d''Aprenentatge+Can+Santoi!5e0!3m2!1sca!2ses!4v1466504449089" width="600" height="450" frameborder="0" allowfullscreen="allowfullscreen"></iframe>\r\n<small><a style="color: #0000ff; text-align: left;" href="https://maps.google.es/maps?f=q&amp;source=embed&amp;hl=ca&amp;geocode=&amp;q=Camp+d''Aprenentatge+Alt+bergueda&amp;aq=t&amp;sll=41.39479,2.148768&amp;sspn=0.208873,0.305901&amp;ie=UTF8&amp;hq=Camp+d''Aprenentatge+Alt+bergueda&amp;hnear=&amp;radius=15000&amp;t=m&amp;cid=6859762148946524423&amp;ll=42.350425,1.950073&amp;spn=0.487159,0.878906&amp;z=10&amp;iwloc=A">Mostra un mapa més gran</a></small>\r\n<h4>Com arribar-hi</h4>\r\nAl Camp d''Aprenentatge de l''Alt Berguedà s''hi accedeix <strong>a través de l''Eix del Llobregat (C-16)</strong>, a la <strong>sortida de Guardiola de Berguedà</strong>. Les instal·lacions es troben just a l''entrada del poble, a mà dreta compartint edifici amb el CEIP Sant Llorenç.\r\n\r\n{Si aplica, explicar com arribar en transport públic}\r\n<h4>Instal·lacions</h4>\r\nDisposem de dues aules de treball i un laboratori.\r\n<h4>Al·lotjament</h4>\r\nPer anar a <strong>la casa de La Sala</strong>, on fareu l''estada, no cal entrar a Guardiola. S''ha de seguir uns 200 metres més, per la C-16, i agafar la sortida cap a La Pobla de Lillet. Al cap d''uns sis quilòmetres, a mà esquerra, es troba el trencant que porta a la casa. Més informació a la nostre secció <a title="Al·lotjament" href="http://pwc-int.educacio.intranet/agora/mastercda/el-camp/al%c2%b7lotjament/">Al·lotjament</a>.\r\n\r\n<a href="http://www.xtec.cat/cda-altbergueda/informacio/mapa/planol%20arribada.gif"> <img src="http://www.xtec.cat/cda-altbergueda/informacio/mapa/planol%20arribada.gif" alt="" width="400px" /></a>', 'On som', '', 'publish', 'closed', 'closed', '', 'on-som', '', '', '2016-06-21 11:21:05', '2016-06-21 10:21:05', '', 8225, 'http://blocs.xtec.cat/plantillacda/?page_id=71', 30, 'page', '', 0),
+(4, 1, '2013-12-09 11:57:37', '2013-12-09 11:57:37', 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/cropped-capcda4.png', 'cropped-capcda4.png', '', 'inherit', 'closed', 'open', '', 'cropped-capcda4-png', '', '', '2013-12-09 11:57:37', '2013-12-09 11:57:37', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/cropped-capcda4.png', 0, 'attachment', 'image/png', 0),
+(5, 1, '2014-09-12 09:46:02', '2014-09-12 09:46:02', '', 'Activitat a tot el lloc web', '', 'publish', 'closed', 'closed', '', 'activitat', '', '', '2017-01-17 10:42:08', '2017-01-17 09:42:08', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/?page_id=5', 0, 'page', '', 0),
+(6, 1, '2014-09-12 09:46:02', '2014-09-12 09:46:02', '', 'Membres', '', 'publish', 'closed', 'closed', '', 'membres', '', '', '2014-09-22 14:13:29', '2014-09-22 14:13:29', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/?page_id=6', 0, 'page', '', 0),
+(7, 1, '2014-09-12 10:14:31', '2014-09-12 10:14:31', '', 'Pàgines d''inici', '', 'publish', 'closed', 'closed', '', 'pagines-dinici', '', '', '2014-09-22 14:13:29', '2014-09-22 14:13:29', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/?page_id=7', 0, 'page', '', 0),
+(9, 1, '2014-09-12 10:15:01', '2014-09-12 10:15:01', '', 'Inici', '', 'publish', 'closed', 'closed', '', 'pagina-dinici-buida', '', '', '2016-06-21 09:28:10', '2016-06-21 08:28:10', '', 7, 'https://pwc-int.educacio.intranet/agora/mastercda/?page_id=9', 0, 'page', '', 0),
+(13, 1, '2014-09-12 11:05:02', '2014-09-12 11:05:02', 'Pàgina d''avís', 'Avís', '', 'publish', 'closed', 'closed', '', 'avis', '', '', '2014-09-22 14:13:29', '2014-09-22 14:13:29', '', 7, 'https://pwc-int.educacio.intranet/agora/mastercda/?page_id=13', 0, 'page', '', 0),
+(16, 1, '2014-09-12 12:40:45', '2014-09-12 12:40:45', '', 'Nodes', '', 'publish', 'closed', 'closed', '', 'nodes', '', '', '2014-09-22 14:13:29', '2014-09-22 14:13:29', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/nodes/', 0, 'page', '', 0),
+(32, 1, '2014-09-17 16:29:37', '2014-09-17 16:29:37', '', 'exemple1', '', 'inherit', 'open', 'open', '', 'exemple1', '', '', '2014-09-17 16:29:37', '2014-09-17 16:29:37', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2014/09/exemple1.png', 0, 'attachment', 'image/png', 0),
+(33, 1, '2014-09-17 16:29:38', '2014-09-17 16:29:38', '', 'exemple1b', '', 'inherit', 'open', 'open', '', 'exemple1b', '', '', '2014-09-17 16:29:38', '2014-09-17 16:29:38', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2014/09/exemple1b.png', 0, 'attachment', 'image/png', 0),
+(34, 1, '2014-09-17 16:29:39', '2014-09-17 16:29:39', '', 'exemple2b', '', 'inherit', 'open', 'open', '', 'exemple2b', '', '', '2014-09-17 16:29:39', '2014-09-17 16:29:39', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2014/09/exemple2b.png', 0, 'attachment', 'image/png', 0),
+(35, 1, '2014-09-17 16:29:40', '2014-09-17 16:29:40', '', 'exemple3', '', 'inherit', 'open', 'open', '', 'exemple3', '', '', '2014-09-17 16:29:40', '2014-09-17 16:29:40', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2014/09/exemple3.png', 0, 'attachment', 'image/png', 0),
+(36, 1, '2014-09-17 16:29:41', '2014-09-17 16:29:41', '', 'exemple3b', '', 'inherit', 'open', 'open', '', 'exemple3b', '', '', '2014-09-17 16:29:41', '2014-09-17 16:29:41', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2014/09/exemple3b.png', 0, 'attachment', 'image/png', 0),
+(37, 1, '2014-09-17 16:31:11', '2014-09-17 16:31:11', '', 'exemple2', '', 'inherit', 'open', 'open', '', 'exemple2', '', '', '2014-09-17 16:31:11', '2014-09-17 16:31:11', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2014/09/exemple2.png', 0, 'attachment', 'image/png', 0),
+(54, 1, '2013-11-14 18:56:33', '2013-11-14 17:56:33', 'El <strong>Camp d’Aprenentatge<sup>1</sup> de l’Alt Berguedà</strong> està situat al Prepirineu català, en una zona de muntanya mitjana i alta, al costat del <strong>Parc Natural Cadí-Moixeró</strong> i té com a àmbits de treball més significatius:\r\n<ul>\r\n	<li><strong>el riu</strong> (morfologia, vegetació de ribera i qualitat de l''aigua)</li>\r\n	<li><strong>el bosc</strong> (vegetació i rastres animals)</li>\r\n	<li>els <strong>fongs</strong> i els <strong>bolets</strong> (morfologia i identificació)</li>\r\n	<li>l''estudi del <strong>Pedraforca</strong>, <strong>la cova de la Tuta</strong> i <strong><strong>les fonts del Llobregat</strong></strong></li>\r\n</ul>\r\n<iframe src="//www.youtube.com/embed/u7vJ1HAqYYE" width="640" height="480" frameborder="0" allowfullscreen="allowfullscreen"></iframe>\r\n\r\nLes activitats d''aquest camp són adequades als alumnes dels següents nivells educatius:\r\n\r\n<a href="https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/2013-11-17_1231.png"><img class="size-full wp-image-275 aligncenter" src="https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/2013-11-17_1231.png" alt="graella nivells educatius" width="656" height="110" /></a>\r\n<h4><strong>Una mica d''historia</strong></h4>\r\nEl CdA Els Monestirs es va crear durant el curs 1990-1991 per una acord entre Departament d''Ensenyament i el llavors Abat de Poblet Dom Maur Esteva per a descobrir els monestirs. Actualment comparteix el Servei i ha ampliat les activitats amb el Paratge Natural d’Interès Nacional de Poblet (PNIN).\r\n<h4>Qui som</h4>\r\nActualment hi treballem tres mestres de primària (<span style="color: #000000;">Nom1</span>, Nom2, Nom3) i una professora de secundària (Nom4) del Departament d''Educació de la Generalitat.  La nostra tasca docent amb els alumnes es desenvolupa seguint l''horari escolar, aproximadament les 9 del matí fins a les 5 de la tarda.\r\n\r\nEls centres educatius que fan estada de tres a cinc dies al nostre Camp, s''allotgen i realitzen les activitats programades a <strong>la casa de La Sala</strong>, situada entre <strong>Guardiola de Berguedà</strong> i <strong>La Pobla de Lillet</strong>. Podeu trobar més informació sobre el nostre camp a les seccions de <a title="On som" href="http://blocs.xtec.cat/plantillacda/on-som/">On Som</a> i <a title="Al·lotjament" href="http://blocs.xtec.cat/plantillacda/al%c2%b7lotjament/">Allotjament</a>.\r\n\r\n<a href="https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/cda-qui-som2.png"><img class="size-full wp-image-484 aligncenter" src="https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/cda-qui-som2.png" alt="cda-qui-som" width="711" height="291" /></a>\r\n<h4>Objectius</h4>\r\n<ul>\r\n	<li>Posar a l’abast dels centres els mitjans didàctics necessaris per al coneixement i la comprensió de les restes d’una ciutat que canvia i evoluciona al llarg del temps: època romana, medieval, etc.</li>\r\n	<li>Fer conèixer als alumnes la necessitat de les relacions i la interdependència de la ciutat amb el seu territori.</li>\r\n	<li>Conèixer i comprendre l’estructura urbana d’una ciutat.</li>\r\n	<li>Entendre la ciutat com a ecosistema.</li>\r\n	<li>Potenciar el treball de camp com una eina didàctica bàsica per al coneixement de l’entorn.</li>\r\n	<li>Sensibilitzar als estudiants vers la necessitat de conèixer, respectar i estimar el medi que ens envolta.</li>\r\n	<li>Posar els nois/es en contacte amb el medi físic, econòmic, industrial i social de la ciutat i el seu camp d’influència.</li>\r\n	<li>Procurar que els alumnes desenvolupin tècniques d’investigació i de treball científic conforme les indicacions del Departament d’Educació.</li>\r\n</ul>\r\n<strong><span style="font-size: large;">Us hi esperem!</span></strong>\r\n\r\n<hr />\r\n\r\n<span style="color: #808080;"><span style="font-size: small;"><sup>1</sup></span><span style="font-size: small;">Els camps d''aprenentatge són serveis educatius del Departament d''Ensenyament que ofereixen al professorat i als centres docents la possibilitat de desenvolupar projectes de treball per a l''estudi i l''experimentació en un medi singular de Catalunya; s''adrecen principalment a alumnes d''educació primària, secundària, cicles formatius i batxillerat. Podeu trobar més informació a: <a href="http://xtec.gencat.cat/ca/serveis/cda/queson/" target="_blank">http://xtec.gencat.cat/ca/serveis/cda/queson/</a></span></span>', 'Presentació', '', 'publish', 'closed', 'closed', '', 'presentacio', '', '', '2016-06-22 10:45:31', '2016-06-22 09:45:31', '', 8225, 'http://blocs.xtec.cat/plantillacda/?page_id=54', 10, 'page', '', 0),
+(62, 1, '2013-11-14 19:17:27', '2013-11-14 18:17:27', '', 'cda-qui-som', '', 'inherit', 'open', 'open', '', 'cda-qui-som', '', '', '2013-11-14 19:17:27', '2013-11-14 18:17:27', '', 54, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/cda-qui-som.png', 0, 'attachment', 'image/png', 0),
+(65, 1, '2013-11-14 19:20:15', '2013-11-14 18:20:15', '', 'cda-qui-som', '', 'inherit', 'open', 'open', '', 'cda-qui-som-2', '', '', '2013-11-14 19:20:15', '2013-11-14 18:20:15', '', 54, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/cda-qui-som1.png', 0, 'attachment', 'image/png', 0),
+(71, 1, '2013-11-14 19:47:14', '2013-11-14 18:47:14', 'La seu del CdA està ubicada a <strong>Guardiola de Berguedà</strong> i la casa on es realitzen les estades a <strong>4km</strong> de <strong>La Pobla de Lillet</strong>.\r\n\r\n<iframe style="border: 0;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47865.917017106796!2d2.0617567482464763!3d41.42577094572662!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a490bd9b7b01ed%3A0x4535064cf8aa1b44!2sCamp+d''Aprenentatge+Can+Santoi!5e0!3m2!1sca!2ses!4v1466504449089" width="600" height="450" frameborder="0" allowfullscreen="allowfullscreen"></iframe>\r\n<small><a style="color: #0000ff; text-align: left;" href="https://maps.google.es/maps?f=q&amp;source=embed&amp;hl=ca&amp;geocode=&amp;q=Camp+d''Aprenentatge+Alt+bergueda&amp;aq=t&amp;sll=41.39479,2.148768&amp;sspn=0.208873,0.305901&amp;ie=UTF8&amp;hq=Camp+d''Aprenentatge+Alt+bergueda&amp;hnear=&amp;radius=15000&amp;t=m&amp;cid=6859762148946524423&amp;ll=42.350425,1.950073&amp;spn=0.487159,0.878906&amp;z=10&amp;iwloc=A">Mostra un mapa més gran</a></small>\r\n<h4>Com arribar-hi</h4>\r\nAl Camp d''Aprenentatge de l''Alt Berguedà s''hi accedeix <strong>a través de l''Eix del Llobregat (C-16)</strong>, a la <strong>sortida de Guardiola de Berguedà</strong>. Les instal·lacions es troben just a l''entrada del poble, a mà dreta compartint edifici amb el CEIP Sant Llorenç.\r\n\r\n{Si aplica, explicar com arribar en transport públic}\r\n<h4>Instal·lacions</h4>\r\nDisposem de dues aules de treball i un laboratori.\r\n<h4>Al·lotjament</h4>\r\nPer anar a <strong>la casa de La Sala</strong>, on fareu l''estada, no cal entrar a Guardiola. S''ha de seguir uns 200 metres més, per la C-16, i agafar la sortida cap a La Pobla de Lillet. Al cap d''uns sis quilòmetres, a mà esquerra, es troba el trencant que porta a la casa. Més informació a la nostre secció <a title="Al·lotjament" href="https://pwc-int.educacio.intranet/agora/mastercda/el-camp/al%c2%b7lotjament/">Al·lotjament</a>.\r\n\r\n<a href="http://www.xtec.cat/cda-altbergueda/informacio/mapa/planol%20arribada.gif"> <img src="http://www.xtec.cat/cda-altbergueda/informacio/mapa/planol%20arribada.gif" alt="" width="400px" /></a>', 'On som', '', 'publish', 'closed', 'closed', '', 'on-som', '', '', '2016-06-21 11:21:05', '2016-06-21 10:21:05', '', 8225, 'http://blocs.xtec.cat/plantillacda/?page_id=71', 30, 'page', '', 0),
 (80, 1, '2013-11-14 20:29:29', '2013-11-14 19:29:29', '   ', 'Instal·lacions', '', 'publish', 'closed', 'closed', '', 'instal%c2%b7lacions', '', '', '2013-11-14 20:29:29', '2013-11-14 19:29:29', '', 0, 'http://blocs.xtec.cat/plantillacda/?page_id=80', 0, 'page', '', 0),
-(83, 1, '2013-11-14 21:16:00', '2013-11-14 20:16:00', 'Els vostres alumnes s''allotjaran a <strong>La Casa de la Sala</strong>, a 6 km de <strong>Guardiola de Berguedà</strong>. Podeu trobar un mapa de com arribar-hi a la nostre secció <a title="On som" href="http://pwc-int.educacio.intranet/agora/mastercda/el-camp/on-som/">On Som</a>.\r\n\r\n<a href="http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/cropped-la-sala-tot2.jpg"><img class="size-full wp-image-7 alignnone" src="http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/cropped-la-sala-tot2.jpg" alt="cropped-la-sala-tot2.jpg" width="1000" height="287" /></a>\r\n\r\nA la casa hi ha tres edificis amb habitacions, un dels quals encara no està en disposició d''ésser ocupat amb alumnes del Camp.\r\n\r\nPot donar-se el cas que en un dels edificis hi hagi un altre grup de la Fundació Pere Tarrés, la qual cosa suposa compartir menjador i instal·lacions exteriors, però en cap cas les activitats del Camp d''Aprenentatge ni les habitacions.\r\n<h4>Serveis</h4>\r\n<p style="text-align: center;"><img src="http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/serveis.png" alt="serveis" width="686" height="168" /></p>\r\n<p style="text-align: left;">El Camp d''Aprenentatge posa a disposició dels centres estadants pilotes, jocs de taula, llibres de lectura i còmics, una taula de ping-pong, un radiocasset, ordinador portàtil i DVD. A partir de les 9h del vespre i fins a les 8h del matí no hi haurà a la casa el personal de servei i, per tant, estareu sols a la casa.</p>\r\n\r\n<h4 style="text-align: left;">Organització i Funcionament</h4>\r\nEn aquest <a href="https://docs.google.com/a/xtec.cat/document/d/1B3R4drsrCVtLIOIU0Su0TtHEO5rbbWyDF9Iz0oXAD0E/edit#" target="_blank">document</a> podeu trobar indicacions, normes i consells relacionats amb l''alotjament.\r\n<h4>Com arribar-hi</h4>\r\nPer anar a <strong>la casa de La Sala</strong>, on fareu l''estada, no cal entrar a Guardiola. S''ha de seguir uns 200 metres més, per la C-16, i agafar la sortida cap a La Pobla de Lillet. Al cap d''uns sis quilòmetres, a mà esquerra, es troba el trencant que porta a la casa.\r\n\r\n<a href="http://www.xtec.cat/cda-altbergueda/informacio/mapa/planol%20arribada.gif"> <img src="http://www.xtec.cat/cda-altbergueda/informacio/mapa/planol%20arribada.gif" alt="" width="400px" /></a>\r\n<h4>Preu</h4>\r\nLa <a title="Fundació Pere Tarrés" href="http://www.peretarres.org/wps/wcm/connect/peretarres_ca/peretarres/home" target="_blank">Fundació Pere Tarrés</a> és l''entitat gestora i responsable de la casa on fareu l’estada.\r\n\r\nEl contracte el fareu directament amb la Fundació. Us l’enviaran a començaments de curs i haureu d’abonar una bestreta del 10% del cost, abans del 30 de setembre. En qualsevol reducció que superi el 10% de les places (pagament de la bestreta) caldrà pagar un 20% de l''import de les places no ocupades.\r\n\r\nEls preus són els mateixos per a tots els Camps d''Aprenentatge del Departament d''Ensenyament i els podeu trobar a la pàgina<a title="inscripcio" href="http://xtec.gencat.cat/ca/serveis/cda/inscripcio/" target="_blank"> d''inscripció</a> de XTEC.', 'Allotjament', '', 'publish', 'open', 'open', '', 'allotjament', '', '', '2016-06-27 15:03:58', '2016-06-27 14:03:58', '', 8225, 'http://blocs.xtec.cat/plantillacda/?page_id=83', 20, 'page', '', 0),
-(107, 1, '2014-09-18 16:34:30', '2014-09-18 16:34:30', '', 'Capçalera', '', 'publish', 'closed', 'closed', '', 'capcalera-2', '', '', '2016-06-22 14:33:52', '2016-06-22 13:33:52', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/?post_type=slideshow&#038;p=107', 0, 'slideshow', '', 0),
-(113, 1, '2014-09-18 17:21:02', '2014-09-18 17:21:02', 'Node del Departament de Ciències Naturals', 'Dep. Ciències', '', 'private', 'closed', 'open', '', 'dep-ciencies', '', '', '2014-09-18 17:21:02', '2014-09-18 17:21:02', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/forums/forum/dep-ciencies', 0, 'forum', '', 0),
-(115, 1, '2014-09-18 17:40:29', '2014-09-18 17:40:29', 'Node del departament de ciències socials (professorat)', 'Dep. Socials', '', 'private', 'closed', 'open', '', 'dep-socials', '', '', '2014-09-18 17:40:29', '2014-09-18 17:40:29', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/forums/forum/dep-socials', 0, 'forum', '', 0),
-(118, 1, '2013-11-14 21:54:56', '2013-11-14 20:54:56', '', 'serveis', '', 'inherit', 'open', 'open', '', 'serveis', '', '', '2013-11-14 21:54:56', '2013-11-14 20:54:56', '', 83, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/serveis.png', 0, 'attachment', 'image/png', 0),
-(131, 1, '2014-09-19 10:42:18', '2014-09-19 10:42:18', '', 'primersauxilis', '', 'inherit', 'open', 'open', '', 'primersauxilis', '', '', '2014-09-19 10:42:18', '2014-09-19 10:42:18', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2014/09/primersauxilis.jpg', 0, 'attachment', 'image/jpeg', 0),
-(132, 1, '2013-11-14 23:45:52', '2013-11-14 22:45:52', '', 'ensenyament_h3', '', 'inherit', 'open', 'open', '', 'ensenyament_h3', '', '', '2013-11-14 23:45:52', '2013-11-14 22:45:52', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/ensenyament_h3.jpg', 0, 'attachment', 'image/jpeg', 0),
-(141, 1, '2014-09-19 11:18:24', '2014-09-19 11:18:24', '', 'cicles', '', 'inherit', 'open', 'open', '', 'cicles', '', '', '2014-09-19 11:18:24', '2014-09-19 11:18:24', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2014/09/cicles.png', 0, 'attachment', 'image/png', 0),
-(146, 1, '2014-09-19 12:05:27', '2014-09-19 12:05:27', '', 'gimnas', '', 'inherit', 'open', 'open', '', 'gimnas', '', '', '2014-09-19 12:05:27', '2014-09-19 12:05:27', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2014/09/gimnas.png', 0, 'attachment', 'image/png', 0),
-(147, 1, '2013-11-15 02:25:36', '2013-11-15 01:25:36', '', 'logoCDAEmporda', '', 'inherit', 'open', 'open', '', 'logocdaemporda-2', '', '', '2013-11-15 02:25:36', '2013-11-15 01:25:36', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/logoCDAEmporda1.png', 0, 'attachment', 'image/png', 0),
-(148, 1, '2014-09-19 12:30:14', '2014-09-19 12:30:14', '', 'Exemple', '', 'publish', 'closed', 'closed', '', 'exemple', '', '', '2016-06-21 13:53:33', '2016-06-21 12:53:33', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/?post_type=slideshow&#038;p=148', 0, 'slideshow', '', 0),
-(149, 1, '2013-11-15 02:40:28', '2013-11-15 01:40:28', '', 'logoCDAEmporda80', '', 'inherit', 'open', 'open', '', 'logocdaemporda80', '', '', '2013-11-15 02:40:28', '2013-11-15 01:40:28', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/logoCDAEmporda80.png', 0, 'attachment', 'image/png', 0),
-(150, 1, '2013-11-15 02:54:09', '2013-11-15 01:54:09', '', 'capcdablanc', '', 'inherit', 'open', 'open', '', 'capcdablanc', '', '', '2013-11-15 02:54:09', '2013-11-15 01:54:09', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/capcdablanc.png', 0, 'attachment', 'image/png', 0),
-(151, 1, '2013-11-15 02:55:40', '2013-11-15 01:55:40', 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/capcdablanc1.png', 'capcdablanc1.png', '', 'inherit', 'closed', 'open', '', 'capcdablanc1-png', '', '', '2013-11-15 02:55:40', '2013-11-15 01:55:40', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/capcdablanc1.png', 0, 'attachment', 'image/png', 0),
-(153, 1, '2013-11-15 03:09:44', '2013-11-15 02:09:44', '', 'se', '', 'inherit', 'open', 'open', '', 'se-2', '', '', '2013-11-15 03:09:44', '2013-11-15 02:09:44', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/se1.png', 0, 'attachment', 'image/png', 0),
-(154, 1, '2014-09-19 14:40:48', '2014-09-19 14:40:48', '', 'Xesc_Arbona', '', 'inherit', 'open', 'open', '', 'xesc_arbona', '', '', '2014-09-19 14:40:48', '2014-09-19 14:40:48', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2014/09/Xesc_Arbona.png', 0, 'attachment', 'image/png', 0),
-(155, 1, '2013-11-15 13:21:33', '2013-11-15 12:21:33', '<img class="wp-image-626 alignleft" style="border: 0px;" src="http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/Selecció_083.png" alt="Selecció_083" width="100" height="100" /> <img class="size-thumbnail wp-image-627 alignleft" style="border: 0px;" src="http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/Selecció_084.png" alt="Selecció_084" width="100" height="111" /> <img class=" wp-image-629 alignleft" style="border: 0px;" src="http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/Selecció_086.png" alt="Selecció_086" width="100" height="100" /> <img class="size-thumbnail wp-image-628 alignleft" style="border: 0px;" src="http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/Selecció_085.png" alt="Selecció_085" width="100" height="94" />\r\n\r\n&nbsp;\r\n\r\n&nbsp;\r\n\r\n&nbsp;\r\n<ul>\r\n	<li>Les sortides son d''un dia i s''adrecen bàsicament als centres de la comarca propera. Les activitats es realitzen entre les <strong>9</strong> i les<strong> 17 </strong>h aproximadament.</li>\r\n	<li>El <strong>cost</strong> és de <strong>2€</strong> per alumne (és igual a tots els camps d''aprenentatge).</li>\r\n	<li>El centre educatiu és el responsable del desplaçament (anada i tornada) al camp d''aprenentatge.</li>\r\n	<li>Podeu triar les <strong>activitats</strong> que podeu fer durant la sortida. Aquí teniu la <a title="llista activitats" href="http://pwc-int.educacio.intranet/agora/mastercda/ambits/totes-les-activitats/">llista sencera</a>.</li>\r\n</ul>', 'Sortides', '', 'publish', 'closed', 'closed', '', 'sortides', '', '', '2016-06-21 11:44:49', '2016-06-21 10:44:49', '', 8260, 'http://blocs.xtec.cat/plantillacda/?page_id=155', 10, 'page', '', 0),
+(83, 1, '2013-11-14 21:16:00', '2013-11-14 20:16:00', 'Els vostres alumnes s''allotjaran a <strong>La Casa de la Sala</strong>, a 6 km de <strong>Guardiola de Berguedà</strong>. Podeu trobar un mapa de com arribar-hi a la nostre secció <a title="On som" href="https://pwc-int.educacio.intranet/agora/mastercda/el-camp/on-som/">On Som</a>.\r\n\r\n<a href="https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/cropped-la-sala-tot2.jpg"><img class="size-full wp-image-7 alignnone" src="https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/cropped-la-sala-tot2.jpg" alt="cropped-la-sala-tot2.jpg" width="1000" height="287" /></a>\r\n\r\nA la casa hi ha tres edificis amb habitacions, un dels quals encara no està en disposició d''ésser ocupat amb alumnes del Camp.\r\n\r\nPot donar-se el cas que en un dels edificis hi hagi un altre grup de la Fundació Pere Tarrés, la qual cosa suposa compartir menjador i instal·lacions exteriors, però en cap cas les activitats del Camp d''Aprenentatge ni les habitacions.\r\n<h4>Serveis</h4>\r\n<p style="text-align: center;"><img src="https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/serveis.png" alt="serveis" width="686" height="168" /></p>\r\n<p style="text-align: left;">El Camp d''Aprenentatge posa a disposició dels centres estadants pilotes, jocs de taula, llibres de lectura i còmics, una taula de ping-pong, un radiocasset, ordinador portàtil i DVD. A partir de les 9h del vespre i fins a les 8h del matí no hi haurà a la casa el personal de servei i, per tant, estareu sols a la casa.</p>\r\n\r\n<h4 style="text-align: left;">Organització i Funcionament</h4>\r\nEn aquest <a href="https://docs.google.com/a/xtec.cat/document/d/1B3R4drsrCVtLIOIU0Su0TtHEO5rbbWyDF9Iz0oXAD0E/edit#" target="_blank">document</a> podeu trobar indicacions, normes i consells relacionats amb l''alotjament.\r\n<h4>Com arribar-hi</h4>\r\nPer anar a <strong>la casa de La Sala</strong>, on fareu l''estada, no cal entrar a Guardiola. S''ha de seguir uns 200 metres més, per la C-16, i agafar la sortida cap a La Pobla de Lillet. Al cap d''uns sis quilòmetres, a mà esquerra, es troba el trencant que porta a la casa.\r\n\r\n<a href="http://www.xtec.cat/cda-altbergueda/informacio/mapa/planol%20arribada.gif"> <img src="http://www.xtec.cat/cda-altbergueda/informacio/mapa/planol%20arribada.gif" alt="" width="400px" /></a>\r\n<h4>Preu</h4>\r\nLa <a title="Fundació Pere Tarrés" href="http://www.peretarres.org/wps/wcm/connect/peretarres_ca/peretarres/home" target="_blank">Fundació Pere Tarrés</a> és l''entitat gestora i responsable de la casa on fareu l’estada.\r\n\r\nEl contracte el fareu directament amb la Fundació. Us l’enviaran a començaments de curs i haureu d’abonar una bestreta del 10% del cost, abans del 30 de setembre. En qualsevol reducció que superi el 10% de les places (pagament de la bestreta) caldrà pagar un 20% de l''import de les places no ocupades.\r\n\r\nEls preus són els mateixos per a tots els Camps d''Aprenentatge del Departament d''Ensenyament i els podeu trobar a la pàgina<a title="inscripcio" href="http://xtec.gencat.cat/ca/serveis/cda/inscripcio/" target="_blank"> d''inscripció</a> de XTEC.', 'Allotjament', '', 'publish', 'open', 'open', '', 'allotjament', '', '', '2016-06-27 15:03:58', '2016-06-27 14:03:58', '', 8225, 'http://blocs.xtec.cat/plantillacda/?page_id=83', 20, 'page', '', 0),
+(107, 1, '2014-09-18 16:34:30', '2014-09-18 16:34:30', '', 'Capçalera', '', 'publish', 'closed', 'closed', '', 'capcalera-2', '', '', '2016-06-22 14:33:52', '2016-06-22 13:33:52', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/?post_type=slideshow&#038;p=107', 0, 'slideshow', '', 0),
+(113, 1, '2014-09-18 17:21:02', '2014-09-18 17:21:02', 'Node del Departament de Ciències Naturals', 'Dep. Ciències', '', 'private', 'closed', 'open', '', 'dep-ciencies', '', '', '2014-09-18 17:21:02', '2014-09-18 17:21:02', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/forums/forum/dep-ciencies', 0, 'forum', '', 0),
+(115, 1, '2014-09-18 17:40:29', '2014-09-18 17:40:29', 'Node del departament de ciències socials (professorat)', 'Dep. Socials', '', 'private', 'closed', 'open', '', 'dep-socials', '', '', '2014-09-18 17:40:29', '2014-09-18 17:40:29', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/forums/forum/dep-socials', 0, 'forum', '', 0),
+(118, 1, '2013-11-14 21:54:56', '2013-11-14 20:54:56', '', 'serveis', '', 'inherit', 'open', 'open', '', 'serveis', '', '', '2013-11-14 21:54:56', '2013-11-14 20:54:56', '', 83, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/serveis.png', 0, 'attachment', 'image/png', 0),
+(131, 1, '2014-09-19 10:42:18', '2014-09-19 10:42:18', '', 'primersauxilis', '', 'inherit', 'open', 'open', '', 'primersauxilis', '', '', '2014-09-19 10:42:18', '2014-09-19 10:42:18', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2014/09/primersauxilis.jpg', 0, 'attachment', 'image/jpeg', 0),
+(132, 1, '2013-11-14 23:45:52', '2013-11-14 22:45:52', '', 'ensenyament_h3', '', 'inherit', 'open', 'open', '', 'ensenyament_h3', '', '', '2013-11-14 23:45:52', '2013-11-14 22:45:52', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/ensenyament_h3.jpg', 0, 'attachment', 'image/jpeg', 0),
+(141, 1, '2014-09-19 11:18:24', '2014-09-19 11:18:24', '', 'cicles', '', 'inherit', 'open', 'open', '', 'cicles', '', '', '2014-09-19 11:18:24', '2014-09-19 11:18:24', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2014/09/cicles.png', 0, 'attachment', 'image/png', 0),
+(146, 1, '2014-09-19 12:05:27', '2014-09-19 12:05:27', '', 'gimnas', '', 'inherit', 'open', 'open', '', 'gimnas', '', '', '2014-09-19 12:05:27', '2014-09-19 12:05:27', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2014/09/gimnas.png', 0, 'attachment', 'image/png', 0),
+(147, 1, '2013-11-15 02:25:36', '2013-11-15 01:25:36', '', 'logoCDAEmporda', '', 'inherit', 'open', 'open', '', 'logocdaemporda-2', '', '', '2013-11-15 02:25:36', '2013-11-15 01:25:36', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/logoCDAEmporda1.png', 0, 'attachment', 'image/png', 0),
+(148, 1, '2014-09-19 12:30:14', '2014-09-19 12:30:14', '', 'Exemple', '', 'publish', 'closed', 'closed', '', 'exemple', '', '', '2016-06-21 13:53:33', '2016-06-21 12:53:33', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/?post_type=slideshow&#038;p=148', 0, 'slideshow', '', 0),
+(149, 1, '2013-11-15 02:40:28', '2013-11-15 01:40:28', '', 'logoCDAEmporda80', '', 'inherit', 'open', 'open', '', 'logocdaemporda80', '', '', '2013-11-15 02:40:28', '2013-11-15 01:40:28', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/logoCDAEmporda80.png', 0, 'attachment', 'image/png', 0),
+(150, 1, '2013-11-15 02:54:09', '2013-11-15 01:54:09', '', 'capcdablanc', '', 'inherit', 'open', 'open', '', 'capcdablanc', '', '', '2013-11-15 02:54:09', '2013-11-15 01:54:09', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/capcdablanc.png', 0, 'attachment', 'image/png', 0),
+(151, 1, '2013-11-15 02:55:40', '2013-11-15 01:55:40', 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/capcdablanc1.png', 'capcdablanc1.png', '', 'inherit', 'closed', 'open', '', 'capcdablanc1-png', '', '', '2013-11-15 02:55:40', '2013-11-15 01:55:40', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/capcdablanc1.png', 0, 'attachment', 'image/png', 0),
+(153, 1, '2013-11-15 03:09:44', '2013-11-15 02:09:44', '', 'se', '', 'inherit', 'open', 'open', '', 'se-2', '', '', '2013-11-15 03:09:44', '2013-11-15 02:09:44', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/se1.png', 0, 'attachment', 'image/png', 0),
+(154, 1, '2014-09-19 14:40:48', '2014-09-19 14:40:48', '', 'Xesc_Arbona', '', 'inherit', 'open', 'open', '', 'xesc_arbona', '', '', '2014-09-19 14:40:48', '2014-09-19 14:40:48', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2014/09/Xesc_Arbona.png', 0, 'attachment', 'image/png', 0),
+(155, 1, '2013-11-15 13:21:33', '2013-11-15 12:21:33', '<img class="wp-image-626 alignleft" style="border: 0px;" src="https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/Selecció_083.png" alt="Selecció_083" width="100" height="100" /> <img class="size-thumbnail wp-image-627 alignleft" style="border: 0px;" src="https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/Selecció_084.png" alt="Selecció_084" width="100" height="111" /> <img class=" wp-image-629 alignleft" style="border: 0px;" src="https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/Selecció_086.png" alt="Selecció_086" width="100" height="100" /> <img class="size-thumbnail wp-image-628 alignleft" style="border: 0px;" src="https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/Selecció_085.png" alt="Selecció_085" width="100" height="94" />\r\n\r\n&nbsp;\r\n\r\n&nbsp;\r\n\r\n&nbsp;\r\n<ul>\r\n	<li>Les sortides son d''un dia i s''adrecen bàsicament als centres de la comarca propera. Les activitats es realitzen entre les <strong>9</strong> i les<strong> 17 </strong>h aproximadament.</li>\r\n	<li>El <strong>cost</strong> és de <strong>2€</strong> per alumne (és igual a tots els camps d''aprenentatge).</li>\r\n	<li>El centre educatiu és el responsable del desplaçament (anada i tornada) al camp d''aprenentatge.</li>\r\n	<li>Podeu triar les <strong>activitats</strong> que podeu fer durant la sortida. Aquí teniu la <a title="llista activitats" href="https://pwc-int.educacio.intranet/agora/mastercda/ambits/totes-les-activitats/">llista sencera</a>.</li>\r\n</ul>', 'Sortides', '', 'publish', 'closed', 'closed', '', 'sortides', '', '', '2016-06-21 11:44:49', '2016-06-21 10:44:49', '', 8260, 'http://blocs.xtec.cat/plantillacda/?page_id=155', 10, 'page', '', 0),
 (157, 1, '2013-11-15 13:22:03', '2013-11-15 12:22:03', 'Podeu triar les activitats que vulgueu o triar una de les nostres propostes precuinades:\r\n\r\n<iframe src="https://docs.google.com/spreadsheet/pub?key=0AlWhk6C-0QRadG1zTFdFX3FzUldfS2xuMzJjOG9DeEE&amp;single=true&amp;gid=2&amp;output=html&amp;widget=true" width="700" height="600" frameborder="0"></iframe>\r\n\r\n<hr />\r\n\r\n<em><span style="color: #888888;">Aquesta taula és un <a href="https://docs.google.com/a/xtec.cat/spreadsheet/ccc?key=0AlWhk6C-0QRadG1zTFdFX3FzUldfS2xuMzJjOG9DeEE&amp;usp=drive_web#gid=2"><span style="color: #888888;">full de càlcul</span></a> de Google Drive</span></em>', 'Estades', '', 'publish', 'closed', 'closed', '', 'estades', '', '', '2016-06-20 17:52:09', '2016-06-20 16:52:09', '', 8260, 'http://blocs.xtec.cat/plantillacda/?page_id=157', 20, 'page', '', 0),
-(160, 1, '2013-11-15 13:23:03', '2013-11-15 12:23:03', '<strong>Projecte l''hort escolar</strong>\r\n\r\n<a href="http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/Selecció_062.png"><img class="alignnone size-medium wp-image-518" src="http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/Selecció_062-300x211.png" alt="Selecció_062" width="300" height="211" /></a>\r\n\r\nAquest projecte pretén incidir a través de propostes de caire pràctic, en continguts educatius relacionats amb la vida de les plantes de forma sempre respectuosa amb el medi. Algunes de les experiències tenen com a base les suggerides a "L''Hort escolar ecològic" de la Montse Escutia.  <a href="http://hortbergueda1314.blogspot.com.es/">Enllaç</a> al projecte.\r\n\r\n&nbsp;\r\n\r\n<strong>Projecte Llobregat</strong>\r\n\r\n<a href="http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/1346327037.jpg" rel="attachment wp-att-8327"><img class="alignnone  wp-image-8327" src="http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/1346327037.jpg" alt="1346327037" width="317" height="211" /></a>\r\n\r\nEl Projecte Llobregat és un projecte compartit entre tres escoles i els tres Camps d''Aprenentatge de la conca del Llobregat per tal de conèixer, aprendre i valorar tota una sèrie d''aspectes a l''entorn del riu Llobregat. <a href="https://sites.google.com/site/prollobregat/">Enllaç</a> al projecte.', 'Projectes', '', 'publish', 'closed', 'closed', '', 'projectes', '', '', '2016-06-21 11:51:12', '2016-06-21 10:51:12', '', 8260, 'http://blocs.xtec.cat/plantillacda/?page_id=160', 30, 'page', '', 0),
-(165, 1, '2013-11-15 13:32:09', '2013-11-15 12:32:09', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae sodales augue. Ut ex nisl, lobortis quis nulla vel, ultrices efficitur nulla. Donec sit amet commodo purus.\r\n<ul>\r\n	<li>Praesent accumsan nisi leo, vel finibus purus molestie id. Vestibulum sed sollicitudin mauris, sed blandit risus.</li>\r\n	<li>Etiam volutpat leo eget scelerisque auctor. Cras pretium felis at libero pellentesque volutpat.</li>\r\n	<li>Mauris et cursus elit. In a urna sit amet dui pretium efficitur. Suspendisse potenti. Aliquam volutpat maximus elit, at fringilla felis vestibulum sit amet.</li>\r\n</ul>\r\n<a style="font-family: inherit; font-size: 1em; line-height: 1.6;" href="http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/Selecció_999322.png" rel="attachment wp-att-8314"><img class="alignnone wp-image-8314" src="http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/Selecció_999322.png" alt="Selecció_999(322)" width="487" height="323" /></a>', 'Pedraforca', '', 'publish', 'open', 'open', '', 'pedraforca', '', '', '2016-06-21 13:13:23', '2016-06-21 12:13:23', '', 8235, 'http://blocs.xtec.cat/plantillacda/?page_id=165', 40, 'page', '', 0),
-(168, 1, '2014-09-19 16:04:34', '2014-09-19 16:04:34', '', 'classe', '', 'inherit', 'open', 'open', '', 'classe', '', '', '2014-09-19 16:04:34', '2014-09-19 16:04:34', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2014/09/classe.png', 0, 'attachment', 'image/png', 0),
-(170, 1, '2014-09-19 16:16:22', '2014-09-19 16:16:22', 'Node del departament de Tecnologia (professorat)', 'Tecnologia', '', 'private', 'closed', 'open', '', 'tecnologia', '', '', '2014-09-19 16:16:22', '2014-09-19 16:16:22', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/forums/forum/tecnologia', 0, 'forum', '', 0),
-(171, 1, '2014-09-19 16:19:15', '2014-09-19 16:19:15', 'Node del departament de Matemàtiques', 'Dep. Matemàtiques', '', 'private', 'closed', 'open', '', 'dep-matematiques', '', '', '2014-09-19 16:19:15', '2014-09-19 16:19:15', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/forums/forum/dep-matematiques', 0, 'forum', '', 0),
-(172, 1, '2014-09-19 16:26:36', '2014-09-19 16:26:36', 'Node del departament de Llengua catalana i literatura (professorat)', 'Dep. Català', '', 'private', 'closed', 'open', '', 'dep-catala', '', '', '2014-09-19 16:26:36', '2014-09-19 16:26:36', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/forums/forum/dep-catala', 0, 'forum', '', 0),
-(173, 1, '2014-09-19 16:29:03', '2014-09-19 16:29:03', 'Node del departament de Llengua castellana i literatura (professorat)', 'Dep. Castellà', '', 'private', 'closed', 'open', '', 'dep-castella', '', '', '2014-09-19 16:29:03', '2014-09-19 16:29:03', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/forums/forum/dep-castella', 0, 'forum', '', 0),
-(174, 1, '2014-09-19 16:31:22', '2014-09-19 16:31:22', 'Node del departament de Llengües estrangeres (professorat)', 'Dep. Llengües estrangeres', '', 'private', 'closed', 'open', '', 'dep-llengues-estrangeres', '', '', '2014-09-19 16:31:22', '2014-09-19 16:31:22', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/forums/forum/dep-llengues-estrangeres', 0, 'forum', '', 0),
-(175, 1, '2014-09-19 16:33:32', '2014-09-19 16:33:32', 'Node del departament d&#039;Educació Física (professorat)', 'Dep. Educació Física', '', 'private', 'closed', 'open', '', 'dep-educacio-fisica', '', '', '2014-09-19 16:33:32', '2014-09-19 16:33:32', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/forums/forum/dep-educacio-fisica', 0, 'forum', '', 0),
-(176, 1, '2014-09-19 16:39:42', '2014-09-19 16:39:42', 'Node del departament de Visual i Plàstica (professorat)', 'Dep. Visual i Plàstica', '', 'private', 'closed', 'open', '', 'dep-visual-i-plastica', '', '', '2014-09-19 16:39:42', '2014-09-19 16:39:42', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/forums/forum/dep-visual-i-plastica', 0, 'forum', '', 0),
-(177, 1, '2014-09-19 16:45:37', '2014-09-19 16:45:37', 'Node del departament de música (professorat)', 'Dep. Música', '', 'private', 'closed', 'open', '', 'dep-musica', '', '', '2014-09-19 16:45:37', '2014-09-19 16:45:37', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/forums/forum/dep-musica', 0, 'forum', '', 0),
-(178, 1, '2014-09-19 16:50:06', '2014-09-19 16:50:06', 'Node del departament d&#039;Orientació (professorat)', 'Dep. Orientació', '', 'private', 'closed', 'open', '', 'dep-orientacio', '', '', '2014-09-19 16:50:06', '2014-09-19 16:50:06', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/forums/forum/dep-orientacio', 0, 'forum', '', 0),
-(179, 1, '2014-09-19 17:00:49', '2014-09-19 17:00:49', 'Node del departament d&#039;Informàtica (professorat)', 'Dep. Informàtica', '', 'private', 'closed', 'open', '', 'dep-informatica', '', '', '2014-09-19 17:00:49', '2014-09-19 17:00:49', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/forums/forum/dep-informatica', 0, 'forum', '', 0),
-(185, 1, '2014-09-22 10:13:06', '2014-09-22 10:13:06', '', 'ampa', '', 'inherit', 'open', 'open', '', 'ampa-2', '', '', '2014-09-22 10:13:06', '2014-09-22 10:13:06', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2014/09/ampa.png', 0, 'attachment', 'image/png', 0),
-(186, 1, '2013-11-15 14:02:38', '2013-11-15 13:02:38', '', 'nivells', '', 'inherit', 'open', 'open', '', 'nivells', '', '', '2013-11-15 14:02:38', '2013-11-15 13:02:38', '', 8199, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/nivells.png', 0, 'attachment', 'image/png', 0),
-(194, 1, '2013-11-15 18:20:38', '2013-11-15 17:20:38', 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/capcda1.png', 'capcda1.png', '', 'inherit', 'closed', 'open', '', 'capcda1-png', '', '', '2013-11-15 18:20:38', '2013-11-15 17:20:38', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/capcda1.png', 0, 'attachment', 'image/png', 0),
-(195, 1, '2013-11-15 18:29:23', '2013-11-15 17:29:23', 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/capcda2.png', 'capcda2.png', '', 'inherit', 'closed', 'open', '', 'capcda2-png', '', '', '2013-11-15 18:29:23', '2013-11-15 17:29:23', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/capcda2.png', 0, 'attachment', 'image/png', 0),
-(196, 1, '2013-11-15 18:36:21', '2013-11-15 17:36:21', 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/capcda3.png', 'capcda3.png', '', 'inherit', 'closed', 'open', '', 'capcda3-png', '', '', '2013-11-15 18:36:21', '2013-11-15 17:36:21', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/capcda3.png', 0, 'attachment', 'image/png', 0),
-(197, 1, '2013-11-15 18:37:20', '2013-11-15 17:37:20', 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/wallpaper-964432.jpg', 'wallpaper-964432.jpg', '', 'inherit', 'open', 'open', '', 'wallpaper-964432-jpg', '', '', '2013-11-15 18:37:20', '2013-11-15 17:37:20', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/wallpaper-964432.jpg', 0, 'attachment', 'image/jpeg', 0),
-(198, 1, '2013-11-15 18:40:20', '2013-11-15 17:40:20', 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/capcda4.png', 'capcda4.png', '', 'inherit', 'closed', 'open', '', 'capcda4-png', '', '', '2013-11-15 18:40:20', '2013-11-15 17:40:20', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/capcda4.png', 0, 'attachment', 'image/png', 0),
-(202, 1, '2014-09-22 15:03:12', '2014-09-22 15:03:12', '', 'Destacat Nodes', '', 'publish', 'closed', 'closed', '', 'destacat-nodes', '', '', '2016-06-22 14:21:06', '2016-06-22 13:21:06', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/?post_type=slideshow&#038;p=202', 0, 'slideshow', '', 0),
-(203, 1, '2014-09-22 14:12:23', '2014-09-22 14:12:23', 'Node dedicat a l&#039;educació emocional', 'Educació emocional', '', 'publish', 'closed', 'open', '', 'educacio-emocional', '', '', '2014-09-22 14:12:23', '2014-09-22 14:12:23', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/forums/forum/educacio-emocional', 0, 'forum', '', 0),
-(204, 1, '2014-09-22 14:20:24', '2014-09-22 14:20:24', 'Node dels aficionats al cinema', 'Cinema', '', 'publish', 'closed', 'open', '', 'cinema', '', '', '2014-09-22 14:20:24', '2014-09-22 14:20:24', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/forums/forum/cinema', 0, 'forum', '', 0),
-(205, 1, '2014-09-22 14:31:55', '2014-09-22 14:31:55', 'Node dels aficionats a la fotografia', 'Fotografia', '', 'publish', 'closed', 'open', '', 'fotografia', '', '', '2014-09-22 14:31:55', '2014-09-22 14:31:55', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/forums/forum/fotografia', 0, 'forum', '', 0),
+(160, 1, '2013-11-15 13:23:03', '2013-11-15 12:23:03', '<strong>Projecte l''hort escolar</strong>\r\n\r\n<a href="https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/Selecció_062.png"><img class="alignnone size-medium wp-image-518" src="https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/Selecció_062-300x211.png" alt="Selecció_062" width="300" height="211" /></a>\r\n\r\nAquest projecte pretén incidir a través de propostes de caire pràctic, en continguts educatius relacionats amb la vida de les plantes de forma sempre respectuosa amb el medi. Algunes de les experiències tenen com a base les suggerides a "L''Hort escolar ecològic" de la Montse Escutia.  <a href="http://hortbergueda1314.blogspot.com.es/">Enllaç</a> al projecte.\r\n\r\n&nbsp;\r\n\r\n<strong>Projecte Llobregat</strong>\r\n\r\n<a href="https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/1346327037.jpg" rel="attachment wp-att-8327"><img class="alignnone  wp-image-8327" src="https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/1346327037.jpg" alt="1346327037" width="317" height="211" /></a>\r\n\r\nEl Projecte Llobregat és un projecte compartit entre tres escoles i els tres Camps d''Aprenentatge de la conca del Llobregat per tal de conèixer, aprendre i valorar tota una sèrie d''aspectes a l''entorn del riu Llobregat. <a href="https://sites.google.com/site/prollobregat/">Enllaç</a> al projecte.', 'Projectes', '', 'publish', 'closed', 'closed', '', 'projectes', '', '', '2016-06-21 11:51:12', '2016-06-21 10:51:12', '', 8260, 'http://blocs.xtec.cat/plantillacda/?page_id=160', 30, 'page', '', 0),
+(165, 1, '2013-11-15 13:32:09', '2013-11-15 12:32:09', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae sodales augue. Ut ex nisl, lobortis quis nulla vel, ultrices efficitur nulla. Donec sit amet commodo purus.\r\n<ul>\r\n	<li>Praesent accumsan nisi leo, vel finibus purus molestie id. Vestibulum sed sollicitudin mauris, sed blandit risus.</li>\r\n	<li>Etiam volutpat leo eget scelerisque auctor. Cras pretium felis at libero pellentesque volutpat.</li>\r\n	<li>Mauris et cursus elit. In a urna sit amet dui pretium efficitur. Suspendisse potenti. Aliquam volutpat maximus elit, at fringilla felis vestibulum sit amet.</li>\r\n</ul>\r\n<a style="font-family: inherit; font-size: 1em; line-height: 1.6;" href="https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/Selecció_999322.png" rel="attachment wp-att-8314"><img class="alignnone wp-image-8314" src="https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/Selecció_999322.png" alt="Selecció_999(322)" width="487" height="323" /></a>', 'Pedraforca', '', 'publish', 'open', 'open', '', 'pedraforca', '', '', '2016-06-21 13:13:23', '2016-06-21 12:13:23', '', 8235, 'http://blocs.xtec.cat/plantillacda/?page_id=165', 40, 'page', '', 0),
+(168, 1, '2014-09-19 16:04:34', '2014-09-19 16:04:34', '', 'classe', '', 'inherit', 'open', 'open', '', 'classe', '', '', '2014-09-19 16:04:34', '2014-09-19 16:04:34', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2014/09/classe.png', 0, 'attachment', 'image/png', 0),
+(170, 1, '2014-09-19 16:16:22', '2014-09-19 16:16:22', 'Node del departament de Tecnologia (professorat)', 'Tecnologia', '', 'private', 'closed', 'open', '', 'tecnologia', '', '', '2014-09-19 16:16:22', '2014-09-19 16:16:22', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/forums/forum/tecnologia', 0, 'forum', '', 0),
+(171, 1, '2014-09-19 16:19:15', '2014-09-19 16:19:15', 'Node del departament de Matemàtiques', 'Dep. Matemàtiques', '', 'private', 'closed', 'open', '', 'dep-matematiques', '', '', '2014-09-19 16:19:15', '2014-09-19 16:19:15', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/forums/forum/dep-matematiques', 0, 'forum', '', 0),
+(172, 1, '2014-09-19 16:26:36', '2014-09-19 16:26:36', 'Node del departament de Llengua catalana i literatura (professorat)', 'Dep. Català', '', 'private', 'closed', 'open', '', 'dep-catala', '', '', '2014-09-19 16:26:36', '2014-09-19 16:26:36', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/forums/forum/dep-catala', 0, 'forum', '', 0),
+(173, 1, '2014-09-19 16:29:03', '2014-09-19 16:29:03', 'Node del departament de Llengua castellana i literatura (professorat)', 'Dep. Castellà', '', 'private', 'closed', 'open', '', 'dep-castella', '', '', '2014-09-19 16:29:03', '2014-09-19 16:29:03', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/forums/forum/dep-castella', 0, 'forum', '', 0),
+(174, 1, '2014-09-19 16:31:22', '2014-09-19 16:31:22', 'Node del departament de Llengües estrangeres (professorat)', 'Dep. Llengües estrangeres', '', 'private', 'closed', 'open', '', 'dep-llengues-estrangeres', '', '', '2014-09-19 16:31:22', '2014-09-19 16:31:22', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/forums/forum/dep-llengues-estrangeres', 0, 'forum', '', 0),
+(175, 1, '2014-09-19 16:33:32', '2014-09-19 16:33:32', 'Node del departament d&#039;Educació Física (professorat)', 'Dep. Educació Física', '', 'private', 'closed', 'open', '', 'dep-educacio-fisica', '', '', '2014-09-19 16:33:32', '2014-09-19 16:33:32', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/forums/forum/dep-educacio-fisica', 0, 'forum', '', 0),
+(176, 1, '2014-09-19 16:39:42', '2014-09-19 16:39:42', 'Node del departament de Visual i Plàstica (professorat)', 'Dep. Visual i Plàstica', '', 'private', 'closed', 'open', '', 'dep-visual-i-plastica', '', '', '2014-09-19 16:39:42', '2014-09-19 16:39:42', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/forums/forum/dep-visual-i-plastica', 0, 'forum', '', 0),
+(177, 1, '2014-09-19 16:45:37', '2014-09-19 16:45:37', 'Node del departament de música (professorat)', 'Dep. Música', '', 'private', 'closed', 'open', '', 'dep-musica', '', '', '2014-09-19 16:45:37', '2014-09-19 16:45:37', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/forums/forum/dep-musica', 0, 'forum', '', 0),
+(178, 1, '2014-09-19 16:50:06', '2014-09-19 16:50:06', 'Node del departament d&#039;Orientació (professorat)', 'Dep. Orientació', '', 'private', 'closed', 'open', '', 'dep-orientacio', '', '', '2014-09-19 16:50:06', '2014-09-19 16:50:06', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/forums/forum/dep-orientacio', 0, 'forum', '', 0),
+(179, 1, '2014-09-19 17:00:49', '2014-09-19 17:00:49', 'Node del departament d&#039;Informàtica (professorat)', 'Dep. Informàtica', '', 'private', 'closed', 'open', '', 'dep-informatica', '', '', '2014-09-19 17:00:49', '2014-09-19 17:00:49', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/forums/forum/dep-informatica', 0, 'forum', '', 0),
+(185, 1, '2014-09-22 10:13:06', '2014-09-22 10:13:06', '', 'ampa', '', 'inherit', 'open', 'open', '', 'ampa-2', '', '', '2014-09-22 10:13:06', '2014-09-22 10:13:06', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2014/09/ampa.png', 0, 'attachment', 'image/png', 0),
+(186, 1, '2013-11-15 14:02:38', '2013-11-15 13:02:38', '', 'nivells', '', 'inherit', 'open', 'open', '', 'nivells', '', '', '2013-11-15 14:02:38', '2013-11-15 13:02:38', '', 8199, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/nivells.png', 0, 'attachment', 'image/png', 0),
+(194, 1, '2013-11-15 18:20:38', '2013-11-15 17:20:38', 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/capcda1.png', 'capcda1.png', '', 'inherit', 'closed', 'open', '', 'capcda1-png', '', '', '2013-11-15 18:20:38', '2013-11-15 17:20:38', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/capcda1.png', 0, 'attachment', 'image/png', 0),
+(195, 1, '2013-11-15 18:29:23', '2013-11-15 17:29:23', 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/capcda2.png', 'capcda2.png', '', 'inherit', 'closed', 'open', '', 'capcda2-png', '', '', '2013-11-15 18:29:23', '2013-11-15 17:29:23', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/capcda2.png', 0, 'attachment', 'image/png', 0),
+(196, 1, '2013-11-15 18:36:21', '2013-11-15 17:36:21', 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/capcda3.png', 'capcda3.png', '', 'inherit', 'closed', 'open', '', 'capcda3-png', '', '', '2013-11-15 18:36:21', '2013-11-15 17:36:21', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/capcda3.png', 0, 'attachment', 'image/png', 0),
+(197, 1, '2013-11-15 18:37:20', '2013-11-15 17:37:20', 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/wallpaper-964432.jpg', 'wallpaper-964432.jpg', '', 'inherit', 'open', 'open', '', 'wallpaper-964432-jpg', '', '', '2013-11-15 18:37:20', '2013-11-15 17:37:20', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/wallpaper-964432.jpg', 0, 'attachment', 'image/jpeg', 0),
+(198, 1, '2013-11-15 18:40:20', '2013-11-15 17:40:20', 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/capcda4.png', 'capcda4.png', '', 'inherit', 'closed', 'open', '', 'capcda4-png', '', '', '2013-11-15 18:40:20', '2013-11-15 17:40:20', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/capcda4.png', 0, 'attachment', 'image/png', 0),
+(202, 1, '2014-09-22 15:03:12', '2014-09-22 15:03:12', '', 'Destacat Nodes', '', 'publish', 'closed', 'closed', '', 'destacat-nodes', '', '', '2016-06-22 14:21:06', '2016-06-22 13:21:06', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/?post_type=slideshow&#038;p=202', 0, 'slideshow', '', 0),
+(203, 1, '2014-09-22 14:12:23', '2014-09-22 14:12:23', 'Node dedicat a l&#039;educació emocional', 'Educació emocional', '', 'publish', 'closed', 'open', '', 'educacio-emocional', '', '', '2014-09-22 14:12:23', '2014-09-22 14:12:23', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/forums/forum/educacio-emocional', 0, 'forum', '', 0),
+(204, 1, '2014-09-22 14:20:24', '2014-09-22 14:20:24', 'Node dels aficionats al cinema', 'Cinema', '', 'publish', 'closed', 'open', '', 'cinema', '', '', '2014-09-22 14:20:24', '2014-09-22 14:20:24', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/forums/forum/cinema', 0, 'forum', '', 0),
+(205, 1, '2014-09-22 14:31:55', '2014-09-22 14:31:55', 'Node dels aficionats a la fotografia', 'Fotografia', '', 'publish', 'closed', 'open', '', 'fotografia', '', '', '2014-09-22 14:31:55', '2014-09-22 14:31:55', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/forums/forum/fotografia', 0, 'forum', '', 0),
 (207, 1, '2013-11-15 19:15:19', '2013-11-15 18:15:19', 'Les activitats de la indústria petroquímica de Tarragona realitzada amb conveni amb l’AEQT, han comptat aquest curs amb un total de 2065 alumnes i 183 professors participants.\r\n\r\nEn l’activitat específica de “La indústria petroquímica de Tarragona” dirigida a alumnes de segon cicle d’ESO i Batxillerat han intervingut 38 grups escoltars amb 1065 alumnes i 82 professors.\r\n\r\nHan realitzat l’activitat “Un tresor sota les xemeneies”, cicle superior d’educació primària, un total de 39 grups amb 1002 alumnes i 101 professors.\r\n\r\nLa fotografia correspon als alumnes del col·legi Mare de Déu del Carme, que varen visitar BASF el 26 d’abril d’enguany:\r\n\r\n<a href="http://cdatarragona.net/wp-content/uploads/p1010270.jpg" rel="lightbox[4907]"><img title="p1010270" src="http://cdatarragona.net/wp-content/uploads/p1010270.jpg" alt="p1010270" width="518" height="389" /></a>', 'Va de química', '', 'publish', 'open', 'open', '', 'va-de-quimica', '', '', '2016-06-21 14:24:41', '2016-06-21 13:24:41', '', 0, 'http://blocs.xtec.cat/cdaaltbergueda/?p=207', 0, 'post', '', 0),
-(209, 1, '2014-09-22 15:06:43', '2014-09-22 15:06:43', 'Node d&#039;aficionats a la papiroflexia', 'Papiroflexia', '', 'publish', 'closed', 'open', '', 'papiroflexia', '', '', '2014-09-22 15:06:43', '2014-09-22 15:06:43', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/forums/forum/papiroflexia', 0, 'forum', '', 0),
-(211, 1, '2014-09-22 15:11:13', '2014-09-22 15:11:13', 'Hola Noders! Qui s''apunta a fer la granota? Aquí teniu les instruccions:\n\n[caption id="" align="alignnone" width="700"]<img src="http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2014/09/granota.png" alt="Instruccions Granota" width="700" height="495" /> Instruccions Granota[/caption]', 'Figura n.1: La granota ', '', 'publish', 'closed', 'open', '', 'figura-n-1-la-granota', '', '', '2014-09-22 15:11:13', '2014-09-22 15:11:13', '', 209, 'http://pwc-int.educacio.intranet/agora/mastercda/forums/topic/figura-n-1-la-granota', 0, 'topic', '', 0),
-(215, 1, '2014-09-22 16:02:36', '2014-09-22 16:02:36', '', 'screeshot', '', 'inherit', 'open', 'open', '', 'screeshot', '', '', '2015-12-02 15:39:31', '2015-12-02 14:39:31', '', 341, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2014/09/screeshot.png', 0, 'attachment', 'image/png', 0),
-(248, 1, '2015-01-23 12:14:15', '2015-01-23 11:14:15', '<strong>[title]</strong>\r\n[when]\r\n[location]\r\n<div>[description]</div>\r\n[link newwindow="yes"]Més detalls...[/link]', 'Agenda d''exemple', '', 'publish', 'closed', 'closed', '', 'agenda-dexemple', '', '', '2016-09-21 10:34:02', '2016-09-21 08:34:02', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/?post_type=gce_feed&#038;p=248', 0, 'calendar', '', 0),
-(249, 1, '2013-11-05 20:50:06', '2013-11-05 19:50:06', 'Article d''exemple. La foto correspon a la casa de la Culla del camp d''aprenentatge del Bages. Una casa amb més de 1000 anys!\r\n\r\n<a href="http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/març2010-031.jpg"><img class="alignnone size-medium wp-image-699" src="http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/març2010-031-300x225.jpg" alt="març2010 031" width="300" height="225" /></a>', 'Bon nadal', '', 'publish', 'open', 'open', '', 'primera-nevada', '', '', '2016-06-22 11:27:07', '2016-06-22 10:27:07', '', 0, 'http://blocs.xtec.cat/cdaaltbergueda/?p=249', 0, 'post', '', 0),
+(209, 1, '2014-09-22 15:06:43', '2014-09-22 15:06:43', 'Node d&#039;aficionats a la papiroflexia', 'Papiroflexia', '', 'publish', 'closed', 'open', '', 'papiroflexia', '', '', '2014-09-22 15:06:43', '2014-09-22 15:06:43', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/forums/forum/papiroflexia', 0, 'forum', '', 0),
+(211, 1, '2014-09-22 15:11:13', '2014-09-22 15:11:13', 'Hola Noders! Qui s''apunta a fer la granota? Aquí teniu les instruccions:\n\n[caption id="" align="alignnone" width="700"]<img src="https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2014/09/granota.png" alt="Instruccions Granota" width="700" height="495" /> Instruccions Granota[/caption]', 'Figura n.1: La granota ', '', 'publish', 'closed', 'open', '', 'figura-n-1-la-granota', '', '', '2014-09-22 15:11:13', '2014-09-22 15:11:13', '', 209, 'https://pwc-int.educacio.intranet/agora/mastercda/forums/topic/figura-n-1-la-granota', 0, 'topic', '', 0),
+(215, 1, '2014-09-22 16:02:36', '2014-09-22 16:02:36', '', 'screeshot', '', 'inherit', 'open', 'open', '', 'screeshot', '', '', '2015-12-02 15:39:31', '2015-12-02 14:39:31', '', 341, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2014/09/screeshot.png', 0, 'attachment', 'image/png', 0),
+(248, 1, '2015-01-23 12:14:15', '2015-01-23 11:14:15', '<strong>[title]</strong>\r\n[when]\r\n[location]\r\n<div>[description]</div>\r\n[link newwindow="yes"]Més detalls...[/link]', 'Agenda d''exemple', '', 'publish', 'closed', 'closed', '', 'agenda-dexemple', '', '', '2016-09-21 10:34:02', '2016-09-21 08:34:02', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/?post_type=gce_feed&#038;p=248', 0, 'calendar', '', 0),
+(249, 1, '2013-11-05 20:50:06', '2013-11-05 19:50:06', 'Article d''exemple. La foto correspon a la casa de la Culla del camp d''aprenentatge del Bages. Una casa amb més de 1000 anys!\r\n\r\n<a href="https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/març2010-031.jpg"><img class="alignnone size-medium wp-image-699" src="https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/març2010-031-300x225.jpg" alt="març2010 031" width="300" height="225" /></a>', 'Bon nadal', '', 'publish', 'open', 'open', '', 'primera-nevada', '', '', '2016-06-22 11:27:07', '2016-06-22 10:27:07', '', 0, 'http://blocs.xtec.cat/cdaaltbergueda/?p=249', 0, 'post', '', 0),
 (253, 1, '2013-11-18 21:43:11', '2013-11-18 20:43:11', 'Recull de fotografies i vídeos dels diferents escoles i instituts que ens han visitat.\r\n\r\nhttps://www.youtube.com/watch?v=RoQCyu0SgDY#t=107\r\n\r\n[slideshow_deploy id=''148'']', 'Fotos i vídeos', '', 'publish', 'closed', 'closed', '', 'fotos-videos', '', '', '2016-06-21 13:52:47', '2016-06-21 12:52:47', '', 8272, 'http://blocs.xtec.cat/cdaaltbergueda/?page_id=253', 20, 'page', '', 0),
 (254, 1, '2013-11-16 11:47:36', '2013-11-16 10:47:36', '<h1><strong>Inscripció</strong></h1>\nEl període d''inscripció es realitza entre el <strong>15</strong> i el<strong> 31 </strong>de<strong> maig</strong> mitjançant\naquest <a title="Formulari d''inscripció (Dep.Ensenyament)" href="http://aplitic.xtec.cat/pls/apex/f?p=151:LOGIN:1868332647323367" target="_blank">formulari d''inscripció</a> amb el codi i contrasenya que el centre té a la XTEC.\n<h1><strong style="color: #000000;">Inscripció fora de període</strong></h1>\nPer demanar sortides (un dia) o estades (més d''un dia) fora del període d''inscripció, podeu consultar la disponibilitat al nostre calendari i omplir el formulari <a title="calendari" href="http://blocs.xtec.cat/plantillacda/inscripcio-fora-termini/" target="_blank">aquí</a>.\n<h1><strong>Quotes</strong></h1>\nLes quotes són iguals per tots els camps d''aprenentatge.\n<ul>\n	<li>Activitats d''un dia (sense estada): 2 € per alumne</li>\n	<li>Activitats en el marc d''una estada: 3 € per alumne i dia</li>\n	<li>Pensió completa (allotjament i manutenció): 23,50 €</li>\n	<li>Mitja pensió: 18,25 €</li>\n	<li>Dormir i esmorzar: 11,40 €</li>\n	<li>Àpat addicional (dinar o sopar): 7,00 €</li>\n</ul>\nPodeu trobar tota l''informació actualitzada a: <a href="http://www.xtec.cat/web/serveis/serveis/cda/inscripcio">http://www.xtec.cat/web/serveis/serveis/cda/inscripcio</a>', 'Inscripció', '', 'publish', 'closed', 'closed', '', 'inscripcio', '', '', '2013-11-16 11:47:36', '2013-11-16 10:47:36', '', 0, 'http://blocs.xtec.cat/cdaaltbergueda/?page_id=254', 0, 'page', '', 0),
-(275, 1, '2013-11-17 12:33:25', '2013-11-17 11:33:25', '', 'graella nivells educatius', '', 'inherit', 'open', 'open', '', '2013-11-17_1231', '', '', '2013-11-17 12:33:25', '2013-11-17 11:33:25', '', 54, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/2013-11-17_1231.png', 0, 'attachment', 'image/png', 0),
-(289, 1, '2015-10-09 13:38:33', '2015-10-09 12:38:33', '', 'Mur general', '', 'publish', 'open', 'open', '', '289', '', '', '2015-11-30 10:32:51', '2015-11-30 09:32:51', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/?p=289', 1, 'nav_menu_item', '', 0),
-(294, 1, '2013-11-17 18:08:59', '2013-11-17 17:08:59', '<h1><img class="size-full wp-image-300 aligncenter" src="http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/bolets.png" alt="bolets" width="546" height="151" /></h1>\r\n<strong>Nivells educatius:</strong>\r\n\r\nEducació Primària, 1r cicle d''Educació Secundària\r\n\r\n<strong>Es treballaran:</strong>\r\n<ul>\r\n	<li>Els fongs i els bolets com a éssers vius: el regne dels fongs, les funcions vitals (nutrició, relació i reproducció).</li>\r\n	<li>Les parts d''un bolet, característiques.</li>\r\n	<li>L’hàbitat i formes de vida.</li>\r\n	<li>La recol·lecció de bolets .</li>\r\n	<li>La identificació i classificació dels bolets més comuns que podem trobar a la zona.</li>\r\n	<li>La funció dels fongs i el seu aprofitament.</li>\r\n</ul>\r\n<strong>Desenvolupament de l''activitat:</strong>\r\n\r\n<strong>Presentació</strong>\r\n<ul>\r\n	<li>Comentari sobre els bolets i els fongs. Els alumnes exposen què saben dels bolets. Es plantegen preguntes o dubtes del tipus: de què s''alimenten, a sobre d’on viuen, què és un fong i què és un bolet, quins beneficis aporten al bosc, com saber si són comestibles, en què s''assemblen a un animal i en què a una planta, com es reprodueixen,etc.</li>\r\n	<li>Breu explicació sobre com s’han de collir els bolets i perquè es fa així, quins es poden agafar i quants de cada tipus.</li>\r\n	<li>Distribució de cistells.</li>\r\n</ul>\r\n<strong>Treball de camp</strong>\r\n<ul>\r\n	<li>Sortida a l’entorn proper del centre per anar a buscar bolets.</li>\r\n</ul>\r\n<strong>Treball a l’aula</strong>\r\n<ul>\r\n	<li>Tria dels bolets: separar els coneguts de la resta.</li>\r\n	<li>Conversa sobre utilitats, perjudicis, funcions dels bolets i dels fongs.</li>\r\n	<li>Identificació dels bolets trobats a partir de diapositives.</li>\r\n</ul>\r\n<strong>Treball de laboratori</strong>\r\n<ul>\r\n	<li>Observació de les diferents parts del bolet amb lupa binocular.</li>\r\n	<li>Descripció d’un dels bolets trobats.</li>\r\n	<li>Preparació de l’esporada.</li>\r\n	<li>Preparació i observació microscòpica de les espores (per CS I ESO).</li>\r\n</ul>\r\n<strong>Observacions</strong>\r\n\r\nEl material per realitzar l’activitat el proporciona el Camp: quaderns de\r\npresa de dades, cistell per cada grup, safates..., de totes maneres si el centre\r\nho creu convenient els alumnes poden portar els seus propis cistells.\r\n\r\nPer al treball de laboratori es farà servir l’aula o el laboratori del centre. Els\r\ninstruments a utilitzar seran també els del centre (lupa binocular, càpsules de\r\npetri, etc.). Si aquest no en disposa, serà el Camp qui els portarà.\r\n\r\n<a title="descarregar fitxa" href="https://drive.google.com/file/d/0B1Whk6C-0QRaTmpuUF9fTjlvZXc/edit?usp=sharing">Descarregar fitxa</a>\r\n<a title="mes activitats" href="http://pwc-int.educacio.intranet/agora/mastercda/ambits/totes-les-activitats/">Veure més activitats</a>\r\n\r\n&nbsp;\r\n\r\n&nbsp;', 'Activitat: Els fongs i els bolets', '', 'publish', 'open', 'closed', '', 'fongs-bolets', '', '', '2016-06-21 11:26:09', '2016-06-21 10:26:09', '', 8199, 'http://blocs.xtec.cat/cdaaltbergueda/?page_id=294', 0, 'page', '', 0),
-(299, 1, '2013-11-17 18:11:34', '2013-11-17 17:11:34', '', 'bolet', '', 'inherit', 'open', 'open', '', 'bolet', '', '', '2013-11-17 18:11:34', '2013-11-17 17:11:34', '', 294, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/bolet.png', 0, 'attachment', 'image/png', 0),
-(300, 1, '2013-11-17 18:12:49', '2013-11-17 17:12:49', '', 'bolets', '', 'inherit', 'open', 'open', '', 'bolets', '', '', '2013-11-17 18:12:49', '2013-11-17 17:12:49', '', 294, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/bolets.png', 0, 'attachment', 'image/png', 0),
-(316, 1, '2013-11-17 19:03:07', '2013-11-17 18:03:07', '<h5> [slideshow_deploy id=''8322'']</h5>\r\n&nbsp;\r\n<h5><strong>Nivells educatius:</strong></h5>\r\n<ul>\r\n	<li>Educació Primària (CI, CM, CS)</li>\r\n	<li>Educació Secundària (1r cicle ESO)</li>\r\n</ul>\r\n<h5><strong>Es treballaran: </strong></h5>\r\n<ul>\r\n	<li>Lectura del paisatge (comparació amb el seu) </li>\r\n	<li>Formació dels Pirineus. Roca calcària. Fòssils</li>\r\n	<li> Cova, sistema càrstic.</li>\r\n	<li> Les Fonts del Llobregat. Aigües subterrànies</li>\r\n	<li> Aprofitament del riu (abans/ara). Molins, fargues, hidroelèctriques.</li>\r\n	<li> Llegenda</li>\r\n	<li> Passat històric i social/societat i economia actual.</li>\r\n	<li> El relleu de l’Alt Berguedà</li>\r\n</ul>\r\n<h5><strong>Desenvolupament de l''activitat:</strong></h5>\r\n<p style="padding-left: 30px;"><strong>Arribada a Castellar de n’Hug</strong>\r\nPresentació de l’activitat i formulació dels interrogants que s’hauran deresoldre al llarg del dia. Situació de la Tuta i presentació d’algunes unitats de relleu.</p>\r\n<p style="padding-left: 30px;"><strong>Turó prop de camp de futbol o altre indret (si es decideix no pujar a la Tuta)\r\n</strong>Lectura del paisatge i comparació amb el del seu lloc de procedència. A través dels elements del paisatge es parla de la formació dels Pirineus, s’identifica el tipus i característiques de la roca que ens envolta, l’evolució i aprofitament de l’entorn. Es treballa el relleu de l’Alt Berguedà, tot orientant-lo i situant-lo en un perfil.</p>\r\n<p style="padding-left: 30px;"><strong>Camí de la Tuta, Antic dipòsit</strong>\r\nLectura del paisatge i comparació amb el del seu lloc de procedència. A\r\ntravés dels elements del paisatge es parla de la formació dels Pirineus,\r\ns’identifica el tipus i característiques de la roca que ens envolta, l’evolució i\r\naprofitament de l’entorn.\r\nEs situa l’antic castell, i que dóna nom al poble, on ara es situa el museu del\r\npastor.</p>\r\n<p style="padding-left: 30px;"><strong>La cova de la Tuta\r\n</strong>Entrarem a la cova equipats amb casc i lots. S’observarà la part més externa tot deduint possibles usos remots i actuals. Es baixarà fins a la següent galeria on s’observaran i es parlarà del procés de formació d’estalactites i estalagmites. Una mica més endins, es parlarà dels avencs i a les fosques i amb silenci, s’escoltarà el soroll de les gotes d’aigua al caure.</p>\r\n<p style="padding-left: 30px;"><strong>Les Fonts del Llobregat</strong>\r\nPel camí de Castellar fins a les Fonts es faran un parell de parades, una per\r\nescoltar el soroll i l’altre per parlar del torrent de la Font del boix.\r\nEn la visita a Les Fonts del Llobregat ens fixarem per on surt l’aigua, quanta\r\nen surt, ... També ens aportarà informació sobre l’aprofitament de l’aigua\r\nabans i ara (canals, rescloses, molins, minicentrals hidroelèctriques.</p>\r\n<p style="padding-left: 30px;"><strong>En el Molí de les Fonts farem l’ultima parada.</strong>\r\nAquí explicarem la llegenda de “La bruixa del riu”, a partir de la qual, i de les\r\nobservacions fetes durant tot el dia, esbrinarem l’origen de les Fonts (el\r\nrecorregut de l’aigua per dins la muntanya lligant-lo amb l visita a la cova de\r\nla Tuta) i el seu comportament durant el curs de l’any.\r\nTambé parlarem de l’aprofitament del riu.</p>\r\n\r\n<h5><strong>Observacions:</strong></h5>\r\n<ul>\r\n	<li>L’activitat és d’un dia.</li>\r\n	<li>Cal portar esmorzar, dinar i aigua. També un lot si s’opta per la cova de la Tuta.</li>\r\n	<li>Cal anar preparat amb bon calçat i roba d’abric per protegir-se de lespossibles inclemències del temps.</li>\r\n	<li>L’activitat es pot adaptar segons les necessitats del centre i els aspectes curriculars que es vulguin tractar.</li>\r\n</ul>\r\n<a title="descarregar fitxa" href="https://drive.google.com/file/d/0B1Whk6C-0QRaQmJsSnVxVFI3M28/edit?usp=sharing">Descarregar fitxa\r\n</a><a title="veure mes" href="http://pwc-int.educacio.intranet/agora/mastercda/ambits/totes-les-activitats/">Veure més activitats</a>', 'Activitat: La cova de la Tuta i les fonts del Llobregat', '', 'publish', 'open', 'open', '', 'activitat-la-cova-de-la-tuta-les-fonts-del-llobregat', '', '', '2016-06-21 11:48:47', '2016-06-21 10:48:47', '', 8199, 'http://blocs.xtec.cat/cdaaltbergueda/?page_id=316', 0, 'page', '', 0),
-(320, 1, '2013-11-17 19:14:55', '2013-11-17 18:14:55', '', 'fonts', '', 'inherit', 'open', 'open', '', 'fonts', '', '', '2013-11-17 19:14:55', '2013-11-17 18:14:55', '', 316, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/fonts.png', 0, 'attachment', 'image/png', 0),
-(328, 1, '2015-11-20 13:32:14', '2015-11-20 12:32:14', '', 'BN_SE', '', 'inherit', 'open', 'open', '', 'bn_se-2', '', '', '2015-11-20 13:32:14', '2015-11-20 12:32:14', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2015/11/BN_SE1.png', 0, 'attachment', 'image/png', 0),
-(339, 1, '2015-11-24 18:38:13', '2015-11-24 17:38:13', '', 'tartu', '', 'inherit', 'open', 'open', '', 'tartu', '', '', '2015-11-24 18:38:13', '2015-11-24 17:38:13', '', 341, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2015/11/tartu.png', 0, 'attachment', 'image/png', 0);
+(275, 1, '2013-11-17 12:33:25', '2013-11-17 11:33:25', '', 'graella nivells educatius', '', 'inherit', 'open', 'open', '', '2013-11-17_1231', '', '', '2013-11-17 12:33:25', '2013-11-17 11:33:25', '', 54, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/2013-11-17_1231.png', 0, 'attachment', 'image/png', 0),
+(289, 1, '2015-10-09 13:38:33', '2015-10-09 12:38:33', '', 'Mur general', '', 'publish', 'open', 'open', '', '289', '', '', '2015-11-30 10:32:51', '2015-11-30 09:32:51', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/?p=289', 1, 'nav_menu_item', '', 0),
+(294, 1, '2013-11-17 18:08:59', '2013-11-17 17:08:59', '<h1><img class="size-full wp-image-300 aligncenter" src="https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/bolets.png" alt="bolets" width="546" height="151" /></h1>\r\n<strong>Nivells educatius:</strong>\r\n\r\nEducació Primària, 1r cicle d''Educació Secundària\r\n\r\n<strong>Es treballaran:</strong>\r\n<ul>\r\n	<li>Els fongs i els bolets com a éssers vius: el regne dels fongs, les funcions vitals (nutrició, relació i reproducció).</li>\r\n	<li>Les parts d''un bolet, característiques.</li>\r\n	<li>L’hàbitat i formes de vida.</li>\r\n	<li>La recol·lecció de bolets .</li>\r\n	<li>La identificació i classificació dels bolets més comuns que podem trobar a la zona.</li>\r\n	<li>La funció dels fongs i el seu aprofitament.</li>\r\n</ul>\r\n<strong>Desenvolupament de l''activitat:</strong>\r\n\r\n<strong>Presentació</strong>\r\n<ul>\r\n	<li>Comentari sobre els bolets i els fongs. Els alumnes exposen què saben dels bolets. Es plantegen preguntes o dubtes del tipus: de què s''alimenten, a sobre d’on viuen, què és un fong i què és un bolet, quins beneficis aporten al bosc, com saber si són comestibles, en què s''assemblen a un animal i en què a una planta, com es reprodueixen,etc.</li>\r\n	<li>Breu explicació sobre com s’han de collir els bolets i perquè es fa així, quins es poden agafar i quants de cada tipus.</li>\r\n	<li>Distribució de cistells.</li>\r\n</ul>\r\n<strong>Treball de camp</strong>\r\n<ul>\r\n	<li>Sortida a l’entorn proper del centre per anar a buscar bolets.</li>\r\n</ul>\r\n<strong>Treball a l’aula</strong>\r\n<ul>\r\n	<li>Tria dels bolets: separar els coneguts de la resta.</li>\r\n	<li>Conversa sobre utilitats, perjudicis, funcions dels bolets i dels fongs.</li>\r\n	<li>Identificació dels bolets trobats a partir de diapositives.</li>\r\n</ul>\r\n<strong>Treball de laboratori</strong>\r\n<ul>\r\n	<li>Observació de les diferents parts del bolet amb lupa binocular.</li>\r\n	<li>Descripció d’un dels bolets trobats.</li>\r\n	<li>Preparació de l’esporada.</li>\r\n	<li>Preparació i observació microscòpica de les espores (per CS I ESO).</li>\r\n</ul>\r\n<strong>Observacions</strong>\r\n\r\nEl material per realitzar l’activitat el proporciona el Camp: quaderns de\r\npresa de dades, cistell per cada grup, safates..., de totes maneres si el centre\r\nho creu convenient els alumnes poden portar els seus propis cistells.\r\n\r\nPer al treball de laboratori es farà servir l’aula o el laboratori del centre. Els\r\ninstruments a utilitzar seran també els del centre (lupa binocular, càpsules de\r\npetri, etc.). Si aquest no en disposa, serà el Camp qui els portarà.\r\n\r\n<a title="descarregar fitxa" href="https://drive.google.com/file/d/0B1Whk6C-0QRaTmpuUF9fTjlvZXc/edit?usp=sharing">Descarregar fitxa</a>\r\n<a title="mes activitats" href="https://pwc-int.educacio.intranet/agora/mastercda/ambits/totes-les-activitats/">Veure més activitats</a>\r\n\r\n&nbsp;\r\n\r\n&nbsp;', 'Activitat: Els fongs i els bolets', '', 'publish', 'open', 'closed', '', 'fongs-bolets', '', '', '2016-06-21 11:26:09', '2016-06-21 10:26:09', '', 8199, 'http://blocs.xtec.cat/cdaaltbergueda/?page_id=294', 0, 'page', '', 0),
+(299, 1, '2013-11-17 18:11:34', '2013-11-17 17:11:34', '', 'bolet', '', 'inherit', 'open', 'open', '', 'bolet', '', '', '2013-11-17 18:11:34', '2013-11-17 17:11:34', '', 294, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/bolet.png', 0, 'attachment', 'image/png', 0),
+(300, 1, '2013-11-17 18:12:49', '2013-11-17 17:12:49', '', 'bolets', '', 'inherit', 'open', 'open', '', 'bolets', '', '', '2013-11-17 18:12:49', '2013-11-17 17:12:49', '', 294, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/bolets.png', 0, 'attachment', 'image/png', 0),
+(316, 1, '2013-11-17 19:03:07', '2013-11-17 18:03:07', '<h5> [slideshow_deploy id=''8322'']</h5>\r\n&nbsp;\r\n<h5><strong>Nivells educatius:</strong></h5>\r\n<ul>\r\n	<li>Educació Primària (CI, CM, CS)</li>\r\n	<li>Educació Secundària (1r cicle ESO)</li>\r\n</ul>\r\n<h5><strong>Es treballaran: </strong></h5>\r\n<ul>\r\n	<li>Lectura del paisatge (comparació amb el seu) </li>\r\n	<li>Formació dels Pirineus. Roca calcària. Fòssils</li>\r\n	<li> Cova, sistema càrstic.</li>\r\n	<li> Les Fonts del Llobregat. Aigües subterrànies</li>\r\n	<li> Aprofitament del riu (abans/ara). Molins, fargues, hidroelèctriques.</li>\r\n	<li> Llegenda</li>\r\n	<li> Passat històric i social/societat i economia actual.</li>\r\n	<li> El relleu de l’Alt Berguedà</li>\r\n</ul>\r\n<h5><strong>Desenvolupament de l''activitat:</strong></h5>\r\n<p style="padding-left: 30px;"><strong>Arribada a Castellar de n’Hug</strong>\r\nPresentació de l’activitat i formulació dels interrogants que s’hauran deresoldre al llarg del dia. Situació de la Tuta i presentació d’algunes unitats de relleu.</p>\r\n<p style="padding-left: 30px;"><strong>Turó prop de camp de futbol o altre indret (si es decideix no pujar a la Tuta)\r\n</strong>Lectura del paisatge i comparació amb el del seu lloc de procedència. A través dels elements del paisatge es parla de la formació dels Pirineus, s’identifica el tipus i característiques de la roca que ens envolta, l’evolució i aprofitament de l’entorn. Es treballa el relleu de l’Alt Berguedà, tot orientant-lo i situant-lo en un perfil.</p>\r\n<p style="padding-left: 30px;"><strong>Camí de la Tuta, Antic dipòsit</strong>\r\nLectura del paisatge i comparació amb el del seu lloc de procedència. A\r\ntravés dels elements del paisatge es parla de la formació dels Pirineus,\r\ns’identifica el tipus i característiques de la roca que ens envolta, l’evolució i\r\naprofitament de l’entorn.\r\nEs situa l’antic castell, i que dóna nom al poble, on ara es situa el museu del\r\npastor.</p>\r\n<p style="padding-left: 30px;"><strong>La cova de la Tuta\r\n</strong>Entrarem a la cova equipats amb casc i lots. S’observarà la part més externa tot deduint possibles usos remots i actuals. Es baixarà fins a la següent galeria on s’observaran i es parlarà del procés de formació d’estalactites i estalagmites. Una mica més endins, es parlarà dels avencs i a les fosques i amb silenci, s’escoltarà el soroll de les gotes d’aigua al caure.</p>\r\n<p style="padding-left: 30px;"><strong>Les Fonts del Llobregat</strong>\r\nPel camí de Castellar fins a les Fonts es faran un parell de parades, una per\r\nescoltar el soroll i l’altre per parlar del torrent de la Font del boix.\r\nEn la visita a Les Fonts del Llobregat ens fixarem per on surt l’aigua, quanta\r\nen surt, ... També ens aportarà informació sobre l’aprofitament de l’aigua\r\nabans i ara (canals, rescloses, molins, minicentrals hidroelèctriques.</p>\r\n<p style="padding-left: 30px;"><strong>En el Molí de les Fonts farem l’ultima parada.</strong>\r\nAquí explicarem la llegenda de “La bruixa del riu”, a partir de la qual, i de les\r\nobservacions fetes durant tot el dia, esbrinarem l’origen de les Fonts (el\r\nrecorregut de l’aigua per dins la muntanya lligant-lo amb l visita a la cova de\r\nla Tuta) i el seu comportament durant el curs de l’any.\r\nTambé parlarem de l’aprofitament del riu.</p>\r\n\r\n<h5><strong>Observacions:</strong></h5>\r\n<ul>\r\n	<li>L’activitat és d’un dia.</li>\r\n	<li>Cal portar esmorzar, dinar i aigua. També un lot si s’opta per la cova de la Tuta.</li>\r\n	<li>Cal anar preparat amb bon calçat i roba d’abric per protegir-se de lespossibles inclemències del temps.</li>\r\n	<li>L’activitat es pot adaptar segons les necessitats del centre i els aspectes curriculars que es vulguin tractar.</li>\r\n</ul>\r\n<a title="descarregar fitxa" href="https://drive.google.com/file/d/0B1Whk6C-0QRaQmJsSnVxVFI3M28/edit?usp=sharing">Descarregar fitxa\r\n</a><a title="veure mes" href="https://pwc-int.educacio.intranet/agora/mastercda/ambits/totes-les-activitats/">Veure més activitats</a>', 'Activitat: La cova de la Tuta i les fonts del Llobregat', '', 'publish', 'open', 'open', '', 'activitat-la-cova-de-la-tuta-les-fonts-del-llobregat', '', '', '2016-06-21 11:48:47', '2016-06-21 10:48:47', '', 8199, 'http://blocs.xtec.cat/cdaaltbergueda/?page_id=316', 0, 'page', '', 0),
+(320, 1, '2013-11-17 19:14:55', '2013-11-17 18:14:55', '', 'fonts', '', 'inherit', 'open', 'open', '', 'fonts', '', '', '2013-11-17 19:14:55', '2013-11-17 18:14:55', '', 316, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/fonts.png', 0, 'attachment', 'image/png', 0),
+(328, 1, '2015-11-20 13:32:14', '2015-11-20 12:32:14', '', 'BN_SE', '', 'inherit', 'open', 'open', '', 'bn_se-2', '', '', '2015-11-20 13:32:14', '2015-11-20 12:32:14', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2015/11/BN_SE1.png', 0, 'attachment', 'image/png', 0),
+(339, 1, '2015-11-24 18:38:13', '2015-11-24 17:38:13', '', 'tartu', '', 'inherit', 'open', 'open', '', 'tartu', '', '', '2015-11-24 18:38:13', '2015-11-24 17:38:13', '', 341, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2015/11/tartu.png', 0, 'attachment', 'image/png', 0);
 INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_title`, `post_excerpt`, `post_status`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_content_filtered`, `post_parent`, `guid`, `menu_order`, `post_type`, `post_mime_type`, `comment_count`) VALUES
-(341, 1, '2015-11-24 18:41:15', '2015-11-24 17:41:15', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ut vulputate erat. Sed feugiat imperdiet elementum. Nunc posuere condimentum scelerisque. Etiam ultricies, enim ac feugiat condimentum, nibh turpis cursus libero, vel egestas ante lectus sed nisi. Vivamus mollis varius tempor. Proin vel nulla dignissim, scelerisque sem sit amet, sagittis ex. Vivamus in ipsum vel sapien dignissim pharetra in quis dolor. Duis vitae augue purus. Nulla urna leo, gravida id porttitor ut, porta aliquam elit. Fusce convallis hendrerit erat, vitae aliquet nunc egestas vel. Mauris finibus vestibulum purus sit amet vulputate. Phasellus dictum justo volutpat felis varius, a volutpat nisi suscipit. Sed vitae ipsum vitae diam aliquam posuere sit amet ac turpis.', 'Comunitat', '', 'publish', 'closed', 'closed', '', 'comunitat', '', '', '2015-11-24 18:41:15', '2015-11-24 17:41:15', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/?page_id=341', 0, 'page', '', 0),
+(341, 1, '2015-11-24 18:41:15', '2015-11-24 17:41:15', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ut vulputate erat. Sed feugiat imperdiet elementum. Nunc posuere condimentum scelerisque. Etiam ultricies, enim ac feugiat condimentum, nibh turpis cursus libero, vel egestas ante lectus sed nisi. Vivamus mollis varius tempor. Proin vel nulla dignissim, scelerisque sem sit amet, sagittis ex. Vivamus in ipsum vel sapien dignissim pharetra in quis dolor. Duis vitae augue purus. Nulla urna leo, gravida id porttitor ut, porta aliquam elit. Fusce convallis hendrerit erat, vitae aliquet nunc egestas vel. Mauris finibus vestibulum purus sit amet vulputate. Phasellus dictum justo volutpat felis varius, a volutpat nisi suscipit. Sed vitae ipsum vitae diam aliquam posuere sit amet ac turpis.', 'Comunitat', '', 'publish', 'closed', 'closed', '', 'comunitat', '', '', '2015-11-24 18:41:15', '2015-11-24 17:41:15', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/?page_id=341', 0, 'page', '', 0),
 (359, 1, '2013-11-18 10:16:41', '2013-11-18 09:16:41', 'Les vostres opinions i els vostres suggeriments ens poden ser molt útils per a millorar les estades i la coordinació amb la tasca que dueu a terme a les escoles i els instituts. És per això que us demanem una mica de temps i la vostra col·laboració. Gràcies.\r\n<ul>\r\n	<li><a title="Enquesta sortida dia" href="https://docs.google.com/a/xtec.cat/spreadsheet/viewform?formkey=dEljV0xVNnVtMnUzMnZSRlBwQ1lKZUE6MA#gid=0">Enquesta sortida d''un dia</a></li>\r\n	<li><a href="https://docs.google.com/a/xtec.cat/spreadsheet/viewform?formkey=dG1HTUN5OWF3TWN4QnI3dVhsR3hJdHc6MA#gid=0">Enquesta estada</a></li>\r\n</ul>\r\n<strong>Resultats</strong>\r\n<ul>\r\n	<li>Sortides</li>\r\n	<li>Estades</li>\r\n</ul>', 'Valoracions', '', 'publish', 'closed', 'closed', '', 'formulari-de-valoracio', '', '', '2016-06-20 18:02:25', '2016-06-20 17:02:25', '', 8272, 'http://blocs.xtec.cat/cdaaltbergueda/?page_id=359', 30, 'page', '', 0),
 (361, 1, '2013-11-18 10:17:34', '2013-11-18 09:17:34', 'Resultats de les valoracions (Google Forms)', 'Resultats', '', 'publish', 'closed', 'closed', '', 'resultats', '', '', '2013-11-18 10:17:34', '2013-11-18 09:17:34', '', 0, 'http://blocs.xtec.cat/cdaaltbergueda/?page_id=361', 0, 'page', '', 0),
-(372, 1, '2015-11-25 13:10:09', '2015-11-25 12:10:09', '', 'OX253EDR6R (1)', '', 'inherit', 'open', 'open', '', 'ox253edr6r-1', '', '', '2015-11-25 13:10:09', '2015-11-25 12:10:09', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2015/11/OX253EDR6R-1.jpg', 0, 'attachment', 'image/jpeg', 0),
+(372, 1, '2015-11-25 13:10:09', '2015-11-25 12:10:09', '', 'OX253EDR6R (1)', '', 'inherit', 'open', 'open', '', 'ox253edr6r-1', '', '', '2015-11-25 13:10:09', '2015-11-25 12:10:09', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2015/11/OX253EDR6R-1.jpg', 0, 'attachment', 'image/jpeg', 0),
 (433, 1, '2013-11-19 17:56:41', '2013-11-19 16:56:41', '<iframe src=''http://edumet.cat/edumet/meteo_2/dadesnodes.php?codEst=25911027'' height=''800px'' width=''100%'' hspace=''0'' marginheight=''0'' marginwidth=''0'' vspace=''0'' frameborder=''1'' ></iframe>\r\n<hr />', 'Meteorologia', '', 'publish', 'closed', 'closed', '', 'meteorologia', '', '', '2016-06-22 12:14:55', '2016-06-22 11:14:55', '', 0, 'http://blocs.xtec.cat/cdaaltbergueda/?page_id=433', 0, 'page', '', 0),
 (443, 1, '2013-11-13 12:53:08', '2013-11-13 12:53:08', 'Si voleu fer una inscripció per fer activitats al nostre camp, heu d''anar a la <a title="inscripció" href="http://xtec.gencat.cat/ca/serveis/cda/inscripcio/">secció d''incripcions</a>.\r\n\r\nSi voleu fer una altre tipus de petició o consulta, esteu a la secció adecuada. Podeu fer-nos arribar les vostres consultes:\r\n<ul>\r\n	<li><span style="line-height: 15px;">Enviant-nos un correu electrònic a <strong>cda-altbergueda@xtec.cat</strong></span></li>\r\n	<li>Trucant-nos al telèfon <strong><span style="font-family: Arial, Helvetica, sans-serif;">93 822 76 96</span></strong></li>\r\n	<li>Omplint aquest formulari:</li>\r\n</ul>\r\n<iframe src="https://docs.google.com/forms/d/1SHnveuK0VMTdZbD2XYWi5ek69v5TN5ue2NasBDLy-M4/viewform?embedded=true" width="760" height="630" frameborder="1" marginwidth="0" marginheight="0"></iframe>', 'Contacte', '', 'publish', 'closed', 'closed', '', 'contacte', '', '', '2016-06-21 11:19:34', '2016-06-21 10:19:34', '', 8225, 'http://blocs.xtec.cat/plantillacda/?page_id=2', 40, 'page', '', 0),
-(484, 1, '2013-12-09 13:00:55', '2013-12-09 13:00:55', '', 'cda-qui-som', '', 'inherit', 'open', 'open', '', 'cda-qui-som-3', '', '', '2013-12-09 13:00:55', '2013-12-09 13:00:55', '', 54, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/cda-qui-som2.png', 0, 'attachment', 'image/png', 0),
-(510, 1, '2015-11-26 14:22:25', '2015-11-26 13:22:25', 'Criteris, instruccions i orientacions, 2015-16', 'Formació del professorat. Criteris, instruccions i orientacions (2015-16)', '', 'publish', 'open', 'open', '', 'formacio-del-professorat', '', '', '2015-12-02 14:16:11', '2015-12-02 13:16:11', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
-(515, 1, '2015-11-26 16:36:06', '2015-11-26 15:36:06', 'Orientacions als centres educatius per a desenvolupar un projecte de servei comunitari', 'Orientacions per projecte de servei comunitari', '', 'publish', 'open', 'open', '', 'orientacions-per-projecte-de-servei-comunitari', '', '', '2015-12-02 14:13:15', '2015-12-02 13:13:15', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
-(518, 1, '2015-11-26 16:44:29', '2015-11-26 15:44:29', 'Exemple d''una bona experiència: La participació dels joves en el municipi de Vilanova i Vallromanes', 'Experiència d’aprenentatge servei comunitari', '', 'publish', 'open', 'open', '', 'experiencia-daprenentatge-servei-comunitari', '', '', '2015-12-02 14:15:27', '2015-12-02 13:15:27', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
-(521, 1, '2015-11-26 16:45:58', '2015-11-26 15:45:58', '', 'Model de document de compromís', '', 'publish', 'open', 'open', '', 'model-de-document-de-compromis', '', '', '2015-12-02 14:18:53', '2015-12-02 13:18:53', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
-(524, 1, '2015-11-26 16:49:11', '2015-11-26 15:49:11', '', 'Model d’autorització de prestació del servei comunitari', '', 'publish', 'open', 'open', '', 'model-dautoritzacio-de-prestacio-del-servei-comunitari', '', '', '2015-12-02 14:14:44', '2015-12-02 13:14:44', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
-(528, 1, '2015-11-26 16:59:44', '2015-11-26 15:59:44', '', 'Esquema del projecte de servei comunitari', '', 'publish', 'open', 'open', '', 'esquema-del-projecte-de-servei-comunitari', '', '', '2015-12-02 14:13:54', '2015-12-02 13:13:54', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
-(531, 1, '2015-11-26 17:00:37', '2015-11-26 16:00:37', 'Document model per fer el conveni amb les entitats', 'Conveni amb entitats pel servei comunitari', '', 'publish', 'open', 'open', '', 'conveni-entitats-2', '', '', '2015-12-02 14:12:21', '2015-12-02 13:12:21', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
+(484, 1, '2013-12-09 13:00:55', '2013-12-09 13:00:55', '', 'cda-qui-som', '', 'inherit', 'open', 'open', '', 'cda-qui-som-3', '', '', '2013-12-09 13:00:55', '2013-12-09 13:00:55', '', 54, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/cda-qui-som2.png', 0, 'attachment', 'image/png', 0),
+(510, 1, '2015-11-26 14:22:25', '2015-11-26 13:22:25', 'Criteris, instruccions i orientacions, 2015-16', 'Formació del professorat. Criteris, instruccions i orientacions (2015-16)', '', 'publish', 'open', 'open', '', 'formacio-del-professorat', '', '', '2015-12-02 14:16:11', '2015-12-02 13:16:11', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
+(515, 1, '2015-11-26 16:36:06', '2015-11-26 15:36:06', 'Orientacions als centres educatius per a desenvolupar un projecte de servei comunitari', 'Orientacions per projecte de servei comunitari', '', 'publish', 'open', 'open', '', 'orientacions-per-projecte-de-servei-comunitari', '', '', '2015-12-02 14:13:15', '2015-12-02 13:13:15', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
+(518, 1, '2015-11-26 16:44:29', '2015-11-26 15:44:29', 'Exemple d''una bona experiència: La participació dels joves en el municipi de Vilanova i Vallromanes', 'Experiència d’aprenentatge servei comunitari', '', 'publish', 'open', 'open', '', 'experiencia-daprenentatge-servei-comunitari', '', '', '2015-12-02 14:15:27', '2015-12-02 13:15:27', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
+(521, 1, '2015-11-26 16:45:58', '2015-11-26 15:45:58', '', 'Model de document de compromís', '', 'publish', 'open', 'open', '', 'model-de-document-de-compromis', '', '', '2015-12-02 14:18:53', '2015-12-02 13:18:53', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
+(524, 1, '2015-11-26 16:49:11', '2015-11-26 15:49:11', '', 'Model d’autorització de prestació del servei comunitari', '', 'publish', 'open', 'open', '', 'model-dautoritzacio-de-prestacio-del-servei-comunitari', '', '', '2015-12-02 14:14:44', '2015-12-02 13:14:44', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
+(528, 1, '2015-11-26 16:59:44', '2015-11-26 15:59:44', '', 'Esquema del projecte de servei comunitari', '', 'publish', 'open', 'open', '', 'esquema-del-projecte-de-servei-comunitari', '', '', '2015-12-02 14:13:54', '2015-12-02 13:13:54', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
+(531, 1, '2015-11-26 17:00:37', '2015-11-26 16:00:37', 'Document model per fer el conveni amb les entitats', 'Conveni amb entitats pel servei comunitari', '', 'publish', 'open', 'open', '', 'conveni-entitats-2', '', '', '2015-12-02 14:12:21', '2015-12-02 13:12:21', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
 (549, 1, '2013-12-12 09:25:27', '2013-12-12 09:25:27', '<strong>Organització i funcionament</strong>\r\n\r\nEn <a title="document " href="https://docs.google.com/a/xtec.cat/document/d/1B3R4drsrCVtLIOIU0Su0TtHEO5rbbWyDF9Iz0oXAD0E/edit#heading=h.fuso4d1xfgrz">aquest document</a> podeu trobar indicacions de com s''organitza una estada, les normes de convivència i consells a tenir en compte (que cal portar, com funciona el menjador, els esbarjos...).\r\n\r\n<strong>Accés al node del vostre centre</strong>\r\n\r\nDins a''aquest web, podeu trobar un espai privat per la vostra escola on trobareu materials i enllaços personalitzats pel treball previ i podreu penjar els vostres comentaris i fotos després de la visita. Busqueu el logotip de la vostra escola dins de la <a href="https://pwc-int.educacio.intranet/agora/mastercda/activitat">xarxa interna</a>.', 'Preparació', '', 'publish', 'closed', 'closed', '', 'preparacio', '', '', '2016-06-21 11:56:23', '2016-06-21 10:56:23', '', 8272, 'http://blocs.xtec.cat/plantillacda/?page_id=549', 10, 'page', '', 0),
 (600, 1, '2013-12-13 12:20:59', '2013-12-13 12:20:59', '<strong>Informació i inscripcions:</strong>\r\nWeb de les trobades de coordinació a xtec (properament)', 'Trobades de coordinació', '', 'publish', 'closed', 'closed', '', 'trobades-de-coordinacio', '', '', '2016-06-21 13:31:18', '2016-06-21 12:31:18', '', 8272, 'http://blocs.xtec.cat/plantillacda/?page_id=600', 20, 'page', '', 0),
-(620, 1, '2013-12-17 11:58:25', '2013-12-17 11:58:25', '', 'badge', '', 'inherit', 'open', 'open', '', 'badge', '', '', '2013-12-17 11:58:25', '2013-12-17 11:58:25', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/badge.png', 0, 'attachment', 'image/png', 0),
-(626, 1, '2013-12-17 12:50:16', '2013-12-17 12:50:16', '', 'Selecció_083', '', 'inherit', 'open', 'open', '', 'seleccio_083', '', '', '2013-12-17 12:50:16', '2013-12-17 12:50:16', '', 155, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/Selecció_083.png', 0, 'attachment', 'image/png', 0),
-(627, 1, '2013-12-17 12:50:19', '2013-12-17 12:50:19', '', 'Selecció_084', '', 'inherit', 'open', 'open', '', 'seleccio_084', '', '', '2013-12-17 12:50:19', '2013-12-17 12:50:19', '', 155, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/Selecció_084.png', 0, 'attachment', 'image/png', 0),
-(629, 1, '2013-12-17 12:54:43', '2013-12-17 12:54:43', '', 'Selecció_086', '', 'inherit', 'open', 'open', '', 'seleccio_086', '', '', '2013-12-17 12:54:43', '2013-12-17 12:54:43', '', 155, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/Selecció_086.png', 0, 'attachment', 'image/png', 0),
-(656, 1, '2015-11-27 15:24:57', '2015-11-27 14:24:57', '', 'formador', '', 'inherit', 'open', 'open', '', 'formador', '', '', '2015-11-27 15:24:57', '2015-11-27 14:24:57', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2015/11/formador.png', 0, 'attachment', 'image/png', 0),
-(659, 1, '2015-11-27 18:16:10', '2015-11-27 17:16:10', '', 'calendari', '', 'inherit', 'open', 'open', '', 'calendari', '', '', '2015-11-27 18:16:10', '2015-11-27 17:16:10', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2015/11/calendari.jpg', 0, 'attachment', 'image/jpeg', 0),
-(672, 1, '2013-12-17 19:26:32', '2013-12-17 19:26:32', 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/capcdalogogen.png', 'capcdalogogen.png', '', 'inherit', 'closed', 'open', '', 'capcdalogogen-png', '', '', '2013-12-17 19:26:32', '2013-12-17 19:26:32', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/capcdalogogen.png', 0, 'attachment', 'image/png', 0),
-(673, 1, '2013-12-17 19:50:51', '2013-12-17 19:50:51', 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/cdaheader.png', 'cdaheader.png', '', 'inherit', 'closed', 'open', '', 'cdaheader-png', '', '', '2013-12-17 19:50:51', '2013-12-17 19:50:51', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/cdaheader.png', 0, 'attachment', 'image/png', 0),
-(674, 1, '2013-12-17 20:53:44', '2013-12-17 20:53:44', 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/logoraw.png', 'logoraw.png', '', 'inherit', 'closed', 'open', '', 'logoraw-png', '', '', '2013-12-17 20:53:44', '2013-12-17 20:53:44', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/logoraw.png', 0, 'attachment', 'image/png', 0),
-(675, 1, '2013-12-17 21:05:02', '2013-12-17 21:05:02', 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/logobn.png', 'logobn.png', '', 'inherit', 'closed', 'open', '', 'logobn-png', '', '', '2013-12-17 21:05:02', '2013-12-17 21:05:02', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/logobn.png', 0, 'attachment', 'image/png', 0),
-(676, 1, '2013-12-17 21:08:11', '2013-12-17 21:08:11', '', 'ensenyament_bn_h2', '', 'inherit', 'open', 'open', '', 'ensenyament_bn_h2', '', '', '2013-12-17 21:08:11', '2013-12-17 21:08:11', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/ensenyament_bn_h2.jpg', 0, 'attachment', 'image/jpeg', 0),
-(677, 1, '2013-12-17 21:20:07', '2013-12-17 21:20:07', 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/logopetit.png', 'logopetit.png', '', 'inherit', 'closed', 'open', '', 'logopetit-png', '', '', '2013-12-17 21:20:07', '2013-12-17 21:20:07', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/logopetit.png', 0, 'attachment', 'image/png', 0),
-(678, 1, '2013-12-17 21:44:13', '2013-12-17 21:44:13', 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/camp_aprenentatge_ok.png', 'camp_aprenentatge_ok.png', '', 'inherit', 'closed', 'open', '', 'camp_aprenentatge_ok-png', '', '', '2013-12-17 21:44:13', '2013-12-17 21:44:13', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/camp_aprenentatge_ok.png', 0, 'attachment', 'image/png', 0),
-(679, 1, '2013-12-17 22:08:33', '2013-12-17 22:08:33', '', 'logogenbn', '', 'inherit', 'open', 'open', '', 'logogenbn', '', '', '2013-12-17 22:08:33', '2013-12-17 22:08:33', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/logogenbn.jpg', 0, 'attachment', 'image/jpeg', 0),
-(680, 1, '2013-12-17 22:12:24', '2013-12-17 22:12:24', '', 'logotira', '', 'inherit', 'open', 'open', '', 'logotira', '', '', '2013-12-17 22:12:24', '2013-12-17 22:12:24', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/logotira.jpg', 0, 'attachment', 'image/jpeg', 0),
-(681, 1, '2013-12-17 22:36:54', '2013-12-17 22:36:54', '', 'logotira2', '', 'inherit', 'open', 'open', '', 'logotira2', '', '', '2013-12-17 22:36:54', '2013-12-17 22:36:54', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/logotira2.jpg', 0, 'attachment', 'image/jpeg', 0),
-(682, 1, '2013-12-17 22:43:32', '2013-12-17 22:43:32', '', 'logobnpetit', '', 'inherit', 'open', 'open', '', 'logobnpetit', '', '', '2013-12-17 22:43:32', '2013-12-17 22:43:32', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/logobnpetit.jpg', 0, 'attachment', 'image/jpeg', 0),
-(683, 1, '2013-12-17 22:43:56', '2013-12-17 22:43:56', '', 'logobnpetit', '', 'inherit', 'open', 'open', '', 'logobnpetit-2', '', '', '2013-12-17 22:43:56', '2013-12-17 22:43:56', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/logobnpetit1.jpg', 0, 'attachment', 'image/jpeg', 0),
-(684, 1, '2015-11-27 20:38:18', '2015-11-27 19:38:18', 'Informació sobre documentació, tràmits i avaluació de les activitats del pla de zona\r\nAssessoraments – Cursos – Seminaris – Tallers', 'Informació sobre documentació, tràmits i avaluació de les activitats', '', 'publish', 'open', 'open', '', 'informacio-sobre-documentacio-tramits-i-avaluacio-de-les-activitats', '', '', '2015-12-02 14:11:28', '2015-12-02 13:11:28', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
-(687, 1, '2015-11-27 20:52:29', '2015-11-27 19:52:29', 'Informació sobre tràmits i avaluació de grups de treball i seminaris de coordinació', 'Informació sobre tràmits i avaluació de grups de treball i seminaris de coordinació', '', 'publish', 'open', 'open', '', 'informacio-sobre-tramits-i-avaluacio-de-grups-de-treball-i-seminaris-de-coordinacio', '', '', '2015-12-02 14:06:51', '2015-12-02 13:06:51', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
-(689, 1, '2015-11-27 21:00:22', '2015-11-27 20:00:22', '<a href="https://docs.google.com/presentation/d/1-NfAcPhrZwRCyggaWeBlCPdOfOjqalpOlw9uoHk-g40/edit?usp=sharing">Enllaç a la presentació (Google drive)</a>', 'Criteris, instruccions i orientacions 2015-16', '', 'publish', 'open', 'open', '', 'criteris-instruccions-i-orientacions-2015-16', '', '', '2015-11-27 21:00:22', '2015-11-27 20:00:22', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
-(693, 1, '2015-11-27 21:02:28', '2015-11-27 20:02:28', '', 'Guia d’ús del GTAF', '', 'publish', 'open', 'open', '', 'guia-dus-del-gtaf', '', '', '2015-12-02 11:58:32', '2015-12-02 10:58:32', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
-(697, 1, '2015-11-27 21:08:18', '2015-11-27 20:08:18', 'Diferent al que se obté (diferent de l’acta d’assistència que s’obté a GTAF)', 'Acta de tancament de l’activitat', '', 'publish', 'open', 'open', '', 'acta-de-tancament-de-lactivitat', '', '', '2015-12-02 14:05:04', '2015-12-02 13:05:04', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
-(698, 1, '2014-01-02 20:59:58', '2014-01-02 20:59:58', 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2014/01/capçalera.png', 'capçalera.png', '', 'inherit', 'closed', 'open', '', 'capcalera-png', '', '', '2014-01-02 20:59:58', '2014-01-02 20:59:58', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2014/01/capçalera.png', 0, 'attachment', 'image/png', 0),
-(699, 1, '2014-01-08 08:46:19', '2014-01-08 08:46:19', '', 'març2010 031', '', 'inherit', 'open', 'open', '', 'marc2010-031', '', '', '2014-01-08 08:46:19', '2014-01-08 08:46:19', '', 249, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/març2010-031.jpg', 0, 'attachment', 'image/jpeg', 0),
-(701, 1, '2015-11-27 21:34:16', '2015-11-27 20:34:16', '', 'Fitxa de dades del formador/a', '', 'publish', 'open', 'open', '', 'fitxa-de-dades-del-formadora', '', '', '2015-12-02 13:57:49', '2015-12-02 12:57:49', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
-(704, 1, '2015-11-27 21:43:09', '2015-11-27 20:43:09', '<ul>\r\n	<li>Qüestionari de valoració de cursos, tallers i seminaris, per part dels assistents</li>\r\n	<li>Full de valoració de grups de treball (per omplir conjuntament entre tots els participants)</li>\r\n	<li>Full de valoració de seminaris de coordinació (per omplir conjuntament entre tots els participants)</li>\r\n	<li>Full de valoració d’assessoraments (per part del centre)</li>\r\n	<li>Full de valoració del taller a centre</li>\r\n	<li>Valoració de l’activitat per part del formador/a.</li>\r\n</ul>\r\n<span style="color: #008000;"><strong>NOTA:</strong> alguns d''aquests qüestionaris es poden substituir per formularis a Google Forms.</span>', 'Qüestionaris de valoració', '', 'publish', 'open', 'open', '', 'questionaris-de-valoracio', '', '', '2015-12-02 14:03:27', '2015-12-02 13:03:27', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
-(732, 1, '2015-11-28 03:00:10', '2015-11-28 02:00:10', '&nbsp;\r\n<table>\r\n<tbody>\r\n<tr>\r\n<td rowspan="2" width="203"><strong>CENTRE DOCENT</strong></td>\r\n<td colspan="2" width="378"><strong>EAP</strong></td>\r\n</tr>\r\n<tr>\r\n<td width="227"><strong>Psicopedagog/a</strong></td>\r\n<td width="151"><strong>Treballador/a social</strong></td>\r\n</tr>\r\n<tr>\r\n<td width="203">ESC Alpha</td>\r\n<td width="227">Montserrat Farulla</td>\r\n<td width="151">Sandra Soria</td>\r\n</tr>\r\n<tr>\r\n<td width="203">ESC Beta</td>\r\n<td width="227">Montserrat Farulla</td>\r\n<td width="151">Neus Martín</td>\r\n</tr>\r\n<tr>\r\n<td width="203">ESC Gamma</td>\r\n<td width="227">Marta Pascual</td>\r\n<td width="151">Caridad Vilar</td>\r\n</tr>\r\n<tr>\r\n<td width="203">ESC Epsilon</td>\r\n<td width="227">Beatriz Alejandre</td>\r\n<td width="151">Neus Martín</td>\r\n</tr>\r\n<tr>\r\n<td width="203">ESC Omega</td>\r\n<td width="227">Beatriz Alejandre</td>\r\n<td width="151">Neus Martín</td>\r\n</tr>\r\n<tr>\r\n<td width="203">INS Alpha</td>\r\n<td width="227">Marta Pascual</td>\r\n<td width="151">Neus Martín</td>\r\n</tr>\r\n<tr>\r\n<td width="203">INS Beta</td>\r\n<td width="227">Beatriz Alejandre</td>\r\n<td width="151">Neus Martín</td>\r\n</tr>\r\n<tr>\r\n<td width="203">Escola Gamma</td>\r\n<td width="227">Marta Pascual</td>\r\n<td width="151">Sandra Soria</td>\r\n</tr>\r\n<tr>\r\n<td width="203">Escola Epsilon</td>\r\n<td width="227">Miquel Torico</td>\r\n<td width="151">Neus Martín</td>\r\n</tr>\r\n<tr>\r\n<td width="203">Escola Omega</td>\r\n<td width="227">Miquel Torico</td>\r\n<td width="151">Neus Martín</td>\r\n</tr>\r\n<tr>\r\n<td width="203">Escola Alpha</td>\r\n<td width="227">Montserrat Farulla</td>\r\n<td width="151">Sandra Soria</td>\r\n</tr>\r\n<tr>\r\n<td width="203">ESC Beta</td>\r\n<td width="227">Andreu Ora</td>\r\n<td width="151">Caridad Vilar</td>\r\n</tr>\r\n<tr>\r\n<td width="203">ESC Omega</td>\r\n<td width="227">Andreu Ora</td>\r\n<td width="151">Caridad Vilar</td>\r\n</tr>\r\n<tr>\r\n<td width="203">INS Gamma</td>\r\n<td width="227">Andreu Ora</td>\r\n<td width="151">Caridad Vilar</td>\r\n</tr>\r\n<tr>\r\n<td width="203">Escola Alpha</td>\r\n<td width="227">Marta Pascual</td>\r\n<td width="151">Caridad Vilar</td>\r\n</tr>\r\n<tr>\r\n<td width="203">ESC Beta</td>\r\n<td width="227">Montserrat Farulla</td>\r\n<td width="151">Caridad Vilar</td>\r\n</tr>\r\n<tr>\r\n<td width="203">ESC Alpha</td>\r\n<td width="227">Blanca Bages</td>\r\n<td width="151">Sandra Soria</td>\r\n</tr>\r\n<tr>\r\n<td width="203">ESC Omega</td>\r\n<td width="227">Miquel Torico</td>\r\n<td width="151">Sandra Soria</td>\r\n</tr>\r\n<tr>\r\n<td width="203">INS Epsilon</td>\r\n<td width="227">Miquel Torico</td>\r\n<td width="151">Sandra Soria</td>\r\n</tr>\r\n<tr>\r\n<td width="203">INS Gamma</td>\r\n<td width="227">Blanca Baiges</td>\r\n<td width="151">Sandra Soria</td>\r\n</tr>\r\n<tr>\r\n<td width="203">Escola Beta</td>\r\n<td width="227">Marta Pascual</td>\r\n<td width="151">Sandra Soria</td>\r\n</tr>\r\n<tr>\r\n<td width="203">Escola Alpha</td>\r\n<td width="227">Beatriz Aleja</td>\r\n<td width="151">Neus Martín</td>\r\n</tr>\r\n<tr>\r\n<td width="203">Escola Epsilon</td>\r\n<td width="227">Beatriz Aleja</td>\r\n<td width="151">Caridad Vilar</td>\r\n</tr>\r\n</tbody>\r\n</table>', 'EAP – Professionals adscrits', '', 'publish', 'open', 'open', '', 'eap-professionals-adscrits', '', '', '2015-12-01 12:13:28', '2015-12-01 11:13:28', '', 739, 'http://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
-(736, 1, '2015-11-28 03:11:19', '2015-11-28 02:11:19', '<table border="0" width="409" cellspacing="0" cellpadding="2">\r\n<tbody>\r\n<tr>\r\n<td style="padding-left: 30px;">Carme Ferrer (directora)</td>\r\n<td><a href="http://xxxxxxxx@xtec.cat">xxxxxxxx@xtec.cat</a></td>\r\n</tr>\r\n<tr>\r\n<td style="padding-left: 30px;">Pere Serrat</td>\r\n<td><a href="http://xxxxxxxx@xtec.cat">xxxxxxxx@xtec.cat</a></td>\r\n</tr>\r\n<tr>\r\n<td style="padding-left: 30px;">Joana Vera</td>\r\n<td><a href="http://xxxxxxxx@xtec.cat">xxxxxxxx@xtec.cat</a></td>\r\n</tr>\r\n</tbody>\r\n</table>', 'CRP – Professionals adscrits', '', 'publish', 'open', 'open', '', 'crp-professionals-adscrits', '', '', '2015-12-01 12:14:09', '2015-12-01 11:14:09', '', 739, 'http://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
-(739, 1, '2015-11-28 10:44:37', '2015-11-28 09:44:37', '<table border="1" cellspacing="0" cellpadding="0" align="center">\r\n<tbody>\r\n<tr>\r\n<td><strong>Centre</strong></td>\r\n<td><strong>Professionals</strong></td>\r\n</tr>\r\n<tr>\r\n<td>ZER EL Solsonès</td>\r\n<td>Marta Gese (CRP), Sandra Ramiro (EAP)</td>\r\n</tr>\r\n<tr>\r\n<td>Escola Vall de Lord</td>\r\n<td>Joan Coromines (CRP), Elisabet Riu (EAP), Toni Cas (LIC), Montse Ram (CREDA)</td>\r\n</tr>\r\n<tr>\r\n<td>SI Sant Llorenç</td>\r\n<td>Joan Coromines (CRP), Elisabet Riu (EAP)</td>\r\n</tr>\r\n<tr>\r\n<td>Escola Setelsis</td>\r\n<td>Maite Gese (CRP), Yolanda Marina (EAP), Montse Ram (CREDA)</td>\r\n</tr>\r\n<tr>\r\n<td>Escola Arrels I</td>\r\n<td>Maite Gese (CRP), Montse Ram (CREDA), Elisabet Riu (EAP)</td>\r\n</tr>\r\n<tr>\r\n<td>Escola El Vinyet</td>\r\n<td>Maite Gese (CRP), Yolanda Marina (EAP), Montse Ram (CREDA)</td>\r\n</tr>\r\n<tr>\r\n<td>Institut Francesc Ribalta</td>\r\n<td>Joan Coromines (CRP), Elisabet Riu (EAP), Toni Cas (LIC)</td>\r\n</tr>\r\n<tr>\r\n<td>Escola Arrels II</td>\r\n<td>Joan Coromines (CRP), Elisabet Riu (EAP)</td>\r\n</tr>\r\n</tbody>\r\n</table>', 'Distribució de professionals per centres', '', 'publish', 'open', 'open', '', 'distribucio-de-professionals-per-centres', '', '', '2015-12-01 12:16:09', '2015-12-01 11:16:09', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
-(746, 1, '2014-01-09 10:42:54', '2014-01-09 10:42:54', '', 'IMG_5811', '', 'inherit', 'open', 'open', '', 'img_5811', '', '', '2014-01-09 10:42:54', '2014-01-09 10:42:54', '', 249, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/IMG_5811.jpg', 0, 'attachment', 'image/jpeg', 0),
-(765, 1, '2015-11-28 12:07:44', '2015-11-28 11:07:44', '<strong>L''equip de direcció tècnica del Servei Educatiu del XXXXXX</strong>\r\n\r\nL’equip de direcció tècnica és una comissió de coordinació interna formada per:\r\n<ul>\r\n	<li>Joan de la Munoza, Director del CRP</li>\r\n	<li>Elisabet Bonet, Directora de l’EAP</li>\r\n	<li>Antoni Casals, representant de l’ELIC</li>\r\n	<li>Montserrat Palau, logopeda del CREDA</li>\r\n</ul>\r\nSón funcions de l’equip de direcció tècnica:\r\n<ul>\r\n	<li>Establir els objectius, identificar les necessitats, els criteris per a l’actuació interna i els indicadors d’avaluació del propi servei.</li>\r\n	<li><span style="line-height: 1.5;">Identificar les necessitats dels centres educatius (professorat, alumnat i famílies) i de la zona.</span></li>\r\n	<li><span style="line-height: 1.5;">Coordinar la integració de les actuacions dels professionals dels serveis educatius vetllant per l’eficàcia de la intervenció en els centres.</span></li>\r\n	<li><span style="line-height: 1.5;">Elaborar la proposta de pla d’actuació, indicadors d’avaluació i memòria, a partir dels objectius i actuacions prioritàries.</span></li>\r\n	<li><span style="line-height: 1.5;">Fer el seguiment del desenvolupament de les activitats.</span></li>\r\n	<li><span style="line-height: 1.5;">Elaborar el pressupost i la liquidació corresponent.</span></li>\r\n</ul>\r\nL’equip de direcció tècnica es reunirà un cop al mes.\r\n\r\n<strong>La coordinació del Servei Educatiu del XXXXXXX</strong>\r\n\r\nAnirà a càrrec del director del CRP.\r\n\r\nSón funcions del coordinador:\r\n<ul>\r\n	<li>Representar els serveis educatius de zona.</li>\r\n	<li><span style="line-height: 1.5;">Fer el seguiment dels acords presos en l’equip de direcció tècnica.</span></li>\r\n	<li><span style="line-height: 1.5;">D’acord amb les direccions respectives, establir les línies generals de coordinació i actuació entre els serveis educatius de zona i els serveis educatius específics i CdA de la zona .</span></li>\r\n	<li><span style="line-height: 1.5;">Coordinar els diferents àmbits d’organització interna.</span></li>\r\n	<li><span style="line-height: 1.5;">Presentar als serveis territorials el pla d’actuació i la memòria anual.</span></li>\r\n	<li><span style="line-height: 1.5;">Presentar als serveis territorials el pressupost anual i la liquidació corresponent.</span></li>\r\n	<li><span style="line-height: 1.5;">Convocar i presidir l’equip de direcció tècnica i la reunió plenària.</span></li>\r\n</ul>\r\n<strong> Reunió plenària del Servei Educatiu del XXXXXXX</strong>\r\n\r\nÉs l''espai de consulta i participació de tots els professionals dels serveis educatius, integrat per la totalitat dels professionals que hi presten serveis i presidit pel coordinador del Servei educatiu de zona.\r\n\r\nLes seves funcions són:\r\n<ul>\r\n	<li>Participar en l’elaboració del pla d’actuació i de la memòria.</li>\r\n	<li><span style="line-height: 1.5;">Informar i aportar propostes a l’equip de direcció tècnica sobre l’organització dels recursos humans i materials i la programació general.</span></li>\r\n	<li><span style="line-height: 1.5;">Promoure iniciatives en l’àmbit de la innovació i de la formació dels serveis educatius i de la zona.</span></li>\r\n	<li><span style="line-height: 1.5;">Es reunirà, com a mínim, una vegada per trimestre amb caràcter ordinari i sempre que el convoqui el coordinador/a o ho sol·liciti un terç, com a mínim, dels seus membres. És preceptiu celebrar una reunió a principi i a final de curs escolar. L’assistència a la reunió plenària és obligatòria per a tots els seus membres.</span></li>\r\n	<li><span style="line-height: 1.5;">Quan es tractin temes vinculats a les seves funcions, els professionals dels serveis educatius específics i dels camps d’aprenentatge que presten atenció a la zona podran participar a les reunions plenàries.</span></li>\r\n</ul>\r\n<strong>Equips de treball del Servei Educatiu del Solsonès</strong>\r\n\r\nS''han creat quatre grups de treball en funció dels centres. Els grups estan ingrats pels professionals que atenen un centre en concret:\r\n<ul>\r\n	<li>Equip dels centres de primària de XXXXXX</li>\r\n	<li><span style="line-height: 1.5;">Equip de la ZER del XXXXXX</span></li>\r\n	<li><span style="line-height: 1.5;">Equip de Sant Llorenç XXXXXX</span></li>\r\n	<li><span style="line-height: 1.5;">Equip dels centres de secundària de XXXXXX</span></li>\r\n</ul>\r\nLes tasques d''aquests equips són:\r\n<ul>\r\n	<li>Intercanviar informació entre els diferents professionals que intervenen en un centre.</li>\r\n	<li><span style="line-height: 1.5;">Detectar necessitats i mancances.</span></li>\r\n	<li><span style="line-height: 1.5;">Planificar i compartir actuacions conjuntes entre els diferents professioanls que actuen un un mateix centre.</span></li>\r\n</ul>', 'Organització interna del Servei Educatiu', '', 'publish', 'open', 'open', '', 'organitzacio-interna-del-servei-educatiu', '', '', '2015-12-02 11:57:40', '2015-12-02 10:57:40', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
-(768, 1, '2015-11-28 12:16:14', '2015-11-28 11:16:14', 'Node d&#039;organització interna', 'Servei educatiu', '', 'private', 'closed', 'open', '', 'servei-educatiu', '', '', '2015-11-28 12:16:14', '2015-11-28 11:16:14', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/forums/forum/servei-educatiu/', 0, 'forum', '', 0),
-(769, 1, '2015-11-28 12:58:59', '2015-11-28 11:58:59', '<strong>Professionals de l''ELIC</strong>\r\n<ul>\r\n	<li>Rosa Bonet (referent equip ELIC)</li>\r\n	<li><span style="line-height: 1.5;">Anna Valls</span><span style="line-height: 1.5;"> (Pla educatiu d''entorn. XXXXXXX)</span></li>\r\n	<li>Carles Simarro (Pla educatiu d''entorn. XXXXXXXXX)</li>\r\n</ul>', 'ELIC – Professionals adscrits', '', 'publish', 'open', 'open', '', 'elic-professionals-adscrits', '', '', '2015-12-01 12:13:53', '2015-12-01 11:13:53', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
-(879, 1, '2015-11-29 13:12:08', '2015-11-29 12:12:08', '<p>Fitxa per demanar una maleta pedagògica o un aparell</p>\r\n', 'Fitxa de petició de recursos', '', 'publish', 'open', 'open', '', 'fitxa-de-peticio-de-recursos', '', '', '2015-12-02 14:24:00', '2015-12-02 13:24:00', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
-(888, 1, '2015-11-29 14:43:34', '2015-11-29 13:43:34', '', 'favicon', '', 'inherit', 'open', 'open', '', 'favicon', '', '', '2015-11-29 14:43:34', '2015-11-29 13:43:34', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2015/11/favicon.ico', 0, 'attachment', 'image/x-icon', 0),
-(944, 1, '2015-11-29 20:20:56', '2015-11-29 19:20:56', 'Programa Fòrum de Treballs de recerca i crèdits de síntesi', 'Programa Fòrum de Treballs de recerca 2015', '', 'publish', 'open', 'open', '', 'programa-forum-de-treballs-de-recerca', '', '', '2015-12-02 14:26:25', '2015-12-02 13:26:25', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
-(952, 1, '2015-11-29 20:41:28', '2015-11-29 19:41:28', '<strong>BASES PER A LA PARTICIPACIÓ:</strong>\n<ol>\n	<li>Hi pot participar l’alumnat de segon curs de batxillerat i de segon dels cicles formatius de grau superior d’FP de les àrees Científico-Tècniques que hagi estat seleccionat prèviament als diferents centres de la zona. El criteri de selecció el fixarà cada centre.</li>\n	<li><span style="line-height: 1.5;">Els treballs presentats poden ser individuals o col·lectius, de creació pròpia.</span></li>\n	<li><span style="line-height: 1.5;">Cada centre docent pot presentar un màxim de 6 treballs per cada modalitat de batxillerat o cicle formatiu i fins a un màxim de 8 per centre.</span></li>\n	<li><span style="line-height: 1.5;">Els resums dels treballs s''han de presentar en format digital seguint aquestes pautes:</span></li>\n	<li><span style="line-height: 1.5;">Resum que contingui com a mínim les següents parts: introducció, desenvolupament del tema i conclusions de la recerca (disposeu de document tipus a la web).</span></li>\n	<li><span style="line-height: 1.5;">S''han d''adjuntar els documents i materials necessaris per a la seva exposició. Per tal d''unificar format de cara a la publicació, es recomana seguir aquests models.</span></li>\n	<li><span style="line-height: 1.5;">Els abstracts (resums) dels treballs s’hauran de lliurar al CRP del Tarragonès, abans del 8 de març de 2015, preferentment per correu electrònic a l’adreça: xgranell@xtec.cat en format digital.</span></li>\n	<li><span style="line-height: 1.5;">L’acte de celebració del IX Fòrum tindrà lloc el divendres 17 d’abril de 2015.</span></li>\n	<li><span style="line-height: 1.5;">L’organització confeccionarà una llista amb l’ordre en el que s''hauran d’exposar els treballs.</span></li>\n	<li><span style="line-height: 1.5;">L’organització es reserva el dret de difondre el resum dels treballs, total o parcialment, a través de qualsevol suport o mitjà.</span></li>\n	<li><span style="line-height: 1.5;">L’organització, en funció dels espais de que es disposin per fer l’activitat, fixarà per a cada centre el nombre d’alumnes de primer curs que podran assistir. En tot cas, es procurarà, si la capacitat dels espais on es realitzi el fòrum ho permet, que hi puguin assistir el màxim nombre d’alumnes.</span></li>\n	<li><span style="line-height: 1.5;">El fet de participar en aquest Fòrum pressuposa l’acceptació de les bases. Qualsevol circumstància no prevista serà resolta per l’organització. </span></li>\n</ol>', 'Bases fòrum treballs de recerca 2015', '', 'publish', 'open', 'open', '', 'bases-forum-treballs-de-recerca-2015', '', '', '2015-11-29 20:41:28', '2015-11-29 19:41:28', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
-(956, 1, '2015-11-29 20:53:57', '2015-11-29 19:53:57', '<p>Cal lliurar els abstracts abans del <strong>8 de març</strong> de 2015</p>\r\n', 'Model resum de treball de recerca 2015', '', 'publish', 'open', 'open', '', 'model-resum-de-treball-de-recerca-2015', '', '', '2015-12-02 14:22:12', '2015-12-02 13:22:12', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
-(982, 1, '2015-11-29 23:06:40', '2015-11-29 22:06:40', '1. S’estableixen 7 categories segons el nivell educatiu, quatre per a l’educació primària i tres per a l’educació secundària obligatòria.\n<ul>\n	<li><b>A. Alumnat de cicle inicial d’educació primària</b></li>\n	<li><b>B. Alumnat de cicle mitjà d’educació primària</b></li>\n	<li><b>C. Alumnat dl cicle superior d’educació primària</b></li>\n	<li><b>D. Alumnat d’educació especial d’educació primària</b></li>\n	<li><b>E. Alumnat de 1r i 2n d’educació secundària obligatòria</b></li>\n	<li><b>F. Alumnat de 3r i 4t d’educació secundària obligatòria</b></li>\n	<li><b>G. Alumnat d’educació especial d’educació secundària obligatòria </b></li>\n</ul>\n2. La participació al certamen és voluntària.\n\n3. Els treballs presentats, un per categoria, poden ser individuals o col·lectius (màxim 6 alumnes) i sempre de creació pròpia.\n\n4. Els treballs han de ser escrits en llengua catalana o en aranès.\n\n5. La modalitat pot ser poesia o prosa. El tema és lliure.\n\n6. Característiques de la presentació:\n<ul>\n	<li>El text s’ha de presentar en DIN A4, escrit per una sola cara i a doble espai.</li>\n	<li>L’extensió no pot ser superior a 3 fulls, amb un màxim de 25 línies per full.</li>\n</ul>\n<ul>\n	<li>El cos de la lletra ha de ser arial 12.\n<ul>\n	<li>Hi ha de constar el títol de l’obra, i a baix a la dreta la categoria i el pseudònim.</li>\n	<li>És imprescindible que els treballs arribin corregits quant a l’ortografia, la sintaxi i el vocabulari.</li>\n</ul>\n</li>\n</ul>\n7. El jurat seleccionarà un text per a cadascuna de les 7 categories.\n\n8. Els treballs guardonats es penjaran al web de la XTEC <a href="http://www.xtec.cat/web/centres/alscentres/premis/jocsflorals" rel="nofollow">http://www.xtec.cat/web/centres/alscentres/premis/jocsflorals</a>\n\n9. Per poder participar en el certamen, els centres s’han d’adreçar al Servei Educatiu de Zona (CRP) i lliurar els treballs en el termini establert, en format digital i per correu electrònic.', 'Bases Jocs florals 2015', '', 'publish', 'open', 'open', '', 'bases-jocs-florals-2015', '', '', '2015-11-29 23:06:40', '2015-11-29 22:06:40', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
-(1038, 1, '2014-10-07 05:44:15', '2014-10-07 05:44:15', '<strong>[title]</strong>\r\n[when]\r\n[location]\r\n<div>[description]</div>\r\n[link newwindow="yes"]Més detalls...[/link]', 'Calendari d''exemple', '', 'publish', 'closed', 'closed', '', 'se', '', '', '2016-09-21 10:34:22', '2016-09-21 08:34:22', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/gce_feed/institut-larany', 0, 'calendar', '', 0),
-(1046, 1, '2015-11-30 09:50:49', '2015-11-30 08:50:49', '', 'Modalitats', '', 'publish', 'open', 'closed', '', 'recursos-2', '', '', '2016-06-15 15:07:58', '2016-06-15 14:07:58', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/general/recursos-2/', 17, 'nav_menu_item', '', 0),
-(1047, 1, '2015-11-30 09:50:49', '2015-11-30 08:50:49', '', 'Visites', '', 'publish', 'open', 'closed', '', 'dinamitzacio-2', '', '', '2016-06-15 15:07:59', '2016-06-15 14:07:59', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/general/dinamitzacio-2/', 26, 'nav_menu_item', '', 0),
-(1055, 1, '2015-11-30 09:50:50', '2015-11-30 08:50:50', '', 'Intranet', '', 'publish', 'open', 'closed', '', 'intranet', '', '', '2016-06-15 15:07:59', '2016-06-15 14:07:59', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/general/intranet/', 41, 'nav_menu_item', '', 0),
-(1060, 1, '2015-11-30 09:50:50', '2015-11-30 08:50:50', '', 'Catàleg Merlí', '', 'publish', 'open', 'closed', '', 'merli', '', '', '2016-06-15 15:07:59', '2016-06-15 14:07:59', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/general/merli/', 22, 'nav_menu_item', '', 0),
-(1061, 1, '2015-11-30 09:50:51', '2015-11-30 08:50:51', '', 'Banc de recursos (BDR)', '', 'publish', 'open', 'closed', '', 'banc-de-recursos-bdr', '', '', '2016-06-15 15:07:59', '2016-06-15 14:07:59', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/general/banc-de-recursos-bdr/', 23, 'nav_menu_item', '', 0),
-(1068, 1, '2015-11-30 09:50:51', '2015-11-30 08:50:51', '', 'Comunitat', '', 'publish', 'open', 'closed', '', 'comunitat-2', '', '', '2016-06-15 15:07:59', '2016-06-15 14:07:59', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/general/comunitat-2/', 35, 'nav_menu_item', '', 0),
-(1069, 1, '2015-11-30 09:50:51', '2015-11-30 08:50:51', '', 'Família i escola', '', 'publish', 'open', 'closed', '', 'familia-i-escola', '', '', '2016-06-15 15:07:59', '2016-06-15 14:07:59', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/general/familia-i-escola/', 40, 'nav_menu_item', '', 0),
-(1077, 1, '2015-11-30 09:50:58', '2015-11-30 08:50:58', ' ', '', '', 'publish', 'open', 'open', '', '1077', '', '', '2015-11-30 10:32:51', '2015-11-30 09:32:51', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/general/1077/', 3, 'nav_menu_item', '', 0),
-(1078, 1, '2015-11-30 09:50:58', '2015-11-30 08:50:58', ' ', '', '', 'publish', 'open', 'open', '', '1078', '', '', '2015-11-30 10:32:51', '2015-11-30 09:32:51', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/general/1078/', 2, 'nav_menu_item', '', 0),
-(1120, 1, '2015-11-30 13:18:34', '2015-11-30 12:18:34', 'Node de comunicació entre formadors i el servei educatiu', 'Formadors', '', 'private', 'closed', 'open', '', 'formadors', '', '', '2015-11-30 13:18:34', '2015-11-30 12:18:34', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/forums/forum/formadors/', 0, 'forum', '', 0),
-(1146, 1, '2015-11-30 17:22:08', '2015-11-30 16:22:08', '', 'Recursos en línia', '', 'publish', 'open', 'closed', '', 'recursos-en-linia', '', '', '2016-06-15 15:07:59', '2016-06-15 14:07:59', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/?p=1146', 24, 'nav_menu_item', '', 0),
-(1147, 1, '2015-11-30 17:49:23', '2015-11-30 16:49:23', 'Node de coordinació dels seminaris TAC', 'TAC', '', 'publish', 'closed', 'open', '', 'tac', '', '', '2015-11-30 17:49:23', '2015-11-30 16:49:23', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/forums/forum/tac/', 0, 'forum', '', 0),
+(620, 1, '2013-12-17 11:58:25', '2013-12-17 11:58:25', '', 'badge', '', 'inherit', 'open', 'open', '', 'badge', '', '', '2013-12-17 11:58:25', '2013-12-17 11:58:25', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/badge.png', 0, 'attachment', 'image/png', 0),
+(626, 1, '2013-12-17 12:50:16', '2013-12-17 12:50:16', '', 'Selecció_083', '', 'inherit', 'open', 'open', '', 'seleccio_083', '', '', '2013-12-17 12:50:16', '2013-12-17 12:50:16', '', 155, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/Selecció_083.png', 0, 'attachment', 'image/png', 0),
+(627, 1, '2013-12-17 12:50:19', '2013-12-17 12:50:19', '', 'Selecció_084', '', 'inherit', 'open', 'open', '', 'seleccio_084', '', '', '2013-12-17 12:50:19', '2013-12-17 12:50:19', '', 155, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/Selecció_084.png', 0, 'attachment', 'image/png', 0),
+(629, 1, '2013-12-17 12:54:43', '2013-12-17 12:54:43', '', 'Selecció_086', '', 'inherit', 'open', 'open', '', 'seleccio_086', '', '', '2013-12-17 12:54:43', '2013-12-17 12:54:43', '', 155, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/Selecció_086.png', 0, 'attachment', 'image/png', 0),
+(656, 1, '2015-11-27 15:24:57', '2015-11-27 14:24:57', '', 'formador', '', 'inherit', 'open', 'open', '', 'formador', '', '', '2015-11-27 15:24:57', '2015-11-27 14:24:57', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2015/11/formador.png', 0, 'attachment', 'image/png', 0),
+(659, 1, '2015-11-27 18:16:10', '2015-11-27 17:16:10', '', 'calendari', '', 'inherit', 'open', 'open', '', 'calendari', '', '', '2015-11-27 18:16:10', '2015-11-27 17:16:10', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2015/11/calendari.jpg', 0, 'attachment', 'image/jpeg', 0),
+(672, 1, '2013-12-17 19:26:32', '2013-12-17 19:26:32', 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/capcdalogogen.png', 'capcdalogogen.png', '', 'inherit', 'closed', 'open', '', 'capcdalogogen-png', '', '', '2013-12-17 19:26:32', '2013-12-17 19:26:32', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/capcdalogogen.png', 0, 'attachment', 'image/png', 0),
+(673, 1, '2013-12-17 19:50:51', '2013-12-17 19:50:51', 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/cdaheader.png', 'cdaheader.png', '', 'inherit', 'closed', 'open', '', 'cdaheader-png', '', '', '2013-12-17 19:50:51', '2013-12-17 19:50:51', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/cdaheader.png', 0, 'attachment', 'image/png', 0),
+(674, 1, '2013-12-17 20:53:44', '2013-12-17 20:53:44', 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/logoraw.png', 'logoraw.png', '', 'inherit', 'closed', 'open', '', 'logoraw-png', '', '', '2013-12-17 20:53:44', '2013-12-17 20:53:44', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/logoraw.png', 0, 'attachment', 'image/png', 0),
+(675, 1, '2013-12-17 21:05:02', '2013-12-17 21:05:02', 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/logobn.png', 'logobn.png', '', 'inherit', 'closed', 'open', '', 'logobn-png', '', '', '2013-12-17 21:05:02', '2013-12-17 21:05:02', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/logobn.png', 0, 'attachment', 'image/png', 0),
+(676, 1, '2013-12-17 21:08:11', '2013-12-17 21:08:11', '', 'ensenyament_bn_h2', '', 'inherit', 'open', 'open', '', 'ensenyament_bn_h2', '', '', '2013-12-17 21:08:11', '2013-12-17 21:08:11', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/ensenyament_bn_h2.jpg', 0, 'attachment', 'image/jpeg', 0),
+(677, 1, '2013-12-17 21:20:07', '2013-12-17 21:20:07', 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/logopetit.png', 'logopetit.png', '', 'inherit', 'closed', 'open', '', 'logopetit-png', '', '', '2013-12-17 21:20:07', '2013-12-17 21:20:07', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/logopetit.png', 0, 'attachment', 'image/png', 0),
+(678, 1, '2013-12-17 21:44:13', '2013-12-17 21:44:13', 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/camp_aprenentatge_ok.png', 'camp_aprenentatge_ok.png', '', 'inherit', 'closed', 'open', '', 'camp_aprenentatge_ok-png', '', '', '2013-12-17 21:44:13', '2013-12-17 21:44:13', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/camp_aprenentatge_ok.png', 0, 'attachment', 'image/png', 0),
+(679, 1, '2013-12-17 22:08:33', '2013-12-17 22:08:33', '', 'logogenbn', '', 'inherit', 'open', 'open', '', 'logogenbn', '', '', '2013-12-17 22:08:33', '2013-12-17 22:08:33', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/logogenbn.jpg', 0, 'attachment', 'image/jpeg', 0),
+(680, 1, '2013-12-17 22:12:24', '2013-12-17 22:12:24', '', 'logotira', '', 'inherit', 'open', 'open', '', 'logotira', '', '', '2013-12-17 22:12:24', '2013-12-17 22:12:24', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/logotira.jpg', 0, 'attachment', 'image/jpeg', 0),
+(681, 1, '2013-12-17 22:36:54', '2013-12-17 22:36:54', '', 'logotira2', '', 'inherit', 'open', 'open', '', 'logotira2', '', '', '2013-12-17 22:36:54', '2013-12-17 22:36:54', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/logotira2.jpg', 0, 'attachment', 'image/jpeg', 0),
+(682, 1, '2013-12-17 22:43:32', '2013-12-17 22:43:32', '', 'logobnpetit', '', 'inherit', 'open', 'open', '', 'logobnpetit', '', '', '2013-12-17 22:43:32', '2013-12-17 22:43:32', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/logobnpetit.jpg', 0, 'attachment', 'image/jpeg', 0),
+(683, 1, '2013-12-17 22:43:56', '2013-12-17 22:43:56', '', 'logobnpetit', '', 'inherit', 'open', 'open', '', 'logobnpetit-2', '', '', '2013-12-17 22:43:56', '2013-12-17 22:43:56', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/logobnpetit1.jpg', 0, 'attachment', 'image/jpeg', 0),
+(684, 1, '2015-11-27 20:38:18', '2015-11-27 19:38:18', 'Informació sobre documentació, tràmits i avaluació de les activitats del pla de zona\r\nAssessoraments – Cursos – Seminaris – Tallers', 'Informació sobre documentació, tràmits i avaluació de les activitats', '', 'publish', 'open', 'open', '', 'informacio-sobre-documentacio-tramits-i-avaluacio-de-les-activitats', '', '', '2015-12-02 14:11:28', '2015-12-02 13:11:28', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
+(687, 1, '2015-11-27 20:52:29', '2015-11-27 19:52:29', 'Informació sobre tràmits i avaluació de grups de treball i seminaris de coordinació', 'Informació sobre tràmits i avaluació de grups de treball i seminaris de coordinació', '', 'publish', 'open', 'open', '', 'informacio-sobre-tramits-i-avaluacio-de-grups-de-treball-i-seminaris-de-coordinacio', '', '', '2015-12-02 14:06:51', '2015-12-02 13:06:51', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
+(689, 1, '2015-11-27 21:00:22', '2015-11-27 20:00:22', '<a href="https://docs.google.com/presentation/d/1-NfAcPhrZwRCyggaWeBlCPdOfOjqalpOlw9uoHk-g40/edit?usp=sharing">Enllaç a la presentació (Google drive)</a>', 'Criteris, instruccions i orientacions 2015-16', '', 'publish', 'open', 'open', '', 'criteris-instruccions-i-orientacions-2015-16', '', '', '2015-11-27 21:00:22', '2015-11-27 20:00:22', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
+(693, 1, '2015-11-27 21:02:28', '2015-11-27 20:02:28', '', 'Guia d’ús del GTAF', '', 'publish', 'open', 'open', '', 'guia-dus-del-gtaf', '', '', '2015-12-02 11:58:32', '2015-12-02 10:58:32', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
+(697, 1, '2015-11-27 21:08:18', '2015-11-27 20:08:18', 'Diferent al que se obté (diferent de l’acta d’assistència que s’obté a GTAF)', 'Acta de tancament de l’activitat', '', 'publish', 'open', 'open', '', 'acta-de-tancament-de-lactivitat', '', '', '2015-12-02 14:05:04', '2015-12-02 13:05:04', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
+(698, 1, '2014-01-02 20:59:58', '2014-01-02 20:59:58', 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2014/01/capçalera.png', 'capçalera.png', '', 'inherit', 'closed', 'open', '', 'capcalera-png', '', '', '2014-01-02 20:59:58', '2014-01-02 20:59:58', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2014/01/capçalera.png', 0, 'attachment', 'image/png', 0),
+(699, 1, '2014-01-08 08:46:19', '2014-01-08 08:46:19', '', 'març2010 031', '', 'inherit', 'open', 'open', '', 'marc2010-031', '', '', '2014-01-08 08:46:19', '2014-01-08 08:46:19', '', 249, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/març2010-031.jpg', 0, 'attachment', 'image/jpeg', 0),
+(701, 1, '2015-11-27 21:34:16', '2015-11-27 20:34:16', '', 'Fitxa de dades del formador/a', '', 'publish', 'open', 'open', '', 'fitxa-de-dades-del-formadora', '', '', '2015-12-02 13:57:49', '2015-12-02 12:57:49', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
+(704, 1, '2015-11-27 21:43:09', '2015-11-27 20:43:09', '<ul>\r\n	<li>Qüestionari de valoració de cursos, tallers i seminaris, per part dels assistents</li>\r\n	<li>Full de valoració de grups de treball (per omplir conjuntament entre tots els participants)</li>\r\n	<li>Full de valoració de seminaris de coordinació (per omplir conjuntament entre tots els participants)</li>\r\n	<li>Full de valoració d’assessoraments (per part del centre)</li>\r\n	<li>Full de valoració del taller a centre</li>\r\n	<li>Valoració de l’activitat per part del formador/a.</li>\r\n</ul>\r\n<span style="color: #008000;"><strong>NOTA:</strong> alguns d''aquests qüestionaris es poden substituir per formularis a Google Forms.</span>', 'Qüestionaris de valoració', '', 'publish', 'open', 'open', '', 'questionaris-de-valoracio', '', '', '2015-12-02 14:03:27', '2015-12-02 13:03:27', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
+(732, 1, '2015-11-28 03:00:10', '2015-11-28 02:00:10', '&nbsp;\r\n<table>\r\n<tbody>\r\n<tr>\r\n<td rowspan="2" width="203"><strong>CENTRE DOCENT</strong></td>\r\n<td colspan="2" width="378"><strong>EAP</strong></td>\r\n</tr>\r\n<tr>\r\n<td width="227"><strong>Psicopedagog/a</strong></td>\r\n<td width="151"><strong>Treballador/a social</strong></td>\r\n</tr>\r\n<tr>\r\n<td width="203">ESC Alpha</td>\r\n<td width="227">Montserrat Farulla</td>\r\n<td width="151">Sandra Soria</td>\r\n</tr>\r\n<tr>\r\n<td width="203">ESC Beta</td>\r\n<td width="227">Montserrat Farulla</td>\r\n<td width="151">Neus Martín</td>\r\n</tr>\r\n<tr>\r\n<td width="203">ESC Gamma</td>\r\n<td width="227">Marta Pascual</td>\r\n<td width="151">Caridad Vilar</td>\r\n</tr>\r\n<tr>\r\n<td width="203">ESC Epsilon</td>\r\n<td width="227">Beatriz Alejandre</td>\r\n<td width="151">Neus Martín</td>\r\n</tr>\r\n<tr>\r\n<td width="203">ESC Omega</td>\r\n<td width="227">Beatriz Alejandre</td>\r\n<td width="151">Neus Martín</td>\r\n</tr>\r\n<tr>\r\n<td width="203">INS Alpha</td>\r\n<td width="227">Marta Pascual</td>\r\n<td width="151">Neus Martín</td>\r\n</tr>\r\n<tr>\r\n<td width="203">INS Beta</td>\r\n<td width="227">Beatriz Alejandre</td>\r\n<td width="151">Neus Martín</td>\r\n</tr>\r\n<tr>\r\n<td width="203">Escola Gamma</td>\r\n<td width="227">Marta Pascual</td>\r\n<td width="151">Sandra Soria</td>\r\n</tr>\r\n<tr>\r\n<td width="203">Escola Epsilon</td>\r\n<td width="227">Miquel Torico</td>\r\n<td width="151">Neus Martín</td>\r\n</tr>\r\n<tr>\r\n<td width="203">Escola Omega</td>\r\n<td width="227">Miquel Torico</td>\r\n<td width="151">Neus Martín</td>\r\n</tr>\r\n<tr>\r\n<td width="203">Escola Alpha</td>\r\n<td width="227">Montserrat Farulla</td>\r\n<td width="151">Sandra Soria</td>\r\n</tr>\r\n<tr>\r\n<td width="203">ESC Beta</td>\r\n<td width="227">Andreu Ora</td>\r\n<td width="151">Caridad Vilar</td>\r\n</tr>\r\n<tr>\r\n<td width="203">ESC Omega</td>\r\n<td width="227">Andreu Ora</td>\r\n<td width="151">Caridad Vilar</td>\r\n</tr>\r\n<tr>\r\n<td width="203">INS Gamma</td>\r\n<td width="227">Andreu Ora</td>\r\n<td width="151">Caridad Vilar</td>\r\n</tr>\r\n<tr>\r\n<td width="203">Escola Alpha</td>\r\n<td width="227">Marta Pascual</td>\r\n<td width="151">Caridad Vilar</td>\r\n</tr>\r\n<tr>\r\n<td width="203">ESC Beta</td>\r\n<td width="227">Montserrat Farulla</td>\r\n<td width="151">Caridad Vilar</td>\r\n</tr>\r\n<tr>\r\n<td width="203">ESC Alpha</td>\r\n<td width="227">Blanca Bages</td>\r\n<td width="151">Sandra Soria</td>\r\n</tr>\r\n<tr>\r\n<td width="203">ESC Omega</td>\r\n<td width="227">Miquel Torico</td>\r\n<td width="151">Sandra Soria</td>\r\n</tr>\r\n<tr>\r\n<td width="203">INS Epsilon</td>\r\n<td width="227">Miquel Torico</td>\r\n<td width="151">Sandra Soria</td>\r\n</tr>\r\n<tr>\r\n<td width="203">INS Gamma</td>\r\n<td width="227">Blanca Baiges</td>\r\n<td width="151">Sandra Soria</td>\r\n</tr>\r\n<tr>\r\n<td width="203">Escola Beta</td>\r\n<td width="227">Marta Pascual</td>\r\n<td width="151">Sandra Soria</td>\r\n</tr>\r\n<tr>\r\n<td width="203">Escola Alpha</td>\r\n<td width="227">Beatriz Aleja</td>\r\n<td width="151">Neus Martín</td>\r\n</tr>\r\n<tr>\r\n<td width="203">Escola Epsilon</td>\r\n<td width="227">Beatriz Aleja</td>\r\n<td width="151">Caridad Vilar</td>\r\n</tr>\r\n</tbody>\r\n</table>', 'EAP – Professionals adscrits', '', 'publish', 'open', 'open', '', 'eap-professionals-adscrits', '', '', '2015-12-01 12:13:28', '2015-12-01 11:13:28', '', 739, 'https://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
+(736, 1, '2015-11-28 03:11:19', '2015-11-28 02:11:19', '<table border="0" width="409" cellspacing="0" cellpadding="2">\r\n<tbody>\r\n<tr>\r\n<td style="padding-left: 30px;">Carme Ferrer (directora)</td>\r\n<td><a href="http://xxxxxxxx@xtec.cat">xxxxxxxx@xtec.cat</a></td>\r\n</tr>\r\n<tr>\r\n<td style="padding-left: 30px;">Pere Serrat</td>\r\n<td><a href="http://xxxxxxxx@xtec.cat">xxxxxxxx@xtec.cat</a></td>\r\n</tr>\r\n<tr>\r\n<td style="padding-left: 30px;">Joana Vera</td>\r\n<td><a href="http://xxxxxxxx@xtec.cat">xxxxxxxx@xtec.cat</a></td>\r\n</tr>\r\n</tbody>\r\n</table>', 'CRP – Professionals adscrits', '', 'publish', 'open', 'open', '', 'crp-professionals-adscrits', '', '', '2015-12-01 12:14:09', '2015-12-01 11:14:09', '', 739, 'https://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
+(739, 1, '2015-11-28 10:44:37', '2015-11-28 09:44:37', '<table border="1" cellspacing="0" cellpadding="0" align="center">\r\n<tbody>\r\n<tr>\r\n<td><strong>Centre</strong></td>\r\n<td><strong>Professionals</strong></td>\r\n</tr>\r\n<tr>\r\n<td>ZER EL Solsonès</td>\r\n<td>Marta Gese (CRP), Sandra Ramiro (EAP)</td>\r\n</tr>\r\n<tr>\r\n<td>Escola Vall de Lord</td>\r\n<td>Joan Coromines (CRP), Elisabet Riu (EAP), Toni Cas (LIC), Montse Ram (CREDA)</td>\r\n</tr>\r\n<tr>\r\n<td>SI Sant Llorenç</td>\r\n<td>Joan Coromines (CRP), Elisabet Riu (EAP)</td>\r\n</tr>\r\n<tr>\r\n<td>Escola Setelsis</td>\r\n<td>Maite Gese (CRP), Yolanda Marina (EAP), Montse Ram (CREDA)</td>\r\n</tr>\r\n<tr>\r\n<td>Escola Arrels I</td>\r\n<td>Maite Gese (CRP), Montse Ram (CREDA), Elisabet Riu (EAP)</td>\r\n</tr>\r\n<tr>\r\n<td>Escola El Vinyet</td>\r\n<td>Maite Gese (CRP), Yolanda Marina (EAP), Montse Ram (CREDA)</td>\r\n</tr>\r\n<tr>\r\n<td>Institut Francesc Ribalta</td>\r\n<td>Joan Coromines (CRP), Elisabet Riu (EAP), Toni Cas (LIC)</td>\r\n</tr>\r\n<tr>\r\n<td>Escola Arrels II</td>\r\n<td>Joan Coromines (CRP), Elisabet Riu (EAP)</td>\r\n</tr>\r\n</tbody>\r\n</table>', 'Distribució de professionals per centres', '', 'publish', 'open', 'open', '', 'distribucio-de-professionals-per-centres', '', '', '2015-12-01 12:16:09', '2015-12-01 11:16:09', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
+(746, 1, '2014-01-09 10:42:54', '2014-01-09 10:42:54', '', 'IMG_5811', '', 'inherit', 'open', 'open', '', 'img_5811', '', '', '2014-01-09 10:42:54', '2014-01-09 10:42:54', '', 249, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/IMG_5811.jpg', 0, 'attachment', 'image/jpeg', 0),
+(765, 1, '2015-11-28 12:07:44', '2015-11-28 11:07:44', '<strong>L''equip de direcció tècnica del Servei Educatiu del XXXXXX</strong>\r\n\r\nL’equip de direcció tècnica és una comissió de coordinació interna formada per:\r\n<ul>\r\n	<li>Joan de la Munoza, Director del CRP</li>\r\n	<li>Elisabet Bonet, Directora de l’EAP</li>\r\n	<li>Antoni Casals, representant de l’ELIC</li>\r\n	<li>Montserrat Palau, logopeda del CREDA</li>\r\n</ul>\r\nSón funcions de l’equip de direcció tècnica:\r\n<ul>\r\n	<li>Establir els objectius, identificar les necessitats, els criteris per a l’actuació interna i els indicadors d’avaluació del propi servei.</li>\r\n	<li><span style="line-height: 1.5;">Identificar les necessitats dels centres educatius (professorat, alumnat i famílies) i de la zona.</span></li>\r\n	<li><span style="line-height: 1.5;">Coordinar la integració de les actuacions dels professionals dels serveis educatius vetllant per l’eficàcia de la intervenció en els centres.</span></li>\r\n	<li><span style="line-height: 1.5;">Elaborar la proposta de pla d’actuació, indicadors d’avaluació i memòria, a partir dels objectius i actuacions prioritàries.</span></li>\r\n	<li><span style="line-height: 1.5;">Fer el seguiment del desenvolupament de les activitats.</span></li>\r\n	<li><span style="line-height: 1.5;">Elaborar el pressupost i la liquidació corresponent.</span></li>\r\n</ul>\r\nL’equip de direcció tècnica es reunirà un cop al mes.\r\n\r\n<strong>La coordinació del Servei Educatiu del XXXXXXX</strong>\r\n\r\nAnirà a càrrec del director del CRP.\r\n\r\nSón funcions del coordinador:\r\n<ul>\r\n	<li>Representar els serveis educatius de zona.</li>\r\n	<li><span style="line-height: 1.5;">Fer el seguiment dels acords presos en l’equip de direcció tècnica.</span></li>\r\n	<li><span style="line-height: 1.5;">D’acord amb les direccions respectives, establir les línies generals de coordinació i actuació entre els serveis educatius de zona i els serveis educatius específics i CdA de la zona .</span></li>\r\n	<li><span style="line-height: 1.5;">Coordinar els diferents àmbits d’organització interna.</span></li>\r\n	<li><span style="line-height: 1.5;">Presentar als serveis territorials el pla d’actuació i la memòria anual.</span></li>\r\n	<li><span style="line-height: 1.5;">Presentar als serveis territorials el pressupost anual i la liquidació corresponent.</span></li>\r\n	<li><span style="line-height: 1.5;">Convocar i presidir l’equip de direcció tècnica i la reunió plenària.</span></li>\r\n</ul>\r\n<strong> Reunió plenària del Servei Educatiu del XXXXXXX</strong>\r\n\r\nÉs l''espai de consulta i participació de tots els professionals dels serveis educatius, integrat per la totalitat dels professionals que hi presten serveis i presidit pel coordinador del Servei educatiu de zona.\r\n\r\nLes seves funcions són:\r\n<ul>\r\n	<li>Participar en l’elaboració del pla d’actuació i de la memòria.</li>\r\n	<li><span style="line-height: 1.5;">Informar i aportar propostes a l’equip de direcció tècnica sobre l’organització dels recursos humans i materials i la programació general.</span></li>\r\n	<li><span style="line-height: 1.5;">Promoure iniciatives en l’àmbit de la innovació i de la formació dels serveis educatius i de la zona.</span></li>\r\n	<li><span style="line-height: 1.5;">Es reunirà, com a mínim, una vegada per trimestre amb caràcter ordinari i sempre que el convoqui el coordinador/a o ho sol·liciti un terç, com a mínim, dels seus membres. És preceptiu celebrar una reunió a principi i a final de curs escolar. L’assistència a la reunió plenària és obligatòria per a tots els seus membres.</span></li>\r\n	<li><span style="line-height: 1.5;">Quan es tractin temes vinculats a les seves funcions, els professionals dels serveis educatius específics i dels camps d’aprenentatge que presten atenció a la zona podran participar a les reunions plenàries.</span></li>\r\n</ul>\r\n<strong>Equips de treball del Servei Educatiu del Solsonès</strong>\r\n\r\nS''han creat quatre grups de treball en funció dels centres. Els grups estan ingrats pels professionals que atenen un centre en concret:\r\n<ul>\r\n	<li>Equip dels centres de primària de XXXXXX</li>\r\n	<li><span style="line-height: 1.5;">Equip de la ZER del XXXXXX</span></li>\r\n	<li><span style="line-height: 1.5;">Equip de Sant Llorenç XXXXXX</span></li>\r\n	<li><span style="line-height: 1.5;">Equip dels centres de secundària de XXXXXX</span></li>\r\n</ul>\r\nLes tasques d''aquests equips són:\r\n<ul>\r\n	<li>Intercanviar informació entre els diferents professionals que intervenen en un centre.</li>\r\n	<li><span style="line-height: 1.5;">Detectar necessitats i mancances.</span></li>\r\n	<li><span style="line-height: 1.5;">Planificar i compartir actuacions conjuntes entre els diferents professioanls que actuen un un mateix centre.</span></li>\r\n</ul>', 'Organització interna del Servei Educatiu', '', 'publish', 'open', 'open', '', 'organitzacio-interna-del-servei-educatiu', '', '', '2015-12-02 11:57:40', '2015-12-02 10:57:40', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
+(768, 1, '2015-11-28 12:16:14', '2015-11-28 11:16:14', 'Node d&#039;organització interna', 'Servei educatiu', '', 'private', 'closed', 'open', '', 'servei-educatiu', '', '', '2015-11-28 12:16:14', '2015-11-28 11:16:14', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/forums/forum/servei-educatiu/', 0, 'forum', '', 0),
+(769, 1, '2015-11-28 12:58:59', '2015-11-28 11:58:59', '<strong>Professionals de l''ELIC</strong>\r\n<ul>\r\n	<li>Rosa Bonet (referent equip ELIC)</li>\r\n	<li><span style="line-height: 1.5;">Anna Valls</span><span style="line-height: 1.5;"> (Pla educatiu d''entorn. XXXXXXX)</span></li>\r\n	<li>Carles Simarro (Pla educatiu d''entorn. XXXXXXXXX)</li>\r\n</ul>', 'ELIC – Professionals adscrits', '', 'publish', 'open', 'open', '', 'elic-professionals-adscrits', '', '', '2015-12-01 12:13:53', '2015-12-01 11:13:53', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
+(879, 1, '2015-11-29 13:12:08', '2015-11-29 12:12:08', '<p>Fitxa per demanar una maleta pedagògica o un aparell</p>\r\n', 'Fitxa de petició de recursos', '', 'publish', 'open', 'open', '', 'fitxa-de-peticio-de-recursos', '', '', '2015-12-02 14:24:00', '2015-12-02 13:24:00', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
+(888, 1, '2015-11-29 14:43:34', '2015-11-29 13:43:34', '', 'favicon', '', 'inherit', 'open', 'open', '', 'favicon', '', '', '2015-11-29 14:43:34', '2015-11-29 13:43:34', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2015/11/favicon.ico', 0, 'attachment', 'image/x-icon', 0),
+(944, 1, '2015-11-29 20:20:56', '2015-11-29 19:20:56', 'Programa Fòrum de Treballs de recerca i crèdits de síntesi', 'Programa Fòrum de Treballs de recerca 2015', '', 'publish', 'open', 'open', '', 'programa-forum-de-treballs-de-recerca', '', '', '2015-12-02 14:26:25', '2015-12-02 13:26:25', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
+(952, 1, '2015-11-29 20:41:28', '2015-11-29 19:41:28', '<strong>BASES PER A LA PARTICIPACIÓ:</strong>\n<ol>\n	<li>Hi pot participar l’alumnat de segon curs de batxillerat i de segon dels cicles formatius de grau superior d’FP de les àrees Científico-Tècniques que hagi estat seleccionat prèviament als diferents centres de la zona. El criteri de selecció el fixarà cada centre.</li>\n	<li><span style="line-height: 1.5;">Els treballs presentats poden ser individuals o col·lectius, de creació pròpia.</span></li>\n	<li><span style="line-height: 1.5;">Cada centre docent pot presentar un màxim de 6 treballs per cada modalitat de batxillerat o cicle formatiu i fins a un màxim de 8 per centre.</span></li>\n	<li><span style="line-height: 1.5;">Els resums dels treballs s''han de presentar en format digital seguint aquestes pautes:</span></li>\n	<li><span style="line-height: 1.5;">Resum que contingui com a mínim les següents parts: introducció, desenvolupament del tema i conclusions de la recerca (disposeu de document tipus a la web).</span></li>\n	<li><span style="line-height: 1.5;">S''han d''adjuntar els documents i materials necessaris per a la seva exposició. Per tal d''unificar format de cara a la publicació, es recomana seguir aquests models.</span></li>\n	<li><span style="line-height: 1.5;">Els abstracts (resums) dels treballs s’hauran de lliurar al CRP del Tarragonès, abans del 8 de març de 2015, preferentment per correu electrònic a l’adreça: xgranell@xtec.cat en format digital.</span></li>\n	<li><span style="line-height: 1.5;">L’acte de celebració del IX Fòrum tindrà lloc el divendres 17 d’abril de 2015.</span></li>\n	<li><span style="line-height: 1.5;">L’organització confeccionarà una llista amb l’ordre en el que s''hauran d’exposar els treballs.</span></li>\n	<li><span style="line-height: 1.5;">L’organització es reserva el dret de difondre el resum dels treballs, total o parcialment, a través de qualsevol suport o mitjà.</span></li>\n	<li><span style="line-height: 1.5;">L’organització, en funció dels espais de que es disposin per fer l’activitat, fixarà per a cada centre el nombre d’alumnes de primer curs que podran assistir. En tot cas, es procurarà, si la capacitat dels espais on es realitzi el fòrum ho permet, que hi puguin assistir el màxim nombre d’alumnes.</span></li>\n	<li><span style="line-height: 1.5;">El fet de participar en aquest Fòrum pressuposa l’acceptació de les bases. Qualsevol circumstància no prevista serà resolta per l’organització. </span></li>\n</ol>', 'Bases fòrum treballs de recerca 2015', '', 'publish', 'open', 'open', '', 'bases-forum-treballs-de-recerca-2015', '', '', '2015-11-29 20:41:28', '2015-11-29 19:41:28', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
+(956, 1, '2015-11-29 20:53:57', '2015-11-29 19:53:57', '<p>Cal lliurar els abstracts abans del <strong>8 de març</strong> de 2015</p>\r\n', 'Model resum de treball de recerca 2015', '', 'publish', 'open', 'open', '', 'model-resum-de-treball-de-recerca-2015', '', '', '2015-12-02 14:22:12', '2015-12-02 13:22:12', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
+(982, 1, '2015-11-29 23:06:40', '2015-11-29 22:06:40', '1. S’estableixen 7 categories segons el nivell educatiu, quatre per a l’educació primària i tres per a l’educació secundària obligatòria.\n<ul>\n	<li><b>A. Alumnat de cicle inicial d’educació primària</b></li>\n	<li><b>B. Alumnat de cicle mitjà d’educació primària</b></li>\n	<li><b>C. Alumnat dl cicle superior d’educació primària</b></li>\n	<li><b>D. Alumnat d’educació especial d’educació primària</b></li>\n	<li><b>E. Alumnat de 1r i 2n d’educació secundària obligatòria</b></li>\n	<li><b>F. Alumnat de 3r i 4t d’educació secundària obligatòria</b></li>\n	<li><b>G. Alumnat d’educació especial d’educació secundària obligatòria </b></li>\n</ul>\n2. La participació al certamen és voluntària.\n\n3. Els treballs presentats, un per categoria, poden ser individuals o col·lectius (màxim 6 alumnes) i sempre de creació pròpia.\n\n4. Els treballs han de ser escrits en llengua catalana o en aranès.\n\n5. La modalitat pot ser poesia o prosa. El tema és lliure.\n\n6. Característiques de la presentació:\n<ul>\n	<li>El text s’ha de presentar en DIN A4, escrit per una sola cara i a doble espai.</li>\n	<li>L’extensió no pot ser superior a 3 fulls, amb un màxim de 25 línies per full.</li>\n</ul>\n<ul>\n	<li>El cos de la lletra ha de ser arial 12.\n<ul>\n	<li>Hi ha de constar el títol de l’obra, i a baix a la dreta la categoria i el pseudònim.</li>\n	<li>És imprescindible que els treballs arribin corregits quant a l’ortografia, la sintaxi i el vocabulari.</li>\n</ul>\n</li>\n</ul>\n7. El jurat seleccionarà un text per a cadascuna de les 7 categories.\n\n8. Els treballs guardonats es penjaran al web de la XTEC <a href="http://www.xtec.cat/web/centres/alscentres/premis/jocsflorals" rel="nofollow">http://www.xtec.cat/web/centres/alscentres/premis/jocsflorals</a>\n\n9. Per poder participar en el certamen, els centres s’han d’adreçar al Servei Educatiu de Zona (CRP) i lliurar els treballs en el termini establert, en format digital i per correu electrònic.', 'Bases Jocs florals 2015', '', 'publish', 'open', 'open', '', 'bases-jocs-florals-2015', '', '', '2015-11-29 23:06:40', '2015-11-29 22:06:40', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/docs/', 0, 'bp_doc', '', 0),
+(1038, 1, '2014-10-07 05:44:15', '2014-10-07 05:44:15', '<strong>[title]</strong>\r\n[when]\r\n[location]\r\n<div>[description]</div>\r\n[link newwindow="yes"]Més detalls...[/link]', 'Calendari d''exemple', '', 'publish', 'closed', 'closed', '', 'se', '', '', '2016-09-21 10:34:22', '2016-09-21 08:34:22', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/gce_feed/institut-larany', 0, 'calendar', '', 0),
+(1046, 1, '2015-11-30 09:50:49', '2015-11-30 08:50:49', '', 'Modalitats', '', 'publish', 'open', 'closed', '', 'recursos-2', '', '', '2016-06-15 15:07:58', '2016-06-15 14:07:58', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/recursos-2/', 17, 'nav_menu_item', '', 0),
+(1047, 1, '2015-11-30 09:50:49', '2015-11-30 08:50:49', '', 'Visites', '', 'publish', 'open', 'closed', '', 'dinamitzacio-2', '', '', '2016-06-15 15:07:59', '2016-06-15 14:07:59', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/dinamitzacio-2/', 26, 'nav_menu_item', '', 0),
+(1055, 1, '2015-11-30 09:50:50', '2015-11-30 08:50:50', '', 'Intranet', '', 'publish', 'open', 'closed', '', 'intranet', '', '', '2016-06-15 15:07:59', '2016-06-15 14:07:59', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/intranet/', 41, 'nav_menu_item', '', 0),
+(1060, 1, '2015-11-30 09:50:50', '2015-11-30 08:50:50', '', 'Catàleg Merlí', '', 'publish', 'open', 'closed', '', 'merli', '', '', '2016-06-15 15:07:59', '2016-06-15 14:07:59', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/merli/', 22, 'nav_menu_item', '', 0),
+(1061, 1, '2015-11-30 09:50:51', '2015-11-30 08:50:51', '', 'Banc de recursos (BDR)', '', 'publish', 'open', 'closed', '', 'banc-de-recursos-bdr', '', '', '2016-06-15 15:07:59', '2016-06-15 14:07:59', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/banc-de-recursos-bdr/', 23, 'nav_menu_item', '', 0),
+(1068, 1, '2015-11-30 09:50:51', '2015-11-30 08:50:51', '', 'Comunitat', '', 'publish', 'open', 'closed', '', 'comunitat-2', '', '', '2016-06-15 15:07:59', '2016-06-15 14:07:59', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/comunitat-2/', 35, 'nav_menu_item', '', 0),
+(1069, 1, '2015-11-30 09:50:51', '2015-11-30 08:50:51', '', 'Família i escola', '', 'publish', 'open', 'closed', '', 'familia-i-escola', '', '', '2016-06-15 15:07:59', '2016-06-15 14:07:59', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/familia-i-escola/', 40, 'nav_menu_item', '', 0),
+(1077, 1, '2015-11-30 09:50:58', '2015-11-30 08:50:58', ' ', '', '', 'publish', 'open', 'open', '', '1077', '', '', '2015-11-30 10:32:51', '2015-11-30 09:32:51', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/1077/', 3, 'nav_menu_item', '', 0),
+(1078, 1, '2015-11-30 09:50:58', '2015-11-30 08:50:58', ' ', '', '', 'publish', 'open', 'open', '', '1078', '', '', '2015-11-30 10:32:51', '2015-11-30 09:32:51', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/1078/', 2, 'nav_menu_item', '', 0),
+(1120, 1, '2015-11-30 13:18:34', '2015-11-30 12:18:34', 'Node de comunicació entre formadors i el servei educatiu', 'Formadors', '', 'private', 'closed', 'open', '', 'formadors', '', '', '2015-11-30 13:18:34', '2015-11-30 12:18:34', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/forums/forum/formadors/', 0, 'forum', '', 0),
+(1146, 1, '2015-11-30 17:22:08', '2015-11-30 16:22:08', '', 'Recursos en línia', '', 'publish', 'open', 'closed', '', 'recursos-en-linia', '', '', '2016-06-15 15:07:59', '2016-06-15 14:07:59', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/?p=1146', 24, 'nav_menu_item', '', 0),
+(1147, 1, '2015-11-30 17:49:23', '2015-11-30 16:49:23', 'Node de coordinació dels seminaris TAC', 'TAC', '', 'publish', 'closed', 'open', '', 'tac', '', '', '2015-11-30 17:49:23', '2015-11-30 16:49:23', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/forums/forum/tac/', 0, 'forum', '', 0),
 (1156, 1, '2015-11-30 18:04:03', '2015-11-30 17:04:03', 'Algun centre està fent servir Chromebooks? Què recomaneu? ', 'Chromebooks vs Notebooks', '', 'spam', 'closed', 'open', '', 'chromebooks-vs-notebooks', '', '', '2016-03-17 13:58:39', '2016-03-17 12:58:39', '', 1147, 'https://pwc-int.educacio.intranet/agora/mastercda/forums/topic/chromebooks-vs-notebooks/', 0, 'topic', '', 0),
 (1157, 1, '2015-11-30 18:05:19', '2015-11-30 17:05:19', 'Quin model de portàtil recomaneu? Tenim un presupost de 200 € màxim per alumne.', 'Model de portatil (ESO)', '', 'spam', 'closed', 'open', '', 'model-de-portatil-eso', '', '', '2016-03-17 13:58:29', '2016-03-17 12:58:29', '', 1147, 'https://pwc-int.educacio.intranet/agora/mastercda/forums/topic/model-de-portatil-eso/', 0, 'topic', '', 0),
 (1160, 1, '2015-11-30 18:16:41', '2015-11-30 17:16:41', 'En què consisteix exactament? Marc, em vas dir que vosaltres estaveu molt contents... pots explicar-nos una mica com funciona? És gratuït?', 'Google Apps per educació', '', 'publish', 'closed', 'open', '', 'google-apps-per-educacio', '', '', '2015-11-30 18:16:41', '2015-11-30 17:16:41', '', 1147, 'https://pwc-int.educacio.intranet/agora/mastercda/forums/topic/google-apps-per-educacio/', 0, 'topic', '', 0),
-(1161, 1, '2015-11-30 18:23:49', '2015-11-30 17:23:49', 'Especialistes d&#039;educació física: coordinació jornades esportives, jocs tradicionals (intercentres)', 'Educació física', '', 'publish', 'closed', 'open', '', 'educacio-fisica', '', '', '2015-11-30 18:23:49', '2015-11-30 17:23:49', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/forums/forum/educacio-fisica/', 0, 'forum', '', 0),
-(1162, 1, '2015-11-30 18:26:44', '2015-11-30 17:26:44', 'Especialistes llengua anglesa: coordinació English Day (intercentres)', 'English', '', 'publish', 'closed', 'open', '', 'english', '', '', '2015-11-30 18:26:44', '2015-11-30 17:26:44', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/forums/forum/english/', 0, 'forum', '', 0),
-(1163, 1, '2015-11-30 18:28:51', '2015-11-30 17:28:51', 'Especialistes matemàtiques: coordinació Olimpíades, fires, jornades matemàtiques (intercentres)', 'Matemàtiques', '', 'publish', 'closed', 'open', '', 'matematiques', '', '', '2015-11-30 18:28:51', '2015-11-30 17:28:51', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/forums/forum/matematiques/', 0, 'forum', '', 0),
-(1164, 1, '2015-11-30 18:32:30', '2015-11-30 17:32:30', 'Especialistes música: jornades de danses, cantates... (intercentres)', 'Música', '', 'publish', 'closed', 'open', '', 'musica', '', '', '2015-11-30 18:32:30', '2015-11-30 17:32:30', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/forums/forum/musica/', 0, 'forum', '', 0),
-(1165, 1, '2015-11-30 18:34:03', '2015-11-30 17:34:03', 'Node intercentres de Caps d&#039;estudis', 'Caps d&#039;estudi', '', 'private', 'closed', 'open', '', 'caps-destudi', '', '', '2015-11-30 18:34:03', '2015-11-30 17:34:03', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/forums/forum/caps-destudi/', 0, 'forum', '', 0),
-(1166, 1, '2015-11-30 18:38:06', '2015-11-30 17:38:06', 'Node intercentres de Directors de centre', 'Directors', '', 'publish', 'closed', 'open', '', 'directors', '', '', '2015-11-30 18:38:06', '2015-11-30 17:38:06', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/forums/forum/directors/', 0, 'forum', '', 0),
-(1167, 1, '2015-11-30 18:40:55', '2015-11-30 17:40:55', 'Elaboració de materials, traspàs d&#039;informació...', 'Primària-secundària', '', 'private', 'closed', 'open', '', 'primaria-secundaria', '', '', '2015-11-30 18:40:55', '2015-11-30 17:40:55', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/forums/forum/primaria-secundaria/', 0, 'forum', '', 0),
-(1168, 1, '2015-11-30 18:49:49', '2015-11-30 17:49:49', 'Contes que roden, Contes col·lectius, Contes encetats contes contats, Intercontes...', 'Contes col·laboratius', '', 'publish', 'closed', 'open', '', 'contes-col%c2%b7laboratius', '', '', '2015-11-30 18:49:49', '2015-11-30 17:49:49', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/forums/forum/contes-col%c2%b7laboratius/', 0, 'forum', '', 0),
-(1169, 1, '2015-11-30 18:55:35', '2015-11-30 17:55:35', 'Contes que roden, Contes col·lectius, Contes encetats contes contats, Intercontes...', 'Contes intercentres', '', 'publish', 'closed', 'open', '', 'contes-intercentres', '', '', '2015-11-30 18:55:35', '2015-11-30 17:55:35', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/forums/forum/contes-intercentres/', 0, 'forum', '', 0),
+(1161, 1, '2015-11-30 18:23:49', '2015-11-30 17:23:49', 'Especialistes d&#039;educació física: coordinació jornades esportives, jocs tradicionals (intercentres)', 'Educació física', '', 'publish', 'closed', 'open', '', 'educacio-fisica', '', '', '2015-11-30 18:23:49', '2015-11-30 17:23:49', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/forums/forum/educacio-fisica/', 0, 'forum', '', 0),
+(1162, 1, '2015-11-30 18:26:44', '2015-11-30 17:26:44', 'Especialistes llengua anglesa: coordinació English Day (intercentres)', 'English', '', 'publish', 'closed', 'open', '', 'english', '', '', '2015-11-30 18:26:44', '2015-11-30 17:26:44', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/forums/forum/english/', 0, 'forum', '', 0),
+(1163, 1, '2015-11-30 18:28:51', '2015-11-30 17:28:51', 'Especialistes matemàtiques: coordinació Olimpíades, fires, jornades matemàtiques (intercentres)', 'Matemàtiques', '', 'publish', 'closed', 'open', '', 'matematiques', '', '', '2015-11-30 18:28:51', '2015-11-30 17:28:51', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/forums/forum/matematiques/', 0, 'forum', '', 0),
+(1164, 1, '2015-11-30 18:32:30', '2015-11-30 17:32:30', 'Especialistes música: jornades de danses, cantates... (intercentres)', 'Música', '', 'publish', 'closed', 'open', '', 'musica', '', '', '2015-11-30 18:32:30', '2015-11-30 17:32:30', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/forums/forum/musica/', 0, 'forum', '', 0),
+(1165, 1, '2015-11-30 18:34:03', '2015-11-30 17:34:03', 'Node intercentres de Caps d&#039;estudis', 'Caps d&#039;estudi', '', 'private', 'closed', 'open', '', 'caps-destudi', '', '', '2015-11-30 18:34:03', '2015-11-30 17:34:03', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/forums/forum/caps-destudi/', 0, 'forum', '', 0),
+(1166, 1, '2015-11-30 18:38:06', '2015-11-30 17:38:06', 'Node intercentres de Directors de centre', 'Directors', '', 'publish', 'closed', 'open', '', 'directors', '', '', '2015-11-30 18:38:06', '2015-11-30 17:38:06', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/forums/forum/directors/', 0, 'forum', '', 0),
+(1167, 1, '2015-11-30 18:40:55', '2015-11-30 17:40:55', 'Elaboració de materials, traspàs d&#039;informació...', 'Primària-secundària', '', 'private', 'closed', 'open', '', 'primaria-secundaria', '', '', '2015-11-30 18:40:55', '2015-11-30 17:40:55', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/forums/forum/primaria-secundaria/', 0, 'forum', '', 0),
+(1168, 1, '2015-11-30 18:49:49', '2015-11-30 17:49:49', 'Contes que roden, Contes col·lectius, Contes encetats contes contats, Intercontes...', 'Contes col·laboratius', '', 'publish', 'closed', 'open', '', 'contes-col%c2%b7laboratius', '', '', '2015-11-30 18:49:49', '2015-11-30 17:49:49', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/forums/forum/contes-col%c2%b7laboratius/', 0, 'forum', '', 0),
+(1169, 1, '2015-11-30 18:55:35', '2015-11-30 17:55:35', 'Contes que roden, Contes col·lectius, Contes encetats contes contats, Intercontes...', 'Contes intercentres', '', 'publish', 'closed', 'open', '', 'contes-intercentres', '', '', '2015-11-30 18:55:35', '2015-11-30 17:55:35', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/forums/forum/contes-intercentres/', 0, 'forum', '', 0),
 (1170, 1, '2015-11-30 19:06:26', '2015-11-30 18:06:26', 'Necessites un domini propi però, a part d''això, no té cap cost pel centre', '', '', 'publish', 'closed', 'open', '', '1170', '', '', '2015-11-30 19:06:26', '2015-11-30 18:06:26', '', 1160, 'https://pwc-int.educacio.intranet/agora/mastercda/forums/reply/1170/', 1, 'reply', '', 0),
-(1224, 1, '2015-12-01 11:19:03', '2015-12-01 10:19:03', '', 'favicon', '', 'inherit', 'open', 'open', '', 'favicon-2', '', '', '2015-12-01 11:19:03', '2015-12-01 10:19:03', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2015/12/favicon.ico', 0, 'attachment', 'image/x-icon', 0),
-(1237, 1, '2015-12-01 17:27:49', '2015-12-01 16:27:49', '', 'fulles_p', '', 'inherit', 'open', 'open', '', 'fulles_p', '', '', '2015-12-01 17:27:49', '2015-12-01 16:27:49', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2015/12/fulles_p.jpg', 0, 'attachment', 'image/jpeg', 0),
-(1242, 1, '2015-12-01 18:06:25', '2015-12-01 17:06:25', 'Node per la coordinació dels serveis educatius', 'Servei educatiu', '', 'private', 'closed', 'open', '', 'servei-educatiu-2', '', '', '2015-12-01 18:06:25', '2015-12-01 17:06:25', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/forums/forum/servei-educatiu-2/', 0, 'forum', '', 0),
-(1255, 1, '2015-12-02 11:54:55', '2015-12-02 10:54:55', 'Node de comunicació entre formadors i el servei educatiu', 'Formadors', '', 'private', 'closed', 'open', '', 'formadors-2', '', '', '2015-12-02 11:54:55', '2015-12-02 10:54:55', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/forums/forum/formadors-2/', 0, 'forum', '', 0),
-(1256, 1, '2015-12-02 11:56:45', '2015-12-02 10:56:45', 'Node de comunicació entre formadors i el servei educatiu', 'Formadors', '', 'private', 'closed', 'open', '', 'formadors-3', '', '', '2015-12-02 11:56:45', '2015-12-02 10:56:45', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/forums/forum/formadors-3/', 0, 'forum', '', 0),
-(1307, 1, '2015-12-02 16:08:32', '2015-12-02 15:08:32', '', 'Documents', '', 'publish', 'open', 'closed', '', 'documents', '', '', '2016-06-15 15:07:59', '2016-06-15 14:07:59', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/?p=1307', 25, 'nav_menu_item', '', 0),
-(8066, 1, '2016-03-15 18:09:35', '2016-03-15 17:09:35', '', '1apsc932015', '', 'inherit', 'open', 'open', '', '1apsc932015', '', '', '2016-03-15 18:09:35', '2016-03-15 17:09:35', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2016/03/1apsc932015.jpg', 0, 'attachment', 'image/jpeg', 0),
-(8089, 1, '2016-03-16 10:24:39', '2016-03-16 09:24:39', '', 'Materials a Ateneu', '', 'publish', 'open', 'open', '', 'materials-fic-a-ateneu', '', '', '2016-03-16 10:26:11', '2016-03-16 09:26:11', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/?p=8089', 2, 'nav_menu_item', '', 0),
-(8090, 1, '2016-03-16 10:24:39', '2016-03-16 09:24:39', '', 'Informació a XTEC', '', 'publish', 'open', 'open', '', 'informacio-fic-a-xtec', '', '', '2016-03-16 10:26:11', '2016-03-16 09:26:11', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/?p=8090', 1, 'nav_menu_item', '', 0);
+(1224, 1, '2015-12-01 11:19:03', '2015-12-01 10:19:03', '', 'favicon', '', 'inherit', 'open', 'open', '', 'favicon-2', '', '', '2015-12-01 11:19:03', '2015-12-01 10:19:03', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2015/12/favicon.ico', 0, 'attachment', 'image/x-icon', 0),
+(1237, 1, '2015-12-01 17:27:49', '2015-12-01 16:27:49', '', 'fulles_p', '', 'inherit', 'open', 'open', '', 'fulles_p', '', '', '2015-12-01 17:27:49', '2015-12-01 16:27:49', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2015/12/fulles_p.jpg', 0, 'attachment', 'image/jpeg', 0),
+(1242, 1, '2015-12-01 18:06:25', '2015-12-01 17:06:25', 'Node per la coordinació dels serveis educatius', 'Servei educatiu', '', 'private', 'closed', 'open', '', 'servei-educatiu-2', '', '', '2015-12-01 18:06:25', '2015-12-01 17:06:25', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/forums/forum/servei-educatiu-2/', 0, 'forum', '', 0),
+(1255, 1, '2015-12-02 11:54:55', '2015-12-02 10:54:55', 'Node de comunicació entre formadors i el servei educatiu', 'Formadors', '', 'private', 'closed', 'open', '', 'formadors-2', '', '', '2015-12-02 11:54:55', '2015-12-02 10:54:55', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/forums/forum/formadors-2/', 0, 'forum', '', 0),
+(1256, 1, '2015-12-02 11:56:45', '2015-12-02 10:56:45', 'Node de comunicació entre formadors i el servei educatiu', 'Formadors', '', 'private', 'closed', 'open', '', 'formadors-3', '', '', '2015-12-02 11:56:45', '2015-12-02 10:56:45', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/forums/forum/formadors-3/', 0, 'forum', '', 0),
+(1307, 1, '2015-12-02 16:08:32', '2015-12-02 15:08:32', '', 'Documents', '', 'publish', 'open', 'closed', '', 'documents', '', '', '2016-06-15 15:07:59', '2016-06-15 14:07:59', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/?p=1307', 25, 'nav_menu_item', '', 0),
+(8066, 1, '2016-03-15 18:09:35', '2016-03-15 17:09:35', '', '1apsc932015', '', 'inherit', 'open', 'open', '', '1apsc932015', '', '', '2016-03-15 18:09:35', '2016-03-15 17:09:35', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2016/03/1apsc932015.jpg', 0, 'attachment', 'image/jpeg', 0),
+(8089, 1, '2016-03-16 10:24:39', '2016-03-16 09:24:39', '', 'Materials a Ateneu', '', 'publish', 'open', 'open', '', 'materials-fic-a-ateneu', '', '', '2016-03-16 10:26:11', '2016-03-16 09:26:11', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/?p=8089', 2, 'nav_menu_item', '', 0);
 INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_title`, `post_excerpt`, `post_status`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_content_filtered`, `post_parent`, `guid`, `menu_order`, `post_type`, `post_mime_type`, `comment_count`) VALUES
-(8091, 1, '2016-03-16 11:06:52', '2016-03-16 10:06:52', '', 'Informació a XTEC', '', 'publish', 'open', 'open', '', 'informacio-a-xtec', '', '', '2016-03-16 11:42:22', '2016-03-16 10:42:22', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/?p=8091', 1, 'nav_menu_item', '', 0),
-(8093, 1, '2016-03-16 11:10:59', '2016-03-16 10:10:59', '', 'Informació a XTEC', '', 'publish', 'open', 'open', '', 'informacio-a-xtec-2', '', '', '2016-03-16 11:11:28', '2016-03-16 10:11:28', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/?p=8093', 9, 'nav_menu_item', '', 0),
-(8094, 1, '2016-03-16 11:23:05', '2016-03-16 10:23:05', '', 'Informació a XTEC', '', 'publish', 'open', 'closed', '', 'informacio-a-xtec-3', '', '', '2016-06-15 15:07:58', '2016-06-15 14:07:58', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/?p=8094', 15, 'nav_menu_item', '', 0),
-(8100, 1, '2016-03-16 17:28:46', '2016-03-16 16:28:46', 'En aquesta intranet trobareu grups (nodes) temàtics on compartir les vostres experiències, resoldre dubtes i fer xarxa amb altres docents de la vostra zona.\r\n\r\n<span class="dashicons dashicons-admin-network"></span><a href="activitat">Entra a la Intranet</a>\r\n\r\n&nbsp;', 'Intranet_', '', 'publish', 'closed', 'closed', '', 'intranet', '', '', '2016-03-17 13:50:42', '2016-03-17 12:50:42', '', 341, 'http://pwc-int.educacio.intranet/agora/mastercda/?page_id=8100', 50, 'page', '', 0),
-(8111, 1, '2016-03-29 12:36:51', '2016-03-29 11:36:51', '', 'Activa', '', 'publish', 'closed', 'closed', '', 'activa', '', '', '2016-03-29 12:36:51', '2016-03-29 11:36:51', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/?page_id=8111', 0, 'page', '', 0),
-(8113, 1, '2016-03-29 12:37:06', '2016-03-29 11:37:06', '', 'Registre', '', 'publish', 'closed', 'closed', '', 'registre', '', '', '2016-03-29 12:51:15', '2016-03-29 11:51:15', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/?page_id=8113', 0, 'page', '', 0),
-(8118, 1, '2016-06-15 11:40:25', '2016-06-15 10:40:25', '', 'altbergueda', '', 'inherit', 'open', 'closed', '', 'altbergueda', '', '', '2016-06-15 11:40:25', '2016-06-15 10:40:25', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2016/06/altbergueda.png', 0, 'attachment', 'image/png', 0),
-(8119, 1, '2016-06-15 12:38:45', '2016-06-15 11:38:45', '', 'altbergueda', '', 'inherit', 'open', 'closed', '', 'altbergueda-2', '', '', '2016-06-15 12:38:45', '2016-06-15 11:38:45', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2016/06/altbergueda-1.png', 0, 'attachment', 'image/png', 0),
-(8120, 1, '2016-06-15 12:40:24', '2016-06-15 11:40:24', '', 'altbergueda', '', 'inherit', 'open', 'closed', '', 'altbergueda-3', '', '', '2016-06-15 12:40:24', '2016-06-15 11:40:24', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2016/06/altbergueda-2.png', 0, 'attachment', 'image/png', 0),
-(8177, 1, '2013-11-13 13:03:32', '2013-11-13 13:03:32', '', 'la sala tot', '', 'inherit', 'open', 'open', '', 'la-sala-tot', '', '', '2013-11-13 13:03:32', '2013-11-13 13:03:32', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/la-sala-tot.jpg', 0, 'attachment', 'image/jpeg', 0),
-(8178, 1, '2013-11-13 13:06:51', '2013-11-13 13:06:51', '', 'la sala tot', '', 'inherit', 'open', 'open', '', 'la-sala-tot-2', '', '', '2013-11-13 13:06:51', '2013-11-13 13:06:51', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/la-sala-tot1.jpg', 0, 'attachment', 'image/jpeg', 0),
-(8179, 1, '2013-11-13 13:08:23', '2013-11-13 13:08:23', 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/cropped-la-sala-tot2.jpg', 'cropped-la-sala-tot2.jpg', '', 'inherit', 'closed', 'open', '', 'cropped-la-sala-tot2-jpg', '', '', '2013-11-13 13:08:23', '2013-11-13 13:08:23', '', 80, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/cropped-la-sala-tot2.jpg', 0, 'attachment', 'image/jpeg', 0),
-(8180, 1, '2013-11-13 13:11:04', '2013-11-13 13:11:04', 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/cropped-retallat_la-sala-tot.jpg', 'cropped-retallat_la-sala-tot.jpg', '', 'inherit', 'closed', 'open', '', 'cropped-retallat_la-sala-tot-jpg', '', '', '2013-11-13 13:11:04', '2013-11-13 13:11:04', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/cropped-retallat_la-sala-tot.jpg', 0, 'attachment', 'image/jpeg', 0),
-(8181, 1, '2013-11-13 18:06:33', '2013-11-13 17:06:33', '', 'calendari', '', 'inherit', 'open', 'open', '', 'calendari-2', '', '', '2013-11-13 18:06:33', '2013-11-13 17:06:33', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/calendari.png', 0, 'attachment', 'image/png', 0),
-(8182, 1, '2013-11-15 02:29:42', '2013-11-15 01:29:42', 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/capcda.png', 'capcda.png', '', 'inherit', 'closed', 'open', '', 'capcda-png', '', '', '2013-11-15 02:29:42', '2013-11-15 01:29:42', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/capcda.png', 0, 'attachment', 'image/png', 0),
-(8186, 1, '2013-12-10 10:22:20', '2013-12-10 10:22:20', '', 'Selecció_062', '', 'inherit', 'open', 'open', '', 'seleccio_062', '', '', '2013-12-10 10:22:20', '2013-12-10 10:22:20', '', 160, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/Selecció_062.png', 0, 'attachment', 'image/png', 0),
-(8187, 1, '2013-12-10 10:25:13', '2013-12-10 10:25:13', '', 'Selecció_063', '', 'inherit', 'open', 'open', '', 'seleccio_063', '', '', '2013-12-10 10:25:13', '2013-12-10 10:25:13', '', 160, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/Selecció_063.png', 0, 'attachment', 'image/png', 0),
-(8188, 1, '2013-12-12 10:51:53', '2013-12-12 10:51:53', 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/camp_aprenentatge.png', 'camp_aprenentatge.png', '', 'inherit', 'closed', 'open', '', 'camp_aprenentatge-png', '', '', '2013-12-12 10:51:53', '2013-12-12 10:51:53', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/camp_aprenentatge.png', 0, 'attachment', 'image/png', 0),
-(8189, 1, '2013-12-17 12:50:22', '2013-12-17 12:50:22', '', 'Selecció_085', '', 'inherit', 'open', 'open', '', 'seleccio_085', '', '', '2013-12-17 12:50:22', '2013-12-17 12:50:22', '', 155, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/Selecció_085.png', 0, 'attachment', 'image/png', 0),
-(8190, 1, '2013-12-17 12:54:46', '2013-12-17 12:54:46', '', 'Selecció_087', '', 'inherit', 'open', 'open', '', 'seleccio_087', '', '', '2013-12-17 12:54:46', '2013-12-17 12:54:46', '', 155, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/Selecció_087.png', 0, 'attachment', 'image/png', 0),
-(8192, 1, '2016-06-20 17:17:40', '2016-06-20 16:17:40', '', 'Inici', '', 'publish', 'closed', 'closed', '', 'inici', '', '', '2016-06-20 17:17:40', '2016-06-20 16:17:40', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/general/inici/', 1, 'nav_menu_item', '', 0),
-(8194, 1, '2016-06-20 17:17:42', '2016-06-20 16:17:42', '', 'Trobades de coordinació', '', 'publish', 'closed', 'closed', '', 'trobades-de-coordinacio', '', '', '2016-06-20 17:17:42', '2016-06-20 16:17:42', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/general/trobades-de-coordinacio/', 2, 'nav_menu_item', '', 0),
-(8195, 1, '2016-06-20 17:17:42', '2016-06-20 16:17:42', ' ', '', '', 'publish', 'closed', 'closed', '', '8195', '', '', '2016-06-20 17:17:42', '2016-06-20 16:17:42', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/general/', 5, 'nav_menu_item', '', 0),
-(8197, 1, '2013-11-15 13:39:26', '2013-11-15 12:39:26', '<a href="http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/capc_riusalabr2.jpg" rel="attachment wp-att-8307"><img class="alignnone  wp-image-8307" src="http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/capc_riusalabr2.jpg" alt="capc_riusalabr2" width="725" height="162" /></a>\r\n\r\n<strong>Activitats relacionades:</strong>\r\n<ul>\r\n	<li><a title="les fonts del llobregat" href="http://pwc-int.educacio.intranet/agora/mastercda/ambits/totes-les-activitats/fongs-bolets/"><span style="line-height: 15px;">Les fonts del Llobregat</span></a></li>\r\n	<li>Anàlisi física i química aigua riu</li>\r\n	<li>Anàlisi física i química i biològica aigua riu</li>\r\n</ul>\r\n<strong>Recursos relacionats:</strong>\r\n<ul>\r\n	<li>Activitats interactives (Webquest, etc)</li>\r\n	<li>Dossiers</li>\r\n	<li>Enllaços a pàgines externes</li>\r\n</ul>\r\n<h1></h1>', 'El riu', '', 'publish', 'open', 'open', '', 'el-riu', '', '', '2016-06-21 11:03:53', '2016-06-21 10:03:53', '', 8235, 'http://blocs.xtec.cat/plantillacda/?page_id=171', 10, 'page', '', 0),
-(8198, 1, '2013-11-15 13:40:37', '2013-11-15 12:40:37', '<a href="http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/Tardor-5.jpg" rel="attachment wp-att-8312"><img class="alignnone size-full wp-image-8312" src="http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/Tardor-5.jpg" alt="Tardor-5" width="640" height="360" /></a>\r\n\r\n<strong>Activitats relacionades:</strong>\r\n<ul>\r\n	<li><a title="Fongs i bolets" href="http://ambits/totes-les-activitats/fongs-bolets/"><span style="line-height: 15px;">Fongs i bolets</span></a></li>\r\n	<li>Bosc i estudi ecosistema</li>\r\n	<li>etc</li>\r\n</ul>\r\n<strong>Recursos relacionats:</strong>\r\n<ul>\r\n	<li>Activitats interactives (Webquest, etc)</li>\r\n	<li>Dossiers</li>\r\n	<li>Enllaços a pàgines externes</li>\r\n</ul>\r\n&nbsp;', 'El bosc', '', 'publish', 'open', 'open', '', 'el-bosc', '', '', '2016-06-21 11:22:54', '2016-06-21 10:22:54', '', 8235, 'http://blocs.xtec.cat/plantillacda/?page_id=173', 20, 'page', '', 0),
+(8090, 1, '2016-03-16 10:24:39', '2016-03-16 09:24:39', '', 'Informació a XTEC', '', 'publish', 'open', 'open', '', 'informacio-fic-a-xtec', '', '', '2016-03-16 10:26:11', '2016-03-16 09:26:11', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/?p=8090', 1, 'nav_menu_item', '', 0),
+(8091, 1, '2016-03-16 11:06:52', '2016-03-16 10:06:52', '', 'Informació a XTEC', '', 'publish', 'open', 'open', '', 'informacio-a-xtec', '', '', '2016-03-16 11:42:22', '2016-03-16 10:42:22', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/?p=8091', 1, 'nav_menu_item', '', 0),
+(8093, 1, '2016-03-16 11:10:59', '2016-03-16 10:10:59', '', 'Informació a XTEC', '', 'publish', 'open', 'open', '', 'informacio-a-xtec-2', '', '', '2016-03-16 11:11:28', '2016-03-16 10:11:28', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/?p=8093', 9, 'nav_menu_item', '', 0),
+(8094, 1, '2016-03-16 11:23:05', '2016-03-16 10:23:05', '', 'Informació a XTEC', '', 'publish', 'open', 'closed', '', 'informacio-a-xtec-3', '', '', '2016-06-15 15:07:58', '2016-06-15 14:07:58', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/?p=8094', 15, 'nav_menu_item', '', 0),
+(8100, 1, '2016-03-16 17:28:46', '2016-03-16 16:28:46', 'En aquesta intranet trobareu grups (nodes) temàtics on compartir les vostres experiències, resoldre dubtes i fer xarxa amb altres docents de la vostra zona.\r\n\r\n<span class="dashicons dashicons-admin-network"></span><a href="activitat">Entra a la Intranet</a>\r\n\r\n&nbsp;', 'Intranet_', '', 'publish', 'closed', 'closed', '', 'intranet', '', '', '2016-03-17 13:50:42', '2016-03-17 12:50:42', '', 341, 'https://pwc-int.educacio.intranet/agora/mastercda/?page_id=8100', 50, 'page', '', 0),
+(8111, 1, '2016-03-29 12:36:51', '2016-03-29 11:36:51', '', 'Activa', '', 'publish', 'closed', 'closed', '', 'activa', '', '', '2016-03-29 12:36:51', '2016-03-29 11:36:51', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/?page_id=8111', 0, 'page', '', 0),
+(8113, 1, '2016-03-29 12:37:06', '2016-03-29 11:37:06', '', 'Registre', '', 'publish', 'closed', 'closed', '', 'registre', '', '', '2016-03-29 12:51:15', '2016-03-29 11:51:15', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/?page_id=8113', 0, 'page', '', 0),
+(8118, 1, '2016-06-15 11:40:25', '2016-06-15 10:40:25', '', 'altbergueda', '', 'inherit', 'open', 'closed', '', 'altbergueda', '', '', '2016-06-15 11:40:25', '2016-06-15 10:40:25', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2016/06/altbergueda.png', 0, 'attachment', 'image/png', 0),
+(8119, 1, '2016-06-15 12:38:45', '2016-06-15 11:38:45', '', 'altbergueda', '', 'inherit', 'open', 'closed', '', 'altbergueda-2', '', '', '2016-06-15 12:38:45', '2016-06-15 11:38:45', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2016/06/altbergueda-1.png', 0, 'attachment', 'image/png', 0),
+(8120, 1, '2016-06-15 12:40:24', '2016-06-15 11:40:24', '', 'altbergueda', '', 'inherit', 'open', 'closed', '', 'altbergueda-3', '', '', '2016-06-15 12:40:24', '2016-06-15 11:40:24', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2016/06/altbergueda-2.png', 0, 'attachment', 'image/png', 0),
+(8177, 1, '2013-11-13 13:03:32', '2013-11-13 13:03:32', '', 'la sala tot', '', 'inherit', 'open', 'open', '', 'la-sala-tot', '', '', '2013-11-13 13:03:32', '2013-11-13 13:03:32', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/la-sala-tot.jpg', 0, 'attachment', 'image/jpeg', 0),
+(8178, 1, '2013-11-13 13:06:51', '2013-11-13 13:06:51', '', 'la sala tot', '', 'inherit', 'open', 'open', '', 'la-sala-tot-2', '', '', '2013-11-13 13:06:51', '2013-11-13 13:06:51', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/la-sala-tot1.jpg', 0, 'attachment', 'image/jpeg', 0),
+(8179, 1, '2013-11-13 13:08:23', '2013-11-13 13:08:23', 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/cropped-la-sala-tot2.jpg', 'cropped-la-sala-tot2.jpg', '', 'inherit', 'closed', 'open', '', 'cropped-la-sala-tot2-jpg', '', '', '2013-11-13 13:08:23', '2013-11-13 13:08:23', '', 80, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/cropped-la-sala-tot2.jpg', 0, 'attachment', 'image/jpeg', 0),
+(8180, 1, '2013-11-13 13:11:04', '2013-11-13 13:11:04', 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/cropped-retallat_la-sala-tot.jpg', 'cropped-retallat_la-sala-tot.jpg', '', 'inherit', 'closed', 'open', '', 'cropped-retallat_la-sala-tot-jpg', '', '', '2013-11-13 13:11:04', '2013-11-13 13:11:04', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/cropped-retallat_la-sala-tot.jpg', 0, 'attachment', 'image/jpeg', 0),
+(8181, 1, '2013-11-13 18:06:33', '2013-11-13 17:06:33', '', 'calendari', '', 'inherit', 'open', 'open', '', 'calendari-2', '', '', '2013-11-13 18:06:33', '2013-11-13 17:06:33', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/calendari.png', 0, 'attachment', 'image/png', 0),
+(8182, 1, '2013-11-15 02:29:42', '2013-11-15 01:29:42', 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/capcda.png', 'capcda.png', '', 'inherit', 'closed', 'open', '', 'capcda-png', '', '', '2013-11-15 02:29:42', '2013-11-15 01:29:42', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/capcda.png', 0, 'attachment', 'image/png', 0),
+(8186, 1, '2013-12-10 10:22:20', '2013-12-10 10:22:20', '', 'Selecció_062', '', 'inherit', 'open', 'open', '', 'seleccio_062', '', '', '2013-12-10 10:22:20', '2013-12-10 10:22:20', '', 160, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/Selecció_062.png', 0, 'attachment', 'image/png', 0),
+(8187, 1, '2013-12-10 10:25:13', '2013-12-10 10:25:13', '', 'Selecció_063', '', 'inherit', 'open', 'open', '', 'seleccio_063', '', '', '2013-12-10 10:25:13', '2013-12-10 10:25:13', '', 160, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/Selecció_063.png', 0, 'attachment', 'image/png', 0),
+(8188, 1, '2013-12-12 10:51:53', '2013-12-12 10:51:53', 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/camp_aprenentatge.png', 'camp_aprenentatge.png', '', 'inherit', 'closed', 'open', '', 'camp_aprenentatge-png', '', '', '2013-12-12 10:51:53', '2013-12-12 10:51:53', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/12/camp_aprenentatge.png', 0, 'attachment', 'image/png', 0),
+(8189, 1, '2013-12-17 12:50:22', '2013-12-17 12:50:22', '', 'Selecció_085', '', 'inherit', 'open', 'open', '', 'seleccio_085', '', '', '2013-12-17 12:50:22', '2013-12-17 12:50:22', '', 155, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/Selecció_085.png', 0, 'attachment', 'image/png', 0),
+(8190, 1, '2013-12-17 12:54:46', '2013-12-17 12:54:46', '', 'Selecció_087', '', 'inherit', 'open', 'open', '', 'seleccio_087', '', '', '2013-12-17 12:54:46', '2013-12-17 12:54:46', '', 155, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/Selecció_087.png', 0, 'attachment', 'image/png', 0),
+(8192, 1, '2016-06-20 17:17:40', '2016-06-20 16:17:40', '', 'Inici', '', 'publish', 'closed', 'closed', '', 'inici', '', '', '2016-06-20 17:17:40', '2016-06-20 16:17:40', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/inici/', 1, 'nav_menu_item', '', 0),
+(8194, 1, '2016-06-20 17:17:42', '2016-06-20 16:17:42', '', 'Trobades de coordinació', '', 'publish', 'closed', 'closed', '', 'trobades-de-coordinacio', '', '', '2016-06-20 17:17:42', '2016-06-20 16:17:42', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/trobades-de-coordinacio/', 2, 'nav_menu_item', '', 0),
+(8195, 1, '2016-06-20 17:17:42', '2016-06-20 16:17:42', ' ', '', '', 'publish', 'closed', 'closed', '', '8195', '', '', '2016-06-20 17:17:42', '2016-06-20 16:17:42', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/', 5, 'nav_menu_item', '', 0),
+(8197, 1, '2013-11-15 13:39:26', '2013-11-15 12:39:26', '<a href="https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/capc_riusalabr2.jpg" rel="attachment wp-att-8307"><img class="alignnone  wp-image-8307" src="https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/capc_riusalabr2.jpg" alt="capc_riusalabr2" width="725" height="162" /></a>\r\n\r\n<strong>Activitats relacionades:</strong>\r\n<ul>\r\n	<li><a title="les fonts del llobregat" href="https://pwc-int.educacio.intranet/agora/mastercda/ambits/totes-les-activitats/fongs-bolets/"><span style="line-height: 15px;">Les fonts del Llobregat</span></a></li>\r\n	<li>Anàlisi física i química aigua riu</li>\r\n	<li>Anàlisi física i química i biològica aigua riu</li>\r\n</ul>\r\n<strong>Recursos relacionats:</strong>\r\n<ul>\r\n	<li>Activitats interactives (Webquest, etc)</li>\r\n	<li>Dossiers</li>\r\n	<li>Enllaços a pàgines externes</li>\r\n</ul>\r\n<h1></h1>', 'El riu', '', 'publish', 'open', 'open', '', 'el-riu', '', '', '2016-06-21 11:03:53', '2016-06-21 10:03:53', '', 8235, 'http://blocs.xtec.cat/plantillacda/?page_id=171', 10, 'page', '', 0),
+(8198, 1, '2013-11-15 13:40:37', '2013-11-15 12:40:37', '<a href="https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/Tardor-5.jpg" rel="attachment wp-att-8312"><img class="alignnone size-full wp-image-8312" src="https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/Tardor-5.jpg" alt="Tardor-5" width="640" height="360" /></a>\r\n\r\n<strong>Activitats relacionades:</strong>\r\n<ul>\r\n	<li><a title="Fongs i bolets" href="http://ambits/totes-les-activitats/fongs-bolets/"><span style="line-height: 15px;">Fongs i bolets</span></a></li>\r\n	<li>Bosc i estudi ecosistema</li>\r\n	<li>etc</li>\r\n</ul>\r\n<strong>Recursos relacionats:</strong>\r\n<ul>\r\n	<li>Activitats interactives (Webquest, etc)</li>\r\n	<li>Dossiers</li>\r\n	<li>Enllaços a pàgines externes</li>\r\n</ul>\r\n&nbsp;', 'El bosc', '', 'publish', 'open', 'open', '', 'el-bosc', '', '', '2016-06-21 11:22:54', '2016-06-21 10:22:54', '', 8235, 'http://blocs.xtec.cat/plantillacda/?page_id=173', 20, 'page', '', 0),
 (8199, 1, '2013-11-15 13:43:59', '2013-11-15 12:43:59', '<iframe src="https://docs.google.com/spreadsheet/pub?key=0AlWhk6C-0QRadEhkQjFPU0hTSG1fYTV3TkxxVndqemc&amp;output=html&amp;widget=true" width="700" height="420" frameborder="0"></iframe>\r\n<table>\r\n<tbody>\r\n<tr>\r\n<td bgcolor="#B6D7A8"> R</td>\r\n<td>Oferta recomanada especialment</td>\r\n</tr>\r\n<tr>\r\n<td bgcolor="#EDDE91"> A</td>\r\n<td>Oferta adaptable o reduïda</td>\r\n</tr>\r\n<tr>\r\n<td bgcolor="#ED9F91"> RD</td>\r\n<td>Oferta recomanada només per sortides d''un dia</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n\r\n<hr />\r\n\r\n<span style="color: #808080;"><em><span style="font-size: small;">Aquesta taula és una incrustació d''un <a title="plantilla full calcul" href="https://docs.google.com/spreadsheet/ccc?key=0AlWhk6C-0QRadEhkQjFPU0hTSG1fYTV3TkxxVndqemc&amp;usp=sharing"><span style="color: #808080;">full de càlcul</span></a> de Google Drive. Podeu fer una copia del full original i editar el contingut.</span></em></span>', 'Totes les activitats', '', 'publish', 'closed', 'closed', '', 'totes-les-activitats', '', '', '2016-06-20 17:30:31', '2016-06-20 16:30:31', '', 8235, 'http://blocs.xtec.cat/plantillacda/?page_id=179', 50, 'page', '', 0),
 (8200, 1, '2013-11-15 20:30:55', '2013-11-15 19:30:55', 'Entre dimecres 3 i divendres 5 d''abril, hem tingut la visita dels alumnes de 2n d''ESO de la Granadella (Les Garrigues) que han treballat el Monestir de Poblet i han fet l''activitat de fer tinta amb l''antiga fòrmula dels monjos. Divendres van visitar Montblanc per tal de descobrir els edificis més interessants que amaga aquesta ciutat medieval. Actualment Montblanc ja compta amb elements d''ambientació per la proximitat amb la diada de Sant Jordi.\r\n\r\n<a href="http://1.bp.blogspot.com/-965JUl0xxEk/UWGy5DJjgoI/AAAAAAAAADY/tQvyg3JIq0k/s1600/portada-muralla-5-4-13.jpg"><img src="http://1.bp.blogspot.com/-965JUl0xxEk/UWGy5DJjgoI/AAAAAAAAADY/tQvyg3JIq0k/s320/portada-muralla-5-4-13.jpg" alt="" border="0" /></a>\r\n\r\n&nbsp;', 'Ens han visitat la Granadella', '', 'publish', 'open', 'open', '', 'la-granadella', '', '', '2016-06-22 11:41:13', '2016-06-22 10:41:13', '', 0, 'http://blocs.xtec.cat/cdaaltbergueda/?p=203', 0, 'post', '', 0),
 (8201, 1, '2013-11-15 19:25:02', '2013-11-15 18:25:02', 'Els tallers familiars es celebraran els dies 24, 25 i 26 de maig i aniran dirigits a infants de 6 a 12 anys. Els tallers oferits són els següents:\r\n\r\n- <strong>Jocs romans</strong>: els nois i noies participants podran jugar, emprant rèpliques, tal i com jugaven els infants a l’època romana.\r\n\r\n<img src="http://cdatarragona.net/wp-content/uploads/dsc04734.jpg" alt="" width="462" height="347" />\r\n\r\n<img src="http://cdatarragona.net/wp-content/uploads/dsc04733.jpg" alt="" width="461" height="347" />\r\n\r\n-<strong> Joies romanes</strong>: mitjançant fusta, cuir, metall, etc. podran elaborar diferents models de joies i manipular els materials, alhora que podran posar en funcionament la seva creativitat.', 'Tallers familiars', '', 'publish', 'open', 'open', '', 'tallers-familiars', '', '', '2016-06-22 11:20:35', '2016-06-22 10:20:35', '', 0, 'http://blocs.xtec.cat/cdaaltbergueda/?p=211', 0, 'post', '', 0),
-(8203, 1, '2016-06-20 17:17:44', '2016-06-20 16:17:44', ' ', '', '', 'publish', 'closed', 'closed', '', '8203', '', '', '2016-06-20 17:17:44', '2016-06-20 16:17:44', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/general/8203/', 4, 'nav_menu_item', '', 0),
-(8204, 1, '2016-06-20 17:17:44', '2016-06-20 16:17:44', ' ', '', '', 'publish', 'closed', 'closed', '', '8204', '', '', '2016-06-20 17:17:44', '2016-06-20 16:17:44', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/general/8204/', 1, 'nav_menu_item', '', 0),
-(8205, 1, '2016-06-20 17:17:44', '2016-06-20 16:17:44', ' ', '', '', 'publish', 'closed', 'closed', '', '8205', '', '', '2016-06-20 17:17:44', '2016-06-20 16:17:44', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/general/8205/', 1, 'nav_menu_item', '', 0),
-(8206, 1, '2016-06-20 17:17:44', '2016-06-20 16:17:44', ' ', '', '', 'publish', 'closed', 'closed', '', '8206', '', '', '2016-06-20 17:17:44', '2016-06-20 16:17:44', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/general/8206/', 4, 'nav_menu_item', '', 0),
-(8207, 1, '2016-06-20 17:17:44', '2016-06-20 16:17:44', ' ', '', '', 'publish', 'closed', 'closed', '', '8207', '', '', '2016-06-20 17:17:44', '2016-06-20 16:17:44', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/general/8207/', 3, 'nav_menu_item', '', 0),
-(8208, 1, '2016-06-20 17:17:44', '2016-06-20 16:17:44', ' ', '', '', 'publish', 'closed', 'closed', '', '8208', '', '', '2016-06-20 17:17:44', '2016-06-20 16:17:44', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/general/8208/', 2, 'nav_menu_item', '', 0),
-(8209, 1, '2016-06-20 17:17:44', '2016-06-20 16:17:44', ' ', '', '', 'publish', 'closed', 'closed', '', '8209', '', '', '2016-06-20 17:17:44', '2016-06-20 16:17:44', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/general/8209/', 3, 'nav_menu_item', '', 0),
-(8210, 1, '2016-06-20 17:17:44', '2016-06-20 16:17:44', ' ', '', '', 'publish', 'closed', 'closed', '', '8210', '', '', '2016-06-20 17:17:44', '2016-06-20 16:17:44', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/general/8210/', 2, 'nav_menu_item', '', 0),
-(8211, 1, '2016-06-20 17:17:45', '2016-06-20 16:17:45', ' ', '', '', 'publish', 'closed', 'closed', '', '8211', '', '', '2016-06-20 17:17:45', '2016-06-20 16:17:45', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/general/8211/', 2, 'nav_menu_item', '', 0),
-(8212, 1, '2016-06-20 17:17:45', '2016-06-20 16:17:45', ' ', '', '', 'publish', 'closed', 'closed', '', '8212', '', '', '2016-06-20 17:17:45', '2016-06-20 16:17:45', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/general/8212/', 5, 'nav_menu_item', '', 0),
-(8213, 1, '2016-06-20 17:17:45', '2016-06-20 16:17:45', ' ', '', '', 'publish', 'closed', 'closed', '', '8213', '', '', '2016-06-20 17:17:45', '2016-06-20 16:17:45', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/general/8213/', 1, 'nav_menu_item', '', 0),
-(8214, 1, '2016-06-20 17:17:45', '2016-06-20 16:17:45', '', 'La cova de la Tuta', '', 'publish', 'closed', 'closed', '', 'la-cova-de-la-tuta', '', '', '2016-06-20 17:17:45', '2016-06-20 16:17:45', '', 8199, 'http://pwc-int.educacio.intranet/agora/mastercda/general/la-cova-de-la-tuta/', 3, 'nav_menu_item', '', 0),
-(8215, 1, '2016-06-20 17:17:45', '2016-06-20 16:17:45', ' ', '', 'preparació', 'publish', 'closed', 'closed', '', '8215', '', '', '2016-06-20 17:17:45', '2016-06-20 16:17:45', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/general/8215/', 1, 'nav_menu_item', '', 0),
-(8216, 1, '2016-06-20 17:17:45', '2016-06-20 16:17:45', ' ', '', '', 'publish', 'closed', 'closed', '', '8216', '', '', '2016-06-20 17:17:45', '2016-06-20 16:17:45', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/general/8216/', 2, 'nav_menu_item', '', 0),
-(8217, 1, '2016-06-20 17:17:45', '2016-06-20 16:17:45', ' ', '', '', 'publish', 'closed', 'closed', '', '8217', '', '', '2016-06-20 17:17:45', '2016-06-20 16:17:45', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/general/8217/', 3, 'nav_menu_item', '', 0),
-(8223, 1, '2016-06-20 17:19:31', '0000-00-00 00:00:00', ' ', '', '', 'draft', 'closed', 'closed', '', '', '', '', '2016-06-20 17:19:31', '0000-00-00 00:00:00', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/?p=8223', 1, 'nav_menu_item', '', 0),
-(8224, 1, '2016-06-20 17:20:22', '2016-06-20 16:20:22', ' ', '', '', 'publish', 'closed', 'closed', '', '8224', '', '', '2016-06-21 09:07:49', '2016-06-21 08:07:49', '', 8225, 'http://pwc-int.educacio.intranet/agora/mastercda/?p=8224', 2, 'nav_menu_item', '', 0),
-(8225, 1, '2016-06-20 17:21:25', '2016-06-20 16:21:25', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet rhoncus nibh eu interdum. Aliquam eget viverra dolor, at consectetur sapien. Duis porta nibh urna, nec faucibus diam convallis quis. Quisque ut nisi risus. Aenean volutpat, libero ut eleifend pellentesque, ex ante imperdiet diam, ac pharetra quam justo a tortor. Curabitur egestas libero velit, a ultrices tortor molestie eget. Curabitur mi libero, efficitur sed vulputate ac, accumsan id lacus. Nulla viverra, enim vitae ultrices ornare, tellus turpis porttitor est, non porta ante augue quis neque. Fusce eu ligula tincidunt, aliquet est ac, varius orci. In pretium maximus justo, quis posuere nisi porttitor nec. Fusce tristique sem mauris, convallis commodo neque pharetra et. Duis vehicula massa nec odio elementum viverra. Vivamus cursus nulla id ornare volutpat. Cras in libero est.', 'El camp', '', 'publish', 'closed', 'closed', '', 'el-camp', '', '', '2016-06-20 17:21:39', '2016-06-20 16:21:39', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/?page_id=8225', 0, 'page', '', 0),
-(8229, 1, '2016-06-20 17:22:41', '2016-06-20 16:22:41', ' ', '', '', 'publish', 'closed', 'closed', '', '8229', '', '', '2016-06-21 09:07:49', '2016-06-21 08:07:49', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/?p=8229', 1, 'nav_menu_item', '', 0),
-(8230, 1, '2016-06-20 17:22:41', '2016-06-20 16:22:41', ' ', '', '', 'publish', 'closed', 'closed', '', '8230', '', '', '2016-06-21 09:07:49', '2016-06-21 08:07:49', '', 8225, 'http://pwc-int.educacio.intranet/agora/mastercda/?p=8230', 3, 'nav_menu_item', '', 0),
-(8231, 1, '2016-06-20 17:23:13', '2016-06-20 16:23:13', ' ', '', '', 'publish', 'closed', 'closed', '', '8231', '', '', '2016-06-21 09:07:50', '2016-06-21 08:07:50', '', 8225, 'http://pwc-int.educacio.intranet/agora/mastercda/?p=8231', 5, 'nav_menu_item', '', 0),
-(8232, 1, '2016-06-20 17:23:13', '2016-06-20 16:23:13', ' ', '', '', 'publish', 'closed', 'closed', '', '8232', '', '', '2016-06-21 09:07:49', '2016-06-21 08:07:49', '', 8225, 'http://pwc-int.educacio.intranet/agora/mastercda/?p=8232', 4, 'nav_menu_item', '', 0),
-(8235, 1, '2016-06-20 17:26:18', '2016-06-20 16:26:18', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet rhoncus nibh eu interdum. Aliquam eget viverra dolor, at consectetur sapien. Duis porta nibh urna, nec faucibus diam convallis quis. Quisque ut nisi risus. Aenean volutpat, libero ut eleifend pellentesque, ex ante imperdiet diam, ac pharetra quam justo a tortor. Curabitur egestas libero velit, a ultrices tortor molestie eget. Curabitur mi libero, efficitur sed vulputate ac, accumsan id lacus. Nulla viverra, enim vitae ultrices ornare, tellus turpis porttitor est, non porta ante augue quis neque. Fusce eu ligula tincidunt, aliquet est ac, varius orci. In pretium maximus justo, quis posuere nisi porttitor nec. Fusce tristique sem mauris, convallis commodo neque pharetra et. Duis vehicula massa nec odio elementum viverra. Vivamus cursus nulla id ornare volutpat. Cras in libero est.', 'Àmbits', '', 'publish', 'closed', 'closed', '', 'ambits', '', '', '2016-06-20 17:26:18', '2016-06-20 16:26:18', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/?page_id=8235', 0, 'page', '', 0),
-(8240, 1, '2016-06-20 17:28:01', '2016-06-20 16:28:01', ' ', '', '', 'publish', 'closed', 'closed', '', '8240', '', '', '2016-06-21 09:07:50', '2016-06-21 08:07:50', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/?p=8240', 6, 'nav_menu_item', '', 0),
-(8241, 1, '2016-06-20 17:28:01', '2016-06-20 16:28:01', ' ', '', '', 'publish', 'closed', 'closed', '', '8241', '', '', '2016-06-21 09:07:50', '2016-06-21 08:07:50', '', 8235, 'http://pwc-int.educacio.intranet/agora/mastercda/?p=8241', 8, 'nav_menu_item', '', 0),
-(8243, 1, '2016-06-20 17:28:01', '2016-06-20 16:28:01', ' ', '', '', 'publish', 'closed', 'closed', '', '8243', '', '', '2016-06-21 09:07:50', '2016-06-21 08:07:50', '', 8235, 'http://pwc-int.educacio.intranet/agora/mastercda/?p=8243', 7, 'nav_menu_item', '', 0),
-(8259, 1, '2016-06-20 17:49:46', '2016-06-20 16:49:46', '', 'La cova de la Tuta i les fonts del Llobregat', '', 'publish', 'closed', 'closed', '', 'la-cova-de-la-tuta-i-les-fonts-del-llobregat', '', '', '2016-06-21 09:07:50', '2016-06-21 08:07:50', '', 8199, 'http://pwc-int.educacio.intranet/agora/mastercda/?p=8259', 9, 'nav_menu_item', '', 0),
-(8260, 1, '2016-06-20 17:50:46', '2016-06-20 16:50:46', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet rhoncus nibh eu interdum. Aliquam eget viverra dolor, at consectetur sapien. Duis porta nibh urna, nec faucibus diam convallis quis. Quisque ut nisi risus. Aenean volutpat, libero ut eleifend pellentesque, ex ante imperdiet diam, ac pharetra quam justo a tortor. Curabitur egestas libero velit, a ultrices tortor molestie eget. Curabitur mi libero, efficitur sed vulputate ac, accumsan id lacus. Nulla viverra, enim vitae ultrices ornare, tellus turpis porttitor est, non porta ante augue quis neque. Fusce eu ligula tincidunt, aliquet est ac, varius orci. In pretium maximus justo, quis posuere nisi porttitor nec. Fusce tristique sem mauris, convallis commodo neque pharetra et. Duis vehicula massa nec odio elementum viverra. Vivamus cursus nulla id ornare volutpat. Cras in libero est.', 'Modalitats', '', 'publish', 'closed', 'closed', '', 'modalitats', '', '', '2016-06-20 17:50:46', '2016-06-20 16:50:46', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/?page_id=8260', 0, 'page', '', 0),
-(8266, 1, '2016-06-20 17:53:27', '2016-06-20 16:53:27', ' ', '', '', 'publish', 'closed', 'closed', '', '8266', '', '', '2016-06-21 09:07:50', '2016-06-21 08:07:50', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/?p=8266', 12, 'nav_menu_item', '', 0),
-(8267, 1, '2016-06-20 17:53:27', '2016-06-20 16:53:27', ' ', '', '', 'publish', 'closed', 'closed', '', '8267', '', '', '2016-06-21 09:07:50', '2016-06-21 08:07:50', '', 8260, 'http://pwc-int.educacio.intranet/agora/mastercda/?p=8267', 14, 'nav_menu_item', '', 0),
-(8268, 1, '2016-06-20 17:53:27', '2016-06-20 16:53:27', ' ', '', '', 'publish', 'closed', 'closed', '', '8268', '', '', '2016-06-21 09:07:50', '2016-06-21 08:07:50', '', 8260, 'http://pwc-int.educacio.intranet/agora/mastercda/?p=8268', 13, 'nav_menu_item', '', 0),
-(8269, 1, '2016-06-20 17:53:27', '2016-06-20 16:53:27', ' ', '', '', 'publish', 'closed', 'closed', '', '8269', '', '', '2016-06-21 09:07:50', '2016-06-21 08:07:50', '', 8260, 'http://pwc-int.educacio.intranet/agora/mastercda/?p=8269', 15, 'nav_menu_item', '', 0),
-(8272, 1, '2016-06-20 17:56:05', '2016-06-20 16:56:05', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet rhoncus nibh eu interdum. Aliquam eget viverra dolor, at consectetur sapien. Duis porta nibh urna, nec faucibus diam convallis quis. Quisque ut nisi risus. Aenean volutpat, libero ut eleifend pellentesque, ex ante imperdiet diam, ac pharetra quam justo a tortor. Curabitur egestas libero velit, a ultrices tortor molestie eget. Curabitur mi libero, efficitur sed vulputate ac, accumsan id lacus. Nulla viverra, enim vitae ultrices ornare, tellus turpis porttitor est, non porta ante augue quis neque. Fusce eu ligula tincidunt, aliquet est ac, varius orci. In pretium maximus justo, quis posuere nisi porttitor nec. Fusce tristique sem mauris, convallis commodo neque pharetra et. Duis vehicula massa nec odio elementum viverra. Vivamus cursus nulla id ornare volutpat. Cras in libero est.', 'Amb els centres', '', 'publish', 'closed', 'closed', '', 'amb-els-centres', '', '', '2016-06-22 11:18:48', '2016-06-22 10:18:48', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/?page_id=8272', 0, 'page', '', 0),
-(8274, 1, '2016-06-20 17:56:37', '2016-06-20 16:56:37', '', 'Amb els centres', '', 'publish', 'closed', 'closed', '', '8274', '', '', '2016-06-21 09:07:50', '2016-06-21 08:07:50', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/?p=8274', 16, 'nav_menu_item', '', 0),
-(8280, 1, '2016-06-20 18:03:51', '2016-06-20 17:03:51', '', 'març2010-031', '', 'inherit', 'open', 'closed', '', 'marc2010-031-2', '', '', '2016-06-20 18:03:51', '2016-06-20 17:03:51', '', 249, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/març2010-031-1.jpg', 0, 'attachment', 'image/jpeg', 0),
-(8282, 1, '2016-06-20 18:05:35', '2016-06-20 17:05:35', '', 'Selecció_999(316)', '', 'inherit', 'open', 'closed', '', 'seleccio_999316', '', '', '2016-06-20 18:05:35', '2016-06-20 17:05:35', '', 8201, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/Selecció_999316.png', 0, 'attachment', 'image/png', 0),
-(8284, 1, '2016-06-20 18:06:14', '2016-06-20 17:06:14', '', 'Selecció_999(317)', '', 'inherit', 'open', 'closed', '', 'seleccio_999317', '', '', '2016-06-20 18:06:14', '2016-06-20 17:06:14', '', 207, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/Selecció_999317.png', 0, 'attachment', 'image/png', 0),
-(8286, 1, '2016-06-20 18:08:18', '2016-06-20 17:08:18', ' ', '', '', 'publish', 'closed', 'closed', '', '8286', '', '', '2016-06-21 09:07:50', '2016-06-21 08:07:50', '', 8272, 'http://pwc-int.educacio.intranet/agora/mastercda/?p=8286', 17, 'nav_menu_item', '', 0),
-(8287, 1, '2016-06-20 18:08:18', '2016-06-20 17:08:18', ' ', '', '', 'publish', 'closed', 'closed', '', '8287', '', '', '2016-06-21 09:07:50', '2016-06-21 08:07:50', '', 8272, 'http://pwc-int.educacio.intranet/agora/mastercda/?p=8287', 19, 'nav_menu_item', '', 0),
-(8288, 1, '2016-06-20 18:08:18', '2016-06-20 17:08:18', ' ', '', '', 'publish', 'closed', 'closed', '', '8288', '', '', '2016-06-21 09:07:50', '2016-06-21 08:07:50', '', 8272, 'http://pwc-int.educacio.intranet/agora/mastercda/?p=8288', 20, 'nav_menu_item', '', 0),
-(8289, 1, '2016-06-20 18:09:19', '2016-06-20 17:09:19', ' ', '', '', 'publish', 'closed', 'closed', '', '8289', '', '', '2016-06-21 09:07:50', '2016-06-21 08:07:50', '', 8235, 'http://pwc-int.educacio.intranet/agora/mastercda/?p=8289', 10, 'nav_menu_item', '', 0),
-(8290, 1, '2016-06-20 18:09:19', '2016-06-20 17:09:19', ' ', '', '', 'publish', 'closed', 'closed', '', '8290', '', '', '2016-06-21 09:07:50', '2016-06-21 08:07:50', '', 8235, 'http://pwc-int.educacio.intranet/agora/mastercda/?p=8290', 11, 'nav_menu_item', '', 0),
-(8291, 1, '2016-06-20 18:18:52', '2016-06-20 17:18:52', '', 'Selecció_999(319)', '', 'inherit', 'open', 'closed', '', 'seleccio_999319', '', '', '2016-06-20 18:18:52', '2016-06-20 17:18:52', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2016/06/Selecció_999319.png', 0, 'attachment', 'image/png', 0),
-(8292, 1, '2016-06-20 18:19:52', '2016-06-20 17:19:52', '', 'Selecció_999(320)', '', 'inherit', 'open', 'closed', '', 'seleccio_999320', '', '', '2016-06-20 18:19:52', '2016-06-20 17:19:52', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2016/06/Selecció_999320.png', 0, 'attachment', 'image/png', 0),
-(8293, 1, '2016-06-20 18:21:14', '2016-06-20 17:21:14', '', 'Selecció_999(321)', '', 'inherit', 'open', 'closed', '', 'seleccio_999321', '', '', '2016-06-20 18:21:14', '2016-06-20 17:21:14', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2016/06/Selecció_999321.png', 0, 'attachment', 'image/png', 0),
-(8294, 1, '2016-06-20 18:24:04', '2016-06-20 17:24:04', '', 'termiques', '', 'inherit', 'open', 'closed', '', 'termiques', '', '', '2016-06-20 18:24:04', '2016-06-20 17:24:04', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2016/06/termiques.jpg', 0, 'attachment', 'image/jpeg', 0),
-(8295, 1, '2016-06-20 18:31:09', '2016-06-20 17:31:09', '', 'IMG_1673', '', 'inherit', 'open', 'closed', '', 'img_1673', '', '', '2016-06-20 18:31:09', '2016-06-20 17:31:09', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2016/06/IMG_1673.jpg', 0, 'attachment', 'image/jpeg', 0),
-(8296, 1, '2016-06-20 18:32:05', '2016-06-20 17:32:05', '', 'Gimcana 1-001', '', 'inherit', 'open', 'closed', '', 'gimcana-1-001', '', '', '2016-06-20 18:32:05', '2016-06-20 17:32:05', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2016/06/Gimcana-1-001.jpg', 0, 'attachment', 'image/jpeg', 0),
-(8297, 1, '2016-06-21 09:00:39', '2016-06-21 08:00:39', ' ', '', '', 'publish', 'closed', 'closed', '', '8297', '', '', '2016-06-21 09:07:50', '2016-06-21 08:07:50', '', 8272, 'http://pwc-int.educacio.intranet/agora/mastercda/?p=8297', 18, 'nav_menu_item', '', 0),
-(8307, 1, '2016-06-21 11:03:47', '2016-06-21 10:03:47', '', 'capc_riusalabr2', '', 'inherit', 'open', 'closed', '', 'capc_riusalabr2', '', '', '2016-06-21 11:03:47', '2016-06-21 10:03:47', '', 8197, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/capc_riusalabr2.jpg', 0, 'attachment', 'image/jpeg', 0),
-(8312, 1, '2016-06-21 11:22:50', '2016-06-21 10:22:50', '', 'Tardor-5', '', 'inherit', 'open', 'closed', '', 'tardor-5', '', '', '2016-06-21 11:22:50', '2016-06-21 10:22:50', '', 8198, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/Tardor-5.jpg', 0, 'attachment', 'image/jpeg', 0),
-(8314, 1, '2016-06-21 11:24:22', '2016-06-21 10:24:22', '', 'Selecció_999(322)', '', 'inherit', 'open', 'closed', '', 'seleccio_999322', '', '', '2016-06-21 11:24:22', '2016-06-21 10:24:22', '', 165, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/Selecció_999322.png', 0, 'attachment', 'image/png', 0),
-(8322, 1, '2016-06-21 11:48:22', '2016-06-21 10:48:22', '', 'La cova de la tuta', '', 'publish', 'closed', 'closed', '', 'la-cova-de-la-tuta', '', '', '2016-06-21 11:48:22', '2016-06-21 10:48:22', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/?post_type=slideshow&#038;p=8322', 0, 'slideshow', '', 0),
-(8323, 1, '2016-06-21 11:47:59', '2016-06-21 10:47:59', '', 'Portada', '', 'inherit', 'open', 'closed', '', 'portada', '', '', '2016-06-21 11:47:59', '2016-06-21 10:47:59', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2016/06/Portada.jpg', 0, 'attachment', 'image/jpeg', 0),
-(8324, 1, '2016-06-21 11:47:59', '2016-06-21 10:47:59', '', 'DSC_0143-636x303', '', 'inherit', 'open', 'closed', '', 'dsc_0143-636x303', '', '', '2016-06-21 11:47:59', '2016-06-21 10:47:59', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2016/06/DSC_0143-636x303.jpg', 0, 'attachment', 'image/jpeg', 0),
-(8325, 1, '2016-06-21 11:48:00', '2016-06-21 10:48:00', '', '20', '', 'inherit', 'open', 'closed', '', '20', '', '', '2016-06-21 11:48:00', '2016-06-21 10:48:00', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2016/06/20.jpg', 0, 'attachment', 'image/jpeg', 0),
-(8327, 1, '2016-06-21 11:50:55', '2016-06-21 10:50:55', '', '1346327037', '', 'inherit', 'open', 'closed', '', '1346327037', '', '', '2016-06-21 11:50:55', '2016-06-21 10:50:55', '', 160, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/1346327037.jpg', 0, 'attachment', 'image/jpeg', 0),
-(8330, 1, '2016-06-21 12:03:23', '2016-06-21 11:03:23', 'El Prat de Llobregat', 'Escola Charles Darwin', '', 'private', 'closed', 'closed', '', 'escola-charles-darwin', '', '', '2016-06-21 12:03:23', '2016-06-21 11:03:23', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/forums/forum/escola-charles-darwin/', 0, 'forum', '', 0),
-(8331, 1, '2016-06-21 12:04:53', '2016-06-21 11:04:53', 'Tortosa', 'Institut Joaquim Bau', '', 'private', 'closed', 'closed', '', 'institut-joaquim-bau', '', '', '2016-06-21 12:04:53', '2016-06-21 11:04:53', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/forums/forum/institut-joaquim-bau/', 0, 'forum', '', 0),
-(8332, 1, '2016-06-21 12:06:08', '2016-06-21 11:06:08', 'Maçanet de la Selva', 'Escola Sant Jordi', '', 'private', 'closed', 'closed', '', 'escola-sant-jordi', '', '', '2016-06-21 12:06:08', '2016-06-21 11:06:08', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/forums/forum/escola-sant-jordi/', 0, 'forum', '', 0),
-(8333, 1, '2016-06-21 12:07:31', '2016-06-21 11:07:31', 'Salt', 'El gegant del rec', '', 'private', 'closed', 'closed', '', 'el-gegant-del-rec', '', '', '2016-06-21 12:07:31', '2016-06-21 11:07:31', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/forums/forum/el-gegant-del-rec/', 0, 'forum', '', 0),
+(8203, 1, '2016-06-20 17:17:44', '2016-06-20 16:17:44', ' ', '', '', 'publish', 'closed', 'closed', '', '8203', '', '', '2016-06-20 17:17:44', '2016-06-20 16:17:44', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/8203/', 4, 'nav_menu_item', '', 0),
+(8204, 1, '2016-06-20 17:17:44', '2016-06-20 16:17:44', ' ', '', '', 'publish', 'closed', 'closed', '', '8204', '', '', '2016-06-20 17:17:44', '2016-06-20 16:17:44', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/8204/', 1, 'nav_menu_item', '', 0),
+(8205, 1, '2016-06-20 17:17:44', '2016-06-20 16:17:44', ' ', '', '', 'publish', 'closed', 'closed', '', '8205', '', '', '2016-06-20 17:17:44', '2016-06-20 16:17:44', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/8205/', 1, 'nav_menu_item', '', 0),
+(8206, 1, '2016-06-20 17:17:44', '2016-06-20 16:17:44', ' ', '', '', 'publish', 'closed', 'closed', '', '8206', '', '', '2016-06-20 17:17:44', '2016-06-20 16:17:44', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/8206/', 4, 'nav_menu_item', '', 0),
+(8207, 1, '2016-06-20 17:17:44', '2016-06-20 16:17:44', ' ', '', '', 'publish', 'closed', 'closed', '', '8207', '', '', '2016-06-20 17:17:44', '2016-06-20 16:17:44', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/8207/', 3, 'nav_menu_item', '', 0),
+(8208, 1, '2016-06-20 17:17:44', '2016-06-20 16:17:44', ' ', '', '', 'publish', 'closed', 'closed', '', '8208', '', '', '2016-06-20 17:17:44', '2016-06-20 16:17:44', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/8208/', 2, 'nav_menu_item', '', 0),
+(8209, 1, '2016-06-20 17:17:44', '2016-06-20 16:17:44', ' ', '', '', 'publish', 'closed', 'closed', '', '8209', '', '', '2016-06-20 17:17:44', '2016-06-20 16:17:44', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/8209/', 3, 'nav_menu_item', '', 0),
+(8210, 1, '2016-06-20 17:17:44', '2016-06-20 16:17:44', ' ', '', '', 'publish', 'closed', 'closed', '', '8210', '', '', '2016-06-20 17:17:44', '2016-06-20 16:17:44', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/8210/', 2, 'nav_menu_item', '', 0),
+(8211, 1, '2016-06-20 17:17:45', '2016-06-20 16:17:45', ' ', '', '', 'publish', 'closed', 'closed', '', '8211', '', '', '2016-06-20 17:17:45', '2016-06-20 16:17:45', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/8211/', 2, 'nav_menu_item', '', 0),
+(8212, 1, '2016-06-20 17:17:45', '2016-06-20 16:17:45', ' ', '', '', 'publish', 'closed', 'closed', '', '8212', '', '', '2016-06-20 17:17:45', '2016-06-20 16:17:45', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/8212/', 5, 'nav_menu_item', '', 0),
+(8213, 1, '2016-06-20 17:17:45', '2016-06-20 16:17:45', ' ', '', '', 'publish', 'closed', 'closed', '', '8213', '', '', '2016-06-20 17:17:45', '2016-06-20 16:17:45', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/8213/', 1, 'nav_menu_item', '', 0),
+(8214, 1, '2016-06-20 17:17:45', '2016-06-20 16:17:45', '', 'La cova de la Tuta', '', 'publish', 'closed', 'closed', '', 'la-cova-de-la-tuta', '', '', '2016-06-20 17:17:45', '2016-06-20 16:17:45', '', 8199, 'https://pwc-int.educacio.intranet/agora/mastercda/general/la-cova-de-la-tuta/', 3, 'nav_menu_item', '', 0),
+(8215, 1, '2016-06-20 17:17:45', '2016-06-20 16:17:45', ' ', '', 'preparació', 'publish', 'closed', 'closed', '', '8215', '', '', '2016-06-20 17:17:45', '2016-06-20 16:17:45', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/8215/', 1, 'nav_menu_item', '', 0),
+(8216, 1, '2016-06-20 17:17:45', '2016-06-20 16:17:45', ' ', '', '', 'publish', 'closed', 'closed', '', '8216', '', '', '2016-06-20 17:17:45', '2016-06-20 16:17:45', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/8216/', 2, 'nav_menu_item', '', 0),
+(8217, 1, '2016-06-20 17:17:45', '2016-06-20 16:17:45', ' ', '', '', 'publish', 'closed', 'closed', '', '8217', '', '', '2016-06-20 17:17:45', '2016-06-20 16:17:45', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/8217/', 3, 'nav_menu_item', '', 0),
+(8223, 1, '2016-06-20 17:19:31', '0000-00-00 00:00:00', ' ', '', '', 'draft', 'closed', 'closed', '', '', '', '', '2016-06-20 17:19:31', '0000-00-00 00:00:00', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/?p=8223', 1, 'nav_menu_item', '', 0),
+(8224, 1, '2016-06-20 17:20:22', '2016-06-20 16:20:22', ' ', '', '', 'publish', 'closed', 'closed', '', '8224', '', '', '2016-06-21 09:07:49', '2016-06-21 08:07:49', '', 8225, 'https://pwc-int.educacio.intranet/agora/mastercda/?p=8224', 2, 'nav_menu_item', '', 0),
+(8225, 1, '2016-06-20 17:21:25', '2016-06-20 16:21:25', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet rhoncus nibh eu interdum. Aliquam eget viverra dolor, at consectetur sapien. Duis porta nibh urna, nec faucibus diam convallis quis. Quisque ut nisi risus. Aenean volutpat, libero ut eleifend pellentesque, ex ante imperdiet diam, ac pharetra quam justo a tortor. Curabitur egestas libero velit, a ultrices tortor molestie eget. Curabitur mi libero, efficitur sed vulputate ac, accumsan id lacus. Nulla viverra, enim vitae ultrices ornare, tellus turpis porttitor est, non porta ante augue quis neque. Fusce eu ligula tincidunt, aliquet est ac, varius orci. In pretium maximus justo, quis posuere nisi porttitor nec. Fusce tristique sem mauris, convallis commodo neque pharetra et. Duis vehicula massa nec odio elementum viverra. Vivamus cursus nulla id ornare volutpat. Cras in libero est.', 'El camp', '', 'publish', 'closed', 'closed', '', 'el-camp', '', '', '2016-06-20 17:21:39', '2016-06-20 16:21:39', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/?page_id=8225', 0, 'page', '', 0),
+(8229, 1, '2016-06-20 17:22:41', '2016-06-20 16:22:41', ' ', '', '', 'publish', 'closed', 'closed', '', '8229', '', '', '2016-06-21 09:07:49', '2016-06-21 08:07:49', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/?p=8229', 1, 'nav_menu_item', '', 0),
+(8230, 1, '2016-06-20 17:22:41', '2016-06-20 16:22:41', ' ', '', '', 'publish', 'closed', 'closed', '', '8230', '', '', '2016-06-21 09:07:49', '2016-06-21 08:07:49', '', 8225, 'https://pwc-int.educacio.intranet/agora/mastercda/?p=8230', 3, 'nav_menu_item', '', 0),
+(8231, 1, '2016-06-20 17:23:13', '2016-06-20 16:23:13', ' ', '', '', 'publish', 'closed', 'closed', '', '8231', '', '', '2016-06-21 09:07:50', '2016-06-21 08:07:50', '', 8225, 'https://pwc-int.educacio.intranet/agora/mastercda/?p=8231', 5, 'nav_menu_item', '', 0),
+(8232, 1, '2016-06-20 17:23:13', '2016-06-20 16:23:13', ' ', '', '', 'publish', 'closed', 'closed', '', '8232', '', '', '2016-06-21 09:07:49', '2016-06-21 08:07:49', '', 8225, 'https://pwc-int.educacio.intranet/agora/mastercda/?p=8232', 4, 'nav_menu_item', '', 0),
+(8235, 1, '2016-06-20 17:26:18', '2016-06-20 16:26:18', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet rhoncus nibh eu interdum. Aliquam eget viverra dolor, at consectetur sapien. Duis porta nibh urna, nec faucibus diam convallis quis. Quisque ut nisi risus. Aenean volutpat, libero ut eleifend pellentesque, ex ante imperdiet diam, ac pharetra quam justo a tortor. Curabitur egestas libero velit, a ultrices tortor molestie eget. Curabitur mi libero, efficitur sed vulputate ac, accumsan id lacus. Nulla viverra, enim vitae ultrices ornare, tellus turpis porttitor est, non porta ante augue quis neque. Fusce eu ligula tincidunt, aliquet est ac, varius orci. In pretium maximus justo, quis posuere nisi porttitor nec. Fusce tristique sem mauris, convallis commodo neque pharetra et. Duis vehicula massa nec odio elementum viverra. Vivamus cursus nulla id ornare volutpat. Cras in libero est.', 'Àmbits', '', 'publish', 'closed', 'closed', '', 'ambits', '', '', '2016-06-20 17:26:18', '2016-06-20 16:26:18', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/?page_id=8235', 0, 'page', '', 0),
+(8240, 1, '2016-06-20 17:28:01', '2016-06-20 16:28:01', ' ', '', '', 'publish', 'closed', 'closed', '', '8240', '', '', '2016-06-21 09:07:50', '2016-06-21 08:07:50', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/?p=8240', 6, 'nav_menu_item', '', 0),
+(8241, 1, '2016-06-20 17:28:01', '2016-06-20 16:28:01', ' ', '', '', 'publish', 'closed', 'closed', '', '8241', '', '', '2016-06-21 09:07:50', '2016-06-21 08:07:50', '', 8235, 'https://pwc-int.educacio.intranet/agora/mastercda/?p=8241', 8, 'nav_menu_item', '', 0),
+(8243, 1, '2016-06-20 17:28:01', '2016-06-20 16:28:01', ' ', '', '', 'publish', 'closed', 'closed', '', '8243', '', '', '2016-06-21 09:07:50', '2016-06-21 08:07:50', '', 8235, 'https://pwc-int.educacio.intranet/agora/mastercda/?p=8243', 7, 'nav_menu_item', '', 0),
+(8259, 1, '2016-06-20 17:49:46', '2016-06-20 16:49:46', '', 'La cova de la Tuta i les fonts del Llobregat', '', 'publish', 'closed', 'closed', '', 'la-cova-de-la-tuta-i-les-fonts-del-llobregat', '', '', '2016-06-21 09:07:50', '2016-06-21 08:07:50', '', 8199, 'https://pwc-int.educacio.intranet/agora/mastercda/?p=8259', 9, 'nav_menu_item', '', 0),
+(8260, 1, '2016-06-20 17:50:46', '2016-06-20 16:50:46', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet rhoncus nibh eu interdum. Aliquam eget viverra dolor, at consectetur sapien. Duis porta nibh urna, nec faucibus diam convallis quis. Quisque ut nisi risus. Aenean volutpat, libero ut eleifend pellentesque, ex ante imperdiet diam, ac pharetra quam justo a tortor. Curabitur egestas libero velit, a ultrices tortor molestie eget. Curabitur mi libero, efficitur sed vulputate ac, accumsan id lacus. Nulla viverra, enim vitae ultrices ornare, tellus turpis porttitor est, non porta ante augue quis neque. Fusce eu ligula tincidunt, aliquet est ac, varius orci. In pretium maximus justo, quis posuere nisi porttitor nec. Fusce tristique sem mauris, convallis commodo neque pharetra et. Duis vehicula massa nec odio elementum viverra. Vivamus cursus nulla id ornare volutpat. Cras in libero est.', 'Modalitats', '', 'publish', 'closed', 'closed', '', 'modalitats', '', '', '2016-06-20 17:50:46', '2016-06-20 16:50:46', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/?page_id=8260', 0, 'page', '', 0),
+(8266, 1, '2016-06-20 17:53:27', '2016-06-20 16:53:27', ' ', '', '', 'publish', 'closed', 'closed', '', '8266', '', '', '2016-06-21 09:07:50', '2016-06-21 08:07:50', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/?p=8266', 12, 'nav_menu_item', '', 0),
+(8267, 1, '2016-06-20 17:53:27', '2016-06-20 16:53:27', ' ', '', '', 'publish', 'closed', 'closed', '', '8267', '', '', '2016-06-21 09:07:50', '2016-06-21 08:07:50', '', 8260, 'https://pwc-int.educacio.intranet/agora/mastercda/?p=8267', 14, 'nav_menu_item', '', 0),
+(8268, 1, '2016-06-20 17:53:27', '2016-06-20 16:53:27', ' ', '', '', 'publish', 'closed', 'closed', '', '8268', '', '', '2016-06-21 09:07:50', '2016-06-21 08:07:50', '', 8260, 'https://pwc-int.educacio.intranet/agora/mastercda/?p=8268', 13, 'nav_menu_item', '', 0),
+(8269, 1, '2016-06-20 17:53:27', '2016-06-20 16:53:27', ' ', '', '', 'publish', 'closed', 'closed', '', '8269', '', '', '2016-06-21 09:07:50', '2016-06-21 08:07:50', '', 8260, 'https://pwc-int.educacio.intranet/agora/mastercda/?p=8269', 15, 'nav_menu_item', '', 0),
+(8272, 1, '2016-06-20 17:56:05', '2016-06-20 16:56:05', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet rhoncus nibh eu interdum. Aliquam eget viverra dolor, at consectetur sapien. Duis porta nibh urna, nec faucibus diam convallis quis. Quisque ut nisi risus. Aenean volutpat, libero ut eleifend pellentesque, ex ante imperdiet diam, ac pharetra quam justo a tortor. Curabitur egestas libero velit, a ultrices tortor molestie eget. Curabitur mi libero, efficitur sed vulputate ac, accumsan id lacus. Nulla viverra, enim vitae ultrices ornare, tellus turpis porttitor est, non porta ante augue quis neque. Fusce eu ligula tincidunt, aliquet est ac, varius orci. In pretium maximus justo, quis posuere nisi porttitor nec. Fusce tristique sem mauris, convallis commodo neque pharetra et. Duis vehicula massa nec odio elementum viverra. Vivamus cursus nulla id ornare volutpat. Cras in libero est.', 'Amb els centres', '', 'publish', 'closed', 'closed', '', 'amb-els-centres', '', '', '2016-06-22 11:18:48', '2016-06-22 10:18:48', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/?page_id=8272', 0, 'page', '', 0),
+(8274, 1, '2016-06-20 17:56:37', '2016-06-20 16:56:37', '', 'Amb els centres', '', 'publish', 'closed', 'closed', '', '8274', '', '', '2016-06-21 09:07:50', '2016-06-21 08:07:50', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/?p=8274', 16, 'nav_menu_item', '', 0),
+(8280, 1, '2016-06-20 18:03:51', '2016-06-20 17:03:51', '', 'març2010-031', '', 'inherit', 'open', 'closed', '', 'marc2010-031-2', '', '', '2016-06-20 18:03:51', '2016-06-20 17:03:51', '', 249, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/març2010-031-1.jpg', 0, 'attachment', 'image/jpeg', 0),
+(8282, 1, '2016-06-20 18:05:35', '2016-06-20 17:05:35', '', 'Selecció_999(316)', '', 'inherit', 'open', 'closed', '', 'seleccio_999316', '', '', '2016-06-20 18:05:35', '2016-06-20 17:05:35', '', 8201, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/Selecció_999316.png', 0, 'attachment', 'image/png', 0),
+(8284, 1, '2016-06-20 18:06:14', '2016-06-20 17:06:14', '', 'Selecció_999(317)', '', 'inherit', 'open', 'closed', '', 'seleccio_999317', '', '', '2016-06-20 18:06:14', '2016-06-20 17:06:14', '', 207, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/Selecció_999317.png', 0, 'attachment', 'image/png', 0),
+(8286, 1, '2016-06-20 18:08:18', '2016-06-20 17:08:18', ' ', '', '', 'publish', 'closed', 'closed', '', '8286', '', '', '2016-06-21 09:07:50', '2016-06-21 08:07:50', '', 8272, 'https://pwc-int.educacio.intranet/agora/mastercda/?p=8286', 17, 'nav_menu_item', '', 0),
+(8287, 1, '2016-06-20 18:08:18', '2016-06-20 17:08:18', ' ', '', '', 'publish', 'closed', 'closed', '', '8287', '', '', '2016-06-21 09:07:50', '2016-06-21 08:07:50', '', 8272, 'https://pwc-int.educacio.intranet/agora/mastercda/?p=8287', 19, 'nav_menu_item', '', 0),
+(8288, 1, '2016-06-20 18:08:18', '2016-06-20 17:08:18', ' ', '', '', 'publish', 'closed', 'closed', '', '8288', '', '', '2016-06-21 09:07:50', '2016-06-21 08:07:50', '', 8272, 'https://pwc-int.educacio.intranet/agora/mastercda/?p=8288', 20, 'nav_menu_item', '', 0),
+(8289, 1, '2016-06-20 18:09:19', '2016-06-20 17:09:19', ' ', '', '', 'publish', 'closed', 'closed', '', '8289', '', '', '2016-06-21 09:07:50', '2016-06-21 08:07:50', '', 8235, 'https://pwc-int.educacio.intranet/agora/mastercda/?p=8289', 10, 'nav_menu_item', '', 0),
+(8290, 1, '2016-06-20 18:09:19', '2016-06-20 17:09:19', ' ', '', '', 'publish', 'closed', 'closed', '', '8290', '', '', '2016-06-21 09:07:50', '2016-06-21 08:07:50', '', 8235, 'https://pwc-int.educacio.intranet/agora/mastercda/?p=8290', 11, 'nav_menu_item', '', 0),
+(8291, 1, '2016-06-20 18:18:52', '2016-06-20 17:18:52', '', 'Selecció_999(319)', '', 'inherit', 'open', 'closed', '', 'seleccio_999319', '', '', '2016-06-20 18:18:52', '2016-06-20 17:18:52', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2016/06/Selecció_999319.png', 0, 'attachment', 'image/png', 0),
+(8292, 1, '2016-06-20 18:19:52', '2016-06-20 17:19:52', '', 'Selecció_999(320)', '', 'inherit', 'open', 'closed', '', 'seleccio_999320', '', '', '2016-06-20 18:19:52', '2016-06-20 17:19:52', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2016/06/Selecció_999320.png', 0, 'attachment', 'image/png', 0),
+(8293, 1, '2016-06-20 18:21:14', '2016-06-20 17:21:14', '', 'Selecció_999(321)', '', 'inherit', 'open', 'closed', '', 'seleccio_999321', '', '', '2016-06-20 18:21:14', '2016-06-20 17:21:14', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2016/06/Selecció_999321.png', 0, 'attachment', 'image/png', 0),
+(8294, 1, '2016-06-20 18:24:04', '2016-06-20 17:24:04', '', 'termiques', '', 'inherit', 'open', 'closed', '', 'termiques', '', '', '2016-06-20 18:24:04', '2016-06-20 17:24:04', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2016/06/termiques.jpg', 0, 'attachment', 'image/jpeg', 0),
+(8295, 1, '2016-06-20 18:31:09', '2016-06-20 17:31:09', '', 'IMG_1673', '', 'inherit', 'open', 'closed', '', 'img_1673', '', '', '2016-06-20 18:31:09', '2016-06-20 17:31:09', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2016/06/IMG_1673.jpg', 0, 'attachment', 'image/jpeg', 0),
+(8296, 1, '2016-06-20 18:32:05', '2016-06-20 17:32:05', '', 'Gimcana 1-001', '', 'inherit', 'open', 'closed', '', 'gimcana-1-001', '', '', '2016-06-20 18:32:05', '2016-06-20 17:32:05', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2016/06/Gimcana-1-001.jpg', 0, 'attachment', 'image/jpeg', 0),
+(8297, 1, '2016-06-21 09:00:39', '2016-06-21 08:00:39', ' ', '', '', 'publish', 'closed', 'closed', '', '8297', '', '', '2016-06-21 09:07:50', '2016-06-21 08:07:50', '', 8272, 'https://pwc-int.educacio.intranet/agora/mastercda/?p=8297', 18, 'nav_menu_item', '', 0),
+(8307, 1, '2016-06-21 11:03:47', '2016-06-21 10:03:47', '', 'capc_riusalabr2', '', 'inherit', 'open', 'closed', '', 'capc_riusalabr2', '', '', '2016-06-21 11:03:47', '2016-06-21 10:03:47', '', 8197, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/capc_riusalabr2.jpg', 0, 'attachment', 'image/jpeg', 0),
+(8312, 1, '2016-06-21 11:22:50', '2016-06-21 10:22:50', '', 'Tardor-5', '', 'inherit', 'open', 'closed', '', 'tardor-5', '', '', '2016-06-21 11:22:50', '2016-06-21 10:22:50', '', 8198, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/Tardor-5.jpg', 0, 'attachment', 'image/jpeg', 0),
+(8314, 1, '2016-06-21 11:24:22', '2016-06-21 10:24:22', '', 'Selecció_999(322)', '', 'inherit', 'open', 'closed', '', 'seleccio_999322', '', '', '2016-06-21 11:24:22', '2016-06-21 10:24:22', '', 165, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/Selecció_999322.png', 0, 'attachment', 'image/png', 0),
+(8322, 1, '2016-06-21 11:48:22', '2016-06-21 10:48:22', '', 'La cova de la tuta', '', 'publish', 'closed', 'closed', '', 'la-cova-de-la-tuta', '', '', '2016-06-21 11:48:22', '2016-06-21 10:48:22', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/?post_type=slideshow&#038;p=8322', 0, 'slideshow', '', 0),
+(8323, 1, '2016-06-21 11:47:59', '2016-06-21 10:47:59', '', 'Portada', '', 'inherit', 'open', 'closed', '', 'portada', '', '', '2016-06-21 11:47:59', '2016-06-21 10:47:59', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2016/06/Portada.jpg', 0, 'attachment', 'image/jpeg', 0),
+(8324, 1, '2016-06-21 11:47:59', '2016-06-21 10:47:59', '', 'DSC_0143-636x303', '', 'inherit', 'open', 'closed', '', 'dsc_0143-636x303', '', '', '2016-06-21 11:47:59', '2016-06-21 10:47:59', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2016/06/DSC_0143-636x303.jpg', 0, 'attachment', 'image/jpeg', 0),
+(8325, 1, '2016-06-21 11:48:00', '2016-06-21 10:48:00', '', '20', '', 'inherit', 'open', 'closed', '', '20', '', '', '2016-06-21 11:48:00', '2016-06-21 10:48:00', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2016/06/20.jpg', 0, 'attachment', 'image/jpeg', 0),
+(8327, 1, '2016-06-21 11:50:55', '2016-06-21 10:50:55', '', '1346327037', '', 'inherit', 'open', 'closed', '', '1346327037', '', '', '2016-06-21 11:50:55', '2016-06-21 10:50:55', '', 160, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/1346327037.jpg', 0, 'attachment', 'image/jpeg', 0),
+(8330, 1, '2016-06-21 12:03:23', '2016-06-21 11:03:23', 'El Prat de Llobregat', 'Escola Charles Darwin', '', 'private', 'closed', 'closed', '', 'escola-charles-darwin', '', '', '2016-06-21 12:03:23', '2016-06-21 11:03:23', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/forums/forum/escola-charles-darwin/', 0, 'forum', '', 0),
+(8331, 1, '2016-06-21 12:04:53', '2016-06-21 11:04:53', 'Tortosa', 'Institut Joaquim Bau', '', 'private', 'closed', 'closed', '', 'institut-joaquim-bau', '', '', '2016-06-21 12:04:53', '2016-06-21 11:04:53', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/forums/forum/institut-joaquim-bau/', 0, 'forum', '', 0),
+(8332, 1, '2016-06-21 12:06:08', '2016-06-21 11:06:08', 'Maçanet de la Selva', 'Escola Sant Jordi', '', 'private', 'closed', 'closed', '', 'escola-sant-jordi', '', '', '2016-06-21 12:06:08', '2016-06-21 11:06:08', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/forums/forum/escola-sant-jordi/', 0, 'forum', '', 0),
+(8333, 1, '2016-06-21 12:07:31', '2016-06-21 11:07:31', 'Salt', 'El gegant del rec', '', 'private', 'closed', 'closed', '', 'el-gegant-del-rec', '', '', '2016-06-21 12:07:31', '2016-06-21 11:07:31', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/forums/forum/el-gegant-del-rec/', 0, 'forum', '', 0),
 (8335, 1, '2016-06-21 13:23:14', '2016-06-21 12:23:14', 'Node de coordinació dels formadors del camp d&#039;aprenentatge', 'Camp d&#039;aprenentatge', '', 'private', 'closed', 'closed', '', 'camp-daprenentatge', '', '', '2016-06-21 13:23:14', '2016-06-21 12:23:14', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/forums/forum/camp-daprenentatge/', 0, 'forum', '', 0),
-(8336, 1, '2016-06-21 13:28:26', '2016-06-21 12:28:26', 'Manlleu', 'Escola Quatre Vents', '', 'private', 'closed', 'closed', '', 'escola-quatre-vents', '', '', '2016-06-21 13:28:26', '2016-06-21 12:28:26', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/forums/forum/escola-quatre-vents/', 0, 'forum', '', 0),
-(8345, 1, '2016-06-21 14:06:27', '2016-06-21 13:06:27', '', 'IMG_20150219_144547', '', 'inherit', 'open', 'closed', '', 'img_20150219_144547', '', '', '2016-06-21 14:06:27', '2016-06-21 13:06:27', '', 8200, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/IMG_20150219_144547.jpg', 0, 'attachment', 'image/jpeg', 0),
-(8347, 1, '2016-06-21 14:19:52', '2016-06-21 13:19:52', 'El dilluns 13 de juny els representants de les escoles participants enguany en el projecte, juntament amb el Camp d’Aprenentatge, el Consorci i el Consell comarcal ens hem trobat a les instal.lacions del Parc Ambiental per confirmar els compromisos que hem pres per preservar el medi ambient. Enhorabona a tots per la feina feta!!! Podeu ampliar la notícia a <a href="http://El%20dilluns%2013%20de%20juny%20els%20representants%20de%20les%20escoles%20participants%20enguany%20en%20el%20projecte,%20juntament%20amb%20el%20Camp%20d%E2%80%99Aprenentatge,%20el%20Consorci%20i%20el%20Consell%20comarcal%20ens%20hem%20trobat%20a%20les%20instal.lacions%20del%20Parc%20Ambiental%20per%20confirmar%20els%20compromisos%20que%20hem%20pres%20per%20preservar%20el%20medi%20ambient.%20Enhorabona%20a%20tots%20per%20la%20feina%20feta!!!/" target="_blank">Manresainfo.</a>\r\n\r\nhttps://www.youtube.com/watch?v=8Pm1EwqDDSE#t=1058', 'Cloenda del projecte compartit de residus d’enguany', '', 'publish', 'open', 'open', '', 'cloenda-del-projecte-compartit-de-residus-denguany', '', '', '2016-06-22 11:26:18', '2016-06-22 10:26:18', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/?p=8347', 0, 'post', '', 0),
-(8349, 1, '2016-06-21 14:21:28', '2016-06-21 13:21:28', '', 'Selecció_999(324)', '', 'inherit', 'open', 'closed', '', 'seleccio_999324', '', '', '2016-06-21 14:21:28', '2016-06-21 13:21:28', '', 8347, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2016/06/Selecció_999324.png', 0, 'attachment', 'image/png', 0),
-(8369, 1, '2016-06-22 14:59:58', '2016-06-22 13:59:58', 'El passat dijous 19 de març amb els alumnes de sisè de l’escola Enxaneta de Valls, quan estàvem d’excursió pel Parc Nacional d’Aigüestortes i Estany de Sant Maurici vam poder gaudir d’una parella de trencalòs. Un d’ells era un individu adult ja que tenia el dors de color negre i el pit de color ataronjat com a conseqüència dels banys que realitzen en aigües ferruginoses quan ja són adults (6-7 anys). L’altre, en canvi, era més marronós del dors i més fosc del pit, trets distintius dels individus més joves. Aquest últim portava una marca a cada una de les ales; l’esquerra era de color blanc i la dreta de color vermell.\r\n\r\n<a href="http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2016/06/img_20_gr.jpg" rel="attachment wp-att-8371"><img class="size-full wp-image-8371 aligncenter" src="http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2016/06/img_20_gr.jpg" alt="img_20_gr" width="450" height="330" /></a>', 'Avistament de Xoel N21', 'El passat dijous 19 de març amb els alumnes de sisè de l’escola Enxaneta de Valls, quan estàvem d’excursió pel Parc Nacional d’Aigüestortes i Estany de Sant Maurici vam poder gaudir d’una parella de trencalòs. Un d’ells era un individu adult ja que tenia el dors de color negre i el pit de color ataronjat com a conseqüència dels banys que realitzen en aigües ferruginoses quan ja són adults (6-7 anys). L’altre, en canvi, era més marronós del dors i més fosc del pit, trets distintius dels individus més joves. Aquest últim portava una marca a cada una de les ales; l’esquerra era de color blanc i la dreta de color vermell.', 'publish', 'open', 'open', '', 'avistament-de-xoel-n21', '', '', '2016-06-22 15:00:13', '2016-06-22 14:00:13', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/?p=8369', 0, 'post', '', 0),
-(8370, 1, '2016-06-22 14:59:28', '2016-06-22 13:59:28', '', 'img_16_gr', '', 'inherit', 'open', 'closed', '', 'img_16_gr', '', '', '2016-06-22 14:59:28', '2016-06-22 13:59:28', '', 8369, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2016/06/img_16_gr.jpg', 0, 'attachment', 'image/jpeg', 0),
-(8371, 1, '2016-06-22 14:59:46', '2016-06-22 13:59:46', '', 'img_20_gr', '', 'inherit', 'open', 'closed', '', 'img_20_gr', '', '', '2016-06-22 14:59:46', '2016-06-22 13:59:46', '', 8369, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2016/06/img_20_gr.jpg', 0, 'attachment', 'image/jpeg', 0),
-(8379, 1, '2016-06-27 10:55:47', '2016-06-27 09:55:47', '', 'garrotxa', '', 'inherit', 'open', 'closed', '', 'garrotxa', '', '', '2016-06-27 10:55:47', '2016-06-27 09:55:47', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2016/06/garrotxa.png', 0, 'attachment', 'image/png', 0),
-(8381, 1, '2016-07-04 11:32:34', '2016-07-04 10:32:34', '{{poster.name}} replied to one of your updates:\n\n<blockquote>&quot;{{usermessage}}&quot;</blockquote>\n\n<a href="{{{thread.url}}}">Go to the discussion</a> to reply or catch up on the conversation.', '[{{{site.name}}}] {{poster.name}} replied to one of your updates', '{{poster.name}} replied to one of your updates:\n\n"{{usermessage}}"\n\nGo to the discussion to reply or catch up on the conversation: {{{thread.url}}}', 'publish', 'closed', 'closed', '', 'site-name-poster-name-replied-to-one-of-your-updates', '', '', '2016-07-04 11:32:34', '2016-07-04 10:32:34', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/general/site-name-poster-name-replied-to-one-of-your-updates/', 0, 'bp-email', '', 0),
-(8382, 1, '2016-07-04 11:32:34', '2016-07-04 10:32:34', '{{poster.name}} replied to one of your comments:\n\n<blockquote>&quot;{{usermessage}}&quot;</blockquote>\n\n<a href="{{{thread.url}}}">Go to the discussion</a> to reply or catch up on the conversation.', '[{{{site.name}}}] {{poster.name}} replied to one of your comments', '{{poster.name}} replied to one of your comments:\n\n"{{usermessage}}"\n\nGo to the discussion to reply or catch up on the conversation: {{{thread.url}}}', 'publish', 'closed', 'closed', '', 'site-name-poster-name-replied-to-one-of-your-comments', '', '', '2016-07-04 11:32:34', '2016-07-04 10:32:34', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/general/site-name-poster-name-replied-to-one-of-your-comments/', 0, 'bp-email', '', 0),
-(8383, 1, '2016-07-04 11:32:34', '2016-07-04 10:32:34', '{{poster.name}} mentioned you in a status update:\n\n<blockquote>&quot;{{usermessage}}&quot;</blockquote>\n\n<a href="{{{mentioned.url}}}">Go to the discussion</a> to reply or catch up on the conversation.', '[{{{site.name}}}] {{poster.name}} mentioned you in a status update', '{{poster.name}} mentioned you in a status update:\n\n"{{usermessage}}"\n\nGo to the discussion to reply or catch up on the conversation: {{{mentioned.url}}}', 'publish', 'closed', 'closed', '', 'site-name-poster-name-mentioned-you-in-a-status-update', '', '', '2016-07-04 11:32:34', '2016-07-04 10:32:34', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/general/site-name-poster-name-mentioned-you-in-a-status-update/', 0, 'bp-email', '', 0),
-(8384, 1, '2016-07-04 11:32:34', '2016-07-04 10:32:34', '{{poster.name}} mentioned you in the group "{{group.name}}":\n\n<blockquote>&quot;{{usermessage}}&quot;</blockquote>\n\n<a href="{{{mentioned.url}}}">Go to the discussion</a> to reply or catch up on the conversation.', '[{{{site.name}}}] {{poster.name}} mentioned you in an update', '{{poster.name}} mentioned you in the group "{{group.name}}":\n\n"{{usermessage}}"\n\nGo to the discussion to reply or catch up on the conversation: {{{mentioned.url}}}', 'publish', 'closed', 'closed', '', 'site-name-poster-name-mentioned-you-in-an-update', '', '', '2016-07-04 11:32:34', '2016-07-04 10:32:34', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/general/site-name-poster-name-mentioned-you-in-an-update/', 0, 'bp-email', '', 0),
-(8385, 1, '2016-07-04 11:32:34', '2016-07-04 10:32:34', 'Thanks for registering!\n\nTo complete the activation of your account, go to the following link: <a href="{{{activate.url}}}">{{{activate.url}}}</a>', '[{{{site.name}}}] Activate your account', 'Thanks for registering!\n\nTo complete the activation of your account, go to the following link: {{{activate.url}}}', 'publish', 'closed', 'closed', '', 'site-name-activate-your-account', '', '', '2016-07-04 11:32:34', '2016-07-04 10:32:34', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/general/site-name-activate-your-account/', 0, 'bp-email', '', 0),
-(8386, 1, '2016-07-04 11:32:34', '2016-07-04 10:32:34', 'Thanks for registering!\n\nTo complete the activation of your account and site, go to the following link: <a href="{{{activate-site.url}}}">{{{activate-site.url}}}</a>.\n\nAfter you activate, you can visit your site at <a href="{{{user-site.url}}}">{{{user-site.url}}}</a>.', '[{{{site.name}}}] Activate {{{user-site.url}}}', 'Thanks for registering!\n\nTo complete the activation of your account and site, go to the following link: {{{activate-site.url}}}\n\nAfter you activate, you can visit your site at {{{user-site.url}}}.', 'publish', 'closed', 'closed', '', 'site-name-activate-user-site-url', '', '', '2016-07-04 11:32:34', '2016-07-04 10:32:34', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/general/site-name-activate-user-site-url/', 0, 'bp-email', '', 0),
-(8387, 1, '2016-07-04 11:32:34', '2016-07-04 10:32:34', '<a href="{{{initiator.url}}}">{{initiator.name}}</a> wants to add you as a friend.\n\nTo accept this request and manage all of your pending requests, visit: <a href="{{{friend-requests.url}}}">{{{friend-requests.url}}}</a>', '[{{{site.name}}}] New friendship request from {{initiator.name}}', '{{initiator.name}} wants to add you as a friend.\n\nTo accept this request and manage all of your pending requests, visit: {{{friend-requests.url}}}\n\nTo view {{initiator.name}}''s profile, visit: {{{initiator.url}}}', 'publish', 'closed', 'closed', '', 'site-name-new-friendship-request-from-initiator-name', '', '', '2016-07-04 11:32:34', '2016-07-04 10:32:34', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/general/site-name-new-friendship-request-from-initiator-name/', 0, 'bp-email', '', 0),
-(8388, 1, '2016-07-04 11:32:34', '2016-07-04 10:32:34', '<a href="{{{friendship.url}}}">{{friend.name}}</a> accepted your friend request.', '[{{{site.name}}}] {{friend.name}} accepted your friendship request', '{{friend.name}} accepted your friend request.\n\nTo learn more about them, visit their profile: {{{friendship.url}}}', 'publish', 'closed', 'closed', '', 'site-name-friend-name-accepted-your-friendship-request', '', '', '2016-07-04 11:32:34', '2016-07-04 10:32:34', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/general/site-name-friend-name-accepted-your-friendship-request/', 0, 'bp-email', '', 0),
-(8389, 1, '2016-07-04 11:32:34', '2016-07-04 10:32:34', 'Group details for the group &quot;<a href="{{{group.url}}}">{{group.name}}</a>&quot; were updated:\n<blockquote>{{changed_text}}</blockquote>', '[{{{site.name}}}] Group details updated', 'Group details for the group &quot;{{group.name}}&quot; were updated:\n\n{{changed_text}}\n\nTo view the group, visit: {{{group.url}}}', 'publish', 'closed', 'closed', '', 'site-name-group-details-updated', '', '', '2016-07-04 11:32:34', '2016-07-04 10:32:34', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/general/site-name-group-details-updated/', 0, 'bp-email', '', 0),
-(8390, 1, '2016-07-04 11:32:34', '2016-07-04 10:32:34', '<a href="{{{inviter.url}}}">{{inviter.name}}</a> has invited you to join the group: &quot;{{group.name}}&quot;.\n<a href="{{{invites.url}}}">Go here to accept your invitation</a> or <a href="{{{group.url}}}">visit the group</a> to learn more.', '[{{{site.name}}}] You have an invitation to the group: "{{group.name}}"', '{{inviter.name}} has invited you to join the group: &quot;{{group.name}}&quot;.\n\nTo accept your invitation, visit: {{{invites.url}}}\n\nTo learn more about the group, visit {{{group.url}}}.\nTo view {{inviter.name}}''s profile, visit: {{{inviter.url}}}', 'publish', 'closed', 'closed', '', 'site-name-you-have-an-invitation-to-the-group-group-name', '', '', '2016-07-04 11:32:34', '2016-07-04 10:32:34', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/general/site-name-you-have-an-invitation-to-the-group-group-name/', 0, 'bp-email', '', 0),
-(8391, 1, '2016-07-04 11:32:34', '2016-07-04 10:32:34', 'You have been promoted to <b>{{promoted_to}}</b> in the group &quot;<a href="{{{group.url}}}">{{group.name}}</a>&quot;.', '[{{{site.name}}}] You have been promoted in the group: "{{group.name}}"', 'You have been promoted to {{promoted_to}} in the group: &quot;{{group.name}}&quot;.\n\nTo visit the group, go to: {{{group.url}}}', 'publish', 'closed', 'closed', '', 'site-name-you-have-been-promoted-in-the-group-group-name', '', '', '2016-07-04 11:32:34', '2016-07-04 10:32:34', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/general/site-name-you-have-been-promoted-in-the-group-group-name/', 0, 'bp-email', '', 0),
-(8392, 1, '2016-07-04 11:32:34', '2016-07-04 10:32:34', '<a href="{{{profile.url}}}">{{requesting-user.name}}</a> wants to join the group &quot;{{group.name}}&quot;. As you are an administrator of this group, you must either accept or reject the membership request.\n\n<a href="{{{group-requests.url}}}">Go here to manage this</a> and all other pending requests.', '[{{{site.name}}}] Membership request for group: {{group.name}}', '{{requesting-user.name}} wants to join the group &quot;{{group.name}}&quot;. As you are the administrator of this group, you must either accept or reject the membership request.\n\nTo manage this and all other pending requests, visit: {{{group-requests.url}}}\n\nTo view {{requesting-user.name}}''s profile, visit: {{{profile.url}}}', 'publish', 'closed', 'closed', '', 'site-name-membership-request-for-group-group-name', '', '', '2016-07-04 11:32:34', '2016-07-04 10:32:34', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/general/site-name-membership-request-for-group-group-name/', 0, 'bp-email', '', 0);
+(8336, 1, '2016-06-21 13:28:26', '2016-06-21 12:28:26', 'Manlleu', 'Escola Quatre Vents', '', 'private', 'closed', 'closed', '', 'escola-quatre-vents', '', '', '2016-06-21 13:28:26', '2016-06-21 12:28:26', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/forums/forum/escola-quatre-vents/', 0, 'forum', '', 0),
+(8345, 1, '2016-06-21 14:06:27', '2016-06-21 13:06:27', '', 'IMG_20150219_144547', '', 'inherit', 'open', 'closed', '', 'img_20150219_144547', '', '', '2016-06-21 14:06:27', '2016-06-21 13:06:27', '', 8200, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2013/11/IMG_20150219_144547.jpg', 0, 'attachment', 'image/jpeg', 0),
+(8347, 1, '2016-06-21 14:19:52', '2016-06-21 13:19:52', 'El dilluns 13 de juny els representants de les escoles participants enguany en el projecte, juntament amb el Camp d’Aprenentatge, el Consorci i el Consell comarcal ens hem trobat a les instal.lacions del Parc Ambiental per confirmar els compromisos que hem pres per preservar el medi ambient. Enhorabona a tots per la feina feta!!! Podeu ampliar la notícia a <a href="http://El%20dilluns%2013%20de%20juny%20els%20representants%20de%20les%20escoles%20participants%20enguany%20en%20el%20projecte,%20juntament%20amb%20el%20Camp%20d%E2%80%99Aprenentatge,%20el%20Consorci%20i%20el%20Consell%20comarcal%20ens%20hem%20trobat%20a%20les%20instal.lacions%20del%20Parc%20Ambiental%20per%20confirmar%20els%20compromisos%20que%20hem%20pres%20per%20preservar%20el%20medi%20ambient.%20Enhorabona%20a%20tots%20per%20la%20feina%20feta!!!/" target="_blank">Manresainfo.</a>\r\n\r\nhttps://www.youtube.com/watch?v=8Pm1EwqDDSE#t=1058', 'Cloenda del projecte compartit de residus d’enguany', '', 'publish', 'open', 'open', '', 'cloenda-del-projecte-compartit-de-residus-denguany', '', '', '2016-06-22 11:26:18', '2016-06-22 10:26:18', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/?p=8347', 0, 'post', '', 0),
+(8349, 1, '2016-06-21 14:21:28', '2016-06-21 13:21:28', '', 'Selecció_999(324)', '', 'inherit', 'open', 'closed', '', 'seleccio_999324', '', '', '2016-06-21 14:21:28', '2016-06-21 13:21:28', '', 8347, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2016/06/Selecció_999324.png', 0, 'attachment', 'image/png', 0),
+(8369, 1, '2016-06-22 14:59:58', '2016-06-22 13:59:58', 'El passat dijous 19 de març amb els alumnes de sisè de l’escola Enxaneta de Valls, quan estàvem d’excursió pel Parc Nacional d’Aigüestortes i Estany de Sant Maurici vam poder gaudir d’una parella de trencalòs. Un d’ells era un individu adult ja que tenia el dors de color negre i el pit de color ataronjat com a conseqüència dels banys que realitzen en aigües ferruginoses quan ja són adults (6-7 anys). L’altre, en canvi, era més marronós del dors i més fosc del pit, trets distintius dels individus més joves. Aquest últim portava una marca a cada una de les ales; l’esquerra era de color blanc i la dreta de color vermell.\r\n\r\n<a href="https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2016/06/img_20_gr.jpg" rel="attachment wp-att-8371"><img class="size-full wp-image-8371 aligncenter" src="https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2016/06/img_20_gr.jpg" alt="img_20_gr" width="450" height="330" /></a>', 'Avistament de Xoel N21', 'El passat dijous 19 de març amb els alumnes de sisè de l’escola Enxaneta de Valls, quan estàvem d’excursió pel Parc Nacional d’Aigüestortes i Estany de Sant Maurici vam poder gaudir d’una parella de trencalòs. Un d’ells era un individu adult ja que tenia el dors de color negre i el pit de color ataronjat com a conseqüència dels banys que realitzen en aigües ferruginoses quan ja són adults (6-7 anys). L’altre, en canvi, era més marronós del dors i més fosc del pit, trets distintius dels individus més joves. Aquest últim portava una marca a cada una de les ales; l’esquerra era de color blanc i la dreta de color vermell.', 'publish', 'open', 'open', '', 'avistament-de-xoel-n21', '', '', '2016-06-22 15:00:13', '2016-06-22 14:00:13', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/?p=8369', 0, 'post', '', 0),
+(8370, 1, '2016-06-22 14:59:28', '2016-06-22 13:59:28', '', 'img_16_gr', '', 'inherit', 'open', 'closed', '', 'img_16_gr', '', '', '2016-06-22 14:59:28', '2016-06-22 13:59:28', '', 8369, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2016/06/img_16_gr.jpg', 0, 'attachment', 'image/jpeg', 0),
+(8371, 1, '2016-06-22 14:59:46', '2016-06-22 13:59:46', '', 'img_20_gr', '', 'inherit', 'open', 'closed', '', 'img_20_gr', '', '', '2016-06-22 14:59:46', '2016-06-22 13:59:46', '', 8369, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2016/06/img_20_gr.jpg', 0, 'attachment', 'image/jpeg', 0),
+(8379, 1, '2016-06-27 10:55:47', '2016-06-27 09:55:47', '', 'garrotxa', '', 'inherit', 'open', 'closed', '', 'garrotxa', '', '', '2016-06-27 10:55:47', '2016-06-27 09:55:47', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/wp-content/uploads/usu4/2016/06/garrotxa.png', 0, 'attachment', 'image/png', 0),
+(8381, 1, '2016-07-04 11:32:34', '2016-07-04 10:32:34', '{{poster.name}} replied to one of your updates:\n\n<blockquote>&quot;{{usermessage}}&quot;</blockquote>\n\n<a href="{{{thread.url}}}">Go to the discussion</a> to reply or catch up on the conversation.', '[{{{site.name}}}] {{poster.name}} replied to one of your updates', '{{poster.name}} replied to one of your updates:\n\n"{{usermessage}}"\n\nGo to the discussion to reply or catch up on the conversation: {{{thread.url}}}', 'publish', 'closed', 'closed', '', 'site-name-poster-name-replied-to-one-of-your-updates', '', '', '2016-07-04 11:32:34', '2016-07-04 10:32:34', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/site-name-poster-name-replied-to-one-of-your-updates/', 0, 'bp-email', '', 0),
+(8382, 1, '2016-07-04 11:32:34', '2016-07-04 10:32:34', '{{poster.name}} replied to one of your comments:\n\n<blockquote>&quot;{{usermessage}}&quot;</blockquote>\n\n<a href="{{{thread.url}}}">Go to the discussion</a> to reply or catch up on the conversation.', '[{{{site.name}}}] {{poster.name}} replied to one of your comments', '{{poster.name}} replied to one of your comments:\n\n"{{usermessage}}"\n\nGo to the discussion to reply or catch up on the conversation: {{{thread.url}}}', 'publish', 'closed', 'closed', '', 'site-name-poster-name-replied-to-one-of-your-comments', '', '', '2016-07-04 11:32:34', '2016-07-04 10:32:34', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/site-name-poster-name-replied-to-one-of-your-comments/', 0, 'bp-email', '', 0),
+(8383, 1, '2016-07-04 11:32:34', '2016-07-04 10:32:34', '{{poster.name}} mentioned you in a status update:\n\n<blockquote>&quot;{{usermessage}}&quot;</blockquote>\n\n<a href="{{{mentioned.url}}}">Go to the discussion</a> to reply or catch up on the conversation.', '[{{{site.name}}}] {{poster.name}} mentioned you in a status update', '{{poster.name}} mentioned you in a status update:\n\n"{{usermessage}}"\n\nGo to the discussion to reply or catch up on the conversation: {{{mentioned.url}}}', 'publish', 'closed', 'closed', '', 'site-name-poster-name-mentioned-you-in-a-status-update', '', '', '2016-07-04 11:32:34', '2016-07-04 10:32:34', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/site-name-poster-name-mentioned-you-in-a-status-update/', 0, 'bp-email', '', 0),
+(8384, 1, '2016-07-04 11:32:34', '2016-07-04 10:32:34', '{{poster.name}} mentioned you in the group "{{group.name}}":\n\n<blockquote>&quot;{{usermessage}}&quot;</blockquote>\n\n<a href="{{{mentioned.url}}}">Go to the discussion</a> to reply or catch up on the conversation.', '[{{{site.name}}}] {{poster.name}} mentioned you in an update', '{{poster.name}} mentioned you in the group "{{group.name}}":\n\n"{{usermessage}}"\n\nGo to the discussion to reply or catch up on the conversation: {{{mentioned.url}}}', 'publish', 'closed', 'closed', '', 'site-name-poster-name-mentioned-you-in-an-update', '', '', '2016-07-04 11:32:34', '2016-07-04 10:32:34', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/site-name-poster-name-mentioned-you-in-an-update/', 0, 'bp-email', '', 0),
+(8385, 1, '2016-07-04 11:32:34', '2016-07-04 10:32:34', 'Thanks for registering!\n\nTo complete the activation of your account, go to the following link: <a href="{{{activate.url}}}">{{{activate.url}}}</a>', '[{{{site.name}}}] Activate your account', 'Thanks for registering!\n\nTo complete the activation of your account, go to the following link: {{{activate.url}}}', 'publish', 'closed', 'closed', '', 'site-name-activate-your-account', '', '', '2016-07-04 11:32:34', '2016-07-04 10:32:34', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/site-name-activate-your-account/', 0, 'bp-email', '', 0),
+(8386, 1, '2016-07-04 11:32:34', '2016-07-04 10:32:34', 'Thanks for registering!\n\nTo complete the activation of your account and site, go to the following link: <a href="{{{activate-site.url}}}">{{{activate-site.url}}}</a>.\n\nAfter you activate, you can visit your site at <a href="{{{user-site.url}}}">{{{user-site.url}}}</a>.', '[{{{site.name}}}] Activate {{{user-site.url}}}', 'Thanks for registering!\n\nTo complete the activation of your account and site, go to the following link: {{{activate-site.url}}}\n\nAfter you activate, you can visit your site at {{{user-site.url}}}.', 'publish', 'closed', 'closed', '', 'site-name-activate-user-site-url', '', '', '2016-07-04 11:32:34', '2016-07-04 10:32:34', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/site-name-activate-user-site-url/', 0, 'bp-email', '', 0),
+(8387, 1, '2016-07-04 11:32:34', '2016-07-04 10:32:34', '<a href="{{{initiator.url}}}">{{initiator.name}}</a> wants to add you as a friend.\n\nTo accept this request and manage all of your pending requests, visit: <a href="{{{friend-requests.url}}}">{{{friend-requests.url}}}</a>', '[{{{site.name}}}] New friendship request from {{initiator.name}}', '{{initiator.name}} wants to add you as a friend.\n\nTo accept this request and manage all of your pending requests, visit: {{{friend-requests.url}}}\n\nTo view {{initiator.name}}''s profile, visit: {{{initiator.url}}}', 'publish', 'closed', 'closed', '', 'site-name-new-friendship-request-from-initiator-name', '', '', '2016-07-04 11:32:34', '2016-07-04 10:32:34', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/site-name-new-friendship-request-from-initiator-name/', 0, 'bp-email', '', 0),
+(8388, 1, '2016-07-04 11:32:34', '2016-07-04 10:32:34', '<a href="{{{friendship.url}}}">{{friend.name}}</a> accepted your friend request.', '[{{{site.name}}}] {{friend.name}} accepted your friendship request', '{{friend.name}} accepted your friend request.\n\nTo learn more about them, visit their profile: {{{friendship.url}}}', 'publish', 'closed', 'closed', '', 'site-name-friend-name-accepted-your-friendship-request', '', '', '2016-07-04 11:32:34', '2016-07-04 10:32:34', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/site-name-friend-name-accepted-your-friendship-request/', 0, 'bp-email', '', 0),
+(8389, 1, '2016-07-04 11:32:34', '2016-07-04 10:32:34', 'Group details for the group &quot;<a href="{{{group.url}}}">{{group.name}}</a>&quot; were updated:\n<blockquote>{{changed_text}}</blockquote>', '[{{{site.name}}}] Group details updated', 'Group details for the group &quot;{{group.name}}&quot; were updated:\n\n{{changed_text}}\n\nTo view the group, visit: {{{group.url}}}', 'publish', 'closed', 'closed', '', 'site-name-group-details-updated', '', '', '2016-07-04 11:32:34', '2016-07-04 10:32:34', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/site-name-group-details-updated/', 0, 'bp-email', '', 0),
+(8390, 1, '2016-07-04 11:32:34', '2016-07-04 10:32:34', '<a href="{{{inviter.url}}}">{{inviter.name}}</a> has invited you to join the group: &quot;{{group.name}}&quot;.\n<a href="{{{invites.url}}}">Go here to accept your invitation</a> or <a href="{{{group.url}}}">visit the group</a> to learn more.', '[{{{site.name}}}] You have an invitation to the group: "{{group.name}}"', '{{inviter.name}} has invited you to join the group: &quot;{{group.name}}&quot;.\n\nTo accept your invitation, visit: {{{invites.url}}}\n\nTo learn more about the group, visit {{{group.url}}}.\nTo view {{inviter.name}}''s profile, visit: {{{inviter.url}}}', 'publish', 'closed', 'closed', '', 'site-name-you-have-an-invitation-to-the-group-group-name', '', '', '2016-07-04 11:32:34', '2016-07-04 10:32:34', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/site-name-you-have-an-invitation-to-the-group-group-name/', 0, 'bp-email', '', 0),
+(8391, 1, '2016-07-04 11:32:34', '2016-07-04 10:32:34', 'You have been promoted to <b>{{promoted_to}}</b> in the group &quot;<a href="{{{group.url}}}">{{group.name}}</a>&quot;.', '[{{{site.name}}}] You have been promoted in the group: "{{group.name}}"', 'You have been promoted to {{promoted_to}} in the group: &quot;{{group.name}}&quot;.\n\nTo visit the group, go to: {{{group.url}}}', 'publish', 'closed', 'closed', '', 'site-name-you-have-been-promoted-in-the-group-group-name', '', '', '2016-07-04 11:32:34', '2016-07-04 10:32:34', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/site-name-you-have-been-promoted-in-the-group-group-name/', 0, 'bp-email', '', 0),
+(8392, 1, '2016-07-04 11:32:34', '2016-07-04 10:32:34', '<a href="{{{profile.url}}}">{{requesting-user.name}}</a> wants to join the group &quot;{{group.name}}&quot;. As you are an administrator of this group, you must either accept or reject the membership request.\n\n<a href="{{{group-requests.url}}}">Go here to manage this</a> and all other pending requests.', '[{{{site.name}}}] Membership request for group: {{group.name}}', '{{requesting-user.name}} wants to join the group &quot;{{group.name}}&quot;. As you are the administrator of this group, you must either accept or reject the membership request.\n\nTo manage this and all other pending requests, visit: {{{group-requests.url}}}\n\nTo view {{requesting-user.name}}''s profile, visit: {{{profile.url}}}', 'publish', 'closed', 'closed', '', 'site-name-membership-request-for-group-group-name', '', '', '2016-07-04 11:32:34', '2016-07-04 10:32:34', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/site-name-membership-request-for-group-group-name/', 0, 'bp-email', '', 0);
 INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_title`, `post_excerpt`, `post_status`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_content_filtered`, `post_parent`, `guid`, `menu_order`, `post_type`, `post_mime_type`, `comment_count`) VALUES
-(8393, 1, '2016-07-04 11:32:34', '2016-07-04 10:32:34', '{{sender.name}} sent you a new message: &quot;{{usersubject}}&quot;\n\n<blockquote>&quot;{{usermessage}}&quot;</blockquote>\n\n<a href="{{{message.url}}}">Go to the discussion</a> to reply or catch up on the conversation.', '[{{{site.name}}}] New message from {{sender.name}}', '{{sender.name}} sent you a new message: &quot;{{usersubject}}&quot;\n\n&quot;{{usermessage}}&quot;\n\nGo to the discussion to reply or catch up on the conversation: {{{message.url}}}', 'publish', 'closed', 'closed', '', 'site-name-new-message-from-sender-name', '', '', '2016-07-04 11:32:34', '2016-07-04 10:32:34', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/general/site-name-new-message-from-sender-name/', 0, 'bp-email', '', 0),
-(8394, 1, '2016-07-04 11:32:34', '2016-07-04 10:32:34', 'You recently changed the email address associated with your account on {{site.name}}. If this is correct, <a href="{{{verify.url}}}">go here to confirm the change</a>.\n\nOtherwise, you can safely ignore and delete this email if you have changed your mind, or if you think you have received this email in error.', '[{{{site.name}}}] Verify your new email address', 'You recently changed the email address associated with your account on {{site.name}}. If this is correct, go to the following link to confirm the change: {{{verify.url}}}\n\nOtherwise, you can safely ignore and delete this email if you have changed your mind, or if you think you have received this email in error.', 'publish', 'closed', 'closed', '', 'site-name-verify-your-new-email-address', '', '', '2016-07-04 11:32:34', '2016-07-04 10:32:34', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/general/site-name-verify-your-new-email-address/', 0, 'bp-email', '', 0),
-(8395, 1, '2016-07-04 11:32:35', '2016-07-04 10:32:35', 'Your membership request for the group &quot;<a href="{{{group.url}}}">{{group.name}}</a>&quot; has been accepted.', '[{{{site.name}}}] Membership request for group "{{group.name}}" accepted', 'Your membership request for the group &quot;{{group.name}}&quot; has been accepted.\n\nTo view the group, visit: {{{group.url}}}', 'publish', 'closed', 'closed', '', 'site-name-membership-request-for-group-group-name-accepted', '', '', '2016-07-04 11:32:35', '2016-07-04 10:32:35', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/general/site-name-membership-request-for-group-group-name-accepted/', 0, 'bp-email', '', 0),
-(8396, 1, '2016-07-04 11:32:35', '2016-07-04 10:32:35', 'Your membership request for the group &quot;<a href="{{{group.url}}}">{{group.name}}</a>&quot; has been rejected.', '[{{{site.name}}}] Membership request for group "{{group.name}}" rejected', 'Your membership request for the group &quot;{{group.name}}&quot; has been rejected.\n\nTo request membership again, visit: {{{group.url}}}', 'publish', 'closed', 'closed', '', 'site-name-membership-request-for-group-group-name-rejected', '', '', '2016-07-04 11:32:35', '2016-07-04 10:32:35', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercda/general/site-name-membership-request-for-group-group-name-rejected/', 0, 'bp-email', '', 0);
+(8393, 1, '2016-07-04 11:32:34', '2016-07-04 10:32:34', '{{sender.name}} sent you a new message: &quot;{{usersubject}}&quot;\n\n<blockquote>&quot;{{usermessage}}&quot;</blockquote>\n\n<a href="{{{message.url}}}">Go to the discussion</a> to reply or catch up on the conversation.', '[{{{site.name}}}] New message from {{sender.name}}', '{{sender.name}} sent you a new message: &quot;{{usersubject}}&quot;\n\n&quot;{{usermessage}}&quot;\n\nGo to the discussion to reply or catch up on the conversation: {{{message.url}}}', 'publish', 'closed', 'closed', '', 'site-name-new-message-from-sender-name', '', '', '2016-07-04 11:32:34', '2016-07-04 10:32:34', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/site-name-new-message-from-sender-name/', 0, 'bp-email', '', 0),
+(8394, 1, '2016-07-04 11:32:34', '2016-07-04 10:32:34', 'You recently changed the email address associated with your account on {{site.name}}. If this is correct, <a href="{{{verify.url}}}">go here to confirm the change</a>.\n\nOtherwise, you can safely ignore and delete this email if you have changed your mind, or if you think you have received this email in error.', '[{{{site.name}}}] Verify your new email address', 'You recently changed the email address associated with your account on {{site.name}}. If this is correct, go to the following link to confirm the change: {{{verify.url}}}\n\nOtherwise, you can safely ignore and delete this email if you have changed your mind, or if you think you have received this email in error.', 'publish', 'closed', 'closed', '', 'site-name-verify-your-new-email-address', '', '', '2016-07-04 11:32:34', '2016-07-04 10:32:34', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/site-name-verify-your-new-email-address/', 0, 'bp-email', '', 0),
+(8395, 1, '2016-07-04 11:32:35', '2016-07-04 10:32:35', 'Your membership request for the group &quot;<a href="{{{group.url}}}">{{group.name}}</a>&quot; has been accepted.', '[{{{site.name}}}] Membership request for group "{{group.name}}" accepted', 'Your membership request for the group &quot;{{group.name}}&quot; has been accepted.\n\nTo view the group, visit: {{{group.url}}}', 'publish', 'closed', 'closed', '', 'site-name-membership-request-for-group-group-name-accepted', '', '', '2016-07-04 11:32:35', '2016-07-04 10:32:35', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/site-name-membership-request-for-group-group-name-accepted/', 0, 'bp-email', '', 0),
+(8396, 1, '2016-07-04 11:32:35', '2016-07-04 10:32:35', 'Your membership request for the group &quot;<a href="{{{group.url}}}">{{group.name}}</a>&quot; has been rejected.', '[{{{site.name}}}] Membership request for group "{{group.name}}" rejected', 'Your membership request for the group &quot;{{group.name}}&quot; has been rejected.\n\nTo request membership again, visit: {{{group.url}}}', 'publish', 'closed', 'closed', '', 'site-name-membership-request-for-group-group-name-rejected', '', '', '2016-07-04 11:32:35', '2016-07-04 10:32:35', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/site-name-membership-request-for-group-group-name-rejected/', 0, 'bp-email', '', 0),
+(8397, 0, '2019-05-13 09:44:48', '2019-05-13 07:44:48', '<strong style="color: #990000">What can you achieve using Email Subscribers?</strong><p>Add subscription forms on website, send HTML newsletters &amp; automatically notify subscribers about new blog posts once it is published. You can also Import or Export subscribers from any list to Email Subscribers.</p> <strong style="color: #990000">Plugin Features</strong><ol> <li>Send notification emails to subscribers when new blog posts are published.</li> <li>Subscribe form available with 3 options to setup.</li> <li>Double Opt-In and Single Opt-In support.</li> <li>Email notification to admin when a new user signs up (Optional).</li> <li>Automatic welcome email to subscriber.</li> <li>Auto add unsubscribe link in the email.</li> <li>Import/Export subscriber emails to migrate to any lists.</li> <li>Default WordPress editor to create emails.</li> </ol> <strong>Thanks &amp; Regards,</strong><br>Admin', 'Welcome To Email Subscribers', '', 'publish', 'closed', 'closed', '', 'welcome-to-email-subscribers', '', '', '2019-05-13 09:44:48', '2019-05-13 07:44:48', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/welcome-to-email-subscribers/', 0, 'es_template', '', 0),
+(8398, 0, '2019-05-13 09:44:48', '2019-05-13 07:44:48', 'Hello {{NAME}},\r\n\r\nWe have published a new blog article on our website : {{POSTTITLE}}\r\n{{POSTIMAGE}}\r\n\r\nYou can view it from this link : {{POSTLINK}}\r\n\r\nThanks &amp; Regards,\r\nAdmin\r\n\r\nYou received this email because in the past you have provided us your email address : {{EMAIL}} to receive notifications when new updates are posted.', 'New Post Published - {{POSTTITLE}}', '', 'publish', 'closed', 'closed', '', 'new-post-published-posttitle', '', '', '2019-05-13 09:44:48', '2019-05-13 07:44:48', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/new-post-published-posttitle/', 0, 'es_template', '', 0),
+(8399, 0, '2019-05-13 09:44:48', '2019-05-13 07:44:48', '{{{ia.content}}}<br /><hr><a href="{{{ia.accept_url}}}">Accepteu o rebutgeu aquesta invitació</a> &middot; <a href="{{{ia.opt_out_url}}}">Desactiveu les invitacions futures</a>', '[{{{site.name}}}] {{{ia.subject}}}', '{{{ia.content_plaintext}}}', 'publish', 'closed', 'closed', '', 'site-name-ia-subject', '', '', '2019-05-13 09:44:48', '2019-05-13 07:44:48', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/site-name-ia-subject/', 0, 'bp-email', '', 0),
+(8400, 2, '2019-05-13 12:41:28', '2019-05-13 10:41:28', '{{{ges.action}}}:\n\n<blockquote>{{{usermessage}}}</blockquote>\n&ndash;\n<a href="{{{thread.url}}}">Ves a la discussió</a> per respondre o posar-se al dia de la conversa.\n{{{ges.email-setting-description}}}', '[{{{site.name}}}] {{{ges.subject}}}', '{{{ges.action}}}:\n\n"{{{usermessage}}}"\n\nVes a la discussió per respondre o posar-te al dia de la conversa:\n{{{thread.url}}}\n\n----\n\n{{{ges.email-setting-description}}}\n\n{{{ges.email-setting-links}}}', 'publish', 'closed', 'closed', '', 'site-name-ges-subject', '', '', '2019-05-13 12:41:28', '2019-05-13 10:41:28', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/site-name-ges-subject/', 0, 'bp-email', '', 0),
+(8401, 2, '2019-05-13 12:41:28', '2019-05-13 10:41:28', '{{{ges.digest-summary}}}{{{usermessage}}}\n&ndash;\nHeu rebut aquest missatge perquè esteu subscrit per rebre el resum de l''activitat en algun dels vostres grups a {{site.name}}.', '[{{{site.name}}}] {{{ges.subject}}}', '{{{ges.digest-summary}}}\n\n{{{usermessage}}}\n\n----\n\nHeu rebut aquest missatge perquè esteu subscrit per rebre el resum de l''activitat en algun dels vostres grups a {{{site.name}}}.\n\nPer desactivar aquestes notificacions per grup, inicieu sessió i [visiteu la pàgina dels vostres grups]({{{ges.settings-link}}}) on podreu gestionar la configuració del correu per cada grup.', 'publish', 'closed', 'closed', '', 'site-name-ges-subject-2', '', '', '2019-05-13 12:41:28', '2019-05-13 10:41:28', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/site-name-ges-subject-2/', 0, 'bp-email', '', 0),
+(8402, 2, '2019-05-13 12:41:28', '2019-05-13 10:41:28', 'Aquesta és una notificació del grup {{{group.link}}}:\n\n{{{usermessage}}}\n\n&ndash;\n<strong>Tingueu en compte:</strong> les notificacions d''administració s''envien a tothom del node i no es poden deshabilitar.\nSi creieu que el servei s''està utilitzant malament contacteu amb l''administrador del lloc web.', '[{{{site.name}}}] {{{ges.subject}}} - del node "{{{group.name}}}"', 'Aquesta és una notificació del grup "{{{group.name}}}":\n\n"{{{usermessage}}}"\n\n----\n\nTingueu en compte: les notificacions d''administració s''envien a tothom del node i no es poden deshabilitar.\n\nSi creieu que el servei s''està utilitzant malament contacteu amb l''administrador del lloc web.\n\nVisiteu la pàgina d''inici del node en aquest enllaç:\n{{{group.url}}}', 'publish', 'closed', 'closed', '', 'site-name-ges-subject-del-node-group-name', '', '', '2019-05-13 12:41:28', '2019-05-13 10:41:28', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/site-name-ges-subject-del-node-group-name/', 0, 'bp-email', '', 0),
+(8403, 2, '2019-05-13 12:41:28', '2019-05-13 10:41:28', '{{{usermessage}}}', '[{{{site.name}}}] {{{ges.subject}}}', '{{{usermessage}}}', 'publish', 'closed', 'closed', '', 'site-name-ges-subject-3', '', '', '2019-05-13 12:41:28', '2019-05-13 10:41:28', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/general/site-name-ges-subject-3/', 0, 'bp-email', '', 0),
+(8404, 2, '2019-05-13 12:42:43', '0000-00-00 00:00:00', '', 'Esborrany automàtic', '', 'auto-draft', 'open', 'open', '', '', '', '', '2019-05-13 12:42:43', '0000-00-00 00:00:00', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercda/?p=8404', 0, 'post', '', 0);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_signups`
+-- Estructura de la taula `wp_signups`
 --
 
-CREATE TABLE `wp_signups` (
-  `signup_id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_signups` (
+`signup_id` bigint(20) NOT NULL,
   `domain` varchar(200) NOT NULL DEFAULT '',
   `path` varchar(100) NOT NULL DEFAULT '',
   `title` longtext NOT NULL,
@@ -3416,22 +3523,17 @@ CREATE TABLE `wp_signups` (
   `activated` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `active` tinyint(1) NOT NULL DEFAULT '0',
   `activation_key` varchar(50) NOT NULL DEFAULT '',
-  `meta` longtext,
-  PRIMARY KEY (`signup_id`),
-  KEY `activation_key` (`activation_key`),
-  KEY `user_email` (`user_email`),
-  KEY `user_login_email` (`user_login`,`user_email`),
-  KEY `domain_path` (`domain`,`path`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `meta` longtext
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_stats`
+-- Estructura de la taula `wp_stats`
 --
 
-CREATE TABLE `wp_stats` (
-  `stat_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_stats` (
+`stat_id` int(11) NOT NULL,
   `datetime` datetime NOT NULL DEFAULT '1970-01-01 00:00:00',
   `ip` varchar(15) NOT NULL,
   `ipForward` varchar(15) NOT NULL,
@@ -3442,50 +3544,37 @@ CREATE TABLE `wp_stats` (
   `isadmin` tinyint(4) NOT NULL DEFAULT '0',
   `username` varchar(60) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `content` longtext,
-  PRIMARY KEY (`stat_id`),
-  KEY `uid` (`uid`),
-  KEY `ip` (`ip`),
-  KEY `ipForward` (`ipForward`),
-  KEY `ipClient` (`ipClient`),
-  KEY `userAgent` (`userAgent`),
-  KEY `isadmin` (`isadmin`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `content` longtext
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_termmeta`
+-- Estructura de la taula `wp_termmeta`
 --
 
-CREATE TABLE `wp_termmeta` (
-  `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_termmeta` (
+`meta_id` bigint(20) unsigned NOT NULL,
   `term_id` bigint(20) unsigned NOT NULL DEFAULT '0',
   `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_ci,
-  PRIMARY KEY (`meta_id`),
-  KEY `term_id` (`term_id`),
-  KEY `meta_key` (`meta_key`(191))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=1 ;
+  `meta_value` longtext COLLATE utf8mb4_unicode_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_terms`
+-- Estructura de la taula `wp_terms`
 --
 
-CREATE TABLE `wp_terms` (
-  `term_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_terms` (
+`term_id` bigint(20) unsigned NOT NULL,
   `name` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `slug` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `term_group` bigint(10) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`term_id`),
-  KEY `name` (`name`(191)),
-  KEY `slug` (`slug`(191))
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=304 ;
+  `term_group` bigint(10) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=309 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `wp_terms`
+-- Bolcant dades de la taula `wp_terms`
 --
 
 INSERT INTO `wp_terms` (`term_id`, `name`, `slug`, `term_group`) VALUES
@@ -3564,24 +3653,27 @@ INSERT INTO `wp_terms` (`term_id`, `name`, `slug`, `term_group`) VALUES
 (300, 'groups-membership-request-accepted', 'groups-membership-request-accepted', 0),
 (301, 'groups-membership-request-rejected', 'groups-membership-request-rejected', 0),
 (302, 'google', 'google', 0),
-(303, 'default-calendar', 'default-calendar', 0);
+(303, 'default-calendar', 'default-calendar', 0),
+(304, 'invite-anyone-invitation', 'invite-anyone-invitation', 0),
+(305, 'bp-ges-single', 'bp-ges-single', 0),
+(306, 'bp-ges-digest', 'bp-ges-digest', 0),
+(307, 'bp-ges-notice', 'bp-ges-notice', 0),
+(308, 'bp-ges-welcome', 'bp-ges-welcome', 0);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_term_relationships`
+-- Estructura de la taula `wp_term_relationships`
 --
 
-CREATE TABLE `wp_term_relationships` (
+CREATE TABLE IF NOT EXISTS `wp_term_relationships` (
   `object_id` bigint(20) unsigned NOT NULL DEFAULT '0',
   `term_taxonomy_id` bigint(20) unsigned NOT NULL DEFAULT '0',
-  `term_order` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`object_id`,`term_taxonomy_id`),
-  KEY `term_taxonomy_id` (`term_taxonomy_id`)
+  `term_order` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `wp_term_relationships`
+-- Bolcant dades de la taula `wp_term_relationships`
 --
 
 INSERT INTO `wp_term_relationships` (`object_id`, `term_taxonomy_id`, `term_order`) VALUES
@@ -3759,28 +3851,30 @@ INSERT INTO `wp_term_relationships` (`object_id`, `term_taxonomy_id`, `term_orde
 (8393, 302, 0),
 (8394, 303, 0),
 (8395, 304, 0),
-(8396, 305, 0);
+(8396, 305, 0),
+(8399, 308, 0),
+(8400, 309, 0),
+(8401, 310, 0),
+(8402, 311, 0),
+(8403, 312, 0);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_term_taxonomy`
+-- Estructura de la taula `wp_term_taxonomy`
 --
 
-CREATE TABLE `wp_term_taxonomy` (
-  `term_taxonomy_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_term_taxonomy` (
+`term_taxonomy_id` bigint(20) unsigned NOT NULL,
   `term_id` bigint(20) unsigned NOT NULL DEFAULT '0',
   `taxonomy` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `parent` bigint(20) unsigned NOT NULL DEFAULT '0',
-  `count` bigint(20) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`term_taxonomy_id`),
-  UNIQUE KEY `term_id_taxonomy` (`term_id`,`taxonomy`),
-  KEY `taxonomy` (`taxonomy`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=308 ;
+  `count` bigint(20) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=313 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `wp_term_taxonomy`
+-- Bolcant dades de la taula `wp_term_taxonomy`
 --
 
 INSERT INTO `wp_term_taxonomy` (`term_taxonomy_id`, `term_id`, `taxonomy`, `description`, `parent`, `count`) VALUES
@@ -3859,26 +3953,28 @@ INSERT INTO `wp_term_taxonomy` (`term_taxonomy_id`, `term_id`, `taxonomy`, `desc
 (304, 300, 'bp-email-type', 'Recipient had requested to join a group, which was accepted.', 0, 0),
 (305, 301, 'bp-email-type', 'Recipient had requested to join a group, which was rejected.', 0, 0),
 (306, 302, 'calendar_feed', '', 0, 2),
-(307, 303, 'calendar_type', '', 0, 2);
+(307, 303, 'calendar_type', '', 0, 2),
+(308, 304, 'bp-email-type', 'Es convida un usuari a unir-se al lloc per correu electrònic. Utilitzat pel connector Invite Anyone.', 0, 0),
+(309, 305, 'bp-email-type', 'Un membre ha creat una activitat grupal. Utilitzat pel connector de Subscripció de correu electrònic del node durant enviaments immediats.', 0, 0),
+(310, 306, 'bp-email-type', 'S''ha enviat un correu de resum a un membre. Utilitzat pel connector de Subscripció de correu electrònic del node durant els enviaments de resums diaris o setmanals.', 0, 0),
+(311, 307, 'bp-email-type', 'L''administrador del node ha enviat una notificació a tots els membres del grup. Utilitzat pel connector de Subscripció de correu electrònic del node.', 0, 0),
+(312, 308, 'bp-email-type', 'S''ha enviat un correu de benvinguda als nous membres del node. Utilitzat pel connector de Subscripció de correu electrònic del node.', 0, 0);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_usermeta`
+-- Estructura de la taula `wp_usermeta`
 --
 
-CREATE TABLE `wp_usermeta` (
-  `umeta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_usermeta` (
+`umeta_id` bigint(20) unsigned NOT NULL,
   `user_id` bigint(20) unsigned NOT NULL DEFAULT '0',
   `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_ci,
-  PRIMARY KEY (`umeta_id`),
-  KEY `user_id` (`user_id`),
-  KEY `meta_key` (`meta_key`(191))
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=195 ;
+  `meta_value` longtext COLLATE utf8mb4_unicode_ci
+) ENGINE=InnoDB AUTO_INCREMENT=195 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `wp_usermeta`
+-- Bolcant dades de la taula `wp_usermeta`
 --
 
 INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALUES
@@ -3907,7 +4003,7 @@ INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALU
 (23, 2, 'show_admin_bar_front', 'true'),
 (24, 2, 'wp_capabilities', 'a:2:{s:13:"administrator";b:1;s:13:"bbp_keymaster";b:1;}'),
 (25, 2, 'wp_user_level', '10'),
-(26, 2, 'dismissed_wp_pointers', 'wp350_media,wp360_revisions,wp360_locks,wp390_widgets,wp410_dfw,addtoany_settings_pointer'),
+(26, 2, 'dismissed_wp_pointers', 'wp350_media,wp360_revisions,wp360_locks,wp390_widgets,wp410_dfw,addtoany_settings_pointer,wp496_privacy'),
 (27, 2, 'wp_dashboard_quick_press_last_post_id', '4'),
 (28, 2, 'last_activity', '2017-02-23 12:24:08'),
 (29, 2, 'closedpostboxes_slideshow', 'a:1:{i:2;s:5:"style";}'),
@@ -3957,16 +4053,16 @@ INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALU
 (180, 1, 'bp_docs_count', '24'),
 (192, 1, 'session_tokens', 'a:4:{s:64:"82795c3aa3860d47fd3c665418da41dbf5d08f0a4d184d1724a7edb284769b6f";a:4:{s:10:"expiration";i:1466612016;s:2:"ip";s:11:"10.155.7.35";s:2:"ua";s:104:"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.75 Safari/537.36";s:5:"login";i:1466439216;}s:64:"c2a0697dd3ba972609ad96e426e3af8a752c2a62555df258deec11325a6e224e";a:4:{s:10:"expiration";i:1466667737;s:2:"ip";s:11:"10.155.7.35";s:2:"ua";s:104:"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.75 Safari/537.36";s:5:"login";i:1466494937;}s:64:"50e172edfc6165cfb063900399067858dbf0b6e071cd2334982d93ee732f25c7";a:4:{s:10:"expiration";i:1466761501;s:2:"ip";s:11:"10.155.7.35";s:2:"ua";s:104:"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.75 Safari/537.36";s:5:"login";i:1466588701;}s:64:"09d662ac148cefa0811aadbcbd0775b29e8dafe5d08fe4eed77f8771195a112d";a:4:{s:10:"expiration";i:1466775882;s:2:"ip";s:11:"10.155.7.35";s:2:"ua";s:104:"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.75 Safari/537.36";s:5:"login";i:1466603082;}}'),
 (193, 1, 'wp_media_library_mode', 'list'),
-(194, 2, 'session_tokens', 'a:1:{s:64:"a17a7abc8ecbed8c4f2a56e1d57567a827f43fd46c2cf6ea1dad4b5fe2ba65d2";a:4:{s:10:"expiration";i:1488021847;s:2:"ip";s:11:"10.155.7.35";s:2:"ua";s:76:"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:51.0) Gecko/20100101 Firefox/51.0";s:5:"login";i:1487849047;}}');
+(194, 2, 'session_tokens', 'a:1:{s:64:"2f922a6ab5b2c3631358fa59cf4bc5edf40232144447d237513a5838f63da216";a:4:{s:10:"expiration";i:1557916874;s:2:"ip";s:11:"10.155.7.35";s:2:"ua";s:76:"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0";s:5:"login";i:1557744074;}}');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_users`
+-- Estructura de la taula `wp_users`
 --
 
-CREATE TABLE `wp_users` (
-  `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_users` (
+`ID` bigint(20) unsigned NOT NULL,
   `user_login` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `user_pass` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `user_nicename` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
@@ -3975,15 +4071,11 @@ CREATE TABLE `wp_users` (
   `user_registered` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `user_activation_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `user_status` int(11) NOT NULL DEFAULT '0',
-  `display_name` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  PRIMARY KEY (`ID`),
-  KEY `user_login_key` (`user_login`),
-  KEY `user_nicename` (`user_nicename`),
-  KEY `user_email` (`user_email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=3 ;
+  `display_name` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `wp_users`
+-- Bolcant dades de la taula `wp_users`
 --
 
 INSERT INTO `wp_users` (`ID`, `user_login`, `user_pass`, `user_nicename`, `user_email`, `user_url`, `user_registered`, `user_activation_key`, `user_status`, `display_name`) VALUES
@@ -3993,31 +4085,28 @@ INSERT INTO `wp_users` (`ID`, `user_login`, `user_pass`, `user_nicename`, `user_
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_wsluserscontacts`
+-- Estructura de la taula `wp_wsluserscontacts`
 --
 
-CREATE TABLE `wp_wsluserscontacts` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_wsluserscontacts` (
+`id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `provider` varchar(50) NOT NULL,
   `identifier` varchar(255) NOT NULL,
   `full_name` varchar(150) NOT NULL,
   `email` varchar(255) NOT NULL,
   `profile_url` varchar(255) NOT NULL,
-  `photo_url` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id` (`id`),
-  KEY `user_id` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `photo_url` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_wslusersprofiles`
+-- Estructura de la taula `wp_wslusersprofiles`
 --
 
-CREATE TABLE `wp_wslusersprofiles` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_wslusersprofiles` (
+`id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `provider` varchar(50) NOT NULL,
   `object_sha` varchar(45) NOT NULL,
@@ -4042,13 +4131,497 @@ CREATE TABLE `wp_wslusersprofiles` (
   `country` varchar(75) NOT NULL,
   `region` varchar(50) NOT NULL,
   `city` varchar(50) NOT NULL,
-  `zip` varchar(25) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id` (`id`),
-  KEY `user_id` (`user_id`),
-  KEY `provider` (`provider`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `zip` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `wp_bpges_queued_items`
+--
+ALTER TABLE `wp_bpges_queued_items`
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `user_group_activity_type` (`user_id`,`group_id`,`activity_id`,`type`), ADD KEY `user_id` (`user_id`), ADD KEY `group_id` (`group_id`), ADD KEY `activity_id` (`activity_id`), ADD KEY `user_group_type_date` (`user_id`,`type`,`date_recorded`);
+
+--
+-- Indexes for table `wp_bpges_subscriptions`
+--
+ALTER TABLE `wp_bpges_subscriptions`
+ ADD PRIMARY KEY (`id`), ADD KEY `user_id` (`user_id`), ADD KEY `group_id` (`group_id`), ADD KEY `user_type` (`user_id`,`type`);
+
+--
+-- Indexes for table `wp_bp_activity`
+--
+ALTER TABLE `wp_bp_activity`
+ ADD PRIMARY KEY (`id`), ADD KEY `date_recorded` (`date_recorded`), ADD KEY `user_id` (`user_id`), ADD KEY `item_id` (`item_id`), ADD KEY `secondary_item_id` (`secondary_item_id`), ADD KEY `component` (`component`), ADD KEY `type` (`type`), ADD KEY `mptt_left` (`mptt_left`), ADD KEY `mptt_right` (`mptt_right`), ADD KEY `hide_sitewide` (`hide_sitewide`), ADD KEY `is_spam` (`is_spam`);
+
+--
+-- Indexes for table `wp_bp_activity_meta`
+--
+ALTER TABLE `wp_bp_activity_meta`
+ ADD PRIMARY KEY (`id`), ADD KEY `activity_id` (`activity_id`), ADD KEY `meta_key` (`meta_key`(191));
+
+--
+-- Indexes for table `wp_bp_friends`
+--
+ALTER TABLE `wp_bp_friends`
+ ADD PRIMARY KEY (`id`), ADD KEY `initiator_user_id` (`initiator_user_id`), ADD KEY `friend_user_id` (`friend_user_id`);
+
+--
+-- Indexes for table `wp_bp_groups`
+--
+ALTER TABLE `wp_bp_groups`
+ ADD PRIMARY KEY (`id`), ADD KEY `creator_id` (`creator_id`), ADD KEY `status` (`status`), ADD KEY `parent_id` (`parent_id`);
+
+--
+-- Indexes for table `wp_bp_groups_groupmeta`
+--
+ALTER TABLE `wp_bp_groups_groupmeta`
+ ADD PRIMARY KEY (`id`), ADD KEY `group_id` (`group_id`), ADD KEY `meta_key` (`meta_key`(191));
+
+--
+-- Indexes for table `wp_bp_groups_members`
+--
+ALTER TABLE `wp_bp_groups_members`
+ ADD PRIMARY KEY (`id`), ADD KEY `group_id` (`group_id`), ADD KEY `is_admin` (`is_admin`), ADD KEY `is_mod` (`is_mod`), ADD KEY `user_id` (`user_id`), ADD KEY `inviter_id` (`inviter_id`), ADD KEY `is_confirmed` (`is_confirmed`);
+
+--
+-- Indexes for table `wp_bp_messages_messages`
+--
+ALTER TABLE `wp_bp_messages_messages`
+ ADD PRIMARY KEY (`id`), ADD KEY `sender_id` (`sender_id`), ADD KEY `thread_id` (`thread_id`);
+
+--
+-- Indexes for table `wp_bp_messages_meta`
+--
+ALTER TABLE `wp_bp_messages_meta`
+ ADD PRIMARY KEY (`id`), ADD KEY `message_id` (`message_id`), ADD KEY `meta_key` (`meta_key`(191));
+
+--
+-- Indexes for table `wp_bp_messages_notices`
+--
+ALTER TABLE `wp_bp_messages_notices`
+ ADD PRIMARY KEY (`id`), ADD KEY `is_active` (`is_active`);
+
+--
+-- Indexes for table `wp_bp_messages_recipients`
+--
+ALTER TABLE `wp_bp_messages_recipients`
+ ADD PRIMARY KEY (`id`), ADD KEY `user_id` (`user_id`), ADD KEY `thread_id` (`thread_id`), ADD KEY `is_deleted` (`is_deleted`), ADD KEY `sender_only` (`sender_only`), ADD KEY `unread_count` (`unread_count`);
+
+--
+-- Indexes for table `wp_bp_mod_contents`
+--
+ALTER TABLE `wp_bp_mod_contents`
+ ADD PRIMARY KEY (`content_id`), ADD KEY `item_type` (`item_type`), ADD KEY `item_id` (`item_id`), ADD KEY `item_id2` (`item_id2`), ADD KEY `item_author` (`item_author`), ADD KEY `item_date` (`item_date`), ADD KEY `status` (`status`);
+
+--
+-- Indexes for table `wp_bp_mod_flags`
+--
+ALTER TABLE `wp_bp_mod_flags`
+ ADD PRIMARY KEY (`flag_id`), ADD KEY `content_id` (`content_id`), ADD KEY `reporter_id` (`reporter_id`), ADD KEY `date` (`date`);
+
+--
+-- Indexes for table `wp_bp_notifications`
+--
+ALTER TABLE `wp_bp_notifications`
+ ADD PRIMARY KEY (`id`), ADD KEY `item_id` (`item_id`), ADD KEY `secondary_item_id` (`secondary_item_id`), ADD KEY `user_id` (`user_id`), ADD KEY `is_new` (`is_new`), ADD KEY `component_name` (`component_name`), ADD KEY `component_action` (`component_action`), ADD KEY `useritem` (`user_id`,`is_new`);
+
+--
+-- Indexes for table `wp_bp_notifications_meta`
+--
+ALTER TABLE `wp_bp_notifications_meta`
+ ADD PRIMARY KEY (`id`), ADD KEY `notification_id` (`notification_id`), ADD KEY `meta_key` (`meta_key`(191));
+
+--
+-- Indexes for table `wp_bp_xprofile_data`
+--
+ALTER TABLE `wp_bp_xprofile_data`
+ ADD PRIMARY KEY (`id`), ADD KEY `field_id` (`field_id`), ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `wp_bp_xprofile_fields`
+--
+ALTER TABLE `wp_bp_xprofile_fields`
+ ADD PRIMARY KEY (`id`), ADD KEY `group_id` (`group_id`), ADD KEY `parent_id` (`parent_id`), ADD KEY `field_order` (`field_order`), ADD KEY `can_delete` (`can_delete`), ADD KEY `is_required` (`is_required`);
+
+--
+-- Indexes for table `wp_bp_xprofile_groups`
+--
+ALTER TABLE `wp_bp_xprofile_groups`
+ ADD PRIMARY KEY (`id`), ADD KEY `can_delete` (`can_delete`);
+
+--
+-- Indexes for table `wp_bp_xprofile_meta`
+--
+ALTER TABLE `wp_bp_xprofile_meta`
+ ADD PRIMARY KEY (`id`), ADD KEY `object_id` (`object_id`), ADD KEY `meta_key` (`meta_key`(191));
+
+--
+-- Indexes for table `wp_commentmeta`
+--
+ALTER TABLE `wp_commentmeta`
+ ADD PRIMARY KEY (`meta_id`), ADD KEY `comment_id` (`comment_id`), ADD KEY `meta_key` (`meta_key`(191));
+
+--
+-- Indexes for table `wp_comments`
+--
+ALTER TABLE `wp_comments`
+ ADD PRIMARY KEY (`comment_ID`), ADD KEY `comment_post_ID` (`comment_post_ID`), ADD KEY `comment_approved_date_gmt` (`comment_approved`,`comment_date_gmt`), ADD KEY `comment_date_gmt` (`comment_date_gmt`), ADD KEY `comment_parent` (`comment_parent`), ADD KEY `comment_author_email` (`comment_author_email`(10));
+
+--
+-- Indexes for table `wp_ig_blocked_emails`
+--
+ALTER TABLE `wp_ig_blocked_emails`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `wp_ig_campaigns`
+--
+ALTER TABLE `wp_ig_campaigns`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `wp_ig_contacts`
+--
+ALTER TABLE `wp_ig_contacts`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `wp_ig_contacts_ips`
+--
+ALTER TABLE `wp_ig_contacts_ips`
+ ADD PRIMARY KEY (`created_on`,`ip`), ADD KEY `ip` (`ip`);
+
+--
+-- Indexes for table `wp_ig_forms`
+--
+ALTER TABLE `wp_ig_forms`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `wp_ig_lists`
+--
+ALTER TABLE `wp_ig_lists`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `wp_ig_lists_contacts`
+--
+ALTER TABLE `wp_ig_lists_contacts`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `wp_ig_mailing_queue`
+--
+ALTER TABLE `wp_ig_mailing_queue`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `wp_ig_sending_queue`
+--
+ALTER TABLE `wp_ig_sending_queue`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `wp_links`
+--
+ALTER TABLE `wp_links`
+ ADD PRIMARY KEY (`link_id`), ADD KEY `link_visible` (`link_visible`);
+
+--
+-- Indexes for table `wp_options`
+--
+ALTER TABLE `wp_options`
+ ADD PRIMARY KEY (`option_id`), ADD UNIQUE KEY `option_name` (`option_name`);
+
+--
+-- Indexes for table `wp_postmeta`
+--
+ALTER TABLE `wp_postmeta`
+ ADD PRIMARY KEY (`meta_id`), ADD KEY `post_id` (`post_id`), ADD KEY `meta_key` (`meta_key`(191));
+
+--
+-- Indexes for table `wp_posts`
+--
+ALTER TABLE `wp_posts`
+ ADD PRIMARY KEY (`ID`), ADD KEY `type_status_date` (`post_type`,`post_status`,`post_date`,`ID`), ADD KEY `post_parent` (`post_parent`), ADD KEY `post_author` (`post_author`), ADD KEY `post_name` (`post_name`(191));
+
+--
+-- Indexes for table `wp_signups`
+--
+ALTER TABLE `wp_signups`
+ ADD PRIMARY KEY (`signup_id`), ADD KEY `activation_key` (`activation_key`), ADD KEY `user_email` (`user_email`), ADD KEY `user_login_email` (`user_login`,`user_email`), ADD KEY `domain_path` (`domain`,`path`);
+
+--
+-- Indexes for table `wp_stats`
+--
+ALTER TABLE `wp_stats`
+ ADD PRIMARY KEY (`stat_id`), ADD KEY `uid` (`uid`), ADD KEY `ip` (`ip`), ADD KEY `ipForward` (`ipForward`), ADD KEY `ipClient` (`ipClient`), ADD KEY `userAgent` (`userAgent`), ADD KEY `isadmin` (`isadmin`);
+
+--
+-- Indexes for table `wp_termmeta`
+--
+ALTER TABLE `wp_termmeta`
+ ADD PRIMARY KEY (`meta_id`), ADD KEY `term_id` (`term_id`), ADD KEY `meta_key` (`meta_key`(191));
+
+--
+-- Indexes for table `wp_terms`
+--
+ALTER TABLE `wp_terms`
+ ADD PRIMARY KEY (`term_id`), ADD KEY `name` (`name`(191)), ADD KEY `slug` (`slug`(191));
+
+--
+-- Indexes for table `wp_term_relationships`
+--
+ALTER TABLE `wp_term_relationships`
+ ADD PRIMARY KEY (`object_id`,`term_taxonomy_id`), ADD KEY `term_taxonomy_id` (`term_taxonomy_id`);
+
+--
+-- Indexes for table `wp_term_taxonomy`
+--
+ALTER TABLE `wp_term_taxonomy`
+ ADD PRIMARY KEY (`term_taxonomy_id`), ADD UNIQUE KEY `term_id_taxonomy` (`term_id`,`taxonomy`), ADD KEY `taxonomy` (`taxonomy`);
+
+--
+-- Indexes for table `wp_usermeta`
+--
+ALTER TABLE `wp_usermeta`
+ ADD PRIMARY KEY (`umeta_id`), ADD KEY `user_id` (`user_id`), ADD KEY `meta_key` (`meta_key`(191));
+
+--
+-- Indexes for table `wp_users`
+--
+ALTER TABLE `wp_users`
+ ADD PRIMARY KEY (`ID`), ADD KEY `user_login_key` (`user_login`), ADD KEY `user_nicename` (`user_nicename`), ADD KEY `user_email` (`user_email`);
+
+--
+-- Indexes for table `wp_wsluserscontacts`
+--
+ALTER TABLE `wp_wsluserscontacts`
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `id` (`id`), ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `wp_wslusersprofiles`
+--
+ALTER TABLE `wp_wslusersprofiles`
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `id` (`id`), ADD KEY `user_id` (`user_id`), ADD KEY `provider` (`provider`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `wp_bpges_queued_items`
+--
+ALTER TABLE `wp_bpges_queued_items`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_bpges_subscriptions`
+--
+ALTER TABLE `wp_bpges_subscriptions`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `wp_bp_activity`
+--
+ALTER TABLE `wp_bp_activity`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=94;
+--
+-- AUTO_INCREMENT for table `wp_bp_activity_meta`
+--
+ALTER TABLE `wp_bp_activity_meta`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
+--
+-- AUTO_INCREMENT for table `wp_bp_friends`
+--
+ALTER TABLE `wp_bp_friends`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_bp_groups`
+--
+ALTER TABLE `wp_bp_groups`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=40;
+--
+-- AUTO_INCREMENT for table `wp_bp_groups_groupmeta`
+--
+ALTER TABLE `wp_bp_groups_groupmeta`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=271;
+--
+-- AUTO_INCREMENT for table `wp_bp_groups_members`
+--
+ALTER TABLE `wp_bp_groups_members`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=46;
+--
+-- AUTO_INCREMENT for table `wp_bp_messages_messages`
+--
+ALTER TABLE `wp_bp_messages_messages`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_bp_messages_meta`
+--
+ALTER TABLE `wp_bp_messages_meta`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_bp_messages_notices`
+--
+ALTER TABLE `wp_bp_messages_notices`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_bp_messages_recipients`
+--
+ALTER TABLE `wp_bp_messages_recipients`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_bp_mod_contents`
+--
+ALTER TABLE `wp_bp_mod_contents`
+MODIFY `content_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_bp_mod_flags`
+--
+ALTER TABLE `wp_bp_mod_flags`
+MODIFY `flag_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_bp_notifications`
+--
+ALTER TABLE `wp_bp_notifications`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_bp_notifications_meta`
+--
+ALTER TABLE `wp_bp_notifications_meta`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_bp_xprofile_data`
+--
+ALTER TABLE `wp_bp_xprofile_data`
+MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `wp_bp_xprofile_fields`
+--
+ALTER TABLE `wp_bp_xprofile_fields`
+MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `wp_bp_xprofile_groups`
+--
+ALTER TABLE `wp_bp_xprofile_groups`
+MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `wp_bp_xprofile_meta`
+--
+ALTER TABLE `wp_bp_xprofile_meta`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_commentmeta`
+--
+ALTER TABLE `wp_commentmeta`
+MODIFY `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_comments`
+--
+ALTER TABLE `wp_comments`
+MODIFY `comment_ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_ig_campaigns`
+--
+ALTER TABLE `wp_ig_campaigns`
+MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `wp_ig_contacts`
+--
+ALTER TABLE `wp_ig_contacts`
+MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `wp_ig_forms`
+--
+ALTER TABLE `wp_ig_forms`
+MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `wp_ig_lists`
+--
+ALTER TABLE `wp_ig_lists`
+MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `wp_ig_lists_contacts`
+--
+ALTER TABLE `wp_ig_lists_contacts`
+MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `wp_ig_mailing_queue`
+--
+ALTER TABLE `wp_ig_mailing_queue`
+MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_ig_sending_queue`
+--
+ALTER TABLE `wp_ig_sending_queue`
+MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_links`
+--
+ALTER TABLE `wp_links`
+MODIFY `link_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_options`
+--
+ALTER TABLE `wp_options`
+MODIFY `option_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10574;
+--
+-- AUTO_INCREMENT for table `wp_postmeta`
+--
+ALTER TABLE `wp_postmeta`
+MODIFY `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6028;
+--
+-- AUTO_INCREMENT for table `wp_posts`
+--
+ALTER TABLE `wp_posts`
+MODIFY `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8405;
+--
+-- AUTO_INCREMENT for table `wp_signups`
+--
+ALTER TABLE `wp_signups`
+MODIFY `signup_id` bigint(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_stats`
+--
+ALTER TABLE `wp_stats`
+MODIFY `stat_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_termmeta`
+--
+ALTER TABLE `wp_termmeta`
+MODIFY `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_terms`
+--
+ALTER TABLE `wp_terms`
+MODIFY `term_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=309;
+--
+-- AUTO_INCREMENT for table `wp_term_taxonomy`
+--
+ALTER TABLE `wp_term_taxonomy`
+MODIFY `term_taxonomy_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=313;
+--
+-- AUTO_INCREMENT for table `wp_usermeta`
+--
+ALTER TABLE `wp_usermeta`
+MODIFY `umeta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=195;
+--
+-- AUTO_INCREMENT for table `wp_users`
+--
+ALTER TABLE `wp_users`
+MODIFY `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `wp_wsluserscontacts`
+--
+ALTER TABLE `wp_wsluserscontacts`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_wslusersprofiles`
+--
+ALTER TABLE `wp_wslusersprofiles`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

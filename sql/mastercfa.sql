@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.3.2
+-- version 4.2.13.3
 -- http://www.phpmyadmin.net
 --
--- Servidor: pdb-int:3308
--- Tiempo de generación: 13-07-2017 a las 11:16:33
--- Versión del servidor: 5.6.35
--- Versión de PHP: 5.4.16
+-- Host: pdb-int:3308
+-- Generation Time: 18-10-2019 a les 12:55:01
+-- Versió del servidor: 5.6.35-log
+-- PHP Version: 7.0.27
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -17,17 +17,64 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de datos: `usu8`
+-- Database: `usu8`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_activity`
+-- Estructura de la taula `wp_bpges_queued_items`
 --
 
-CREATE TABLE `wp_bp_activity` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bpges_queued_items` (
+`id` bigint(20) NOT NULL,
+  `user_id` bigint(20) NOT NULL,
+  `group_id` bigint(20) NOT NULL,
+  `activity_id` bigint(20) NOT NULL,
+  `type` varchar(75) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `date_recorded` datetime NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de la taula `wp_bpges_subscriptions`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_bpges_subscriptions` (
+`id` bigint(20) NOT NULL,
+  `user_id` bigint(20) NOT NULL,
+  `group_id` bigint(20) NOT NULL,
+  `type` varchar(75) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Bolcant dades de la taula `wp_bpges_subscriptions`
+--
+
+INSERT INTO `wp_bpges_subscriptions` (`id`, `user_id`, `group_id`, `type`) VALUES
+(1, 1, 1, 'dig'),
+(2, 1, 3, 'dig'),
+(3, 1, 4, 'dig'),
+(4, 1, 6, 'dig'),
+(5, 1, 7, 'dig'),
+(6, 1, 8, 'dig'),
+(7, 1, 12, 'dig'),
+(8, 1, 13, 'dig'),
+(9, 1, 14, 'dig'),
+(10, 1, 15, 'dig'),
+(11, 1, 16, 'dig'),
+(12, 1, 17, 'dig'),
+(13, 1, 18, 'dig');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de la taula `wp_bp_activity`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_bp_activity` (
+`id` bigint(20) NOT NULL,
   `user_id` bigint(20) NOT NULL,
   `component` varchar(75) NOT NULL,
   `type` varchar(75) NOT NULL,
@@ -40,67 +87,53 @@ CREATE TABLE `wp_bp_activity` (
   `hide_sitewide` tinyint(1) DEFAULT '0',
   `mptt_left` int(11) NOT NULL DEFAULT '0',
   `mptt_right` int(11) NOT NULL DEFAULT '0',
-  `is_spam` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `date_recorded` (`date_recorded`),
-  KEY `user_id` (`user_id`),
-  KEY `item_id` (`item_id`),
-  KEY `secondary_item_id` (`secondary_item_id`),
-  KEY `component` (`component`),
-  KEY `type` (`type`),
-  KEY `mptt_left` (`mptt_left`),
-  KEY `mptt_right` (`mptt_right`),
-  KEY `hide_sitewide` (`hide_sitewide`),
-  KEY `is_spam` (`is_spam`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=57 ;
+  `is_spam` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `wp_bp_activity`
+-- Bolcant dades de la taula `wp_bp_activity`
 --
 
 INSERT INTO `wp_bp_activity` (`id`, `user_id`, `component`, `type`, `action`, `content`, `primary_link`, `item_id`, `secondary_item_id`, `date_recorded`, `hide_sitewide`, `mptt_left`, `mptt_right`, `is_spam`) VALUES
-(1, 2, 'members', 'last_activity', '', '', '', 0, NULL, '2017-01-17 11:32:42', 0, 0, 0, 0),
-(4, 1, 'groups', 'created_group', '<a href="http://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/" title="admin">admin</a> ha creat el node <a href="http://pwc-int.educacio.intranet/agora/mastercfa/nodes/dep-socials/">Dep. Socials</a>', '', 'http://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/', 3, 0, '2014-09-18 17:40:59', 1, 0, 0, 0),
-(5, 1, 'groups', 'activity_update', '<a href="http://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/" title="admin">admin</a> ha fet una actualització al node <a href="http://pwc-int.educacio.intranet/agora/mastercfa/nodes/dep-socials/">Dep. Socials</a>', 'Primer missatge al mur del Departament de Socials. ', 'http://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/', 3, 0, '2014-09-19 09:36:09', 1, 0, 0, 0),
+(1, 2, 'members', 'last_activity', '', '', '', 0, NULL, '2019-05-13 12:45:42', 0, 0, 0, 0),
+(4, 1, 'groups', 'created_group', '<a href="https://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/" title="admin">admin</a> ha creat el node <a href="https://pwc-int.educacio.intranet/agora/mastercfa/nodes/dep-socials/">Dep. Socials</a>', '', 'https://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/', 3, 0, '2014-09-18 17:40:59', 1, 0, 0, 0),
+(5, 1, 'groups', 'activity_update', '<a href="https://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/" title="admin">admin</a> ha fet una actualització al node <a href="https://pwc-int.educacio.intranet/agora/mastercfa/nodes/dep-socials/">Dep. Socials</a>', 'Primer missatge al mur del Departament de Socials. ', 'https://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/', 3, 0, '2014-09-19 09:36:09', 1, 0, 0, 0),
 (6, 1, 'members', 'last_activity', '', '', '', 0, NULL, '2014-10-24 12:33:00', 0, 0, 0, 0),
-(8, 1, 'groups', 'joined_group', '<a href="http://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/" title="admin">admin</a> s''ha afegit al node <a href="http://pwc-int.educacio.intranet/agora/mastercfa/nodes/dep-socials/">Dep. Socials</a>', '', 'http://pwc-int.educacio.intranet/agora/mastercfa/membres/xtecadmin/', 3, 0, '2014-09-19 10:03:51', 1, 0, 0, 0),
-(12, 1, 'groups', 'activity_update', '<a href="http://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/" title="admin">admin</a> ha fet una actualització al node <a href="http://pwc-int.educacio.intranet/agora/mastercfa/nodes/professorat/">Professorat</a>', 'Primer missatge al mur del professorat\n', 'http://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/', 1, 0, '2014-09-19 16:13:26', 1, 0, 0, 0),
-(13, 1, 'groups', 'created_group', '<a href="http://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/" title="admin">admin</a> ha creat el node <a href="http://pwc-int.educacio.intranet/agora/mastercfa/nodes/tecnologia/">Tecnologia</a>', '', 'http://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/', 4, 0, '2014-09-19 16:17:04', 1, 0, 0, 0),
-(16, 1, 'groups', 'created_group', '<a href="http://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/" title="admin">admin</a> ha creat el node <a href="http://pwc-int.educacio.intranet/agora/mastercfa/nodes/dep-catala-989465410/">Dep. Català</a>', '', 'http://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/', 6, 0, '2014-09-19 16:27:08', 1, 0, 0, 0),
-(17, 1, 'groups', 'created_group', '<a href="http://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/" title="admin">admin</a> ha creat el node <a href="http://pwc-int.educacio.intranet/agora/mastercfa/nodes/dep-castella/">Dep. Castellà</a>', '', 'http://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/', 7, 0, '2014-09-19 16:29:52', 1, 0, 0, 0),
-(18, 1, 'groups', 'created_group', '<a href="http://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/" title="admin">admin</a> ha creat el node <a href="http://pwc-int.educacio.intranet/agora/mastercfa/nodes/dep-llengues-estrangeres/">Dep. Llengües estrangeres</a>', '', 'http://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/', 8, 0, '2014-09-19 16:31:58', 1, 0, 0, 0),
-(23, 1, 'groups', 'created_group', '<a href="http://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/" title="admin">admin</a> ha creat el node <a href="http://pwc-int.educacio.intranet/agora/mastercfa/nodes/dep-orientacio/">Dep. Orientació</a>', '', 'http://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/', 12, 0, '2014-09-19 16:54:30', 1, 0, 0, 0),
-(24, 1, 'groups', 'created_group', '<a href="http://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/" title="admin">admin</a> ha creat el node <a href="http://pwc-int.educacio.intranet/agora/mastercfa/nodes/dep-informatica/">Dep. Informàtica</a>', '', 'http://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/', 13, 0, '2014-09-19 17:01:17', 1, 0, 0, 0),
-(34, 1, 'groups', 'activity_update', '<a href="http://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/" title="admin">admin</a> ha fet una actualització al node <a href="http://pwc-int.educacio.intranet/agora/mastercfa/nodes/educacio-emocional/">Educació emocional</a>', 'Un gran vídeo per reflexionar...\n\nhttps://www.youtube.com/watch?v=wSNYYThX5-g', 'http://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/', 14, 0, '2014-09-22 14:36:27', 0, 0, 0, 0),
-(35, 1, 'groups', 'bbp_topic_create', '<a href="http://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/" rel="nofollow">admin</a> ha començat <a href="http://pwc-int.educacio.intranet/agora/mastercfa/nodes/professorat/forum/topic/programa-redes-sobre-educacio-emocional/">Programa Redes sobre educació emocional</a> tema en el fòrum <a href="http://pwc-int.educacio.intranet/agora/mastercfa/nodes/professorat/forum/">Professorat</a>', 'Programa Redes sobre l''educació emocional. Molt interessant. Per reflexionar.\n\n\n\n<span><img src="http://img.irtve.es/css/rtve.commons/rtve.header.footer/i/logoRTVEes.png" alt="" /></span> <a title="El aprendizaje social y emocional" href="http://www.rtve.es/alacarta/videos/redes/redes-aprendizaje-social-20130526-2130-169/1839588/"><strong>El aprendizaje social y emocional</strong></a>\n', 'http://pwc-int.educacio.intranet/agora/mastercfa/nodes/professorat/forum/topic/programa-redes-sobre-educacio-emocional/', 1, 206, '2014-09-22 14:40:28', 1, 0, 0, 0),
-(36, 1, 'groups', 'bbp_topic_create', '<a href="http://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/" rel="nofollow">admin</a> ha començat <a href="http://pwc-int.educacio.intranet/agora/mastercfa/nodes/professorat/forum/topic/indefensio-apresa/">Indefensió apresa</a> tema en el fòrum <a href="http://pwc-int.educacio.intranet/agora/mastercfa/nodes/professorat/forum/">Professorat</a>', 'Un dels objectius de la xarxa Nodes és oferir espais perquè els alumnes es pugin expressar fora de l''aula. Pot ser una eina molt útil especialment pels alumnes que no destaquen pels seus resultats acadèmics i que tenen una baixa autoestima derivada d''una indefensió apresa a l''aula.\n\n', 'http://pwc-int.educacio.intranet/agora/mastercfa/nodes/professorat/forum/topic/indefensio-apresa/', 1, 207, '2014-09-22 14:46:13', 1, 0, 0, 0),
-(43, 1, 'groups', 'activity_update', '<a href="http://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/" title="admin">admin</a> ha fet una actualització al node <a href="http://pwc-int.educacio.intranet/agora/mastercfa/nodes/cinema/">Cinema</a>', 'Hola Noders! Avui des del node de cinema volem compartir un curtmetratge molt xulo, ple de fantasia.\n\nhttps://www.youtube.com/watch?v=p-yPn2FxxJw', 'http://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/', 15, 0, '2014-09-22 15:33:34', 0, 0, 0, 0),
-(45, 1, 'groups', 'activity_update', '<a href="http://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/" title="admin">admin</a> ha fet una actualització al node <a href="http://pwc-int.educacio.intranet/agora/mastercfa/nodes/fotografia/">Fotografia</a>', 'Una foto que vaig fer a Menorca, que us suggereix? \n[bpfb_images]\n1_0-42209200-1411400780_menorca_jmeler.jpg\n[/bpfb_images]', 'http://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/', 17, 0, '2014-09-22 15:46:20', 0, 0, 0, 0),
-(47, 1, 'groups', 'activity_update', '<a href="http://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/" title="admin">admin</a> ha fet una actualització al node <a href="http://pwc-int.educacio.intranet/agora/mastercfa/nodes/educacio-emocional/">Educació emocional</a>', 'Bon dia Noders! Avui us compartim un inquietant curtmetratge que ens ha de fer reflexionar sobre l’individualisme… és molt xulo… i fins i tot va guanyar un Oscar!\n\nhttps://www.youtube.com/watch?v=pRUGRPKRAWs', 'http://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/', 14, 0, '2014-09-22 15:59:20', 0, 0, 0, 0),
-(48, 1, 'groups', 'bbp_topic_create', '<a href="http://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/" rel="nofollow">admin</a> ha començat <a href="http://pwc-int.educacio.intranet/agora/mastercfa/nodes/professorat/forum/topic/documental-sobre-educacio-emocional/">Documental sobre educació Emocional</a> tema en el fòrum <a href="http://pwc-int.educacio.intranet/agora/mastercfa/nodes/professorat/forum/">Professorat</a>', 'Molt recomanable:\nhttps://www.youtube.com/watch?v=PQE4WqQSOcQ', 'http://pwc-int.educacio.intranet/agora/mastercfa/nodes/professorat/forum/topic/documental-sobre-educacio-emocional/', 1, 216, '2014-09-22 16:54:13', 1, 0, 0, 0),
-(50, 1, 'groups', 'bp_doc_edited', '<a href="http://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/" title="admin">admin</a> edited the doc <a href="http://pwc-int.educacio.intranet/agora/mastercfa/docs/document-a-google-drive/">Document a Google Drive</a> in the group <a href="http://pwc-int.educacio.intranet/agora/mastercfa/nodes/professorat/">Professorat</a>', '', 'http://pwc-int.educacio.intranet/agora/mastercfa/docs/document-a-google-drive/', 1, 230, '2014-10-23 15:07:51', 1, 0, 0, 0),
-(52, 1, 'groups', 'bp_doc_created', '<a href="http://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/" title="admin">admin</a> created the doc <a href="http://pwc-int.educacio.intranet/agora/mastercfa/docs/professorat-2/">Professorat</a> in the group <a href="http://pwc-int.educacio.intranet/agora/mastercfa/nodes/professorat/">Professorat</a>', '', 'http://pwc-int.educacio.intranet/agora/mastercfa/docs/professorat-2/', 1, 236, '2014-10-23 15:14:55', 1, 0, 0, 0),
-(54, 1, 'groups', 'bp_doc_edited', '<a href="http://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/" title="admin">admin</a> edited the doc <a href="http://pwc-int.educacio.intranet/agora/mastercfa/docs/document-a-google-drive/">Document a Google Drive</a> in the group <a href="http://pwc-int.educacio.intranet/agora/mastercfa/nodes/professorat/">Professorat</a>', '', 'http://pwc-int.educacio.intranet/agora/mastercfa/docs/document-a-google-drive/', 1, 230, '2014-10-23 15:15:49', 1, 0, 0, 0),
-(56, 1, 'groups', 'created_group', '<a href="http://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/" title="admin">admin</a> ha creat el node <a href="http://pwc-int.educacio.intranet/agora/mastercfa/nodes/frances/">Francès</a>', '', 'http://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/', 20, 0, '2015-01-28 11:07:16', 0, 0, 0, 0);
+(8, 1, 'groups', 'joined_group', '<a href="https://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/" title="admin">admin</a> s''ha afegit al node <a href="https://pwc-int.educacio.intranet/agora/mastercfa/nodes/dep-socials/">Dep. Socials</a>', '', 'https://pwc-int.educacio.intranet/agora/mastercfa/membres/xtecadmin/', 3, 0, '2014-09-19 10:03:51', 1, 0, 0, 0),
+(12, 1, 'groups', 'activity_update', '<a href="https://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/" title="admin">admin</a> ha fet una actualització al node <a href="https://pwc-int.educacio.intranet/agora/mastercfa/nodes/professorat/">Professorat</a>', 'Primer missatge al mur del professorat\n', 'https://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/', 1, 0, '2014-09-19 16:13:26', 1, 0, 0, 0),
+(13, 1, 'groups', 'created_group', '<a href="https://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/" title="admin">admin</a> ha creat el node <a href="https://pwc-int.educacio.intranet/agora/mastercfa/nodes/tecnologia/">Tecnologia</a>', '', 'https://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/', 4, 0, '2014-09-19 16:17:04', 1, 0, 0, 0),
+(16, 1, 'groups', 'created_group', '<a href="https://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/" title="admin">admin</a> ha creat el node <a href="https://pwc-int.educacio.intranet/agora/mastercfa/nodes/dep-catala-989465410/">Dep. Català</a>', '', 'https://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/', 6, 0, '2014-09-19 16:27:08', 1, 0, 0, 0),
+(17, 1, 'groups', 'created_group', '<a href="https://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/" title="admin">admin</a> ha creat el node <a href="https://pwc-int.educacio.intranet/agora/mastercfa/nodes/dep-castella/">Dep. Castellà</a>', '', 'https://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/', 7, 0, '2014-09-19 16:29:52', 1, 0, 0, 0),
+(18, 1, 'groups', 'created_group', '<a href="https://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/" title="admin">admin</a> ha creat el node <a href="https://pwc-int.educacio.intranet/agora/mastercfa/nodes/dep-llengues-estrangeres/">Dep. Llengües estrangeres</a>', '', 'https://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/', 8, 0, '2014-09-19 16:31:58', 1, 0, 0, 0),
+(23, 1, 'groups', 'created_group', '<a href="https://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/" title="admin">admin</a> ha creat el node <a href="https://pwc-int.educacio.intranet/agora/mastercfa/nodes/dep-orientacio/">Dep. Orientació</a>', '', 'https://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/', 12, 0, '2014-09-19 16:54:30', 1, 0, 0, 0),
+(24, 1, 'groups', 'created_group', '<a href="https://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/" title="admin">admin</a> ha creat el node <a href="https://pwc-int.educacio.intranet/agora/mastercfa/nodes/dep-informatica/">Dep. Informàtica</a>', '', 'https://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/', 13, 0, '2014-09-19 17:01:17', 1, 0, 0, 0),
+(34, 1, 'groups', 'activity_update', '<a href="https://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/" title="admin">admin</a> ha fet una actualització al node <a href="https://pwc-int.educacio.intranet/agora/mastercfa/nodes/educacio-emocional/">Educació emocional</a>', 'Un gran vídeo per reflexionar...\n\nhttps://www.youtube.com/watch?v=wSNYYThX5-g', 'https://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/', 14, 0, '2014-09-22 14:36:27', 0, 0, 0, 0),
+(35, 1, 'groups', 'bbp_topic_create', '<a href="https://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/" rel="nofollow">admin</a> ha començat <a href="https://pwc-int.educacio.intranet/agora/mastercfa/nodes/professorat/forum/topic/programa-redes-sobre-educacio-emocional/">Programa Redes sobre educació emocional</a> tema en el fòrum <a href="https://pwc-int.educacio.intranet/agora/mastercfa/nodes/professorat/forum/">Professorat</a>', 'Programa Redes sobre l''educació emocional. Molt interessant. Per reflexionar.\n\n\n\n<span><img src="http://img.irtve.es/css/rtve.commons/rtve.header.footer/i/logoRTVEes.png" alt="" /></span> <a title="El aprendizaje social y emocional" href="http://www.rtve.es/alacarta/videos/redes/redes-aprendizaje-social-20130526-2130-169/1839588/"><strong>El aprendizaje social y emocional</strong></a>\n', 'https://pwc-int.educacio.intranet/agora/mastercfa/nodes/professorat/forum/topic/programa-redes-sobre-educacio-emocional/', 1, 206, '2014-09-22 14:40:28', 1, 0, 0, 0),
+(36, 1, 'groups', 'bbp_topic_create', '<a href="https://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/" rel="nofollow">admin</a> ha començat <a href="https://pwc-int.educacio.intranet/agora/mastercfa/nodes/professorat/forum/topic/indefensio-apresa/">Indefensió apresa</a> tema en el fòrum <a href="https://pwc-int.educacio.intranet/agora/mastercfa/nodes/professorat/forum/">Professorat</a>', 'Un dels objectius de la xarxa Nodes és oferir espais perquè els alumnes es pugin expressar fora de l''aula. Pot ser una eina molt útil especialment pels alumnes que no destaquen pels seus resultats acadèmics i que tenen una baixa autoestima derivada d''una indefensió apresa a l''aula.\n\n', 'https://pwc-int.educacio.intranet/agora/mastercfa/nodes/professorat/forum/topic/indefensio-apresa/', 1, 207, '2014-09-22 14:46:13', 1, 0, 0, 0),
+(43, 1, 'groups', 'activity_update', '<a href="https://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/" title="admin">admin</a> ha fet una actualització al node <a href="https://pwc-int.educacio.intranet/agora/mastercfa/nodes/cinema/">Cinema</a>', 'Hola Noders! Avui des del node de cinema volem compartir un curtmetratge molt xulo, ple de fantasia.\n\nhttps://www.youtube.com/watch?v=p-yPn2FxxJw', 'https://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/', 15, 0, '2014-09-22 15:33:34', 0, 0, 0, 0),
+(45, 1, 'groups', 'activity_update', '<a href="https://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/" title="admin">admin</a> ha fet una actualització al node <a href="https://pwc-int.educacio.intranet/agora/mastercfa/nodes/fotografia/">Fotografia</a>', 'Una foto que vaig fer a Menorca, que us suggereix? \n[bpfb_images]\n1_0-42209200-1411400780_menorca_jmeler.jpg\n[/bpfb_images]', 'https://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/', 17, 0, '2014-09-22 15:46:20', 0, 0, 0, 0),
+(47, 1, 'groups', 'activity_update', '<a href="https://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/" title="admin">admin</a> ha fet una actualització al node <a href="https://pwc-int.educacio.intranet/agora/mastercfa/nodes/educacio-emocional/">Educació emocional</a>', 'Bon dia Noders! Avui us compartim un inquietant curtmetratge que ens ha de fer reflexionar sobre l’individualisme… és molt xulo… i fins i tot va guanyar un Oscar!\n\nhttps://www.youtube.com/watch?v=pRUGRPKRAWs', 'https://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/', 14, 0, '2014-09-22 15:59:20', 0, 0, 0, 0),
+(48, 1, 'groups', 'bbp_topic_create', '<a href="https://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/" rel="nofollow">admin</a> ha començat <a href="https://pwc-int.educacio.intranet/agora/mastercfa/nodes/professorat/forum/topic/documental-sobre-educacio-emocional/">Documental sobre educació Emocional</a> tema en el fòrum <a href="https://pwc-int.educacio.intranet/agora/mastercfa/nodes/professorat/forum/">Professorat</a>', 'Molt recomanable:\nhttps://www.youtube.com/watch?v=PQE4WqQSOcQ', 'https://pwc-int.educacio.intranet/agora/mastercfa/nodes/professorat/forum/topic/documental-sobre-educacio-emocional/', 1, 216, '2014-09-22 16:54:13', 1, 0, 0, 0),
+(50, 1, 'groups', 'bp_doc_edited', '<a href="https://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/" title="admin">admin</a> edited the doc <a href="https://pwc-int.educacio.intranet/agora/mastercfa/docs/document-a-google-drive/">Document a Google Drive</a> in the group <a href="https://pwc-int.educacio.intranet/agora/mastercfa/nodes/professorat/">Professorat</a>', '', 'https://pwc-int.educacio.intranet/agora/mastercfa/docs/document-a-google-drive/', 1, 230, '2014-10-23 15:07:51', 1, 0, 0, 0),
+(52, 1, 'groups', 'bp_doc_created', '<a href="https://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/" title="admin">admin</a> created the doc <a href="https://pwc-int.educacio.intranet/agora/mastercfa/docs/professorat-2/">Professorat</a> in the group <a href="https://pwc-int.educacio.intranet/agora/mastercfa/nodes/professorat/">Professorat</a>', '', 'https://pwc-int.educacio.intranet/agora/mastercfa/docs/professorat-2/', 1, 236, '2014-10-23 15:14:55', 1, 0, 0, 0),
+(54, 1, 'groups', 'bp_doc_edited', '<a href="https://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/" title="admin">admin</a> edited the doc <a href="https://pwc-int.educacio.intranet/agora/mastercfa/docs/document-a-google-drive/">Document a Google Drive</a> in the group <a href="https://pwc-int.educacio.intranet/agora/mastercfa/nodes/professorat/">Professorat</a>', '', 'https://pwc-int.educacio.intranet/agora/mastercfa/docs/document-a-google-drive/', 1, 230, '2014-10-23 15:15:49', 1, 0, 0, 0),
+(56, 1, 'groups', 'created_group', '<a href="https://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/" title="admin">admin</a> ha creat el node <a href="https://pwc-int.educacio.intranet/agora/mastercfa/nodes/frances/">Francès</a>', '', 'https://pwc-int.educacio.intranet/agora/mastercfa/membres/admin/', 20, 0, '2015-01-28 11:07:16', 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_activity_meta`
+-- Estructura de la taula `wp_bp_activity_meta`
 --
 
-CREATE TABLE `wp_bp_activity_meta` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_activity_meta` (
+`id` bigint(20) NOT NULL,
   `activity_id` bigint(20) NOT NULL,
   `meta_key` varchar(255) DEFAULT NULL,
-  `meta_value` longtext,
-  PRIMARY KEY (`id`),
-  KEY `activity_id` (`activity_id`),
-  KEY `meta_key` (`meta_key`(191))
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+  `meta_value` longtext
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `wp_bp_activity_meta`
+-- Bolcant dades de la taula `wp_bp_activity_meta`
 --
 
 INSERT INTO `wp_bp_activity_meta` (`id`, `activity_id`, `meta_key`, `meta_value`) VALUES
@@ -113,29 +146,26 @@ INSERT INTO `wp_bp_activity_meta` (`id`, `activity_id`, `meta_key`, `meta_value`
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_friends`
+-- Estructura de la taula `wp_bp_friends`
 --
 
-CREATE TABLE `wp_bp_friends` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_friends` (
+`id` bigint(20) NOT NULL,
   `initiator_user_id` bigint(20) NOT NULL,
   `friend_user_id` bigint(20) NOT NULL,
   `is_confirmed` tinyint(1) DEFAULT '0',
   `is_limited` tinyint(1) DEFAULT '0',
-  `date_created` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `initiator_user_id` (`initiator_user_id`),
-  KEY `friend_user_id` (`friend_user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `date_created` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_groups`
+-- Estructura de la taula `wp_bp_groups`
 --
 
-CREATE TABLE `wp_bp_groups` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_groups` (
+`id` bigint(20) NOT NULL,
   `creator_id` bigint(20) NOT NULL,
   `name` varchar(100) NOT NULL,
   `slug` varchar(200) NOT NULL,
@@ -143,15 +173,11 @@ CREATE TABLE `wp_bp_groups` (
   `status` varchar(10) NOT NULL DEFAULT 'public',
   `enable_forum` tinyint(1) NOT NULL DEFAULT '1',
   `date_created` datetime NOT NULL,
-  `parent_id` bigint(20) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `creator_id` (`creator_id`),
-  KEY `status` (`status`),
-  KEY `parent_id` (`parent_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
+  `parent_id` bigint(20) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `wp_bp_groups`
+-- Bolcant dades de la taula `wp_bp_groups`
 --
 
 INSERT INTO `wp_bp_groups` (`id`, `creator_id`, `name`, `slug`, `description`, `status`, `enable_forum`, `date_created`, `parent_id`) VALUES
@@ -174,21 +200,18 @@ INSERT INTO `wp_bp_groups` (`id`, `creator_id`, `name`, `slug`, `description`, `
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_groups_groupmeta`
+-- Estructura de la taula `wp_bp_groups_groupmeta`
 --
 
-CREATE TABLE `wp_bp_groups_groupmeta` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_groups_groupmeta` (
+`id` bigint(20) NOT NULL,
   `group_id` bigint(20) NOT NULL,
   `meta_key` varchar(255) DEFAULT NULL,
-  `meta_value` longtext,
-  PRIMARY KEY (`id`),
-  KEY `group_id` (`group_id`),
-  KEY `meta_key` (`meta_key`(191))
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=142 ;
+  `meta_value` longtext
+) ENGINE=InnoDB AUTO_INCREMENT=155 DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `wp_bp_groups_groupmeta`
+-- Bolcant dades de la taula `wp_bp_groups_groupmeta`
 --
 
 INSERT INTO `wp_bp_groups_groupmeta` (`id`, `group_id`, `meta_key`, `meta_value`) VALUES
@@ -295,11 +318,11 @@ INSERT INTO `wp_bp_groups_groupmeta` (`id`, `group_id`, `meta_key`, `meta_value`
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_groups_members`
+-- Estructura de la taula `wp_bp_groups_members`
 --
 
-CREATE TABLE `wp_bp_groups_members` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_groups_members` (
+`id` bigint(20) NOT NULL,
   `group_id` bigint(20) NOT NULL,
   `user_id` bigint(20) NOT NULL,
   `inviter_id` bigint(20) NOT NULL,
@@ -310,18 +333,11 @@ CREATE TABLE `wp_bp_groups_members` (
   `comments` longtext NOT NULL,
   `is_confirmed` tinyint(1) NOT NULL DEFAULT '0',
   `is_banned` tinyint(1) NOT NULL DEFAULT '0',
-  `invite_sent` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `group_id` (`group_id`),
-  KEY `is_admin` (`is_admin`),
-  KEY `is_mod` (`is_mod`),
-  KEY `user_id` (`user_id`),
-  KEY `inviter_id` (`inviter_id`),
-  KEY `is_confirmed` (`is_confirmed`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=27 ;
+  `invite_sent` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `wp_bp_groups_members`
+-- Bolcant dades de la taula `wp_bp_groups_members`
 --
 
 INSERT INTO `wp_bp_groups_members` (`id`, `group_id`, `user_id`, `inviter_id`, `is_admin`, `is_mod`, `user_title`, `date_modified`, `comments`, `is_confirmed`, `is_banned`, `invite_sent`) VALUES
@@ -344,142 +360,109 @@ INSERT INTO `wp_bp_groups_members` (`id`, `group_id`, `user_id`, `inviter_id`, `
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_messages_messages`
+-- Estructura de la taula `wp_bp_messages_messages`
 --
 
-CREATE TABLE `wp_bp_messages_messages` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_messages_messages` (
+`id` bigint(20) NOT NULL,
   `thread_id` bigint(20) NOT NULL,
   `sender_id` bigint(20) NOT NULL,
   `subject` varchar(200) NOT NULL,
   `message` longtext NOT NULL,
-  `date_sent` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `sender_id` (`sender_id`),
-  KEY `thread_id` (`thread_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `date_sent` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_messages_meta`
+-- Estructura de la taula `wp_bp_messages_meta`
 --
 
-CREATE TABLE `wp_bp_messages_meta` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_messages_meta` (
+`id` bigint(20) NOT NULL,
   `message_id` bigint(20) NOT NULL,
   `meta_key` varchar(255) DEFAULT NULL,
-  `meta_value` longtext,
-  PRIMARY KEY (`id`),
-  KEY `message_id` (`message_id`),
-  KEY `meta_key` (`meta_key`(191))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=1 ;
+  `meta_value` longtext
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_messages_notices`
+-- Estructura de la taula `wp_bp_messages_notices`
 --
 
-CREATE TABLE `wp_bp_messages_notices` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_messages_notices` (
+`id` bigint(20) NOT NULL,
   `subject` varchar(200) NOT NULL,
   `message` longtext NOT NULL,
   `date_sent` datetime NOT NULL,
-  `is_active` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `is_active` (`is_active`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `is_active` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_messages_recipients`
+-- Estructura de la taula `wp_bp_messages_recipients`
 --
 
-CREATE TABLE `wp_bp_messages_recipients` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_messages_recipients` (
+`id` bigint(20) NOT NULL,
   `user_id` bigint(20) NOT NULL,
   `thread_id` bigint(20) NOT NULL,
   `unread_count` int(10) NOT NULL DEFAULT '0',
   `sender_only` tinyint(1) NOT NULL DEFAULT '0',
-  `is_deleted` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `user_id` (`user_id`),
-  KEY `thread_id` (`thread_id`),
-  KEY `is_deleted` (`is_deleted`),
-  KEY `sender_only` (`sender_only`),
-  KEY `unread_count` (`unread_count`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `is_deleted` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_mod_contents`
+-- Estructura de la taula `wp_bp_mod_contents`
 --
 
-CREATE TABLE `wp_bp_mod_contents` (
-  `content_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_mod_contents` (
+`content_id` bigint(20) unsigned NOT NULL,
   `item_type` varchar(42) NOT NULL DEFAULT '',
   `item_id` bigint(20) unsigned NOT NULL DEFAULT '0',
   `item_id2` bigint(20) unsigned NOT NULL DEFAULT '0',
   `item_author` bigint(20) unsigned NOT NULL DEFAULT '0',
   `item_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `item_url` varchar(250) NOT NULL DEFAULT '',
-  `status` enum('new','warned','ignored','moderated','edited','deleted') NOT NULL DEFAULT 'new',
-  PRIMARY KEY (`content_id`),
-  KEY `item_type` (`item_type`),
-  KEY `item_id` (`item_id`),
-  KEY `item_id2` (`item_id2`),
-  KEY `item_author` (`item_author`),
-  KEY `item_date` (`item_date`),
-  KEY `status` (`status`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `status` enum('new','warned','ignored','moderated','edited','deleted') NOT NULL DEFAULT 'new'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_mod_flags`
+-- Estructura de la taula `wp_bp_mod_flags`
 --
 
-CREATE TABLE `wp_bp_mod_flags` (
-  `flag_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_mod_flags` (
+`flag_id` bigint(20) unsigned NOT NULL,
   `content_id` bigint(20) unsigned NOT NULL DEFAULT '0',
   `reporter_id` bigint(20) unsigned NOT NULL DEFAULT '0',
-  `date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`flag_id`),
-  KEY `content_id` (`content_id`),
-  KEY `reporter_id` (`reporter_id`),
-  KEY `date` (`date`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_notifications`
+-- Estructura de la taula `wp_bp_notifications`
 --
 
-CREATE TABLE `wp_bp_notifications` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_notifications` (
+`id` bigint(20) NOT NULL,
   `user_id` bigint(20) NOT NULL,
   `item_id` bigint(20) NOT NULL,
   `secondary_item_id` bigint(20) DEFAULT NULL,
   `component_name` varchar(75) NOT NULL,
   `component_action` varchar(75) NOT NULL,
   `date_notified` datetime NOT NULL,
-  `is_new` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `item_id` (`item_id`),
-  KEY `secondary_item_id` (`secondary_item_id`),
-  KEY `user_id` (`user_id`),
-  KEY `is_new` (`is_new`),
-  KEY `component_name` (`component_name`),
-  KEY `component_action` (`component_action`),
-  KEY `useritem` (`user_id`,`is_new`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=75 ;
+  `is_new` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `wp_bp_notifications`
+-- Bolcant dades de la taula `wp_bp_notifications`
 --
 
 INSERT INTO `wp_bp_notifications` (`id`, `user_id`, `item_id`, `secondary_item_id`, `component_name`, `component_action`, `date_notified`, `is_new`) VALUES
@@ -490,38 +473,32 @@ INSERT INTO `wp_bp_notifications` (`id`, `user_id`, `item_id`, `secondary_item_i
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_notifications_meta`
+-- Estructura de la taula `wp_bp_notifications_meta`
 --
 
-CREATE TABLE `wp_bp_notifications_meta` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_notifications_meta` (
+`id` bigint(20) NOT NULL,
   `notification_id` bigint(20) NOT NULL,
   `meta_key` varchar(255) DEFAULT NULL,
-  `meta_value` longtext,
-  PRIMARY KEY (`id`),
-  KEY `notification_id` (`notification_id`),
-  KEY `meta_key` (`meta_key`(191))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=1 ;
+  `meta_value` longtext
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_xprofile_data`
+-- Estructura de la taula `wp_bp_xprofile_data`
 --
 
-CREATE TABLE `wp_bp_xprofile_data` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_xprofile_data` (
+`id` bigint(20) unsigned NOT NULL,
   `field_id` bigint(20) unsigned NOT NULL,
   `user_id` bigint(20) unsigned NOT NULL,
   `value` longtext NOT NULL,
-  `last_updated` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `field_id` (`field_id`),
-  KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `last_updated` datetime NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `wp_bp_xprofile_data`
+-- Bolcant dades de la taula `wp_bp_xprofile_data`
 --
 
 INSERT INTO `wp_bp_xprofile_data` (`id`, `field_id`, `user_id`, `value`, `last_updated`) VALUES
@@ -531,11 +508,11 @@ INSERT INTO `wp_bp_xprofile_data` (`id`, `field_id`, `user_id`, `value`, `last_u
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_xprofile_fields`
+-- Estructura de la taula `wp_bp_xprofile_fields`
 --
 
-CREATE TABLE `wp_bp_xprofile_fields` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_xprofile_fields` (
+`id` bigint(20) unsigned NOT NULL,
   `group_id` bigint(20) unsigned NOT NULL,
   `parent_id` bigint(20) unsigned NOT NULL,
   `type` varchar(150) NOT NULL,
@@ -546,17 +523,11 @@ CREATE TABLE `wp_bp_xprofile_fields` (
   `field_order` bigint(20) NOT NULL DEFAULT '0',
   `option_order` bigint(20) NOT NULL DEFAULT '0',
   `order_by` varchar(15) NOT NULL DEFAULT '',
-  `can_delete` tinyint(1) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`id`),
-  KEY `group_id` (`group_id`),
-  KEY `parent_id` (`parent_id`),
-  KEY `field_order` (`field_order`),
-  KEY `can_delete` (`can_delete`),
-  KEY `is_required` (`is_required`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+  `can_delete` tinyint(1) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `wp_bp_xprofile_fields`
+-- Bolcant dades de la taula `wp_bp_xprofile_fields`
 --
 
 INSERT INTO `wp_bp_xprofile_fields` (`id`, `group_id`, `parent_id`, `type`, `name`, `description`, `is_required`, `is_default_option`, `field_order`, `option_order`, `order_by`, `can_delete`) VALUES
@@ -565,21 +536,19 @@ INSERT INTO `wp_bp_xprofile_fields` (`id`, `group_id`, `parent_id`, `type`, `nam
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_xprofile_groups`
+-- Estructura de la taula `wp_bp_xprofile_groups`
 --
 
-CREATE TABLE `wp_bp_xprofile_groups` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_xprofile_groups` (
+`id` bigint(20) unsigned NOT NULL,
   `name` varchar(150) NOT NULL,
   `description` mediumtext NOT NULL,
   `group_order` bigint(20) NOT NULL DEFAULT '0',
-  `can_delete` tinyint(1) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `can_delete` (`can_delete`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+  `can_delete` tinyint(1) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `wp_bp_xprofile_groups`
+-- Bolcant dades de la taula `wp_bp_xprofile_groups`
 --
 
 INSERT INTO `wp_bp_xprofile_groups` (`id`, `name`, `description`, `group_order`, `can_delete`) VALUES
@@ -588,44 +557,38 @@ INSERT INTO `wp_bp_xprofile_groups` (`id`, `name`, `description`, `group_order`,
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_bp_xprofile_meta`
+-- Estructura de la taula `wp_bp_xprofile_meta`
 --
 
-CREATE TABLE `wp_bp_xprofile_meta` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_bp_xprofile_meta` (
+`id` bigint(20) NOT NULL,
   `object_id` bigint(20) NOT NULL,
   `object_type` varchar(150) NOT NULL,
   `meta_key` varchar(255) DEFAULT NULL,
-  `meta_value` longtext,
-  PRIMARY KEY (`id`),
-  KEY `object_id` (`object_id`),
-  KEY `meta_key` (`meta_key`(191))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `meta_value` longtext
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_commentmeta`
+-- Estructura de la taula `wp_commentmeta`
 --
 
-CREATE TABLE `wp_commentmeta` (
-  `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_commentmeta` (
+`meta_id` bigint(20) unsigned NOT NULL,
   `comment_id` bigint(20) unsigned NOT NULL DEFAULT '0',
   `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_ci,
-  PRIMARY KEY (`meta_id`),
-  KEY `comment_id` (`comment_id`),
-  KEY `meta_key` (`meta_key`(191))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=1 ;
+  `meta_value` longtext COLLATE utf8mb4_unicode_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_comments`
+-- Estructura de la taula `wp_comments`
 --
 
-CREATE TABLE `wp_comments` (
-  `comment_ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_comments` (
+`comment_ID` bigint(20) unsigned NOT NULL,
   `comment_post_ID` bigint(20) unsigned NOT NULL DEFAULT '0',
   `comment_author` tinytext COLLATE utf8mb4_unicode_ci NOT NULL,
   `comment_author_email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
@@ -639,172 +602,221 @@ CREATE TABLE `wp_comments` (
   `comment_agent` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `comment_type` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `comment_parent` bigint(20) unsigned NOT NULL DEFAULT '0',
-  `user_id` bigint(20) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`comment_ID`),
-  KEY `comment_post_ID` (`comment_post_ID`),
-  KEY `comment_approved_date_gmt` (`comment_approved`,`comment_date_gmt`),
-  KEY `comment_date_gmt` (`comment_date_gmt`),
-  KEY `comment_parent` (`comment_parent`),
-  KEY `comment_author_email` (`comment_author_email`(10))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=1 ;
+  `user_id` bigint(20) unsigned NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_es_deliverreport`
+-- Estructura de la taula `wp_ig_blocked_emails`
 --
 
-CREATE TABLE `wp_es_deliverreport` (
-  `es_deliver_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `es_deliver_sentguid` varchar(255) NOT NULL,
-  `es_deliver_emailid` int(10) unsigned NOT NULL,
-  `es_deliver_emailmail` varchar(255) NOT NULL,
-  `es_deliver_sentdate` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `es_deliver_status` varchar(25) NOT NULL,
-  `es_deliver_viewdate` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `es_deliver_sentstatus` varchar(25) NOT NULL DEFAULT 'Sent',
-  `es_deliver_senttype` varchar(25) NOT NULL DEFAULT 'Instant Mail',
-  PRIMARY KEY (`es_deliver_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+CREATE TABLE IF NOT EXISTS `wp_ig_blocked_emails` (
+  `id` int(10) NOT NULL,
+  `email` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ip` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_es_emaillist`
+-- Estructura de la taula `wp_ig_campaigns`
 --
 
-CREATE TABLE `wp_es_emaillist` (
-  `es_email_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `es_email_name` varchar(255) NOT NULL,
-  `es_email_mail` varchar(255) NOT NULL,
-  `es_email_status` varchar(25) NOT NULL DEFAULT 'Unconfirmed',
-  `es_email_created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `es_email_viewcount` varchar(100) NOT NULL,
-  `es_email_group` varchar(255) NOT NULL DEFAULT 'Portada',
-  `es_email_guid` varchar(255) NOT NULL,
-  PRIMARY KEY (`es_email_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+CREATE TABLE IF NOT EXISTS `wp_ig_campaigns` (
+`id` int(10) NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `type` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `from_name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `from_email` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `reply_to_name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `reply_to_email` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `sequence_ids` text COLLATE utf8mb4_unicode_ci,
+  `categories` text COLLATE utf8mb4_unicode_ci,
+  `list_ids` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `base_template_id` int(10) NOT NULL,
+  `status` tinyint(4) NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `wp_es_emaillist`
+-- Bolcant dades de la taula `wp_ig_campaigns`
 --
 
-INSERT INTO `wp_es_emaillist` (`es_email_id`, `es_email_name`, `es_email_mail`, `es_email_status`, `es_email_created`, `es_email_viewcount`, `es_email_group`, `es_email_guid`) VALUES
-(1, 'Admin', 'a8000008@xtec.cat', 'Confirmed', '2016-04-05 11:56:33', '0', 'Portada', 'nfowag-kyqwje-thmfbl-alqysh-alembt');
+INSERT INTO `wp_ig_campaigns` (`id`, `slug`, `name`, `type`, `from_name`, `from_email`, `reply_to_name`, `reply_to_email`, `sequence_ids`, `categories`, `list_ids`, `base_template_id`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'sha-publicat-un-article-nou-posttitle', 'S''ha publicat un article nou:  {{POSTTITLE}}', 'post_notification', 'Admin', 'a8000008@xtec.cat', 'Admin', 'a8000008@xtec.cat', '', '####Portada## ##', '1', 389, 1, '2019-04-17 07:27:50', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_es_notification`
+-- Estructura de la taula `wp_ig_contacts`
 --
 
-CREATE TABLE `wp_es_notification` (
-  `es_note_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `es_note_cat` text,
-  `es_note_group` varchar(255) NOT NULL,
-  `es_note_templ` int(10) unsigned NOT NULL,
-  `es_note_status` varchar(10) NOT NULL DEFAULT 'Enable',
-  PRIMARY KEY (`es_note_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+CREATE TABLE IF NOT EXISTS `wp_ig_contacts` (
+`id` int(10) NOT NULL,
+  `wp_user_id` int(10) NOT NULL DEFAULT '0',
+  `first_name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `last_name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `source` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `form_id` int(10) NOT NULL DEFAULT '0',
+  `status` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `unsubscribed` tinyint(1) NOT NULL DEFAULT '0',
+  `hash` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `is_verified` tinyint(1) DEFAULT '0',
+  `is_disposable` tinyint(1) DEFAULT '0',
+  `is_rolebased` tinyint(1) DEFAULT '0',
+  `is_webmail` tinyint(1) DEFAULT '0',
+  `is_deliverable` tinyint(1) DEFAULT '0',
+  `is_sendsafely` tinyint(1) DEFAULT '0',
+  `meta` longtext CHARACTER SET utf8
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `wp_es_notification`
+-- Bolcant dades de la taula `wp_ig_contacts`
 --
 
-INSERT INTO `wp_es_notification` (`es_note_id`, `es_note_cat`, `es_note_group`, `es_note_templ`, `es_note_status`) VALUES
-(1, '##Portada## ', 'Portada', 1, 'Enable');
+INSERT INTO `wp_ig_contacts` (`id`, `wp_user_id`, `first_name`, `last_name`, `email`, `source`, `form_id`, `status`, `unsubscribed`, `hash`, `created_at`, `updated_at`, `is_verified`, `is_disposable`, `is_rolebased`, `is_webmail`, `is_deliverable`, `is_sendsafely`, `meta`) VALUES
+(1, 0, 'Admin', '', 'a8000008@xtec.cat', 'Migrated', 0, 'verified', 0, 'nfowag-kyqwje-thmfbl-alqysh-alembt', '2016-04-05 11:56:33', '2019-04-17 07:27:50', 1, 0, 0, 0, 1, 1, '');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_es_pluginconfig`
+-- Estructura de la taula `wp_ig_contacts_ips`
 --
 
-CREATE TABLE `wp_es_pluginconfig` (
-  `es_c_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `es_c_fromname` varchar(255) NOT NULL,
-  `es_c_fromemail` varchar(255) NOT NULL,
-  `es_c_mailtype` varchar(255) NOT NULL,
-  `es_c_adminmailoption` varchar(255) NOT NULL,
-  `es_c_adminemail` varchar(255) NOT NULL,
-  `es_c_adminmailsubject` varchar(255) NOT NULL,
-  `es_c_adminmailcontant` text,
-  `es_c_usermailoption` varchar(255) NOT NULL,
-  `es_c_usermailsubject` varchar(255) NOT NULL,
-  `es_c_usermailcontant` text,
-  `es_c_optinoption` varchar(255) NOT NULL,
-  `es_c_optinsubject` varchar(255) NOT NULL,
-  `es_c_optincontent` text,
-  `es_c_optinlink` varchar(255) NOT NULL,
-  `es_c_unsublink` varchar(255) NOT NULL,
-  `es_c_unsubtext` text,
-  `es_c_unsubhtml` text,
-  `es_c_subhtml` text,
-  `es_c_message1` text,
-  `es_c_message2` text,
-  PRIMARY KEY (`es_c_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
-
---
--- Volcado de datos para la tabla `wp_es_pluginconfig`
---
-
-INSERT INTO `wp_es_pluginconfig` (`es_c_id`, `es_c_fromname`, `es_c_fromemail`, `es_c_mailtype`, `es_c_adminmailoption`, `es_c_adminemail`, `es_c_adminmailsubject`, `es_c_adminmailcontant`, `es_c_usermailoption`, `es_c_usermailsubject`, `es_c_usermailcontant`, `es_c_optinoption`, `es_c_optinsubject`, `es_c_optincontent`, `es_c_optinlink`, `es_c_unsublink`, `es_c_unsubtext`, `es_c_unsubhtml`, `es_c_subhtml`, `es_c_message1`, `es_c_message2`) VALUES
-(1, 'Admin', 'a8000008@xtec.cat', 'WP HTML MAIL', 'YES', 'a8000008@xtec.cat', 'CFA Països Catalans Subscripci&oacute; nova de correu', 'Hola Administrador, \r\n\r\n Hem rebut una sol·licitud de subscripci&oacute; d''aquesta adre&ccedil;a de correu electr&ograve;nic per rebre els articles del nostre lloc web. \r\n\r\n Correu electr&ograve;nic : ###EMAIL### \r\n Nom : ###NAME### \r\n\r\nGr&agrave;cies\r\nCFA Països Catalans', 'YES', 'CFA Països Catalans Benvingut al nostre butlletí', 'Hola ###NAME###, \r\n\r\n Hem rebut una sol·licitud de subscripci&oacute; d''aquesta adre&ccedil;a de correu electr&ograve;nic per rebre el bullet&iacute; del nostre lloc web.\r\n\r\nGr&agrave;cies\r\nCFA Països Catalans', 'Double Opt In', 'CFA Països Catalans confirmeu la subscripció', 'Hola ###NAME###,\r\n\r\n Hem rebut una petici&oacute; de subscripci&oacute; d''aquesta adre&ccedil;a de correu electr&ograve;nic. Confirmeu <a href=''###LINK###''>fent clic aqu&iacute;</a>. Si no podeu fer clic a l''enlla&ccedil; anterior, si us plau, utilitzeu l''URL seg&uuml;ent.\r\n\r\n ###LINK### \r\n\r\nGr&agrave;cies\r\nCFA Països Catalans', 'http://pwc-int.educacio.intranet/agora/mastercfa/?es=optin&db=###DBID###&email=###EMAIL###&guid=###GUID###', 'http://pwc-int.educacio.intranet/agora/mastercfa/?es=unsubscribe&db=###DBID###&email=###EMAIL###&guid=###GUID###', 'Si no esteu interessats en rebre correus des de CFA Països Catalans <a href=''###LINK###''>feu clic aqu&iacute;</a> per donar-vos de baixa', 'Gr&agrave;cies, heu estat donat de baixa amb &egrave;xit. Ja no haur&iacute;eu de rebre not&iacute;cies nostres.', 'Gr&agrave;cies, heu estat subscrit amb &egrave;xit al nostre butllet&iacute; de not&iacute;cies.', 'Vaja... Aquesta subscripci&oacute; no s''ha pogut completar, ho sentim. L''adre&ccedil;a de correu electr&ograve;nic est&agrave; bloquejada o ja est&agrave; subscrita. Gr&agrave;cies.', 'Vaja... Estem tenint algun error t&egrave;cnic. Torneu-ho a provar o contacteu amb l''administrador.');
+CREATE TABLE IF NOT EXISTS `wp_ig_contacts_ips` (
+  `ip` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_es_sentdetails`
+-- Estructura de la taula `wp_ig_forms`
 --
 
-CREATE TABLE `wp_es_sentdetails` (
-  `es_sent_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `es_sent_guid` varchar(255) NOT NULL,
-  `es_sent_qstring` varchar(255) NOT NULL,
-  `es_sent_source` varchar(255) NOT NULL,
-  `es_sent_starttime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `es_sent_endtime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `es_sent_count` int(10) unsigned NOT NULL,
-  `es_sent_preview` text,
-  `es_sent_status` varchar(25) NOT NULL DEFAULT 'Sent',
-  `es_sent_type` varchar(25) NOT NULL DEFAULT 'Instant Mail',
-  `es_sent_subject` varchar(255) NOT NULL,
-  PRIMARY KEY (`es_sent_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+CREATE TABLE IF NOT EXISTS `wp_ig_forms` (
+`id` int(10) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `body` longtext COLLATE utf8mb4_unicode_ci,
+  `settings` longtext COLLATE utf8mb4_unicode_ci,
+  `styles` longtext COLLATE utf8mb4_unicode_ci,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  `af_id` int(10) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Bolcant dades de la taula `wp_ig_forms`
+--
+
+INSERT INTO `wp_ig_forms` (`id`, `name`, `body`, `settings`, `styles`, `created_at`, `updated_at`, `deleted_at`, `af_id`) VALUES
+(1, 'Widget - Subscripció de correu', 'a:4:{i:0;a:5:{s:4:"type";s:4:"text";s:4:"name";s:4:"Name";s:2:"id";s:4:"name";s:6:"params";a:3:{s:5:"label";s:4:"Name";s:4:"show";b:1;s:8:"required";b:0;}s:8:"position";i:1;}i:1;a:5:{s:4:"type";s:4:"text";s:4:"name";s:5:"Email";s:2:"id";s:5:"email";s:6:"params";a:3:{s:5:"label";s:5:"Email";s:4:"show";b:1;s:8:"required";b:1;}s:8:"position";i:2;}i:2;a:5:{s:4:"type";s:8:"checkbox";s:4:"name";s:5:"Lists";s:2:"id";s:5:"lists";s:6:"params";a:4:{s:5:"label";s:5:"Lists";s:4:"show";b:0;s:8:"required";b:1;s:6:"values";a:1:{i:0;s:1:"1";}}s:8:"position";i:3;}i:3;a:5:{s:4:"type";s:6:"submit";s:4:"name";s:6:"submit";s:2:"id";s:6:"submit";s:6:"params";a:2:{s:5:"label";s:6:"Submit";s:4:"show";b:1;}s:8:"position";i:4;}}', 'a:2:{s:5:"lists";a:1:{i:0;s:1:"1";}s:4:"desc";s:35:"T''avisarem si hi ha notícies noves";}', NULL, '2019-04-17 07:27:51', NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_es_templatetable`
+-- Estructura de la taula `wp_ig_lists`
 --
 
-CREATE TABLE `wp_es_templatetable` (
-  `es_templ_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `es_templ_heading` varchar(255) NOT NULL,
-  `es_templ_body` text,
-  `es_templ_status` varchar(25) NOT NULL DEFAULT 'Published',
-  `es_email_type` varchar(100) NOT NULL DEFAULT 'Static Template',
-  PRIMARY KEY (`es_templ_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+CREATE TABLE IF NOT EXISTS `wp_ig_lists` (
+`id` int(10) NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `wp_es_templatetable`
+-- Bolcant dades de la taula `wp_ig_lists`
 --
 
-INSERT INTO `wp_es_templatetable` (`es_templ_id`, `es_templ_heading`, `es_templ_body`, `es_templ_status`, `es_email_type`) VALUES
-(1, 'S''ha publicat un article nou:  ###POSTTITLE###', 'Hola ###NAME###,\r\n\r\nHem publicat un article nou al nostre lloc web. ###POSTTITLE###\r\n###POSTDESC###\r\nPodeu veure l''últim article a ###POSTLINK###\r\nHeu rebut aquest correu perquè vau demanar que se us notifiqués la publicació d''articles nous\r\n\r\nGràcies i salutacions\r\nAdmin', 'Published', 'Dynamic Template'),
-(2, 'Notificació d''article nou ###POSTTITLE###', 'Hola ###EMAIL###,\r\n\r\nHem publicat un article nou al nostre lloc web. ###POSTTITLE###\r\n###POSTIMAGE###\r\n###POSTFULL###\r\nPodeu veure l''últim article a ###POSTLINK###\r\nHeu rebut aquest correu perquè vau demanar que se us notifiqués la publicació d''articles nous\r\n\r\nGràcies i salutacions\r\nAdmin', 'Published', 'Dynamic Template'),
-(3, 'Butlletí Hola Món', '<strong style="color: #990000"> Subscriptors de correu</strong><p>\r\n							L\\''extensió subscripcions de correu de correu té diferents opcions per enviar butlletins als subscriptors.\r\n							Té una pàgina separada amb un editor HTML per crear	un butlletí amb aquest format.\r\n							L\\''extensió disposa d\\''opcions per enviar correus de notificació als subscriptors quan es publiquen articles nous al lloc web. També té una pàgina per poder afegir i eliminar les categories a les que s\\''enviaran les notificacions.\r\n							Utilitzant les opcions de l\\''extensió d\\''importació i exportació els administradors podran importar fàcilment els usuaris registrats.\r\n						</p> <strong style="color: #990000">Característiques de l''extensió</strong><ol> <li>Correu de notificació als subscriptors quan es publiquin articles nous.</li> <li>Giny de subscripció</li><li>Correu de subscripció amb confirmació per correu i subscripció simple per facilitar la subscripció.</li> <li>Notificació per correu electrònic a l\\''administrador quan els usuaris es subscriguin (Opcional)</li> <li>Correu de benvinguda automàtic als subscriptors (Opcional).</li> <li>Enllaç per donar-se de baixa del correu.</li> <li>Importació / Exportació dels correus dels subscriptors.</li> <li>Editor d\\''HTML per redactar el butlletí.</li> </ol> <strong>Gràcies i salutacions</strong><br>Admin', 'Published', 'Static Template');
+INSERT INTO `wp_ig_lists` (`id`, `slug`, `name`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'portada', 'Portada', '2019-04-17 07:27:50', NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_links`
+-- Estructura de la taula `wp_ig_lists_contacts`
 --
 
-CREATE TABLE `wp_links` (
-  `link_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_ig_lists_contacts` (
+`id` int(10) NOT NULL,
+  `list_id` int(10) NOT NULL,
+  `contact_id` int(10) NOT NULL,
+  `status` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `optin_type` tinyint(4) NOT NULL,
+  `subscribed_at` datetime DEFAULT NULL,
+  `subscribed_ip` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `unsubscribed_at` datetime DEFAULT NULL,
+  `unsubscribed_ip` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Bolcant dades de la taula `wp_ig_lists_contacts`
+--
+
+INSERT INTO `wp_ig_lists_contacts` (`id`, `list_id`, `contact_id`, `status`, `optin_type`, `subscribed_at`, `subscribed_ip`, `unsubscribed_at`, `unsubscribed_ip`) VALUES
+(1, 1, 1, 'subscribed', 2, '2016-04-05 11:56:33', NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de la taula `wp_ig_mailing_queue`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_ig_mailing_queue` (
+`id` int(10) NOT NULL,
+  `hash` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `campaign_id` int(10) NOT NULL DEFAULT '0',
+  `subject` text COLLATE utf8mb4_unicode_ci,
+  `body` longtext COLLATE utf8mb4_unicode_ci,
+  `count` int(10) unsigned NOT NULL DEFAULT '0',
+  `status` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `start_at` datetime DEFAULT NULL,
+  `finish_at` datetime DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de la taula `wp_ig_sending_queue`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_ig_sending_queue` (
+`id` int(10) NOT NULL,
+  `mailing_queue_id` int(10) NOT NULL DEFAULT '0',
+  `mailing_queue_hash` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `campaign_id` int(10) NOT NULL DEFAULT '0',
+  `contact_id` int(10) NOT NULL DEFAULT '0',
+  `contact_hash` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `links` longtext COLLATE utf8mb4_unicode_ci,
+  `opened` int(1) DEFAULT NULL,
+  `sent_at` datetime DEFAULT NULL,
+  `opened_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de la taula `wp_links`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_links` (
+`link_id` bigint(20) unsigned NOT NULL,
   `link_url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `link_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `link_image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
@@ -816,32 +828,28 @@ CREATE TABLE `wp_links` (
   `link_updated` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `link_rel` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `link_notes` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `link_rss` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  PRIMARY KEY (`link_id`),
-  KEY `link_visible` (`link_visible`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=1 ;
+  `link_rss` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_options`
+-- Estructura de la taula `wp_options`
 --
 
-CREATE TABLE `wp_options` (
-  `option_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_options` (
+`option_id` bigint(20) unsigned NOT NULL,
   `option_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `option_value` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `autoload` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'yes',
-  PRIMARY KEY (`option_id`),
-  UNIQUE KEY `option_name` (`option_name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=5623 ;
+  `autoload` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'yes'
+) ENGINE=InnoDB AUTO_INCREMENT=9389 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `wp_options`
+-- Bolcant dades de la taula `wp_options`
 --
 
 INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES
-(1, 'siteurl', 'http://pwc-int.educacio.intranet/agora/mastercfa/', 'yes'),
+(1, 'siteurl', 'https://pwc-int.educacio.intranet/agora/mastercfa/', 'yes'),
 (2, 'blogname', 'CFA Països Catalans', 'yes'),
 (3, 'blogdescription', 'Web en construcció', 'yes'),
 (4, 'users_can_register', '0', 'yes'),
@@ -871,8 +879,8 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (29, 'hack_file', '0', 'yes'),
 (30, 'blog_charset', 'UTF-8', 'yes'),
 (31, 'moderation_keys', '', 'no'),
-(32, 'active_plugins', 'a:29:{i:0;s:25:"add-to-any/add-to-any.php";i:1;s:42:"bbpress-enable-tinymce-visual-tab/init.php";i:2;s:19:"bbpress/bbpress.php";i:3;s:37:"blogger-importer/blogger-importer.php";i:4;s:33:"buddypress-activity-plus/bpfb.php";i:5;s:26:"buddypress-docs/loader.php";i:6;s:64:"buddypress-group-email-subscription/bp-activity-subscription.php";i:7;s:34:"buddypress-like/bp-like-loader.php";i:8;s:24:"buddypress/bp-loader.php";i:9;s:39:"email-subscribers/email-subscribers.php";i:10;s:41:"enllacos-educatius/enllacos-educatius.php";i:11;s:43:"google-analyticator/google-analyticator.php";i:12;s:49:"google-calendar-events/google-calendar-events.php";i:13;s:27:"grup-classe/grup_classe.php";i:14;s:31:"invite-anyone/invite-anyone.php";i:15;s:69:"pending-submission-notifications/pending-submission-notifications.php";i:16;s:27:"private-bp-pages/loader.php";i:17;s:25:"slideshare/slideshare.php";i:18;s:44:"slideshow-jquery-image-gallery/slideshow.php";i:19;s:27:"socialmedia/socialmedia.php";i:20;s:30:"table-of-contents-plus/toc.php";i:21;s:37:"tinymce-advanced/tinymce-advanced.php";i:22;s:71:"widget-visibility-without-jetpack/widget-visibility-without-jetpack.php";i:23;s:41:"wordpress-importer/wordpress-importer.php";i:24;s:42:"wordpress-social-login/wp-social-login.php";i:25;s:29:"wp-recaptcha/wp-recaptcha.php";i:26;s:29:"xtec-booking/xtec-booking.php";i:27;s:23:"xtec-mail/xtec-mail.php";i:28;s:25:"xtec-stats/xtec-stats.php";}', 'yes'),
-(33, 'home', 'http://pwc-int.educacio.intranet/agora/mastercfa/', 'yes'),
+(32, 'active_plugins', 'a:33:{i:0;s:25:"add-to-any/add-to-any.php";i:1;s:42:"bbpress-enable-tinymce-visual-tab/init.php";i:2;s:19:"bbpress/bbpress.php";i:3;s:37:"blogger-importer/blogger-importer.php";i:4;s:33:"buddypress-activity-plus/bpfb.php";i:5;s:26:"buddypress-docs/loader.php";i:6;s:64:"buddypress-group-email-subscription/bp-activity-subscription.php";i:7;s:34:"buddypress-like/bp-like-loader.php";i:8;s:24:"buddypress/bp-loader.php";i:9;s:39:"disable-gutenberg/disable-gutenberg.php";i:10;s:39:"email-subscribers/email-subscribers.php";i:11;s:41:"enllacos-educatius/enllacos-educatius.php";i:12;s:43:"google-analyticator/google-analyticator.php";i:13;s:49:"google-calendar-events/google-calendar-events.php";i:14;s:27:"grup-classe/grup_classe.php";i:15;s:67:"import-users-from-csv-with-meta/import-users-from-csv-with-meta.php";i:16;s:31:"invite-anyone/invite-anyone.php";i:17;s:69:"pending-submission-notifications/pending-submission-notifications.php";i:18;s:27:"private-bp-pages/loader.php";i:19;s:25:"slideshare/slideshare.php";i:20;s:44:"slideshow-jquery-image-gallery/slideshow.php";i:21;s:27:"socialmedia/socialmedia.php";i:22;s:30:"table-of-contents-plus/toc.php";i:23;s:37:"tinymce-advanced/tinymce-advanced.php";i:24;s:71:"widget-visibility-without-jetpack/widget-visibility-without-jetpack.php";i:25;s:41:"wordpress-importer/wordpress-importer.php";i:26;s:42:"wordpress-social-login/wp-social-login.php";i:27;s:33:"wordpress-telegram/wptelegram.php";i:28;s:29:"wp-recaptcha/wp-recaptcha.php";i:29;s:29:"xtec-booking/xtec-booking.php";i:30;s:35:"xtec-ldap-login/xtec-ldap-login.php";i:31;s:23:"xtec-mail/xtec-mail.php";i:32;s:25:"xtec-stats/xtec-stats.php";}', 'yes'),
+(33, 'home', 'https://pwc-int.educacio.intranet/agora/mastercfa/', 'yes'),
 (34, 'category_base', '/categoria', 'yes'),
 (35, 'ping_sites', 'http://rpc.pingomatic.com/', 'yes'),
 (37, 'comment_max_links', '3', 'yes'),
@@ -887,7 +895,7 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (46, 'html_type', 'text/html', 'yes'),
 (47, 'use_trackback', '0', 'yes'),
 (48, 'default_role', 'contributor', 'yes'),
-(49, 'db_version', '36686', 'yes'),
+(49, 'db_version', '44719', 'yes'),
 (50, 'uploads_use_yearmonth_folders', '1', 'yes'),
 (51, 'upload_path', '', 'yes'),
 (52, 'blog_public', '1', 'yes'),
@@ -933,8 +941,8 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (92, 'widget_recent-comments', 'a:2:{i:2;a:3:{s:5:"title";s:18:"Comentaris recents";s:6:"number";i:5;s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:2:{s:5:"major";s:4:"page";s:5:"minor";s:14:"post_type-post";}}}}s:12:"_multiwidget";i:1;}', 'yes'),
 (93, 'widget_archives', 'a:2:{i:2;a:4:{s:5:"title";s:0:"";s:5:"count";i:0;s:8:"dropdown";i:0;s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:2:{s:5:"major";s:4:"page";s:5:"minor";s:14:"post_type-post";}}}}s:12:"_multiwidget";i:1;}', 'yes'),
 (94, 'widget_meta', 'a:2:{i:2;a:1:{s:5:"title";s:0:"";}s:12:"_multiwidget";i:1;}', 'yes'),
-(95, 'sidebars_widgets', 'a:8:{s:19:"wp_inactive_widgets";a:0:{}s:9:"categoria";a:3:{i:0;s:6:"text-3";i:1;s:7:"text-17";i:2;s:7:"text-18";}s:7:"sidebar";a:10:{i:0;s:10:"nav_menu-8";i:1;s:24:"bp_core_friends_widget-2";i:2;s:17:"slideshowwidget-2";i:3;s:18:"bp_groups_widget-2";i:4;s:14:"recent-posts-2";i:5;s:17:"recent-comments-2";i:6;s:11:"tag_cloud-3";i:7;s:10:"archives-2";i:8;s:32:"bp_core_recently_active_widget-2";i:9;s:10:"nav_menu-6";}s:9:"sidebar-2";a:0:{}s:17:"sidebar-frontpage";a:5:{i:0;s:20:"logo_centre_widget-2";i:1;s:12:"gce_widget-2";i:2;s:6:"text-2";i:3;s:13:"xtec_widget-2";i:4;s:19:"email-subscribers-2";}s:19:"sidebar-frontpage-2";a:0:{}s:14:"sidebar-footer";a:3:{i:0;s:20:"socialmedia_widget-2";i:1;s:7:"text-19";i:2;s:20:"logo_centre_widget-3";}s:13:"array_version";i:3;}', 'yes'),
-(96, 'cron', 'a:5:{i:1499939020;a:3:{s:17:"wp_update_plugins";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:16:"wp_update_themes";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:16:"wp_version_check";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}}i:1499939026;a:1:{s:19:"wp_scheduled_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1499940763;a:1:{s:30:"wp_scheduled_auto_draft_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1499960047;a:1:{s:12:"remove_stats";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}s:7:"version";i:2;}', 'yes'),
+(95, 'sidebars_widgets', 'a:8:{s:19:"wp_inactive_widgets";a:0:{}s:9:"categoria";a:3:{i:0;s:6:"text-3";i:1;s:7:"text-17";i:2;s:7:"text-18";}s:7:"sidebar";a:10:{i:0;s:10:"nav_menu-8";i:1;s:24:"bp_core_friends_widget-2";i:2;s:17:"slideshowwidget-2";i:3;s:18:"bp_groups_widget-2";i:4;s:14:"recent-posts-2";i:5;s:17:"recent-comments-2";i:6;s:11:"tag_cloud-3";i:7;s:10:"archives-2";i:8;s:32:"bp_core_recently_active_widget-2";i:9;s:10:"nav_menu-6";}s:9:"sidebar-2";a:0:{}s:17:"sidebar-frontpage";a:5:{i:0;s:20:"logo_centre_widget-2";i:1;s:12:"gce_widget-2";i:2;s:6:"text-2";i:3;s:13:"xtec_widget-2";i:4;s:24:"email-subscribers-form-2";}s:19:"sidebar-frontpage-2";a:0:{}s:14:"sidebar-footer";a:3:{i:0;s:20:"socialmedia_widget-2";i:1;s:7:"text-19";i:2;s:20:"logo_centre_widget-3";}s:13:"array_version";i:3;}', 'yes'),
+(96, 'cron', 'a:8:{i:1537436620;a:3:{s:17:"wp_update_plugins";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:16:"wp_update_themes";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:16:"wp_version_check";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}}i:1537436626;a:1:{s:19:"wp_scheduled_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1537438363;a:1:{s:30:"wp_scheduled_auto_draft_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1537457647;a:1:{s:12:"remove_stats";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1555486070;a:2:{s:34:"wp_privacy_delete_old_export_files";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:6:"hourly";s:4:"args";a:0:{}s:8:"interval";i:3600;}}s:23:"ig_es_cron_fifteen_mins";a:1:{s:32:"526a0ff1a846464035bb1170fde167bb";a:3:{s:8:"schedule";s:27:"ig_es_fifteen_mins_interval";s:4:"args";a:2:{i:0;s:4:"cron";i:1;s:34:"orzdni-ergqac-otajvz-elcsvp-uaxgsj";}s:8:"interval";i:900;}}}i:1555486088;a:1:{s:25:"delete_expired_transients";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1556178058;a:1:{s:8:"do_pings";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:2:{s:8:"schedule";b:0;s:4:"args";a:0:{}}}}s:7:"version";i:2;}', 'yes'),
 (118, 'recently_activated', 'a:0:{}', 'yes'),
 (123, '_bbp_db_version', '250', 'yes'),
 (124, 'bp-deactivated-components', 'a:0:{}', 'yes'),
@@ -971,8 +979,8 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (162, 'bp_moderation_options', 'a:6:{s:14:"unflagged_text";s:9:"Inadequat";s:12:"flagged_text";s:16:"No és inadequat";s:12:"active_types";a:1:{s:16:"activity_comment";s:2:"on";}s:17:"warning_threshold";i:5;s:15:"warning_forward";s:17:"a8000007@xtec.cat";s:15:"warning_message";s:297:"Several user reported one of your content as inappropriate.\r\nYou can see the content in the page: %CONTENTURL%.\r\nYou posted this content with the account "%AUTHORNAME%".\r\n\r\nA community moderator will soon review and moderate this content if necessary.\r\n--------------------\r\n[%SITENAME%] %SITEURL%";}', 'yes'),
 (163, 'bp_moderation_db_version', '-100', 'yes'),
 (166, 'gce_general', 'a:7:{s:10:"stylesheet";s:0:"";s:10:"javascript";b:0;s:7:"loading";s:12:"Carregant...";s:5:"error";s:40:"Calendari no disponible en aquest moment";s:6:"fields";b:1;s:14:"old_stylesheet";b:0;s:13:"save_settings";b:1;}', 'yes'),
-(167, 'invite_anyone', 'a:7:{s:11:"max_invites";i:5;s:23:"allow_email_invitations";s:3:"all";s:23:"message_is_customizable";s:3:"yes";s:23:"subject_is_customizable";s:2:"no";s:28:"can_send_group_invites_email";s:3:"yes";s:24:"bypass_registration_lock";s:3:"yes";s:7:"version";s:5:"1.3.1";}', 'yes'),
-(168, 'invite_anyone_db_version', '1.3.12', 'yes'),
+(167, 'invite_anyone', 'a:22:{s:11:"max_invites";i:5;s:23:"allow_email_invitations";s:3:"all";s:23:"message_is_customizable";s:3:"yes";s:23:"subject_is_customizable";s:2:"no";s:28:"can_send_group_invites_email";s:3:"yes";s:24:"bypass_registration_lock";s:3:"yes";s:7:"version";s:5:"1.4.0";s:23:"email_visibility_toggle";s:7:"nolimit";s:18:"email_since_toggle";s:2:"no";s:10:"days_since";i:0;s:17:"email_role_toggle";s:2:"no";s:12:"minimum_role";s:10:"subscriber";s:22:"email_blacklist_toggle";s:2:"no";s:15:"email_blacklist";s:0:"";s:23:"group_invites_can_admin";s:6:"anyone";s:29:"group_invites_can_group_admin";s:6:"anyone";s:27:"group_invites_can_group_mod";s:6:"anyone";s:30:"group_invites_can_group_member";s:6:"anyone";s:32:"group_invites_enable_create_step";s:3:"yes";s:19:"cloudsponge_enabled";s:3:"off";s:26:"email_limit_invites_toggle";s:2:"no";s:22:"limit_invites_per_user";i:10;}', 'yes'),
+(168, 'invite_anyone_db_version', '1.4.0', 'yes'),
 (169, 'slideshow-plugin-updated-from-v1-x-x-to-v2-0-1', 'updated', 'yes'),
 (170, 'slideshow-plugin-updated-from-v2-to-v2-1-20', 'updated', 'yes'),
 (171, 'slideshow-jquery-image-gallery-updated-from-v2-1-20-to-v2-1-22', 'updated', 'yes'),
@@ -992,7 +1000,7 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (186, 'wsl_components_bouncer_enabled', '1', 'yes'),
 (187, 'wsl_components_diagnostics_enabled', '1', 'yes'),
 (188, 'wsl_settings_welcome_panel_enabled', '', 'yes'),
-(189, 'wsl_settings_redirect_url', 'http://pwc-int.educacio.intranet/agora/mastercfa/', 'yes'),
+(189, 'wsl_settings_redirect_url', 'https://pwc-int.educacio.intranet/agora/mastercfa/', 'yes'),
 (190, 'wsl_settings_connect_with_label', 'Connect with:', 'yes'),
 (191, 'wsl_settings_use_popup', '2', 'yes'),
 (192, 'wsl_settings_widget_display', '1', 'yes'),
@@ -1025,8 +1033,8 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (219, 'wsl_settings_contacts_import_twitter', '2', 'yes'),
 (220, 'wsl_settings_contacts_import_live', '2', 'yes'),
 (221, 'wsl_settings_contacts_import_linkedin', '2', 'yes'),
-(222, 'wsl_settings_Google_enabled', '0', 'yes'),
-(223, 'wsl_settings_Moodle_enabled', '0', 'yes'),
+(222, 'wsl_settings_Google_enabled', '1', 'yes'),
+(223, 'wsl_settings_Moodle_enabled', '1', 'yes'),
 (225, 'xtec_mail_idapp', 'AGORA', 'yes'),
 (226, 'xtec_mail_replyto', 'agora-noreply@xtec.cat', 'yes'),
 (227, 'xtec_mail_sender', 'educacio', 'yes'),
@@ -1051,14 +1059,14 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (247, 'widget_gce_widget', 'a:2:{i:2;a:2:{s:5:"title";s:0:"";s:11:"calendar_id";i:224;}s:12:"_multiwidget";i:1;}', 'yes'),
 (248, 'widget_slideshowwidget', 'a:3:{i:1;a:0:{}i:2;a:3:{s:5:"title";s:8:"Destacat";s:11:"slideshowId";s:3:"202";s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:2:{s:5:"major";s:4:"page";s:5:"minor";s:1:"5";}}}}s:12:"_multiwidget";i:1;}', 'yes'),
 (249, 'widget_invite-anyone-widget', 'a:2:{i:1;a:0:{}s:12:"_multiwidget";i:1;}', 'yes'),
-(250, 'widget_xtec_widget', 'a:3:{i:1;a:0:{}i:2;a:21:{s:5:"title";s:0:"";s:11:"ensenyament";s:2:"on";s:4:"xtec";s:2:"on";s:6:"edu365";s:0:"";s:4:"edu3";s:0:"";s:12:"xarxa-docent";s:0:"";s:10:"alexandria";s:0:"";s:6:"linkat";s:0:"";s:5:"jclic";s:0:"";s:5:"merli";s:0:"";s:3:"arc";s:2:"on";s:7:"odissea";s:0:"";s:4:"ampa";s:0:"";s:12:"escola-verda";s:0:"";s:4:"atri";s:0:"";s:4:"saga";s:0:"";s:14:"familia-escola";s:0:"";s:15:"internet-segura";s:0:"";s:6:"moodle";s:2:"on";s:8:"ampa_url";s:53:"http://pwc-int.educacio.intranet/agora/mastercfa/ampa";s:16:"escola-verda_url";s:44:"http://www.gencat.cat/mediamb/escolesverdes/";}s:12:"_multiwidget";i:1;}', 'yes'),
+(250, 'widget_xtec_widget', 'a:3:{i:1;a:0:{}i:2;a:21:{s:5:"title";s:0:"";s:11:"ensenyament";s:2:"on";s:4:"xtec";s:2:"on";s:6:"edu365";s:0:"";s:4:"edu3";s:0:"";s:12:"xarxa-docent";s:0:"";s:10:"alexandria";s:0:"";s:6:"linkat";s:0:"";s:5:"jclic";s:0:"";s:5:"merli";s:0:"";s:3:"arc";s:2:"on";s:7:"odissea";s:0:"";s:4:"ampa";s:0:"";s:12:"escola-verda";s:0:"";s:4:"atri";s:0:"";s:4:"saga";s:0:"";s:14:"familia-escola";s:0:"";s:15:"internet-segura";s:0:"";s:6:"moodle";s:2:"on";s:8:"ampa_url";s:54:"https://pwc-int.educacio.intranet/agora/mastercfa/ampa";s:16:"escola-verda_url";s:44:"http://www.gencat.cat/mediamb/escolesverdes/";}s:12:"_multiwidget";i:1;}', 'yes'),
 (251, 'widget_logo_centre_widget', 'a:4:{i:1;a:0:{}i:2;a:1:{s:5:"title";s:0:"";}i:3;a:1:{s:5:"title";s:0:"";}s:12:"_multiwidget";i:1;}', 'yes'),
-(252, 'reactor_options', 'a:23:{s:15:"tamany_font_nom";s:5:"2.5vw";s:16:"imatge_capcalera";s:88:"http://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2015/02/cfa.jpg";s:8:"carrusel";s:3:"107";s:10:"logo_image";s:97:"http://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2014/09/logo-centre1.png";s:16:"nomCanonicCentre";s:20:"CFA Països Catalans";s:14:"direccioCentre";s:21:"Plaça de la Vila, 14";s:8:"cpCentre";s:21:"01234 Abella de Xerta";s:9:"telCentre";s:11:"901 234 567";s:10:"googleMaps";s:60:"https://www.google.com/maps/@41.605896,1.723144,10z?hl=ca-ES";s:13:"paleta_colors";s:9:"groc-blau";s:14:"frontpage_page";s:1:"9";s:23:"frontpage_post_category";s:2:"29";s:16:"frontpage_layout";s:4:"2c-l";s:26:"frontpage_posts_per_fila_1";s:2:"33";s:26:"frontpage_posts_per_fila_2";s:1:"2";s:26:"frontpage_posts_per_fila_n";s:1:"2";s:22:"frontpage_number_posts";s:2:"15";s:21:"frontpage_link_titles";s:1:"1";s:13:"post_readmore";s:14:"Llegeix més»";s:13:"favicon_image";s:0:"";s:11:"logo_inline";s:1:"1";s:12:"correuCentre";s:26:"cfapaisoscatalans@xtec.cat";s:14:"contacteCentre";s:0:"";}', 'yes'),
+(252, 'reactor_options', 'a:23:{s:15:"tamany_font_nom";s:5:"2.5vw";s:16:"imatge_capcalera";s:89:"https://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2015/02/cfa.jpg";s:8:"carrusel";s:3:"107";s:10:"logo_image";s:98:"https://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2014/09/logo-centre1.png";s:16:"nomCanonicCentre";s:20:"CFA Països Catalans";s:14:"direccioCentre";s:21:"Plaça de la Vila, 14";s:8:"cpCentre";s:21:"01234 Abella de Xerta";s:9:"telCentre";s:11:"901 234 567";s:10:"googleMaps";s:60:"https://www.google.com/maps/@41.605896,1.723144,10z?hl=ca-ES";s:13:"paleta_colors";s:9:"groc-blau";s:14:"frontpage_page";s:1:"9";s:23:"frontpage_post_category";s:2:"29";s:16:"frontpage_layout";s:4:"2c-l";s:26:"frontpage_posts_per_fila_1";s:2:"33";s:26:"frontpage_posts_per_fila_2";s:1:"2";s:26:"frontpage_posts_per_fila_n";s:1:"2";s:22:"frontpage_number_posts";s:2:"15";s:21:"frontpage_link_titles";s:1:"1";s:13:"post_readmore";s:14:"Llegeix més»";s:13:"favicon_image";s:0:"";s:11:"logo_inline";s:1:"1";s:12:"correuCentre";s:26:"cfapaisoscatalans@xtec.cat";s:14:"contacteCentre";s:0:"";}', 'yes'),
 (253, 'icones_capcalera', '', 'yes'),
 (256, 'tadv_settings', 'a:6:{s:7:"options";s:15:"menubar,advlist";s:9:"toolbar_1";s:117:"bold,italic,blockquote,bullist,numlist,alignleft,aligncenter,alignright,link,unlink,table,fullscreen,undo,redo,wp_adv";s:9:"toolbar_2";s:121:"formatselect,alignjustify,strikethrough,outdent,indent,pastetext,removeformat,charmap,wp_more,emoticons,forecolor,wp_help";s:9:"toolbar_3";s:0:"";s:9:"toolbar_4";s:0:"";s:7:"plugins";s:107:"anchor,code,insertdatetime,nonbreaking,print,searchreplace,table,visualblocks,visualchars,emoticons,advlist";}', 'yes'),
 (257, 'tadv_admin_settings', 'a:1:{s:7:"options";a:0:{}}', 'yes'),
 (258, 'tadv_version', '4000', 'yes'),
-(290, 'my_option_name', 'a:13:{s:6:"icon11";s:14:"format-gallery";s:11:"link_icon11";s:29:"Enllaç a la galeria de fotos";s:12:"title_icon11";s:7:"IMATGES";s:6:"icon12";s:18:"welcome-learn-more";s:11:"link_icon12";s:25:"adreça moodle del centre";s:12:"title_icon12";s:6:"MOODLE";s:6:"icon21";s:8:"calendar";s:11:"link_icon21";s:77:"http://pwc-int.educacio.intranet/agora/mastercfa/linstitut/calendari-del-curs";s:12:"title_icon21";s:6:"AGENDA";s:6:"icon22";s:11:"format-chat";s:11:"link_icon22";s:58:"http://pwc-int.educacio.intranet/agora/mastercfa/activitat";s:12:"title_icon22";s:5:"NODES";s:14:"show_text_icon";s:2:"si";}', 'yes'),
+(290, 'my_option_name', 'a:13:{s:6:"icon11";s:14:"format-gallery";s:11:"link_icon11";s:29:"Enllaç a la galeria de fotos";s:12:"title_icon11";s:7:"IMATGES";s:6:"icon12";s:18:"welcome-learn-more";s:11:"link_icon12";s:25:"adreça moodle del centre";s:12:"title_icon12";s:6:"MOODLE";s:6:"icon21";s:8:"calendar";s:11:"link_icon21";s:78:"https://pwc-int.educacio.intranet/agora/mastercfa/linstitut/calendari-del-curs";s:12:"title_icon21";s:6:"AGENDA";s:6:"icon22";s:11:"format-chat";s:11:"link_icon22";s:59:"https://pwc-int.educacio.intranet/agora/mastercfa/activitat";s:12:"title_icon22";s:5:"NODES";s:14:"show_text_icon";s:2:"si";}', 'yes'),
 (308, 'widget_bp_core_friends_widget', 'a:3:{i:1;a:0:{}i:2;a:4:{s:11:"max_friends";i:50;s:14:"friend_default";s:6:"active";s:10:"link_title";b:1;s:10:"conditions";a:2:{s:6:"action";s:4:"show";s:5:"rules";a:1:{i:0;a:2:{s:5:"major";s:4:"page";s:5:"minor";s:1:"6";}}}}s:12:"_multiwidget";i:1;}', 'yes'),
 (353, 'nav_menu_options', 'a:2:{i:0;b:0;s:8:"auto_add";a:0:{}}', 'yes'),
 (484, 'bpfb', 'a:5:{s:5:"theme";s:3:"new";s:9:"alignment";s:4:"left";s:12:"oembed_width";i:450;s:20:"thumbnail_size_width";i:450;s:21:"thumbnail_size_height";i:450;}', 'yes'),
@@ -1095,13 +1103,12 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (1126, 'ga_annon', '', 'yes'),
 (1127, 'ga_defaults', 'yes', 'yes'),
 (1128, 'ga_google_token', '', 'yes'),
-(1145, 'widget_socialmedia_widget', 'a:6:{i:1;a:0:{}i:2;a:21:{s:5:"title";s:12:"Segueix-nos!";s:4:"mida";s:7:"fa-2-5x";s:11:"twitter_url";s:16:"twitter institut";s:12:"facebook_url";s:17:"facebook institut";s:15:"google-plus_url";s:0:"";s:11:"youtube_url";s:16:"youtube institut";s:9:"vimeo_url";s:0:"";s:10:"picasa_url";s:0:"";s:10:"flickr_url";s:0:"";s:13:"pinterest_url";s:0:"";s:13:"instagram_url";s:0:"";s:10:"tumblr_url";s:0:"";s:14:"soundcloud_url";s:0:"";s:11:"dropbox_url";s:0:"";s:7:"rss_url";s:53:"http://pwc-int.educacio.intranet/agora/mastercfa/feed";s:9:"email_url";s:0:"";s:10:"moodle_url";s:0:"";s:14:"xarxanodes_url";s:0:"";s:8:"docs_url";s:0:"";s:9:"fotos_url";s:0:"";s:9:"video_url";s:0:"";}s:12:"_multiwidget";s:1:"1";s:16:"nomCanonicCentre";s:28:"Centre de Formació d''Adults";s:14:"direccioCentre";s:23:"Carretera N-150, Km. 15";s:8:"cpCentre";s:14:"08206 Sabadell";}', 'yes'),
+(1145, 'widget_socialmedia_widget', 'a:6:{i:1;a:0:{}i:2;a:21:{s:5:"title";s:12:"Segueix-nos!";s:4:"mida";s:7:"fa-2-5x";s:11:"twitter_url";s:16:"twitter institut";s:12:"facebook_url";s:17:"facebook institut";s:15:"google-plus_url";s:0:"";s:11:"youtube_url";s:16:"youtube institut";s:9:"vimeo_url";s:0:"";s:10:"picasa_url";s:0:"";s:10:"flickr_url";s:0:"";s:13:"pinterest_url";s:0:"";s:13:"instagram_url";s:0:"";s:10:"tumblr_url";s:0:"";s:14:"soundcloud_url";s:0:"";s:11:"dropbox_url";s:0:"";s:7:"rss_url";s:54:"https://pwc-int.educacio.intranet/agora/mastercfa/feed";s:9:"email_url";s:0:"";s:10:"moodle_url";s:0:"";s:14:"xarxanodes_url";s:0:"";s:8:"docs_url";s:0:"";s:9:"fotos_url";s:0:"";s:9:"video_url";s:0:"";}s:12:"_multiwidget";s:1:"1";s:16:"nomCanonicCentre";s:28:"Centre de Formació d''Adults";s:14:"direccioCentre";s:23:"Carretera N-150, Km. 15";s:8:"cpCentre";s:14:"08206 Sabadell";}', 'yes'),
 (1177, 'wsl_settings_Google_app_scope', 'profile https://www.googleapis.com/auth/plus.profile.emails.read', 'yes'),
 (1280, 'WPLANG', 'ca', 'yes'),
 (1281, 'db_upgraded', '', 'yes'),
 (1294, 'widget_grup_classe_widget', 'a:1:{s:12:"_multiwidget";i:1;}', 'yes'),
 (1342, 'bpfb_plugin', 'a:1:{s:9:"installed";i:1;}', 'yes'),
-(1427, 'category_children', 'a:0:{}', 'yes'),
 (1481, '_bbp_private_forums', 'a:14:{i:0;s:3:"338";i:1;s:3:"179";i:2;s:3:"178";i:3;s:3:"177";i:4;s:3:"176";i:5;s:3:"175";i:6;s:3:"174";i:7;s:3:"173";i:8;s:3:"172";i:9;s:3:"171";i:10;s:3:"170";i:11;s:3:"115";i:12;s:3:"113";i:13;s:3:"112";}', 'yes'),
 (1482, '_bbp_hidden_forums', 'a:14:{i:0;s:3:"338";i:1;s:3:"179";i:2;s:3:"178";i:3;s:3:"177";i:4;s:3:"176";i:5;s:3:"175";i:6;s:3:"174";i:7;s:3:"173";i:8;s:3:"172";i:9;s:3:"171";i:10;s:3:"170";i:11;s:3:"115";i:12;s:3:"113";i:13;s:3:"112";}', 'yes'),
 (1532, 'wsl_components_users_enabled', '1', 'yes'),
@@ -1166,10 +1173,9 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (2527, 'medium_large_size_w', '768', 'yes'),
 (2528, 'medium_large_size_h', '0', 'yes');
 INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES
-(2573, 'rewrite_rules', 'a:321:{s:14:"docs/create/?$";s:52:"index.php?post_type=bp_doc&name=$matches[1]&create=1";s:17:"docs/my-groups/?$";s:55:"index.php?post_type=bp_doc&name=$matches[1]&my-groups=1";s:20:"docs/([^/]+)/edit/?$";s:50:"index.php?post_type=bp_doc&name=$matches[1]&edit=1";s:23:"docs/([^/]+)/history/?$";s:53:"index.php?post_type=bp_doc&name=$matches[1]&history=1";s:22:"docs/([^/]+)/delete/?$";s:53:"index.php?post_type=bp_doc&name=$matches[1]&history=1";s:23:"docs/([^/]+)/untrash/?$";s:53:"index.php?post_type=bp_doc&name=$matches[1]&untrash=1";s:33:"docs/([^/]+)/unlink-from-group/?$";s:63:"index.php?post_type=bp_doc&name=$matches[1]&unlink-from-group=1";s:9:"forums/?$";s:25:"index.php?post_type=forum";s:39:"forums/feed/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?post_type=forum&feed=$matches[1]";s:34:"forums/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?post_type=forum&feed=$matches[1]";s:26:"forums/page/([0-9]{1,})/?$";s:43:"index.php?post_type=forum&paged=$matches[1]";s:9:"topics/?$";s:25:"index.php?post_type=topic";s:39:"topics/feed/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?post_type=topic&feed=$matches[1]";s:34:"topics/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?post_type=topic&feed=$matches[1]";s:26:"topics/page/([0-9]{1,})/?$";s:43:"index.php?post_type=topic&paged=$matches[1]";s:28:"forums/forum/([^/]+)/edit/?$";s:34:"index.php?forum=$matches[1]&edit=1";s:28:"forums/topic/([^/]+)/edit/?$";s:34:"index.php?topic=$matches[1]&edit=1";s:28:"forums/reply/([^/]+)/edit/?$";s:34:"index.php?reply=$matches[1]&edit=1";s:32:"forums/topic-tag/([^/]+)/edit/?$";s:38:"index.php?topic-tag=$matches[1]&edit=1";s:48:"forums/users/([^/]+)/topics/page/?([0-9]{1,})/?$";s:59:"index.php?bbp_user=$matches[1]&bbp_tops=1&paged=$matches[2]";s:49:"forums/users/([^/]+)/replies/page/?([0-9]{1,})/?$";s:59:"index.php?bbp_user=$matches[1]&bbp_reps=1&paged=$matches[2]";s:51:"forums/users/([^/]+)/favorites/page/?([0-9]{1,})/?$";s:59:"index.php?bbp_user=$matches[1]&bbp_favs=1&paged=$matches[2]";s:55:"forums/users/([^/]+)/subscriptions/page/?([0-9]{1,})/?$";s:59:"index.php?bbp_user=$matches[1]&bbp_subs=1&paged=$matches[2]";s:30:"forums/users/([^/]+)/topics/?$";s:41:"index.php?bbp_user=$matches[1]&bbp_tops=1";s:31:"forums/users/([^/]+)/replies/?$";s:41:"index.php?bbp_user=$matches[1]&bbp_reps=1";s:33:"forums/users/([^/]+)/favorites/?$";s:41:"index.php?bbp_user=$matches[1]&bbp_favs=1";s:37:"forums/users/([^/]+)/subscriptions/?$";s:41:"index.php?bbp_user=$matches[1]&bbp_subs=1";s:28:"forums/users/([^/]+)/edit/?$";s:37:"index.php?bbp_user=$matches[1]&edit=1";s:23:"forums/users/([^/]+)/?$";s:30:"index.php?bbp_user=$matches[1]";s:40:"forums/view/([^/]+)/page/?([0-9]{1,})/?$";s:48:"index.php?bbp_view=$matches[1]&paged=$matches[2]";s:27:"forums/view/([^/]+)/feed/?$";s:47:"index.php?bbp_view=$matches[1]&feed=$matches[2]";s:22:"forums/view/([^/]+)/?$";s:30:"index.php?bbp_view=$matches[1]";s:34:"forums/search/page/?([0-9]{1,})/?$";s:27:"index.php?paged=$matches[1]";s:16:"forums/search/?$";s:20:"index.php?bbp_search";s:11:"^wp-json/?$";s:22:"index.php?rest_route=/";s:14:"^wp-json/(.*)?";s:33:"index.php?rest_route=/$matches[1]";s:7:"docs/?$";s:26:"index.php?post_type=bp_doc";s:37:"docs/feed/(feed|rdf|rss|rss2|atom)/?$";s:43:"index.php?post_type=bp_doc&feed=$matches[1]";s:32:"docs/(feed|rdf|rss|rss2|atom)/?$";s:43:"index.php?post_type=bp_doc&feed=$matches[1]";s:24:"docs/page/([0-9]{1,})/?$";s:44:"index.php?post_type=bp_doc&paged=$matches[1]";s:12:"slideshow/?$";s:29:"index.php?post_type=slideshow";s:42:"slideshow/feed/(feed|rdf|rss|rss2|atom)/?$";s:46:"index.php?post_type=slideshow&feed=$matches[1]";s:37:"slideshow/(feed|rdf|rss|rss2|atom)/?$";s:46:"index.php?post_type=slideshow&feed=$matches[1]";s:29:"slideshow/page/([0-9]{1,})/?$";s:47:"index.php?post_type=slideshow&paged=$matches[1]";s:48:"categoria/(.+?)/feed/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?category_name=$matches[1]&feed=$matches[2]";s:43:"categoria/(.+?)/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?category_name=$matches[1]&feed=$matches[2]";s:24:"categoria/(.+?)/embed/?$";s:46:"index.php?category_name=$matches[1]&embed=true";s:36:"categoria/(.+?)/page/?([0-9]{1,})/?$";s:53:"index.php?category_name=$matches[1]&paged=$matches[2]";s:18:"categoria/(.+?)/?$";s:35:"index.php?category_name=$matches[1]";s:44:"tag/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?tag=$matches[1]&feed=$matches[2]";s:39:"tag/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?tag=$matches[1]&feed=$matches[2]";s:20:"tag/([^/]+)/embed/?$";s:36:"index.php?tag=$matches[1]&embed=true";s:32:"tag/([^/]+)/page/?([0-9]{1,})/?$";s:43:"index.php?tag=$matches[1]&paged=$matches[2]";s:14:"tag/([^/]+)/?$";s:25:"index.php?tag=$matches[1]";s:45:"type/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?post_format=$matches[1]&feed=$matches[2]";s:40:"type/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?post_format=$matches[1]&feed=$matches[2]";s:21:"type/([^/]+)/embed/?$";s:44:"index.php?post_format=$matches[1]&embed=true";s:33:"type/([^/]+)/page/?([0-9]{1,})/?$";s:51:"index.php?post_format=$matches[1]&paged=$matches[2]";s:15:"type/([^/]+)/?$";s:33:"index.php?post_format=$matches[1]";s:38:"forums/forum/.+?/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:48:"forums/forum/.+?/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:68:"forums/forum/.+?/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:63:"forums/forum/.+?/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:63:"forums/forum/.+?/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:44:"forums/forum/.+?/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:27:"forums/forum/(.+?)/embed/?$";s:38:"index.php?forum=$matches[1]&embed=true";s:31:"forums/forum/(.+?)/trackback/?$";s:32:"index.php?forum=$matches[1]&tb=1";s:51:"forums/forum/(.+?)/feed/(feed|rdf|rss|rss2|atom)/?$";s:44:"index.php?forum=$matches[1]&feed=$matches[2]";s:46:"forums/forum/(.+?)/(feed|rdf|rss|rss2|atom)/?$";s:44:"index.php?forum=$matches[1]&feed=$matches[2]";s:39:"forums/forum/(.+?)/page/?([0-9]{1,})/?$";s:45:"index.php?forum=$matches[1]&paged=$matches[2]";s:46:"forums/forum/(.+?)/comment-page-([0-9]{1,})/?$";s:45:"index.php?forum=$matches[1]&cpage=$matches[2]";s:35:"forums/forum/(.+?)(?:/([0-9]+))?/?$";s:44:"index.php?forum=$matches[1]&page=$matches[2]";s:40:"forums/topic/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:50:"forums/topic/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:70:"forums/topic/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:65:"forums/topic/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:65:"forums/topic/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:46:"forums/topic/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:29:"forums/topic/([^/]+)/embed/?$";s:38:"index.php?topic=$matches[1]&embed=true";s:33:"forums/topic/([^/]+)/trackback/?$";s:32:"index.php?topic=$matches[1]&tb=1";s:53:"forums/topic/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:44:"index.php?topic=$matches[1]&feed=$matches[2]";s:48:"forums/topic/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:44:"index.php?topic=$matches[1]&feed=$matches[2]";s:41:"forums/topic/([^/]+)/page/?([0-9]{1,})/?$";s:45:"index.php?topic=$matches[1]&paged=$matches[2]";s:48:"forums/topic/([^/]+)/comment-page-([0-9]{1,})/?$";s:45:"index.php?topic=$matches[1]&cpage=$matches[2]";s:37:"forums/topic/([^/]+)(?:/([0-9]+))?/?$";s:44:"index.php?topic=$matches[1]&page=$matches[2]";s:29:"forums/topic/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:39:"forums/topic/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:59:"forums/topic/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:54:"forums/topic/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:54:"forums/topic/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:35:"forums/topic/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:40:"forums/reply/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:50:"forums/reply/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:70:"forums/reply/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:65:"forums/reply/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:65:"forums/reply/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:46:"forums/reply/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:29:"forums/reply/([^/]+)/embed/?$";s:38:"index.php?reply=$matches[1]&embed=true";s:33:"forums/reply/([^/]+)/trackback/?$";s:32:"index.php?reply=$matches[1]&tb=1";s:41:"forums/reply/([^/]+)/page/?([0-9]{1,})/?$";s:45:"index.php?reply=$matches[1]&paged=$matches[2]";s:48:"forums/reply/([^/]+)/comment-page-([0-9]{1,})/?$";s:45:"index.php?reply=$matches[1]&cpage=$matches[2]";s:37:"forums/reply/([^/]+)(?:/([0-9]+))?/?$";s:44:"index.php?reply=$matches[1]&page=$matches[2]";s:29:"forums/reply/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:39:"forums/reply/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:59:"forums/reply/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:54:"forums/reply/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:54:"forums/reply/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:35:"forums/reply/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:57:"forums/topic-tag/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:48:"index.php?topic-tag=$matches[1]&feed=$matches[2]";s:52:"forums/topic-tag/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:48:"index.php?topic-tag=$matches[1]&feed=$matches[2]";s:33:"forums/topic-tag/([^/]+)/embed/?$";s:42:"index.php?topic-tag=$matches[1]&embed=true";s:45:"forums/topic-tag/([^/]+)/page/?([0-9]{1,})/?$";s:49:"index.php?topic-tag=$matches[1]&paged=$matches[2]";s:27:"forums/topic-tag/([^/]+)/?$";s:31:"index.php?topic-tag=$matches[1]";s:42:"forums/search/([^/]+)/page/?([0-9]{1,})/?$";s:50:"index.php?bbp_search=$matches[1]&paged=$matches[2]";s:24:"forums/search/([^/]+)/?$";s:32:"index.php?bbp_search=$matches[1]";s:38:"ia_invites/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:48:"ia_invites/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:68:"ia_invites/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:63:"ia_invites/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:63:"ia_invites/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:44:"ia_invites/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:27:"ia_invites/([^/]+)/embed/?$";s:43:"index.php?ia_invites=$matches[1]&embed=true";s:31:"ia_invites/([^/]+)/trackback/?$";s:37:"index.php?ia_invites=$matches[1]&tb=1";s:39:"ia_invites/([^/]+)/page/?([0-9]{1,})/?$";s:50:"index.php?ia_invites=$matches[1]&paged=$matches[2]";s:46:"ia_invites/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?ia_invites=$matches[1]&cpage=$matches[2]";s:35:"ia_invites/([^/]+)(?:/([0-9]+))?/?$";s:49:"index.php?ia_invites=$matches[1]&page=$matches[2]";s:27:"ia_invites/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:37:"ia_invites/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:57:"ia_invites/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:52:"ia_invites/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:52:"ia_invites/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:33:"ia_invites/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:52:"ia_invitees/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?ia_invitees=$matches[1]&feed=$matches[2]";s:47:"ia_invitees/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?ia_invitees=$matches[1]&feed=$matches[2]";s:28:"ia_invitees/([^/]+)/embed/?$";s:44:"index.php?ia_invitees=$matches[1]&embed=true";s:40:"ia_invitees/([^/]+)/page/?([0-9]{1,})/?$";s:51:"index.php?ia_invitees=$matches[1]&paged=$matches[2]";s:22:"ia_invitees/([^/]+)/?$";s:33:"index.php?ia_invitees=$matches[1]";s:58:"ia_invited_groups/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:56:"index.php?ia_invited_groups=$matches[1]&feed=$matches[2]";s:53:"ia_invited_groups/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:56:"index.php?ia_invited_groups=$matches[1]&feed=$matches[2]";s:34:"ia_invited_groups/([^/]+)/embed/?$";s:50:"index.php?ia_invited_groups=$matches[1]&embed=true";s:46:"ia_invited_groups/([^/]+)/page/?([0-9]{1,})/?$";s:57:"index.php?ia_invited_groups=$matches[1]&paged=$matches[2]";s:28:"ia_invited_groups/([^/]+)/?$";s:39:"index.php?ia_invited_groups=$matches[1]";s:54:"calendar_feed/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:66:"index.php?taxonomy=calendar_feed&term=$matches[1]&feed=$matches[2]";s:49:"calendar_feed/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:66:"index.php?taxonomy=calendar_feed&term=$matches[1]&feed=$matches[2]";s:30:"calendar_feed/([^/]+)/embed/?$";s:60:"index.php?taxonomy=calendar_feed&term=$matches[1]&embed=true";s:42:"calendar_feed/([^/]+)/page/?([0-9]{1,})/?$";s:67:"index.php?taxonomy=calendar_feed&term=$matches[1]&paged=$matches[2]";s:24:"calendar_feed/([^/]+)/?$";s:49:"index.php?taxonomy=calendar_feed&term=$matches[1]";s:54:"calendar_type/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:66:"index.php?taxonomy=calendar_type&term=$matches[1]&feed=$matches[2]";s:49:"calendar_type/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:66:"index.php?taxonomy=calendar_type&term=$matches[1]&feed=$matches[2]";s:30:"calendar_type/([^/]+)/embed/?$";s:60:"index.php?taxonomy=calendar_type&term=$matches[1]&embed=true";s:42:"calendar_type/([^/]+)/page/?([0-9]{1,})/?$";s:67:"index.php?taxonomy=calendar_type&term=$matches[1]&paged=$matches[2]";s:24:"calendar_type/([^/]+)/?$";s:49:"index.php?taxonomy=calendar_type&term=$matches[1]";s:58:"calendar_category/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:56:"index.php?calendar_category=$matches[1]&feed=$matches[2]";s:53:"calendar_category/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:56:"index.php?calendar_category=$matches[1]&feed=$matches[2]";s:34:"calendar_category/([^/]+)/embed/?$";s:50:"index.php?calendar_category=$matches[1]&embed=true";s:46:"calendar_category/([^/]+)/page/?([0-9]{1,})/?$";s:57:"index.php?calendar_category=$matches[1]&paged=$matches[2]";s:28:"calendar_category/([^/]+)/?$";s:39:"index.php?calendar_category=$matches[1]";s:36:"calendar/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:46:"calendar/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:66:"calendar/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:61:"calendar/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:61:"calendar/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:42:"calendar/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:25:"calendar/([^/]+)/embed/?$";s:41:"index.php?calendar=$matches[1]&embed=true";s:29:"calendar/([^/]+)/trackback/?$";s:35:"index.php?calendar=$matches[1]&tb=1";s:37:"calendar/([^/]+)/page/?([0-9]{1,})/?$";s:48:"index.php?calendar=$matches[1]&paged=$matches[2]";s:44:"calendar/([^/]+)/comment-page-([0-9]{1,})/?$";s:48:"index.php?calendar=$matches[1]&cpage=$matches[2]";s:33:"calendar/([^/]+)(?:/([0-9]+))?/?$";s:47:"index.php?calendar=$matches[1]&page=$matches[2]";s:25:"calendar/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:35:"calendar/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:55:"calendar/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:50:"calendar/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:50:"calendar/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:31:"calendar/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:55:"bp_member_type/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:67:"index.php?taxonomy=bp_member_type&term=$matches[1]&feed=$matches[2]";s:50:"bp_member_type/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:67:"index.php?taxonomy=bp_member_type&term=$matches[1]&feed=$matches[2]";s:31:"bp_member_type/([^/]+)/embed/?$";s:61:"index.php?taxonomy=bp_member_type&term=$matches[1]&embed=true";s:43:"bp_member_type/([^/]+)/page/?([0-9]{1,})/?$";s:68:"index.php?taxonomy=bp_member_type&term=$matches[1]&paged=$matches[2]";s:25:"bp_member_type/([^/]+)/?$";s:50:"index.php?taxonomy=bp_member_type&term=$matches[1]";s:30:"docs/.+?/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:40:"docs/.+?/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:60:"docs/.+?/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:55:"docs/.+?/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:55:"docs/.+?/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:36:"docs/.+?/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:19:"docs/(.+?)/embed/?$";s:39:"index.php?bp_doc=$matches[1]&embed=true";s:23:"docs/(.+?)/trackback/?$";s:33:"index.php?bp_doc=$matches[1]&tb=1";s:43:"docs/(.+?)/feed/(feed|rdf|rss|rss2|atom)/?$";s:45:"index.php?bp_doc=$matches[1]&feed=$matches[2]";s:38:"docs/(.+?)/(feed|rdf|rss|rss2|atom)/?$";s:45:"index.php?bp_doc=$matches[1]&feed=$matches[2]";s:31:"docs/(.+?)/page/?([0-9]{1,})/?$";s:46:"index.php?bp_doc=$matches[1]&paged=$matches[2]";s:38:"docs/(.+?)/comment-page-([0-9]{1,})/?$";s:46:"index.php?bp_doc=$matches[1]&cpage=$matches[2]";s:27:"docs/(.+?)(?:/([0-9]+))?/?$";s:45:"index.php?bp_doc=$matches[1]&page=$matches[2]";s:45:"item/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?bp_docs_tag=$matches[1]&feed=$matches[2]";s:40:"item/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?bp_docs_tag=$matches[1]&feed=$matches[2]";s:21:"item/([^/]+)/embed/?$";s:44:"index.php?bp_docs_tag=$matches[1]&embed=true";s:33:"item/([^/]+)/page/?([0-9]{1,})/?$";s:51:"index.php?bp_docs_tag=$matches[1]&paged=$matches[2]";s:15:"item/([^/]+)/?$";s:33:"index.php?bp_docs_tag=$matches[1]";s:55:"bp_docs_access/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:67:"index.php?taxonomy=bp_docs_access&term=$matches[1]&feed=$matches[2]";s:50:"bp_docs_access/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:67:"index.php?taxonomy=bp_docs_access&term=$matches[1]&feed=$matches[2]";s:31:"bp_docs_access/([^/]+)/embed/?$";s:61:"index.php?taxonomy=bp_docs_access&term=$matches[1]&embed=true";s:43:"bp_docs_access/([^/]+)/page/?([0-9]{1,})/?$";s:68:"index.php?taxonomy=bp_docs_access&term=$matches[1]&paged=$matches[2]";s:25:"bp_docs_access/([^/]+)/?$";s:50:"index.php?taxonomy=bp_docs_access&term=$matches[1]";s:40:"bp_docs_folder/.+?/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:50:"bp_docs_folder/.+?/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:70:"bp_docs_folder/.+?/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:65:"bp_docs_folder/.+?/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:65:"bp_docs_folder/.+?/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:46:"bp_docs_folder/.+?/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:29:"bp_docs_folder/(.+?)/embed/?$";s:47:"index.php?bp_docs_folder=$matches[1]&embed=true";s:33:"bp_docs_folder/(.+?)/trackback/?$";s:41:"index.php?bp_docs_folder=$matches[1]&tb=1";s:41:"bp_docs_folder/(.+?)/page/?([0-9]{1,})/?$";s:54:"index.php?bp_docs_folder=$matches[1]&paged=$matches[2]";s:48:"bp_docs_folder/(.+?)/comment-page-([0-9]{1,})/?$";s:54:"index.php?bp_docs_folder=$matches[1]&cpage=$matches[2]";s:37:"bp_docs_folder/(.+?)(?:/([0-9]+))?/?$";s:53:"index.php?bp_docs_folder=$matches[1]&page=$matches[2]";s:62:"bp_docs_doc_in_folder/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:74:"index.php?taxonomy=bp_docs_doc_in_folder&term=$matches[1]&feed=$matches[2]";s:57:"bp_docs_doc_in_folder/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:74:"index.php?taxonomy=bp_docs_doc_in_folder&term=$matches[1]&feed=$matches[2]";s:38:"bp_docs_doc_in_folder/([^/]+)/embed/?$";s:68:"index.php?taxonomy=bp_docs_doc_in_folder&term=$matches[1]&embed=true";s:50:"bp_docs_doc_in_folder/([^/]+)/page/?([0-9]{1,})/?$";s:75:"index.php?taxonomy=bp_docs_doc_in_folder&term=$matches[1]&paged=$matches[2]";s:32:"bp_docs_doc_in_folder/([^/]+)/?$";s:57:"index.php?taxonomy=bp_docs_doc_in_folder&term=$matches[1]";s:63:"bp_docs_folder_in_user/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:61:"index.php?bp_docs_folder_in_user=$matches[1]&feed=$matches[2]";s:58:"bp_docs_folder_in_user/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:61:"index.php?bp_docs_folder_in_user=$matches[1]&feed=$matches[2]";s:39:"bp_docs_folder_in_user/([^/]+)/embed/?$";s:55:"index.php?bp_docs_folder_in_user=$matches[1]&embed=true";s:51:"bp_docs_folder_in_user/([^/]+)/page/?([0-9]{1,})/?$";s:62:"index.php?bp_docs_folder_in_user=$matches[1]&paged=$matches[2]";s:33:"bp_docs_folder_in_user/([^/]+)/?$";s:44:"index.php?bp_docs_folder_in_user=$matches[1]";s:64:"bp_docs_folder_in_group/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:62:"index.php?bp_docs_folder_in_group=$matches[1]&feed=$matches[2]";s:59:"bp_docs_folder_in_group/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:62:"index.php?bp_docs_folder_in_group=$matches[1]&feed=$matches[2]";s:40:"bp_docs_folder_in_group/([^/]+)/embed/?$";s:56:"index.php?bp_docs_folder_in_group=$matches[1]&embed=true";s:52:"bp_docs_folder_in_group/([^/]+)/page/?([0-9]{1,})/?$";s:63:"index.php?bp_docs_folder_in_group=$matches[1]&paged=$matches[2]";s:34:"bp_docs_folder_in_group/([^/]+)/?$";s:45:"index.php?bp_docs_folder_in_group=$matches[1]";s:37:"slideshow/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:47:"slideshow/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:67:"slideshow/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:62:"slideshow/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:62:"slideshow/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:43:"slideshow/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:26:"slideshow/([^/]+)/embed/?$";s:42:"index.php?slideshow=$matches[1]&embed=true";s:30:"slideshow/([^/]+)/trackback/?$";s:36:"index.php?slideshow=$matches[1]&tb=1";s:50:"slideshow/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:48:"index.php?slideshow=$matches[1]&feed=$matches[2]";s:45:"slideshow/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:48:"index.php?slideshow=$matches[1]&feed=$matches[2]";s:38:"slideshow/([^/]+)/page/?([0-9]{1,})/?$";s:49:"index.php?slideshow=$matches[1]&paged=$matches[2]";s:45:"slideshow/([^/]+)/comment-page-([0-9]{1,})/?$";s:49:"index.php?slideshow=$matches[1]&cpage=$matches[2]";s:34:"slideshow/([^/]+)(?:/([0-9]+))?/?$";s:48:"index.php?slideshow=$matches[1]&page=$matches[2]";s:26:"slideshow/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:36:"slideshow/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:56:"slideshow/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:51:"slideshow/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:51:"slideshow/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:32:"slideshow/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:48:".*wp-(atom|rdf|rss|rss2|feed|commentsrss2)\\.php$";s:18:"index.php?feed=old";s:20:".*wp-app\\.php(/.*)?$";s:19:"index.php?error=403";s:18:".*wp-register.php$";s:23:"index.php?register=true";s:32:"feed/(feed|rdf|rss|rss2|atom)/?$";s:27:"index.php?&feed=$matches[1]";s:27:"(feed|rdf|rss|rss2|atom)/?$";s:27:"index.php?&feed=$matches[1]";s:8:"embed/?$";s:21:"index.php?&embed=true";s:20:"page/?([0-9]{1,})/?$";s:28:"index.php?&paged=$matches[1]";s:27:"comment-page-([0-9]{1,})/?$";s:38:"index.php?&page_id=9&cpage=$matches[1]";s:41:"comments/feed/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?&feed=$matches[1]&withcomments=1";s:36:"comments/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?&feed=$matches[1]&withcomments=1";s:17:"comments/embed/?$";s:21:"index.php?&embed=true";s:44:"search/(.+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:40:"index.php?s=$matches[1]&feed=$matches[2]";s:39:"search/(.+)/(feed|rdf|rss|rss2|atom)/?$";s:40:"index.php?s=$matches[1]&feed=$matches[2]";s:20:"search/(.+)/embed/?$";s:34:"index.php?s=$matches[1]&embed=true";s:32:"search/(.+)/page/?([0-9]{1,})/?$";s:41:"index.php?s=$matches[1]&paged=$matches[2]";s:14:"search/(.+)/?$";s:23:"index.php?s=$matches[1]";s:47:"author/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?author_name=$matches[1]&feed=$matches[2]";s:42:"author/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?author_name=$matches[1]&feed=$matches[2]";s:23:"author/([^/]+)/embed/?$";s:44:"index.php?author_name=$matches[1]&embed=true";s:35:"author/([^/]+)/page/?([0-9]{1,})/?$";s:51:"index.php?author_name=$matches[1]&paged=$matches[2]";s:17:"author/([^/]+)/?$";s:33:"index.php?author_name=$matches[1]";s:69:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/feed/(feed|rdf|rss|rss2|atom)/?$";s:80:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]&feed=$matches[4]";s:64:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/(feed|rdf|rss|rss2|atom)/?$";s:80:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]&feed=$matches[4]";s:45:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/embed/?$";s:74:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]&embed=true";s:57:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/page/?([0-9]{1,})/?$";s:81:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]&paged=$matches[4]";s:39:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/?$";s:63:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]";s:56:"([0-9]{4})/([0-9]{1,2})/feed/(feed|rdf|rss|rss2|atom)/?$";s:64:"index.php?year=$matches[1]&monthnum=$matches[2]&feed=$matches[3]";s:51:"([0-9]{4})/([0-9]{1,2})/(feed|rdf|rss|rss2|atom)/?$";s:64:"index.php?year=$matches[1]&monthnum=$matches[2]&feed=$matches[3]";s:32:"([0-9]{4})/([0-9]{1,2})/embed/?$";s:58:"index.php?year=$matches[1]&monthnum=$matches[2]&embed=true";s:44:"([0-9]{4})/([0-9]{1,2})/page/?([0-9]{1,})/?$";s:65:"index.php?year=$matches[1]&monthnum=$matches[2]&paged=$matches[3]";s:26:"([0-9]{4})/([0-9]{1,2})/?$";s:47:"index.php?year=$matches[1]&monthnum=$matches[2]";s:43:"([0-9]{4})/feed/(feed|rdf|rss|rss2|atom)/?$";s:43:"index.php?year=$matches[1]&feed=$matches[2]";s:38:"([0-9]{4})/(feed|rdf|rss|rss2|atom)/?$";s:43:"index.php?year=$matches[1]&feed=$matches[2]";s:19:"([0-9]{4})/embed/?$";s:37:"index.php?year=$matches[1]&embed=true";s:31:"([0-9]{4})/page/?([0-9]{1,})/?$";s:44:"index.php?year=$matches[1]&paged=$matches[2]";s:13:"([0-9]{4})/?$";s:26:"index.php?year=$matches[1]";s:27:".?.+?/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:37:".?.+?/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:57:".?.+?/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:52:".?.+?/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:52:".?.+?/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:33:".?.+?/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:16:"(.?.+?)/embed/?$";s:41:"index.php?pagename=$matches[1]&embed=true";s:20:"(.?.+?)/trackback/?$";s:35:"index.php?pagename=$matches[1]&tb=1";s:40:"(.?.+?)/feed/(feed|rdf|rss|rss2|atom)/?$";s:47:"index.php?pagename=$matches[1]&feed=$matches[2]";s:35:"(.?.+?)/(feed|rdf|rss|rss2|atom)/?$";s:47:"index.php?pagename=$matches[1]&feed=$matches[2]";s:28:"(.?.+?)/page/?([0-9]{1,})/?$";s:48:"index.php?pagename=$matches[1]&paged=$matches[2]";s:35:"(.?.+?)/comment-page-([0-9]{1,})/?$";s:48:"index.php?pagename=$matches[1]&cpage=$matches[2]";s:24:"(.?.+?)(?:/([0-9]+))?/?$";s:47:"index.php?pagename=$matches[1]&page=$matches[2]";s:31:".+?/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:41:".+?/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:61:".+?/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:56:".+?/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:56:".+?/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:37:".+?/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:22:"(.+?)/([^/]+)/embed/?$";s:63:"index.php?category_name=$matches[1]&name=$matches[2]&embed=true";s:26:"(.+?)/([^/]+)/trackback/?$";s:57:"index.php?category_name=$matches[1]&name=$matches[2]&tb=1";s:46:"(.+?)/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:69:"index.php?category_name=$matches[1]&name=$matches[2]&feed=$matches[3]";s:41:"(.+?)/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:69:"index.php?category_name=$matches[1]&name=$matches[2]&feed=$matches[3]";s:34:"(.+?)/([^/]+)/page/?([0-9]{1,})/?$";s:70:"index.php?category_name=$matches[1]&name=$matches[2]&paged=$matches[3]";s:41:"(.+?)/([^/]+)/comment-page-([0-9]{1,})/?$";s:70:"index.php?category_name=$matches[1]&name=$matches[2]&cpage=$matches[3]";s:30:"(.+?)/([^/]+)(?:/([0-9]+))?/?$";s:69:"index.php?category_name=$matches[1]&name=$matches[2]&page=$matches[3]";s:20:".+?/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:30:".+?/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:50:".+?/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:45:".+?/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:45:".+?/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:26:".+?/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:38:"(.+?)/feed/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?category_name=$matches[1]&feed=$matches[2]";s:33:"(.+?)/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?category_name=$matches[1]&feed=$matches[2]";s:14:"(.+?)/embed/?$";s:46:"index.php?category_name=$matches[1]&embed=true";s:26:"(.+?)/page/?([0-9]{1,})/?$";s:53:"index.php?category_name=$matches[1]&paged=$matches[2]";s:33:"(.+?)/comment-page-([0-9]{1,})/?$";s:53:"index.php?category_name=$matches[1]&cpage=$matches[2]";s:8:"(.+?)/?$";s:35:"index.php?category_name=$matches[1]";}', 'yes'),
+(2573, 'rewrite_rules', 'a:396:{s:14:"docs/create/?$";s:52:"index.php?post_type=bp_doc&name=$matches[1]&create=1";s:34:"docs/my-groups/page/([0-9]{1,})/?$";s:56:"index.php?post_type=bp_doc&my-groups=1&paged=$matches[1]";s:17:"docs/my-groups/?$";s:55:"index.php?post_type=bp_doc&name=$matches[1]&my-groups=1";s:20:"docs/([^/]+)/edit/?$";s:50:"index.php?post_type=bp_doc&name=$matches[1]&edit=1";s:23:"docs/([^/]+)/history/?$";s:53:"index.php?post_type=bp_doc&name=$matches[1]&history=1";s:22:"docs/([^/]+)/delete/?$";s:53:"index.php?post_type=bp_doc&name=$matches[1]&history=1";s:23:"docs/([^/]+)/untrash/?$";s:53:"index.php?post_type=bp_doc&name=$matches[1]&untrash=1";s:33:"docs/([^/]+)/unlink-from-group/?$";s:63:"index.php?post_type=bp_doc&name=$matches[1]&unlink-from-group=1";s:9:"forums/?$";s:25:"index.php?post_type=forum";s:39:"forums/feed/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?post_type=forum&feed=$matches[1]";s:34:"forums/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?post_type=forum&feed=$matches[1]";s:26:"forums/page/([0-9]{1,})/?$";s:43:"index.php?post_type=forum&paged=$matches[1]";s:9:"topics/?$";s:25:"index.php?post_type=topic";s:39:"topics/feed/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?post_type=topic&feed=$matches[1]";s:34:"topics/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?post_type=topic&feed=$matches[1]";s:26:"topics/page/([0-9]{1,})/?$";s:43:"index.php?post_type=topic&paged=$matches[1]";s:28:"forums/forum/([^/]+)/edit/?$";s:34:"index.php?forum=$matches[1]&edit=1";s:28:"forums/topic/([^/]+)/edit/?$";s:34:"index.php?topic=$matches[1]&edit=1";s:28:"forums/reply/([^/]+)/edit/?$";s:34:"index.php?reply=$matches[1]&edit=1";s:32:"forums/topic-tag/([^/]+)/edit/?$";s:38:"index.php?topic-tag=$matches[1]&edit=1";s:48:"forums/users/([^/]+)/topics/page/?([0-9]{1,})/?$";s:59:"index.php?bbp_user=$matches[1]&bbp_tops=1&paged=$matches[2]";s:49:"forums/users/([^/]+)/replies/page/?([0-9]{1,})/?$";s:59:"index.php?bbp_user=$matches[1]&bbp_reps=1&paged=$matches[2]";s:51:"forums/users/([^/]+)/favorites/page/?([0-9]{1,})/?$";s:59:"index.php?bbp_user=$matches[1]&bbp_favs=1&paged=$matches[2]";s:55:"forums/users/([^/]+)/subscriptions/page/?([0-9]{1,})/?$";s:59:"index.php?bbp_user=$matches[1]&bbp_subs=1&paged=$matches[2]";s:30:"forums/users/([^/]+)/topics/?$";s:41:"index.php?bbp_user=$matches[1]&bbp_tops=1";s:31:"forums/users/([^/]+)/replies/?$";s:41:"index.php?bbp_user=$matches[1]&bbp_reps=1";s:33:"forums/users/([^/]+)/favorites/?$";s:41:"index.php?bbp_user=$matches[1]&bbp_favs=1";s:37:"forums/users/([^/]+)/subscriptions/?$";s:41:"index.php?bbp_user=$matches[1]&bbp_subs=1";s:28:"forums/users/([^/]+)/edit/?$";s:37:"index.php?bbp_user=$matches[1]&edit=1";s:23:"forums/users/([^/]+)/?$";s:30:"index.php?bbp_user=$matches[1]";s:40:"forums/view/([^/]+)/page/?([0-9]{1,})/?$";s:48:"index.php?bbp_view=$matches[1]&paged=$matches[2]";s:27:"forums/view/([^/]+)/feed/?$";s:47:"index.php?bbp_view=$matches[1]&feed=$matches[2]";s:22:"forums/view/([^/]+)/?$";s:30:"index.php?bbp_view=$matches[1]";s:34:"forums/search/page/?([0-9]{1,})/?$";s:27:"index.php?paged=$matches[1]";s:16:"forums/search/?$";s:20:"index.php?bbp_search";s:11:"^wp-json/?$";s:22:"index.php?rest_route=/";s:14:"^wp-json/(.*)?";s:33:"index.php?rest_route=/$matches[1]";s:21:"^index.php/wp-json/?$";s:22:"index.php?rest_route=/";s:24:"^index.php/wp-json/(.*)?";s:33:"index.php?rest_route=/$matches[1]";s:7:"docs/?$";s:26:"index.php?post_type=bp_doc";s:37:"docs/feed/(feed|rdf|rss|rss2|atom)/?$";s:43:"index.php?post_type=bp_doc&feed=$matches[1]";s:32:"docs/(feed|rdf|rss|rss2|atom)/?$";s:43:"index.php?post_type=bp_doc&feed=$matches[1]";s:24:"docs/page/([0-9]{1,})/?$";s:44:"index.php?post_type=bp_doc&paged=$matches[1]";s:12:"slideshow/?$";s:29:"index.php?post_type=slideshow";s:42:"slideshow/feed/(feed|rdf|rss|rss2|atom)/?$";s:46:"index.php?post_type=slideshow&feed=$matches[1]";s:37:"slideshow/(feed|rdf|rss|rss2|atom)/?$";s:46:"index.php?post_type=slideshow&feed=$matches[1]";s:29:"slideshow/page/([0-9]{1,})/?$";s:47:"index.php?post_type=slideshow&paged=$matches[1]";s:48:"categoria/(.+?)/feed/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?category_name=$matches[1]&feed=$matches[2]";s:43:"categoria/(.+?)/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?category_name=$matches[1]&feed=$matches[2]";s:24:"categoria/(.+?)/embed/?$";s:46:"index.php?category_name=$matches[1]&embed=true";s:36:"categoria/(.+?)/page/?([0-9]{1,})/?$";s:53:"index.php?category_name=$matches[1]&paged=$matches[2]";s:18:"categoria/(.+?)/?$";s:35:"index.php?category_name=$matches[1]";s:44:"tag/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?tag=$matches[1]&feed=$matches[2]";s:39:"tag/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?tag=$matches[1]&feed=$matches[2]";s:20:"tag/([^/]+)/embed/?$";s:36:"index.php?tag=$matches[1]&embed=true";s:32:"tag/([^/]+)/page/?([0-9]{1,})/?$";s:43:"index.php?tag=$matches[1]&paged=$matches[2]";s:14:"tag/([^/]+)/?$";s:25:"index.php?tag=$matches[1]";s:45:"type/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?post_format=$matches[1]&feed=$matches[2]";s:40:"type/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?post_format=$matches[1]&feed=$matches[2]";s:21:"type/([^/]+)/embed/?$";s:44:"index.php?post_format=$matches[1]&embed=true";s:33:"type/([^/]+)/page/?([0-9]{1,})/?$";s:51:"index.php?post_format=$matches[1]&paged=$matches[2]";s:15:"type/([^/]+)/?$";s:33:"index.php?post_format=$matches[1]";s:38:"forums/forum/.+?/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:48:"forums/forum/.+?/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:68:"forums/forum/.+?/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:63:"forums/forum/.+?/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:63:"forums/forum/.+?/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:44:"forums/forum/.+?/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:27:"forums/forum/(.+?)/embed/?$";s:38:"index.php?forum=$matches[1]&embed=true";s:31:"forums/forum/(.+?)/trackback/?$";s:32:"index.php?forum=$matches[1]&tb=1";s:51:"forums/forum/(.+?)/feed/(feed|rdf|rss|rss2|atom)/?$";s:44:"index.php?forum=$matches[1]&feed=$matches[2]";s:46:"forums/forum/(.+?)/(feed|rdf|rss|rss2|atom)/?$";s:44:"index.php?forum=$matches[1]&feed=$matches[2]";s:39:"forums/forum/(.+?)/page/?([0-9]{1,})/?$";s:45:"index.php?forum=$matches[1]&paged=$matches[2]";s:46:"forums/forum/(.+?)/comment-page-([0-9]{1,})/?$";s:45:"index.php?forum=$matches[1]&cpage=$matches[2]";s:35:"forums/forum/(.+?)(?:/([0-9]+))?/?$";s:44:"index.php?forum=$matches[1]&page=$matches[2]";s:40:"forums/topic/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:50:"forums/topic/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:70:"forums/topic/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:65:"forums/topic/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:65:"forums/topic/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:46:"forums/topic/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:29:"forums/topic/([^/]+)/embed/?$";s:38:"index.php?topic=$matches[1]&embed=true";s:33:"forums/topic/([^/]+)/trackback/?$";s:32:"index.php?topic=$matches[1]&tb=1";s:53:"forums/topic/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:44:"index.php?topic=$matches[1]&feed=$matches[2]";s:48:"forums/topic/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:44:"index.php?topic=$matches[1]&feed=$matches[2]";s:41:"forums/topic/([^/]+)/page/?([0-9]{1,})/?$";s:45:"index.php?topic=$matches[1]&paged=$matches[2]";s:48:"forums/topic/([^/]+)/comment-page-([0-9]{1,})/?$";s:45:"index.php?topic=$matches[1]&cpage=$matches[2]";s:37:"forums/topic/([^/]+)(?:/([0-9]+))?/?$";s:44:"index.php?topic=$matches[1]&page=$matches[2]";s:29:"forums/topic/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:39:"forums/topic/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:59:"forums/topic/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:54:"forums/topic/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:54:"forums/topic/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:35:"forums/topic/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:40:"forums/reply/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:50:"forums/reply/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:70:"forums/reply/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:65:"forums/reply/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:65:"forums/reply/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:46:"forums/reply/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:29:"forums/reply/([^/]+)/embed/?$";s:38:"index.php?reply=$matches[1]&embed=true";s:33:"forums/reply/([^/]+)/trackback/?$";s:32:"index.php?reply=$matches[1]&tb=1";s:41:"forums/reply/([^/]+)/page/?([0-9]{1,})/?$";s:45:"index.php?reply=$matches[1]&paged=$matches[2]";s:48:"forums/reply/([^/]+)/comment-page-([0-9]{1,})/?$";s:45:"index.php?reply=$matches[1]&cpage=$matches[2]";s:37:"forums/reply/([^/]+)(?:/([0-9]+))?/?$";s:44:"index.php?reply=$matches[1]&page=$matches[2]";s:29:"forums/reply/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:39:"forums/reply/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:59:"forums/reply/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:54:"forums/reply/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:54:"forums/reply/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:35:"forums/reply/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:57:"forums/topic-tag/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:48:"index.php?topic-tag=$matches[1]&feed=$matches[2]";s:52:"forums/topic-tag/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:48:"index.php?topic-tag=$matches[1]&feed=$matches[2]";s:33:"forums/topic-tag/([^/]+)/embed/?$";s:42:"index.php?topic-tag=$matches[1]&embed=true";s:45:"forums/topic-tag/([^/]+)/page/?([0-9]{1,})/?$";s:49:"index.php?topic-tag=$matches[1]&paged=$matches[2]";s:27:"forums/topic-tag/([^/]+)/?$";s:31:"index.php?topic-tag=$matches[1]";s:42:"forums/search/([^/]+)/page/?([0-9]{1,})/?$";s:50:"index.php?bbp_search=$matches[1]&paged=$matches[2]";s:24:"forums/search/([^/]+)/?$";s:32:"index.php?bbp_search=$matches[1]";s:38:"ia_invites/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:48:"ia_invites/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:68:"ia_invites/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:63:"ia_invites/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:63:"ia_invites/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:44:"ia_invites/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:27:"ia_invites/([^/]+)/embed/?$";s:43:"index.php?ia_invites=$matches[1]&embed=true";s:31:"ia_invites/([^/]+)/trackback/?$";s:37:"index.php?ia_invites=$matches[1]&tb=1";s:39:"ia_invites/([^/]+)/page/?([0-9]{1,})/?$";s:50:"index.php?ia_invites=$matches[1]&paged=$matches[2]";s:46:"ia_invites/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?ia_invites=$matches[1]&cpage=$matches[2]";s:35:"ia_invites/([^/]+)(?:/([0-9]+))?/?$";s:49:"index.php?ia_invites=$matches[1]&page=$matches[2]";s:27:"ia_invites/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:37:"ia_invites/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:57:"ia_invites/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:52:"ia_invites/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:52:"ia_invites/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:33:"ia_invites/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:52:"ia_invitees/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?ia_invitees=$matches[1]&feed=$matches[2]";s:47:"ia_invitees/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?ia_invitees=$matches[1]&feed=$matches[2]";s:28:"ia_invitees/([^/]+)/embed/?$";s:44:"index.php?ia_invitees=$matches[1]&embed=true";s:40:"ia_invitees/([^/]+)/page/?([0-9]{1,})/?$";s:51:"index.php?ia_invitees=$matches[1]&paged=$matches[2]";s:22:"ia_invitees/([^/]+)/?$";s:33:"index.php?ia_invitees=$matches[1]";s:58:"ia_invited_groups/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:56:"index.php?ia_invited_groups=$matches[1]&feed=$matches[2]";s:53:"ia_invited_groups/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:56:"index.php?ia_invited_groups=$matches[1]&feed=$matches[2]";s:34:"ia_invited_groups/([^/]+)/embed/?$";s:50:"index.php?ia_invited_groups=$matches[1]&embed=true";s:46:"ia_invited_groups/([^/]+)/page/?([0-9]{1,})/?$";s:57:"index.php?ia_invited_groups=$matches[1]&paged=$matches[2]";s:28:"ia_invited_groups/([^/]+)/?$";s:39:"index.php?ia_invited_groups=$matches[1]";s:54:"calendar_feed/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?calendar_feed=$matches[1]&feed=$matches[2]";s:49:"calendar_feed/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?calendar_feed=$matches[1]&feed=$matches[2]";s:30:"calendar_feed/([^/]+)/embed/?$";s:46:"index.php?calendar_feed=$matches[1]&embed=true";s:42:"calendar_feed/([^/]+)/page/?([0-9]{1,})/?$";s:53:"index.php?calendar_feed=$matches[1]&paged=$matches[2]";s:24:"calendar_feed/([^/]+)/?$";s:35:"index.php?calendar_feed=$matches[1]";s:54:"calendar_type/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?calendar_type=$matches[1]&feed=$matches[2]";s:49:"calendar_type/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?calendar_type=$matches[1]&feed=$matches[2]";s:30:"calendar_type/([^/]+)/embed/?$";s:46:"index.php?calendar_type=$matches[1]&embed=true";s:42:"calendar_type/([^/]+)/page/?([0-9]{1,})/?$";s:53:"index.php?calendar_type=$matches[1]&paged=$matches[2]";s:24:"calendar_type/([^/]+)/?$";s:35:"index.php?calendar_type=$matches[1]";s:58:"calendar_category/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:56:"index.php?calendar_category=$matches[1]&feed=$matches[2]";s:53:"calendar_category/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:56:"index.php?calendar_category=$matches[1]&feed=$matches[2]";s:34:"calendar_category/([^/]+)/embed/?$";s:50:"index.php?calendar_category=$matches[1]&embed=true";s:46:"calendar_category/([^/]+)/page/?([0-9]{1,})/?$";s:57:"index.php?calendar_category=$matches[1]&paged=$matches[2]";s:28:"calendar_category/([^/]+)/?$";s:39:"index.php?calendar_category=$matches[1]";s:36:"calendar/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:46:"calendar/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:66:"calendar/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:61:"calendar/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:61:"calendar/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:42:"calendar/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:25:"calendar/([^/]+)/embed/?$";s:41:"index.php?calendar=$matches[1]&embed=true";s:29:"calendar/([^/]+)/trackback/?$";s:35:"index.php?calendar=$matches[1]&tb=1";s:37:"calendar/([^/]+)/page/?([0-9]{1,})/?$";s:48:"index.php?calendar=$matches[1]&paged=$matches[2]";s:44:"calendar/([^/]+)/comment-page-([0-9]{1,})/?$";s:48:"index.php?calendar=$matches[1]&cpage=$matches[2]";s:33:"calendar/([^/]+)(?:/([0-9]+))?/?$";s:47:"index.php?calendar=$matches[1]&page=$matches[2]";s:25:"calendar/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:35:"calendar/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:55:"calendar/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:50:"calendar/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:50:"calendar/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:31:"calendar/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:39:"xtec_report/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:49:"xtec_report/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:69:"xtec_report/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:64:"xtec_report/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:64:"xtec_report/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:45:"xtec_report/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:28:"xtec_report/([^/]+)/embed/?$";s:44:"index.php?xtec_report=$matches[1]&embed=true";s:32:"xtec_report/([^/]+)/trackback/?$";s:38:"index.php?xtec_report=$matches[1]&tb=1";s:40:"xtec_report/([^/]+)/page/?([0-9]{1,})/?$";s:51:"index.php?xtec_report=$matches[1]&paged=$matches[2]";s:47:"xtec_report/([^/]+)/comment-page-([0-9]{1,})/?$";s:51:"index.php?xtec_report=$matches[1]&cpage=$matches[2]";s:36:"xtec_report/([^/]+)(?:/([0-9]+))?/?$";s:50:"index.php?xtec_report=$matches[1]&page=$matches[2]";s:28:"xtec_report/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:38:"xtec_report/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:58:"xtec_report/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:53:"xtec_report/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:53:"xtec_report/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:34:"xtec_report/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:55:"bp_member_type/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:53:"index.php?bp_member_type=$matches[1]&feed=$matches[2]";s:50:"bp_member_type/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:53:"index.php?bp_member_type=$matches[1]&feed=$matches[2]";s:31:"bp_member_type/([^/]+)/embed/?$";s:47:"index.php?bp_member_type=$matches[1]&embed=true";s:43:"bp_member_type/([^/]+)/page/?([0-9]{1,})/?$";s:54:"index.php?bp_member_type=$matches[1]&paged=$matches[2]";s:25:"bp_member_type/([^/]+)/?$";s:36:"index.php?bp_member_type=$matches[1]";s:54:"bp_group_type/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?bp_group_type=$matches[1]&feed=$matches[2]";s:49:"bp_group_type/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?bp_group_type=$matches[1]&feed=$matches[2]";s:30:"bp_group_type/([^/]+)/embed/?$";s:46:"index.php?bp_group_type=$matches[1]&embed=true";s:42:"bp_group_type/([^/]+)/page/?([0-9]{1,})/?$";s:53:"index.php?bp_group_type=$matches[1]&paged=$matches[2]";s:24:"bp_group_type/([^/]+)/?$";s:35:"index.php?bp_group_type=$matches[1]";s:30:"docs/.+?/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:40:"docs/.+?/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:60:"docs/.+?/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:55:"docs/.+?/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:55:"docs/.+?/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:36:"docs/.+?/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:19:"docs/(.+?)/embed/?$";s:39:"index.php?bp_doc=$matches[1]&embed=true";s:23:"docs/(.+?)/trackback/?$";s:33:"index.php?bp_doc=$matches[1]&tb=1";s:43:"docs/(.+?)/feed/(feed|rdf|rss|rss2|atom)/?$";s:45:"index.php?bp_doc=$matches[1]&feed=$matches[2]";s:38:"docs/(.+?)/(feed|rdf|rss|rss2|atom)/?$";s:45:"index.php?bp_doc=$matches[1]&feed=$matches[2]";s:31:"docs/(.+?)/page/?([0-9]{1,})/?$";s:46:"index.php?bp_doc=$matches[1]&paged=$matches[2]";s:38:"docs/(.+?)/comment-page-([0-9]{1,})/?$";s:46:"index.php?bp_doc=$matches[1]&cpage=$matches[2]";s:27:"docs/(.+?)(?:/([0-9]+))?/?$";s:45:"index.php?bp_doc=$matches[1]&page=$matches[2]";s:45:"item/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?bp_docs_tag=$matches[1]&feed=$matches[2]";s:40:"item/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?bp_docs_tag=$matches[1]&feed=$matches[2]";s:21:"item/([^/]+)/embed/?$";s:44:"index.php?bp_docs_tag=$matches[1]&embed=true";s:33:"item/([^/]+)/page/?([0-9]{1,})/?$";s:51:"index.php?bp_docs_tag=$matches[1]&paged=$matches[2]";s:15:"item/([^/]+)/?$";s:33:"index.php?bp_docs_tag=$matches[1]";s:55:"bp_docs_access/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:67:"index.php?taxonomy=bp_docs_access&term=$matches[1]&feed=$matches[2]";s:50:"bp_docs_access/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:67:"index.php?taxonomy=bp_docs_access&term=$matches[1]&feed=$matches[2]";s:31:"bp_docs_access/([^/]+)/embed/?$";s:61:"index.php?taxonomy=bp_docs_access&term=$matches[1]&embed=true";s:43:"bp_docs_access/([^/]+)/page/?([0-9]{1,})/?$";s:68:"index.php?taxonomy=bp_docs_access&term=$matches[1]&paged=$matches[2]";s:25:"bp_docs_access/([^/]+)/?$";s:50:"index.php?taxonomy=bp_docs_access&term=$matches[1]";s:63:"bp_docs_comment_access/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:75:"index.php?taxonomy=bp_docs_comment_access&term=$matches[1]&feed=$matches[2]";s:58:"bp_docs_comment_access/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:75:"index.php?taxonomy=bp_docs_comment_access&term=$matches[1]&feed=$matches[2]";s:39:"bp_docs_comment_access/([^/]+)/embed/?$";s:69:"index.php?taxonomy=bp_docs_comment_access&term=$matches[1]&embed=true";s:51:"bp_docs_comment_access/([^/]+)/page/?([0-9]{1,})/?$";s:76:"index.php?taxonomy=bp_docs_comment_access&term=$matches[1]&paged=$matches[2]";s:33:"bp_docs_comment_access/([^/]+)/?$";s:58:"index.php?taxonomy=bp_docs_comment_access&term=$matches[1]";s:40:"bp_docs_folder/.+?/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:50:"bp_docs_folder/.+?/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:70:"bp_docs_folder/.+?/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:65:"bp_docs_folder/.+?/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:65:"bp_docs_folder/.+?/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:46:"bp_docs_folder/.+?/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:29:"bp_docs_folder/(.+?)/embed/?$";s:47:"index.php?bp_docs_folder=$matches[1]&embed=true";s:33:"bp_docs_folder/(.+?)/trackback/?$";s:41:"index.php?bp_docs_folder=$matches[1]&tb=1";s:41:"bp_docs_folder/(.+?)/page/?([0-9]{1,})/?$";s:54:"index.php?bp_docs_folder=$matches[1]&paged=$matches[2]";s:48:"bp_docs_folder/(.+?)/comment-page-([0-9]{1,})/?$";s:54:"index.php?bp_docs_folder=$matches[1]&cpage=$matches[2]";s:37:"bp_docs_folder/(.+?)(?:/([0-9]+))?/?$";s:53:"index.php?bp_docs_folder=$matches[1]&page=$matches[2]";s:62:"bp_docs_doc_in_folder/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:60:"index.php?bp_docs_doc_in_folder=$matches[1]&feed=$matches[2]";s:57:"bp_docs_doc_in_folder/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:60:"index.php?bp_docs_doc_in_folder=$matches[1]&feed=$matches[2]";s:38:"bp_docs_doc_in_folder/([^/]+)/embed/?$";s:54:"index.php?bp_docs_doc_in_folder=$matches[1]&embed=true";s:50:"bp_docs_doc_in_folder/([^/]+)/page/?([0-9]{1,})/?$";s:61:"index.php?bp_docs_doc_in_folder=$matches[1]&paged=$matches[2]";s:32:"bp_docs_doc_in_folder/([^/]+)/?$";s:43:"index.php?bp_docs_doc_in_folder=$matches[1]";s:63:"bp_docs_folder_in_user/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:61:"index.php?bp_docs_folder_in_user=$matches[1]&feed=$matches[2]";s:58:"bp_docs_folder_in_user/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:61:"index.php?bp_docs_folder_in_user=$matches[1]&feed=$matches[2]";s:39:"bp_docs_folder_in_user/([^/]+)/embed/?$";s:55:"index.php?bp_docs_folder_in_user=$matches[1]&embed=true";s:51:"bp_docs_folder_in_user/([^/]+)/page/?([0-9]{1,})/?$";s:62:"index.php?bp_docs_folder_in_user=$matches[1]&paged=$matches[2]";s:33:"bp_docs_folder_in_user/([^/]+)/?$";s:44:"index.php?bp_docs_folder_in_user=$matches[1]";s:64:"bp_docs_folder_in_group/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:62:"index.php?bp_docs_folder_in_group=$matches[1]&feed=$matches[2]";s:59:"bp_docs_folder_in_group/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:62:"index.php?bp_docs_folder_in_group=$matches[1]&feed=$matches[2]";s:40:"bp_docs_folder_in_group/([^/]+)/embed/?$";s:56:"index.php?bp_docs_folder_in_group=$matches[1]&embed=true";s:52:"bp_docs_folder_in_group/([^/]+)/page/?([0-9]{1,})/?$";s:63:"index.php?bp_docs_folder_in_group=$matches[1]&paged=$matches[2]";s:34:"bp_docs_folder_in_group/([^/]+)/?$";s:45:"index.php?bp_docs_folder_in_group=$matches[1]";s:39:"es_template/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:49:"es_template/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:69:"es_template/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:64:"es_template/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:64:"es_template/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:45:"es_template/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:28:"es_template/([^/]+)/embed/?$";s:44:"index.php?es_template=$matches[1]&embed=true";s:32:"es_template/([^/]+)/trackback/?$";s:38:"index.php?es_template=$matches[1]&tb=1";s:40:"es_template/([^/]+)/page/?([0-9]{1,})/?$";s:51:"index.php?es_template=$matches[1]&paged=$matches[2]";s:47:"es_template/([^/]+)/comment-page-([0-9]{1,})/?$";s:51:"index.php?es_template=$matches[1]&cpage=$matches[2]";s:36:"es_template/([^/]+)(?:/([0-9]+))?/?$";s:50:"index.php?es_template=$matches[1]&page=$matches[2]";s:28:"es_template/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:38:"es_template/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:58:"es_template/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:53:"es_template/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:53:"es_template/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:34:"es_template/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:35:"slideshow/.+?/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:45:"slideshow/.+?/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:65:"slideshow/.+?/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:60:"slideshow/.+?/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:60:"slideshow/.+?/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:41:"slideshow/.+?/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:24:"slideshow/(.+?)/embed/?$";s:42:"index.php?slideshow=$matches[1]&embed=true";s:28:"slideshow/(.+?)/trackback/?$";s:36:"index.php?slideshow=$matches[1]&tb=1";s:48:"slideshow/(.+?)/feed/(feed|rdf|rss|rss2|atom)/?$";s:48:"index.php?slideshow=$matches[1]&feed=$matches[2]";s:43:"slideshow/(.+?)/(feed|rdf|rss|rss2|atom)/?$";s:48:"index.php?slideshow=$matches[1]&feed=$matches[2]";s:36:"slideshow/(.+?)/page/?([0-9]{1,})/?$";s:49:"index.php?slideshow=$matches[1]&paged=$matches[2]";s:43:"slideshow/(.+?)/comment-page-([0-9]{1,})/?$";s:49:"index.php?slideshow=$matches[1]&cpage=$matches[2]";s:32:"slideshow/(.+?)(?:/([0-9]+))?/?$";s:48:"index.php?slideshow=$matches[1]&page=$matches[2]";s:44:"calendar_booking/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:54:"calendar_booking/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:74:"calendar_booking/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:69:"calendar_booking/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:69:"calendar_booking/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:50:"calendar_booking/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:33:"calendar_booking/([^/]+)/embed/?$";s:49:"index.php?calendar_booking=$matches[1]&embed=true";s:37:"calendar_booking/([^/]+)/trackback/?$";s:43:"index.php?calendar_booking=$matches[1]&tb=1";s:45:"calendar_booking/([^/]+)/page/?([0-9]{1,})/?$";s:56:"index.php?calendar_booking=$matches[1]&paged=$matches[2]";s:52:"calendar_booking/([^/]+)/comment-page-([0-9]{1,})/?$";s:56:"index.php?calendar_booking=$matches[1]&cpage=$matches[2]";s:41:"calendar_booking/([^/]+)(?:/([0-9]+))?/?$";s:55:"index.php?calendar_booking=$matches[1]&page=$matches[2]";s:33:"calendar_booking/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:43:"calendar_booking/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:63:"calendar_booking/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:58:"calendar_booking/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:58:"calendar_booking/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:39:"calendar_booking/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:46:"calendar_resources/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:56:"calendar_resources/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:76:"calendar_resources/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:71:"calendar_resources/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:71:"calendar_resources/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:52:"calendar_resources/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:35:"calendar_resources/([^/]+)/embed/?$";s:51:"index.php?calendar_resources=$matches[1]&embed=true";s:39:"calendar_resources/([^/]+)/trackback/?$";s:45:"index.php?calendar_resources=$matches[1]&tb=1";s:47:"calendar_resources/([^/]+)/page/?([0-9]{1,})/?$";s:58:"index.php?calendar_resources=$matches[1]&paged=$matches[2]";s:54:"calendar_resources/([^/]+)/comment-page-([0-9]{1,})/?$";s:58:"index.php?calendar_resources=$matches[1]&cpage=$matches[2]";s:43:"calendar_resources/([^/]+)(?:/([0-9]+))?/?$";s:57:"index.php?calendar_resources=$matches[1]&page=$matches[2]";s:35:"calendar_resources/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:45:"calendar_resources/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:65:"calendar_resources/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:60:"calendar_resources/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:60:"calendar_resources/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:41:"calendar_resources/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:48:".*wp-(atom|rdf|rss|rss2|feed|commentsrss2)\\.php$";s:18:"index.php?feed=old";s:20:".*wp-app\\.php(/.*)?$";s:19:"index.php?error=403";s:18:".*wp-register.php$";s:23:"index.php?register=true";s:32:"feed/(feed|rdf|rss|rss2|atom)/?$";s:27:"index.php?&feed=$matches[1]";s:27:"(feed|rdf|rss|rss2|atom)/?$";s:27:"index.php?&feed=$matches[1]";s:8:"embed/?$";s:21:"index.php?&embed=true";s:20:"page/?([0-9]{1,})/?$";s:28:"index.php?&paged=$matches[1]";s:27:"comment-page-([0-9]{1,})/?$";s:38:"index.php?&page_id=9&cpage=$matches[1]";s:41:"comments/feed/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?&feed=$matches[1]&withcomments=1";s:36:"comments/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?&feed=$matches[1]&withcomments=1";s:17:"comments/embed/?$";s:21:"index.php?&embed=true";s:44:"search/(.+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:40:"index.php?s=$matches[1]&feed=$matches[2]";s:39:"search/(.+)/(feed|rdf|rss|rss2|atom)/?$";s:40:"index.php?s=$matches[1]&feed=$matches[2]";s:20:"search/(.+)/embed/?$";s:34:"index.php?s=$matches[1]&embed=true";s:32:"search/(.+)/page/?([0-9]{1,})/?$";s:41:"index.php?s=$matches[1]&paged=$matches[2]";s:14:"search/(.+)/?$";s:23:"index.php?s=$matches[1]";s:47:"author/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?author_name=$matches[1]&feed=$matches[2]";s:42:"author/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?author_name=$matches[1]&feed=$matches[2]";s:23:"author/([^/]+)/embed/?$";s:44:"index.php?author_name=$matches[1]&embed=true";s:35:"author/([^/]+)/page/?([0-9]{1,})/?$";s:51:"index.php?author_name=$matches[1]&paged=$matches[2]";s:17:"author/([^/]+)/?$";s:33:"index.php?author_name=$matches[1]";s:69:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/feed/(feed|rdf|rss|rss2|atom)/?$";s:80:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]&feed=$matches[4]";s:64:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/(feed|rdf|rss|rss2|atom)/?$";s:80:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]&feed=$matches[4]";s:45:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/embed/?$";s:74:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]&embed=true";s:57:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/page/?([0-9]{1,})/?$";s:81:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]&paged=$matches[4]";s:39:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/?$";s:63:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]";s:56:"([0-9]{4})/([0-9]{1,2})/feed/(feed|rdf|rss|rss2|atom)/?$";s:64:"index.php?year=$matches[1]&monthnum=$matches[2]&feed=$matches[3]";s:51:"([0-9]{4})/([0-9]{1,2})/(feed|rdf|rss|rss2|atom)/?$";s:64:"index.php?year=$matches[1]&monthnum=$matches[2]&feed=$matches[3]";s:32:"([0-9]{4})/([0-9]{1,2})/embed/?$";s:58:"index.php?year=$matches[1]&monthnum=$matches[2]&embed=true";s:44:"([0-9]{4})/([0-9]{1,2})/page/?([0-9]{1,})/?$";s:65:"index.php?year=$matches[1]&monthnum=$matches[2]&paged=$matches[3]";s:26:"([0-9]{4})/([0-9]{1,2})/?$";s:47:"index.php?year=$matches[1]&monthnum=$matches[2]";s:43:"([0-9]{4})/feed/(feed|rdf|rss|rss2|atom)/?$";s:43:"index.php?year=$matches[1]&feed=$matches[2]";s:38:"([0-9]{4})/(feed|rdf|rss|rss2|atom)/?$";s:43:"index.php?year=$matches[1]&feed=$matches[2]";s:19:"([0-9]{4})/embed/?$";s:37:"index.php?year=$matches[1]&embed=true";s:31:"([0-9]{4})/page/?([0-9]{1,})/?$";s:44:"index.php?year=$matches[1]&paged=$matches[2]";s:13:"([0-9]{4})/?$";s:26:"index.php?year=$matches[1]";s:27:".?.+?/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:37:".?.+?/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:57:".?.+?/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:52:".?.+?/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:52:".?.+?/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:33:".?.+?/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:16:"(.?.+?)/embed/?$";s:41:"index.php?pagename=$matches[1]&embed=true";s:20:"(.?.+?)/trackback/?$";s:35:"index.php?pagename=$matches[1]&tb=1";s:40:"(.?.+?)/feed/(feed|rdf|rss|rss2|atom)/?$";s:47:"index.php?pagename=$matches[1]&feed=$matches[2]";s:35:"(.?.+?)/(feed|rdf|rss|rss2|atom)/?$";s:47:"index.php?pagename=$matches[1]&feed=$matches[2]";s:28:"(.?.+?)/page/?([0-9]{1,})/?$";s:48:"index.php?pagename=$matches[1]&paged=$matches[2]";s:35:"(.?.+?)/comment-page-([0-9]{1,})/?$";s:48:"index.php?pagename=$matches[1]&cpage=$matches[2]";s:24:"(.?.+?)(?:/([0-9]+))?/?$";s:47:"index.php?pagename=$matches[1]&page=$matches[2]";s:31:".+?/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:41:".+?/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:61:".+?/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:56:".+?/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:56:".+?/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:37:".+?/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:22:"(.+?)/([^/]+)/embed/?$";s:63:"index.php?category_name=$matches[1]&name=$matches[2]&embed=true";s:26:"(.+?)/([^/]+)/trackback/?$";s:57:"index.php?category_name=$matches[1]&name=$matches[2]&tb=1";s:46:"(.+?)/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:69:"index.php?category_name=$matches[1]&name=$matches[2]&feed=$matches[3]";s:41:"(.+?)/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:69:"index.php?category_name=$matches[1]&name=$matches[2]&feed=$matches[3]";s:34:"(.+?)/([^/]+)/page/?([0-9]{1,})/?$";s:70:"index.php?category_name=$matches[1]&name=$matches[2]&paged=$matches[3]";s:41:"(.+?)/([^/]+)/comment-page-([0-9]{1,})/?$";s:70:"index.php?category_name=$matches[1]&name=$matches[2]&cpage=$matches[3]";s:30:"(.+?)/([^/]+)(?:/([0-9]+))?/?$";s:69:"index.php?category_name=$matches[1]&name=$matches[2]&page=$matches[3]";s:20:".+?/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:30:".+?/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:50:".+?/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:45:".+?/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:45:".+?/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:26:".+?/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:38:"(.+?)/feed/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?category_name=$matches[1]&feed=$matches[2]";s:33:"(.+?)/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?category_name=$matches[1]&feed=$matches[2]";s:14:"(.+?)/embed/?$";s:46:"index.php?category_name=$matches[1]&embed=true";s:26:"(.+?)/page/?([0-9]{1,})/?$";s:53:"index.php?category_name=$matches[1]&paged=$matches[2]";s:33:"(.+?)/comment-page-([0-9]{1,})/?$";s:53:"index.php?category_name=$matches[1]&cpage=$matches[2]";s:8:"(.+?)/?$";s:35:"index.php?category_name=$matches[1]";}', 'yes'),
 (2574, 'widget_widget_recent_bp_docs', 'a:2:{i:1;a:0:{}s:12:"_multiwidget";i:1;}', 'yes'),
 (2807, 'bp-plugin-enabled-post-home', '1', 'yes'),
-(2853, 'can_compress_scripts', '1', 'yes'),
 (3302, 'calendar_feed_children', 'a:0:{}', 'yes'),
 (3303, 'calendar_type_children', 'a:0:{}', 'yes'),
 (3304, 'simple-calendar_settings_feeds', 'a:1:{s:6:"google";a:1:{s:7:"api_key";s:0:"";}}', 'yes'),
@@ -1179,29 +1185,144 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (4233, 'bp-emails-unsubscribe-salt', 'eDVnIFhwRyhvRipRWGd6Wyh8KkZDJCtaT3hLeShdQ0lzMXh2X35jZjVnV0stKzVKcD1zelJjcjB4PF9qLGpraw==', 'yes'),
 (4234, '_bp_ignore_deprecated_code', '', 'yes'),
 (5167, 'widget_toc-widget', 'a:1:{s:12:"_multiwidget";i:1;}', 'yes'),
-(5494, 'es_c_emailsubscribers', 's:4:"b:0;";', 'yes'),
 (5495, 'current_sa_email_subscribers_db_version', '3.2', 'yes'),
 (5496, 'toc-options', 'a:43:{s:15:"fragment_prefix";s:1:"i";s:8:"position";i:2;s:5:"start";i:4;s:17:"show_heading_text";b:1;s:12:"heading_text";s:10:"Continguts";s:22:"auto_insert_post_types";a:1:{i:0;s:4:"page";}s:14:"show_heirarchy";b:1;s:12:"ordered_list";b:0;s:13:"smooth_scroll";b:1;s:20:"smooth_scroll_offset";i:40;s:10:"visibility";b:0;s:15:"visibility_show";s:4:"show";s:15:"visibility_hide";s:4:"hide";s:26:"visibility_hide_by_default";b:0;s:5:"width";s:4:"Auto";s:12:"width_custom";d:275;s:18:"width_custom_units";s:2:"px";s:8:"wrapping";i:2;s:9:"font_size";d:95;s:15:"font_size_units";s:1:"%";s:5:"theme";i:1;s:24:"custom_background_colour";s:7:"#f9f9f9";s:20:"custom_border_colour";s:7:"#aaaaaa";s:19:"custom_title_colour";s:1:"#";s:19:"custom_links_colour";s:1:"#";s:25:"custom_links_hover_colour";s:1:"#";s:27:"custom_links_visited_colour";s:1:"#";s:9:"lowercase";b:0;s:9:"hyphenate";b:0;s:14:"bullet_spacing";b:0;s:16:"include_homepage";b:0;s:11:"exclude_css";b:0;s:7:"exclude";s:0:"";s:14:"heading_levels";a:6:{i:0;s:1:"1";i:1;s:1:"2";i:2;s:1:"3";i:3;s:1:"4";i:4;s:1:"5";i:5;s:1:"6";}s:13:"restrict_path";s:6:"/docs/";s:19:"css_container_class";s:0:"";s:25:"sitemap_show_page_listing";b:1;s:29:"sitemap_show_category_listing";b:1;s:20:"sitemap_heading_type";i:3;s:13:"sitemap_pages";s:5:"Pages";s:18:"sitemap_categories";s:10:"Categories";s:23:"show_toc_in_widget_only";b:0;s:34:"show_toc_in_widget_only_post_types";a:1:{i:0;s:4:"page";}}', 'yes'),
-(5497, 'es_rm_notice_email_subscribers', 'no', 'yes');
+(5497, 'es_rm_notice_email_subscribers', 'no', 'yes'),
+(8802, 'widget_media_audio', 'a:1:{s:12:"_multiwidget";i:1;}', 'yes'),
+(8803, 'widget_media_image', 'a:1:{s:12:"_multiwidget";i:1;}', 'yes'),
+(8804, 'widget_media_gallery', 'a:1:{s:12:"_multiwidget";i:1;}', 'yes'),
+(8805, 'widget_media_video', 'a:1:{s:12:"_multiwidget";i:1;}', 'yes'),
+(8806, 'widget_custom_html', 'a:1:{s:12:"_multiwidget";i:1;}', 'yes'),
+(9154, 'wptelegram_ver', '2.0.9', 'yes'),
+(9155, 'widget_email-subscribers-form', 'a:2:{i:2;a:2:{s:5:"title";s:22:"Subscripció de correu";s:7:"form_id";i:1;}s:12:"_multiwidget";i:1;}', 'yes'),
+(9159, 'ig_es_cronurl', 'https://pwc-int.educacio.intranet/agora/mastercfa?es=cron&guid=orzdni-ergqac-otajvz-elcsvp-uaxgsj', 'yes'),
+(9162, 'ig_es_sync_wp_users', 's:4:"b:0;";', 'yes'),
+(9164, 'ig_es_320_db_updated_at', '2019-04-17 07:27:50', 'no'),
+(9166, 'ig_es_327_db_updated_at', '2019-04-17 07:27:50', 'no'),
+(9167, 'ig_es_fromname', 'Admin', 'yes'),
+(9168, 'ig_es_fromemail', 'a8000008@xtec.cat', 'yes'),
+(9169, 'ig_es_emailtype', 'WP HTML MAIL', 'yes'),
+(9170, 'ig_es_notifyadmin', 'YES', 'yes'),
+(9171, 'ig_es_adminemail', 'a8000008@xtec.cat', 'yes'),
+(9172, 'ig_es_admin_new_sub_subject', 'CFA Països Catalans Subscripci&oacute; nova de correu', 'yes'),
+(9173, 'ig_es_admin_new_sub_content', 'Hola Administrador, \r\n\r\n Hem rebut una sol·licitud de subscripci&oacute; d''aquesta adre&ccedil;a de correu electr&ograve;nic per rebre els articles del nostre lloc web. \r\n\r\n Correu electr&ograve;nic : {{EMAIL}} \r\n Nom : {{NAME}} \r\n\r\nGr&agrave;cies\r\nCFA Països Catalans', 'yes'),
+(9174, 'ig_es_welcomeemail', 'YES', 'yes'),
+(9175, 'ig_es_welcomesubject', 'CFA Països Catalans Benvingut al nostre butlletí', 'yes'),
+(9176, 'ig_es_welcomecontent', 'Hola {{NAME}}, \r\n\r\n Hem rebut una sol·licitud de subscripci&oacute; d''aquesta adre&ccedil;a de correu electr&ograve;nic per rebre el bullet&iacute; del nostre lloc web.\r\n\r\nGr&agrave;cies\r\nCFA Països Catalans', 'yes'),
+(9177, 'ig_es_optintype', 'Double Opt In', 'yes'),
+(9178, 'ig_es_confirmsubject', 'CFA Països Catalans confirmeu la subscripció', 'yes'),
+(9179, 'ig_es_confirmcontent', 'Hola {{NAME}},\r\n\r\n Hem rebut una petici&oacute; de subscripci&oacute; d''aquesta adre&ccedil;a de correu electr&ograve;nic. Confirmeu <a href=''{{LINK}}''>fent clic aqu&iacute;</a>. Si no podeu fer clic a l''enlla&ccedil; anterior, si us plau, utilitzeu l''URL seg&uuml;ent.\r\n\r\n {{LINK}} \r\n\r\nGr&agrave;cies\r\nCFA Països Catalans', 'yes'),
+(9180, 'ig_es_optinlink', 'https://pwc-int.educacio.intranet/agora/mastercfa/?es=optin&db={{DBID}}&email={{EMAIL}}&guid={{GUID}}', 'yes'),
+(9181, 'ig_es_unsublink', 'https://pwc-int.educacio.intranet/agora/mastercfa/?es=unsubscribe&db={{DBID}}&email={{EMAIL}}&guid={{GUID}}', 'yes'),
+(9182, 'ig_es_unsubcontent', 'Si no esteu interessats en rebre correus des de CFA Països Catalans <a href=''{{LINK}}''>feu clic aqu&iacute;</a> per donar-vos de baixa', 'yes'),
+(9183, 'ig_es_unsubtext', 'Gr&agrave;cies, heu estat donat de baixa amb &egrave;xit. Ja no haur&iacute;eu de rebre not&iacute;cies nostres.', 'yes'),
+(9184, 'ig_es_successmsg', 'Gr&agrave;cies, heu estat subscrit amb &egrave;xit al nostre butllet&iacute; de not&iacute;cies.', 'yes'),
+(9185, 'ig_es_suberror', 'Vaja... Aquesta subscripci&oacute; no s''ha pogut completar, ho sentim. L''adre&ccedil;a de correu electr&ograve;nic est&agrave; bloquejada o ja est&agrave; subscrita. Gr&agrave;cies.', 'yes'),
+(9186, 'ig_es_unsuberror', 'Vaja... Estem tenint algun error t&egrave;cnic. Torneu-ho a provar o contacteu amb l''administrador.', 'yes'),
+(9188, 'ig_es_330_db_updated_at', '2019-04-17 07:27:50', 'no'),
+(9190, 'es_template_migration_done', 'yes', 'yes'),
+(9192, 'ig_es_340_db_updated_at', '2019-04-17 07:27:50', 'no'),
+(9194, 'ig_es_3516_db_updated_at', '2019-04-17 07:27:50', 'no'),
+(9195, 'ig_es_from_name', 'Admin', 'yes'),
+(9196, 'ig_es_from_email', 'a8000008@xtec.cat', 'yes'),
+(9197, 'ig_es_admin_new_contact_email_subject', 'CFA Països Catalans Subscripci&oacute; nova de correu', 'yes'),
+(9198, 'ig_es_admin_new_contact_email_content', 'Hola Administrador, \r\n\r\n Hem rebut una sol·licitud de subscripci&oacute; d''aquesta adre&ccedil;a de correu electr&ograve;nic per rebre els articles del nostre lloc web. \r\n\r\n Correu electr&ograve;nic : {{EMAIL}} \r\n Nom : {{NAME}} \r\n\r\nGr&agrave;cies\r\nCFA Països Catalans', 'yes'),
+(9199, 'ig_es_admin_emails', 'a8000008@xtec.cat', 'yes'),
+(9200, 'ig_es_confirmation_mail_subject', 'CFA Països Catalans confirmeu la subscripció', 'yes'),
+(9201, 'ig_es_confirmation_mail_content', 'Hola {{NAME}},\r\n\r\n Hem rebut una petici&oacute; de subscripci&oacute; d''aquesta adre&ccedil;a de correu electr&ograve;nic. Confirmeu <a href=''{{LINK}}''>fent clic aqu&iacute;</a>. Si no podeu fer clic a l''enlla&ccedil; anterior, si us plau, utilitzeu l''URL seg&uuml;ent.\r\n\r\n {{LINK}} \r\n\r\nGr&agrave;cies\r\nCFA Països Catalans', 'yes'),
+(9202, 'ig_es_enable_welcome_email', 'yes', 'yes'),
+(9203, 'ig_es_welcome_email_subject', 'CFA Països Catalans Benvingut al nostre butlletí', 'yes'),
+(9204, 'ig_es_welcome_email_content', 'Hola {{NAME}}, \r\n\r\n Hem rebut una sol·licitud de subscripci&oacute; d''aquesta adre&ccedil;a de correu electr&ograve;nic per rebre el bullet&iacute; del nostre lloc web.\r\n\r\nGr&agrave;cies\r\nCFA Països Catalans', 'yes'),
+(9205, 'ig_es_unsubscribe_link', 'https://pwc-int.educacio.intranet/agora/mastercfa/?es=unsubscribe&db={{DBID}}&email={{EMAIL}}&guid={{GUID}}', 'yes'),
+(9206, 'ig_es_optin_link', 'https://pwc-int.educacio.intranet/agora/mastercfa/?es=optin&db={{DBID}}&email={{EMAIL}}&guid={{GUID}}', 'yes'),
+(9207, 'ig_es_unsubscribe_link_content', 'Si no esteu interessats en rebre correus des de CFA Països Catalans <a href=''{{LINK}}''>feu clic aqu&iacute;</a> per donar-vos de baixa', 'yes'),
+(9208, 'ig_es_email_type', 'wp_html_mail', 'yes'),
+(9209, 'ig_es_notify_admin', 'yes', 'yes'),
+(9210, 'ig_es_optin_type', 'double_opt_in', 'yes'),
+(9211, 'ig_es_subscription_error_messsage', 'Vaja... Aquesta subscripci&oacute; no s''ha pogut completar, ho sentim. L''adre&ccedil;a de correu electr&ograve;nic est&agrave; bloquejada o ja est&agrave; subscrita. Gr&agrave;cies.', 'yes'),
+(9212, 'ig_es_subscription_success_message', 'Gr&agrave;cies, heu estat subscrit amb &egrave;xit al nostre butllet&iacute; de not&iacute;cies.', 'yes'),
+(9213, 'ig_es_unsubscribe_error_message', 'Vaja... Estem tenint algun error t&egrave;cnic. Torneu-ho a provar o contacteu amb l''administrador.', 'yes'),
+(9214, 'ig_es_unsubscribe_success_message', 'Gr&agrave;cies, heu estat donat de baixa amb &egrave;xit. Ja no haur&iacute;eu de rebre not&iacute;cies nostres.', 'yes'),
+(9216, 'ig_es_400_db_updated_at', '2019-04-17 07:27:51', 'no'),
+(9218, 'ig_es_401_db_updated_at', '2019-04-17 07:27:51', 'no'),
+(9220, 'ig_es_402_db_updated_at', '2019-04-17 07:27:51', 'no'),
+(9222, 'ig_es_403_db_updated_at', '2019-04-17 07:27:51', 'no'),
+(9224, 'ig_es_405_db_updated_at', '2019-04-17 07:27:51', 'no'),
+(9225, 'ig_es_db_version', '4.0.9', 'yes');
+INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES
+(9226, 'ig_admin_notices', 'a:0:{}', 'yes'),
+(9231, 'wp_page_for_privacy_policy', '0', 'yes'),
+(9232, 'show_comments_cookies_opt_in', '1', 'yes'),
+(9238, '_ges_installed_before_39', '1', 'yes'),
+(9239, '_ges_39_subscriptions_table_created', '1', 'yes'),
+(9240, '_ges_39_queued_items_table_created', '1', 'yes'),
+(9241, '_ges_revision_date', '2019-03-20 16:00 UTC', 'yes'),
+(9251, '_ges_39_subscriptions_migrated', '1', 'yes'),
+(9252, 'can_compress_scripts', '1', 'no'),
+(9254, '_ges_39_digest_queue_migrated', '1', 'yes'),
+(9273, 'category_children', 'a:0:{}', 'yes'),
+(9282, 'wptelegram', 'a:5:{s:9:"bot_token";s:45:"578562663:AAFoPiqy461r9tf6qSM0Nm6kLrQ3W-L106U";s:12:"bot_username";s:13:"Provesxtecbot";s:7:"modules";a:1:{i:0;a:1:{s:4:"fake";s:2:"on";}}s:17:"send_files_by_url";s:2:"on";s:15:"clean_uninstall";s:2:"on";}', 'yes'),
+(9283, 'ig_es_wp_cron_notice', 'no', 'yes'),
+(9284, 'fresh_site', '0', 'yes'),
+(9346, 'acui_columns', 'a:0:{}', 'yes'),
+(9347, 'acui_mail_subject', 'Benvinguts a CFA Països Catalans', 'yes'),
+(9348, 'acui_mail_body', 'Benvinguts,<br/>Les vostres dades per iniciar sessió en aquest lloc són:<br/><ul><li>Adreça d''inici de sessió (URL): **loginurl**</li><li>Nom d''usuari= **username**</li><li>Password = **password**</li></ul>', 'yes'),
+(9349, 'acui_mail_template_id', '0', 'yes'),
+(9350, 'acui_mail_attachment_id', '0', 'yes'),
+(9351, 'acui_enable_email_templates', '', 'yes'),
+(9352, 'acui_cron_activated', '', 'yes'),
+(9353, 'acui_cron_send_mail', '', 'yes'),
+(9354, 'acui_cron_send_mail_updated', '', 'yes'),
+(9355, 'acui_cron_delete_users', '', 'yes'),
+(9356, 'acui_cron_delete_users_assign_posts', '0', 'yes'),
+(9357, 'acui_cron_change_role_not_present', '', 'yes'),
+(9358, 'acui_cron_change_role_not_present_role', '0', 'yes'),
+(9359, 'acui_cron_path_to_file', '', 'yes'),
+(9360, 'acui_cron_path_to_move', '', 'yes'),
+(9361, 'acui_cron_path_to_move_auto_rename', '', 'yes'),
+(9362, 'acui_cron_period', '', 'yes'),
+(9363, 'acui_cron_role', '', 'yes'),
+(9364, 'acui_cron_update_roles_existing_users', '', 'yes'),
+(9365, 'acui_cron_log', '', 'yes'),
+(9366, 'acui_cron_allow_multiple_accounts', 'not_allowed', 'yes'),
+(9367, 'acui_frontend_send_mail', '', 'yes'),
+(9368, 'acui_frontend_send_mail_updated', '', 'yes'),
+(9369, 'acui_frontend_delete_users', '', 'yes'),
+(9370, 'acui_frontend_delete_users_assign_posts', '0', 'yes'),
+(9371, 'acui_frontend_change_role_not_present', '', 'yes'),
+(9372, 'acui_frontend_change_role_not_present_role', '0', 'yes'),
+(9373, 'acui_frontend_role', '', 'yes'),
+(9374, 'acui_manually_send_mail', '', 'yes'),
+(9375, 'acui_manually_send_mail_updated', '', 'yes'),
+(9376, 'acui_automatic_wordpress_email', '', 'yes'),
+(9377, 'acui_show_profile_fields', '', 'yes'),
+(9378, 'acui_settings', 'wordpress', 'yes'),
+(9379, 'acui_mail_from', '', 'yes'),
+(9380, 'acui_mail_from_name', '', 'yes'),
+(9381, 'acui_mailer', 'smtp', 'yes'),
+(9382, 'acui_mail_set_return_path', 'false', 'yes'),
+(9383, 'acui_smtp_host', 'localhost', 'yes'),
+(9384, 'acui_smtp_port', '25', 'yes'),
+(9385, 'acui_smtp_ssl', 'none', 'yes'),
+(9386, 'acui_smtp_auth', '', 'yes'),
+(9387, 'acui_smtp_user', '', 'yes'),
+(9388, 'acui_smtp_pass', '', 'yes');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_postmeta`
+-- Estructura de la taula `wp_postmeta`
 --
 
-CREATE TABLE `wp_postmeta` (
-  `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_postmeta` (
+`meta_id` bigint(20) unsigned NOT NULL,
   `post_id` bigint(20) unsigned NOT NULL DEFAULT '0',
   `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_ci,
-  PRIMARY KEY (`meta_id`),
-  KEY `post_id` (`post_id`),
-  KEY `meta_key` (`meta_key`(191))
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=1810 ;
+  `meta_value` longtext COLLATE utf8mb4_unicode_ci
+) ENGINE=InnoDB AUTO_INCREMENT=1831 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `wp_postmeta`
+-- Bolcant dades de la taula `wp_postmeta`
 --
 
 INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUES
@@ -2146,16 +2267,37 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (1806, 224, '_default_calendar_limit_visible_events', 'no'),
 (1807, 224, '_default_calendar_visible_events', '3'),
 (1808, 224, '_default_calendar_trim_titles', 'no'),
-(1809, 224, '_default_calendar_trim_titles_chars', '20');
+(1809, 224, '_default_calendar_trim_titles_chars', '20'),
+(1810, 389, 'es_template_type', 'post_notification'),
+(1811, 390, 'es_template_type', 'post_notification'),
+(1812, 391, 'es_template_type', 'Newsletter'),
+(1813, 397, '_edit_lock', '1555487207:2'),
+(1814, 397, '_edit_last', '2'),
+(1815, 397, '_amaga_titol', ''),
+(1816, 397, '_amaga_metadata', ''),
+(1817, 397, '_bloc_html', ''),
+(1818, 397, '_original_size', ''),
+(1819, 397, '_entry_icon', 'noicon'),
+(1820, 399, '_edit_lock', '1556106284:2'),
+(1821, 400, '_edit_lock', '1556106484:2'),
+(1822, 401, '_edit_lock', '1556106507:2'),
+(1823, 404, '_edit_lock', '1556178140:2'),
+(1824, 404, '_edit_last', '2'),
+(1825, 404, '_encloseme', '1'),
+(1826, 404, '_amaga_titol', ''),
+(1827, 404, '_amaga_metadata', ''),
+(1828, 404, '_bloc_html', ''),
+(1829, 404, '_original_size', ''),
+(1830, 404, '_entry_icon', 'noicon');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_posts`
+-- Estructura de la taula `wp_posts`
 --
 
-CREATE TABLE `wp_posts` (
-  `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_posts` (
+`ID` bigint(20) unsigned NOT NULL,
   `post_author` bigint(20) unsigned NOT NULL DEFAULT '0',
   `post_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `post_date_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -2165,7 +2307,7 @@ CREATE TABLE `wp_posts` (
   `post_status` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'publish',
   `comment_status` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'open',
   `ping_status` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'open',
-  `post_password` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `post_password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `post_name` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `to_ping` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `pinged` text COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2177,184 +2319,196 @@ CREATE TABLE `wp_posts` (
   `menu_order` int(11) NOT NULL DEFAULT '0',
   `post_type` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'post',
   `post_mime_type` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `comment_count` bigint(20) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`ID`),
-  KEY `type_status_date` (`post_type`,`post_status`,`post_date`,`ID`),
-  KEY `post_parent` (`post_parent`),
-  KEY `post_author` (`post_author`),
-  KEY `post_name` (`post_name`(191))
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=393 ;
+  `comment_count` bigint(20) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=406 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `wp_posts`
+-- Bolcant dades de la taula `wp_posts`
 --
 
 INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_title`, `post_excerpt`, `post_status`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_content_filtered`, `post_parent`, `guid`, `menu_order`, `post_type`, `post_mime_type`, `comment_count`) VALUES
-(5, 1, '2014-09-12 09:46:02', '2014-09-12 09:46:02', '', 'Activitat a tot el lloc web', '', 'publish', 'closed', 'closed', '', 'activitat', '', '', '2017-01-17 11:32:48', '2017-01-17 10:32:48', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/?page_id=5', 0, 'page', '', 0),
-(6, 1, '2014-09-12 09:46:02', '2014-09-12 09:46:02', '', 'Membres', '', 'publish', 'closed', 'closed', '', 'membres', '', '', '2014-09-22 14:13:29', '2014-09-22 14:13:29', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/?page_id=6', 0, 'page', '', 0),
-(7, 1, '2014-09-12 10:14:31', '2014-09-12 10:14:31', '', 'Pàgines d''inici', '', 'publish', 'closed', 'closed', '', 'pagines-dinici', '', '', '2014-09-22 14:13:29', '2014-09-22 14:13:29', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/?page_id=7', 0, 'page', '', 0),
-(9, 1, '2014-09-12 10:15:01', '2014-09-12 10:15:01', '', 'Inici', '', 'publish', 'closed', 'closed', '', 'pagina-dinici-buida', '', '', '2014-09-22 14:13:29', '2014-09-22 14:13:29', '', 7, 'http://pwc-int.educacio.intranet/agora/mastercfa/?page_id=9', 0, 'page', '', 0),
-(13, 1, '2014-09-12 11:05:02', '2014-09-12 11:05:02', 'Pàgina d''avís', 'Avís', '', 'publish', 'closed', 'closed', '', 'avis', '', '', '2014-09-22 14:13:29', '2014-09-22 14:13:29', '', 7, 'http://pwc-int.educacio.intranet/agora/mastercfa/?page_id=13', 0, 'page', '', 0),
-(16, 1, '2014-09-12 12:40:45', '2014-09-12 12:40:45', '', 'Nodes', '', 'publish', 'closed', 'closed', '', 'nodes', '', '', '2014-09-22 14:13:29', '2014-09-22 14:13:29', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/nodes/', 0, 'page', '', 0),
-(21, 1, '2014-09-17 16:14:14', '2014-09-17 16:14:14', '<p style="color: #666666;"><strong>CFA Països Catalans</strong>\r\nPlaça de la Vila, 14\r\n01234 Abella de Xerta</p>\r\n<p style="color: #666666;">Tel. 901 234 567\r\ncorreu-del-teu-centre@domini-centre.cat</p>\r\n<iframe style="border: 0;" src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d95122.2542300733!2d1.53775!3d41.837547!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sca!2sus!4v1410948001907" width="600" height="450" frameborder="0"></iframe>\r\n\r\n<strong>Com arribar-hi:\r\n</strong>\r\n<ul>\r\n	<li>En tren: Estació Abella centre de la línia 1</li>\r\n	<li>En bus: Línies L3 i L5</li>\r\n</ul>', 'On som', '', 'publish', 'closed', 'closed', '', 'on-som', '', '', '2015-07-28 09:32:40', '2015-07-28 08:32:40', '', 261, 'http://pwc-int.educacio.intranet/agora/mastercfa/?page_id=21', 10, 'page', '', 0),
-(26, 1, '2014-09-17 16:17:37', '2014-09-17 16:17:37', ' ', '', '', 'publish', 'open', 'open', '', '26', '', '', '2015-10-13 15:40:08', '2015-10-13 14:40:08', '', 261, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=26', 2, 'nav_menu_item', '', 0),
-(27, 1, '2014-09-17 16:24:03', '2014-09-17 16:24:03', 'Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules.\r\n\r\nOmnicos directe al desirabilite de un nov lingua franca: On refusa continuar payar custosi traductores. At solmen va esser necessi far uniform grammatica, pronunciation e plu sommun paroles. Ma quande lingues coalesce, li grammatica del resultant lingue es plu simplic e regulari quam ti del coalescent lingues.\r\n\r\n<a href="http://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2014/09/exemple1b.png"><img class="size-medium wp-image-33 aligncenter" src="http://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2014/09/exemple1b-300x214.png" alt="exemple1b" width="300" height="214" /></a>\r\n\r\n&nbsp;\r\n\r\nLi nov lingua franca va esser plu simplic e regulari quam li existent Europan lingues. It va esser tam simplic quam Occidental in fact, it va esser Occidental. A un Angleso it va semblar un simplificat Angles, quam un skeptic Cambridge amico dit me que Occidental es. Li Europan lingues es membres del sam familie.\r\n\r\nLor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules. Omnicos directe al desirabilite de un nov lingua franca: On refusa continuar payar custosi traductores.\r\n\r\nAt solmen va esser necessi far uniform grammatica, pronunciation e plu sommun paroles. Ma quande lingues coalesce, li grammatica del resultant lingue es plu simplic e regulari quam ti del coalescent lingues. Li nov lingua franca va esser plu simplic e regulari quam li existent Europan lingues. It va esser tam simplic quam Occidental in fact, it va esser Occidental.\r\n\r\nA un Angleso it va semblar un simplificat Angles, quam un skeptic Cambridge amico dit me que Occidental es. Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules.\r\n\r\nOmnicos directe al desirabilite de un nov lingua franca: On refusa continuar payar custosi traductores. At solmen va esser necessi far uniform grammatica, pronunciation e plu sommun paroles. Ma quande lingues coalesce, li grammatica del resultant lingue es plu simplic e regulari quam ti del coalescent lingues. Li nov lingua franca va esser plu simplic e regulari quam li existent Europan lingues. It va esser tam simplic quam Occidental in fact, it va esser Occidental. A un Angleso it va semblar un simplificat Angles, quam un skeptic Cambridge amico dit me que Occidental es. Li', 'Història', '', 'publish', 'closed', 'closed', '', 'historia', '', '', '2015-01-27 17:25:44', '2015-01-27 16:25:44', '', 261, 'http://pwc-int.educacio.intranet/agora/mastercfa/?page_id=27', 20, 'page', '', 0),
-(30, 1, '2014-09-17 16:24:51', '2014-09-17 16:24:51', ' ', '', '', 'publish', 'open', 'open', '', '30', '', '', '2015-10-13 15:40:08', '2015-10-13 14:40:08', '', 261, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=30', 3, 'nav_menu_item', '', 0),
-(31, 1, '2014-09-17 16:26:18', '2014-09-17 16:26:18', '', 'Instal·lacions', '', 'publish', 'closed', 'closed', '', 'instal%c2%b7lacions', '', '', '2014-09-17 16:34:13', '2014-09-17 16:34:13', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/?post_type=slideshow&#038;p=31', 0, 'slideshow', '', 0),
-(32, 1, '2014-09-17 16:29:37', '2014-09-17 16:29:37', '', 'exemple1', '', 'inherit', 'open', 'open', '', 'exemple1', '', '', '2014-09-17 16:29:37', '2014-09-17 16:29:37', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2014/09/exemple1.png', 0, 'attachment', 'image/png', 0),
-(33, 1, '2014-09-17 16:29:38', '2014-09-17 16:29:38', '', 'exemple1b', '', 'inherit', 'open', 'open', '', 'exemple1b', '', '', '2014-09-17 16:29:38', '2014-09-17 16:29:38', '', 27, 'http://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2014/09/exemple1b.png', 0, 'attachment', 'image/png', 0),
-(34, 1, '2014-09-17 16:29:39', '2014-09-17 16:29:39', '', 'exemple2b', '', 'inherit', 'open', 'open', '', 'exemple2b', '', '', '2014-09-17 16:29:39', '2014-09-17 16:29:39', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2014/09/exemple2b.png', 0, 'attachment', 'image/png', 0),
-(35, 1, '2014-09-17 16:29:40', '2014-09-17 16:29:40', '', 'exemple3', '', 'inherit', 'open', 'open', '', 'exemple3', '', '', '2014-09-17 16:29:40', '2014-09-17 16:29:40', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2014/09/exemple3.png', 0, 'attachment', 'image/png', 0),
-(36, 1, '2014-09-17 16:29:41', '2014-09-17 16:29:41', '', 'exemple3b', '', 'inherit', 'open', 'open', '', 'exemple3b', '', '', '2014-09-17 16:29:41', '2014-09-17 16:29:41', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2014/09/exemple3b.png', 0, 'attachment', 'image/png', 0),
-(37, 1, '2014-09-17 16:31:11', '2014-09-17 16:31:11', '', 'exemple2', '', 'inherit', 'open', 'open', '', 'exemple2', '', '', '2014-09-17 16:31:11', '2014-09-17 16:31:11', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2014/09/exemple2.png', 0, 'attachment', 'image/png', 0),
-(39, 1, '2014-09-17 16:36:44', '2014-09-17 16:36:44', '[slideshow_deploy id=''31'']\r\n\r\n&nbsp;\r\n\r\nLi Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular.\r\n\r\nLi lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules. Omnicos directe al desirabilite de un nov lingua franca: On refusa continuar payar custosi traductores.\r\n\r\nA un Angleso it va semblar un simplificat Angles, quam un skeptic Cambridge amico dit me que Occidental es. Li Europan lingues es membres del sam familie. Lor separat existentie es un myth.\r\n\r\nMa quande lingues coalesce, li grammatica del resultant lingue es plu simplic e regulari quam ti del coalescent lingues. Li nov lingua franca va esser plu simplic e regulari quam li existent Europan lingues.', 'Instal·lacions', '', 'publish', 'closed', 'closed', '', 'instal%c2%b7lacions', '', '', '2015-01-27 17:25:44', '2015-01-27 16:25:44', '', 261, 'http://pwc-int.educacio.intranet/agora/mastercfa/?page_id=39', 30, 'page', '', 0),
-(41, 1, '2014-09-17 16:37:28', '2014-09-17 16:37:28', ' ', '', '', 'publish', 'open', 'open', '', '41', '', '', '2015-10-13 15:40:08', '2015-10-13 14:40:08', '', 261, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=41', 4, 'nav_menu_item', '', 0),
-(49, 1, '2014-09-17 16:55:55', '2014-09-17 16:55:55', 'Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules. Omnicos directe al desirabilite de un nov lingua franca: On refusa continuar payar custosi traductores. At solmen va esser necessi far uniform grammatica, pronunciation e plu sommun paroles. Ma quande lingues coalesce, li grammatica del resultant lingue es plu simplic e regulari quam ti del coalescent lingues.\r\n<ul>\r\n	<li>Li nov lingua franca va esser plu simplic e regulari quam li existent Europan lingues. It va esser tam simplic quam Occidental in fact, it va esser Occidental.</li>\r\n	<li>A un Angleso it va semblar un simplificat Angles, quam un skeptic Cambridge amico dit me que Occidental es. Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules.</li>\r\n	<li>Omnicos directe al desirabilite de un nov lingua franca: On refusa continuar payar custosi traductores. At solmen va esser necessi far uniform grammatica, pronunciation e plu sommun paroles.</li>\r\n	<li>Ma quande lingues coalesce, li grammatica del resultant lingue es plu simplic e regulari quam ti del coalescent lingues. Li nov lingua franca va esser plu simplic e regulari quam li existent Europan lingues.</li>\r\n	<li>It va esser tam simplic quam Occidental in fact, it va esser Occidental. A un Angleso it va semblar un simplificat Angles, quam un skeptic Cambridge amico dit me que Occidental es. Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pronunciation</li>\r\n</ul>', 'Normes i funcionament del centre', '', 'publish', 'closed', 'closed', '', 'normes-dorganitzacio-i-funcionament', '', '', '2015-01-27 17:28:03', '2015-01-27 16:28:03', '', 261, 'http://pwc-int.educacio.intranet/agora/mastercfa/?page_id=49', 60, 'page', '', 0),
-(51, 1, '2014-09-17 16:56:20', '2014-09-17 16:56:20', ' ', '', '', 'publish', 'open', 'open', '', 'normes-i-funcionament', '', '', '2015-10-13 15:40:08', '2015-10-13 14:40:08', '', 261, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=51', 7, 'nav_menu_item', '', 0),
-(52, 1, '2014-09-17 16:58:07', '2014-09-17 16:58:07', '<ul>\r\n 	<li>inici de curs i final de curs</li>\r\n 	<li>vacances</li>\r\n 	<li>dies festius de lliure disposició</li>\r\n 	<li>dates de preinscripció i matricula</li>\r\n 	<li>horari lectiu del centre</li>\r\n</ul>\r\n[calendar id="224"]\r\n<h5>Agenda en format llista</h5>\r\n&nbsp;\r\n<div style="width: 50%; float: left; padding: 2px;">[calendar id="248"]</div>', 'Calendari del curs i horaris generals', '', 'publish', 'closed', 'closed', '', 'calendari-del-curs', '', '', '2016-09-21 11:40:20', '2016-09-21 09:40:20', '', 261, 'http://pwc-int.educacio.intranet/agora/mastercfa/?page_id=52', 50, 'page', '', 0),
-(54, 1, '2014-09-17 16:58:24', '2014-09-17 16:58:24', ' ', '', '', 'publish', 'open', 'open', '', '54', '', '', '2015-10-13 15:40:08', '2015-10-13 14:40:08', '', 261, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=54', 6, 'nav_menu_item', '', 0),
-(57, 1, '2014-09-17 17:01:07', '2014-09-17 17:01:07', 'En aquesta secció cada centre pot crear les pàgines necessàries per a descriure el seu projecte educatiu. D’acord amb la <a href="http://www20.gencat.cat/portal/site/portaljuridic/menuitem.d15a4e5dfb99396dc366ec10b0c0e1a0/?vgnextoid=b85297b5a87d6210VgnVCM1000000b0c1e0aRCRD&amp;vgnextchannel=b85297b5a87d6210VgnVCM1000000b0c1e0aRCRD&amp;vgnextfmt=default&amp;action=fitxa&amp;portalId=1&amp;documentId=480169&amp;newLang=ca_ES#fragment-1182442" target="_blank">Llei d’Educació de Catalunya</a>, el projecte educatiu incorpora el caràcter propi del centre i ha de contenir com a mínim els elements següents:\r\n<ul>\r\n	<li>Criteris d’ordenació pedagògica, prioritats i plantejaments educatius, procediments d’inclusió i altres actuacions que caracteritzen el centre.</li>\r\n	<li>Indicadors de progrés.</li>\r\n	<li>Concreció i desenvolupament dels currículums.</li>\r\n	<li>Criteris que defineixen l’estructura organitzativa.</li>\r\n	<li>Projecte lingüístic.</li>\r\n	<li>Caràcter propi del centre, si n’hi ha.</li>\r\n</ul>\r\nEs pot incloure també en aquesta secció informació altres documents que també formen part del projecte educatiu com ara: Projecte de Convivència, Pla d’Acció Tutorial, Pla TAC, etc.\r\nTambé pot ser interessant fer referència a altres projectes i activitats que es duen a terme en el centre.\r\nDonada la diversitat de seccions possibles, s’ha cregut oportú no crear cap pàgina específica en la maqueta inicial, deixant a criteri del centre la decisió sobre la millor manera d’estructurar la descripció del seu projecte educatiu.\r\n\r\nEn crear els apartats és important que la caixa <strong>Atributs de la pàgina</strong> tingui com a pare/mare <strong>Projecte educatiu</strong>, i que se seleccioni com a plantilla l’opció <strong>Menú lateral</strong>.\r\n\r\n&nbsp;', 'Projecte educatiu', '', 'publish', 'closed', 'closed', '', 'projecte-educatiu', '', '', '2015-01-27 17:46:23', '2015-01-27 16:46:23', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/?page_id=57', 0, 'page', '', 0),
-(59, 1, '2014-09-17 17:01:47', '2014-09-17 17:01:47', ' ', '', '', 'publish', 'open', 'open', '', '59', '', '', '2015-10-13 15:40:09', '2015-10-13 14:40:09', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=59', 24, 'nav_menu_item', '', 0),
-(63, 1, '2014-09-18 10:06:31', '2014-09-18 10:06:31', 'Espai que ha d’informar a l''alumnat dels serveis que ofereix el centre. La missió educativa no es limita a l’eix curricular, per això és imprescindible que aquest apartat del web estigui en un primer nivell de navegació. És recomanable que s’introdueixi informació relacionada amb:\r\n<ul>\r\n	<li>serveis digitals (en cas que el centre compti amb serveis digitals en línia com ara Moodle, blogs, aplicacions mòbils…)</li>\r\n	<li>acollida: informació-orientació</li>\r\n	<li>altres activitats</li>\r\n</ul>', 'Serveis', '', 'publish', 'closed', 'closed', '', 'serveis', '', '', '2015-01-27 18:07:48', '2015-01-27 17:07:48', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/?page_id=63', 0, 'page', '', 0),
-(65, 1, '2014-09-18 10:12:22', '2014-09-18 10:12:22', '<p style="color: #444444;">L’oferta de <strong>serveis digitals</strong> constitueix un element molt important de l’engranatge d’un centre educatiu.</p>\r\n<p style="color: #444444;">En aquesta pàgina es poden referenciar altres serveis en línia que ofereix l’escola com ara Moodle, blocs externs, aplicacions de tutoria o gestió acadèmica, aplicacions mòbils, etc.</p>\r\n<p style="color: #444444;">Si el centre posa en funcionament la <strong>xarxa Nodes</strong>, aquest pot ser un bon lloc per referenciar els principals grups i activitats que s’hi duen a terme.</p>', 'Serveis digitals', '', 'publish', 'closed', 'closed', '', 'serveis-digitals', '', '', '2014-09-22 14:13:29', '2014-09-22 14:13:29', '', 63, 'http://pwc-int.educacio.intranet/agora/mastercfa/?page_id=65', 10, 'page', '', 0),
-(67, 1, '2014-09-18 10:14:18', '2014-09-18 09:14:18', '<p style="color: #444444;"><span style="color: #444444;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean erat dolor, aliquet vitae ligula suscipit, bibendum malesuada augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean erat dolor, aliquet vitae ligula suscipit, bibendum malesuada augue.</span></p>\r\n<p style="color: #444444;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean erat dolor, aliquet vitae ligula suscipit, bibendum malesuada augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean erat dolor, aliquet vitae ligula suscipit, bibendum malesuada augue.</p>', 'Acollida', '', 'publish', 'closed', 'closed', '', 'acollida', '', '', '2015-10-27 10:12:33', '2015-10-27 09:12:33', '', 63, 'http://pwc-int.educacio.intranet/agora/mastercfa/?page_id=67', 20, 'page', '', 0),
-(73, 1, '2014-09-18 10:15:50', '2014-09-18 10:15:50', ' ', '', '', 'publish', 'open', 'open', '', '73', '', '', '2015-10-13 15:40:09', '2015-10-13 14:40:09', '', 63, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=73', 26, 'nav_menu_item', '', 0),
-(74, 1, '2014-09-18 10:16:18', '2014-09-18 10:16:18', ' ', '', '', 'publish', 'open', 'open', '', '74', '', '', '2015-10-13 15:40:09', '2015-10-13 14:40:09', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=74', 25, 'nav_menu_item', '', 0),
-(81, 1, '2014-09-18 10:38:05', '2014-09-18 10:38:05', 'En els centres d''ensenyament secundari, la secreraria és l''agent de gestió administrativa visible, per tant, és bàsic que la seva presència a la web sigui un dels elements de navegació principals. És important que la informació s''exposi de forma clara, a fi de facilitar la usabilitat de l''espai. La informació d''aquesta secció hauria d''incloure:\r\n<ul>\r\n	<li>Horari d''atenció</li>\r\n	<li>Tràmits (sol·licitud de certificats...)</li>\r\n	<li>Preinscripció i Matrícula</li>\r\n	<li>Documents (autorització de sortides, ús de serveis digitals, etc.)</li>\r\n	<li>Beques i ajuts</li>\r\n	<li>Proves d''accés als cicles formatius</li>\r\n	<li>etc.</li>\r\n</ul>\r\n&nbsp;', 'Secretaria', '', 'publish', 'closed', 'closed', '', 'secretaria', '', '', '2014-09-22 14:13:29', '2014-09-22 14:13:29', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/?page_id=81', 0, 'page', '', 0),
-(88, 1, '2014-09-18 10:45:31', '2014-09-18 10:45:31', '', 'logo-centre', '', 'inherit', 'open', 'open', '', 'logo-centre-2', '', '', '2014-09-18 10:45:31', '2014-09-18 10:45:31', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2014/09/logo-centre1.png', 0, 'attachment', 'image/png', 0),
-(107, 1, '2014-09-18 16:34:30', '2014-09-18 16:34:30', '', 'Capçalera', '', 'publish', 'closed', 'closed', '', 'capcalera-2', '', '', '2014-09-22 12:06:07', '2014-09-22 12:06:07', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/?post_type=slideshow&#038;p=107', 0, 'slideshow', '', 0),
-(109, 1, '2014-09-18 16:42:56', '2014-09-18 16:42:56', 'https://soundcloud.com/institut-sabadell/sophie-message\r\n\r\nUn exemple de fitxer d''àudio disponible directament des de la targeta resum. Dins de l''article, a la caixa "Paràmetres", heu de marcar la casella "Mostra el contingut sencer".', 'Notícia 1', '', 'publish', 'open', 'open', '', 'noticia-1', '', '', '2015-07-28 09:23:44', '2015-07-28 08:23:44', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=109', 0, 'post', '', 0),
-(112, 1, '2014-09-18 17:16:55', '2014-09-18 17:16:55', 'Node de professorat', 'Professorat', '', 'private', 'closed', 'open', '', 'professorat', '', '', '2014-09-18 17:16:55', '2014-09-18 17:16:55', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/forums/forum/professorat', 0, 'forum', '', 0),
-(113, 1, '2014-09-18 17:21:02', '2014-09-18 17:21:02', 'Node del Departament de Ciències Naturals', 'Dep. Ciències', '', 'private', 'closed', 'open', '', 'dep-ciencies', '', '', '2014-09-18 17:21:02', '2014-09-18 17:21:02', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/forums/forum/dep-ciencies', 0, 'forum', '', 0),
-(114, 1, '2014-09-18 17:37:19', '2014-09-18 17:37:19', '', 'aulasec', '', 'inherit', 'open', 'open', '', 'aulasec', '', '', '2014-09-18 17:37:19', '2014-09-18 17:37:19', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2014/09/aulasec.png', 0, 'attachment', 'image/png', 0),
-(115, 1, '2014-09-18 17:40:29', '2014-09-18 17:40:29', 'Node del departament de ciències socials (professorat)', 'Dep. Socials', '', 'private', 'closed', 'open', '', 'dep-socials', '', '', '2014-09-18 17:40:29', '2014-09-18 17:40:29', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/forums/forum/dep-socials', 0, 'forum', '', 0),
-(120, 1, '2014-09-19 09:24:00', '2014-09-19 09:24:00', '<iframe src="//www.youtube.com/embed/ygwGTiGFGi0?rel=0" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>\r\n\r\nUn exemple de vídeo disponible directament des de la targeta resum. Dins de l’article, a la caixa “Paràmetres”, heu de marcar la casella “Mostra el contingut sencer”.', 'Notícia 2', '', 'publish', 'open', 'open', '', 'noticia-2', '', '', '2015-07-28 09:23:27', '2015-07-28 08:23:27', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=120', 0, 'post', '', 0),
-(127, 1, '2014-09-19 10:31:19', '2014-09-19 10:31:19', '[slideshow_deploy id=''148'']\r\n\r\nExemple de Carrusel disponible directament a la targeta resum. Els carrusels permeten incloure imatges, vídeos i textos. Marqueu "Mostra el contingut sencer" a la caixa de "Paràmetres" perquè es mostri directament.', 'Notícia 3', '', 'publish', 'open', 'open', '', 'noticia-3', '', '', '2015-07-28 09:23:04', '2015-07-28 08:23:04', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=127', 0, 'post', '', 0),
-(129, 1, '2014-09-19 10:37:29', '2014-09-19 10:37:29', '<span style="color: #444444;">Nam semper id ipsum condimentum laoreet. Proin sollicitudin elit ut ligula hendrerit, et hendrerit ante condimentum. Aliquam suscipit feugiat velit, at vehicula lorem pharetra quis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean erat dolor, aliquet vitae ligula suscipit, bibendum malesuada augue.</span>', 'Notícia 4', '', 'publish', 'open', 'open', '', 'noticia-4', '', '', '2014-09-22 16:21:10', '2014-09-22 16:21:10', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=129', 0, 'post', '', 0),
-(131, 1, '2014-09-19 10:42:18', '2014-09-19 10:42:18', '', 'primersauxilis', '', 'inherit', 'open', 'open', '', 'primersauxilis', '', '', '2014-09-19 10:42:18', '2014-09-19 10:42:18', '', 120, 'http://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2014/09/primersauxilis.jpg', 0, 'attachment', 'image/jpeg', 0),
-(134, 1, '2014-09-19 10:45:22', '2014-09-19 10:45:22', '<span style="color: #444444;">Nam semper id ipsum condimentum laoreet. Proin sollicitudin elit ut ligula hendrerit, et hendrerit ante condimentum. Aliquam suscipit feugiat velit, at vehicula lorem pharetra quis. Nam semper id ipsum condimentum laoreet. Proin sollicitudin elit ut ligula hendrerit, et hendrerit ante condimentum. Aliquam suscipit feugiat velit, at vehicula lorem pharetra quis.</span>', 'Notícia 5', '', 'publish', 'open', 'open', '', 'noticia-5', '', '', '2014-09-22 16:21:10', '2014-09-22 16:21:10', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=134', 0, 'post', '', 0),
-(137, 1, '2014-09-19 10:46:03', '2014-09-19 10:46:03', '<span style="color: #444444;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean erat dolor, aliquet vitae ligula suscipit, bibendum malesuada augue. Nam semper id ipsum condimentum laoreet. Proin sollicitudin elit ut ligula hendrerit, et hendrerit ante condimentum. Aliquam suscipit feugiat velit, at vehicula lorem pharetra quis.</span>', 'Notícia 6', '', 'publish', 'open', 'open', '', 'noticia-6', '', '', '2014-09-22 16:23:35', '2014-09-22 16:23:35', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=137', 0, 'post', '', 0),
-(141, 1, '2014-09-19 11:18:24', '2014-09-19 11:18:24', '', 'cicles', '', 'inherit', 'open', 'open', '', 'cicles', '', '', '2014-09-19 11:18:24', '2014-09-19 11:18:24', '', 129, 'http://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2014/09/cicles.png', 0, 'attachment', 'image/png', 0),
-(146, 1, '2014-09-19 12:05:27', '2014-09-19 12:05:27', '', 'gimnas', '', 'inherit', 'open', 'open', '', 'gimnas', '', '', '2014-09-19 12:05:27', '2014-09-19 12:05:27', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2014/09/gimnas.png', 0, 'attachment', 'image/png', 0),
-(148, 1, '2014-09-19 12:30:14', '2014-09-19 12:30:14', '', 'Exemple ', '', 'publish', 'closed', 'closed', '', 'exemple', '', '', '2014-09-19 16:08:04', '2014-09-19 16:08:04', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/?post_type=slideshow&#038;p=148', 0, 'slideshow', '', 0),
-(154, 1, '2014-09-19 14:40:48', '2014-09-19 14:40:48', '', 'Xesc_Arbona', '', 'inherit', 'open', 'open', '', 'xesc_arbona', '', '', '2014-09-19 14:40:48', '2014-09-19 14:40:48', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2014/09/Xesc_Arbona.png', 0, 'attachment', 'image/png', 0),
-(161, 1, '2014-09-19 16:00:03', '2014-09-19 16:00:03', '<iframe src="//player.vimeo.com/video/88231031?title=0&amp;byline=0&amp;portrait=0" width="550" height="310" frameborder="0" allowfullscreen="allowfullscreen"></iframe>', 'Notícia 7 ', '', 'publish', 'open', 'open', '', 'noticia-7', '', '', '2014-09-22 16:22:05', '2014-09-22 16:22:05', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=161', 0, 'post', '', 0),
-(163, 1, '2014-09-19 16:00:33', '2014-09-19 16:00:33', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean erat dolor, aliquet vitae ligula suscipit, bibendum malesuada augue. Nam semper id ipsum condimentum laoreet. Proin sollicitudin elit ut ligula hendrerit, et hendrerit ante condimentum. Aliquam suscipit feugiat velit, at vehicula lorem pharetra quis.', 'Notícia 8', '', 'publish', 'open', 'open', '', 'noticia-8', '', '', '2014-12-01 13:22:10', '2014-12-01 12:22:10', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=163', 0, 'post', '', 0),
-(168, 1, '2014-09-19 16:04:34', '2014-09-19 16:04:34', '', 'classe', '', 'inherit', 'open', 'open', '', 'classe', '', '', '2014-09-19 16:04:34', '2014-09-19 16:04:34', '', 134, 'http://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2014/09/classe.png', 0, 'attachment', 'image/png', 0),
-(170, 1, '2014-09-19 16:16:22', '2014-09-19 16:16:22', 'Node del departament de Tecnologia (professorat)', 'Tecnologia', '', 'private', 'closed', 'open', '', 'tecnologia', '', '', '2014-09-19 16:16:22', '2014-09-19 16:16:22', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/forums/forum/tecnologia', 0, 'forum', '', 0),
-(171, 1, '2014-09-19 16:19:15', '2014-09-19 16:19:15', 'Node del departament de Matemàtiques', 'Dep. Matemàtiques', '', 'private', 'closed', 'open', '', 'dep-matematiques', '', '', '2014-09-19 16:19:15', '2014-09-19 16:19:15', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/forums/forum/dep-matematiques', 0, 'forum', '', 0),
-(172, 1, '2014-09-19 16:26:36', '2014-09-19 16:26:36', 'Node del departament de Llengua catalana i literatura (professorat)', 'Dep. Català', '', 'private', 'closed', 'open', '', 'dep-catala', '', '', '2014-09-19 16:26:36', '2014-09-19 16:26:36', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/forums/forum/dep-catala', 0, 'forum', '', 0),
-(173, 1, '2014-09-19 16:29:03', '2014-09-19 16:29:03', 'Node del departament de Llengua castellana i literatura (professorat)', 'Dep. Castellà', '', 'private', 'closed', 'open', '', 'dep-castella', '', '', '2014-09-19 16:29:03', '2014-09-19 16:29:03', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/forums/forum/dep-castella', 0, 'forum', '', 0),
-(174, 1, '2014-09-19 16:31:22', '2014-09-19 16:31:22', 'Node del departament de Llengües estrangeres (professorat)', 'Dep. Llengües estrangeres', '', 'private', 'closed', 'open', '', 'dep-llengues-estrangeres', '', '', '2014-09-19 16:31:22', '2014-09-19 16:31:22', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/forums/forum/dep-llengues-estrangeres', 0, 'forum', '', 0),
-(175, 1, '2014-09-19 16:33:32', '2014-09-19 16:33:32', 'Node del departament d&#039;Educació Física (professorat)', 'Dep. Educació Física', '', 'private', 'closed', 'open', '', 'dep-educacio-fisica', '', '', '2014-09-19 16:33:32', '2014-09-19 16:33:32', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/forums/forum/dep-educacio-fisica', 0, 'forum', '', 0),
-(176, 1, '2014-09-19 16:39:42', '2014-09-19 16:39:42', 'Node del departament de Visual i Plàstica (professorat)', 'Dep. Visual i Plàstica', '', 'private', 'closed', 'open', '', 'dep-visual-i-plastica', '', '', '2014-09-19 16:39:42', '2014-09-19 16:39:42', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/forums/forum/dep-visual-i-plastica', 0, 'forum', '', 0),
-(177, 1, '2014-09-19 16:45:37', '2014-09-19 16:45:37', 'Node del departament de música (professorat)', 'Dep. Música', '', 'private', 'closed', 'open', '', 'dep-musica', '', '', '2014-09-19 16:45:37', '2014-09-19 16:45:37', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/forums/forum/dep-musica', 0, 'forum', '', 0),
-(178, 1, '2014-09-19 16:50:06', '2014-09-19 16:50:06', 'Node del departament d&#039;Orientació (professorat)', 'Dep. Orientació', '', 'private', 'closed', 'open', '', 'dep-orientacio', '', '', '2014-09-19 16:50:06', '2014-09-19 16:50:06', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/forums/forum/dep-orientacio', 0, 'forum', '', 0),
-(179, 1, '2014-09-19 17:00:49', '2014-09-19 17:00:49', 'Node del departament d&#039;Informàtica (professorat)', 'Dep. Informàtica', '', 'private', 'closed', 'open', '', 'dep-informatica', '', '', '2014-09-19 17:00:49', '2014-09-19 17:00:49', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/forums/forum/dep-informatica', 0, 'forum', '', 0),
-(184, 1, '2014-09-22 10:13:08', '2014-09-22 10:13:08', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean erat dolor, aliquet vitae ligula suscipit, bibendum malesuada augue. Nam semper id ipsum condimentum laoreet. Proin sollicitudin elit ut ligula hendrerit, et hendrerit ante condimentum.', 'Notícia 9', '', 'publish', 'open', 'open', '', 'noticia-9', '', '', '2015-10-27 10:01:38', '2015-10-27 09:01:38', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=184', 0, 'post', '', 0),
-(185, 1, '2014-09-22 10:13:06', '2014-09-22 10:13:06', '', 'ampa', '', 'inherit', 'open', 'open', '', 'ampa-2', '', '', '2014-09-22 10:13:06', '2014-09-22 10:13:06', '', 184, 'http://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2014/09/ampa.png', 0, 'attachment', 'image/png', 0),
-(202, 1, '2014-09-22 15:03:12', '2014-09-22 15:03:12', '', 'Destacat Nodes', '', 'publish', 'closed', 'closed', '', 'destacat-nodes', '', '', '2014-09-22 16:02:46', '2014-09-22 16:02:46', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/?post_type=slideshow&#038;p=202', 0, 'slideshow', '', 0),
-(203, 1, '2014-09-22 14:12:23', '2014-09-22 14:12:23', 'Node dedicat a l&#039;educació emocional', 'Educació emocional', '', 'publish', 'closed', 'open', '', 'educacio-emocional', '', '', '2014-09-22 14:12:23', '2014-09-22 14:12:23', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/forums/forum/educacio-emocional', 0, 'forum', '', 0),
-(204, 1, '2014-09-22 14:20:24', '2014-09-22 14:20:24', 'Node dels aficionats al cinema', 'Cinema', '', 'publish', 'closed', 'open', '', 'cinema', '', '', '2014-09-22 14:20:24', '2014-09-22 14:20:24', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/forums/forum/cinema', 0, 'forum', '', 0),
-(205, 1, '2014-09-22 14:31:55', '2014-09-22 14:31:55', 'Node dels aficionats a la fotografia', 'Fotografia', '', 'publish', 'closed', 'open', '', 'fotografia', '', '', '2014-09-22 14:31:55', '2014-09-22 14:31:55', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/forums/forum/fotografia', 0, 'forum', '', 0),
-(206, 1, '2014-09-22 14:40:28', '2014-09-22 14:40:28', 'Programa Redes sobre l''educació emocional. Molt interessant. Per reflexionar.\n<div style="width: 100%; padding-top: 64%; position: relative; border-bottom: 1px solid #aaa; display: inline-block; background: rgba(255,255,255,0.9);">\n\n<iframe style="width: 100%; height: 90%; position: absolute; left: 0; top: 0; overflow: hidden;" src="http://www.rtve.es/drmn/embed/video/1839588" name="El aprendizaje social y emocional" width="320" height="240" frameborder="0" scrolling="no"></iframe>\n<div style="position: absolute; bottom: 0; left: 0; font-family: arial,helvetica,sans-serif; font-size: 12px; line-height: 1.833; display: inline-block; padding: 5px 0 5px 10px;"><span style="float: left; margin-right: 10px;"><img style="height: 20px; width: auto; background: transparent; padding: 0; margin: 0;" src="http://img.irtve.es/css/rtve.commons/rtve.header.footer/i/logoRTVEes.png" alt="" /></span> <a style="color: #333; font-weight: bold;" title="El aprendizaje social y emocional" href="http://www.rtve.es/alacarta/videos/redes/redes-aprendizaje-social-20130526-2130-169/1839588/"><strong>El aprendizaje social y emocional</strong></a></div>\n</div>', 'Programa Redes sobre educació emocional', '', 'publish', 'closed', 'open', '', 'programa-redes-sobre-educacio-emocional', '', '', '2014-09-22 15:30:57', '2014-09-22 15:30:57', '', 112, 'http://pwc-int.educacio.intranet/agora/mastercfa/forums/topic/programa-redes-sobre-educacio-emocional', 0, 'topic', '', 0),
-(207, 1, '2014-09-22 14:46:13', '2014-09-22 14:46:13', 'Un dels objectius de la xarxa Nodes és oferir espais perquè els alumnes es pugin expressar fora de l''aula. Pot ser una eina molt útil especialment pels alumnes que no destaquen pels seus resultats acadèmics i que tenen una baixa autoestima derivada d''una indefensió apresa a l''aula.\n\n<iframe src="http://www.youtube.com/embed/OtB6RTJVqPM" height="350" width="425" frameborder="0"></iframe>', 'Indefensió apresa', '', 'publish', 'closed', 'open', '', 'indefensio-apresa', '', '', '2014-09-22 14:46:13', '2014-09-22 14:46:13', '', 112, 'http://pwc-int.educacio.intranet/agora/mastercfa/forums/topic/indefensio-apresa', 0, 'topic', '', 0),
-(209, 1, '2014-09-22 15:06:43', '2014-09-22 15:06:43', 'Node d&#039;aficionats a la papiroflexia', 'Papiroflexia', '', 'publish', 'closed', 'open', '', 'papiroflexia', '', '', '2014-09-22 15:06:43', '2014-09-22 15:06:43', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/forums/forum/papiroflexia', 0, 'forum', '', 0),
-(210, 1, '2014-09-22 15:10:09', '2014-09-22 15:10:09', '', 'granota', '', 'inherit', 'open', 'open', '', 'granota', '', '', '2014-09-22 15:10:09', '2014-09-22 15:10:09', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2014/09/granota.png', 0, 'attachment', 'image/png', 0),
-(211, 1, '2014-09-22 15:11:13', '2014-09-22 15:11:13', 'Hola Noders! Qui s''apunta a fer la granota? Aquí teniu les instruccions:\n\n[caption id="" align="alignnone" width="700"]<img src="http://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2014/09/granota.png" alt="Instruccions Granota" width="700" height="495" /> Instruccions Granota[/caption]', 'Figura n.1: La granota ', '', 'publish', 'closed', 'open', '', 'figura-n-1-la-granota', '', '', '2014-09-22 15:11:13', '2014-09-22 15:11:13', '', 209, 'http://pwc-int.educacio.intranet/agora/mastercfa/forums/topic/figura-n-1-la-granota', 0, 'topic', '', 0),
-(215, 1, '2014-09-22 16:02:36', '2014-09-22 16:02:36', '', 'screeshot', '', 'inherit', 'open', 'open', '', 'screeshot', '', '', '2014-09-22 16:02:36', '2014-09-22 16:02:36', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2014/09/screeshot.png', 0, 'attachment', 'image/png', 0),
-(216, 1, '2014-09-22 16:54:13', '2014-09-22 16:54:13', 'Molt recomanable:\nhttps://www.youtube.com/watch?v=PQE4WqQSOcQ', 'Documental sobre educació Emocional', '', 'publish', 'closed', 'open', '', 'documental-sobre-educacio-emocional', '', '', '2014-09-22 16:54:13', '2014-09-22 16:54:13', '', 112, 'http://pwc-int.educacio.intranet/agora/mastercfa/forums/topic/documental-sobre-educacio-emocional', 0, 'topic', '', 0),
-(224, 1, '2014-10-07 05:44:15', '2014-10-07 05:44:15', '<strong>[title]</strong>\r\n[when]\r\n[location]\r\n<div>[description]</div>\r\n[link newwindow="yes"]Més detalls...[/link]', 'Calendari d''exemple', '', 'publish', 'closed', 'closed', '', 'institut-larany', '', '', '2016-09-21 10:43:45', '2016-09-21 08:43:45', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/gce_feed/institut-larany', 0, 'calendar', '', 0),
-(230, 1, '2014-10-23 15:06:56', '2014-10-23 15:06:56', 'Exemple de document a Google Drive:\r\n\r\n<a href="https://docs.google.com/document/d/1incKJCmJfQvcjtnKReUQW_6Pu9F_QBf0fWpaxgp0ODs/edit?usp=sharing">https://docs.google.com/document/d/1incKJCmJfQvcjtnKReUQW_6Pu9F_QBf0fWpaxgp0ODs/edit?usp=sharing</a>', 'Document a Google Drive', '', 'publish', 'open', 'open', '', 'document-a-google-drive', '', '', '2014-10-23 15:18:51', '2014-10-23 15:18:51', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/docs/', 0, 'bp_doc', '', 0),
-(233, 1, '2014-10-23 15:11:21', '2014-10-23 15:11:21', 'Exemple de document ofimàtic (públic)', 'Document ofimàtic', '', 'publish', 'open', 'open', '', 'document-ofimatic', '', '', '2014-10-23 15:18:51', '2014-10-23 15:18:51', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/docs/', 0, 'bp_doc', '', 0),
-(234, 1, '2014-10-23 15:10:34', '2014-10-23 15:10:34', '', 'Exemple', '', 'inherit', 'open', 'open', '', 'exemple-2', '', '', '2014-10-23 15:10:34', '2014-10-23 15:10:34', '', 233, 'http://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/bp-attachments/233/Exemple.docx', 0, 'attachment', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 0),
-(236, 1, '2014-10-23 15:14:55', '2014-10-23 15:14:55', '', 'Professorat', '', 'trash', 'open', 'open', '', 'professorat-2', '', '', '2014-10-23 15:18:51', '2014-10-23 15:18:51', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/docs/', 0, 'bp_doc', '', 0),
-(238, 1, '2014-10-23 15:46:00', '2014-10-23 15:46:00', 'Exemple de document com a fotografia', 'Exemple foto com a document', '', 'publish', 'open', 'open', '', 'exemple-foto-com-a-document', '', '', '2014-10-23 15:46:00', '2014-10-23 15:46:00', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/docs/', 0, 'bp_doc', '', 0),
-(239, 1, '2014-10-23 15:44:32', '2014-10-23 15:44:32', '', 'Selecció_713', '', 'inherit', 'open', 'open', '', 'seleccio_713', '', '', '2014-10-23 15:44:32', '2014-10-23 15:44:32', '', 238, 'http://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/bp-attachments/238/Selecció_713.png', 0, 'attachment', 'image/png', 0),
-(248, 1, '2015-01-23 12:14:15', '2015-01-23 11:14:15', '<strong>[title]</strong>\r\n[when]\r\n[location]\r\n<div>[description]</div>\r\n[link newwindow="yes"]Més detalls...[/link]', 'Agenda d''exemple', '', 'publish', 'closed', 'closed', '', 'agenda-dexemple', '', '', '2016-09-21 13:40:33', '2016-09-21 11:40:33', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/?post_type=gce_feed&#038;p=248', 0, 'calendar', '', 0),
-(249, 1, '2015-01-23 12:20:56', '2015-01-23 11:20:56', '', 'Document 1', '', 'publish', 'open', 'open', '', 'document-1', '', '', '2015-01-23 12:20:56', '2015-01-23 11:20:56', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=249', 1, 'nav_menu_item', '', 0),
-(250, 1, '2015-01-23 12:20:56', '2015-01-23 11:20:56', '', 'Document 2', '', 'publish', 'open', 'open', '', 'document-2', '', '', '2015-01-23 12:20:56', '2015-01-23 11:20:56', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=250', 2, 'nav_menu_item', '', 0),
-(251, 1, '2015-01-23 12:20:56', '2015-01-23 11:20:56', '', 'Aplicació 1', '', 'publish', 'open', 'open', '', 'aplicacio-1', '', '', '2015-01-23 12:20:56', '2015-01-23 11:20:56', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=251', 3, 'nav_menu_item', '', 0),
-(252, 1, '2015-01-23 12:20:56', '2015-01-23 11:20:56', '', 'Web 1', '', 'publish', 'open', 'open', '', 'web-1', '', '', '2015-01-23 12:20:56', '2015-01-23 11:20:56', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=252', 5, 'nav_menu_item', '', 0),
-(253, 1, '2015-01-23 12:20:56', '2015-01-23 11:20:56', '', 'Aplicació 2', '', 'publish', 'open', 'open', '', 'aplicacio-2', '', '', '2015-01-23 12:20:56', '2015-01-23 11:20:56', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=253', 4, 'nav_menu_item', '', 0),
-(254, 1, '2015-01-23 12:20:56', '2015-01-23 11:20:56', '', 'Web 2', '', 'publish', 'open', 'open', '', 'web-2', '', '', '2015-01-23 12:20:56', '2015-01-23 11:20:56', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=254', 6, 'nav_menu_item', '', 0),
-(255, 1, '2015-01-23 12:50:03', '2015-01-23 11:50:03', '', 'foto-classe', '', 'inherit', 'open', 'open', '', 'foto-classe', '', '', '2015-01-23 12:50:03', '2015-01-23 11:50:03', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2015/01/foto-classe.png', 0, 'attachment', 'image/png', 0),
-(256, 1, '2015-01-27 16:38:21', '2015-01-27 15:38:21', ' ', '', '', 'publish', 'open', 'open', '', '256', '', '', '2015-10-13 15:40:09', '2015-10-13 14:40:09', '', 63, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=256', 27, 'nav_menu_item', '', 0),
-(257, 1, '2015-01-27 16:52:14', '2015-01-27 15:52:14', '', 'curriculum_ense_padultes', '', 'inherit', 'open', 'open', '', 'curriculum_ense_padultes', '', '', '2015-01-27 16:52:14', '2015-01-27 15:52:14', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2015/01/curriculum_ense_padultes.png', 0, 'attachment', 'image/png', 0),
-(258, 1, '2015-01-27 16:55:04', '2015-01-27 15:55:04', '', 'Selecció_921', '', 'inherit', 'open', 'open', '', 'seleccio_921', '', '', '2015-01-27 16:55:04', '2015-01-27 15:55:04', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2015/01/Selecció_921.png', 0, 'attachment', 'image/png', 0),
-(259, 1, '2015-01-27 17:17:17', '2015-01-27 16:17:17', '', 'cfa', '', 'inherit', 'open', 'open', '', 'cfa', '', '', '2015-01-27 17:17:17', '2015-01-27 16:17:17', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2015/01/cfa.jpg', 0, 'attachment', 'image/jpeg', 0),
-(261, 1, '2015-01-27 17:25:01', '2015-01-27 16:25:01', 'Aquesta secció pot contenir totes les pàgines necessàries per a oferir una descripció general del centre de formació d’adults: ubicació, història, instal·lacions, equip docent, consell de centre, calendari, informacions pràctiques, normativa…\r\n\r\nEn la maqueta inicial s’inclouen algunes d’aquestes pàgines amb contingut simulat. L’administrador/a pot editar-les, eliminar-les o crear-ne de noves des del tauler. És important que a la caixa <strong>Atributs de la pàgina</strong> hi consti com a pare/mare la pàgina <strong>El Centre</strong>, i que tinguin seleccionada la plantilla “Menú lateral“.', 'El Centre', '', 'publish', 'closed', 'closed', '', 'el-centre', '', '', '2015-10-27 10:11:20', '2015-10-27 09:11:20', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/?page_id=261', 0, 'page', '', 0),
-(263, 1, '2015-01-27 17:27:25', '2015-01-27 16:27:25', ' ', '', '', 'publish', 'open', 'open', '', '263', '', '', '2015-10-13 15:40:08', '2015-10-13 14:40:08', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=263', 1, 'nav_menu_item', '', 0),
-(265, 1, '2015-01-27 17:28:56', '2015-01-27 16:28:56', 'En aquesta secció, els centres publiquen la informació relativa a la seva organització interna. Es recomana que els centres educatius dissenyin el nivell d’exhaustivitat de la informació publicada. Serà convenient que en el seu plantejament singular, els centres vertebrin el contingut tenint en compte els següents aspectes:\r\n<ul>\r\n	<li>direcció</li>\r\n	<li>equip directiu</li>\r\n	<li>coordinacions</li>\r\n	<li>consell escolar</li>\r\n	<li>PAS</li>\r\n</ul>', 'Organització interna', '', 'publish', 'closed', 'closed', '', 'organitzacio-interna', '', '', '2015-10-27 10:11:25', '2015-10-27 09:11:25', '', 261, 'http://pwc-int.educacio.intranet/agora/mastercfa/?page_id=265', 40, 'page', '', 0),
-(267, 1, '2015-01-27 17:29:52', '2015-01-27 16:29:52', ' ', '', '', 'publish', 'open', 'open', '', '267', '', '', '2015-10-13 15:40:08', '2015-10-13 14:40:08', '', 261, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=267', 5, 'nav_menu_item', '', 0),
-(274, 1, '2015-01-27 17:56:20', '2015-01-27 16:56:20', '<h4>Ensenyaments inicials i formació bàsica</h4>\r\n<ul>\r\n	<li>Llengua catalana</li>\r\n	<li>Llengua castellana</li>\r\n	<li>Formació instrumental</li>\r\n	<li>Graduat en educació secundària per a persones adultes (GESO)</li>\r\n	<li>Curs específic d''accés als cicles de grau mitjà (CAM)</li>\r\n</ul>\r\n<h4>Ensenyaments transprofessionals</h4>\r\n<ul>\r\n	<li>Llengua anglesa</li>\r\n	<li>Llengua francesa</li>\r\n	<li>Competència digital COMPETIC</li>\r\n</ul>\r\n<h4>Ensenyament per a la preparació de proves d’accés</h4>\r\n<ul>\r\n	<li>A cicles formatius de grau mitjà</li>\r\n	<li>A cicles formatius de grau superior</li>\r\n	<li>A la universitat per a majors de 25 anys</li>\r\n</ul>', 'Ensenyaments', '', 'publish', 'closed', 'closed', '', 'ensenyaments', '', '', '2015-10-27 10:11:28', '2015-10-27 09:11:28', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/?page_id=274', 0, 'page', '', 0),
-(278, 1, '2015-01-27 18:01:54', '2015-01-27 17:01:54', ' ', '', '', 'publish', 'open', 'open', '', '278', '', '', '2015-10-13 15:40:08', '2015-10-13 14:40:08', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=278', 9, 'nav_menu_item', '', 0),
-(283, 1, '2015-01-28 11:06:17', '2015-01-28 10:06:17', '<ul>\r\n	<li>Llengua catalana</li>\r\n	<li>Llengua castellana</li>\r\n	<li>Formació instrumental</li>\r\n	<li>Graduat en educació secundària per a persones adultes (GESO)</li>\r\n	<li>Curs específic d''accés als cicles de grau mitjà (CAM)</li>\r\n</ul>\r\n<h4></h4>', 'Ensenyaments inicials i formació bàsica', '', 'publish', 'closed', 'closed', '', 'ensenyaments-inicials-i-formacio-basica', '', '', '2015-10-27 10:11:32', '2015-10-27 09:11:32', '', 274, 'http://pwc-int.educacio.intranet/agora/mastercfa/?page_id=283', 0, 'page', '', 0),
-(286, 1, '2015-01-28 11:07:30', '2015-01-28 10:07:30', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non placerat tellus. Proin cursus ligula ligula, non faucibus massa bibendum in. Nunc laoreet varius semper. Vivamus augue diam, laoreet eget consequat sed, ultrices sit amet quam. Fusce fermentum odio finibus, congue sapien et, tristique sem. Curabitur aliquet risus sit amet ante tempus, in dignissim libero pretium. Cras est metus, vulputate nec nunc in, tempor porttitor lorem. Donec lacus lectus, finibus ac finibus in, iaculis et nulla. Morbi fermentum elit accumsan, vulputate mauris at, bibendum odio. Nunc sollicitudin tincidunt justo, finibus dignissim tellus lobortis pharetra.', 'Ensenyaments transprofessionals', '', 'publish', 'closed', 'closed', '', 'ensenyaments-transprofessionals', '', '', '2015-10-27 10:11:57', '2015-10-27 09:11:57', '', 274, 'http://pwc-int.educacio.intranet/agora/mastercfa/?page_id=286', 0, 'page', '', 0),
-(288, 1, '2015-01-28 11:08:02', '2015-01-28 10:08:02', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non placerat tellus. Proin cursus ligula ligula, non faucibus massa bibendum in. Nunc laoreet varius semper. Vivamus augue diam, laoreet eget consequat sed, ultrices sit amet quam. Fusce fermentum odio finibus, congue sapien et, tristique sem. Curabitur aliquet risus sit amet ante tempus, in dignissim libero pretium. Cras est metus, vulputate nec nunc in, tempor porttitor lorem. Donec lacus lectus, finibus ac finibus in, iaculis et nulla. Morbi fermentum elit accumsan, vulputate mauris at, bibendum odio. Nunc sollicitudin tincidunt justo, finibus dignissim tellus lobortis pharetra.', 'Preparació de proves d''accés', '', 'publish', 'closed', 'closed', '', 'ensenyaments-per-a-la-preparacio-de-proves-dacces', '', '', '2015-10-27 10:12:15', '2015-10-27 09:12:15', '', 274, 'http://pwc-int.educacio.intranet/agora/mastercfa/?page_id=288', 0, 'page', '', 0);
+(5, 1, '2014-09-12 09:46:02', '2014-09-12 09:46:02', '', 'Activitat a tot el lloc web', '', 'publish', 'closed', 'closed', '', 'activitat', '', '', '2017-01-17 11:32:48', '2017-01-17 10:32:48', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?page_id=5', 0, 'page', '', 0),
+(6, 1, '2014-09-12 09:46:02', '2014-09-12 09:46:02', '', 'Membres', '', 'publish', 'closed', 'closed', '', 'membres', '', '', '2014-09-22 14:13:29', '2014-09-22 14:13:29', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?page_id=6', 0, 'page', '', 0),
+(7, 1, '2014-09-12 10:14:31', '2014-09-12 10:14:31', '', 'Pàgines d''inici', '', 'publish', 'closed', 'closed', '', 'pagines-dinici', '', '', '2014-09-22 14:13:29', '2014-09-22 14:13:29', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?page_id=7', 0, 'page', '', 0),
+(9, 1, '2014-09-12 10:15:01', '2014-09-12 10:15:01', '', 'Inici', '', 'publish', 'closed', 'closed', '', 'pagina-dinici-buida', '', '', '2014-09-22 14:13:29', '2014-09-22 14:13:29', '', 7, 'https://pwc-int.educacio.intranet/agora/mastercfa/?page_id=9', 0, 'page', '', 0),
+(13, 1, '2014-09-12 11:05:02', '2014-09-12 11:05:02', 'Pàgina d''avís', 'Avís', '', 'publish', 'closed', 'closed', '', 'avis', '', '', '2014-09-22 14:13:29', '2014-09-22 14:13:29', '', 7, 'https://pwc-int.educacio.intranet/agora/mastercfa/?page_id=13', 0, 'page', '', 0),
+(16, 1, '2014-09-12 12:40:45', '2014-09-12 12:40:45', '', 'Nodes', '', 'publish', 'closed', 'closed', '', 'nodes', '', '', '2014-09-22 14:13:29', '2014-09-22 14:13:29', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/nodes/', 0, 'page', '', 0),
+(21, 1, '2014-09-17 16:14:14', '2014-09-17 16:14:14', '<p style="color: #666666;"><strong>CFA Països Catalans</strong>\r\nPlaça de la Vila, 14\r\n01234 Abella de Xerta</p>\r\n<p style="color: #666666;">Tel. 901 234 567\r\ncorreu-del-teu-centre@domini-centre.cat</p>\r\n<iframe style="border: 0;" src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d95122.2542300733!2d1.53775!3d41.837547!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sca!2sus!4v1410948001907" width="600" height="450" frameborder="0"></iframe>\r\n\r\n<strong>Com arribar-hi:\r\n</strong>\r\n<ul>\r\n	<li>En tren: Estació Abella centre de la línia 1</li>\r\n	<li>En bus: Línies L3 i L5</li>\r\n</ul>', 'On som', '', 'publish', 'closed', 'closed', '', 'on-som', '', '', '2015-07-28 09:32:40', '2015-07-28 08:32:40', '', 261, 'https://pwc-int.educacio.intranet/agora/mastercfa/?page_id=21', 10, 'page', '', 0),
+(26, 1, '2014-09-17 16:17:37', '2014-09-17 16:17:37', ' ', '', '', 'publish', 'open', 'open', '', '26', '', '', '2015-10-13 15:40:08', '2015-10-13 14:40:08', '', 261, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=26', 2, 'nav_menu_item', '', 0),
+(27, 1, '2014-09-17 16:24:03', '2014-09-17 16:24:03', 'Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules.\r\n\r\nOmnicos directe al desirabilite de un nov lingua franca: On refusa continuar payar custosi traductores. At solmen va esser necessi far uniform grammatica, pronunciation e plu sommun paroles. Ma quande lingues coalesce, li grammatica del resultant lingue es plu simplic e regulari quam ti del coalescent lingues.\r\n\r\n<a href="https://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2014/09/exemple1b.png"><img class="size-medium wp-image-33 aligncenter" src="https://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2014/09/exemple1b-300x214.png" alt="exemple1b" width="300" height="214" /></a>\r\n\r\n&nbsp;\r\n\r\nLi nov lingua franca va esser plu simplic e regulari quam li existent Europan lingues. It va esser tam simplic quam Occidental in fact, it va esser Occidental. A un Angleso it va semblar un simplificat Angles, quam un skeptic Cambridge amico dit me que Occidental es. Li Europan lingues es membres del sam familie.\r\n\r\nLor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules. Omnicos directe al desirabilite de un nov lingua franca: On refusa continuar payar custosi traductores.\r\n\r\nAt solmen va esser necessi far uniform grammatica, pronunciation e plu sommun paroles. Ma quande lingues coalesce, li grammatica del resultant lingue es plu simplic e regulari quam ti del coalescent lingues. Li nov lingua franca va esser plu simplic e regulari quam li existent Europan lingues. It va esser tam simplic quam Occidental in fact, it va esser Occidental.\r\n\r\nA un Angleso it va semblar un simplificat Angles, quam un skeptic Cambridge amico dit me que Occidental es. Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules.\r\n\r\nOmnicos directe al desirabilite de un nov lingua franca: On refusa continuar payar custosi traductores. At solmen va esser necessi far uniform grammatica, pronunciation e plu sommun paroles. Ma quande lingues coalesce, li grammatica del resultant lingue es plu simplic e regulari quam ti del coalescent lingues. Li nov lingua franca va esser plu simplic e regulari quam li existent Europan lingues. It va esser tam simplic quam Occidental in fact, it va esser Occidental. A un Angleso it va semblar un simplificat Angles, quam un skeptic Cambridge amico dit me que Occidental es. Li', 'Història', '', 'publish', 'closed', 'closed', '', 'historia', '', '', '2015-01-27 17:25:44', '2015-01-27 16:25:44', '', 261, 'https://pwc-int.educacio.intranet/agora/mastercfa/?page_id=27', 20, 'page', '', 0),
+(30, 1, '2014-09-17 16:24:51', '2014-09-17 16:24:51', ' ', '', '', 'publish', 'open', 'open', '', '30', '', '', '2015-10-13 15:40:08', '2015-10-13 14:40:08', '', 261, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=30', 3, 'nav_menu_item', '', 0),
+(31, 1, '2014-09-17 16:26:18', '2014-09-17 16:26:18', '', 'Instal·lacions', '', 'publish', 'closed', 'closed', '', 'instal%c2%b7lacions', '', '', '2014-09-17 16:34:13', '2014-09-17 16:34:13', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?post_type=slideshow&#038;p=31', 0, 'slideshow', '', 0),
+(32, 1, '2014-09-17 16:29:37', '2014-09-17 16:29:37', '', 'exemple1', '', 'inherit', 'open', 'open', '', 'exemple1', '', '', '2014-09-17 16:29:37', '2014-09-17 16:29:37', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2014/09/exemple1.png', 0, 'attachment', 'image/png', 0),
+(33, 1, '2014-09-17 16:29:38', '2014-09-17 16:29:38', '', 'exemple1b', '', 'inherit', 'open', 'open', '', 'exemple1b', '', '', '2014-09-17 16:29:38', '2014-09-17 16:29:38', '', 27, 'https://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2014/09/exemple1b.png', 0, 'attachment', 'image/png', 0),
+(34, 1, '2014-09-17 16:29:39', '2014-09-17 16:29:39', '', 'exemple2b', '', 'inherit', 'open', 'open', '', 'exemple2b', '', '', '2014-09-17 16:29:39', '2014-09-17 16:29:39', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2014/09/exemple2b.png', 0, 'attachment', 'image/png', 0),
+(35, 1, '2014-09-17 16:29:40', '2014-09-17 16:29:40', '', 'exemple3', '', 'inherit', 'open', 'open', '', 'exemple3', '', '', '2014-09-17 16:29:40', '2014-09-17 16:29:40', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2014/09/exemple3.png', 0, 'attachment', 'image/png', 0),
+(36, 1, '2014-09-17 16:29:41', '2014-09-17 16:29:41', '', 'exemple3b', '', 'inherit', 'open', 'open', '', 'exemple3b', '', '', '2014-09-17 16:29:41', '2014-09-17 16:29:41', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2014/09/exemple3b.png', 0, 'attachment', 'image/png', 0),
+(37, 1, '2014-09-17 16:31:11', '2014-09-17 16:31:11', '', 'exemple2', '', 'inherit', 'open', 'open', '', 'exemple2', '', '', '2014-09-17 16:31:11', '2014-09-17 16:31:11', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2014/09/exemple2.png', 0, 'attachment', 'image/png', 0),
+(39, 1, '2014-09-17 16:36:44', '2014-09-17 16:36:44', '[slideshow_deploy id=''31'']\r\n\r\n&nbsp;\r\n\r\nLi Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular.\r\n\r\nLi lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules. Omnicos directe al desirabilite de un nov lingua franca: On refusa continuar payar custosi traductores.\r\n\r\nA un Angleso it va semblar un simplificat Angles, quam un skeptic Cambridge amico dit me que Occidental es. Li Europan lingues es membres del sam familie. Lor separat existentie es un myth.\r\n\r\nMa quande lingues coalesce, li grammatica del resultant lingue es plu simplic e regulari quam ti del coalescent lingues. Li nov lingua franca va esser plu simplic e regulari quam li existent Europan lingues.', 'Instal·lacions', '', 'publish', 'closed', 'closed', '', 'instal%c2%b7lacions', '', '', '2015-01-27 17:25:44', '2015-01-27 16:25:44', '', 261, 'https://pwc-int.educacio.intranet/agora/mastercfa/?page_id=39', 30, 'page', '', 0),
+(41, 1, '2014-09-17 16:37:28', '2014-09-17 16:37:28', ' ', '', '', 'publish', 'open', 'open', '', '41', '', '', '2015-10-13 15:40:08', '2015-10-13 14:40:08', '', 261, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=41', 4, 'nav_menu_item', '', 0),
+(49, 1, '2014-09-17 16:55:55', '2014-09-17 16:55:55', 'Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules. Omnicos directe al desirabilite de un nov lingua franca: On refusa continuar payar custosi traductores. At solmen va esser necessi far uniform grammatica, pronunciation e plu sommun paroles. Ma quande lingues coalesce, li grammatica del resultant lingue es plu simplic e regulari quam ti del coalescent lingues.\r\n<ul>\r\n	<li>Li nov lingua franca va esser plu simplic e regulari quam li existent Europan lingues. It va esser tam simplic quam Occidental in fact, it va esser Occidental.</li>\r\n	<li>A un Angleso it va semblar un simplificat Angles, quam un skeptic Cambridge amico dit me que Occidental es. Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules.</li>\r\n	<li>Omnicos directe al desirabilite de un nov lingua franca: On refusa continuar payar custosi traductores. At solmen va esser necessi far uniform grammatica, pronunciation e plu sommun paroles.</li>\r\n	<li>Ma quande lingues coalesce, li grammatica del resultant lingue es plu simplic e regulari quam ti del coalescent lingues. Li nov lingua franca va esser plu simplic e regulari quam li existent Europan lingues.</li>\r\n	<li>It va esser tam simplic quam Occidental in fact, it va esser Occidental. A un Angleso it va semblar un simplificat Angles, quam un skeptic Cambridge amico dit me que Occidental es. Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pronunciation</li>\r\n</ul>', 'Normes i funcionament del centre', '', 'publish', 'closed', 'closed', '', 'normes-dorganitzacio-i-funcionament', '', '', '2015-01-27 17:28:03', '2015-01-27 16:28:03', '', 261, 'https://pwc-int.educacio.intranet/agora/mastercfa/?page_id=49', 60, 'page', '', 0),
+(51, 1, '2014-09-17 16:56:20', '2014-09-17 16:56:20', ' ', '', '', 'publish', 'open', 'open', '', 'normes-i-funcionament', '', '', '2015-10-13 15:40:08', '2015-10-13 14:40:08', '', 261, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=51', 7, 'nav_menu_item', '', 0),
+(52, 1, '2014-09-17 16:58:07', '2014-09-17 16:58:07', '<ul>\r\n 	<li>inici de curs i final de curs</li>\r\n 	<li>vacances</li>\r\n 	<li>dies festius de lliure disposició</li>\r\n 	<li>dates de preinscripció i matricula</li>\r\n 	<li>horari lectiu del centre</li>\r\n</ul>\r\n[calendar id="224"]\r\n<h5>Agenda en format llista</h5>\r\n&nbsp;\r\n<div style="width: 50%; float: left; padding: 2px;">[calendar id="248"]</div>', 'Calendari del curs i horaris generals', '', 'publish', 'closed', 'closed', '', 'calendari-del-curs', '', '', '2016-09-21 11:40:20', '2016-09-21 09:40:20', '', 261, 'https://pwc-int.educacio.intranet/agora/mastercfa/?page_id=52', 50, 'page', '', 0),
+(54, 1, '2014-09-17 16:58:24', '2014-09-17 16:58:24', ' ', '', '', 'publish', 'open', 'open', '', '54', '', '', '2015-10-13 15:40:08', '2015-10-13 14:40:08', '', 261, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=54', 6, 'nav_menu_item', '', 0),
+(57, 1, '2014-09-17 17:01:07', '2014-09-17 17:01:07', 'En aquesta secció cada centre pot crear les pàgines necessàries per a descriure el seu projecte educatiu. D’acord amb la <a href="http://www20.gencat.cat/portal/site/portaljuridic/menuitem.d15a4e5dfb99396dc366ec10b0c0e1a0/?vgnextoid=b85297b5a87d6210VgnVCM1000000b0c1e0aRCRD&amp;vgnextchannel=b85297b5a87d6210VgnVCM1000000b0c1e0aRCRD&amp;vgnextfmt=default&amp;action=fitxa&amp;portalId=1&amp;documentId=480169&amp;newLang=ca_ES#fragment-1182442" target="_blank">Llei d’Educació de Catalunya</a>, el projecte educatiu incorpora el caràcter propi del centre i ha de contenir com a mínim els elements següents:\r\n<ul>\r\n	<li>Criteris d’ordenació pedagògica, prioritats i plantejaments educatius, procediments d’inclusió i altres actuacions que caracteritzen el centre.</li>\r\n	<li>Indicadors de progrés.</li>\r\n	<li>Concreció i desenvolupament dels currículums.</li>\r\n	<li>Criteris que defineixen l’estructura organitzativa.</li>\r\n	<li>Projecte lingüístic.</li>\r\n	<li>Caràcter propi del centre, si n’hi ha.</li>\r\n</ul>\r\nEs pot incloure també en aquesta secció informació altres documents que també formen part del projecte educatiu com ara: Projecte de Convivència, Pla d’Acció Tutorial, Pla TAC, etc.\r\nTambé pot ser interessant fer referència a altres projectes i activitats que es duen a terme en el centre.\r\nDonada la diversitat de seccions possibles, s’ha cregut oportú no crear cap pàgina específica en la maqueta inicial, deixant a criteri del centre la decisió sobre la millor manera d’estructurar la descripció del seu projecte educatiu.\r\n\r\nEn crear els apartats és important que la caixa <strong>Atributs de la pàgina</strong> tingui com a pare/mare <strong>Projecte educatiu</strong>, i que se seleccioni com a plantilla l’opció <strong>Menú lateral</strong>.\r\n\r\n&nbsp;', 'Projecte educatiu', '', 'publish', 'closed', 'closed', '', 'projecte-educatiu', '', '', '2015-01-27 17:46:23', '2015-01-27 16:46:23', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?page_id=57', 0, 'page', '', 0),
+(59, 1, '2014-09-17 17:01:47', '2014-09-17 17:01:47', ' ', '', '', 'publish', 'open', 'open', '', '59', '', '', '2015-10-13 15:40:09', '2015-10-13 14:40:09', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=59', 24, 'nav_menu_item', '', 0),
+(63, 1, '2014-09-18 10:06:31', '2014-09-18 10:06:31', 'Espai que ha d’informar a l''alumnat dels serveis que ofereix el centre. La missió educativa no es limita a l’eix curricular, per això és imprescindible que aquest apartat del web estigui en un primer nivell de navegació. És recomanable que s’introdueixi informació relacionada amb:\r\n<ul>\r\n	<li>serveis digitals (en cas que el centre compti amb serveis digitals en línia com ara Moodle, blogs, aplicacions mòbils…)</li>\r\n	<li>acollida: informació-orientació</li>\r\n	<li>altres activitats</li>\r\n</ul>', 'Serveis', '', 'publish', 'closed', 'closed', '', 'serveis', '', '', '2015-01-27 18:07:48', '2015-01-27 17:07:48', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?page_id=63', 0, 'page', '', 0),
+(65, 1, '2014-09-18 10:12:22', '2014-09-18 10:12:22', '<p style="color: #444444;">L’oferta de <strong>serveis digitals</strong> constitueix un element molt important de l’engranatge d’un centre educatiu.</p>\r\n<p style="color: #444444;">En aquesta pàgina es poden referenciar altres serveis en línia que ofereix l’escola com ara Moodle, blocs externs, aplicacions de tutoria o gestió acadèmica, aplicacions mòbils, etc.</p>\r\n<p style="color: #444444;">Si el centre posa en funcionament la <strong>xarxa Nodes</strong>, aquest pot ser un bon lloc per referenciar els principals grups i activitats que s’hi duen a terme.</p>', 'Serveis digitals', '', 'publish', 'closed', 'closed', '', 'serveis-digitals', '', '', '2014-09-22 14:13:29', '2014-09-22 14:13:29', '', 63, 'https://pwc-int.educacio.intranet/agora/mastercfa/?page_id=65', 10, 'page', '', 0),
+(67, 1, '2014-09-18 10:14:18', '2014-09-18 09:14:18', '<p style="color: #444444;"><span style="color: #444444;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean erat dolor, aliquet vitae ligula suscipit, bibendum malesuada augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean erat dolor, aliquet vitae ligula suscipit, bibendum malesuada augue.</span></p>\r\n<p style="color: #444444;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean erat dolor, aliquet vitae ligula suscipit, bibendum malesuada augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean erat dolor, aliquet vitae ligula suscipit, bibendum malesuada augue.</p>', 'Acollida', '', 'publish', 'closed', 'closed', '', 'acollida', '', '', '2015-10-27 10:12:33', '2015-10-27 09:12:33', '', 63, 'https://pwc-int.educacio.intranet/agora/mastercfa/?page_id=67', 20, 'page', '', 0),
+(73, 1, '2014-09-18 10:15:50', '2014-09-18 10:15:50', ' ', '', '', 'publish', 'open', 'open', '', '73', '', '', '2015-10-13 15:40:09', '2015-10-13 14:40:09', '', 63, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=73', 26, 'nav_menu_item', '', 0),
+(74, 1, '2014-09-18 10:16:18', '2014-09-18 10:16:18', ' ', '', '', 'publish', 'open', 'open', '', '74', '', '', '2015-10-13 15:40:09', '2015-10-13 14:40:09', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=74', 25, 'nav_menu_item', '', 0),
+(81, 1, '2014-09-18 10:38:05', '2014-09-18 10:38:05', 'En els centres d''ensenyament secundari, la secreraria és l''agent de gestió administrativa visible, per tant, és bàsic que la seva presència a la web sigui un dels elements de navegació principals. És important que la informació s''exposi de forma clara, a fi de facilitar la usabilitat de l''espai. La informació d''aquesta secció hauria d''incloure:\r\n<ul>\r\n	<li>Horari d''atenció</li>\r\n	<li>Tràmits (sol·licitud de certificats...)</li>\r\n	<li>Preinscripció i Matrícula</li>\r\n	<li>Documents (autorització de sortides, ús de serveis digitals, etc.)</li>\r\n	<li>Beques i ajuts</li>\r\n	<li>Proves d''accés als cicles formatius</li>\r\n	<li>etc.</li>\r\n</ul>\r\n&nbsp;', 'Secretaria', '', 'publish', 'closed', 'closed', '', 'secretaria', '', '', '2014-09-22 14:13:29', '2014-09-22 14:13:29', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?page_id=81', 0, 'page', '', 0),
+(88, 1, '2014-09-18 10:45:31', '2014-09-18 10:45:31', '', 'logo-centre', '', 'inherit', 'open', 'open', '', 'logo-centre-2', '', '', '2014-09-18 10:45:31', '2014-09-18 10:45:31', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2014/09/logo-centre1.png', 0, 'attachment', 'image/png', 0),
+(107, 1, '2014-09-18 16:34:30', '2014-09-18 16:34:30', '', 'Capçalera', '', 'publish', 'closed', 'closed', '', 'capcalera-2', '', '', '2014-09-22 12:06:07', '2014-09-22 12:06:07', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?post_type=slideshow&#038;p=107', 0, 'slideshow', '', 0),
+(109, 1, '2014-09-18 16:42:56', '2014-09-18 16:42:56', 'https://soundcloud.com/institut-sabadell/sophie-message\r\n\r\nUn exemple de fitxer d''àudio disponible directament des de la targeta resum. Dins de l''article, a la caixa "Paràmetres", heu de marcar la casella "Mostra el contingut sencer".', 'Notícia 1', '', 'publish', 'open', 'open', '', 'noticia-1', '', '', '2015-07-28 09:23:44', '2015-07-28 08:23:44', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=109', 0, 'post', '', 0),
+(112, 1, '2014-09-18 17:16:55', '2014-09-18 17:16:55', 'Node de professorat', 'Professorat', '', 'private', 'closed', 'open', '', 'professorat', '', '', '2014-09-18 17:16:55', '2014-09-18 17:16:55', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/forums/forum/professorat', 0, 'forum', '', 0),
+(113, 1, '2014-09-18 17:21:02', '2014-09-18 17:21:02', 'Node del Departament de Ciències Naturals', 'Dep. Ciències', '', 'private', 'closed', 'open', '', 'dep-ciencies', '', '', '2014-09-18 17:21:02', '2014-09-18 17:21:02', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/forums/forum/dep-ciencies', 0, 'forum', '', 0),
+(114, 1, '2014-09-18 17:37:19', '2014-09-18 17:37:19', '', 'aulasec', '', 'inherit', 'open', 'open', '', 'aulasec', '', '', '2014-09-18 17:37:19', '2014-09-18 17:37:19', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2014/09/aulasec.png', 0, 'attachment', 'image/png', 0),
+(115, 1, '2014-09-18 17:40:29', '2014-09-18 17:40:29', 'Node del departament de ciències socials (professorat)', 'Dep. Socials', '', 'private', 'closed', 'open', '', 'dep-socials', '', '', '2014-09-18 17:40:29', '2014-09-18 17:40:29', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/forums/forum/dep-socials', 0, 'forum', '', 0),
+(120, 1, '2014-09-19 09:24:00', '2014-09-19 09:24:00', '<iframe src="//www.youtube.com/embed/ygwGTiGFGi0?rel=0" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>\r\n\r\nUn exemple de vídeo disponible directament des de la targeta resum. Dins de l’article, a la caixa “Paràmetres”, heu de marcar la casella “Mostra el contingut sencer”.', 'Notícia 2', '', 'publish', 'open', 'open', '', 'noticia-2', '', '', '2015-07-28 09:23:27', '2015-07-28 08:23:27', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=120', 0, 'post', '', 0),
+(127, 1, '2014-09-19 10:31:19', '2014-09-19 10:31:19', '[slideshow_deploy id=''148'']\r\n\r\nExemple de Carrusel disponible directament a la targeta resum. Els carrusels permeten incloure imatges, vídeos i textos. Marqueu "Mostra el contingut sencer" a la caixa de "Paràmetres" perquè es mostri directament.', 'Notícia 3', '', 'publish', 'open', 'open', '', 'noticia-3', '', '', '2015-07-28 09:23:04', '2015-07-28 08:23:04', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=127', 0, 'post', '', 0),
+(129, 1, '2014-09-19 10:37:29', '2014-09-19 10:37:29', '<span style="color: #444444;">Nam semper id ipsum condimentum laoreet. Proin sollicitudin elit ut ligula hendrerit, et hendrerit ante condimentum. Aliquam suscipit feugiat velit, at vehicula lorem pharetra quis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean erat dolor, aliquet vitae ligula suscipit, bibendum malesuada augue.</span>', 'Notícia 4', '', 'publish', 'open', 'open', '', 'noticia-4', '', '', '2014-09-22 16:21:10', '2014-09-22 16:21:10', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=129', 0, 'post', '', 0),
+(131, 1, '2014-09-19 10:42:18', '2014-09-19 10:42:18', '', 'primersauxilis', '', 'inherit', 'open', 'open', '', 'primersauxilis', '', '', '2014-09-19 10:42:18', '2014-09-19 10:42:18', '', 120, 'https://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2014/09/primersauxilis.jpg', 0, 'attachment', 'image/jpeg', 0),
+(134, 1, '2014-09-19 10:45:22', '2014-09-19 10:45:22', '<span style="color: #444444;">Nam semper id ipsum condimentum laoreet. Proin sollicitudin elit ut ligula hendrerit, et hendrerit ante condimentum. Aliquam suscipit feugiat velit, at vehicula lorem pharetra quis. Nam semper id ipsum condimentum laoreet. Proin sollicitudin elit ut ligula hendrerit, et hendrerit ante condimentum. Aliquam suscipit feugiat velit, at vehicula lorem pharetra quis.</span>', 'Notícia 5', '', 'publish', 'open', 'open', '', 'noticia-5', '', '', '2014-09-22 16:21:10', '2014-09-22 16:21:10', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=134', 0, 'post', '', 0),
+(137, 1, '2014-09-19 10:46:03', '2014-09-19 10:46:03', '<span style="color: #444444;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean erat dolor, aliquet vitae ligula suscipit, bibendum malesuada augue. Nam semper id ipsum condimentum laoreet. Proin sollicitudin elit ut ligula hendrerit, et hendrerit ante condimentum. Aliquam suscipit feugiat velit, at vehicula lorem pharetra quis.</span>', 'Notícia 6', '', 'publish', 'open', 'open', '', 'noticia-6', '', '', '2014-09-22 16:23:35', '2014-09-22 16:23:35', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=137', 0, 'post', '', 0),
+(141, 1, '2014-09-19 11:18:24', '2014-09-19 11:18:24', '', 'cicles', '', 'inherit', 'open', 'open', '', 'cicles', '', '', '2014-09-19 11:18:24', '2014-09-19 11:18:24', '', 129, 'https://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2014/09/cicles.png', 0, 'attachment', 'image/png', 0),
+(146, 1, '2014-09-19 12:05:27', '2014-09-19 12:05:27', '', 'gimnas', '', 'inherit', 'open', 'open', '', 'gimnas', '', '', '2014-09-19 12:05:27', '2014-09-19 12:05:27', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2014/09/gimnas.png', 0, 'attachment', 'image/png', 0),
+(148, 1, '2014-09-19 12:30:14', '2014-09-19 12:30:14', '', 'Exemple ', '', 'publish', 'closed', 'closed', '', 'exemple', '', '', '2014-09-19 16:08:04', '2014-09-19 16:08:04', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?post_type=slideshow&#038;p=148', 0, 'slideshow', '', 0),
+(154, 1, '2014-09-19 14:40:48', '2014-09-19 14:40:48', '', 'Xesc_Arbona', '', 'inherit', 'open', 'open', '', 'xesc_arbona', '', '', '2014-09-19 14:40:48', '2014-09-19 14:40:48', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2014/09/Xesc_Arbona.png', 0, 'attachment', 'image/png', 0),
+(161, 1, '2014-09-19 16:00:03', '2014-09-19 16:00:03', '<iframe src="//player.vimeo.com/video/88231031?title=0&amp;byline=0&amp;portrait=0" width="550" height="310" frameborder="0" allowfullscreen="allowfullscreen"></iframe>', 'Notícia 7 ', '', 'publish', 'open', 'open', '', 'noticia-7', '', '', '2014-09-22 16:22:05', '2014-09-22 16:22:05', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=161', 0, 'post', '', 0),
+(163, 1, '2014-09-19 16:00:33', '2014-09-19 16:00:33', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean erat dolor, aliquet vitae ligula suscipit, bibendum malesuada augue. Nam semper id ipsum condimentum laoreet. Proin sollicitudin elit ut ligula hendrerit, et hendrerit ante condimentum. Aliquam suscipit feugiat velit, at vehicula lorem pharetra quis.', 'Notícia 8', '', 'publish', 'open', 'open', '', 'noticia-8', '', '', '2014-12-01 13:22:10', '2014-12-01 12:22:10', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=163', 0, 'post', '', 0),
+(168, 1, '2014-09-19 16:04:34', '2014-09-19 16:04:34', '', 'classe', '', 'inherit', 'open', 'open', '', 'classe', '', '', '2014-09-19 16:04:34', '2014-09-19 16:04:34', '', 134, 'https://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2014/09/classe.png', 0, 'attachment', 'image/png', 0),
+(170, 1, '2014-09-19 16:16:22', '2014-09-19 16:16:22', 'Node del departament de Tecnologia (professorat)', 'Tecnologia', '', 'private', 'closed', 'open', '', 'tecnologia', '', '', '2014-09-19 16:16:22', '2014-09-19 16:16:22', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/forums/forum/tecnologia', 0, 'forum', '', 0),
+(171, 1, '2014-09-19 16:19:15', '2014-09-19 16:19:15', 'Node del departament de Matemàtiques', 'Dep. Matemàtiques', '', 'private', 'closed', 'open', '', 'dep-matematiques', '', '', '2014-09-19 16:19:15', '2014-09-19 16:19:15', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/forums/forum/dep-matematiques', 0, 'forum', '', 0),
+(172, 1, '2014-09-19 16:26:36', '2014-09-19 16:26:36', 'Node del departament de Llengua catalana i literatura (professorat)', 'Dep. Català', '', 'private', 'closed', 'open', '', 'dep-catala', '', '', '2014-09-19 16:26:36', '2014-09-19 16:26:36', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/forums/forum/dep-catala', 0, 'forum', '', 0),
+(173, 1, '2014-09-19 16:29:03', '2014-09-19 16:29:03', 'Node del departament de Llengua castellana i literatura (professorat)', 'Dep. Castellà', '', 'private', 'closed', 'open', '', 'dep-castella', '', '', '2014-09-19 16:29:03', '2014-09-19 16:29:03', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/forums/forum/dep-castella', 0, 'forum', '', 0),
+(174, 1, '2014-09-19 16:31:22', '2014-09-19 16:31:22', 'Node del departament de Llengües estrangeres (professorat)', 'Dep. Llengües estrangeres', '', 'private', 'closed', 'open', '', 'dep-llengues-estrangeres', '', '', '2014-09-19 16:31:22', '2014-09-19 16:31:22', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/forums/forum/dep-llengues-estrangeres', 0, 'forum', '', 0),
+(175, 1, '2014-09-19 16:33:32', '2014-09-19 16:33:32', 'Node del departament d&#039;Educació Física (professorat)', 'Dep. Educació Física', '', 'private', 'closed', 'open', '', 'dep-educacio-fisica', '', '', '2014-09-19 16:33:32', '2014-09-19 16:33:32', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/forums/forum/dep-educacio-fisica', 0, 'forum', '', 0),
+(176, 1, '2014-09-19 16:39:42', '2014-09-19 16:39:42', 'Node del departament de Visual i Plàstica (professorat)', 'Dep. Visual i Plàstica', '', 'private', 'closed', 'open', '', 'dep-visual-i-plastica', '', '', '2014-09-19 16:39:42', '2014-09-19 16:39:42', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/forums/forum/dep-visual-i-plastica', 0, 'forum', '', 0),
+(177, 1, '2014-09-19 16:45:37', '2014-09-19 16:45:37', 'Node del departament de música (professorat)', 'Dep. Música', '', 'private', 'closed', 'open', '', 'dep-musica', '', '', '2014-09-19 16:45:37', '2014-09-19 16:45:37', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/forums/forum/dep-musica', 0, 'forum', '', 0),
+(178, 1, '2014-09-19 16:50:06', '2014-09-19 16:50:06', 'Node del departament d&#039;Orientació (professorat)', 'Dep. Orientació', '', 'private', 'closed', 'open', '', 'dep-orientacio', '', '', '2014-09-19 16:50:06', '2014-09-19 16:50:06', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/forums/forum/dep-orientacio', 0, 'forum', '', 0),
+(179, 1, '2014-09-19 17:00:49', '2014-09-19 17:00:49', 'Node del departament d&#039;Informàtica (professorat)', 'Dep. Informàtica', '', 'private', 'closed', 'open', '', 'dep-informatica', '', '', '2014-09-19 17:00:49', '2014-09-19 17:00:49', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/forums/forum/dep-informatica', 0, 'forum', '', 0),
+(184, 1, '2014-09-22 10:13:08', '2014-09-22 10:13:08', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean erat dolor, aliquet vitae ligula suscipit, bibendum malesuada augue. Nam semper id ipsum condimentum laoreet. Proin sollicitudin elit ut ligula hendrerit, et hendrerit ante condimentum.', 'Notícia 9', '', 'publish', 'open', 'open', '', 'noticia-9', '', '', '2015-10-27 10:01:38', '2015-10-27 09:01:38', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=184', 0, 'post', '', 0),
+(185, 1, '2014-09-22 10:13:06', '2014-09-22 10:13:06', '', 'ampa', '', 'inherit', 'open', 'open', '', 'ampa-2', '', '', '2014-09-22 10:13:06', '2014-09-22 10:13:06', '', 184, 'https://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2014/09/ampa.png', 0, 'attachment', 'image/png', 0),
+(202, 1, '2014-09-22 15:03:12', '2014-09-22 15:03:12', '', 'Destacat Nodes', '', 'publish', 'closed', 'closed', '', 'destacat-nodes', '', '', '2014-09-22 16:02:46', '2014-09-22 16:02:46', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?post_type=slideshow&#038;p=202', 0, 'slideshow', '', 0),
+(203, 1, '2014-09-22 14:12:23', '2014-09-22 14:12:23', 'Node dedicat a l&#039;educació emocional', 'Educació emocional', '', 'publish', 'closed', 'open', '', 'educacio-emocional', '', '', '2014-09-22 14:12:23', '2014-09-22 14:12:23', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/forums/forum/educacio-emocional', 0, 'forum', '', 0),
+(204, 1, '2014-09-22 14:20:24', '2014-09-22 14:20:24', 'Node dels aficionats al cinema', 'Cinema', '', 'publish', 'closed', 'open', '', 'cinema', '', '', '2014-09-22 14:20:24', '2014-09-22 14:20:24', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/forums/forum/cinema', 0, 'forum', '', 0),
+(205, 1, '2014-09-22 14:31:55', '2014-09-22 14:31:55', 'Node dels aficionats a la fotografia', 'Fotografia', '', 'publish', 'closed', 'open', '', 'fotografia', '', '', '2014-09-22 14:31:55', '2014-09-22 14:31:55', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/forums/forum/fotografia', 0, 'forum', '', 0),
+(206, 1, '2014-09-22 14:40:28', '2014-09-22 14:40:28', 'Programa Redes sobre l''educació emocional. Molt interessant. Per reflexionar.\n<div style="width: 100%; padding-top: 64%; position: relative; border-bottom: 1px solid #aaa; display: inline-block; background: rgba(255,255,255,0.9);">\n\n<iframe style="width: 100%; height: 90%; position: absolute; left: 0; top: 0; overflow: hidden;" src="http://www.rtve.es/drmn/embed/video/1839588" name="El aprendizaje social y emocional" width="320" height="240" frameborder="0" scrolling="no"></iframe>\n<div style="position: absolute; bottom: 0; left: 0; font-family: arial,helvetica,sans-serif; font-size: 12px; line-height: 1.833; display: inline-block; padding: 5px 0 5px 10px;"><span style="float: left; margin-right: 10px;"><img style="height: 20px; width: auto; background: transparent; padding: 0; margin: 0;" src="http://img.irtve.es/css/rtve.commons/rtve.header.footer/i/logoRTVEes.png" alt="" /></span> <a style="color: #333; font-weight: bold;" title="El aprendizaje social y emocional" href="http://www.rtve.es/alacarta/videos/redes/redes-aprendizaje-social-20130526-2130-169/1839588/"><strong>El aprendizaje social y emocional</strong></a></div>\n</div>', 'Programa Redes sobre educació emocional', '', 'publish', 'closed', 'open', '', 'programa-redes-sobre-educacio-emocional', '', '', '2014-09-22 15:30:57', '2014-09-22 15:30:57', '', 112, 'https://pwc-int.educacio.intranet/agora/mastercfa/forums/topic/programa-redes-sobre-educacio-emocional', 0, 'topic', '', 0),
+(207, 1, '2014-09-22 14:46:13', '2014-09-22 14:46:13', 'Un dels objectius de la xarxa Nodes és oferir espais perquè els alumnes es pugin expressar fora de l''aula. Pot ser una eina molt útil especialment pels alumnes que no destaquen pels seus resultats acadèmics i que tenen una baixa autoestima derivada d''una indefensió apresa a l''aula.\n\n<iframe src="http://www.youtube.com/embed/OtB6RTJVqPM" height="350" width="425" frameborder="0"></iframe>', 'Indefensió apresa', '', 'publish', 'closed', 'open', '', 'indefensio-apresa', '', '', '2014-09-22 14:46:13', '2014-09-22 14:46:13', '', 112, 'https://pwc-int.educacio.intranet/agora/mastercfa/forums/topic/indefensio-apresa', 0, 'topic', '', 0),
+(209, 1, '2014-09-22 15:06:43', '2014-09-22 15:06:43', 'Node d&#039;aficionats a la papiroflexia', 'Papiroflexia', '', 'publish', 'closed', 'open', '', 'papiroflexia', '', '', '2014-09-22 15:06:43', '2014-09-22 15:06:43', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/forums/forum/papiroflexia', 0, 'forum', '', 0),
+(210, 1, '2014-09-22 15:10:09', '2014-09-22 15:10:09', '', 'granota', '', 'inherit', 'open', 'open', '', 'granota', '', '', '2014-09-22 15:10:09', '2014-09-22 15:10:09', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2014/09/granota.png', 0, 'attachment', 'image/png', 0),
+(211, 1, '2014-09-22 15:11:13', '2014-09-22 15:11:13', 'Hola Noders! Qui s''apunta a fer la granota? Aquí teniu les instruccions:\n\n[caption id="" align="alignnone" width="700"]<img src="https://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2014/09/granota.png" alt="Instruccions Granota" width="700" height="495" /> Instruccions Granota[/caption]', 'Figura n.1: La granota ', '', 'publish', 'closed', 'open', '', 'figura-n-1-la-granota', '', '', '2014-09-22 15:11:13', '2014-09-22 15:11:13', '', 209, 'https://pwc-int.educacio.intranet/agora/mastercfa/forums/topic/figura-n-1-la-granota', 0, 'topic', '', 0),
+(215, 1, '2014-09-22 16:02:36', '2014-09-22 16:02:36', '', 'screeshot', '', 'inherit', 'open', 'open', '', 'screeshot', '', '', '2014-09-22 16:02:36', '2014-09-22 16:02:36', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2014/09/screeshot.png', 0, 'attachment', 'image/png', 0),
+(216, 1, '2014-09-22 16:54:13', '2014-09-22 16:54:13', 'Molt recomanable:\nhttps://www.youtube.com/watch?v=PQE4WqQSOcQ', 'Documental sobre educació Emocional', '', 'publish', 'closed', 'open', '', 'documental-sobre-educacio-emocional', '', '', '2014-09-22 16:54:13', '2014-09-22 16:54:13', '', 112, 'https://pwc-int.educacio.intranet/agora/mastercfa/forums/topic/documental-sobre-educacio-emocional', 0, 'topic', '', 0),
+(224, 1, '2014-10-07 05:44:15', '2014-10-07 05:44:15', '<strong>[title]</strong>\r\n[when]\r\n[location]\r\n<div>[description]</div>\r\n[link newwindow="yes"]Més detalls...[/link]', 'Calendari d''exemple', '', 'publish', 'closed', 'closed', '', 'institut-larany', '', '', '2016-09-21 10:43:45', '2016-09-21 08:43:45', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/gce_feed/institut-larany', 0, 'calendar', '', 0),
+(230, 1, '2014-10-23 15:06:56', '2014-10-23 15:06:56', 'Exemple de document a Google Drive:\r\n\r\n<a href="https://docs.google.com/document/d/1incKJCmJfQvcjtnKReUQW_6Pu9F_QBf0fWpaxgp0ODs/edit?usp=sharing">https://docs.google.com/document/d/1incKJCmJfQvcjtnKReUQW_6Pu9F_QBf0fWpaxgp0ODs/edit?usp=sharing</a>', 'Document a Google Drive', '', 'publish', 'open', 'open', '', 'document-a-google-drive', '', '', '2014-10-23 15:18:51', '2014-10-23 15:18:51', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/docs/', 0, 'bp_doc', '', 0),
+(233, 1, '2014-10-23 15:11:21', '2014-10-23 15:11:21', 'Exemple de document ofimàtic (públic)', 'Document ofimàtic', '', 'publish', 'open', 'open', '', 'document-ofimatic', '', '', '2014-10-23 15:18:51', '2014-10-23 15:18:51', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/docs/', 0, 'bp_doc', '', 0),
+(234, 1, '2014-10-23 15:10:34', '2014-10-23 15:10:34', '', 'Exemple', '', 'inherit', 'open', 'open', '', 'exemple-2', '', '', '2014-10-23 15:10:34', '2014-10-23 15:10:34', '', 233, 'https://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/bp-attachments/233/Exemple.docx', 0, 'attachment', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 0),
+(236, 1, '2014-10-23 15:14:55', '2014-10-23 15:14:55', '', 'Professorat', '', 'trash', 'open', 'open', '', 'professorat-2', '', '', '2014-10-23 15:18:51', '2014-10-23 15:18:51', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/docs/', 0, 'bp_doc', '', 0),
+(238, 1, '2014-10-23 15:46:00', '2014-10-23 15:46:00', 'Exemple de document com a fotografia', 'Exemple foto com a document', '', 'publish', 'open', 'open', '', 'exemple-foto-com-a-document', '', '', '2014-10-23 15:46:00', '2014-10-23 15:46:00', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/docs/', 0, 'bp_doc', '', 0),
+(239, 1, '2014-10-23 15:44:32', '2014-10-23 15:44:32', '', 'Selecció_713', '', 'inherit', 'open', 'open', '', 'seleccio_713', '', '', '2014-10-23 15:44:32', '2014-10-23 15:44:32', '', 238, 'https://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/bp-attachments/238/Selecció_713.png', 0, 'attachment', 'image/png', 0),
+(248, 1, '2015-01-23 12:14:15', '2015-01-23 11:14:15', '<strong>[title]</strong>\r\n[when]\r\n[location]\r\n<div>[description]</div>\r\n[link newwindow="yes"]Més detalls...[/link]', 'Agenda d''exemple', '', 'publish', 'closed', 'closed', '', 'agenda-dexemple', '', '', '2016-09-21 13:40:33', '2016-09-21 11:40:33', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?post_type=gce_feed&#038;p=248', 0, 'calendar', '', 0),
+(249, 1, '2015-01-23 12:20:56', '2015-01-23 11:20:56', '', 'Document 1', '', 'publish', 'open', 'open', '', 'document-1', '', '', '2015-01-23 12:20:56', '2015-01-23 11:20:56', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=249', 1, 'nav_menu_item', '', 0),
+(250, 1, '2015-01-23 12:20:56', '2015-01-23 11:20:56', '', 'Document 2', '', 'publish', 'open', 'open', '', 'document-2', '', '', '2015-01-23 12:20:56', '2015-01-23 11:20:56', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=250', 2, 'nav_menu_item', '', 0),
+(251, 1, '2015-01-23 12:20:56', '2015-01-23 11:20:56', '', 'Aplicació 1', '', 'publish', 'open', 'open', '', 'aplicacio-1', '', '', '2015-01-23 12:20:56', '2015-01-23 11:20:56', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=251', 3, 'nav_menu_item', '', 0),
+(252, 1, '2015-01-23 12:20:56', '2015-01-23 11:20:56', '', 'Web 1', '', 'publish', 'open', 'open', '', 'web-1', '', '', '2015-01-23 12:20:56', '2015-01-23 11:20:56', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=252', 5, 'nav_menu_item', '', 0),
+(253, 1, '2015-01-23 12:20:56', '2015-01-23 11:20:56', '', 'Aplicació 2', '', 'publish', 'open', 'open', '', 'aplicacio-2', '', '', '2015-01-23 12:20:56', '2015-01-23 11:20:56', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=253', 4, 'nav_menu_item', '', 0),
+(254, 1, '2015-01-23 12:20:56', '2015-01-23 11:20:56', '', 'Web 2', '', 'publish', 'open', 'open', '', 'web-2', '', '', '2015-01-23 12:20:56', '2015-01-23 11:20:56', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=254', 6, 'nav_menu_item', '', 0),
+(255, 1, '2015-01-23 12:50:03', '2015-01-23 11:50:03', '', 'foto-classe', '', 'inherit', 'open', 'open', '', 'foto-classe', '', '', '2015-01-23 12:50:03', '2015-01-23 11:50:03', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2015/01/foto-classe.png', 0, 'attachment', 'image/png', 0),
+(256, 1, '2015-01-27 16:38:21', '2015-01-27 15:38:21', ' ', '', '', 'publish', 'open', 'open', '', '256', '', '', '2015-10-13 15:40:09', '2015-10-13 14:40:09', '', 63, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=256', 27, 'nav_menu_item', '', 0),
+(257, 1, '2015-01-27 16:52:14', '2015-01-27 15:52:14', '', 'curriculum_ense_padultes', '', 'inherit', 'open', 'open', '', 'curriculum_ense_padultes', '', '', '2015-01-27 16:52:14', '2015-01-27 15:52:14', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2015/01/curriculum_ense_padultes.png', 0, 'attachment', 'image/png', 0),
+(258, 1, '2015-01-27 16:55:04', '2015-01-27 15:55:04', '', 'Selecció_921', '', 'inherit', 'open', 'open', '', 'seleccio_921', '', '', '2015-01-27 16:55:04', '2015-01-27 15:55:04', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2015/01/Selecció_921.png', 0, 'attachment', 'image/png', 0),
+(259, 1, '2015-01-27 17:17:17', '2015-01-27 16:17:17', '', 'cfa', '', 'inherit', 'open', 'open', '', 'cfa', '', '', '2015-01-27 17:17:17', '2015-01-27 16:17:17', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2015/01/cfa.jpg', 0, 'attachment', 'image/jpeg', 0),
+(261, 1, '2015-01-27 17:25:01', '2015-01-27 16:25:01', 'Aquesta secció pot contenir totes les pàgines necessàries per a oferir una descripció general del centre de formació d’adults: ubicació, història, instal·lacions, equip docent, consell de centre, calendari, informacions pràctiques, normativa…\r\n\r\nEn la maqueta inicial s’inclouen algunes d’aquestes pàgines amb contingut simulat. L’administrador/a pot editar-les, eliminar-les o crear-ne de noves des del tauler. És important que a la caixa <strong>Atributs de la pàgina</strong> hi consti com a pare/mare la pàgina <strong>El Centre</strong>, i que tinguin seleccionada la plantilla “Menú lateral“.', 'El Centre', '', 'publish', 'closed', 'closed', '', 'el-centre', '', '', '2015-10-27 10:11:20', '2015-10-27 09:11:20', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?page_id=261', 0, 'page', '', 0),
+(263, 1, '2015-01-27 17:27:25', '2015-01-27 16:27:25', ' ', '', '', 'publish', 'open', 'open', '', '263', '', '', '2015-10-13 15:40:08', '2015-10-13 14:40:08', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=263', 1, 'nav_menu_item', '', 0),
+(265, 1, '2015-01-27 17:28:56', '2015-01-27 16:28:56', 'En aquesta secció, els centres publiquen la informació relativa a la seva organització interna. Es recomana que els centres educatius dissenyin el nivell d’exhaustivitat de la informació publicada. Serà convenient que en el seu plantejament singular, els centres vertebrin el contingut tenint en compte els següents aspectes:\r\n<ul>\r\n	<li>direcció</li>\r\n	<li>equip directiu</li>\r\n	<li>coordinacions</li>\r\n	<li>consell escolar</li>\r\n	<li>PAS</li>\r\n</ul>', 'Organització interna', '', 'publish', 'closed', 'closed', '', 'organitzacio-interna', '', '', '2015-10-27 10:11:25', '2015-10-27 09:11:25', '', 261, 'https://pwc-int.educacio.intranet/agora/mastercfa/?page_id=265', 40, 'page', '', 0),
+(267, 1, '2015-01-27 17:29:52', '2015-01-27 16:29:52', ' ', '', '', 'publish', 'open', 'open', '', '267', '', '', '2015-10-13 15:40:08', '2015-10-13 14:40:08', '', 261, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=267', 5, 'nav_menu_item', '', 0),
+(274, 1, '2015-01-27 17:56:20', '2015-01-27 16:56:20', '<h4>Ensenyaments inicials i formació bàsica</h4>\r\n<ul>\r\n	<li>Llengua catalana</li>\r\n	<li>Llengua castellana</li>\r\n	<li>Formació instrumental</li>\r\n	<li>Graduat en educació secundària per a persones adultes (GESO)</li>\r\n	<li>Curs específic d''accés als cicles de grau mitjà (CAM)</li>\r\n</ul>\r\n<h4>Ensenyaments transprofessionals</h4>\r\n<ul>\r\n	<li>Llengua anglesa</li>\r\n	<li>Llengua francesa</li>\r\n	<li>Competència digital COMPETIC</li>\r\n</ul>\r\n<h4>Ensenyament per a la preparació de proves d’accés</h4>\r\n<ul>\r\n	<li>A cicles formatius de grau mitjà</li>\r\n	<li>A cicles formatius de grau superior</li>\r\n	<li>A la universitat per a majors de 25 anys</li>\r\n</ul>', 'Ensenyaments', '', 'publish', 'closed', 'closed', '', 'ensenyaments', '', '', '2015-10-27 10:11:28', '2015-10-27 09:11:28', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?page_id=274', 0, 'page', '', 0),
+(278, 1, '2015-01-27 18:01:54', '2015-01-27 17:01:54', ' ', '', '', 'publish', 'open', 'open', '', '278', '', '', '2015-10-13 15:40:08', '2015-10-13 14:40:08', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=278', 9, 'nav_menu_item', '', 0),
+(283, 1, '2015-01-28 11:06:17', '2015-01-28 10:06:17', '<ul>\r\n	<li>Llengua catalana</li>\r\n	<li>Llengua castellana</li>\r\n	<li>Formació instrumental</li>\r\n	<li>Graduat en educació secundària per a persones adultes (GESO)</li>\r\n	<li>Curs específic d''accés als cicles de grau mitjà (CAM)</li>\r\n</ul>\r\n<h4></h4>', 'Ensenyaments inicials i formació bàsica', '', 'publish', 'closed', 'closed', '', 'ensenyaments-inicials-i-formacio-basica', '', '', '2015-10-27 10:11:32', '2015-10-27 09:11:32', '', 274, 'https://pwc-int.educacio.intranet/agora/mastercfa/?page_id=283', 0, 'page', '', 0),
+(286, 1, '2015-01-28 11:07:30', '2015-01-28 10:07:30', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non placerat tellus. Proin cursus ligula ligula, non faucibus massa bibendum in. Nunc laoreet varius semper. Vivamus augue diam, laoreet eget consequat sed, ultrices sit amet quam. Fusce fermentum odio finibus, congue sapien et, tristique sem. Curabitur aliquet risus sit amet ante tempus, in dignissim libero pretium. Cras est metus, vulputate nec nunc in, tempor porttitor lorem. Donec lacus lectus, finibus ac finibus in, iaculis et nulla. Morbi fermentum elit accumsan, vulputate mauris at, bibendum odio. Nunc sollicitudin tincidunt justo, finibus dignissim tellus lobortis pharetra.', 'Ensenyaments transprofessionals', '', 'publish', 'closed', 'closed', '', 'ensenyaments-transprofessionals', '', '', '2015-10-27 10:11:57', '2015-10-27 09:11:57', '', 274, 'https://pwc-int.educacio.intranet/agora/mastercfa/?page_id=286', 0, 'page', '', 0);
 INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_title`, `post_excerpt`, `post_status`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_content_filtered`, `post_parent`, `guid`, `menu_order`, `post_type`, `post_mime_type`, `comment_count`) VALUES
-(290, 1, '2015-01-28 11:08:56', '2015-01-28 10:08:56', '', 'Per a la preparació de proves d''accés', '', 'publish', 'open', 'open', '', 'ensenyaments-per-a-la-preparacio-de-proves-dacces', '', '', '2015-10-13 15:40:09', '2015-10-13 14:40:09', '', 274, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=290', 20, 'nav_menu_item', '', 0),
-(291, 1, '2015-01-28 11:08:56', '2015-01-28 10:08:56', '', 'Transprofessionals', '', 'publish', 'open', 'open', '', '291', '', '', '2015-10-13 15:40:08', '2015-10-13 14:40:08', '', 274, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=291', 16, 'nav_menu_item', '', 0),
-(292, 1, '2015-01-28 11:08:53', '2015-01-28 10:08:53', '', 'Inicials i formació bàsica', '', 'publish', 'open', 'open', '', '292', '', '', '2015-10-13 15:40:08', '2015-10-13 14:40:08', '', 274, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=292', 10, 'nav_menu_item', '', 0),
-(296, 1, '2015-01-28 11:18:08', '2015-01-28 10:18:08', '<ul>\r\n	<li>Nivells</li>\r\n	<li>Durada</li>\r\n	<li>Organització</li>\r\n	<li>Currículum</li>\r\n	<li>Recursos</li>\r\n	<li>Aula virtual</li>\r\n	<li>Avaluació</li>\r\n	<li>Promoció de curs i/o obtenció de certificació</li>\r\n</ul>', 'Llengua catalana', '', 'publish', 'closed', 'closed', '', 'llengua-catalana', '', '', '2015-10-27 10:11:53', '2015-10-27 09:11:53', '', 283, 'http://pwc-int.educacio.intranet/agora/mastercfa/?page_id=296', 0, 'page', '', 0),
-(298, 1, '2015-01-28 11:18:36', '2015-01-28 10:18:36', ' ', '', '', 'publish', 'open', 'open', '', '298', '', '', '2015-10-13 15:40:08', '2015-10-13 14:40:08', '', 283, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=298', 11, 'nav_menu_item', '', 0),
-(299, 1, '2015-01-28 11:21:22', '2015-01-28 10:21:22', '<ul>\r\n	<li>Nivells</li>\r\n	<li>Durada</li>\r\n	<li>Organització</li>\r\n	<li>Currículum</li>\r\n	<li>Recursos</li>\r\n	<li>Aula virtual</li>\r\n	<li>Avaluació</li>\r\n	<li>Promoció de curs i/o obtenció de certificació</li>\r\n</ul>', 'Llengua castellana', '', 'publish', 'closed', 'closed', '', 'llengua-castellana', '', '', '2015-10-27 10:11:47', '2015-10-27 09:11:47', '', 283, 'http://pwc-int.educacio.intranet/agora/mastercfa/?page_id=299', 0, 'page', '', 0),
-(301, 1, '2015-01-28 11:21:46', '2015-01-28 10:21:46', '<ul>\r\n	<li>Nivells</li>\r\n	<li>Durada</li>\r\n	<li>Organització</li>\r\n	<li>Currículum</li>\r\n	<li>Recursos</li>\r\n	<li>Aula virtual</li>\r\n	<li>Avaluació</li>\r\n	<li>Promoció de curs i/o obtenció de certificació</li>\r\n</ul>', 'Formació instrumental', '', 'publish', 'closed', 'closed', '', 'formacio-instrumental', '', '', '2015-10-27 10:11:40', '2015-10-27 09:11:40', '', 283, 'http://pwc-int.educacio.intranet/agora/mastercfa/?page_id=301', 0, 'page', '', 0),
-(303, 1, '2015-01-28 11:23:05', '2015-01-28 10:23:05', '<ul>\r\n	<li>Nivells</li>\r\n	<li>Durada</li>\r\n	<li>Organització</li>\r\n	<li>Currículum</li>\r\n	<li>Convalidacions i acreditacions</li>\r\n	<li>Recursos</li>\r\n	<li>Aula virtual</li>\r\n	<li>Avaluació</li>\r\n	<li>Promoció de curs i/o obtenció de certificació</li>\r\n</ul>', 'Graduat en educació secundaria per adults (GESO)', '', 'publish', 'closed', 'closed', '', 'graduat-en-educacio-secundaria-per-adults', '', '', '2015-10-27 10:11:43', '2015-10-27 09:11:43', '', 283, 'http://pwc-int.educacio.intranet/agora/mastercfa/?page_id=303', 0, 'page', '', 0),
-(305, 1, '2015-01-28 11:24:04', '2015-01-28 10:24:04', '<ul>\r\n	<li>Nivells</li>\r\n	<li>Durada</li>\r\n	<li>Organització</li>\r\n	<li>Currículum</li>\r\n	<li>Recursos</li>\r\n	<li>Aula virtual</li>\r\n	<li>Avaluació</li>\r\n	<li>Promoció de curs i/o obtenció de certificació</li>\r\n</ul>', 'Curs específic d''accés als cicles de grau mitjà (CAM)', '', 'publish', 'closed', 'closed', '', 'curs-dacces-als-cicles-de-grau-mitja', '', '', '2015-10-27 10:11:36', '2015-10-27 09:11:36', '', 283, 'http://pwc-int.educacio.intranet/agora/mastercfa/?page_id=305', 0, 'page', '', 0),
-(307, 1, '2015-01-28 11:24:48', '2015-01-28 10:24:48', '', 'Curs d''accés als cicles de grau mitjà', '', 'publish', 'open', 'open', '', 'curs-dacces-als-cicles-de-grau-mitja', '', '', '2015-10-13 15:40:08', '2015-10-13 14:40:08', '', 283, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=307', 15, 'nav_menu_item', '', 0),
-(308, 1, '2015-01-28 11:24:48', '2015-01-28 10:24:48', ' ', '', '', 'publish', 'open', 'open', '', '308', '', '', '2015-10-13 15:40:08', '2015-10-13 14:40:08', '', 283, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=308', 14, 'nav_menu_item', '', 0),
-(309, 1, '2015-01-28 11:24:48', '2015-01-28 10:24:48', ' ', '', '', 'publish', 'open', 'open', '', '309', '', '', '2015-10-13 15:40:08', '2015-10-13 14:40:08', '', 283, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=309', 13, 'nav_menu_item', '', 0),
-(310, 1, '2015-01-28 11:24:47', '2015-01-28 10:24:47', ' ', '', '', 'publish', 'open', 'open', '', '310', '', '', '2015-10-13 15:40:08', '2015-10-13 14:40:08', '', 283, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=310', 12, 'nav_menu_item', '', 0),
-(312, 1, '2015-01-28 11:32:38', '2015-01-28 10:32:38', '<ul>\r\n	<li>Nivells</li>\r\n	<li>Durada</li>\r\n	<li>Organització</li>\r\n	<li>Currículum</li>\r\n	<li>Recursos</li>\r\n	<li>Aula virtual</li>\r\n	<li>Avaluació</li>\r\n	<li>Promoció de curs i/o obtenció de certificació</li>\r\n</ul>', 'Llengua anglesa', '', 'publish', 'closed', 'closed', '', 'llengua-anglesa', '', '', '2015-10-27 10:12:04', '2015-10-27 09:12:04', '', 286, 'http://pwc-int.educacio.intranet/agora/mastercfa/?page_id=312', 0, 'page', '', 0),
-(314, 1, '2015-01-28 11:33:13', '2015-01-28 10:33:13', '<ul>\r\n	<li>Nivells</li>\r\n	<li>Durada</li>\r\n	<li>Organització</li>\r\n	<li>Currículum</li>\r\n	<li>Recursos</li>\r\n	<li>Aula virtual</li>\r\n	<li>Avaluació</li>\r\n	<li>Promoció de curs i/o obtenció de certificació</li>\r\n</ul>', 'Llengua francesa', '', 'publish', 'closed', 'closed', '', 'llengua-francesa', '', '', '2015-10-27 10:12:09', '2015-10-27 09:12:09', '', 286, 'http://pwc-int.educacio.intranet/agora/mastercfa/?page_id=314', 0, 'page', '', 0),
-(316, 1, '2015-01-28 11:33:51', '2015-01-28 10:33:51', '<ul>\r\n	<li>Nivells</li>\r\n	<li>Durada</li>\r\n	<li>Organització</li>\r\n	<li>Currículum</li>\r\n	<li>Recursos</li>\r\n	<li>Aula virtual</li>\r\n	<li>Avaluació</li>\r\n	<li>Promoció de curs i/o obtenció de certificació</li>\r\n</ul>', 'Competència digital COMPETIC', '', 'publish', 'closed', 'closed', '', 'competencia-digital-competic', '', '', '2015-10-27 10:12:01', '2015-10-27 09:12:01', '', 286, 'http://pwc-int.educacio.intranet/agora/mastercfa/?page_id=316', 0, 'page', '', 0),
-(318, 1, '2015-01-28 11:34:47', '2015-01-28 10:34:47', '<ul>\r\n	<li>Nivells</li>\r\n	<li>Durada</li>\r\n	<li>Organització</li>\r\n	<li>Currículum</li>\r\n	<li>Recursos</li>\r\n	<li>Aula virtual</li>\r\n	<li>Avaluació</li>\r\n	<li>Promoció de curs i/o obtenció de certificació</li>\r\n</ul>', 'A cicles formatius de grau mitjà', '', 'publish', 'closed', 'closed', '', 'a-cicles-formatius-de-grau-mitja', '', '', '2015-10-27 10:12:19', '2015-10-27 09:12:19', '', 288, 'http://pwc-int.educacio.intranet/agora/mastercfa/?page_id=318', 0, 'page', '', 0),
-(320, 1, '2015-01-28 11:35:13', '2015-01-28 10:35:13', '<ul>\r\n	<li>Nivells</li>\r\n	<li>Durada</li>\r\n	<li>Organització</li>\r\n	<li>Currículum</li>\r\n	<li>Recursos</li>\r\n	<li>Aula virtual</li>\r\n	<li>Avaluació</li>\r\n	<li>Promoció de curs i/o obtenció de certificació</li>\r\n</ul>', 'A cicles formatius de grau superior', '', 'publish', 'closed', 'closed', '', 'a-cicles-formatius-de-grau-superior', '', '', '2015-10-27 10:12:23', '2015-10-27 09:12:23', '', 288, 'http://pwc-int.educacio.intranet/agora/mastercfa/?page_id=320', 0, 'page', '', 0),
-(322, 1, '2015-01-28 11:36:17', '2015-01-28 10:36:17', '<ul>\r\n	<li>Nivells</li>\r\n	<li>Durada</li>\r\n	<li>Organització</li>\r\n	<li>Currículum</li>\r\n	<li>Recursos</li>\r\n	<li>Aula virtual</li>\r\n	<li>Avaluació</li>\r\n	<li>Promoció de curs i/o obtenció de certificació</li>\r\n</ul>', 'A la universitat per a majors de 25 anys', '', 'publish', 'closed', 'closed', '', 'a-la-universitat-per-a-majors-de-25-anys', '', '', '2015-10-27 10:12:27', '2015-10-27 09:12:27', '', 288, 'http://pwc-int.educacio.intranet/agora/mastercfa/?page_id=322', 0, 'page', '', 0),
-(324, 1, '2015-01-28 11:37:37', '2015-01-28 10:37:37', ' ', '', '', 'publish', 'open', 'open', '', '324', '', '', '2015-10-13 15:40:09', '2015-10-13 14:40:09', '', 286, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=324', 19, 'nav_menu_item', '', 0),
-(325, 1, '2015-01-28 11:37:37', '2015-01-28 10:37:37', ' ', '', '', 'publish', 'open', 'open', '', '325', '', '', '2015-10-13 15:40:09', '2015-10-13 14:40:09', '', 286, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=325', 18, 'nav_menu_item', '', 0),
-(326, 1, '2015-01-28 11:37:37', '2015-01-28 10:37:37', ' ', '', '', 'publish', 'open', 'open', '', '326', '', '', '2015-10-13 15:40:08', '2015-10-13 14:40:08', '', 286, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=326', 17, 'nav_menu_item', '', 0),
-(327, 1, '2015-01-28 11:37:40', '2015-01-28 10:37:40', ' ', '', '', 'publish', 'open', 'open', '', '327', '', '', '2015-10-13 15:40:09', '2015-10-13 14:40:09', '', 288, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=327', 23, 'nav_menu_item', '', 0),
-(328, 1, '2015-01-28 11:37:39', '2015-01-28 10:37:39', ' ', '', '', 'publish', 'open', 'open', '', '328', '', '', '2015-10-13 15:40:09', '2015-10-13 14:40:09', '', 288, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=328', 22, 'nav_menu_item', '', 0),
-(329, 1, '2015-01-28 11:37:38', '2015-01-28 10:37:38', ' ', '', '', 'publish', 'open', 'open', '', '329', '', '', '2015-10-13 15:40:09', '2015-10-13 14:40:09', '', 288, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=329', 21, 'nav_menu_item', '', 0),
-(337, 1, '2015-01-28 12:06:58', '2015-01-28 11:06:58', 'Node de francès', 'Francès', '', 'publish', 'closed', 'open', '', 'frances', '', '', '2015-01-28 12:06:58', '2015-01-28 11:06:58', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/forums/forum/frances/', 0, 'forum', '', 0),
-(338, 1, '2015-01-28 12:09:33', '2015-01-28 11:09:33', 'Node de formació permanent del professorat', 'Formació permanent del professorat', '', 'private', 'closed', 'open', '', 'formacio-permanent-del-professorat', '', '', '2015-01-28 12:09:33', '2015-01-28 11:09:33', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/forums/forum/formacio-permanent-del-professorat/', 0, 'forum', '', 0),
-(339, 1, '2015-01-28 12:22:56', '2015-01-28 11:22:56', '<strong>Correu electrònic\r\n</strong><span style="font-family: inherit; font-size: 1em; line-height: 1.6;">correu-del-centre@domini-centre.cat</span>\r\n\r\n<strong>Adreça</strong>\r\nCFA Països Catalans\r\nPlaça de la Vila, 14\r\n01234 Abella de Xerta\r\n\r\n<strong>Telèfon</strong>\r\n901 345 678\r\n\r\n<strong>Horari d''atenció secretaria</strong>\r\ndl. 00:00-00:00', 'Contacte', '', 'publish', 'closed', 'closed', '', 'contacte', '', '', '2015-10-27 10:11:17', '2015-10-27 09:11:17', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/?page_id=339', 0, 'page', '', 0),
-(343, 1, '2015-01-28 12:26:41', '2015-01-28 11:26:41', ' ', '', '', 'publish', 'open', 'open', '', '343', '', '', '2015-10-13 15:40:08', '2015-10-13 14:40:08', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=343', 8, 'nav_menu_item', '', 0),
-(353, 1, '2015-02-04 12:29:38', '2015-02-04 11:29:38', '', 'Selecció_946', '', 'inherit', 'open', 'open', '', 'seleccio_946', '', '', '2015-02-04 12:29:38', '2015-02-04 11:29:38', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2015/02/Selecció_946.png', 0, 'attachment', 'image/png', 0),
-(354, 1, '2015-02-04 12:30:12', '2015-02-04 11:30:12', '', 'Selecció_944', '', 'inherit', 'open', 'open', '', 'seleccio_944', '', '', '2015-02-04 12:30:12', '2015-02-04 11:30:12', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2015/02/Selecció_944.png', 0, 'attachment', 'image/png', 0),
-(355, 1, '2015-02-04 12:31:33', '2015-02-04 11:31:33', '', 'cfa', '', 'inherit', 'open', 'open', '', 'cfa-2', '', '', '2015-02-04 12:31:33', '2015-02-04 11:31:33', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2015/02/cfa.jpg', 0, 'attachment', 'image/jpeg', 0),
-(366, 1, '2015-10-13 15:42:24', '2015-10-13 14:42:24', ' ', '', '', 'publish', 'open', 'open', '', '366', '', '', '2015-10-13 15:42:27', '2015-10-13 14:42:27', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=366', 3, 'nav_menu_item', '', 0),
-(367, 1, '2015-10-13 15:42:24', '2015-10-13 14:42:24', '', 'Mur general', '', 'publish', 'open', 'open', '', 'mur-general', '', '', '2015-10-13 15:42:27', '2015-10-13 14:42:27', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=367', 1, 'nav_menu_item', '', 0),
-(368, 1, '2015-10-13 15:42:24', '2015-10-13 14:42:24', ' ', '', '', 'publish', 'open', 'open', '', '368', '', '', '2015-10-13 15:42:27', '2015-10-13 14:42:27', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/?p=368', 2, 'nav_menu_item', '', 0),
-(369, 1, '2016-03-29 12:46:46', '2016-03-29 11:46:46', '', 'Activa', '', 'publish', 'closed', 'closed', '', 'activa', '', '', '2016-03-29 12:46:46', '2016-03-29 11:46:46', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/?page_id=369', 0, 'page', '', 0),
-(371, 1, '2016-03-29 12:47:01', '2016-03-29 11:47:01', '', 'Registre', '', 'publish', 'closed', 'closed', '', 'registre', '', '', '2016-03-29 12:47:01', '2016-03-29 11:47:01', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/?page_id=371', 0, 'page', '', 0),
-(373, 1, '2016-07-04 11:32:20', '2016-07-04 10:32:20', '{{poster.name}} replied to one of your updates:\n\n<blockquote>&quot;{{usermessage}}&quot;</blockquote>\n\n<a href="{{{thread.url}}}">Go to the discussion</a> to reply or catch up on the conversation.', '[{{{site.name}}}] {{poster.name}} replied to one of your updates', '{{poster.name}} replied to one of your updates:\n\n"{{usermessage}}"\n\nGo to the discussion to reply or catch up on the conversation: {{{thread.url}}}', 'publish', 'closed', 'closed', '', 'site-name-poster-name-replied-to-one-of-your-updates', '', '', '2016-07-04 11:32:20', '2016-07-04 10:32:20', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/general/site-name-poster-name-replied-to-one-of-your-updates/', 0, 'bp-email', '', 0),
-(374, 1, '2016-07-04 11:32:20', '2016-07-04 10:32:20', '{{poster.name}} replied to one of your comments:\n\n<blockquote>&quot;{{usermessage}}&quot;</blockquote>\n\n<a href="{{{thread.url}}}">Go to the discussion</a> to reply or catch up on the conversation.', '[{{{site.name}}}] {{poster.name}} replied to one of your comments', '{{poster.name}} replied to one of your comments:\n\n"{{usermessage}}"\n\nGo to the discussion to reply or catch up on the conversation: {{{thread.url}}}', 'publish', 'closed', 'closed', '', 'site-name-poster-name-replied-to-one-of-your-comments', '', '', '2016-07-04 11:32:20', '2016-07-04 10:32:20', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/general/site-name-poster-name-replied-to-one-of-your-comments/', 0, 'bp-email', '', 0),
-(375, 1, '2016-07-04 11:32:20', '2016-07-04 10:32:20', '{{poster.name}} mentioned you in a status update:\n\n<blockquote>&quot;{{usermessage}}&quot;</blockquote>\n\n<a href="{{{mentioned.url}}}">Go to the discussion</a> to reply or catch up on the conversation.', '[{{{site.name}}}] {{poster.name}} mentioned you in a status update', '{{poster.name}} mentioned you in a status update:\n\n"{{usermessage}}"\n\nGo to the discussion to reply or catch up on the conversation: {{{mentioned.url}}}', 'publish', 'closed', 'closed', '', 'site-name-poster-name-mentioned-you-in-a-status-update', '', '', '2016-07-04 11:32:20', '2016-07-04 10:32:20', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/general/site-name-poster-name-mentioned-you-in-a-status-update/', 0, 'bp-email', '', 0),
-(376, 1, '2016-07-04 11:32:20', '2016-07-04 10:32:20', '{{poster.name}} mentioned you in the group "{{group.name}}":\n\n<blockquote>&quot;{{usermessage}}&quot;</blockquote>\n\n<a href="{{{mentioned.url}}}">Go to the discussion</a> to reply or catch up on the conversation.', '[{{{site.name}}}] {{poster.name}} mentioned you in an update', '{{poster.name}} mentioned you in the group "{{group.name}}":\n\n"{{usermessage}}"\n\nGo to the discussion to reply or catch up on the conversation: {{{mentioned.url}}}', 'publish', 'closed', 'closed', '', 'site-name-poster-name-mentioned-you-in-an-update', '', '', '2016-07-04 11:32:20', '2016-07-04 10:32:20', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/general/site-name-poster-name-mentioned-you-in-an-update/', 0, 'bp-email', '', 0),
-(377, 1, '2016-07-04 11:32:20', '2016-07-04 10:32:20', 'Thanks for registering!\n\nTo complete the activation of your account, go to the following link: <a href="{{{activate.url}}}">{{{activate.url}}}</a>', '[{{{site.name}}}] Activate your account', 'Thanks for registering!\n\nTo complete the activation of your account, go to the following link: {{{activate.url}}}', 'publish', 'closed', 'closed', '', 'site-name-activate-your-account', '', '', '2016-07-04 11:32:20', '2016-07-04 10:32:20', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/general/site-name-activate-your-account/', 0, 'bp-email', '', 0),
-(378, 1, '2016-07-04 11:32:21', '2016-07-04 10:32:21', 'Thanks for registering!\n\nTo complete the activation of your account and site, go to the following link: <a href="{{{activate-site.url}}}">{{{activate-site.url}}}</a>.\n\nAfter you activate, you can visit your site at <a href="{{{user-site.url}}}">{{{user-site.url}}}</a>.', '[{{{site.name}}}] Activate {{{user-site.url}}}', 'Thanks for registering!\n\nTo complete the activation of your account and site, go to the following link: {{{activate-site.url}}}\n\nAfter you activate, you can visit your site at {{{user-site.url}}}.', 'publish', 'closed', 'closed', '', 'site-name-activate-user-site-url', '', '', '2016-07-04 11:32:21', '2016-07-04 10:32:21', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/general/site-name-activate-user-site-url/', 0, 'bp-email', '', 0),
-(379, 1, '2016-07-04 11:32:21', '2016-07-04 10:32:21', '<a href="{{{initiator.url}}}">{{initiator.name}}</a> wants to add you as a friend.\n\nTo accept this request and manage all of your pending requests, visit: <a href="{{{friend-requests.url}}}">{{{friend-requests.url}}}</a>', '[{{{site.name}}}] New friendship request from {{initiator.name}}', '{{initiator.name}} wants to add you as a friend.\n\nTo accept this request and manage all of your pending requests, visit: {{{friend-requests.url}}}\n\nTo view {{initiator.name}}''s profile, visit: {{{initiator.url}}}', 'publish', 'closed', 'closed', '', 'site-name-new-friendship-request-from-initiator-name', '', '', '2016-07-04 11:32:21', '2016-07-04 10:32:21', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/general/site-name-new-friendship-request-from-initiator-name/', 0, 'bp-email', '', 0),
-(380, 1, '2016-07-04 11:32:21', '2016-07-04 10:32:21', '<a href="{{{friendship.url}}}">{{friend.name}}</a> accepted your friend request.', '[{{{site.name}}}] {{friend.name}} accepted your friendship request', '{{friend.name}} accepted your friend request.\n\nTo learn more about them, visit their profile: {{{friendship.url}}}', 'publish', 'closed', 'closed', '', 'site-name-friend-name-accepted-your-friendship-request', '', '', '2016-07-04 11:32:21', '2016-07-04 10:32:21', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/general/site-name-friend-name-accepted-your-friendship-request/', 0, 'bp-email', '', 0),
-(381, 1, '2016-07-04 11:32:21', '2016-07-04 10:32:21', 'Group details for the group &quot;<a href="{{{group.url}}}">{{group.name}}</a>&quot; were updated:\n<blockquote>{{changed_text}}</blockquote>', '[{{{site.name}}}] Group details updated', 'Group details for the group &quot;{{group.name}}&quot; were updated:\n\n{{changed_text}}\n\nTo view the group, visit: {{{group.url}}}', 'publish', 'closed', 'closed', '', 'site-name-group-details-updated', '', '', '2016-07-04 11:32:21', '2016-07-04 10:32:21', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/general/site-name-group-details-updated/', 0, 'bp-email', '', 0),
-(382, 1, '2016-07-04 11:32:21', '2016-07-04 10:32:21', '<a href="{{{inviter.url}}}">{{inviter.name}}</a> has invited you to join the group: &quot;{{group.name}}&quot;.\n<a href="{{{invites.url}}}">Go here to accept your invitation</a> or <a href="{{{group.url}}}">visit the group</a> to learn more.', '[{{{site.name}}}] You have an invitation to the group: "{{group.name}}"', '{{inviter.name}} has invited you to join the group: &quot;{{group.name}}&quot;.\n\nTo accept your invitation, visit: {{{invites.url}}}\n\nTo learn more about the group, visit {{{group.url}}}.\nTo view {{inviter.name}}''s profile, visit: {{{inviter.url}}}', 'publish', 'closed', 'closed', '', 'site-name-you-have-an-invitation-to-the-group-group-name', '', '', '2016-07-04 11:32:21', '2016-07-04 10:32:21', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/general/site-name-you-have-an-invitation-to-the-group-group-name/', 0, 'bp-email', '', 0),
-(383, 1, '2016-07-04 11:32:21', '2016-07-04 10:32:21', 'You have been promoted to <b>{{promoted_to}}</b> in the group &quot;<a href="{{{group.url}}}">{{group.name}}</a>&quot;.', '[{{{site.name}}}] You have been promoted in the group: "{{group.name}}"', 'You have been promoted to {{promoted_to}} in the group: &quot;{{group.name}}&quot;.\n\nTo visit the group, go to: {{{group.url}}}', 'publish', 'closed', 'closed', '', 'site-name-you-have-been-promoted-in-the-group-group-name', '', '', '2016-07-04 11:32:21', '2016-07-04 10:32:21', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/general/site-name-you-have-been-promoted-in-the-group-group-name/', 0, 'bp-email', '', 0),
-(384, 1, '2016-07-04 11:32:21', '2016-07-04 10:32:21', '<a href="{{{profile.url}}}">{{requesting-user.name}}</a> wants to join the group &quot;{{group.name}}&quot;. As you are an administrator of this group, you must either accept or reject the membership request.\n\n<a href="{{{group-requests.url}}}">Go here to manage this</a> and all other pending requests.', '[{{{site.name}}}] Membership request for group: {{group.name}}', '{{requesting-user.name}} wants to join the group &quot;{{group.name}}&quot;. As you are the administrator of this group, you must either accept or reject the membership request.\n\nTo manage this and all other pending requests, visit: {{{group-requests.url}}}\n\nTo view {{requesting-user.name}}''s profile, visit: {{{profile.url}}}', 'publish', 'closed', 'closed', '', 'site-name-membership-request-for-group-group-name', '', '', '2016-07-04 11:32:21', '2016-07-04 10:32:21', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/general/site-name-membership-request-for-group-group-name/', 0, 'bp-email', '', 0),
-(385, 1, '2016-07-04 11:32:21', '2016-07-04 10:32:21', '{{sender.name}} sent you a new message: &quot;{{usersubject}}&quot;\n\n<blockquote>&quot;{{usermessage}}&quot;</blockquote>\n\n<a href="{{{message.url}}}">Go to the discussion</a> to reply or catch up on the conversation.', '[{{{site.name}}}] New message from {{sender.name}}', '{{sender.name}} sent you a new message: &quot;{{usersubject}}&quot;\n\n&quot;{{usermessage}}&quot;\n\nGo to the discussion to reply or catch up on the conversation: {{{message.url}}}', 'publish', 'closed', 'closed', '', 'site-name-new-message-from-sender-name', '', '', '2016-07-04 11:32:21', '2016-07-04 10:32:21', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/general/site-name-new-message-from-sender-name/', 0, 'bp-email', '', 0),
-(386, 1, '2016-07-04 11:32:21', '2016-07-04 10:32:21', 'You recently changed the email address associated with your account on {{site.name}}. If this is correct, <a href="{{{verify.url}}}">go here to confirm the change</a>.\n\nOtherwise, you can safely ignore and delete this email if you have changed your mind, or if you think you have received this email in error.', '[{{{site.name}}}] Verify your new email address', 'You recently changed the email address associated with your account on {{site.name}}. If this is correct, go to the following link to confirm the change: {{{verify.url}}}\n\nOtherwise, you can safely ignore and delete this email if you have changed your mind, or if you think you have received this email in error.', 'publish', 'closed', 'closed', '', 'site-name-verify-your-new-email-address', '', '', '2016-07-04 11:32:21', '2016-07-04 10:32:21', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/general/site-name-verify-your-new-email-address/', 0, 'bp-email', '', 0),
-(387, 1, '2016-07-04 11:32:21', '2016-07-04 10:32:21', 'Your membership request for the group &quot;<a href="{{{group.url}}}">{{group.name}}</a>&quot; has been accepted.', '[{{{site.name}}}] Membership request for group "{{group.name}}" accepted', 'Your membership request for the group &quot;{{group.name}}&quot; has been accepted.\n\nTo view the group, visit: {{{group.url}}}', 'publish', 'closed', 'closed', '', 'site-name-membership-request-for-group-group-name-accepted', '', '', '2016-07-04 11:32:21', '2016-07-04 10:32:21', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/general/site-name-membership-request-for-group-group-name-accepted/', 0, 'bp-email', '', 0),
-(388, 1, '2016-07-04 11:32:21', '2016-07-04 10:32:21', 'Your membership request for the group &quot;<a href="{{{group.url}}}">{{group.name}}</a>&quot; has been rejected.', '[{{{site.name}}}] Membership request for group "{{group.name}}" rejected', 'Your membership request for the group &quot;{{group.name}}&quot; has been rejected.\n\nTo request membership again, visit: {{{group.url}}}', 'publish', 'closed', 'closed', '', 'site-name-membership-request-for-group-group-name-rejected', '', '', '2016-07-04 11:32:21', '2016-07-04 10:32:21', '', 0, 'http://pwc-int.educacio.intranet/agora/mastercfa/general/site-name-membership-request-for-group-group-name-rejected/', 0, 'bp-email', '', 0);
+(288, 1, '2015-01-28 11:08:02', '2015-01-28 10:08:02', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non placerat tellus. Proin cursus ligula ligula, non faucibus massa bibendum in. Nunc laoreet varius semper. Vivamus augue diam, laoreet eget consequat sed, ultrices sit amet quam. Fusce fermentum odio finibus, congue sapien et, tristique sem. Curabitur aliquet risus sit amet ante tempus, in dignissim libero pretium. Cras est metus, vulputate nec nunc in, tempor porttitor lorem. Donec lacus lectus, finibus ac finibus in, iaculis et nulla. Morbi fermentum elit accumsan, vulputate mauris at, bibendum odio. Nunc sollicitudin tincidunt justo, finibus dignissim tellus lobortis pharetra.', 'Preparació de proves d''accés', '', 'publish', 'closed', 'closed', '', 'ensenyaments-per-a-la-preparacio-de-proves-dacces', '', '', '2015-10-27 10:12:15', '2015-10-27 09:12:15', '', 274, 'https://pwc-int.educacio.intranet/agora/mastercfa/?page_id=288', 0, 'page', '', 0),
+(290, 1, '2015-01-28 11:08:56', '2015-01-28 10:08:56', '', 'Per a la preparació de proves d''accés', '', 'publish', 'open', 'open', '', 'ensenyaments-per-a-la-preparacio-de-proves-dacces', '', '', '2015-10-13 15:40:09', '2015-10-13 14:40:09', '', 274, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=290', 20, 'nav_menu_item', '', 0),
+(291, 1, '2015-01-28 11:08:56', '2015-01-28 10:08:56', '', 'Transprofessionals', '', 'publish', 'open', 'open', '', '291', '', '', '2015-10-13 15:40:08', '2015-10-13 14:40:08', '', 274, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=291', 16, 'nav_menu_item', '', 0),
+(292, 1, '2015-01-28 11:08:53', '2015-01-28 10:08:53', '', 'Inicials i formació bàsica', '', 'publish', 'open', 'open', '', '292', '', '', '2015-10-13 15:40:08', '2015-10-13 14:40:08', '', 274, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=292', 10, 'nav_menu_item', '', 0),
+(296, 1, '2015-01-28 11:18:08', '2015-01-28 10:18:08', '<ul>\r\n	<li>Nivells</li>\r\n	<li>Durada</li>\r\n	<li>Organització</li>\r\n	<li>Currículum</li>\r\n	<li>Recursos</li>\r\n	<li>Aula virtual</li>\r\n	<li>Avaluació</li>\r\n	<li>Promoció de curs i/o obtenció de certificació</li>\r\n</ul>', 'Llengua catalana', '', 'publish', 'closed', 'closed', '', 'llengua-catalana', '', '', '2015-10-27 10:11:53', '2015-10-27 09:11:53', '', 283, 'https://pwc-int.educacio.intranet/agora/mastercfa/?page_id=296', 0, 'page', '', 0),
+(298, 1, '2015-01-28 11:18:36', '2015-01-28 10:18:36', ' ', '', '', 'publish', 'open', 'open', '', '298', '', '', '2015-10-13 15:40:08', '2015-10-13 14:40:08', '', 283, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=298', 11, 'nav_menu_item', '', 0),
+(299, 1, '2015-01-28 11:21:22', '2015-01-28 10:21:22', '<ul>\r\n	<li>Nivells</li>\r\n	<li>Durada</li>\r\n	<li>Organització</li>\r\n	<li>Currículum</li>\r\n	<li>Recursos</li>\r\n	<li>Aula virtual</li>\r\n	<li>Avaluació</li>\r\n	<li>Promoció de curs i/o obtenció de certificació</li>\r\n</ul>', 'Llengua castellana', '', 'publish', 'closed', 'closed', '', 'llengua-castellana', '', '', '2015-10-27 10:11:47', '2015-10-27 09:11:47', '', 283, 'https://pwc-int.educacio.intranet/agora/mastercfa/?page_id=299', 0, 'page', '', 0),
+(301, 1, '2015-01-28 11:21:46', '2015-01-28 10:21:46', '<ul>\r\n	<li>Nivells</li>\r\n	<li>Durada</li>\r\n	<li>Organització</li>\r\n	<li>Currículum</li>\r\n	<li>Recursos</li>\r\n	<li>Aula virtual</li>\r\n	<li>Avaluació</li>\r\n	<li>Promoció de curs i/o obtenció de certificació</li>\r\n</ul>', 'Formació instrumental', '', 'publish', 'closed', 'closed', '', 'formacio-instrumental', '', '', '2015-10-27 10:11:40', '2015-10-27 09:11:40', '', 283, 'https://pwc-int.educacio.intranet/agora/mastercfa/?page_id=301', 0, 'page', '', 0),
+(303, 1, '2015-01-28 11:23:05', '2015-01-28 10:23:05', '<ul>\r\n	<li>Nivells</li>\r\n	<li>Durada</li>\r\n	<li>Organització</li>\r\n	<li>Currículum</li>\r\n	<li>Convalidacions i acreditacions</li>\r\n	<li>Recursos</li>\r\n	<li>Aula virtual</li>\r\n	<li>Avaluació</li>\r\n	<li>Promoció de curs i/o obtenció de certificació</li>\r\n</ul>', 'Graduat en educació secundaria per adults (GESO)', '', 'publish', 'closed', 'closed', '', 'graduat-en-educacio-secundaria-per-adults', '', '', '2015-10-27 10:11:43', '2015-10-27 09:11:43', '', 283, 'https://pwc-int.educacio.intranet/agora/mastercfa/?page_id=303', 0, 'page', '', 0),
+(305, 1, '2015-01-28 11:24:04', '2015-01-28 10:24:04', '<ul>\r\n	<li>Nivells</li>\r\n	<li>Durada</li>\r\n	<li>Organització</li>\r\n	<li>Currículum</li>\r\n	<li>Recursos</li>\r\n	<li>Aula virtual</li>\r\n	<li>Avaluació</li>\r\n	<li>Promoció de curs i/o obtenció de certificació</li>\r\n</ul>', 'Curs específic d''accés als cicles de grau mitjà (CAM)', '', 'publish', 'closed', 'closed', '', 'curs-dacces-als-cicles-de-grau-mitja', '', '', '2015-10-27 10:11:36', '2015-10-27 09:11:36', '', 283, 'https://pwc-int.educacio.intranet/agora/mastercfa/?page_id=305', 0, 'page', '', 0),
+(307, 1, '2015-01-28 11:24:48', '2015-01-28 10:24:48', '', 'Curs d''accés als cicles de grau mitjà', '', 'publish', 'open', 'open', '', 'curs-dacces-als-cicles-de-grau-mitja', '', '', '2015-10-13 15:40:08', '2015-10-13 14:40:08', '', 283, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=307', 15, 'nav_menu_item', '', 0),
+(308, 1, '2015-01-28 11:24:48', '2015-01-28 10:24:48', ' ', '', '', 'publish', 'open', 'open', '', '308', '', '', '2015-10-13 15:40:08', '2015-10-13 14:40:08', '', 283, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=308', 14, 'nav_menu_item', '', 0),
+(309, 1, '2015-01-28 11:24:48', '2015-01-28 10:24:48', ' ', '', '', 'publish', 'open', 'open', '', '309', '', '', '2015-10-13 15:40:08', '2015-10-13 14:40:08', '', 283, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=309', 13, 'nav_menu_item', '', 0),
+(310, 1, '2015-01-28 11:24:47', '2015-01-28 10:24:47', ' ', '', '', 'publish', 'open', 'open', '', '310', '', '', '2015-10-13 15:40:08', '2015-10-13 14:40:08', '', 283, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=310', 12, 'nav_menu_item', '', 0),
+(312, 1, '2015-01-28 11:32:38', '2015-01-28 10:32:38', '<ul>\r\n	<li>Nivells</li>\r\n	<li>Durada</li>\r\n	<li>Organització</li>\r\n	<li>Currículum</li>\r\n	<li>Recursos</li>\r\n	<li>Aula virtual</li>\r\n	<li>Avaluació</li>\r\n	<li>Promoció de curs i/o obtenció de certificació</li>\r\n</ul>', 'Llengua anglesa', '', 'publish', 'closed', 'closed', '', 'llengua-anglesa', '', '', '2015-10-27 10:12:04', '2015-10-27 09:12:04', '', 286, 'https://pwc-int.educacio.intranet/agora/mastercfa/?page_id=312', 0, 'page', '', 0),
+(314, 1, '2015-01-28 11:33:13', '2015-01-28 10:33:13', '<ul>\r\n	<li>Nivells</li>\r\n	<li>Durada</li>\r\n	<li>Organització</li>\r\n	<li>Currículum</li>\r\n	<li>Recursos</li>\r\n	<li>Aula virtual</li>\r\n	<li>Avaluació</li>\r\n	<li>Promoció de curs i/o obtenció de certificació</li>\r\n</ul>', 'Llengua francesa', '', 'publish', 'closed', 'closed', '', 'llengua-francesa', '', '', '2015-10-27 10:12:09', '2015-10-27 09:12:09', '', 286, 'https://pwc-int.educacio.intranet/agora/mastercfa/?page_id=314', 0, 'page', '', 0),
+(316, 1, '2015-01-28 11:33:51', '2015-01-28 10:33:51', '<ul>\r\n	<li>Nivells</li>\r\n	<li>Durada</li>\r\n	<li>Organització</li>\r\n	<li>Currículum</li>\r\n	<li>Recursos</li>\r\n	<li>Aula virtual</li>\r\n	<li>Avaluació</li>\r\n	<li>Promoció de curs i/o obtenció de certificació</li>\r\n</ul>', 'Competència digital COMPETIC', '', 'publish', 'closed', 'closed', '', 'competencia-digital-competic', '', '', '2015-10-27 10:12:01', '2015-10-27 09:12:01', '', 286, 'https://pwc-int.educacio.intranet/agora/mastercfa/?page_id=316', 0, 'page', '', 0),
+(318, 1, '2015-01-28 11:34:47', '2015-01-28 10:34:47', '<ul>\r\n	<li>Nivells</li>\r\n	<li>Durada</li>\r\n	<li>Organització</li>\r\n	<li>Currículum</li>\r\n	<li>Recursos</li>\r\n	<li>Aula virtual</li>\r\n	<li>Avaluació</li>\r\n	<li>Promoció de curs i/o obtenció de certificació</li>\r\n</ul>', 'A cicles formatius de grau mitjà', '', 'publish', 'closed', 'closed', '', 'a-cicles-formatius-de-grau-mitja', '', '', '2015-10-27 10:12:19', '2015-10-27 09:12:19', '', 288, 'https://pwc-int.educacio.intranet/agora/mastercfa/?page_id=318', 0, 'page', '', 0),
+(320, 1, '2015-01-28 11:35:13', '2015-01-28 10:35:13', '<ul>\r\n	<li>Nivells</li>\r\n	<li>Durada</li>\r\n	<li>Organització</li>\r\n	<li>Currículum</li>\r\n	<li>Recursos</li>\r\n	<li>Aula virtual</li>\r\n	<li>Avaluació</li>\r\n	<li>Promoció de curs i/o obtenció de certificació</li>\r\n</ul>', 'A cicles formatius de grau superior', '', 'publish', 'closed', 'closed', '', 'a-cicles-formatius-de-grau-superior', '', '', '2015-10-27 10:12:23', '2015-10-27 09:12:23', '', 288, 'https://pwc-int.educacio.intranet/agora/mastercfa/?page_id=320', 0, 'page', '', 0),
+(322, 1, '2015-01-28 11:36:17', '2015-01-28 10:36:17', '<ul>\r\n	<li>Nivells</li>\r\n	<li>Durada</li>\r\n	<li>Organització</li>\r\n	<li>Currículum</li>\r\n	<li>Recursos</li>\r\n	<li>Aula virtual</li>\r\n	<li>Avaluació</li>\r\n	<li>Promoció de curs i/o obtenció de certificació</li>\r\n</ul>', 'A la universitat per a majors de 25 anys', '', 'publish', 'closed', 'closed', '', 'a-la-universitat-per-a-majors-de-25-anys', '', '', '2015-10-27 10:12:27', '2015-10-27 09:12:27', '', 288, 'https://pwc-int.educacio.intranet/agora/mastercfa/?page_id=322', 0, 'page', '', 0),
+(324, 1, '2015-01-28 11:37:37', '2015-01-28 10:37:37', ' ', '', '', 'publish', 'open', 'open', '', '324', '', '', '2015-10-13 15:40:09', '2015-10-13 14:40:09', '', 286, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=324', 19, 'nav_menu_item', '', 0),
+(325, 1, '2015-01-28 11:37:37', '2015-01-28 10:37:37', ' ', '', '', 'publish', 'open', 'open', '', '325', '', '', '2015-10-13 15:40:09', '2015-10-13 14:40:09', '', 286, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=325', 18, 'nav_menu_item', '', 0),
+(326, 1, '2015-01-28 11:37:37', '2015-01-28 10:37:37', ' ', '', '', 'publish', 'open', 'open', '', '326', '', '', '2015-10-13 15:40:08', '2015-10-13 14:40:08', '', 286, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=326', 17, 'nav_menu_item', '', 0),
+(327, 1, '2015-01-28 11:37:40', '2015-01-28 10:37:40', ' ', '', '', 'publish', 'open', 'open', '', '327', '', '', '2015-10-13 15:40:09', '2015-10-13 14:40:09', '', 288, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=327', 23, 'nav_menu_item', '', 0),
+(328, 1, '2015-01-28 11:37:39', '2015-01-28 10:37:39', ' ', '', '', 'publish', 'open', 'open', '', '328', '', '', '2015-10-13 15:40:09', '2015-10-13 14:40:09', '', 288, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=328', 22, 'nav_menu_item', '', 0),
+(329, 1, '2015-01-28 11:37:38', '2015-01-28 10:37:38', ' ', '', '', 'publish', 'open', 'open', '', '329', '', '', '2015-10-13 15:40:09', '2015-10-13 14:40:09', '', 288, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=329', 21, 'nav_menu_item', '', 0),
+(337, 1, '2015-01-28 12:06:58', '2015-01-28 11:06:58', 'Node de francès', 'Francès', '', 'publish', 'closed', 'open', '', 'frances', '', '', '2015-01-28 12:06:58', '2015-01-28 11:06:58', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/forums/forum/frances/', 0, 'forum', '', 0),
+(338, 1, '2015-01-28 12:09:33', '2015-01-28 11:09:33', 'Node de formació permanent del professorat', 'Formació permanent del professorat', '', 'private', 'closed', 'open', '', 'formacio-permanent-del-professorat', '', '', '2015-01-28 12:09:33', '2015-01-28 11:09:33', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/forums/forum/formacio-permanent-del-professorat/', 0, 'forum', '', 0),
+(339, 1, '2015-01-28 12:22:56', '2015-01-28 11:22:56', '<strong>Correu electrònic\r\n</strong><span style="font-family: inherit; font-size: 1em; line-height: 1.6;">correu-del-centre@domini-centre.cat</span>\r\n\r\n<strong>Adreça</strong>\r\nCFA Països Catalans\r\nPlaça de la Vila, 14\r\n01234 Abella de Xerta\r\n\r\n<strong>Telèfon</strong>\r\n901 345 678\r\n\r\n<strong>Horari d''atenció secretaria</strong>\r\ndl. 00:00-00:00', 'Contacte', '', 'publish', 'closed', 'closed', '', 'contacte', '', '', '2015-10-27 10:11:17', '2015-10-27 09:11:17', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?page_id=339', 0, 'page', '', 0),
+(343, 1, '2015-01-28 12:26:41', '2015-01-28 11:26:41', ' ', '', '', 'publish', 'open', 'open', '', '343', '', '', '2015-10-13 15:40:08', '2015-10-13 14:40:08', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=343', 8, 'nav_menu_item', '', 0),
+(353, 1, '2015-02-04 12:29:38', '2015-02-04 11:29:38', '', 'Selecció_946', '', 'inherit', 'open', 'open', '', 'seleccio_946', '', '', '2015-02-04 12:29:38', '2015-02-04 11:29:38', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2015/02/Selecció_946.png', 0, 'attachment', 'image/png', 0),
+(354, 1, '2015-02-04 12:30:12', '2015-02-04 11:30:12', '', 'Selecció_944', '', 'inherit', 'open', 'open', '', 'seleccio_944', '', '', '2015-02-04 12:30:12', '2015-02-04 11:30:12', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2015/02/Selecció_944.png', 0, 'attachment', 'image/png', 0),
+(355, 1, '2015-02-04 12:31:33', '2015-02-04 11:31:33', '', 'cfa', '', 'inherit', 'open', 'open', '', 'cfa-2', '', '', '2015-02-04 12:31:33', '2015-02-04 11:31:33', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/wp-content/uploads/usu8/2015/02/cfa.jpg', 0, 'attachment', 'image/jpeg', 0),
+(366, 1, '2015-10-13 15:42:24', '2015-10-13 14:42:24', ' ', '', '', 'publish', 'open', 'open', '', '366', '', '', '2015-10-13 15:42:27', '2015-10-13 14:42:27', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=366', 3, 'nav_menu_item', '', 0),
+(367, 1, '2015-10-13 15:42:24', '2015-10-13 14:42:24', '', 'Mur general', '', 'publish', 'open', 'open', '', 'mur-general', '', '', '2015-10-13 15:42:27', '2015-10-13 14:42:27', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=367', 1, 'nav_menu_item', '', 0),
+(368, 1, '2015-10-13 15:42:24', '2015-10-13 14:42:24', ' ', '', '', 'publish', 'open', 'open', '', '368', '', '', '2015-10-13 15:42:27', '2015-10-13 14:42:27', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=368', 2, 'nav_menu_item', '', 0),
+(369, 1, '2016-03-29 12:46:46', '2016-03-29 11:46:46', '', 'Activa', '', 'publish', 'closed', 'closed', '', 'activa', '', '', '2016-03-29 12:46:46', '2016-03-29 11:46:46', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?page_id=369', 0, 'page', '', 0),
+(371, 1, '2016-03-29 12:47:01', '2016-03-29 11:47:01', '', 'Registre', '', 'publish', 'closed', 'closed', '', 'registre', '', '', '2016-03-29 12:47:01', '2016-03-29 11:47:01', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?page_id=371', 0, 'page', '', 0),
+(373, 1, '2016-07-04 11:32:20', '2016-07-04 10:32:20', '{{poster.name}} replied to one of your updates:\n\n<blockquote>&quot;{{usermessage}}&quot;</blockquote>\n\n<a href="{{{thread.url}}}">Go to the discussion</a> to reply or catch up on the conversation.', '[{{{site.name}}}] {{poster.name}} replied to one of your updates', '{{poster.name}} replied to one of your updates:\n\n"{{usermessage}}"\n\nGo to the discussion to reply or catch up on the conversation: {{{thread.url}}}', 'publish', 'closed', 'closed', '', 'site-name-poster-name-replied-to-one-of-your-updates', '', '', '2016-07-04 11:32:20', '2016-07-04 10:32:20', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/general/site-name-poster-name-replied-to-one-of-your-updates/', 0, 'bp-email', '', 0),
+(374, 1, '2016-07-04 11:32:20', '2016-07-04 10:32:20', '{{poster.name}} replied to one of your comments:\n\n<blockquote>&quot;{{usermessage}}&quot;</blockquote>\n\n<a href="{{{thread.url}}}">Go to the discussion</a> to reply or catch up on the conversation.', '[{{{site.name}}}] {{poster.name}} replied to one of your comments', '{{poster.name}} replied to one of your comments:\n\n"{{usermessage}}"\n\nGo to the discussion to reply or catch up on the conversation: {{{thread.url}}}', 'publish', 'closed', 'closed', '', 'site-name-poster-name-replied-to-one-of-your-comments', '', '', '2016-07-04 11:32:20', '2016-07-04 10:32:20', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/general/site-name-poster-name-replied-to-one-of-your-comments/', 0, 'bp-email', '', 0),
+(375, 1, '2016-07-04 11:32:20', '2016-07-04 10:32:20', '{{poster.name}} mentioned you in a status update:\n\n<blockquote>&quot;{{usermessage}}&quot;</blockquote>\n\n<a href="{{{mentioned.url}}}">Go to the discussion</a> to reply or catch up on the conversation.', '[{{{site.name}}}] {{poster.name}} mentioned you in a status update', '{{poster.name}} mentioned you in a status update:\n\n"{{usermessage}}"\n\nGo to the discussion to reply or catch up on the conversation: {{{mentioned.url}}}', 'publish', 'closed', 'closed', '', 'site-name-poster-name-mentioned-you-in-a-status-update', '', '', '2016-07-04 11:32:20', '2016-07-04 10:32:20', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/general/site-name-poster-name-mentioned-you-in-a-status-update/', 0, 'bp-email', '', 0),
+(376, 1, '2016-07-04 11:32:20', '2016-07-04 10:32:20', '{{poster.name}} mentioned you in the group "{{group.name}}":\n\n<blockquote>&quot;{{usermessage}}&quot;</blockquote>\n\n<a href="{{{mentioned.url}}}">Go to the discussion</a> to reply or catch up on the conversation.', '[{{{site.name}}}] {{poster.name}} mentioned you in an update', '{{poster.name}} mentioned you in the group "{{group.name}}":\n\n"{{usermessage}}"\n\nGo to the discussion to reply or catch up on the conversation: {{{mentioned.url}}}', 'publish', 'closed', 'closed', '', 'site-name-poster-name-mentioned-you-in-an-update', '', '', '2016-07-04 11:32:20', '2016-07-04 10:32:20', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/general/site-name-poster-name-mentioned-you-in-an-update/', 0, 'bp-email', '', 0),
+(377, 1, '2016-07-04 11:32:20', '2016-07-04 10:32:20', 'Thanks for registering!\n\nTo complete the activation of your account, go to the following link: <a href="{{{activate.url}}}">{{{activate.url}}}</a>', '[{{{site.name}}}] Activate your account', 'Thanks for registering!\n\nTo complete the activation of your account, go to the following link: {{{activate.url}}}', 'publish', 'closed', 'closed', '', 'site-name-activate-your-account', '', '', '2016-07-04 11:32:20', '2016-07-04 10:32:20', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/general/site-name-activate-your-account/', 0, 'bp-email', '', 0),
+(378, 1, '2016-07-04 11:32:21', '2016-07-04 10:32:21', 'Thanks for registering!\n\nTo complete the activation of your account and site, go to the following link: <a href="{{{activate-site.url}}}">{{{activate-site.url}}}</a>.\n\nAfter you activate, you can visit your site at <a href="{{{user-site.url}}}">{{{user-site.url}}}</a>.', '[{{{site.name}}}] Activate {{{user-site.url}}}', 'Thanks for registering!\n\nTo complete the activation of your account and site, go to the following link: {{{activate-site.url}}}\n\nAfter you activate, you can visit your site at {{{user-site.url}}}.', 'publish', 'closed', 'closed', '', 'site-name-activate-user-site-url', '', '', '2016-07-04 11:32:21', '2016-07-04 10:32:21', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/general/site-name-activate-user-site-url/', 0, 'bp-email', '', 0),
+(379, 1, '2016-07-04 11:32:21', '2016-07-04 10:32:21', '<a href="{{{initiator.url}}}">{{initiator.name}}</a> wants to add you as a friend.\n\nTo accept this request and manage all of your pending requests, visit: <a href="{{{friend-requests.url}}}">{{{friend-requests.url}}}</a>', '[{{{site.name}}}] New friendship request from {{initiator.name}}', '{{initiator.name}} wants to add you as a friend.\n\nTo accept this request and manage all of your pending requests, visit: {{{friend-requests.url}}}\n\nTo view {{initiator.name}}''s profile, visit: {{{initiator.url}}}', 'publish', 'closed', 'closed', '', 'site-name-new-friendship-request-from-initiator-name', '', '', '2016-07-04 11:32:21', '2016-07-04 10:32:21', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/general/site-name-new-friendship-request-from-initiator-name/', 0, 'bp-email', '', 0),
+(380, 1, '2016-07-04 11:32:21', '2016-07-04 10:32:21', '<a href="{{{friendship.url}}}">{{friend.name}}</a> accepted your friend request.', '[{{{site.name}}}] {{friend.name}} accepted your friendship request', '{{friend.name}} accepted your friend request.\n\nTo learn more about them, visit their profile: {{{friendship.url}}}', 'publish', 'closed', 'closed', '', 'site-name-friend-name-accepted-your-friendship-request', '', '', '2016-07-04 11:32:21', '2016-07-04 10:32:21', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/general/site-name-friend-name-accepted-your-friendship-request/', 0, 'bp-email', '', 0),
+(381, 1, '2016-07-04 11:32:21', '2016-07-04 10:32:21', 'Group details for the group &quot;<a href="{{{group.url}}}">{{group.name}}</a>&quot; were updated:\n<blockquote>{{changed_text}}</blockquote>', '[{{{site.name}}}] Group details updated', 'Group details for the group &quot;{{group.name}}&quot; were updated:\n\n{{changed_text}}\n\nTo view the group, visit: {{{group.url}}}', 'publish', 'closed', 'closed', '', 'site-name-group-details-updated', '', '', '2016-07-04 11:32:21', '2016-07-04 10:32:21', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/general/site-name-group-details-updated/', 0, 'bp-email', '', 0),
+(382, 1, '2016-07-04 11:32:21', '2016-07-04 10:32:21', '<a href="{{{inviter.url}}}">{{inviter.name}}</a> has invited you to join the group: &quot;{{group.name}}&quot;.\n<a href="{{{invites.url}}}">Go here to accept your invitation</a> or <a href="{{{group.url}}}">visit the group</a> to learn more.', '[{{{site.name}}}] You have an invitation to the group: "{{group.name}}"', '{{inviter.name}} has invited you to join the group: &quot;{{group.name}}&quot;.\n\nTo accept your invitation, visit: {{{invites.url}}}\n\nTo learn more about the group, visit {{{group.url}}}.\nTo view {{inviter.name}}''s profile, visit: {{{inviter.url}}}', 'publish', 'closed', 'closed', '', 'site-name-you-have-an-invitation-to-the-group-group-name', '', '', '2016-07-04 11:32:21', '2016-07-04 10:32:21', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/general/site-name-you-have-an-invitation-to-the-group-group-name/', 0, 'bp-email', '', 0),
+(383, 1, '2016-07-04 11:32:21', '2016-07-04 10:32:21', 'You have been promoted to <b>{{promoted_to}}</b> in the group &quot;<a href="{{{group.url}}}">{{group.name}}</a>&quot;.', '[{{{site.name}}}] You have been promoted in the group: "{{group.name}}"', 'You have been promoted to {{promoted_to}} in the group: &quot;{{group.name}}&quot;.\n\nTo visit the group, go to: {{{group.url}}}', 'publish', 'closed', 'closed', '', 'site-name-you-have-been-promoted-in-the-group-group-name', '', '', '2016-07-04 11:32:21', '2016-07-04 10:32:21', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/general/site-name-you-have-been-promoted-in-the-group-group-name/', 0, 'bp-email', '', 0),
+(384, 1, '2016-07-04 11:32:21', '2016-07-04 10:32:21', '<a href="{{{profile.url}}}">{{requesting-user.name}}</a> wants to join the group &quot;{{group.name}}&quot;. As you are an administrator of this group, you must either accept or reject the membership request.\n\n<a href="{{{group-requests.url}}}">Go here to manage this</a> and all other pending requests.', '[{{{site.name}}}] Membership request for group: {{group.name}}', '{{requesting-user.name}} wants to join the group &quot;{{group.name}}&quot;. As you are the administrator of this group, you must either accept or reject the membership request.\n\nTo manage this and all other pending requests, visit: {{{group-requests.url}}}\n\nTo view {{requesting-user.name}}''s profile, visit: {{{profile.url}}}', 'publish', 'closed', 'closed', '', 'site-name-membership-request-for-group-group-name', '', '', '2016-07-04 11:32:21', '2016-07-04 10:32:21', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/general/site-name-membership-request-for-group-group-name/', 0, 'bp-email', '', 0),
+(385, 1, '2016-07-04 11:32:21', '2016-07-04 10:32:21', '{{sender.name}} sent you a new message: &quot;{{usersubject}}&quot;\n\n<blockquote>&quot;{{usermessage}}&quot;</blockquote>\n\n<a href="{{{message.url}}}">Go to the discussion</a> to reply or catch up on the conversation.', '[{{{site.name}}}] New message from {{sender.name}}', '{{sender.name}} sent you a new message: &quot;{{usersubject}}&quot;\n\n&quot;{{usermessage}}&quot;\n\nGo to the discussion to reply or catch up on the conversation: {{{message.url}}}', 'publish', 'closed', 'closed', '', 'site-name-new-message-from-sender-name', '', '', '2016-07-04 11:32:21', '2016-07-04 10:32:21', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/general/site-name-new-message-from-sender-name/', 0, 'bp-email', '', 0),
+(386, 1, '2016-07-04 11:32:21', '2016-07-04 10:32:21', 'You recently changed the email address associated with your account on {{site.name}}. If this is correct, <a href="{{{verify.url}}}">go here to confirm the change</a>.\n\nOtherwise, you can safely ignore and delete this email if you have changed your mind, or if you think you have received this email in error.', '[{{{site.name}}}] Verify your new email address', 'You recently changed the email address associated with your account on {{site.name}}. If this is correct, go to the following link to confirm the change: {{{verify.url}}}\n\nOtherwise, you can safely ignore and delete this email if you have changed your mind, or if you think you have received this email in error.', 'publish', 'closed', 'closed', '', 'site-name-verify-your-new-email-address', '', '', '2016-07-04 11:32:21', '2016-07-04 10:32:21', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/general/site-name-verify-your-new-email-address/', 0, 'bp-email', '', 0),
+(387, 1, '2016-07-04 11:32:21', '2016-07-04 10:32:21', 'Your membership request for the group &quot;<a href="{{{group.url}}}">{{group.name}}</a>&quot; has been accepted.', '[{{{site.name}}}] Membership request for group "{{group.name}}" accepted', 'Your membership request for the group &quot;{{group.name}}&quot; has been accepted.\n\nTo view the group, visit: {{{group.url}}}', 'publish', 'closed', 'closed', '', 'site-name-membership-request-for-group-group-name-accepted', '', '', '2016-07-04 11:32:21', '2016-07-04 10:32:21', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/general/site-name-membership-request-for-group-group-name-accepted/', 0, 'bp-email', '', 0),
+(388, 1, '2016-07-04 11:32:21', '2016-07-04 10:32:21', 'Your membership request for the group &quot;<a href="{{{group.url}}}">{{group.name}}</a>&quot; has been rejected.', '[{{{site.name}}}] Membership request for group "{{group.name}}" rejected', 'Your membership request for the group &quot;{{group.name}}&quot; has been rejected.\n\nTo request membership again, visit: {{{group.url}}}', 'publish', 'closed', 'closed', '', 'site-name-membership-request-for-group-group-name-rejected', '', '', '2016-07-04 11:32:21', '2016-07-04 10:32:21', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/general/site-name-membership-request-for-group-group-name-rejected/', 0, 'bp-email', '', 0),
+(389, 0, '2019-04-17 09:27:50', '2019-04-17 07:27:50', 'Hola {{NAME}},\r\n\r\nHem publicat un article nou al nostre lloc web. {{POSTTITLE}}\r\n{{POSTDESC}}\r\nPodeu veure l''últim article a {{POSTLINK}}\r\nHeu rebut aquest correu perquè vau demanar que se us notifiqués la publicació d''articles nous\r\n\r\nGràcies i salutacions\r\nAdmin', 'S''ha publicat un article nou:  {{POSTTITLE}}', '', 'publish', 'closed', 'closed', '', 'sha-publicat-un-article-nou-posttitle', '', '', '2019-04-17 09:27:50', '2019-04-17 07:27:50', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/es_template/sha-publicat-un-article-nou-posttitle/', 0, 'es_template', '', 0),
+(390, 0, '2019-04-17 09:27:50', '2019-04-17 07:27:50', 'Hola {{EMAIL}},\r\n\r\nHem publicat un article nou al nostre lloc web. {{POSTTITLE}}\r\n{{POSTIMAGE}}\r\n{{POSTFULL}}\r\nPodeu veure l''últim article a {{POSTLINK}}\r\nHeu rebut aquest correu perquè vau demanar que se us notifiqués la publicació d''articles nous\r\n\r\nGràcies i salutacions\r\nAdmin', 'Notificació d''article nou {{POSTTITLE}}', '', 'publish', 'closed', 'closed', '', 'notificacio-darticle-nou-posttitle', '', '', '2019-04-17 09:27:50', '2019-04-17 07:27:50', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/es_template/notificacio-darticle-nou-posttitle/', 0, 'es_template', '', 0),
+(391, 0, '2019-04-17 09:27:50', '2019-04-17 07:27:50', '<strong style="color: #990000"> Subscriptors de correu</strong><p>\r\n							L''extensió subscripcions de correu de correu té diferents opcions per enviar butlletins als subscriptors.\r\n							Té una pàgina separada amb un editor HTML per crear	un butlletí amb aquest format.\r\n							L''extensió disposa d''opcions per enviar correus de notificació als subscriptors quan es publiquen articles nous al lloc web. També té una pàgina per poder afegir i eliminar les categories a les que s''enviaran les notificacions.\r\n							Utilitzant les opcions de l''extensió d''importació i exportació els administradors podran importar fàcilment els usuaris registrats.\r\n						</p> <strong style="color: #990000">Característiques de l''extensió</strong><ol> <li>Correu de notificació als subscriptors quan es publiquin articles nous.</li> <li>Giny de subscripció</li><li>Correu de subscripció amb confirmació per correu i subscripció simple per facilitar la subscripció.</li> <li>Notificació per correu electrònic a l''administrador quan els usuaris es subscriguin (Opcional)</li> <li>Correu de benvinguda automàtic als subscriptors (Opcional).</li> <li>Enllaç per donar-se de baixa del correu.</li> <li>Importació / Exportació dels correus dels subscriptors.</li> <li>Editor d''HTML per redactar el butlletí.</li> </ol> <strong>Gràcies i salutacions</strong><br>Admin', 'Butlletí Hola Món', '', 'publish', 'closed', 'closed', '', 'butlleti-hola-mon', '', '', '2019-04-17 09:27:50', '2019-04-17 07:27:50', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/es_template/butlleti-hola-mon/', 0, 'es_template', '', 0),
+(392, 0, '2019-04-17 09:27:50', '2019-04-17 07:27:50', '{{{ia.content}}}<br /><hr><a href="{{{ia.accept_url}}}">Accepteu o rebutgeu aquesta invitació</a> &middot; <a href="{{{ia.opt_out_url}}}">Desactiveu les invitacions futures</a>', '[{{{site.name}}}] {{{ia.subject}}}', '{{{ia.content_plaintext}}}', 'publish', 'closed', 'closed', '', 'site-name-ia-subject', '', '', '2019-04-17 09:27:50', '2019-04-17 07:27:50', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/general/site-name-ia-subject/', 0, 'bp-email', '', 0),
+(393, 2, '2019-04-17 09:28:30', '2019-04-17 07:28:30', '{{{ges.action}}}:\n\n<blockquote>{{{usermessage}}}</blockquote>\n&ndash;\n<a href="{{{thread.url}}}">Ves a la discussió</a> per respondre o posar-se al dia de la conversa.\n{{{ges.email-setting-description}}}', '[{{{site.name}}}] {{{ges.subject}}}', '{{{ges.action}}}:\n\n"{{{usermessage}}}"\n\nVes a la discussió per respondre o posar-te al dia de la conversa:\n{{{thread.url}}}\n\n----\n\n{{{ges.email-setting-description}}}\n\n{{{ges.email-setting-links}}}', 'publish', 'closed', 'closed', '', 'site-name-ges-subject', '', '', '2019-04-17 09:28:30', '2019-04-17 07:28:30', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/general/site-name-ges-subject/', 0, 'bp-email', '', 0),
+(394, 2, '2019-04-17 09:28:30', '2019-04-17 07:28:30', '{{{ges.digest-summary}}}{{{usermessage}}}\n&ndash;\nHeu rebut aquest missatge perquè esteu subscrit per rebre el resum de l''activitat en algun dels vostres grups a {{site.name}}.', '[{{{site.name}}}] {{{ges.subject}}}', '{{{ges.digest-summary}}}\n\n{{{usermessage}}}\n\n----\n\nHeu rebut aquest missatge perquè esteu subscrit per rebre el resum de l''activitat en algun dels vostres grups a {{{site.name}}}.\n\nPer desactivar aquestes notificacions per grup, inicieu sessió i [visiteu la pàgina dels vostres grups]({{{ges.settings-link}}}) on podreu gestionar la configuració del correu per cada grup.', 'publish', 'closed', 'closed', '', 'site-name-ges-subject-2', '', '', '2019-04-17 09:28:30', '2019-04-17 07:28:30', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/general/site-name-ges-subject-2/', 0, 'bp-email', '', 0),
+(395, 2, '2019-04-17 09:28:30', '2019-04-17 07:28:30', 'Aquesta és una notificació del grup {{{group.link}}}:\n\n{{{usermessage}}}\n\n&ndash;\n<strong>Tingueu en compte:</strong> les notificacions d''administració s''envien a tothom del node i no es poden deshabilitar.\nSi creieu que el servei s''està utilitzant malament contacteu amb l''administrador del lloc web.', '[{{{site.name}}}] {{{ges.subject}}} - del node "{{{group.name}}}"', 'Aquesta és una notificació del grup "{{{group.name}}}":\n\n"{{{usermessage}}}"\n\n----\n\nTingueu en compte: les notificacions d''administració s''envien a tothom del node i no es poden deshabilitar.\n\nSi creieu que el servei s''està utilitzant malament contacteu amb l''administrador del lloc web.\n\nVisiteu la pàgina d''inici del node en aquest enllaç:\n{{{group.url}}}', 'publish', 'closed', 'closed', '', 'site-name-ges-subject-del-node-group-name', '', '', '2019-04-17 09:28:30', '2019-04-17 07:28:30', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/general/site-name-ges-subject-del-node-group-name/', 0, 'bp-email', '', 0),
+(396, 2, '2019-04-17 09:28:30', '2019-04-17 07:28:30', '{{{usermessage}}}', '[{{{site.name}}}] {{{ges.subject}}}', '{{{usermessage}}}', 'publish', 'closed', 'closed', '', 'site-name-ges-subject-3', '', '', '2019-04-17 09:28:30', '2019-04-17 07:28:30', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/general/site-name-ges-subject-3/', 0, 'bp-email', '', 0),
+(397, 2, '2019-04-17 09:29:17', '0000-00-00 00:00:00', '', 'Esborrany automàtic', '', 'draft', 'open', 'open', '', '', '', '', '2019-04-17 09:29:17', '2019-04-17 07:29:17', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=397', 0, 'post', '', 0),
+(398, 2, '2019-04-17 09:29:17', '2019-04-17 07:29:17', '', 'Esborrany automàtic', '', 'inherit', 'closed', 'closed', '', '397-revision-v1', '', '', '2019-04-17 09:29:17', '2019-04-17 07:29:17', '', 397, 'https://pwc-int.educacio.intranet/agora/mastercfa/general/397-revision-v1/', 0, 'revision', '', 0),
+(399, 2, '2019-04-24 13:46:32', '0000-00-00 00:00:00', '', 'Esborrany automàtic', '', 'auto-draft', 'open', 'open', '', '', '', '', '2019-04-24 13:46:32', '0000-00-00 00:00:00', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=399', 0, 'post', '', 0),
+(400, 2, '2019-04-24 13:47:10', '0000-00-00 00:00:00', '', 'Esborrany automàtic', '', 'auto-draft', 'open', 'open', '', '', '', '', '2019-04-24 13:47:10', '0000-00-00 00:00:00', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=400', 0, 'post', '', 0),
+(401, 2, '2019-04-24 13:48:04', '0000-00-00 00:00:00', '', 'Esborrany automàtic', '', 'auto-draft', 'open', 'open', '', '', '', '', '2019-04-24 13:48:04', '0000-00-00 00:00:00', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=401', 0, 'post', '', 0),
+(402, 2, '2019-04-25 09:39:44', '0000-00-00 00:00:00', '', 'Esborrany automàtic', '', 'auto-draft', 'open', 'open', '', '', '', '', '2019-04-25 09:39:44', '0000-00-00 00:00:00', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=402', 0, 'post', '', 0),
+(403, 2, '2019-04-25 09:39:56', '0000-00-00 00:00:00', '', 'Esborrany automàtic', '', 'auto-draft', 'open', 'open', '', '', '', '', '2019-04-25 09:39:56', '0000-00-00 00:00:00', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=403', 0, 'post', '', 0),
+(404, 2, '2019-04-25 09:40:58', '2019-04-25 07:40:58', 'test', 'test', '', 'publish', 'open', 'closed', '', 'test', '', '', '2019-04-25 09:40:58', '2019-04-25 07:40:58', '', 0, 'https://pwc-int.educacio.intranet/agora/mastercfa/?p=404', 0, 'post', '', 0),
+(405, 2, '2019-04-25 09:40:58', '2019-04-25 07:40:58', 'test', 'test', '', 'inherit', 'closed', 'closed', '', '404-revision-v1', '', '', '2019-04-25 09:40:58', '2019-04-25 07:40:58', '', 404, 'https://pwc-int.educacio.intranet/agora/mastercfa/general/404-revision-v1/', 0, 'revision', '', 0);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_signups`
+-- Estructura de la taula `wp_signups`
 --
 
-CREATE TABLE `wp_signups` (
-  `signup_id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_signups` (
+`signup_id` bigint(20) NOT NULL,
   `domain` varchar(200) NOT NULL DEFAULT '',
   `path` varchar(100) NOT NULL DEFAULT '',
   `title` longtext NOT NULL,
@@ -2364,22 +2518,17 @@ CREATE TABLE `wp_signups` (
   `activated` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `active` tinyint(1) NOT NULL DEFAULT '0',
   `activation_key` varchar(50) NOT NULL DEFAULT '',
-  `meta` longtext,
-  PRIMARY KEY (`signup_id`),
-  KEY `activation_key` (`activation_key`),
-  KEY `user_email` (`user_email`),
-  KEY `user_login_email` (`user_login`,`user_email`),
-  KEY `domain_path` (`domain`,`path`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `meta` longtext
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_stats`
+-- Estructura de la taula `wp_stats`
 --
 
-CREATE TABLE `wp_stats` (
-  `stat_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_stats` (
+`stat_id` int(11) NOT NULL,
   `datetime` datetime NOT NULL DEFAULT '1970-01-01 00:00:00',
   `ip` varchar(15) NOT NULL,
   `ipForward` varchar(15) NOT NULL,
@@ -2390,50 +2539,37 @@ CREATE TABLE `wp_stats` (
   `isadmin` tinyint(4) NOT NULL DEFAULT '0',
   `username` varchar(60) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `content` longtext,
-  PRIMARY KEY (`stat_id`),
-  KEY `uid` (`uid`),
-  KEY `ip` (`ip`),
-  KEY `ipForward` (`ipForward`),
-  KEY `ipClient` (`ipClient`),
-  KEY `userAgent` (`userAgent`),
-  KEY `isadmin` (`isadmin`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `content` longtext
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_termmeta`
+-- Estructura de la taula `wp_termmeta`
 --
 
-CREATE TABLE `wp_termmeta` (
-  `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_termmeta` (
+`meta_id` bigint(20) unsigned NOT NULL,
   `term_id` bigint(20) unsigned NOT NULL DEFAULT '0',
   `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_ci,
-  PRIMARY KEY (`meta_id`),
-  KEY `term_id` (`term_id`),
-  KEY `meta_key` (`meta_key`(191))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=1 ;
+  `meta_value` longtext COLLATE utf8mb4_unicode_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_terms`
+-- Estructura de la taula `wp_terms`
 --
 
-CREATE TABLE `wp_terms` (
-  `term_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_terms` (
+`term_id` bigint(20) unsigned NOT NULL,
   `name` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `slug` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `term_group` bigint(10) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`term_id`),
-  KEY `name` (`name`(191)),
-  KEY `slug` (`slug`(191))
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=75 ;
+  `term_group` bigint(10) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=81 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `wp_terms`
+-- Bolcant dades de la taula `wp_terms`
 --
 
 INSERT INTO `wp_terms` (`term_id`, `name`, `slug`, `term_group`) VALUES
@@ -2486,24 +2622,28 @@ INSERT INTO `wp_terms` (`term_id`, `name`, `slug`, `term_group`) VALUES
 (71, 'groups-membership-request-accepted', 'groups-membership-request-accepted', 0),
 (72, 'groups-membership-request-rejected', 'groups-membership-request-rejected', 0),
 (73, 'google', 'google', 0),
-(74, 'default-calendar', 'default-calendar', 0);
+(74, 'default-calendar', 'default-calendar', 0),
+(75, 'invite-anyone-invitation', 'invite-anyone-invitation', 0),
+(76, 'bp-ges-single', 'bp-ges-single', 0),
+(77, 'bp-ges-digest', 'bp-ges-digest', 0),
+(78, 'bp-ges-notice', 'bp-ges-notice', 0),
+(79, 'bp-ges-welcome', 'bp-ges-welcome', 0),
+(80, 'test', 'test', 0);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_term_relationships`
+-- Estructura de la taula `wp_term_relationships`
 --
 
-CREATE TABLE `wp_term_relationships` (
+CREATE TABLE IF NOT EXISTS `wp_term_relationships` (
   `object_id` bigint(20) unsigned NOT NULL DEFAULT '0',
   `term_taxonomy_id` bigint(20) unsigned NOT NULL DEFAULT '0',
-  `term_order` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`object_id`,`term_taxonomy_id`),
-  KEY `term_taxonomy_id` (`term_taxonomy_id`)
+  `term_order` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `wp_term_relationships`
+-- Bolcant dades de la taula `wp_term_relationships`
 --
 
 INSERT INTO `wp_term_relationships` (`object_id`, `term_taxonomy_id`, `term_order`) VALUES
@@ -2608,32 +2748,36 @@ INSERT INTO `wp_term_relationships` (`object_id`, `term_taxonomy_id`, `term_orde
 (385, 73, 0),
 (386, 74, 0),
 (387, 75, 0),
-(388, 76, 0);
+(388, 76, 0),
+(392, 79, 0),
+(393, 80, 0),
+(394, 81, 0),
+(395, 82, 0),
+(396, 83, 0),
+(397, 1, 0),
+(404, 1, 0);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_term_taxonomy`
+-- Estructura de la taula `wp_term_taxonomy`
 --
 
-CREATE TABLE `wp_term_taxonomy` (
-  `term_taxonomy_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_term_taxonomy` (
+`term_taxonomy_id` bigint(20) unsigned NOT NULL,
   `term_id` bigint(20) unsigned NOT NULL DEFAULT '0',
   `taxonomy` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `parent` bigint(20) unsigned NOT NULL DEFAULT '0',
-  `count` bigint(20) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`term_taxonomy_id`),
-  UNIQUE KEY `term_id_taxonomy` (`term_id`,`taxonomy`),
-  KEY `taxonomy` (`taxonomy`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=79 ;
+  `count` bigint(20) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=85 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `wp_term_taxonomy`
+-- Bolcant dades de la taula `wp_term_taxonomy`
 --
 
 INSERT INTO `wp_term_taxonomy` (`term_taxonomy_id`, `term_id`, `taxonomy`, `description`, `parent`, `count`) VALUES
-(1, 1, 'category', '', 0, 1),
+(1, 1, 'category', '', 0, 2),
 (2, 2, 'nav_menu', '', 0, 27),
 (9, 4, 'nav_menu', '', 0, 0),
 (10, 5, 'nav_menu', '', 0, 0),
@@ -2682,26 +2826,29 @@ INSERT INTO `wp_term_taxonomy` (`term_taxonomy_id`, `term_id`, `taxonomy`, `desc
 (75, 71, 'bp-email-type', 'Recipient had requested to join a group, which was accepted.', 0, 0),
 (76, 72, 'bp-email-type', 'Recipient had requested to join a group, which was rejected.', 0, 0),
 (77, 73, 'calendar_feed', '', 0, 2),
-(78, 74, 'calendar_type', '', 0, 2);
+(78, 74, 'calendar_type', '', 0, 2),
+(79, 75, 'bp-email-type', 'Es convida un usuari a unir-se al lloc per correu electrònic. Utilitzat pel connector Invite Anyone.', 0, 0),
+(80, 76, 'bp-email-type', 'Un membre ha creat una activitat grupal. Utilitzat pel connector de Subscripció de correu electrònic del node durant enviaments immediats.', 0, 0),
+(81, 77, 'bp-email-type', 'S''ha enviat un correu de resum a un membre. Utilitzat pel connector de Subscripció de correu electrònic del node durant els enviaments de resums diaris o setmanals.', 0, 0),
+(82, 78, 'bp-email-type', 'L''administrador del node ha enviat una notificació a tots els membres del grup. Utilitzat pel connector de Subscripció de correu electrònic del node.', 0, 0),
+(83, 79, 'bp-email-type', 'S''ha enviat un correu de benvinguda als nous membres del node. Utilitzat pel connector de Subscripció de correu electrònic del node.', 0, 0),
+(84, 80, 'category', '', 0, 0);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_usermeta`
+-- Estructura de la taula `wp_usermeta`
 --
 
-CREATE TABLE `wp_usermeta` (
-  `umeta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_usermeta` (
+`umeta_id` bigint(20) unsigned NOT NULL,
   `user_id` bigint(20) unsigned NOT NULL DEFAULT '0',
   `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_ci,
-  PRIMARY KEY (`umeta_id`),
-  KEY `user_id` (`user_id`),
-  KEY `meta_key` (`meta_key`(191))
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=85 ;
+  `meta_value` longtext COLLATE utf8mb4_unicode_ci
+) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `wp_usermeta`
+-- Bolcant dades de la taula `wp_usermeta`
 --
 
 INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALUES
@@ -2730,9 +2877,9 @@ INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALU
 (23, 2, 'show_admin_bar_front', 'true'),
 (24, 2, 'wp_capabilities', 'a:2:{s:13:"administrator";b:1;s:13:"bbp_keymaster";b:1;}'),
 (25, 2, 'wp_user_level', '10'),
-(26, 2, 'dismissed_wp_pointers', 'wp350_media,wp360_revisions,wp360_locks,wp390_widgets,wp410_dfw'),
+(26, 2, 'dismissed_wp_pointers', 'wp350_media,wp360_revisions,wp360_locks,wp390_widgets,wp410_dfw,wp496_privacy'),
 (27, 2, 'wp_dashboard_quick_press_last_post_id', '4'),
-(28, 2, 'last_activity', '2017-01-17 11:32:42'),
+(28, 2, 'last_activity', '2019-05-13 12:45:42'),
 (29, 2, 'closedpostboxes_slideshow', 'a:1:{i:2;s:5:"style";}'),
 (30, 2, 'metaboxhidden_slideshow', 'a:2:{i:3;s:7:"slugdiv";i:4;s:5:"style";}'),
 (31, 2, 'managenav-menuscolumnshidden', 'a:4:{i:0;s:11:"link-target";i:1;s:11:"css-classes";i:2;s:3:"xfn";i:3;s:11:"description";}'),
@@ -2775,16 +2922,16 @@ INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALU
 (81, 1, 'meta-box-order_page', 'a:3:{s:4:"side";s:23:"submitdiv,pageparentdiv";s:6:"normal";s:16:"commentstatusdiv";s:8:"advanced";s:0:"";}'),
 (82, 1, 'metaboxhidden_page', 'a:5:{i:0;s:9:"authordiv";i:1;s:11:"commentsdiv";i:2;s:16:"commentstatusdiv";i:3;s:12:"revisionsdiv";i:4;s:7:"slugdiv";}'),
 (83, 1, 'closedpostboxes_page', 'a:1:{i:0;s:11:"layout_meta";}'),
-(84, 2, 'session_tokens', 'a:1:{s:64:"904147b7216021cc8fecbf83f124867cf9f8917483339ca75cf1aef2f88eacc0";a:4:{s:10:"expiration";i:1498736152;s:2:"ip";s:11:"10.155.7.35";s:2:"ua";s:104:"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.75 Safari/537.36";s:5:"login";i:1498563352;}}');
+(84, 2, 'session_tokens', 'a:1:{s:64:"7a45d7bcb8272e5283fb902edce2ff144bd59ff77bbc381590e5066ba84403ee";a:4:{s:10:"expiration";i:1557917142;s:2:"ip";s:11:"10.155.7.35";s:2:"ua";s:76:"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0";s:5:"login";i:1557744342;}}');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_users`
+-- Estructura de la taula `wp_users`
 --
 
-CREATE TABLE `wp_users` (
-  `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_users` (
+`ID` bigint(20) unsigned NOT NULL,
   `user_login` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `user_pass` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `user_nicename` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
@@ -2793,15 +2940,11 @@ CREATE TABLE `wp_users` (
   `user_registered` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `user_activation_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `user_status` int(11) NOT NULL DEFAULT '0',
-  `display_name` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  PRIMARY KEY (`ID`),
-  KEY `user_login_key` (`user_login`),
-  KEY `user_nicename` (`user_nicename`),
-  KEY `user_email` (`user_email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=3 ;
+  `display_name` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `wp_users`
+-- Bolcant dades de la taula `wp_users`
 --
 
 INSERT INTO `wp_users` (`ID`, `user_login`, `user_pass`, `user_nicename`, `user_email`, `user_url`, `user_registered`, `user_activation_key`, `user_status`, `display_name`) VALUES
@@ -2811,29 +2954,28 @@ INSERT INTO `wp_users` (`ID`, `user_login`, `user_pass`, `user_nicename`, `user_
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_wsluserscontacts`
+-- Estructura de la taula `wp_wsluserscontacts`
 --
 
-CREATE TABLE `wp_wsluserscontacts` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_wsluserscontacts` (
+`id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `provider` varchar(50) NOT NULL,
   `identifier` varchar(255) NOT NULL,
   `full_name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `profile_url` varchar(255) NOT NULL,
-  `photo_url` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `photo_url` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wp_wslusersprofiles`
+-- Estructura de la taula `wp_wslusersprofiles`
 --
 
-CREATE TABLE `wp_wslusersprofiles` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `wp_wslusersprofiles` (
+`id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `provider` varchar(255) NOT NULL,
   `object_sha` varchar(255) NOT NULL COMMENT 'to check if hybridauth user profile object has changed from last time, if yes we update the user profile here ',
@@ -2858,10 +3000,497 @@ CREATE TABLE `wp_wslusersprofiles` (
   `country` varchar(255) NOT NULL,
   `region` varchar(255) NOT NULL,
   `city` varchar(255) NOT NULL,
-  `zip` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `zip` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `wp_bpges_queued_items`
+--
+ALTER TABLE `wp_bpges_queued_items`
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `user_group_activity_type` (`user_id`,`group_id`,`activity_id`,`type`), ADD KEY `user_id` (`user_id`), ADD KEY `group_id` (`group_id`), ADD KEY `activity_id` (`activity_id`), ADD KEY `user_group_type_date` (`user_id`,`type`,`date_recorded`);
+
+--
+-- Indexes for table `wp_bpges_subscriptions`
+--
+ALTER TABLE `wp_bpges_subscriptions`
+ ADD PRIMARY KEY (`id`), ADD KEY `user_id` (`user_id`), ADD KEY `group_id` (`group_id`), ADD KEY `user_type` (`user_id`,`type`);
+
+--
+-- Indexes for table `wp_bp_activity`
+--
+ALTER TABLE `wp_bp_activity`
+ ADD PRIMARY KEY (`id`), ADD KEY `date_recorded` (`date_recorded`), ADD KEY `user_id` (`user_id`), ADD KEY `item_id` (`item_id`), ADD KEY `secondary_item_id` (`secondary_item_id`), ADD KEY `component` (`component`), ADD KEY `type` (`type`), ADD KEY `mptt_left` (`mptt_left`), ADD KEY `mptt_right` (`mptt_right`), ADD KEY `hide_sitewide` (`hide_sitewide`), ADD KEY `is_spam` (`is_spam`);
+
+--
+-- Indexes for table `wp_bp_activity_meta`
+--
+ALTER TABLE `wp_bp_activity_meta`
+ ADD PRIMARY KEY (`id`), ADD KEY `activity_id` (`activity_id`), ADD KEY `meta_key` (`meta_key`(191));
+
+--
+-- Indexes for table `wp_bp_friends`
+--
+ALTER TABLE `wp_bp_friends`
+ ADD PRIMARY KEY (`id`), ADD KEY `initiator_user_id` (`initiator_user_id`), ADD KEY `friend_user_id` (`friend_user_id`);
+
+--
+-- Indexes for table `wp_bp_groups`
+--
+ALTER TABLE `wp_bp_groups`
+ ADD PRIMARY KEY (`id`), ADD KEY `creator_id` (`creator_id`), ADD KEY `status` (`status`), ADD KEY `parent_id` (`parent_id`);
+
+--
+-- Indexes for table `wp_bp_groups_groupmeta`
+--
+ALTER TABLE `wp_bp_groups_groupmeta`
+ ADD PRIMARY KEY (`id`), ADD KEY `group_id` (`group_id`), ADD KEY `meta_key` (`meta_key`(191));
+
+--
+-- Indexes for table `wp_bp_groups_members`
+--
+ALTER TABLE `wp_bp_groups_members`
+ ADD PRIMARY KEY (`id`), ADD KEY `group_id` (`group_id`), ADD KEY `is_admin` (`is_admin`), ADD KEY `is_mod` (`is_mod`), ADD KEY `user_id` (`user_id`), ADD KEY `inviter_id` (`inviter_id`), ADD KEY `is_confirmed` (`is_confirmed`);
+
+--
+-- Indexes for table `wp_bp_messages_messages`
+--
+ALTER TABLE `wp_bp_messages_messages`
+ ADD PRIMARY KEY (`id`), ADD KEY `sender_id` (`sender_id`), ADD KEY `thread_id` (`thread_id`);
+
+--
+-- Indexes for table `wp_bp_messages_meta`
+--
+ALTER TABLE `wp_bp_messages_meta`
+ ADD PRIMARY KEY (`id`), ADD KEY `message_id` (`message_id`), ADD KEY `meta_key` (`meta_key`(191));
+
+--
+-- Indexes for table `wp_bp_messages_notices`
+--
+ALTER TABLE `wp_bp_messages_notices`
+ ADD PRIMARY KEY (`id`), ADD KEY `is_active` (`is_active`);
+
+--
+-- Indexes for table `wp_bp_messages_recipients`
+--
+ALTER TABLE `wp_bp_messages_recipients`
+ ADD PRIMARY KEY (`id`), ADD KEY `user_id` (`user_id`), ADD KEY `thread_id` (`thread_id`), ADD KEY `is_deleted` (`is_deleted`), ADD KEY `sender_only` (`sender_only`), ADD KEY `unread_count` (`unread_count`);
+
+--
+-- Indexes for table `wp_bp_mod_contents`
+--
+ALTER TABLE `wp_bp_mod_contents`
+ ADD PRIMARY KEY (`content_id`), ADD KEY `item_type` (`item_type`), ADD KEY `item_id` (`item_id`), ADD KEY `item_id2` (`item_id2`), ADD KEY `item_author` (`item_author`), ADD KEY `item_date` (`item_date`), ADD KEY `status` (`status`);
+
+--
+-- Indexes for table `wp_bp_mod_flags`
+--
+ALTER TABLE `wp_bp_mod_flags`
+ ADD PRIMARY KEY (`flag_id`), ADD KEY `content_id` (`content_id`), ADD KEY `reporter_id` (`reporter_id`), ADD KEY `date` (`date`);
+
+--
+-- Indexes for table `wp_bp_notifications`
+--
+ALTER TABLE `wp_bp_notifications`
+ ADD PRIMARY KEY (`id`), ADD KEY `item_id` (`item_id`), ADD KEY `secondary_item_id` (`secondary_item_id`), ADD KEY `user_id` (`user_id`), ADD KEY `is_new` (`is_new`), ADD KEY `component_name` (`component_name`), ADD KEY `component_action` (`component_action`), ADD KEY `useritem` (`user_id`,`is_new`);
+
+--
+-- Indexes for table `wp_bp_notifications_meta`
+--
+ALTER TABLE `wp_bp_notifications_meta`
+ ADD PRIMARY KEY (`id`), ADD KEY `notification_id` (`notification_id`), ADD KEY `meta_key` (`meta_key`(191));
+
+--
+-- Indexes for table `wp_bp_xprofile_data`
+--
+ALTER TABLE `wp_bp_xprofile_data`
+ ADD PRIMARY KEY (`id`), ADD KEY `field_id` (`field_id`), ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `wp_bp_xprofile_fields`
+--
+ALTER TABLE `wp_bp_xprofile_fields`
+ ADD PRIMARY KEY (`id`), ADD KEY `group_id` (`group_id`), ADD KEY `parent_id` (`parent_id`), ADD KEY `field_order` (`field_order`), ADD KEY `can_delete` (`can_delete`), ADD KEY `is_required` (`is_required`);
+
+--
+-- Indexes for table `wp_bp_xprofile_groups`
+--
+ALTER TABLE `wp_bp_xprofile_groups`
+ ADD PRIMARY KEY (`id`), ADD KEY `can_delete` (`can_delete`);
+
+--
+-- Indexes for table `wp_bp_xprofile_meta`
+--
+ALTER TABLE `wp_bp_xprofile_meta`
+ ADD PRIMARY KEY (`id`), ADD KEY `object_id` (`object_id`), ADD KEY `meta_key` (`meta_key`(191));
+
+--
+-- Indexes for table `wp_commentmeta`
+--
+ALTER TABLE `wp_commentmeta`
+ ADD PRIMARY KEY (`meta_id`), ADD KEY `comment_id` (`comment_id`), ADD KEY `meta_key` (`meta_key`(191));
+
+--
+-- Indexes for table `wp_comments`
+--
+ALTER TABLE `wp_comments`
+ ADD PRIMARY KEY (`comment_ID`), ADD KEY `comment_post_ID` (`comment_post_ID`), ADD KEY `comment_approved_date_gmt` (`comment_approved`,`comment_date_gmt`), ADD KEY `comment_date_gmt` (`comment_date_gmt`), ADD KEY `comment_parent` (`comment_parent`), ADD KEY `comment_author_email` (`comment_author_email`(10));
+
+--
+-- Indexes for table `wp_ig_blocked_emails`
+--
+ALTER TABLE `wp_ig_blocked_emails`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `wp_ig_campaigns`
+--
+ALTER TABLE `wp_ig_campaigns`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `wp_ig_contacts`
+--
+ALTER TABLE `wp_ig_contacts`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `wp_ig_contacts_ips`
+--
+ALTER TABLE `wp_ig_contacts_ips`
+ ADD PRIMARY KEY (`created_on`,`ip`), ADD KEY `ip` (`ip`);
+
+--
+-- Indexes for table `wp_ig_forms`
+--
+ALTER TABLE `wp_ig_forms`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `wp_ig_lists`
+--
+ALTER TABLE `wp_ig_lists`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `wp_ig_lists_contacts`
+--
+ALTER TABLE `wp_ig_lists_contacts`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `wp_ig_mailing_queue`
+--
+ALTER TABLE `wp_ig_mailing_queue`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `wp_ig_sending_queue`
+--
+ALTER TABLE `wp_ig_sending_queue`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `wp_links`
+--
+ALTER TABLE `wp_links`
+ ADD PRIMARY KEY (`link_id`), ADD KEY `link_visible` (`link_visible`);
+
+--
+-- Indexes for table `wp_options`
+--
+ALTER TABLE `wp_options`
+ ADD PRIMARY KEY (`option_id`), ADD UNIQUE KEY `option_name` (`option_name`);
+
+--
+-- Indexes for table `wp_postmeta`
+--
+ALTER TABLE `wp_postmeta`
+ ADD PRIMARY KEY (`meta_id`), ADD KEY `post_id` (`post_id`), ADD KEY `meta_key` (`meta_key`(191));
+
+--
+-- Indexes for table `wp_posts`
+--
+ALTER TABLE `wp_posts`
+ ADD PRIMARY KEY (`ID`), ADD KEY `type_status_date` (`post_type`,`post_status`,`post_date`,`ID`), ADD KEY `post_parent` (`post_parent`), ADD KEY `post_author` (`post_author`), ADD KEY `post_name` (`post_name`(191));
+
+--
+-- Indexes for table `wp_signups`
+--
+ALTER TABLE `wp_signups`
+ ADD PRIMARY KEY (`signup_id`), ADD KEY `activation_key` (`activation_key`), ADD KEY `user_email` (`user_email`), ADD KEY `user_login_email` (`user_login`,`user_email`), ADD KEY `domain_path` (`domain`,`path`);
+
+--
+-- Indexes for table `wp_stats`
+--
+ALTER TABLE `wp_stats`
+ ADD PRIMARY KEY (`stat_id`), ADD KEY `uid` (`uid`), ADD KEY `ip` (`ip`), ADD KEY `ipForward` (`ipForward`), ADD KEY `ipClient` (`ipClient`), ADD KEY `userAgent` (`userAgent`), ADD KEY `isadmin` (`isadmin`);
+
+--
+-- Indexes for table `wp_termmeta`
+--
+ALTER TABLE `wp_termmeta`
+ ADD PRIMARY KEY (`meta_id`), ADD KEY `term_id` (`term_id`), ADD KEY `meta_key` (`meta_key`(191));
+
+--
+-- Indexes for table `wp_terms`
+--
+ALTER TABLE `wp_terms`
+ ADD PRIMARY KEY (`term_id`), ADD KEY `name` (`name`(191)), ADD KEY `slug` (`slug`(191));
+
+--
+-- Indexes for table `wp_term_relationships`
+--
+ALTER TABLE `wp_term_relationships`
+ ADD PRIMARY KEY (`object_id`,`term_taxonomy_id`), ADD KEY `term_taxonomy_id` (`term_taxonomy_id`);
+
+--
+-- Indexes for table `wp_term_taxonomy`
+--
+ALTER TABLE `wp_term_taxonomy`
+ ADD PRIMARY KEY (`term_taxonomy_id`), ADD UNIQUE KEY `term_id_taxonomy` (`term_id`,`taxonomy`), ADD KEY `taxonomy` (`taxonomy`);
+
+--
+-- Indexes for table `wp_usermeta`
+--
+ALTER TABLE `wp_usermeta`
+ ADD PRIMARY KEY (`umeta_id`), ADD KEY `user_id` (`user_id`), ADD KEY `meta_key` (`meta_key`(191));
+
+--
+-- Indexes for table `wp_users`
+--
+ALTER TABLE `wp_users`
+ ADD PRIMARY KEY (`ID`), ADD KEY `user_login_key` (`user_login`), ADD KEY `user_nicename` (`user_nicename`), ADD KEY `user_email` (`user_email`);
+
+--
+-- Indexes for table `wp_wsluserscontacts`
+--
+ALTER TABLE `wp_wsluserscontacts`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `wp_wslusersprofiles`
+--
+ALTER TABLE `wp_wslusersprofiles`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `wp_bpges_queued_items`
+--
+ALTER TABLE `wp_bpges_queued_items`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_bpges_subscriptions`
+--
+ALTER TABLE `wp_bpges_subscriptions`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
+--
+-- AUTO_INCREMENT for table `wp_bp_activity`
+--
+ALTER TABLE `wp_bp_activity`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=57;
+--
+-- AUTO_INCREMENT for table `wp_bp_activity_meta`
+--
+ALTER TABLE `wp_bp_activity_meta`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
+--
+-- AUTO_INCREMENT for table `wp_bp_friends`
+--
+ALTER TABLE `wp_bp_friends`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_bp_groups`
+--
+ALTER TABLE `wp_bp_groups`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
+--
+-- AUTO_INCREMENT for table `wp_bp_groups_groupmeta`
+--
+ALTER TABLE `wp_bp_groups_groupmeta`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=155;
+--
+-- AUTO_INCREMENT for table `wp_bp_groups_members`
+--
+ALTER TABLE `wp_bp_groups_members`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27;
+--
+-- AUTO_INCREMENT for table `wp_bp_messages_messages`
+--
+ALTER TABLE `wp_bp_messages_messages`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_bp_messages_meta`
+--
+ALTER TABLE `wp_bp_messages_meta`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_bp_messages_notices`
+--
+ALTER TABLE `wp_bp_messages_notices`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_bp_messages_recipients`
+--
+ALTER TABLE `wp_bp_messages_recipients`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_bp_mod_contents`
+--
+ALTER TABLE `wp_bp_mod_contents`
+MODIFY `content_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_bp_mod_flags`
+--
+ALTER TABLE `wp_bp_mod_flags`
+MODIFY `flag_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_bp_notifications`
+--
+ALTER TABLE `wp_bp_notifications`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=75;
+--
+-- AUTO_INCREMENT for table `wp_bp_notifications_meta`
+--
+ALTER TABLE `wp_bp_notifications_meta`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_bp_xprofile_data`
+--
+ALTER TABLE `wp_bp_xprofile_data`
+MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `wp_bp_xprofile_fields`
+--
+ALTER TABLE `wp_bp_xprofile_fields`
+MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `wp_bp_xprofile_groups`
+--
+ALTER TABLE `wp_bp_xprofile_groups`
+MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `wp_bp_xprofile_meta`
+--
+ALTER TABLE `wp_bp_xprofile_meta`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_commentmeta`
+--
+ALTER TABLE `wp_commentmeta`
+MODIFY `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_comments`
+--
+ALTER TABLE `wp_comments`
+MODIFY `comment_ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_ig_campaigns`
+--
+ALTER TABLE `wp_ig_campaigns`
+MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `wp_ig_contacts`
+--
+ALTER TABLE `wp_ig_contacts`
+MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `wp_ig_forms`
+--
+ALTER TABLE `wp_ig_forms`
+MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `wp_ig_lists`
+--
+ALTER TABLE `wp_ig_lists`
+MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `wp_ig_lists_contacts`
+--
+ALTER TABLE `wp_ig_lists_contacts`
+MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `wp_ig_mailing_queue`
+--
+ALTER TABLE `wp_ig_mailing_queue`
+MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_ig_sending_queue`
+--
+ALTER TABLE `wp_ig_sending_queue`
+MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_links`
+--
+ALTER TABLE `wp_links`
+MODIFY `link_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_options`
+--
+ALTER TABLE `wp_options`
+MODIFY `option_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9389;
+--
+-- AUTO_INCREMENT for table `wp_postmeta`
+--
+ALTER TABLE `wp_postmeta`
+MODIFY `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1831;
+--
+-- AUTO_INCREMENT for table `wp_posts`
+--
+ALTER TABLE `wp_posts`
+MODIFY `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=406;
+--
+-- AUTO_INCREMENT for table `wp_signups`
+--
+ALTER TABLE `wp_signups`
+MODIFY `signup_id` bigint(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_stats`
+--
+ALTER TABLE `wp_stats`
+MODIFY `stat_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_termmeta`
+--
+ALTER TABLE `wp_termmeta`
+MODIFY `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_terms`
+--
+ALTER TABLE `wp_terms`
+MODIFY `term_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=81;
+--
+-- AUTO_INCREMENT for table `wp_term_taxonomy`
+--
+ALTER TABLE `wp_term_taxonomy`
+MODIFY `term_taxonomy_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=85;
+--
+-- AUTO_INCREMENT for table `wp_usermeta`
+--
+ALTER TABLE `wp_usermeta`
+MODIFY `umeta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=87;
+--
+-- AUTO_INCREMENT for table `wp_users`
+--
+ALTER TABLE `wp_users`
+MODIFY `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `wp_wsluserscontacts`
+--
+ALTER TABLE `wp_wsluserscontacts`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wp_wslusersprofiles`
+--
+ALTER TABLE `wp_wslusersprofiles`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
