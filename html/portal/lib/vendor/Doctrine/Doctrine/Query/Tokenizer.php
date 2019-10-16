@@ -93,8 +93,16 @@ class Doctrine_Query_Tokenizer
                 break;
             
                 case 'by':
+
+// XTEC ************ MODIFICAT - Fixed PHP 7.3 warning
+// 2019.10.17 @aginard
+                    continue 2;
+// ************ ORIGINAL
+/*
                     continue;
-            
+*/
+//************ FI
+
                 default:
                     if ( ! isset($p)) {
                         throw new Doctrine_Query_Tokenizer_Exception(

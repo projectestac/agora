@@ -640,14 +640,14 @@ function getDiskInfo($dns, $service) {
 /**
  * Calculate the used disk percentage.
  *
- * @param float $diskConsume
- * @param float $diskSpace
+ * @param int $diskConsume
+ * @param int $diskSpace
  *
  * @return int disk disk percentage (without decimals)
  */
 function getDiskPercent($diskConsume, $diskSpace) {
     if ($diskSpace != 0) {
-        return round((($diskConsume / 1024) / $diskSpace) * 100);
+        return round((((int)$diskConsume / 1024) / (int)$diskSpace) * 100);
     }
     return 0;
 }
