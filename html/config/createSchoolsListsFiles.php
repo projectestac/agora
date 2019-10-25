@@ -37,17 +37,19 @@ if (isset($args['update'])) {
     $schools = getServices(false, 'activedId', 'asc', 'moodle2', '1');
 
     $schoolsvar = '';
-    foreach ($schools as $school) {
-        if ($onlyname) {
-            $schoolsvar .= $school['school_dns'] . "\n";
-        } else {
-            if ($newversion) {
-                $schoolsvar .= $agora['server']['html'] . $school['dns'] .
-                    "/moodle/admin/index.php?confirmupgrade=1&confirmrelease=1&autopilot=1&confirmplugincheck=1&lang=ca&cache=0\n";
-            }
-            for ($i = 0; $i < $numexec; $i++) {
-                $schoolsvar .= $agora['server']['html'] . $school['dns'] .
-                    "/moodle/admin/index.php?lang=ca&autopilot=1\n";
+    if (is_array($schools)) {
+        foreach ($schools as $school) {
+            if ($onlyname) {
+                $schoolsvar .= $school['school_dns'] . "\n";
+            } else {
+                if ($newversion) {
+                    $schoolsvar .= $agora['server']['html'] . $school['dns'] .
+                                   "/moodle/admin/index.php?confirmupgrade=1&confirmrelease=1&autopilot=1&confirmplugincheck=1&lang=ca&cache=0\n";
+                }
+                for ($i = 0; $i < $numexec; $i++) {
+                    $schoolsvar .= $agora['server']['html'] . $school['dns'] .
+                                   "/moodle/admin/index.php?lang=ca&autopilot=1\n";
+                }
             }
         }
     }
@@ -59,11 +61,13 @@ if (isset($args['update'])) {
     $schools = getServices(false, 'activedId', 'asc', 'intranet', '1');
 
     $schoolsvar = '';
-    foreach ($schools as $school) {
-        if ($onlyname) {
-            $schoolsvar .= $school['dns'] . "\n";
-        } else {
-            $schoolsvar .= $agora['server']['html'] . $school['dns'] . "/intranet/upgradeModules.php\n";
+    if (is_array($schools)) {
+        foreach ($schools as $school) {
+            if ($onlyname) {
+                $schoolsvar .= $school['dns'] . "\n";
+            } else {
+                $schoolsvar .= $agora['server']['html'] . $school['dns'] . "/intranet/upgradeModules.php\n";
+            }
         }
     }
 
@@ -74,11 +78,13 @@ if (isset($args['update'])) {
     $schools = getServices(false, 'activedId', 'asc', 'nodes', '1');
 
     $schoolsvar = '';
-    foreach ($schools as $school) {
-        if ($onlyname) {
-            $schoolsvar .= $school['dns'] . "\n";
-        } else {
-            $schoolsvar .= $agora['server']['html'] . $school['dns'] . "/wp-admin/upgrade.php?step=1\n";
+    if (is_array($schools)) {
+        foreach ($schools as $school) {
+            if ($onlyname) {
+                $schoolsvar .= $school['dns'] . "\n";
+            } else {
+                $schoolsvar .= $agora['server']['html'] . $school['dns'] . "/wp-admin/upgrade.php?step=1\n";
+            }
         }
     }
 
@@ -109,19 +115,21 @@ if (isset($args['update'])) {
 
         $schoolsvar = '';
 
-        foreach ($schools as $school) {
-            // Select the server name according to the
-            switch ($school['type']) {
-                case SERVEI_EDUCATIU_ID:
-                    $schoolsvar .= $agora['server']['se-url'] . $agora['server']['base'];
-                    break;
-                case PROJECTES_TYPE_ID:
-                    $schoolsvar .= $agora['server']['projectes'] . $agora['server']['base'];
-                    break;
-                default:
-                    $schoolsvar .= $agora['server']['server'] . $agora['server']['base'];
+        if (is_array($schools)) {
+            foreach ($schools as $school) {
+                // Select the server name according to the
+                switch ($school['type']) {
+                    case SERVEI_EDUCATIU_ID:
+                        $schoolsvar .= $agora['server']['se-url'] . $agora['server']['base'];
+                        break;
+                    case PROJECTES_TYPE_ID:
+                        $schoolsvar .= $agora['server']['projectes'] . $agora['server']['base'];
+                        break;
+                    default:
+                        $schoolsvar .= $agora['server']['server'] . $agora['server']['base'];
+                }
+                $schoolsvar .= $school['dns'] . $service['url'];
             }
-            $schoolsvar .= $school['dns'] . $service['url'];
         }
 
         saveVarToFile($service['file'], $schoolsvar);

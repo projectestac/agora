@@ -6,7 +6,10 @@ development home at https://github.com/projectestac/agora
 Changes in progress
 ---------------------------------------------------------------------------------------
 GENERAL
-- statistics.php: Fixed compatibility with PHP 7.3 
+- statistics.php: Fixed compatibility with PHP 7.3
+- createSchoolsListsFiles.php: Fixed PHP warnings
+- checkFiles.php: Fixed PHP warning
+- checkCrons.php: Fixed PHP warning
 
 
 Changes 19.09.25

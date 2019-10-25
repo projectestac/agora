@@ -175,7 +175,7 @@ echo '</div></body></html>';
 function fileSizeUnits($FZ) {
     $FS = array('B', 'kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB');
 
-    return number_format($FZ/pow(1024, $I=floor(log($FZ, 1024))), 2) . ' ' . $FS[$I];
+    return ($FZ == 0) ? 'B' : number_format($FZ/pow(1024, $I=floor(log($FZ, 1024))), 2) . ' ' . $FS[$I];
 }
 
 
