@@ -997,12 +997,12 @@ function getSchoolNodesStats_Users($school, $year, $month, $day, $daysofmonth) {
 
     // Count the users not marked as spam that have logged in the last 30 days
     $now = time();
-    $max = mktime(23, 59, 59, $month, $daysofmonth, $year);
-    if ($now < $max) { // Protection against late executions
-        $max = $now;
+    $max_ts = mktime(23, 59, 59, $month, $daysofmonth, $year);
+    if ($now < $max_ts) { // Protection against late executions
+        $max_ts = $now;
     }
-    $min = date('Y-m-d H:i:s', $max - SECONDS_IN_30_DAYS);
-    $max = date ('Y-m-d H:i:s', $max);
+    $min = date('Y-m-d H:i:s', $max_ts - SECONDS_IN_30_DAYS);
+    $max = date ('Y-m-d H:i:s', $max_ts);
 
     $sql = "SELECT count(um.umeta_id) as value FROM " . NODES_PREFIX . "users u "
             . "LEFT JOIN " . NODES_PREFIX . "usermeta um ON um.user_id = u.ID "
@@ -1013,7 +1013,7 @@ function getSchoolNodesStats_Users($school, $year, $month, $day, $daysofmonth) {
     }
 
     // Count the users not marked as spam that have logged in the last 90 days
-    $min = date('Y-m-d H:i:s', $max - SECONDS_IN_90_DAYS);
+    $min = date('Y-m-d H:i:s', $max_ts - SECONDS_IN_90_DAYS);
 
     $sql = "SELECT count(um.umeta_id) as value FROM " . NODES_PREFIX . "users u "
             . "LEFT JOIN " . NODES_PREFIX . "usermeta um ON um.user_id = u.ID "
