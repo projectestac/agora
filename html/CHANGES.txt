@@ -11,6 +11,12 @@ GENERAL
 - checkFiles.php: Fixed PHP warning
 - checkCrons.php: Fixed PHP warning
 
+NODES
+- Code Snippets: Added plugin
+
+PORTAL
+- Fixed SQL injection vulnerability
+
 
 Changes 19.09.25
 ---------------------------------------------------------------------------------------

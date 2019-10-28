@@ -103,6 +103,7 @@ gitcheckout "html/wordpress/wp-content/plugins/wordpress-telegram" "master" "htt
 gitcheckout "html/wordpress/wp-content/plugins/author-category" "master" "https://github.com/projectestac/wordpress-author-category.git"
 gitcheckout "html/wordpress/wp-content/plugins/pods" "master" "https://github.com/projectestac/wordpress-pods.git"
 gitcheckout "html/wordpress/wp-content/plugins/disable-gutenberg" "master" "https://github.com/projectestac/wordpress-disable-gutenberg.git"
+gitcheckout "html/wordpress/wp-content/plugins/code-snippets" "master" "https://github.com/projectestac/wordpress-code-snippets.git"
 fi
 
 if [[ $execportal == true ]]
