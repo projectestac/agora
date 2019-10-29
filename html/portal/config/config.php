@@ -15,7 +15,9 @@ $ZConfig['System']['compat_layer']      = true;  // enable loading of compat lay
 $ZConfig['System']['system.chmod_dir']  = 0777;  // The default chmod for new directories created by Zikula.
 
 // XTEC Added
-$ZConfig['System']['oci_pconnect'] = true;
+$ZConfig['System']['pconnect'] = true;
+$ZConfig['System']['moodle_dbtype'] = 'oci8';
+//$ZConfig['System']['moodle_dbtype'] = 'pgsql';
 
 // ----------------------------------------------------------------------
 // This is the definition for the default Zikula system database.

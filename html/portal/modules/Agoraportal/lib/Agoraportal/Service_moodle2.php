@@ -110,16 +110,33 @@ class Service_moodle2 extends Service {
      */
     public static function getDBConnection($dbHost, $db, $userid, $createDB = false) {
         global $ZConfig, $agora;
+
         $user = $agora['moodle2']['userprefix'] . $userid;
-        if ($ZConfig['System']['oci_pconnect']) {
-            $connect = oci_pconnect($user, $agora['moodle2']['userpwd'], $db);
-        } else {
-            $connect = oci_connect($user, $agora['moodle2']['userpwd'], $db);
+        $pass = $agora['moodle2']['userpwd'];
+
+        if ($ZConfig['System']['moodle_dbtype'] == 'oci8') {
+            if ($ZConfig['System']['pconnect']) {
+                $connect = oci_pconnect($user, $pass, $db);
+            } else {
+                $connect = oci_connect($user, $pass, $db);
+            }
+            if (!$connect) {
+                $e = oci_error();
+                throw new Exception(htmlentities($e['message'] . " - $user - $db"));
+            }
         }
-        if (!$connect) {
-            $e = oci_error();
-            throw new Exception(htmlentities($e['message'] . " - $user - $db"));
+
+        if ($ZConfig['System']['moodle_dbtype'] == 'pgsql') {
+            if ($ZConfig['System']['pconnect']) {
+                $connect = pg_pconnect("host=$dbHost dbname=$db user=$user password=$pass");
+            } else {
+                $connect = pg_connect("host=$dbHost dbname=$db user=$user password=$pass");
+            }
+            if (!$connect) {
+                throw new Exception(htmlentities(pg_last_error($connect)) . " - $user - $db");
+            }
         }
+
         return $connect;
     }
 
@@ -136,33 +153,56 @@ class Service_moodle2 extends Service {
             return false;
         }
 
-        if (substr_count(strtolower(trim($sql)), 'insert') > 1
-            || substr_count(strtolower(trim($sql)), 'update') > 1
-            || substr_count(strtolower(trim($sql)), 'delete') > 1) {
-            // for multiple inserts, updates and deletes in Oracle SQL
-            $sql = "BEGIN $sql END;";
-        }
-        $results = oci_parse($connect, $sql);
-        if (!$results) {
-            $error = oci_error($connect);
-            throw new Exception($error["message"]);
+        global $ZConfig;
+
+        $values = [];
+
+        if ($ZConfig['System']['moodle_dbtype'] == 'oci8') {
+            if (substr_count(strtolower(trim($sql)), 'insert') > 1
+                || substr_count(strtolower(trim($sql)), 'update') > 1
+                || substr_count(strtolower(trim($sql)), 'delete') > 1) {
+                // for multiple inserts, updates and deletes in Oracle SQL
+                $sql = "BEGIN $sql END;";
+            }
+
+            $results = oci_parse($connect, $sql);
+            if (!$results) {
+                $error = oci_error($connect);
+                throw new Exception($error["message"]);
+            }
+
+            $r = oci_execute($results);
+            if (!$r) {
+                $error = oci_error($results);
+                throw new Exception($error["message"]);
+            }
+
+            if (strtolower(substr(trim($sql), 0, 6)) == 'select') {
+                oci_fetch_all($results, $values, 0, -1, OCI_FETCHSTATEMENT_BY_ROW + OCI_ASSOC);
+            }
+            oci_free_statement($results);
         }
 
-        $r = oci_execute($results);
-        if (!$r) {
-            $error = oci_error($results);
-            throw new Exception($error["message"]);
-        }
+        if ($ZConfig['System']['moodle_dbtype'] == 'pgsql') {
+            $result = pg_query($connect, $sql);
+            if ($result === false) {
+                $error = pg_last_error($connect);
+                throw(new PostgresException($error . ': ' . $sql));
+            }
 
-        $values = array();
-        if (strtolower(substr(trim($sql), 0, 6)) == 'select') {
-            oci_fetch_all($results, $values, 0, -1, OCI_FETCHSTATEMENT_BY_ROW + OCI_ASSOC);
+            if (strtolower(substr(trim($sql), 0, 6)) == 'select') {
+                while (($row = pg_fetch_assoc($result)) !== false) {
+                    $values[] = $row;
+                }
+            }
+
+            pg_freeresult($result);
         }
-        oci_free_statement($results);
 
         if (!$keepalive) {
             self::disconnectDB($connect);
         }
+
         return $values;
     }
 
@@ -172,7 +212,15 @@ class Service_moodle2 extends Service {
      */
     public static function disconnectDB($connect) {
         if ($connect) {
-            oci_close($connect);
+            global $ZConfig;
+
+            if ($ZConfig['System']['moodle_dbtype'] == 'oci8') {
+                oci_close($connect);
+            }
+
+            if ($ZConfig['System']['moodle_dbtype'] == 'pgsql') {
+                pg_close($connect);
+            }
         }
     }
 
