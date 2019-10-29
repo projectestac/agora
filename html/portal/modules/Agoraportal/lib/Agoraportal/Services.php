@@ -790,20 +790,6 @@ class Service extends AgoraBase {
     }
 
     /**
-     * Calculate the next free ActiveId/DB identifier
-     * @return bool|false
-     */
-    /*
-    private function calculateActiveId() {
-        $ret = $this->getDBId();
-        if (!$ret) {
-            return LogUtil::registerError(__('No queda cap base de dades lliure'));
-        }
-        LogUtil::registerStatus('Base de dades seleccionada ' . $this->activedId);
-        return true;
-    }
-*/
-    /**
      * Returns the DB identifier, needs to be overwritten
      * @return bool
      */
@@ -845,16 +831,6 @@ class Service extends AgoraBase {
     }
 
     /**
-     * Closes the connection to the database (overwrite if no mysql needed)
-     * @param $connect
-     */
-    public static function disconnectDB($connect) {
-        if ($connect) {
-            oci_close($connect);
-        }
-    }
-
-    /**
      * Executes a SQL into the service database
      * @param $sql
      * @param bool|false $keepalive
@@ -866,7 +842,7 @@ class Service extends AgoraBase {
         $values = $this->sql($sql, $connect);
 
         if (!$keepalive) {
-            self::disconnectDB($connect);
+            $this->disconnectDB($connect);
         }
 
         return $values;

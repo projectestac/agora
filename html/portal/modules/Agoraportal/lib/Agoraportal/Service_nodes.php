@@ -211,6 +211,17 @@ class Service_nodes extends Service {
     }
 
     /**
+     * Closes connection with the database
+     * @param $connect
+     */
+    public static function disconnectDB($connect) {
+        if ($connect) {
+            mysqli_close($connect);
+        }
+    }
+
+
+    /**
      * Show the list of files of the data directory
      *
      * @author Toni Ginard
