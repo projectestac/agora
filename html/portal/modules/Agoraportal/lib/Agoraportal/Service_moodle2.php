@@ -114,7 +114,7 @@ class Service_moodle2 extends Service {
         $user = $agora['moodle2']['userprefix'] . $userid;
         $pass = $agora['moodle2']['userpwd'];
 
-        if ($ZConfig['System']['moodle_dbtype'] == 'oci8') {
+        if ($agora['moodle2']['dbtype'] == 'oci') {
             if ($ZConfig['System']['pconnect']) {
                 $connect = oci_pconnect($user, $pass, $db);
             } else {
@@ -126,7 +126,7 @@ class Service_moodle2 extends Service {
             }
         }
 
-        if ($ZConfig['System']['moodle_dbtype'] == 'pgsql') {
+        if ($agora['moodle2']['dbtype'] == 'pgsql') {
             if ($ZConfig['System']['pconnect']) {
                 $connect = pg_pconnect("host=$dbHost dbname=$db user=$user password=$pass");
             } else {
@@ -153,11 +153,11 @@ class Service_moodle2 extends Service {
             return false;
         }
 
-        global $ZConfig;
+        global $agora;
 
         $values = [];
 
-        if ($ZConfig['System']['moodle_dbtype'] == 'oci8') {
+        if ($agora['moodle2']['dbtype'] == 'oci') {
             if (substr_count(strtolower(trim($sql)), 'insert') > 1
                 || substr_count(strtolower(trim($sql)), 'update') > 1
                 || substr_count(strtolower(trim($sql)), 'delete') > 1) {
@@ -183,7 +183,7 @@ class Service_moodle2 extends Service {
             oci_free_statement($results);
         }
 
-        if ($ZConfig['System']['moodle_dbtype'] == 'pgsql') {
+        if ($agora['moodle2']['dbtype'] == 'pgsql') {
             $result = pg_query($connect, $sql);
             if ($result === false) {
                 $error = pg_last_error($connect);
@@ -212,13 +212,13 @@ class Service_moodle2 extends Service {
      */
     public static function disconnectDB($connect) {
         if ($connect) {
-            global $ZConfig;
+            global $agora;
 
-            if ($ZConfig['System']['moodle_dbtype'] == 'oci8') {
+            if ($agora['moodle2']['dbtype'] == 'oci') {
                 oci_close($connect);
             }
 
-            if ($ZConfig['System']['moodle_dbtype'] == 'pgsql') {
+            if ($agora['moodle2']['dbtype'] == 'pgsql') {
                 pg_close($connect);
             }
         }

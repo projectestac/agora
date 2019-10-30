@@ -4,9 +4,10 @@
 
     // Params for Moodle 2
     $agora['moodle2']['dbtype']            = 'pgsql';             // oci (Oracle), mysql, ...
-    $agora['moodle2']['prefix']            = 'm2';              // Moodle 2.x tables prefix (only 2 chars)
-    $agora['moodle2']['dbhost']            = 'localhost';                // Not necessary for Oracle
-    $agora['moodle2']['username']          = $agora['server']['userprefix'];
+    $agora['moodle2']['prefix']            = 'm2';                // Moodle 2.x tables prefix (only 2 chars)
+    $agora['moodle2']['dbhost']            = 'localhost';         // Not necessary for Oracle
+    $agora['moodle2']['port']              = '5432';              // Not necessary for Oracle
+    $agora['moodle2']['username']          = 'postgres';
     $agora['moodle2']['diskusagefile']     = 'diskUsageMdl2.txt';
     $agora['moodle2']['repository_files']  = '/repository/files/'; // folder for uploading big files, sinchronization between 1.9 and 2 files...
     $agora['moodle2']['userprefix']        = $agora['server']['userprefix']; // All services need to have the same variable name

@@ -16,8 +16,6 @@ $ZConfig['System']['system.chmod_dir']  = 0777;  // The default chmod for new di
 
 // XTEC Added
 $ZConfig['System']['pconnect'] = true;
-$ZConfig['System']['moodle_dbtype'] = 'oci8';
-//$ZConfig['System']['moodle_dbtype'] = 'pgsql';
 
 // ----------------------------------------------------------------------
 // This is the definition for the default Zikula system database.
