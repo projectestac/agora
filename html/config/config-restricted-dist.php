@@ -1,6 +1,5 @@
 <?php
-    // Passwords
-    $agora['xtecadmin']['password'] = '6142bfd56a583d891f0b1dcdbb2a9ef8';
-    $agora['config']['xtecadmin'] = $agora['xtecadmin']['password']; // Deprecated
-    $agora['opcache']['password']     = 'agora';
-    //$agora['moodle2']['airnotifier']     = '';
+
+$agora['xtecadmin']['password'] = '6142bfd56a583d891f0b1dcdbb2a9ef8';
+$agora['config']['xtecadmin']   = $agora['xtecadmin']['password']; // Deprecated
+$agora['opcache']['password']   = 'agora';

@@ -6,6 +6,7 @@
     $agora['moodle2']['dbtype']            = 'oci';             // oci (Oracle), mysql, ...
     $agora['moodle2']['prefix']            = 'm2';              // Moodle 2.x tables prefix (only 2 chars)
     $agora['moodle2']['dbhost']            = '';                // Not necessary for Oracle
+    $agora['moodle2']['port']              = '';
     $agora['moodle2']['username']          = $agora['server']['userprefix'];
     $agora['moodle2']['diskusagefile']     = 'diskUsageMdl2.txt';
     $agora['moodle2']['repository_files']  = '/repository/files/'; // folder for uploading big files, sinchronization between 1.9 and 2 files...
@@ -42,10 +43,6 @@
     $agora['server']['html']               = $agora['server']['server'] . $agora['server']['base'];
     $agora['server']['cookie']             = 'agoraSchool'.$agora['server']['enviroment'];
 
-    // ubr_upload vars
-    $agora['server']['cgi_script']         = $agora['server']['server'] . $agora['server']['cgi_base'] . 'ubr_upload.pl';
-    $agora['server']['ubr_upload']         = $agora['server']['root'] . $agora['server']['docs'] . 'ubr_uploads/';      // Directori pels fitxers de l'ubr_upload (script de pujada de fitxers grans). Després es mouran a cada usu.
-    $agora['server']['ubr_temp']           = $agora['server']['root'] . $agora['server']['docs'] . 'ubr_uploads/tmp/';  // Directori pels fitxers temporals de l'ubr_upload (script de pujada de fitxers grans)
     // Fitxer amb les CA reconegudes
     $agora['server']['ca_bundle']          = $agora['server']['root'] . 'html/config/ca-bundle.crt';
 

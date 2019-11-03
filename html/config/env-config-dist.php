@@ -8,10 +8,10 @@ $agora['server']['server']     = 'https://agora-virtual.xtec.cat';     // URL ba
 $agora['server']['se-url']     = 'https://agora-virtual-se.xtec.cat';   // URL base del servidor per Serveis Educatius
 $agora['server']['projectes']  = 'https://agora-virtual-projectes.xtec.cat';   // URL base del servidor per Projectes
 $agora['server']['base']       = '/agora/';          // Context de l'aplicació (és a dir, el que cal escriure després del servidor per accedir a l'aplicació). En el cas d'acceptació agora-moodle i a producció res.
-$agora['server']['cgi_base']   = '/cgi-bin/';        // Context dels CGI (és a dir, el que cal escriure després del servidor per accedir als CGI).
 $agora['server']['docs']       = 'docs/';            // Directori arrel de dades d'usuari
 $agora['server']['userprefix'] = 'usu';              // Prefix dels esquemes dels usuaris de base de dades que s'han creat. Així, per exemple, si s'han creat usuaris de l'estil USUx (com ara USU1, USU2...), el prefix és USU.
 $agora['server']['enviroment'] = 'LOCAL';            // Referent a l'entorn (INT, ACC, PRO, FRM)
+$agora['server']['school_information'] = 'https://aplicacions.ensenyament.gencat.cat/pls/xtec/agora_dades_centre?p_codi_centre=';
 
 // Admin database access info (MySQL)
 $agora['admin']['username']    = 'root';          // Nom d'usuari
@@ -19,23 +19,16 @@ $agora['admin']['userpwd']     = 'agora';         // Contrasenya
 $agora['admin']['database']    = 'adminagora';    // Base de dades
 $agora['admin']['host']        = 'localhost';     // Nom del servidor de bases de dades
 $agora['admin']['port']        = '3306';          // Port del servidor de bases de dades
-$agora['admin']['datadir']     = $agora['server']['docs'] . 'portaldata/';  // Directori de dades d'usuari
+$agora['admin']['datadir']     = $agora['server']['docs'] . 'portaldata/'; // Directori de dades d'usuari
 
 // Schools Moodle 2 config info
+$agora['moodle2']['dbhost']    = '';              // Not necessary for Oracle
+$agora['moodle2']['port']      = '';
 $agora['moodle2']['userpwd']   = 'agora';         // Contrasenya que tenen tots els esquemes
 $agora['moodle2']['database']  = 'XE';            // Base de dades (tal i com està definida al tnsnames) de l'esquema anterior (sense el número)
 $agora['moodle2']['dbnumber']  = '';              // Número de la primera base de dades de l'aplicació; a acceptació en blanc i a producció 3
 $agora['moodle2']['datadir']   = $agora['server']['docs'] . 'moodle2/';  // Directori de dades d'usuari del moodle2
 $agora['moodle2']['memcache_servers'] = '127.0.0.1';
-//$agora['moodle2']['filepath_number'] = 0;       // Total de "usus" que hi haurà a cada directori de dades
-//$agora['moodle2']['filepath_prefix'] = 'repo';  // Directori intermig on es troben els usu (dadesX)
-//$agora['moodle2']['filepath_lastmoved'] = 0;    // Darrer "usuX" que s'ha mogut a repoX. A partir de usuX+1, el directori de dades serà el genèric
-
-// Schools intranet database access info (MySQL)
-$agora['intranet']['username'] = 'root';          // Usuari/ària per accedir a les bases de dades de les intranets
-$agora['intranet']['userpwd']  = 'agora';         // Contrasenya de l'usuari/ària anterior
-$agora['intranet']['host']     = 'localhost';     // Servidor de la base de dades
-$agora['intranet']['datadir']  = 'zkdata/';       // Directori de dades d'usuari de la intranet
 
 // Schools WordPress database access info (MySQL)
 $agora['nodes']['username']    = 'root';          // Usuari/ària per accedir a les bases de dades
@@ -44,4 +37,3 @@ $agora['nodes']['datadir']     = $agora['server']['docs'] . 'wpdata/';  // Direc
 
 // Load vars common in all environments
 include_once $agora['server']['root'].'html/config/config.php';
-
