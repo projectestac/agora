@@ -1788,7 +1788,7 @@ CREATE TABLE IF NOT EXISTS `IWstats` (
   `iw_ipClient` varchar(15) NOT NULL DEFAULT '',
   `iw_userAgent` varchar(255) NOT NULL DEFAULT '',
   `iw_moduleid` int(11) NOT NULL DEFAULT '0',
-  `iw_params` varchar(100) NOT NULL,
+  `iw_params` varchar(255) NOT NULL,
   `iw_uid` int(11) NOT NULL DEFAULT '0',
   `iw_isadmin` tinyint(4) NOT NULL DEFAULT '0',
   `iw_skipped` tinyint(4) NOT NULL DEFAULT '0',
