@@ -749,13 +749,7 @@ function get_filepath_moodle($id_moodle2 = '') {
         $id_moodle2 = $school_info['id_moodle2'];
     }
 
-    if ($agora['moodle2']['dbtype'] == 'oci') {
-        $dbname = $agora['moodle2']['username'] . $id_moodle2;
-    }
-
-    if ($agora['moodle2']['dbtype'] == 'pgsql') {
-        $dbname = $agora['moodle2']['userprefix'] . $id_moodle2 ;
-    }
+    $dbname = $agora['moodle2']['userprefix'] . $id_moodle2 ;
 
     // If $filepath_number is not set or it is an empty string, at this point its value
     // will be 0. In that case, no offset is applied
