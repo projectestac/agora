@@ -258,22 +258,23 @@ function getSchoolInfo($service) {
         $cookie = $_COOKIE[$agora['server']['cookie']];
         if (isValidCookie($cookie)) {
             $data = explode('__', $cookie);
-            if ((count($data) == 17) && ($data[0] == $centre)) {
+            if ((count($data) == 18) && ($data[0] == $centre)) {
                 $school_info['clientCode'] = $data[1];
                 $school_info['type'] = $data[2];
                 $school_info['url_type'] = $data[3];
                 $school_info['url_host'] = $data[4];
                 $school_info['id_moodle2'] = $data[5];
-                $school_info['database_moodle2'] = $data[6];
-                $school_info['diskPercent_moodle2'] = $data[7];
-                $school_info['id_intranet'] = $data[8];
-                $school_info['database_intranet'] = $data[9];
-                $school_info['dbhost_intranet'] = $data[10];
-                $school_info['diskPercent_intranet'] = $data[11];
-                $school_info['id_nodes'] = $data[12];
-                $school_info['database_nodes'] = $data[13];
-                $school_info['dbhost_nodes'] = $data[14];
-                $school_info['diskPercent_nodes'] = $data[15];
+                $school_info['dbhost_moodle2'] = $data[6];
+                $school_info['database_moodle2'] = $data[7];
+                $school_info['diskPercent_moodle2'] = $data[8];
+                $school_info['id_intranet'] = $data[9];
+                $school_info['database_intranet'] = $data[10];
+                $school_info['dbhost_intranet'] = $data[11];
+                $school_info['diskPercent_intranet'] = $data[12];
+                $school_info['id_nodes'] = $data[13];
+                $school_info['database_nodes'] = $data[14];
+                $school_info['dbhost_nodes'] = $data[15];
+                $school_info['diskPercent_nodes'] = $data[16];
                 // Debug info
                 $school_info['source'] = 'Cookie';
             }
@@ -403,6 +404,7 @@ function getSchoolInfo($service) {
             . '__' . (isset($school_info['url_type']) ? $school_info['url_type'] : '')
             . '__' . (isset($school_info['url_host']) ? $school_info['url_host'] : '')
             . '__' . (isset($school_info['id_moodle2']) ? $school_info['id_moodle2'] : '')
+            . '__' . (isset($school_info['dbhost_moodle2']) ? $school_info['dbhost_moodle2'] : '')
             . '__' . (isset($school_info['database_moodle2']) ? $school_info['database_moodle2'] : '')
             . '__' . (isset($school_info['diskPercent_moodle2']) ? $school_info['diskPercent_moodle2'] : '')
             . '__' . (isset($school_info['id_intranet']) ? $school_info['id_intranet'] : '')
