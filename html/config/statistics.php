@@ -47,7 +47,7 @@ $timestampofstats = mktime(23, 59, 59, $month, $day, $year); // Timestamp of the
 $daysofmonth = date('t', $timestampofstats); // Number of days of the month
 $timestampofmonth = mktime(23, 59, 59, $month, $daysofmonth, $year);
 
-$services = getServices(true);
+$services = getServices(true, 'clientDNS', 'asc', 'all', '1');
 
 foreach ($services as $school) {
     if (isset($args['only']) && !empty($args['only']) && $args['only'] != $school['service']) {
