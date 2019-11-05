@@ -227,7 +227,7 @@ CREATE TABLE IF NOT EXISTS `agoraportal_client_services` (
   `timeEdited` varchar(25) NOT NULL,
   `timeRequested` varchar(25) NOT NULL,
   `diskConsume` varchar(15) NOT NULL,
-  `dbHost` varchar(25) NOT NULL,
+  `dbHost` varchar(150) NOT NULL,
   PRIMARY KEY (`clientServiceId`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=65 ;
 
