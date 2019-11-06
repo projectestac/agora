@@ -31,6 +31,7 @@ NODES
 
 PORTAL
 - Fixed SQL injection vulnerability
+- xtec-mailer: Fixed compatibility with PHP 7.3
 
 
 Changes 19.09.25
