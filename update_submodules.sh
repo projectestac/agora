@@ -34,6 +34,7 @@ gitcheckout "html/moodle2/course/format/simple" "master" "git@github.com:project
 gitcheckout "html/moodle2/course/format/vv" "master" "https://github.com/vicensvives/moodle-format_vicensvives.git"
 gitcheckout "html/moodle2/filter/wiris" "stable" "git@github.com:wiris/moodle-filter_wiris.git"
 gitcheckout "html/moodle2/langpacks" "master" "git@github.com:projectestac/moodle-langpacks.git"
+gitcheckout "html/moodle2/lib/editor/atto/plugins/cloze" "master" "https://github.com/dthies/moodle-atto_cloze.git"
 gitcheckout "html/moodle2/lib/editor/atto/plugins/fontsize" "master" "https://github.com/andrewnicols/moodle-atto_fontsize.git"
 gitcheckout "html/moodle2/lib/editor/atto/plugins/fontfamily" "master" "git@github.com:projectestac/moodle-atto_fontfamily.git"
 gitcheckout "html/moodle2/lib/editor/atto/plugins/wiris" "stable" "git@github.com:wiris/moodle-atto_wiris.git"

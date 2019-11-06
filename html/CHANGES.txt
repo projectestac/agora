@@ -11,6 +11,17 @@ GENERAL
 - checkFiles.php: Fixed PHP warning
 - checkCrons.php: Fixed PHP warning
 
+MOODLE
+- MUC: Changed cache store for coursecat. Moved to default session
+- xtec-mailer: Fixed compatibility with PHP 7.3
+- Added atto plugin Cloze
+- Upgraded all wiris plugins
+- Upgraded module hot potatoes
+- Upgraded module choicegroup
+- Upgraded module H5P
+- Upgraded question format hot potatoes
+- Upgraded question type "ordering"
+
 NODES
 - Code Snippets: Added plugin
 
