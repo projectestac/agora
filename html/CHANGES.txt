@@ -25,6 +25,7 @@ MOODLE
 NODES
 - Email_subscribers: Remove access to email_subscribers' menu if user role is not administrator or editor
 - Simple Calendar: Upgraded to version 3.1.22
+- xtec-mail: Ensure the email subject starts with the blog name
 - xtec-mailer: Fixed compatibility with PHP 7.3
 - Code Snippets: Added plugin
 - xtec lib: Updated script to replace email subscribers fields
