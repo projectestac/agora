@@ -13,10 +13,7 @@ html/moodle2/auth/odissea
 html/*/sftp-config*.json
 sftp-config.json
 nbproject
-moodledata/
-docs/
 sh/
-zkdata/
 .Trash*/*
 cache_ins/
 muc/

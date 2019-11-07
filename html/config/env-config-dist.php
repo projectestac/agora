@@ -27,7 +27,7 @@ $agora['moodle2']['port']      = '';
 $agora['moodle2']['userpwd']   = 'agora';         // Contrasenya que tenen tots els esquemes
 $agora['moodle2']['database']  = 'XE';            // Base de dades (tal i com està definida al tnsnames) de l'esquema anterior (sense el número)
 $agora['moodle2']['dbnumber']  = '';              // Número de la primera base de dades de l'aplicació; a acceptació en blanc i a producció 3
-$agora['moodle2']['datadir']   = $agora['server']['datadir'] . 'moodle2/';  // Directori de dades d'usuari del moodle2
+$agora['moodle2']['datadir']   = $agora['server']['datadir'] . 'moodledata/';  // Directori de dades d'usuari del moodle2
 $agora['moodle2']['memcache_servers'] = '127.0.0.1';
 
 // Schools WordPress database access info (MySQL)
