@@ -6,6 +6,7 @@ development home at https://github.com/projectestac/agora
 Changes in progress
 ---------------------------------------------------------------------------------------
 GENERAL
+- phpmemcached: Upgraded to version 1.3.0
 - statistics.php: Fixed compatibility with PHP 7.3
 - createSchoolsListsFiles.php: Fixed PHP warnings
 - checkFiles.php: Fixed PHP warning
