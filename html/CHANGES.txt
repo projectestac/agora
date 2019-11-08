@@ -3,7 +3,7 @@ Release notes for Agora (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
-Changes in progress
+Changes 19.11.14
 ---------------------------------------------------------------------------------------
 GENERAL
 - phpmemcached: Upgraded to version 1.3.0
@@ -13,6 +13,7 @@ GENERAL
 - checkCrons.php: Fixed PHP warning
 
 MOODLE
+- Updated language packs
 - MUC: Changed cache store for coursecat. Moved to default session
 - xtec-mailer: Fixed compatibility with PHP 7.3
 - Added atto plugin Cloze
@@ -22,6 +23,7 @@ MOODLE
 - Upgraded module H5P
 - Upgraded question format hot potatoes
 - Upgraded question type "ordering"
+- Only allow access to parameter atto_recordrtc | allowedtypes to xtecadmin
 
 NODES
 - Email_subscribers: Remove access to email_subscribers' menu if user role is not administrator or editor
@@ -30,6 +32,7 @@ NODES
 - xtec-mailer: Fixed compatibility with PHP 7.3
 - Code Snippets: Added plugin
 - xtec lib: Updated script to replace email subscribers fields
+- Grup-classe: Fixed support for new version of email subscribers
 
 PORTAL
 - Fixed SQL injection vulnerability
