@@ -13,6 +13,7 @@ GENERAL
 - checkCrons.php: Fixed PHP warning
 
 MOODLE
+- Upgraded Moodle from v3.6.6 to v3.6.7
 - Updated language packs
 - MUC: Changed cache store for coursecat. Moved to default session
 - xtec-mailer: Fixed compatibility with PHP 7.3
@@ -26,6 +27,7 @@ MOODLE
 - Only allow access to parameter atto_recordrtc | allowedtypes to xtecadmin
 
 NODES
+- Accessibility improvements in themes
 - Email_subscribers: Remove access to email_subscribers' menu if user role is not administrator or editor
 - Simple Calendar: Upgraded to version 3.1.22
 - xtec-mail: Ensure the email subject starts with the blog name
@@ -36,6 +38,7 @@ NODES
 
 PORTAL
 - Fixed SQL injection vulnerability
+- Fixed error in MySQL mass SQL execution
 - xtec-mailer: Fixed compatibility with PHP 7.3
 
 
