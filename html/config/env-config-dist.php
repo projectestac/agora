@@ -9,6 +9,7 @@ $agora['server']['se-url']     = 'https://agora-virtual-se.xtec.cat';   // URL b
 $agora['server']['projectes']  = 'https://agora-virtual-projectes.xtec.cat';   // URL base del servidor per Projectes
 $agora['server']['base']       = '/agora/';          // Context de l'aplicació (és a dir, el que cal escriure després del servidor per accedir a l'aplicació). En el cas d'acceptació agora-moodle i a producció res.
 $agora['server']['datadir']    = 'data/';            // Directori arrel de dades d'usuari
+$agora['server']['temp']       = '';                 // Ubicació alternativa pels directoris temporals del moodledata
 $agora['server']['userprefix'] = 'usu';              // Prefix dels esquemes dels usuaris de base de dades que s'han creat. Així, per exemple, si s'han creat usuaris de l'estil USUx (com ara USU1, USU2...), el prefix és USU.
 $agora['server']['enviroment'] = 'LOCAL';            // Referent a l'entorn (INT, ACC, PRO, FRM)
 $agora['server']['school_information'] = 'https://aplicacions.ensenyament.gencat.cat/pls/xtec/agora_dades_centre?p_codi_centre=';
