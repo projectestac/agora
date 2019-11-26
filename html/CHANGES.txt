@@ -1,7 +1,13 @@
-Release notes for Agora (http://agora.xtec.cat)
+Release notes for Agora (https://agora.xtec.cat)
 
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
+
+Changes in progress
+---------------------------------------------------------------------------------------
+NODES
+- Upgraded WordPress to version 5.1.3
+
 
 Changes 19.11.14
 ---------------------------------------------------------------------------------------
