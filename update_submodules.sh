@@ -99,7 +99,7 @@ gitcheckout "html/wordpress/wp-content/plugins/xtec-ldap-login" "master" "https:
 gitcheckout "html/wordpress/wp-content/plugins/xtec-mail/lib" "master" "https://github.com/projectestac/mailer.git"
 gitcheckout "html/wordpress/wp-includes/xtec" "master" "https://github.com/projectestac/wordpress-xtec.git"
 gitcheckout "html/wordpress/wp-content/plugins/tabs-responsive" "master" "https://github.com/projectestac/tabs-responsive.git"
-gitcheckout "html/wordpress/wp-content/plugins/h5p" "stable" "https://github.com/h5p/h5p-wordpress-plugin.git"
+gitcheckout "html/wordpress/wp-content/plugins/h5p" "master" "https://github.com/projectestac/wordpress-h5p.git"
 gitcheckout "html/wordpress/wp-content/plugins/wordpress-telegram" "master" "https://github.com/projectestac/wordpress-telegram.git"
 gitcheckout "html/wordpress/wp-content/plugins/author-category" "master" "https://github.com/projectestac/wordpress-author-category.git"
 gitcheckout "html/wordpress/wp-content/plugins/pods" "master" "https://github.com/projectestac/wordpress-pods.git"
