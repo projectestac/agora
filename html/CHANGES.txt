@@ -5,8 +5,12 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+MOODLE
+- H5P: Upgraded module to version 1.20.1
+
 NODES
 - Upgraded WordPress to version 5.1.3
+- H5P: Upgraded to version 1.15
 
 
 Changes 19.11.14
