@@ -472,7 +472,7 @@ function getSchoolMoodleStats_HourAccess($con, $year, $month, $day, $hour, $pref
     $max = mktime($hour, 59, 59, $month, $day, $year);
     $min = $max - SECONDS_IN_AN_HOUR;
 
-    $sql = 'SELECT count(ID) AS total FROM ' . $prefix . 'log WHERE time > ' . $min . ' AND time < ' . $max . ' ';
+    $sql = 'SELECT count(ID) AS total FROM ' . $prefix . 'logstore_standard_log WHERE timecreated > ' . $min . ' AND timecreated < ' . $max . ' ';
     $stmt = oci_parse($con, $sql);
     $value = '';
 
@@ -503,7 +503,7 @@ function getSchoolMoodleStats_TotalWeekAccess($con, $year, $month, $day, $prefix
     $max = mktime(23, 59, 59, $month, $day, $year);
     $min = $max - SECONDS_IN_A_WEEK;
 
-    $sql = 'SELECT count(ID) AS total FROM ' . $prefix . 'log WHERE time>' . $min . ' AND time<' . $max . ' ';
+    $sql = 'SELECT count(ID) AS total FROM ' . $prefix . 'logstore_standard_log WHERE timecreated > ' . $min . ' AND timecreated < ' . $max . ' ';
     $stmt = oci_parse($con, $sql);
     $value = '';
 
@@ -534,7 +534,7 @@ function getSchoolMoodleStats_TotalMonthAccess($con, $year, $month, $daysofmonth
     $max = mktime(23, 59, 59, $month, $daysofmonth, $year);
     $min = mktime(0, 0, 0, $month, 1, $year);
 
-    $sql = 'SELECT count(ID) AS total FROM ' . $prefix . 'log WHERE time>' . $min . ' AND time<' . $max . ' ';
+    echo $sql = 'SELECT count(ID) AS total FROM ' . $prefix . 'logstore_standard_log WHERE timecreated > ' . $min . ' AND timecreated < ' . $max . ' ';
     $stmt = oci_parse($con, $sql);
     $value = '';
 

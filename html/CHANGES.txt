@@ -3,8 +3,11 @@ Release notes for Agora (https://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
-Changes 19.12.04
+Changes in progress
 ---------------------------------------------------------------------------------------
+GENERAL
+- statistics.php: Fixed harvesting of access statistics
+
 MOODLE
 - H5P: Upgraded module to version 1.20.1
 
