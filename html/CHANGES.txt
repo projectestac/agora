@@ -16,6 +16,9 @@ NODES
 - H5P: Upgraded to version 1.15
 - Blocked access to file xmlrpc.php
 
+PORTAL
+- Increased maximum file size in big files upload to 350 MB
+
 
 Changes 19.11.14
 ---------------------------------------------------------------------------------------
