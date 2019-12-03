@@ -40,8 +40,10 @@
             $agora['server']['school_information'] = 'https://aplicacions.ensenyament.gencat.cat/pls/xtec/agora_dades_centre?p_codi_centre=';
             break;
     }
+
     $agora['server']['html']               = $agora['server']['server'] . $agora['server']['base'];
-    $agora['server']['cookie']             = 'agoraSchool'.$agora['server']['enviroment'];
+    $agora['server']['cookie']             = 'agoraSchool' . $agora['server']['enviroment'];
+    $agora['server']['ubr_upload']         = $agora['server']['root'] . $agora['server']['datadir'] . 'ubr_uploads/';      // Directori per la pujada de fitxers grans. Després es mouran a cada usu.
 
     // Fitxer amb les CA reconegudes
     $agora['server']['ca_bundle']          = $agora['server']['root'] . 'html/config/ca-bundle.crt';
