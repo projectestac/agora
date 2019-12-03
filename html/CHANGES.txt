@@ -10,6 +10,7 @@ GENERAL
 
 MOODLE
 - H5P: Upgraded module to version 1.20.1
+- Improvements in memcached management
 
 NODES
 - Upgraded WordPress to version 5.1.3
