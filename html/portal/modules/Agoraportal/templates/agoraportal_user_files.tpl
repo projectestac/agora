@@ -75,7 +75,7 @@
                                 if (file.size < 10*1024*1024) {
                                     up.splice(0);
                                     document.getElementById('filelist').innerHTML = '';
-                                    document.getElementById('uploadstatus').innerHTML = '<div class="alert alert-danger">ERROR: el fitxer seleccionat és menor de 10Mb</div>';
+                                    document.getElementById('uploadstatus').innerHTML = '<div class="alert alert-danger">ERROR: el fitxer seleccionat és menor de 10 MB</div>';
                                 } else {
                                     document.getElementById('uploadstatus').innerHTML = '';
                                     document.getElementById('filelist').innerHTML = '<div id="' + file.id + '">' + file.name + ' (' + plupload.formatSize(file.size) + ')</div>';
@@ -149,7 +149,7 @@
                                     <span class="sr-only">Descarrega el fitxer</span>
                                 </a>
                             {/if}
-                            <button class="btn btn-danger" onclick="deleteFileM2x('{$file.filename}','{$file.name}','{$client->clientCode}');" title="Esborra el fitxer">
+                            <button class="btn btn-danger" onclick="deleteFileM2x('{$file.filename|escape:'quotes'}','{$file.name|escape:'quotes'}','{$client->clientCode}');" title="Esborra el fitxer">
                                 <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                                 <span class="sr-only">Esborra el fitxer</span>
                             </button>
