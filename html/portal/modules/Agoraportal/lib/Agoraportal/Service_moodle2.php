@@ -127,6 +127,7 @@ class Service_moodle2 extends Service {
         }
 
         if ($agora['moodle2']['dbtype'] == 'pgsql') {
+            $db = $user;
             if ($ZConfig['System']['pconnect']) {
                 $connect = pg_pconnect("host=$dbHost dbname=$db user=$user password=$pass");
             } else {
@@ -187,7 +188,7 @@ class Service_moodle2 extends Service {
             $result = pg_query($connect, $sql);
             if ($result === false) {
                 $error = pg_last_error($connect);
-                throw(new PostgresException($error . ': ' . $sql));
+                throw(new Exception($error . ': ' . $sql));
             }
 
             if (strtolower(substr(trim($sql), 0, 6)) == 'select') {
@@ -197,10 +198,6 @@ class Service_moodle2 extends Service {
             }
 
             pg_freeresult($result);
-        }
-
-        if (!$keepalive) {
-            self::disconnectDB($connect);
         }
 
         return $values;
