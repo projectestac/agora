@@ -236,10 +236,10 @@ CREATE TABLE IF NOT EXISTS `agoraportal_client_services` (
 --
 
 INSERT INTO `agoraportal_client_services` (`clientServiceId`, `serviceId`, `clientId`, `serviceDB`, `description`, `state`, `activedId`, `contactName`, `contactProfile`, `timeCreated`, `observations`, `annotations`, `diskSpace`, `timeEdited`, `timeRequested`, `diskConsume`, `dbHost`) VALUES
-(6, 4, 3, 'XE', '', 1, 3, 'manager3', 'Directora', '1331127943', '', '', 5000, '1483960298', '1331127897', '89472', ''),
-(8, 4, 4, 'XE', '', 1, 4, 'manager4', 'Cap d''estudis', '1331226348', '', '', 5000, '1483960426', '1331215250', '89472', ''),
-(50, 4, 1, 'XE', '', 1, 1, 'manager1', 'L''artístac', '1342518349', '', '', 5000, '1483960253', '1342439879', '280140', ''),
-(53, 4, 2, 'XE', '', 1, 2, 'manager2', 'Coordinador/a d''informàtica', '1356025656', '', '', 5000, '1483960281', '1356024781', '89472', ''),
+(6, 4, 3, 'XE', '', 1, 3, 'manager3', 'Directora', '1331127943', '', '', 5000, '1483960298', '1331127897', '89472', 'localhost'),
+(8, 4, 4, 'XE', '', 1, 4, 'manager4', 'Cap d''estudis', '1331226348', '', '', 5000, '1483960426', '1331215250', '89472', 'localhost'),
+(50, 4, 1, 'XE', '', 1, 1, 'manager1', 'L''artístac', '1342518349', '', '', 5000, '1483960253', '1342439879', '280140', 'localhost'),
+(53, 4, 2, 'XE', '', 1, 2, 'manager2', 'Coordinador/a d''informàtica', '1356025656', '', '', 5000, '1483960281', '1356024781', '89472', 'localhost'),
 (56, 5, 1, '', '', 1, 1, 'manager1', 'Tècnic TAC', '1417523584', 'Maqueta primària', '', 5000, '1483960287', '1417523396', '12440', 'localhost'),
 (57, 5, 2, '', '', 1, 2, 'manager2', 'Tècnic TAC', '1417523629', 'Maqueta secundària', '', 5000, '1483960396', '1417523441', '17228', 'localhost'),
 (58, 5, 3, '', '', 1, 3, 'manager3', 'Tècnic TAC', '1417523666', 'Maqueta adults', '', 5000, '1483960386', '1417523474', '19512', 'localhost'),
@@ -248,7 +248,7 @@ INSERT INTO `agoraportal_client_services` (`clientServiceId`, `serviceId`, `clie
 (61, 5, 6, '', '', 1, 6, 'manager6', 'Tècnic SSCC', '1483958678', 'Maqueta CREDA', '', 5000, '1483960437', '1483958806', '56588', 'localhost'),
 (62, 5, 7, '', '', 1, 7, 'manager7', 'Tècnic SSCC', '1483958678', 'Maqueta CdA', '', 5000, '1483960448', '1483958996', '45696', 'localhost'),
 (63, 5, 8, '', '', 1, 8, 'manager8', 'Tècnic SSCC', '1483958678', 'Maqueta SSEE', '', 5000, '1483960452', '1483959238', '69608', 'localhost'),
-(64, 5, 9, '', '', 1, 9, 'manager9', 'Tècnic SSCC', '1485447714', 'Maqueta Projectes', '', 5000, '1485447717', '1485447557', '', 'localhost');
+(64, 5, 9, '', '', 1, 9, 'manager9', 'Tècnic SSCC', '1485447714', 'Maqueta Projectes', '', 5000, '1485447717', '1485447557', '15816', 'localhost');
 
 -- --------------------------------------------------------
 
