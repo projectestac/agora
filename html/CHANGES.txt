@@ -13,7 +13,7 @@ MOODLE
 - Improvements in memcached management
 
 NODES
-- Upgraded WordPress to version 5.1.3
+- Upgraded WordPress to version 5.1.4
 - H5P: Upgraded to version 1.15
 - Blocked access to file xmlrpc.php
 
