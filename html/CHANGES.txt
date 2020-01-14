@@ -6,7 +6,7 @@ development home at https://github.com/projectestac/agora
 Changes in progress
 ---------------------------------------------------------------------------------------
 GENERAL
-- statistics.php: Fixed harvesting of access statistics
+- statistics.php: Fixed harvesting of access statistics, removed Intraweb code, fixed Nodes month access count, fixed visualization in portal
 
 MOODLE
 - H5P: Upgraded module to version 1.20.1
