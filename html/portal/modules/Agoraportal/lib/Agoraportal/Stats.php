@@ -198,6 +198,10 @@ class Stats {
                 }
 
                 foreach ($item as $key => $value) {
+                    // Ignore non-numeric fields in stats tables
+                    if (($key == 'clientcode') || ($key == 'clientDNS') || ($key == 'yearmonth') || ($key == 'date')) {
+                        continue;
+                    }
                     if ($key[0] == 'd' && strlen($key) <= 3) {
                         if (self::check_date($date, $key) == false) {
                             $item[$key] = "";
