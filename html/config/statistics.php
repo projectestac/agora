@@ -17,7 +17,6 @@ $args = get_webargs();
 date_default_timezone_set('Europe/Madrid');
 
 // Params to allow execution of stats of only one service
-
 if (isset($args['only']) && !empty($args['only'])) {
     $doonly = $args['only'];
 } else {
@@ -602,7 +601,7 @@ function process_nodes_stats($school, $year, $month, $day, $daysofmonth) {
         if ($rows == 0) { // INSERT
             $sql = "INSERT INTO agoraportal_nodes_stats_month
                 (clientcode, clientDNS, yearmonth, total, posts, userstotal, usersactive, lastactivity, diskConsume)
-                VALUES ('" . $school['code'] . "', '" . $school['dns'] . "',$yearmonth"
+                VALUES ('" . $school['code'] . "', '" . $school['dns'] . "', $yearmonth, "
                     . "$numAccessMonth, $numPostsMonth, " . $users['total'] . ", " . $users['active'] . ", "
                     . "'$lastActivity', $diskConsume)";
         } else  { // UPDATE
@@ -623,6 +622,8 @@ function process_nodes_stats($school, $year, $month, $day, $daysofmonth) {
     cli_print_line('<p>' . $sql . '</p>');
 
     $statsCon->close();
+
+    return true;
 }
 
 /**
