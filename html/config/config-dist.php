@@ -3,14 +3,15 @@
     // Params common in all environments
 
     // Params for Moodle 2
-    $agora['moodle2']['dbtype']            = 'oci';             // oci (Oracle), mysql, ...
+    $agora['moodle2']['dbtype']            = 'pgsql';           // oci (Oracle), mysql, ...
     $agora['moodle2']['prefix']            = 'm2';              // Moodle 2.x tables prefix (only 2 chars)
     $agora['moodle2']['dbhost']            = '';                // Not necessary for Oracle
-    $agora['moodle2']['port']              = '';
+    $agora['moodle2']['port']              = '5432';
     $agora['moodle2']['username']          = $agora['server']['userprefix'];
     $agora['moodle2']['diskusagefile']     = 'diskUsageMdl2.txt';
     $agora['moodle2']['repository_files']  = '/repository/files/'; // folder for uploading big files, sinchronization between 1.9 and 2 files...
     $agora['moodle2']['userprefix']        = $agora['server']['userprefix']; // All services need to have the same variable name
+    $agora['moodle2']['localmuc']          = 'localmuc';        // MUC elements in web server (not shared)
 
     // Params for Zikula
     $agora['intranet']['dbtype']           = 'mysql';              // oci (Oracle), mysql, ...
@@ -43,7 +44,7 @@
 
     $agora['server']['html']               = $agora['server']['server'] . $agora['server']['base'];
     $agora['server']['cookie']             = 'agoraSchool' . $agora['server']['enviroment'];
-    $agora['server']['ubr_upload']         = $agora['server']['root'] . $agora['server']['datadir'] . 'ubr_uploads/';      // Directori per la pujada de fitxers grans. Després es mouran a cada usu.
+    $agora['server']['uploads']            = $agora['server']['root'] . $agora['server']['datadir'] . 'uploads/'; // Directori temporal per la pujada de fitxers grans. Després es mouran a cada usu.
 
     // Fitxer amb les CA reconegudes
     $agora['server']['ca_bundle']          = $agora['server']['root'] . 'html/config/ca-bundle.crt';
@@ -53,7 +54,7 @@
     $agora['dbsource']['dir']              = $agora['server']['root'] . 'syncdata/';
 
     // xtecadmin
-	$agora['xtecadmin']['mail']		       = 'agora@xtec.invalid';
+    $agora['xtecadmin']['mail']            = 'agora@xtec.invalid';
 
     // Proxy settings
     $agora['proxy']['host']                = '';
