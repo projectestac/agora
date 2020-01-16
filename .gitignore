@@ -15,7 +15,7 @@ sftp-config.json
 nbproject
 sh/
 .Trash*/*
-cache_ins/
+localmuc/
 muc/
 html/moodle/mod/eoicampus/action/wsdl/EOICampusWS_generat-ESB-LOCAL.wsdl
 html/moodle2/mod/eoicampus/action/wsdl/EOICampusWS_generat-ESB-LOCAL.wsdl

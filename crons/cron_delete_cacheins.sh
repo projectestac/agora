@@ -4,5 +4,5 @@ cd $DIRECTORY
 source "config.sh"
 
 #Elimina el cacheins:
-dir="cache_ins/*"
+dir="localmuc/*"
 rm -Rf $basedir$dir

@@ -44,9 +44,9 @@ echo 'Hora del servidor: ' . date("d-m-Y H:i:s e (P)") . '</div>';
 
 echo '<h2>Crons de tots els frontals</h2>';
 echo '<h3>Cron Delete Cache Ins</h3>';
-$dirname = $agora['server']['root'] . 'cache_ins';
+$dirname = $agora['server']['root'] . 'localmuc';
 if (!file_exists($dirname)) {
-    echo_error('No existeix el cache_ins');
+    echo_error('No existeix el directori localmuc');
 } else {
     $error = false;
     $dirs = scandir($dirname);
