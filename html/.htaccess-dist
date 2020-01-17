@@ -1,6 +1,6 @@
 RewriteEngine on
 
-RewriteBase /agora/
+RewriteBase /
 
 # Required for the proper functioning of cacti
 RewriteRule ^server-status$ - [L]
