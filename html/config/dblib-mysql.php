@@ -819,25 +819,19 @@ function get_dbconnection($service, $schoolid = '', $host = '') {
     }
 
     if (!isset($con[$service][$schoolid])) {
+
         switch($service) {
-            case 'intranet':
-                $parts = explode(':', $host, 2);
-                $host = $parts[0];
-                $port = isset($parts[1]) ? $parts[1]: "";
-                $user = $agora['intranet']['username'];
-                $password = $agora['intranet']['userpwd'];
-                $database = $agora['intranet']['userprefix'] . $schoolid;
-                $con[$service][$schoolid] = new agora_dbmanager($host, $user, $password, $database, $port);
-                break;
+
             case 'nodes':
                 $parts = explode(':', $host, 2);
                 $host = $parts[0];
-                $port = isset($parts[1]) ? $parts[1]: "";
+                $port = isset($parts[1]) ? $parts[1]: '';
                 $user = $agora['nodes']['username'];
                 $password = $agora['nodes']['userpwd'];
                 $database = $agora['nodes']['userprefix'] . $schoolid;
                 $con[$service][$schoolid] = new agora_dbmanager($host, $user, $password, $database, $port);
                 break;
+
             case 'admin':
                 $schoolid = 'admin';
                 $host = $agora['admin']['host'];
@@ -847,17 +841,23 @@ function get_dbconnection($service, $schoolid = '', $host = '') {
                 $database = $agora['admin']['database'];
                 $con[$service][$schoolid] = new agora_dbmanager($host, $user, $password, $database, $port);
                 break;
+
             case 'moodle':
             case 'moodle2':
+                $parts = explode(':', $host, 2);
+                $host = $parts[0];
+                $port = isset($parts[1]) ? $parts[1]: $agora['moodle2']['port'];
                 $user = $agora['moodle2']['userprefix'] . $schoolid;
-                $database = $host;
+                $database = $agora['moodle2']['userprefix'] . $schoolid;
                 $password = $agora['moodle2']['userpwd'];
-                $con[$service][$schoolid] = oci_pconnect($user, $password, $database);
+                $con[$service][$schoolid] = pg_connect("host=$host port=$port dbname=$database user=$user password=$password");
                 break;
+
             default:
                 return false;
         }
     }
+
     return $con[$service][$schoolid];
 }
 
@@ -1031,12 +1031,11 @@ function get_rows_from_db($sql) {
  *
  * @param $school Array with the school information (id and database)
  *
- * @return A connection handler or FALSE on error.
+ * @return Connection handler or FALSE on error.
  */
 function connect_moodle($school) {
     try {
-        $con = get_dbconnection('moodle', $school['id'], $school['database']);
-        return $con;
+        return get_dbconnection('moodle2', $school['id'], $school['database']);
     } catch (Exception $e) {
         return false;
     }
@@ -1047,26 +1046,10 @@ function connect_moodle($school) {
  *
  * @param con        The Moodle database connection
  *
- * @return Returns TRUE on success or FALSE on failure.
+ * @return boolean TRUE on success or FALSE on failure.
  */
 function disconnect_moodle($con) {
-    return oci_close($con);
-}
-
-/**
- * Open a connection to the specified Intranet database and return it
- *
- * @param school        Array with the school information (database)
- *
- * @return Connection handler
- */
-function connect_intranet($school) {
-    try {
-        $con = get_dbconnection('intranet', $school['id'], $school['dbhost']);
-        return $con;
-    } catch (Exception $e) {
-        return false;
-    }
+    return pg_close($con);
 }
 
 /**
@@ -1078,8 +1061,7 @@ function connect_intranet($school) {
  */
 function connect_nodes($school) {
     try {
-        $con = get_dbconnection('nodes', $school['id'], $school['dbhost']);
-        return $con;
+        return get_dbconnection('nodes', $school['id'], $school['dbhost']);
     } catch (Exception $e) {
         return false;
     }
