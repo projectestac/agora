@@ -788,17 +788,21 @@ function get_filepath_moodle($id_moodle2 = '') {
 
 /************* NEW DB MANAGER **************/
 /**
- * Get a DB conection for the specified service
- * @param  string $service  accepted values: admin, nodes, intranet, moodle/moodle2
- * @param  string $schoolid id of the school
- * @param  string $host     host to connect (or db in moodle)
- * @return mixed            created connection already conected
+ * Get a DB connection for the specified service
+ *
+ * @param string $service  accepted values: admin, nodes, moodle/moodle2
+ * @param string $schoolid id of the school
+ * @param string $host     host to connect
+ *
+ * @return mixed            created connection already connected
+ * @throws Exception
  */
 function get_dbconnection($service, $schoolid = '', $host = '') {
+
     require_once('env-config.php');
     global $agora;
 
-    static $con = array();
+    static $con = [];
 
     if (empty($service)) {
         return false;
@@ -815,7 +819,7 @@ function get_dbconnection($service, $schoolid = '', $host = '') {
     }
 
     if (!isset($con[$service])) {
-        $con[$service] = array();
+        $con[$service] = [];
     }
 
     if (!isset($con[$service][$schoolid])) {
@@ -887,8 +891,9 @@ class agora_dbmanager{
     }
 
     /**
-     * Connecto to the DB
-     * @return [type] [description]
+     * Connect to the DB
+     * @return void
+     * @throws Exception
      */
     private function connect() {
         if ($this->connection) {
@@ -1035,7 +1040,7 @@ function get_rows_from_db($sql) {
  */
 function connect_moodle($school) {
     try {
-        return get_dbconnection('moodle2', $school['id'], $school['database']);
+        return get_dbconnection('moodle2', $school['id'], $school['dbhost']);
     } catch (Exception $e) {
         return false;
     }

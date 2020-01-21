@@ -43,6 +43,9 @@ $timestampofmonth = mktime(23, 59, 59, $month, $daysofmonth, $year);
 
 $services = getServices(true, 'clientDNS', 'asc', 'all', '1');
 
+global $prepared_stmts;
+$prepared_stmts = [];
+
 foreach ($services as $school) {
     if (isset($args['only']) && !empty($args['only']) && $args['only'] != $school['service']) {
         // Ignore the service
@@ -267,7 +270,7 @@ function process_moodle_stats($school, $year, $month, $day, $dayofweek, $daysofm
     cli_print_line('<p>' . $sql . '</p>');
 
     $statsCon->close();
-    oci_close($con);
+    disconnect_moodle($con);
 }
 
 /**
@@ -288,18 +291,23 @@ function getSchoolMoodleStats_HourAccess($con, $year, $month, $day, $hour, $pref
     $max = mktime($hour, 59, 59, $month, $day, $year);
     $min = $max - SECONDS_IN_AN_HOUR;
 
-    $sql = 'SELECT count(ID) AS total FROM ' . $prefix . 'logstore_standard_log WHERE timecreated > ' . $min . ' AND timecreated < ' . $max . ' ';
-    $stmt = oci_parse($con, $sql);
-    $value = '';
+    global $prepared_stmts;
 
-    if (oci_execute($stmt, OCI_DEFAULT)) {
-        if (oci_fetch($stmt)) {
-            $value = oci_result($stmt, 'TOTAL');
+    if (!in_array('MoodleStats_HourAccess', $prepared_stmts)) {
+        if (pg_prepare($con,
+            'MoodleStats_HourAccess',
+            "SELECT count(ID) AS total FROM " . $prefix . "logstore_standard_log WHERE timecreated > $1 AND timecreated < $2")) {
+            array_push($prepared_stmts, 'MoodleStats_HourAccess');
         }
     }
-    if (empty($value)) {
+
+    $result = pg_execute($con, 'MoodleStats_HourAccess', [$min, $max]);
+
+    if (!$result) {
         $value = 0;
-    }
+    } else {
+        $value = (int) pg_fetch_assoc($result)['total'];
+     }
 
     return $value;
 }
