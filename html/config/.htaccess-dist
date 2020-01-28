@@ -1,4 +1,4 @@
 AuthType Basic
 require valid-user
 AuthName "Es requereix contrasenya"
-AuthUserFile /dades/agora/html/config/.htpasswd
+AuthUserFile /dades/html/config/.htpasswd

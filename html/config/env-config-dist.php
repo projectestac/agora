@@ -23,8 +23,6 @@ $agora['admin']['port']        = '3306';          // Port del servidor de bases 
 $agora['admin']['datadir']     = $agora['server']['datadir'] . 'portaldata/'; // Directori de dades d'usuari
 
 // Schools Moodle 2 config info
-$agora['moodle2']['dbhost']    = '';              // Not necessary for Oracle
-$agora['moodle2']['port']      = '';
 $agora['moodle2']['userpwd']   = 'agora';         // Contrasenya que tenen tots els esquemes
 $agora['moodle2']['database']  = 'XE';            // Base de dades (tal i com està definida al tnsnames) de l'esquema anterior (sense el número)
 $agora['moodle2']['dbnumber']  = '';              // Número de la primera base de dades de l'aplicació; a acceptació en blanc i a producció 3
