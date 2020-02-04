@@ -286,6 +286,7 @@ class Service extends AgoraBase {
     const STATUS_DENIED = -2;
     const STATUS_WITHDRAWN = -3;
     const STATUS_DISABLED = -4;
+    const STATUS_MIGRATING = -5;
 
     protected $clientServiceId; // Id
     protected $serviceId; // ServiceTypeId
@@ -722,6 +723,10 @@ class Service extends AgoraBase {
             case Service::STATUS_DISABLED:
                 $this->state = $newState;
                 $this->add_log(ClientLog::CODE_MODIFY, 'S\'ha desactivat el servei ' . $serviceName);
+                break;
+            case Service::STATUS_MIGRATING:
+                $this->state = $newState;
+                $this->add_log(ClientLog::CODE_MODIFY, 'S\'ha marcat el servei ' . $serviceName . ' com a en migració');
                 break;
         }
         return $return;

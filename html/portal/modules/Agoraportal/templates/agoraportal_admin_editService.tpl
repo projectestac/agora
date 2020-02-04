@@ -41,6 +41,7 @@
                         <option {if $service->state eq -2}selected{/if} value="-2">{gt text="Denegat"}</option>
                         <option {if $service->state eq -3}selected{/if} value="-3">{gt text="Donat de baixa (Perd assignació amb BD)"}</option>
                         <option {if $service->state eq -4}selected{/if} value="-4">{gt text="Desactivat"}</option>
+                        <option {if $service->state eq -5}selected{/if} value="-5">{gt text="Migració en curs"}</option>
                     </select>
                 </div>
             </div>

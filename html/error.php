@@ -66,6 +66,13 @@
                 <p>L'adreça nova &eacute;s:</p>
                 <p class="center"><a href="<?php echo $_GET['newaddress'] ?>"><?php echo $_GET['newaddress'] ?></a></p>
                 <p><br/>Per aquest motiu, és recomanable que, tan aviat com pugueu, actualitzeu l'enllaç i, en cas que sigueu l'administrador us assegureuque no hi ha cap enllaç trencat.</p>
+            <?php } elseif (isset($_GET['migrating'])) { ?>
+                <h1>SERVEI D'ÀGORA EN PROCÉS DE MIGRACIÓ</h1>
+                <p>Aquest espai web es troba temporalment fora de servei. En aquests moments s'estan realitzant tasques de traspàs de dades per transferir-lo a un nou servidor amb més capacitat.</p>
+                <p>Prova de nou l'accés: <a href="<?php echo $agora['server']['server'] . $agora['server']['base'] . $_GET['migrating'] . '/' . $_GET['s'] ?>"><?php echo $agora['server']['server'] . $agora['server']['base'] . $_GET['migrating'] . '/' . $_GET['s'] ?></a></p>
+                <br />
+                <p>Preguem disculpeu les molèsties</p>
+                <br />
             <?php } else {
                 $dns = $_GET['dns'];
                 if (!isValidDNS($dns)) {

@@ -98,12 +98,16 @@ function getServices($codeletter = false, $order = 'clientDNS', $desc = 'asc', $
     }
 
     if ($state != 'all') {
-        $conditions[] = "state='$state'";
+        if (is_array($state)) {
+            $conditions[] = "state IN ('" . implode("', '", $state) . "')";
+        } else {
+            $conditions[] = "state='$state'";
+        }
     }
 
     $where = (empty($conditions)) ? '' : 'WHERE ' . implode(' AND ', $conditions);
 
-    $sql = "SELECT cs.activedId, cs.serviceDB, cs.dbHost, cs.diskSpace, cs.diskConsume, c.clientId, c.clientCode, c.clientDNS, c.clientOldDNS, c.URLType, c.URLHost, c.OldURLHost, c.typeId, s.serviceName
+    $sql = "SELECT cs.activedId, cs.serviceDB, cs.dbHost, cs.state, cs.diskSpace, cs.diskConsume, c.clientId, c.clientCode, c.clientDNS, c.clientOldDNS, c.URLType, c.URLHost, c.OldURLHost, c.typeId, s.serviceName
             FROM agoraportal_client_services cs
             LEFT JOIN agoraportal_clients c ON cs.clientID = c.clientID
             LEFT JOIN agoraportal_clientType t ON c.typeId = t.typeID
@@ -131,6 +135,7 @@ function getServices($codeletter = false, $order = 'clientDNS', $desc = 'asc', $
             'id' => $row->activedId,
             'database' => $row->serviceDB,
             'dbhost' => $row->dbHost,
+            'state' => $row->state,
             'diskPercent' => $diskPercent,
             'code' => $clientCode,
             'dns' => $row->clientDNS,
@@ -258,7 +263,7 @@ function getSchoolInfo($service) {
         $cookie = $_COOKIE[$agora['server']['cookie']];
         if (isValidCookie($cookie)) {
             $data = explode('__', $cookie);
-            if ((count($data) == 18) && ($data[0] == $centre)) {
+            if ((count($data) == 21) && ($data[0] == $centre)) {
                 $school_info['clientCode'] = $data[1];
                 $school_info['type'] = $data[2];
                 $school_info['url_type'] = $data[3];
@@ -267,14 +272,17 @@ function getSchoolInfo($service) {
                 $school_info['dbhost_moodle2'] = $data[6];
                 $school_info['database_moodle2'] = $data[7];
                 $school_info['diskPercent_moodle2'] = $data[8];
-                $school_info['id_intranet'] = $data[9];
-                $school_info['database_intranet'] = $data[10];
-                $school_info['dbhost_intranet'] = $data[11];
-                $school_info['diskPercent_intranet'] = $data[12];
-                $school_info['id_nodes'] = $data[13];
-                $school_info['database_nodes'] = $data[14];
-                $school_info['dbhost_nodes'] = $data[15];
-                $school_info['diskPercent_nodes'] = $data[16];
+                $school_info['state_moodle2'] = $data[9];
+                $school_info['id_intranet'] = $data[10];
+                $school_info['database_intranet'] = $data[11];
+                $school_info['dbhost_intranet'] = $data[12];
+                $school_info['diskPercent_intranet'] = $data[13];
+                $school_info['state_intranet'] = $data[14];
+                $school_info['id_nodes'] = $data[15];
+                $school_info['database_nodes'] = $data[16];
+                $school_info['dbhost_nodes'] = $data[17];
+                $school_info['diskPercent_nodes'] = $data[18];
+                $school_info['state_nodes'] = $data[19];
                 // Debug info
                 $school_info['source'] = 'Cookie';
             }
@@ -407,20 +415,23 @@ function getSchoolInfo($service) {
             . '__' . (isset($school_info['dbhost_moodle2']) ? $school_info['dbhost_moodle2'] : '')
             . '__' . (isset($school_info['database_moodle2']) ? $school_info['database_moodle2'] : '')
             . '__' . (isset($school_info['diskPercent_moodle2']) ? $school_info['diskPercent_moodle2'] : '')
+            . '__' . (isset($school_info['state_moodle2']) ? $school_info['state_moodle2'] : '')
             . '__' . (isset($school_info['id_intranet']) ? $school_info['id_intranet'] : '')
             . '__' . (isset($school_info['database_intranet']) ? $school_info['database_intranet'] : '')
             . '__' . (isset($school_info['dbhost_intranet']) ? $school_info['dbhost_intranet'] : '')
             . '__' . (isset($school_info['diskPercent_intranet']) ? $school_info['diskPercent_intranet'] : '')
+            . '__' . (isset($school_info['state_intranet']) ? $school_info['state_intranet'] : '')
             . '__' . (isset($school_info['id_nodes']) ? $school_info['id_nodes'] : '')
             . '__' . (isset($school_info['database_nodes']) ? $school_info['database_nodes'] : '')
             . '__' . (isset($school_info['dbhost_nodes']) ? $school_info['dbhost_nodes'] : '')
-            . '__' . (isset($school_info['diskPercent_nodes']) ? $school_info['diskPercent_nodes'] : '');
+            . '__' . (isset($school_info['diskPercent_nodes']) ? $school_info['diskPercent_nodes'] : '')
+            . '__' . (isset($school_info['state_nodes']) ? $school_info['state_nodes'] : '');
 
         // Add hash to the text for the cookie
         $cookiesalt = $agora['admin']['username'] . substr($agora['admin']['userpwd'], 0, 3);
         $bodycookie .= '__h_' . md5($bodycookie . $cookiesalt);
 
-        setcookie($agora['server']['cookie'], $bodycookie, time() + 10800, '/'); // Cookie expires in 3 hours
+        setcookie($agora['server']['cookie'], $bodycookie, time() + 3600, '/'); // Cookie expires in 1 hour
     }
 
     // Change default URL host for Serveis Educatius
@@ -488,7 +499,7 @@ function getSchoolFromDB($dns) {
 			FROM agoraportal_client_services cs
 			LEFT JOIN agoraportal_clients c ON cs.clientId = c.clientId
 			LEFT JOIN agoraportal_services s ON cs.serviceId = s.serviceId
-			WHERE cs.state = '1' AND c.clientDNS = '$dns';";
+			WHERE (cs.state = '1' OR cs.state = '-5') AND c.clientDNS = '$dns';";
 
     $results = get_rows_from_db($sql);
     $value = array();

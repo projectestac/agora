@@ -15,7 +15,7 @@ define('DEBUG_ENABLED', $debugenabled);
 xtec_debug("DEBUG ENABLED: $debugenabled");
 
 // Retrieve info
-$services = getServices(false, 'activedId', 'asc', 'all', 1);
+$services = getServices(false, 'activedId', 'asc', 'all', [1, -5]);
 if (empty($services)) {
     exit(0);
 }
@@ -35,6 +35,7 @@ foreach ($services as $school) {
     $schools[$dns]['dbhost_'.$service]      = $school['dbhost'];
     $schools[$dns]['database_'.$service]    = $school['database'];
     $schools[$dns]['diskPercent_'.$service] = $school['diskPercent'];
+    $schools[$dns]['state_'.$service]       = $school['state'];
 
     // Add an element: key = previous DNS, value = current DNS.
     if (!empty($school['old_dns'])) {
