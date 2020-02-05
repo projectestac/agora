@@ -8,6 +8,7 @@ Changes in progress
 GENERAL
 - statistics.php: Fixed harvesting of access statistics, removed Intraweb code, fixed Nodes month access count, fixed visualization in portal
 - Added new state for services: Migration in progress
+- works.php: Fixed health check for Nodes service
 
 MOODLE
 - H5P: Upgraded module to version 1.20.1

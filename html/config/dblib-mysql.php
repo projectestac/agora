@@ -170,7 +170,7 @@ function getServicesToTest($service) {
                 LEFT JOIN `agoraportal_services` s ON c.serviceId = s.serviceId
                 WHERE serviceName = \'' . $service . '\'
                 AND activedId !=0 AND c.state=1
-                GROUP BY serviceDB';
+                GROUP BY dbHost';
 
         $results = get_rows_from_db($sql);
         if (!$results) {
