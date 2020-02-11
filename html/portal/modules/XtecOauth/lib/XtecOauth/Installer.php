@@ -9,7 +9,7 @@ class XtecOauth_Installer extends Zikula_AbstractInstaller
      * @return bool true if successful, false otherwise
      * @author Toni Ginard
      */
-    public function Install()
+    public function install()
     {
         // Create module vars
         $this
@@ -31,14 +31,9 @@ class XtecOauth_Installer extends Zikula_AbstractInstaller
      * @return bool true if successful, false otherwise
      * @author Toni Ginard
      */
-    public function Uninstall()
+    public function uninstall()
     {
-        $this
-            ->delVar('xtecoauth_clientid')
-            ->delVar('xtecoauth_clientsecret')
-            ->delVar('xtecoauth_authorizeurl')
-            ->delVar('xtecoauth_tokenurl')
-            ->delVar('xtecoauth_apiurlbase');
+        $this->delVars();
 
         EventUtil::unregisterPersistentModuleHandler('XtecOauth');
 
@@ -52,7 +47,7 @@ class XtecOauth_Installer extends Zikula_AbstractInstaller
      * @author Toni Ginard
      *
      */
-    public function Upgrade($oldversion)
+    public function upgrade($oldversion)
     {
         $tables = DBUtil::getTables();
 

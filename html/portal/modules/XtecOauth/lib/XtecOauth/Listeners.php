@@ -43,10 +43,39 @@ class XtecOauth_Listeners
         $pass = $authentication_info['pass'];
 
         global $agora;
-        $info = array();
-        $schoolData = array();
+        $info = [];
+        $schoolData = [];
 
         if ($agora['server']['enviroment'] != 'LOCAL') {
+            try {
+                $config = [
+                    'callback' => (ModUtil::getVar('XtecOauth', 'xtecoauth_apiurlbase') == 1) ? true : false,
+                    'providers' => [
+                        'Google' => [
+                            'enabled' => true,
+                            'keys' => [
+                                'id' => (ModUtil::getVar('XtecOauth', 'xtecoauth_clientid') == 1) ? true : false,
+                                'secret' => (ModUtil::getVar('XtecOauth', 'xtecoauth_clientsecret') == 1) ? true : false,
+                            ],
+                            'scope' => 'email',
+                        ],
+                    ]
+                ];
+
+                if (is_file('modules/XtecOauth/includes/hybridauth/src/autoload.php')) {
+                    include_once 'modules/XtecOauth/includes/hybridauth/src/autoload.php';
+                } else {
+                    throw new Exception('Could not load vendor hybridauth');
+                }
+
+                $google = new Hybridauth\Provider\Google($config);
+
+                var_dump($google);
+                die('ff');
+
+            } catch (\Exception $e) {
+                echo 'Oops, we ran into an issue! ' . $e->getMessage();
+            }
             // define the attributes we want to get in our search
             $justthese = array('cn', 'uid', 'givenname', 'sn', 'mail');
 
