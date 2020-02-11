@@ -20,5 +20,5 @@ function get_wget {
 }
 
 function get_wget_complete {
-    wget -q -o /dev/null $1 > /dev/null
+    wget -q --no-check-certificate -o /dev/null $1 > /dev/null
 }
