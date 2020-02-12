@@ -11,13 +11,30 @@ GENERAL
 - works.php: Fixed health check for Nodes service
 
 MOODLE
-- H5P: Upgraded module to version 1.20.1
-- Improvements in memcached management
+- H5P: Upgraded module to version 1.20.2
+- Updated language packages
+- Theme XTEC2: Removed loading of mobile CSS
+- Upgraded all wiris plugins
+- Upgraded all vicens vives plugins
+- Upgraded module choicegroup to version 1.18
+- Upgraded question type "ordering"
+- Added support for attachments in email
+- Atto fontfamily: Fixed dependency and added RGPD compliance
 
 NODES
 - Upgraded WordPress to version 5.1.4
 - H5P: Upgraded to version 1.15
 - Blocked access to file xmlrpc.php
+- Enllacos-educatius: Fixed ATRI URL
+- mu-plugins: Fixed PHP warnings
+- xtec-mail: Fixed apostrophes in e-mail
+- BuddyPress: Upgraded to version 5.1.2
+- BuddyPress: Fixed change of password in user profile
+- GCE: Fixed PHP warnings
+- wp-recaptcha: Fixed PHP warnings
+- bp-tinymce: Added plugin
+- giphypress: Added plugin
+- super-emoji-plus: Added plugin
 
 PORTAL
 - Increased maximum file size in big files upload to 350 MB
