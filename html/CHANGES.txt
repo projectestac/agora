@@ -20,6 +20,7 @@ MOODLE
 - Upgraded question type "ordering"
 - Added support for attachments in email
 - Atto fontfamily: Fixed dependency and added RGPD compliance
+- Local mobile: Removed plugin
 
 NODES
 - Upgraded WordPress to version 5.1.4
