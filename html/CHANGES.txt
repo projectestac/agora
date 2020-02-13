@@ -32,7 +32,6 @@ NODES
 - BuddyPress: Fixed change of password in user profile
 - GCE: Fixed PHP warnings
 - wp-recaptcha: Fixed PHP warnings
-- bp-tinymce: Added plugin
 - giphypress: Added plugin
 - super-emoji-plus: Added plugin
 
