@@ -3,7 +3,7 @@ Release notes for Agora (https://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
-Changes in progress
+Changes 20.02.18
 ---------------------------------------------------------------------------------------
 GENERAL
 - statistics.php: Fixed harvesting of access statistics, removed Intraweb code, fixed Nodes month access count, fixed visualization in portal
