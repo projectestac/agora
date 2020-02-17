@@ -49,17 +49,11 @@ class XtecOauth_Listeners
         if ($agora['server']['enviroment'] != 'LOCAL') {
             try {
                 $config = [
-                    'callback' => (ModUtil::getVar('XtecOauth', 'xtecoauth_apiurlbase') == 1) ? true : false,
-                    'providers' => [
-                        'Google' => [
-                            'enabled' => true,
-                            'keys' => [
-                                'id' => (ModUtil::getVar('XtecOauth', 'xtecoauth_clientid') == 1) ? true : false,
-                                'secret' => (ModUtil::getVar('XtecOauth', 'xtecoauth_clientsecret') == 1) ? true : false,
-                            ],
-                            'scope' => 'email',
-                        ],
-                    ]
+                    'callback' => ModUtil::getVar('XtecOauth', 'xtecoauth_apiurlbase') ?? false,
+                    'keys' => [
+                        'key' => ModUtil::getVar('XtecOauth', 'xtecoauth_clientid') ?? false,
+                        'secret' => ModUtil::getVar('XtecOauth', 'xtecoauth_clientsecret') ?? false,
+                    ],
                 ];
 
                 if (is_file('modules/XtecOauth/includes/hybridauth/src/autoload.php')) {
@@ -69,13 +63,12 @@ class XtecOauth_Listeners
                 }
 
                 $google = new Hybridauth\Provider\Google($config);
-
-                var_dump($google);
-                die('ff');
-
+                $google->authenticate();
             } catch (\Exception $e) {
                 echo 'Oops, we ran into an issue! ' . $e->getMessage();
             }
+
+            /*
             // define the attributes we want to get in our search
             $justthese = array('cn', 'uid', 'givenname', 'sn', 'mail');
 
@@ -122,6 +115,8 @@ class XtecOauth_Listeners
             }, E_WARNING);
             ldap_unbind($ldap_ds);
             restore_error_handler();
+            */
+
         } else {
             $info[0]['uid'][0] = $uname;
             $info[0]['cn'][0] = $uname;
