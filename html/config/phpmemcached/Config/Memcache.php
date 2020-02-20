@@ -2,11 +2,23 @@
 
 include_once dirname(dirname(dirname(__FILE__))) . '/env-config.php';
 
+$app = [];
+$session = [];
+
 foreach (explode("\n", $agora['moodle2']['memcache_servers']) as $value) {
-    $servers[trim($value)] = [
+    $app[trim($value)] = [
         'hostname' => trim($value),
         'port' => '11211',
     ];
+}
+
+if (!empty($agora['moodle2']['memcached_session_servers'])) {
+    foreach (explode("\n", $agora['moodle2']['memcached_session_servers']) as $value) {
+        $session[trim($value)] = [
+            'hostname' => trim($value),
+            'port' => '11211',
+        ];
+    }
 }
 
 return [
@@ -25,6 +37,7 @@ return [
     'eviction_alert' => '0',
     'file_path' => '/tmp/',
     'servers' => [
-        'Default' => $servers,
+        'Application' => $app,
+        'Session' => $session,
     ],
 ];
