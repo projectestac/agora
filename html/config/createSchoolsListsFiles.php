@@ -147,7 +147,10 @@ if (isset($args['update'])) {
  * @return boolean true if successful
  */
 function saveVarToFile($filename = null, $schoolsvar = '') {
-    $path = '../../adminInfo/';
+
+    global $agora;
+
+    $path = $agora['server']['root'] . $agora['server']['datadir'] . 'adminInfo/';
 
     cli_print_line('<br />');
     cli_print_line('<b>File name: '.$filename.'</b><br />');

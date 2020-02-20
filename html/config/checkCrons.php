@@ -72,15 +72,14 @@ checkOldFile($agora['dbsource']['dir'] . 'allSchools.php', 86400);
 
 echo '<h2>Crons cabina de disc</h2>';
 echo '<h3>Cron Disk Usage</h3>';
-checkOldFile($agora['server']['root'] . $agora['intranet']['datadir'] . $agora['intranet']['diskusagefile'], 86400);
 checkOldFile($agora['server']['root'] . $agora['moodle2']['datadir'] . $agora['moodle2']['diskusagefile'], 86400);
 checkOldFile($agora['server']['root'] . $agora['nodes']['datadir'] . $agora['nodes']['diskusagefile'], 86400);
 
 echo '<h2>Crons del frontal principal</h2>';
 echo '<h3>Cron Àgora Diari</h3>';
 echo '<h4>createSchoolsListFiles</h4>';
-$cronintranets = checkOldFile($agora['server']['root'] . 'adminInfo/cronIntranet.txt', 86400);
-$cronmoodle = checkOldFile($agora['server']['root'] . 'adminInfo/cronMoodle2.txt', 86400);
+$cronintranets = checkOldFile($agora['server']['root'] . $agora['server']['datadir'] . 'adminInfo/cronIntranet.txt', 86400);
+$cronmoodle = checkOldFile($agora['server']['root'] . $agora['server']['datadir'] . 'adminInfo/cronMoodle2.txt', 86400);
 
 echo '<h4>Crons Intranets</h4>';
 if ($cronintranets) {

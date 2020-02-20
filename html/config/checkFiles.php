@@ -79,17 +79,15 @@ $files[] = array('filename' => $agora['server']['root'] . 'html/wordpress/wp-con
     'message' => 'Error en la configuració dels nodes');
 $files[] = array('filename' => $agora['server']['root'] . 'html/wordpress/wp-content/uploads', 'perms' => 0770, 'link' => true,
     'message' => 'Error als fitxers de dades de nodes');
-$files[] = array('filename' => $agora['server']['root'] . $agora['intranet']['datadir'] . $agora['intranet']['diskusagefile'], 'perms' => 0640, 'link' => false,
-    'message' => 'Error a la informació de disc de la Intranew o el cron no funciona', 'old' => 86400);
 $files[] = array('filename' => $agora['server']['root'] . $agora['moodle2']['datadir'] . $agora['moodle2']['diskusagefile'], 'perms' => 0640, 'link' => false,
     'message' => 'Error a la informació de disc de Moodle o el cron no funciona', 'old' => 86400);
 $files[] = array('filename' => $agora['server']['root'] . $agora['nodes']['datadir'] . $agora['nodes']['diskusagefile'], 'perms' => 0640, 'link' => false,
     'message' => 'Error a la informació de disc de Nodes o el cron no funciona', 'old' => 86400);
-$files[] = array('filename' => $agora['server']['root'] . 'adminInfo/cronIntranet.txt', 'perms' => 0664, 'link' => false,
+$files[] = array('filename' => $agora['server']['root'] . $agora['server']['datadir'] . 'adminInfo/cronIntranet.txt', 'perms' => 0664, 'link' => false,
     'message' => 'Error als crons de la intranet', 'old' => 86400);
-$files[] = array('filename' => $agora['server']['root'] . 'adminInfo/cronMoodle2.txt', 'perms' => 0664, 'link' => false,
+$files[] = array('filename' => $agora['server']['root'] . $agora['server']['datadir'] . 'adminInfo/cronMoodle2.txt', 'perms' => 0664, 'link' => false,
     'message' => 'Error als crons de Moodle', 'old' => 86400);
-$files[] = array('filename' => $agora['server']['root'] . 'adminInfo/cronNodes.txt', 'perms' => 0664, 'link' => false,
+$files[] = array('filename' => $agora['server']['root'] . $agora['server']['datadir'] . 'adminInfo/cronNodes.txt', 'perms' => 0664, 'link' => false,
     'message' => 'Error als crons de Nodes', 'old' => 86400);
 
 $time = time();
