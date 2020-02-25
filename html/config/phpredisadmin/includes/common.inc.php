@@ -10,7 +10,7 @@ define('PHPREDIS_ADMIN_PATH', dirname(__DIR__));
 if(file_exists(PHPREDIS_ADMIN_PATH . '/includes/config.inc.php')){
   require_once PHPREDIS_ADMIN_PATH . '/includes/config.inc.php';
 }else{
-  require_once PHPREDIS_ADMIN_PATH . '/includes/config.sample.inc.php';
+  require_once PHPREDIS_ADMIN_PATH . '/includes/config.inc.php';
 }
 require_once PHPREDIS_ADMIN_PATH . '/includes/functions.inc.php';
 require_once PHPREDIS_ADMIN_PATH . '/includes/page.inc.php';

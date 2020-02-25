@@ -1,11 +1,12 @@
 <?php
-//Copy this file to config.inc.php and make changes to that file to customize your configuration.
+
+include_once dirname(dirname(dirname(__FILE__))) . '/env-config.php';
 
 $config = array(
   'servers' => array(
     array(
-      'name'   => 'local server', // Optional name.
-      'host'   => '127.0.0.1',
+      'name'   => 'Session', // Optional name.
+      'host'   => $agora['moodle2']['redis_session_servers'],
       'port'   => 6379,
       'filter' => '*',
       'scheme' => 'tcp', // Optional. Connection scheme. 'tcp' - for TCP connection, 'unix' - for connection by unix domain socket
