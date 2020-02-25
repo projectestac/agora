@@ -29,6 +29,7 @@ $agora['moodle2']['dbnumber']  = '';              // Número de la primera base 
 $agora['moodle2']['datadir']   = $agora['server']['datadir'] . 'moodledata/';  // Directori de dades d'usuari del moodle2
 $agora['moodle2']['memcache_servers'] = '127.0.0.1';
 $agora['moodle2']['memcached_session_servers'] = '';
+$agora['moodle2']['redis_session_servers'] = '';
 
 // Schools WordPress database access info (MySQL)
 $agora['nodes']['username']    = 'root';          // Usuari/ària per accedir a les bases de dades
