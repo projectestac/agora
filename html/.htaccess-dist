@@ -2,9 +2,8 @@ RewriteEngine on
 
 RewriteBase /
 
-# Required for the proper functioning of cacti
-RewriteRule ^server-status$ - [L]
-RewriteRule ^server-info$ - [L]
+# Health check
+RewriteRule ^(works\.php|favicon\.ico)$ - [L]
 
 # Force https
 RewriteCond %{HTTP:X-Forwarded-Proto} !https
@@ -28,7 +27,7 @@ RewriteRule ^$ index.php [L]
 RewriteCond %{HTTP_HOST} ^agora-aws\.xtec\.cat$ [OR,NC]
 RewriteCond %{HTTP_HOST} ^agora-aws-se\.xtec\.cat$ [OR,NC]
 RewriteCond %{HTTP_HOST} ^agora-aws-projectes\.xtec\.cat$ [NC]
-RewriteRule ^(portal(.*)|config(.*)|index\.php|error\.php|works\.php|opcache\.php|testapp\.php|CHANGES\.txt|monitor\.php|robots\.txt|favicon\.ico)$ - [L]
+RewriteRule ^(portal(.*)|config(.*)|index\.php|error\.php|opcache\.php|testapp\.php|CHANGES\.txt|monitor\.php|robots\.txt)$ - [L]
 
 # Block access to install.php
 RewriteCond %{REQUEST_URI} ([^/]*)/moodle/install.php
