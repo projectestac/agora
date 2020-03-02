@@ -182,12 +182,12 @@ function getServicesToTest($service) {
         }
     } else if ($service == 'moodle2') {
         // Get the list of Moodles to test
-        $sql = 'SELECT serviceDB, min(activedId) as id
+        $sql = 'SELECT dbHost, min(activedId) as id
                 FROM `agoraportal_client_services` c
                 LEFT JOIN `agoraportal_services` s ON c.serviceId = s.serviceId
                 WHERE serviceName = \'' . $service . '\'
                 AND activedId !=0 AND c.state=1
-                GROUP BY serviceDB';
+                GROUP BY dbHost';
 
         $results = get_rows_from_db($sql);
         if (!$results) {
@@ -195,7 +195,7 @@ function getServicesToTest($service) {
         }
 
         foreach ($results as $row) {
-            $schools[$row->id] = $row->serviceDB;
+            $schools[$row->id] = $row->dbHost;
         }
     }
 

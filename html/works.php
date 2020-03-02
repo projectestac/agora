@@ -3,25 +3,24 @@
 require_once 'config/env-config.php';
 require_once 'config/dblib-mysql.php';
 
-global $agora, $state;
+global $agora, $state, $preparedStmts;
+
+// Check if works.php is polled by BigIP because behavior will change
+$origen = $_GET['origen'] ?? '';
+$isBigIP = ($origen == 'bigip') ? true : false;
 
 $state = '';
 $nodeok = false;
-
-// Check if works.php is polled by BigIP because behavior will change
-$origen = (isset($_GET['origen'])) ? $_GET['origen'] : '';
-$isBigIP = ($origen == 'bigip') ? true : false;
-
-// Get the list of DB arrays to connect
-$nodesToTest = array();
-$m2ToTest = array();
+$nodesToTest = [];
+$m2ToTest = [];
+$preparedStmts = [];
 
 if ($isBigIP) {
     // Get info from allSchools.php file in web server
-    $allschools_file = $agora['dbsource']['dir'].'/allSchools.php';
+    $allschools_file = $agora['dbsource']['dir'] . '/allSchools.php';
 
     if (!file_exists($allschools_file)) {
-        echo 'KO: El fitxer '.$allschools_file.' no existeix';
+        echo 'KO: El fitxer ' . $allschools_file . ' no existeix';
     }
 
     require_once($allschools_file);
@@ -30,8 +29,8 @@ if ($isBigIP) {
         if (isset($school['dbhost_nodes']) && !in_array($school['dbhost_nodes'], $nodesToTest)) {
             $nodesToTest[$school['id_nodes']] = $school['dbhost_nodes'];
         }
-        if (isset($school['database_moodle2']) && !in_array(strtoupper($school['database_moodle2']), $m2ToTest)) {
-            $m2ToTest[$school['id_moodle2']] = strtoupper($school['database_moodle2']);
+        if (isset($school['dbhost_moodle2']) && !in_array(strtoupper($school['dbhost_moodle2']), $m2ToTest)) {
+            $m2ToTest[$school['id_moodle2']] = strtoupper($school['dbhost_moodle2']);
         }
     }
 } else {
@@ -80,7 +79,7 @@ foreach ($nodesToTest as $schoolid => $dbhost) {
 if (($isBigIP && !$nodeok) || (!$isBigIP)) {
     // Connect to the first school of each database instance to check that the Oracle databases (for Moodle) are working
     foreach ($m2ToTest as $schoolid => $database) {
-        if (!checkMoodleDatabase(array('id' => $schoolid, 'database' => $database))) {
+        if (!checkMoodleDatabase(array('id' => $schoolid, 'dbhost' => $database))) {
             $isok = false;
             $state .= '<br>La instància Oracle "' . $database . '" no funciona correctament.<br>';
         } elseif ($isBigIP) {
@@ -89,8 +88,8 @@ if (($isBigIP && !$nodeok) || (!$isBigIP)) {
         }
 
         // Check File systems for Moodle
-        //$dirToCheck = $agora['server']['root'] . $agora['moodle2']['datadir'] . $agora['moodle2']['userprefix'] . $schoolid . '/';
-        $dirToCheck = $agora['server']['root'] . get_filepath_moodle($schoolid) . '/';
+        $dirToCheck = $agora['server']['root'] . $agora['moodle2']['datadir'] . $agora['moodle2']['userprefix'] . $schoolid . '/';
+        // $dirToCheck = $agora['server']['root'] . get_filepath_moodle($schoolid) . '/';
         if (!is_writable($dirToCheck)) {
             $isok = false;
             $state .= "<br>El directori de dades de <strong>Moodle</strong> ($dirToCheck), o bé no està muntat o bé no té permís d'escriptura.<br>";
@@ -112,11 +111,12 @@ if (!$isBigIP && $isok) {
 /**
  * To check if the admin database is working
  *
+ * @return Boolean True if the database is working; false otherwise.
  * @author Sara Arjona Tellez (sarjona@xtec.cat)
  *
- * @return Boolean True if the database is working; false otherwise.
  */
-function checkAdminDatabase() {
+function checkAdminDatabase()
+{
     try {
         $con = get_dbconnection('admin');
         if ($con) {
@@ -127,47 +127,52 @@ function checkAdminDatabase() {
         echo $e->getMessage();
         return false;
     }
+
     return false;
 }
 
 /**
  * To check if the specified Moodle database is working
  *
- * @author Sara Arjona Tellez (sarjona@xtec.cat)
- * @author Toni Ginard
- *
  * @param $school database school information for connecting
  *
  * @return Boolean True if the database is working; false otherwise.
+ * @author Sara Arjona Tellez (sarjona@xtec.cat)
+ * @author Toni Ginard
+ *
  */
-function checkMoodleDatabase($school) {
-    global $agora, $state;
+function checkMoodleDatabase($school)
+{
+    global $agora, $state, $preparedStmts;
     $isok = false;
 
     $con = connect_moodle($school);
 
     // If connection was established successfully, check access to tables
     if ($con) {
-        $sql = 'SELECT count(*) FROM ' . $agora['moodle2']['prefix'] . 'course WHERE category = 0';
 
-        $stmt = oci_parse($con, $sql);
-
-        if (!oci_execute($stmt, OCI_DEFAULT)) {
-            return false;
-        }
-
-        while (oci_fetch($stmt)) {
-            $result = oci_result($stmt, 1);
-            if (is_numeric($result) && $result > 0) {
-                $isok = true;
-            } else {
-                $state .= '<br>No s\'ha pogut accedir a la taula ' . $agora['moodle2']['prefix'] . 'course de l\'usuari ' . $agora['moodle2']['userprefix'] . $school['id'] . '.';
+        if (!in_array('check_moodle', $preparedStmts)) {
+            $query = 'SELECT count(*) AS total FROM ' . $agora['moodle2']['prefix'] . 'course WHERE category = 0';
+            if (pg_prepare($con, 'check_moodle', $query)) {
+                array_push($preparedStmts, 'check_moodle');
             }
         }
 
+        $result = pg_execute($con, 'check_moodle', []);
+
+        if ($result === false) {
+            $state .= '<br />No s\'ha pogut accedir a la taula ' . $agora['moodle2']['prefix'] . 'course de l\'usuari ' . $agora['moodle2']['userprefix'] . $school['id'] . '.';
+        }
+
+        $value = (int)pg_fetch_assoc($result)['total'];
+
+        if ($value > 0) {
+            $isok = true;
+        } else {
+            $state .= '<br />No s\'han trobat registres a la taula ' . $agora['moodle2']['prefix'] . 'course de l\'usuari ' . $agora['moodle2']['userprefix'] . $school['id'] . '.';
+        }
+
         disconnect_moodle($con);
-    } else {
-        $state .= '<br>No s\'ha pogut connectar a la instància ' . $school['database'] . ' (usuari ' . $agora['moodle2']['userprefix'] . $school['id'] . ')';
     }
 
     return $isok;
@@ -176,14 +181,15 @@ function checkMoodleDatabase($school) {
 /**
  * To check if the specified Nodes database is working
  *
- * @author Sara Arjona Tellez (sarjona@xtec.cat)
- * @author Toni Ginard
- *
  * @param $school database school information for connecting
  *
  * @return Boolean True if the database is working; false otherwise.
+ * @author Sara Arjona Tellez (sarjona@xtec.cat)
+ * @author Toni Ginard
+ *
  */
-function checkNodesDatabase($school) {
+function checkNodesDatabase($school)
+{
     global $agora, $state;
     $isok = false;
 
@@ -197,7 +203,7 @@ function checkNodesDatabase($school) {
             $isok = true;
         } else {
             $state .= '<br>No s\'ha pogut accedir a la taula options de la base de dades ' . $agora['nodes']['userprefix'] . $school['id'] . '.';
-            $state .= '<br>'.$con->get_error();
+            $state .= '<br>' . $con->get_error();
         }
 
         $con->close();
