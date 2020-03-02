@@ -54,12 +54,12 @@ foreach ($services as $school) {
 
     cli_print_line('<br />' . $school['service'] . '<br />');
 
-    switch($school['service']) {
+    switch ($school['service']) {
         case 'moodle2':
             process_moodle_stats($school, $year, $month, $day, $dayofweek, $daysofmonth, $timestampofmonth);
             break;
         case 'nodes':
-            process_nodes_stats($school, $year, $month, $day, $daysofmonth, $timestampofmonth);
+            process_nodes_stats($school, $year, $month, $day, $daysofmonth);
             break;
     }
 }
@@ -82,8 +82,8 @@ cli_print_line('<p>FET!</p>');
  *
  * @return bool false si hi ha un error recuperable i acaba l'script si es irrecuperable
  */
-function process_moodle_stats($school, $year, $month, $day, $dayofweek, $daysofmonth, $timestampofmonth) {
-
+function process_moodle_stats($school, $year, $month, $day, $dayofweek, $daysofmonth, $timestampofmonth)
+{
     if (!($con = connect_moodle($school))) {
         cli_print_line('No s\'ha pogut connectar a la base de dades del Moodle 2 del centre ' . $school['dns']);
         return false;
@@ -109,7 +109,7 @@ function process_moodle_stats($school, $year, $month, $day, $dayofweek, $daysofm
     }
 
     $date = $year . $month . $day;
-    $users = getSchoolMoodleStats_Users($con, $year, $month, $daysofmonth);
+    $users = getSchoolMoodleStats_Users($con, $year, $month, $daysofmonth, MOODLE2_PREFIX);
     $diskConsume = getDiskConsume($school['code'], 'moodle2');
 
     // Consulta que comprova si el registre del mes del centre ja existeix o no
@@ -119,18 +119,12 @@ function process_moodle_stats($school, $year, $month, $day, $dayofweek, $daysofm
         if ($rows == 0) {
             // INSERT
             $sql = "INSERT INTO agoraportal_moodle2_stats_day
-                (clientcode, date, clientDNS, total, h0, h1, h2, h3, h4, h5 ,h6, h7, h8,
-                h9, h10, h11, h12, h13, h14, h15, h16, h17, h18, h19, h20, h21, h22, h23,
-                userstotal, usersnodelsus, usersactive, usersactivelast90days, usersactivelast30days,
-                diskConsume)
+                (clientcode, date, clientDNS, total, h0, h1, h2, h3, h4, h5 ,h6, h7, h8, h9, h10, h11, h12, h13, h14, h15, h16, h17, h18, h19, h20, h21, h22, h23,
+                userstotal, usersnodelsus, usersactive, usersactivelast90days, usersactivelast30days, diskConsume)
                 VALUES ('" . $school['code'] . "', $date, '" . $school['dns'] . "', $total,
-                $hours[0], $hours[1],$hours[2], $hours[3], $hours[4], $hours[5],
-                $hours[6], $hours[7], $hours[8], $hours[9], $hours[10], $hours[11],
-                $hours[12], $hours[13], $hours[14], $hours[15], $hours[16], $hours[17],
-                $hours[18], $hours[19], $hours[20], $hours[21], $hours[22], $hours[23],
-                " . $users['total'] .", " . $users['nodelsus'] .", " . $users['active'] . ",
-                " . $users['activelast90days'] .", " . $users['activelast30days'] .",
-                '$diskConsume')";
+                $hours[0], $hours[1],$hours[2], $hours[3], $hours[4], $hours[5], $hours[6], $hours[7], $hours[8], $hours[9], $hours[10], $hours[11],
+                $hours[12], $hours[13], $hours[14], $hours[15], $hours[16], $hours[17], $hours[18], $hours[19], $hours[20], $hours[21], $hours[22], $hours[23],
+                " . $users['total'] . ", " . $users['nodelsus'] . ", " . $users['active'] . ", " . $users['activelast90days'] . ", " . $users['activelast30days'] . ", '$diskConsume')";
         } else {
             // UPDATE
             $sql = "UPDATE agoraportal_moodle2_stats_day SET
@@ -176,7 +170,7 @@ function process_moodle_stats($school, $year, $month, $day, $dayofweek, $daysofm
 
     cli_print_line("<p>$sql</p>");
 
-    $lastaccess = getSchoolMoodleStats_LastAccess($con);
+    $lastaccess = getSchoolMoodleStats_LastAccess($con, MOODLE2_PREFIX);
 
 
     // WEEK STATS
@@ -197,12 +191,9 @@ function process_moodle_stats($school, $year, $month, $day, $dayofweek, $daysofm
         if ($rows !== false) {
             if ($rows == 0) {
                 // INSERT
-                $sql = "INSERT INTO agoraportal_moodle2_stats_week
-                            (clientcode, clientDNS, date, usersactive, courses, activities, lastaccess, lastaccess_date, lastaccess_user, total_access)
-                            VALUES ('" . $school['code'] . "', '" . $school['dns'] . "', '$date',
-                                    '" . $users['active'] . "', '$courses', '$activities',
-                                    '" . $lastaccess['lastaccess'] . "', '" . $lastaccess['lastaccessdate'] . "',
-                                    '" . $lastaccess['lastaccessuser'] . "', '$totalaccess')";
+                $sql = "INSERT INTO agoraportal_moodle2_stats_week (clientcode, clientDNS, date, usersactive, courses, activities, lastaccess, lastaccess_date, lastaccess_user, total_access)
+                            VALUES ('" . $school['code'] . "', '" . $school['dns'] . "', '$date', '" . $users['active'] . "', '$courses', '$activities',
+                                    '" . $lastaccess['lastaccess'] . "', '" . $lastaccess['lastaccessdate'] . "', '" . $lastaccess['lastaccessuser'] . "', '$totalaccess')";
             } else {
                 // UPDATE
                 $sql = "UPDATE agoraportal_moodle2_stats_week SET
@@ -240,13 +231,9 @@ function process_moodle_stats($school, $year, $month, $day, $dayofweek, $daysofm
         if ($rows == 0) {
             // INSERT
             $sql = "INSERT INTO agoraportal_moodle2_stats_month
-                (clientcode, yearmonth, clientDNS, usersactive, usersactivelast30days,
-                courses, activities, lastaccess, lastaccess_date,
-                lastaccess_user, total_access, diskConsume)
-                VALUES ('" . $school['code'] . "', $date, '" . $school['dns'] . "',
-                '" . $users['active'] . "', '" . $users['activelast30days'] . "', '$courses', '$activities',
-                '" . $lastaccess['lastaccess'] . "', '" . $lastaccess['lastaccessdate'] . "',
-                '" . $lastaccess['lastaccessuser'] . "', '$totalaccess', '$diskConsume')";
+                (clientcode, yearmonth, clientDNS, usersactive, usersactivelast30days, courses, activities, lastaccess, lastaccess_date, lastaccess_user, total_access, diskConsume)
+                VALUES ('" . $school['code'] . "', $date, '" . $school['dns'] . "', '" . $users['active'] . "', '" . $users['activelast30days'] . "', '$courses', '$activities',
+                '" . $lastaccess['lastaccess'] . "', '" . $lastaccess['lastaccessdate'] . "', '" . $lastaccess['lastaccessuser'] . "', '$totalaccess', '$diskConsume')";
         } else {
             // UPDATE
             $sql = "UPDATE agoraportal_moodle2_stats_month SET
@@ -261,7 +248,6 @@ function process_moodle_stats($school, $year, $month, $day, $dayofweek, $daysofm
                 diskConsume           = '$diskConsume'
                 WHERE clientcode = '" . $school['code'] . "' AND yearmonth = '$date'";
         }
-        //EXECUTE
         if (!$statsCon->execute_query($sql)) {
             cli_print_line($statsCon->get_error() . '<br />');
         }
@@ -270,158 +256,153 @@ function process_moodle_stats($school, $year, $month, $day, $dayofweek, $daysofm
     cli_print_line('<p>' . $sql . '</p>');
 
     $statsCon->close();
+
     disconnect_moodle($con);
+
+    global $prepared_stmts;
+    $prepared_stmts = [];
 }
 
 /**
  * Obte el nombre d'accessos d'un moodle en una franja d'una hora en una
  * data determinada i els retorna
  *
- * @param con           Connexio a la base de dades
- * @param year          Any del que es volen obtenir les estadistiques
- * @param month         Mes del que es volen obtenir les estadistiques
- * @param day           Dia del que es volen obtenir les estadistiques
- * @param hour          Hora del dia del que es volen obtenir les estadistiques
+ * @param $con
+ * @param $year
+ * @param $month
+ * @param $day
+ * @param $hour
+ * @param $prefix
  *
  * @return int El nombre d'accessos
  */
-function getSchoolMoodleStats_HourAccess($con, $year, $month, $day, $hour, $prefix) {
-
+function getSchoolMoodleStats_HourAccess($con, $year, $month, $day, $hour, $prefix)
+{
     // Converteix a timestamp
     $max = mktime($hour, 59, 59, $month, $day, $year);
     $min = $max - SECONDS_IN_AN_HOUR;
 
     global $prepared_stmts;
 
-    if (!in_array('MoodleStats_HourAccess', $prepared_stmts)) {
-        if (pg_prepare($con,
-            'MoodleStats_HourAccess',
-            "SELECT count(ID) AS total FROM " . $prefix . "logstore_standard_log WHERE timecreated > $1 AND timecreated < $2")) {
-            array_push($prepared_stmts, 'MoodleStats_HourAccess');
+    if (!in_array('MoodleStats_Access', $prepared_stmts)) {
+        $query = 'SELECT count(ID) AS total FROM ' . $prefix . 'logstore_standard_log WHERE timecreated > $1 AND timecreated < $2';
+        if (pg_prepare($con, 'MoodleStats_Access', $query)) {
+            array_push($prepared_stmts, 'MoodleStats_Access');
         }
     }
 
-    $result = pg_execute($con, 'MoodleStats_HourAccess', [$min, $max]);
+    $result = pg_execute($con, 'MoodleStats_Access', [$min, $max]);
 
-    if (!$result) {
-        $value = 0;
-    } else {
-        $value = (int) pg_fetch_assoc($result)['total'];
-     }
-
-    return $value;
+    return (!$result) ? 0 : (int)pg_fetch_assoc($result)['total'];
 }
 
 /**
  * Obte el nombre d'accessos d'un moodle durant una setmana i els retorna
  *
- * @param con           Connexio a la base de dades
- * @param year          Any del que es volen obtenir les estadistiques
- * @param month         Mes del que es volen obtenir les estadistiques
- * @param day           Dia en que comença la setmana de la que es volen obtenir les estadistiques
+ * @param $con
+ * @param $year
+ * @param $month
+ * @param $day
+ * @param $prefix
  *
  * @return int El nombre d'accessos
  */
-function getSchoolMoodleStats_TotalWeekAccess($con, $year, $month, $day, $prefix) {
-
+function getSchoolMoodleStats_TotalWeekAccess($con, $year, $month, $day, $prefix)
+{
     $max = mktime(23, 59, 59, $month, $day, $year);
     $min = $max - SECONDS_IN_A_WEEK;
 
-    $sql = 'SELECT count(ID) AS total FROM ' . $prefix . 'logstore_standard_log WHERE timecreated > ' . $min . ' AND timecreated < ' . $max . ' ';
-    $stmt = oci_parse($con, $sql);
-    $value = '';
+    global $prepared_stmts;
 
-    if (oci_execute($stmt, OCI_DEFAULT)) {
-        if (oci_fetch($stmt)) {
-            $value = oci_result($stmt, 'TOTAL');
+    if (!in_array('MoodleStats_Access', $prepared_stmts)) {
+        $query = 'SELECT count(ID) AS total FROM ' . $prefix . 'logstore_standard_log WHERE timecreated > $1 AND timecreated < $2';
+        if (pg_prepare($con, 'MoodleStats_Access', $query)) {
+            array_push($prepared_stmts, 'MoodleStats_Access');
         }
     }
-    if (empty($value)) {
-        $value = 0;
-    }
 
-    return $value;
+    $result = pg_execute($con, 'MoodleStats_Access', [$min, $max]);
+
+    return (!$result) ? 0 : (int)pg_fetch_assoc($result)['total'];
 }
 
 /**
  * Obte el nombre d'accessos d'un moodle durant tot un mes i els retorna
  *
- * @param con           Connexio a la base de dades
- * @param year          Any del que es volen obtenir les estadistiques
- * @param month         Mes del que es volen obtenir les estadistiques
+ * @param $con
+ * @param $year
+ * @param $month
  * @param $daysofmonth  Nombre de dies del mes que es volen obtenir les estadistiques
+ * @param $prefix
  *
  * @return int El nombre d'accessos
  */
-function getSchoolMoodleStats_TotalMonthAccess($con, $year, $month, $daysofmonth, $prefix) {
-
+function getSchoolMoodleStats_TotalMonthAccess($con, $year, $month, $daysofmonth, $prefix)
+{
     $max = mktime(23, 59, 59, $month, $daysofmonth, $year);
     $min = mktime(0, 0, 0, $month, 1, $year);
 
-    $sql = 'SELECT count(ID) AS total FROM ' . $prefix . 'logstore_standard_log WHERE timecreated > ' . $min . ' AND timecreated < ' . $max . ' ';
-    $stmt = oci_parse($con, $sql);
-    $value = '';
+    global $prepared_stmts;
 
-    if (oci_execute($stmt, OCI_DEFAULT)) {
-        if (oci_fetch($stmt)) {
-            $value = oci_result($stmt, 'TOTAL');
+    if (!in_array('MoodleStats_Access', $prepared_stmts)) {
+        $query = 'SELECT count(ID) AS total FROM ' . $prefix . 'logstore_standard_log WHERE timecreated > $1 AND timecreated < $2';
+        if (pg_prepare($con, 'MoodleStats_Access', $query)) {
+            array_push($prepared_stmts, 'MoodleStats_Access');
         }
     }
-    if (empty($value)) {
-        $value = 0;
-    }
 
-    return $value;
+    $result = pg_execute($con, 'MoodleStats_Access', [$min, $max]);
+
+    return (!$result) ? 0 : (int)pg_fetch_assoc($result)['total'];
 }
 
 /**
  * Obte el nombre de cursos d'un moodle i el retorna
  *
- * @param con          Connexio a la base de dades
- * @param timestamp    Timestamp del moment en que es volen obtenir les estadistiques
- *
+ * @param $con
+ * @param $timestamp
+ * @param $prefix
  * @return int El nombre de cursos
  */
-function getSchoolMoodleStats_Courses($con, $timestamp, $prefix) {
+function getSchoolMoodleStats_Courses($con, $timestamp, $prefix)
+{
+    global $prepared_stmts;
 
-    $sql = 'SELECT count(ID) AS courses FROM ' . $prefix . 'course where timecreated < ' . $timestamp;
-    $stmt = oci_parse($con, $sql);
-    $value = '';
-
-    if (oci_execute($stmt, OCI_DEFAULT)) {
-        if (oci_fetch($stmt)) {
-            $value = oci_result($stmt, 'COURSES');
+    if (!in_array('MoodleStats_Courses', $prepared_stmts)) {
+        $query = 'SELECT count(ID) AS total FROM ' . $prefix . 'course WHERE timecreated < $1';
+        if (pg_prepare($con, 'MoodleStats_Courses', $query)) {
+            array_push($prepared_stmts, 'MoodleStats_Courses');
         }
     }
 
-    if (empty($value)) {
-        $value = 0;
-    }
+    $result = pg_execute($con, 'MoodleStats_Courses', [$timestamp]);
 
-    return $value;
+    return (!$result) ? 0 : (int)pg_fetch_assoc($result)['total'];
 }
 
 /**
  * Obte el nombre d'activitats d'un moodle i el retorna
  *
- * @param con          Connexio a la base de dades
- * @param timestamp    Timestamp del moment en que es volen obtenir les estadistiques
+ * @param $con
+ * @param $timestamp
+ * @param $prefix
  *
  * @return int El nombre d'activitats
  */
-function getSchoolMoodleStats_Activities($con, $timestamp, $prefix) {
-    $sql = 'SELECT COUNT(*) AS count FROM ' . $prefix . 'course_modules WHERE added < ' . $timestamp;
-    $stmt = oci_parse($con, $sql);
+function getSchoolMoodleStats_Activities($con, $timestamp, $prefix)
+{
+    global $prepared_stmts;
 
-	$value = 0;
-    if (oci_execute($stmt, OCI_DEFAULT)) {
-        while (oci_fetch($stmt)) {
-            $count = (int) oci_result($stmt, 'COUNT');
-            $value += $count;
+    if (!in_array('MoodleStats_Activities', $prepared_stmts)) {
+        $query = 'SELECT count(ID) AS total FROM ' . $prefix . 'course_modules WHERE added < $1';
+        if (pg_prepare($con, 'MoodleStats_Activities', $query)) {
+            array_push($prepared_stmts, 'MoodleStats_Activities');
         }
     }
 
-    return $value;
+    $result = pg_execute($con, 'MoodleStats_Activities', [$timestamp]);
+
+    return (!$result) ? 0 : (int)pg_fetch_assoc($result)['total'];
 }
 
 /**
@@ -439,10 +420,60 @@ function getSchoolMoodleStats_Activities($con, $timestamp, $prefix) {
  * @param $year        Any en el que es calculen les estadístiques
  * @param $month       Mes en el que es calculen les estadístiques
  * @param $daysofmonth Nombre de dies que té el mes en el que es calculen les estadístiques
+ * @param $prefix
  *
  * @return array Conte un element amb cada una de les dades anteriors
  */
-function getSchoolMoodleStats_Users($con, $year, $month, $daysofmonth) {
+function getSchoolMoodleStats_Users($con, $year, $month, $daysofmonth, $prefix)
+{
+    $users = ['total' => 0, 'nodelsus' => 0, 'active' => 0, 'activelast90days' => 0, 'activelast30days' => 0];
+
+    global $prepared_stmts;
+
+    // Total users
+
+    if (!in_array('MoodleStats_Users', $prepared_stmts)) {
+        $query = 'SELECT count(ID) AS users FROM ' . $prefix . 'user';
+        if (pg_prepare($con, 'MoodleStats_Users', $query)) {
+            array_push($prepared_stmts, 'MoodleStats_Users');
+        }
+    }
+
+    $result = pg_execute($con, 'MoodleStats_Users', []);
+    $users['total'] = (!$result) ? 0 : (int)pg_fetch_assoc($result)['users'];
+
+    // Users nor suspended neither deleted
+
+    if (!in_array('MoodleStats_UsersNoDelSus', $prepared_stmts)) {
+        $query = 'SELECT count(ID) AS users FROM ' . $prefix . 'user WHERE suspended=0 AND deleted=0';
+        if (pg_prepare($con, 'MoodleStats_UsersNoDelSus', $query)) {
+            array_push($prepared_stmts, 'MoodleStats_UsersNoDelSus');
+        }
+    }
+
+    $result = pg_execute($con, 'MoodleStats_UsersNoDelSus', []);
+    $users['nodelsus'] = (!$result) ? 0 : (int)pg_fetch_assoc($result)['users'];
+
+    // Active users
+
+    if (!in_array('MoodleStats_UsersActive', $prepared_stmts)) {
+        $query = 'SELECT count(ID) AS users FROM ' . $prefix . 'user WHERE confirmed=1 AND suspended=0 AND deleted=0 AND firstaccess<>0';
+        if (pg_prepare($con, 'MoodleStats_UsersActive', $query)) {
+            array_push($prepared_stmts, 'MoodleStats_UsersActive');
+        }
+    }
+
+    $result = pg_execute($con, 'MoodleStats_UsersActive', []);
+    $users['active'] = (!$result) ? 0 : (int)pg_fetch_assoc($result)['users'];
+
+    // Users active during the last 90 days
+
+    if (!in_array('MoodleStats_UsersActiveDuringDays', $prepared_stmts)) {
+        $query = 'SELECT count(ID) AS users FROM ' . $prefix . 'user WHERE confirmed=1 AND suspended=0 AND deleted=0 AND firstaccess<>0 AND lastaccess BETWEEN $1 AND $2';
+        if (pg_prepare($con, 'MoodleStats_UsersActiveDuringDays', $query)) {
+            array_push($prepared_stmts, 'MoodleStats_UsersActiveDuringDays');
+        }
+    }
 
     $now = time();
     $max = mktime(23, 59, 59, $month, $daysofmonth, $year);
@@ -450,48 +481,16 @@ function getSchoolMoodleStats_Users($con, $year, $month, $daysofmonth) {
         $max = $now;
     }
     $min = $max - SECONDS_IN_90_DAYS;
-    $users = array ('total' => 0, 'nodelsus' => 0, 'active' => 0, 'activelast90days' => 0, 'activelast30days' => 0);
 
-    $sql = 'SELECT count(ID) AS users FROM ' . MOODLE2_PREFIX . 'user';
-    $stmt = oci_parse($con, $sql);
-    if (oci_execute($stmt, OCI_DEFAULT)) {
-        if (oci_fetch($stmt)) {
-            $users['total'] = oci_result($stmt, 'USERS');
-        }
-    }
+    $result = pg_execute($con, 'MoodleStats_UsersActiveDuringDays', [$min, $max]);
+    $users['activelast90days'] = (!$result) ? 0 : (int)pg_fetch_assoc($result)['users'];
 
-    $sql = 'SELECT count(ID) AS users FROM ' . MOODLE2_PREFIX . 'user WHERE suspended=0 AND deleted=0';
-    $stmt = oci_parse($con, $sql);
-    if (oci_execute($stmt, OCI_DEFAULT)) {
-        if (oci_fetch($stmt)) {
-            $users['nodelsus'] = oci_result($stmt, 'USERS');
-        }
-    }
-
-    $sql = 'SELECT count(ID) AS users FROM ' . MOODLE2_PREFIX . 'user WHERE confirmed=1 AND suspended=0 AND deleted=0 AND firstaccess<>0';
-    $stmt = oci_parse($con, $sql);
-    if (oci_execute($stmt, OCI_DEFAULT)) {
-        if (oci_fetch($stmt)) {
-            $users['active'] = oci_result($stmt, 'USERS');
-        }
-    }
-
-    $sql = 'SELECT count(ID) AS users FROM ' . MOODLE2_PREFIX . 'user WHERE confirmed=1 AND suspended=0 AND deleted=0 AND firstaccess<>0 AND lastaccess between ' .$min.' and '.$max.' ';
-    $stmt = oci_parse($con, $sql);
-    if (oci_execute($stmt, OCI_DEFAULT)) {
-        if (oci_fetch($stmt)) {
-            $users['activelast90days'] = oci_result($stmt, 'USERS');
-        }
-    }
+    // Users active during the last 30 days
 
     $min = $max - SECONDS_IN_30_DAYS;
-    $sql = 'SELECT count(ID) AS users FROM ' . MOODLE2_PREFIX . 'user WHERE confirmed=1 AND suspended=0 AND deleted=0 AND firstaccess<>0 AND lastaccess between ' .$min.' and '.$max.' ';
-    $stmt = oci_parse($con, $sql);
-    if (oci_execute($stmt, OCI_DEFAULT)) {
-        if (oci_fetch($stmt)) {
-            $users['activelast30days'] = oci_result($stmt, 'USERS');
-        }
-    }
+
+    $result = pg_execute($con, 'MoodleStats_UsersActiveDuringDays', [$min, $max]);
+    $users['activelast30days'] = (!$result) ? 0 : (int)pg_fetch_assoc($result)['users'];
 
     return $users;
 }
@@ -504,25 +503,35 @@ function getSchoolMoodleStats_Users($con, $year, $month, $daysofmonth) {
  *
  * @return array Les dades del darrer accés
  */
-function getSchoolMoodleStats_LastAccess($con) {
+function getSchoolMoodleStats_LastAccess($con, $prefix)
+{
+    global $prepared_stmts;
 
-    $sql = 'SELECT lastaccess, username FROM ' . MOODLE2_PREFIX . 'user WHERE username!=\'xtecadmin\' AND username!=\'guest\' AND confirmed=1 AND suspended=0 AND deleted=0 ORDER BY lastaccess DESC ';
-    $stmt = oci_parse($con, $sql);
-    $values = array();
-
-    if (oci_execute($stmt, OCI_DEFAULT)) {
-        if (oci_fetch($stmt)) {
-            $value = '';
-            $value = oci_result($stmt, 'LASTACCESS');
-            if (empty($value)) {
-                $value = 0;
-            }
-            $values['lastaccess'] = $value;
-            $values['lastaccessdate'] = date("d/m/o H:i:s", $value);
-            $values['lastaccessuser'] = oci_result($stmt, 'USERNAME');
+    if (!in_array('MoodleStats_LastAccess', $prepared_stmts)) {
+        $query = 'SELECT lastaccess, username FROM ' . $prefix . 'user WHERE username!=\'xtecadmin\' AND username!=\'guest\' AND confirmed=1 AND suspended=0 AND deleted=0 ORDER BY lastaccess DESC';
+        if (pg_prepare($con, 'MoodleStats_LastAccess', $query)) {
+            array_push($prepared_stmts, 'MoodleStats_LastAccess');
         }
     }
-    return $values;
+
+    $result = pg_execute($con, 'MoodleStats_LastAccess', []);
+
+    if (!$result) {
+        $data = [
+            'lastaccess' => 0,
+            'lastaccessdate' => '01/01/1970 00:00:00',
+            'lastaccessuser' => '',
+        ];
+    } else {
+        $rs = pg_fetch_assoc($result);
+        $data = [
+            'lastaccess' => $rs['lastaccess'],
+            'lastaccessdate' => date("d/m/o H:i:s", $rs['lastaccess']),
+            'lastaccessuser' => $rs['username'],
+        ];
+    }
+
+    return $data;
 }
 
 
@@ -535,11 +544,11 @@ function getSchoolMoodleStats_LastAccess($con) {
  * @param year             Any del que es volen obtenir les estadistiques
  * @param month            Mes del que es volen obtenir les estadistiques
  * @param day              Dia del que es volen obtenir les estadistiques
- * @param timestampofmonth Timestamp del darrer segon del mes del que es volen obtenir les estadistiques
  *
  * @return bool false si hi ha un error recuperable i acaba l'script si es irrecuperable
  */
-function process_nodes_stats($school, $year, $month, $day, $daysofmonth) {
+function process_nodes_stats($school, $year, $month, $day, $daysofmonth)
+{
 
     $date = $year . $month . $day;
     $yearmonth = $year . $month;
@@ -577,13 +586,13 @@ function process_nodes_stats($school, $year, $month, $day, $daysofmonth) {
 
     $rows = $statsCon->count_rows($sql);
     if ($rows !== false) {
-        if ($rows == 0) { // INSERT
-            $sql = "INSERT INTO agoraportal_nodes_stats_day
-                (clientcode, clientDNS, date, total, posts, userstotal, usersactive, usersactivelast30days, usersactivelast90days, diskConsume)
-                VALUES ('" . $school['code'] . "', '" . $school['dns'] . "', $date, "
-                    . "$numAccessDay, $numPostsDay, " . $users['total'] . ", " . $users['active'] . ", "
-                    . $users['activelast30days'] . ", " . $users['activelast90days'] . ", $diskConsume)";
-        } else  { // UPDATE
+        if ($rows == 0) {
+            // INSERT
+            $sql = "INSERT INTO agoraportal_nodes_stats_day (clientcode, clientDNS, date, total, posts, userstotal, usersactive, usersactivelast30days, usersactivelast90days, diskConsume)
+                VALUES ('" . $school['code'] . "', '" . $school['dns'] . "', $date, $numAccessDay, $numPostsDay, " . $users['total'] . ", " . $users['active'] . ", "
+                . $users['activelast30days'] . ", " . $users['activelast90days'] . ", $diskConsume)";
+        } else {
+            // UPDATE
             $sql = "UPDATE agoraportal_nodes_stats_day SET
                 total                 = $numAccessDay,
                 posts                 = $numPostsDay,
@@ -606,13 +615,13 @@ function process_nodes_stats($school, $year, $month, $day, $daysofmonth) {
 
     $rows = $statsCon->count_rows($sql);
     if ($rows !== false) {
-        if ($rows == 0) { // INSERT
-            $sql = "INSERT INTO agoraportal_nodes_stats_month
-                (clientcode, clientDNS, yearmonth, total, posts, userstotal, usersactive, lastactivity, diskConsume)
-                VALUES ('" . $school['code'] . "', '" . $school['dns'] . "', $yearmonth, "
-                    . "$numAccessMonth, $numPostsMonth, " . $users['total'] . ", " . $users['active'] . ", "
-                    . "'$lastActivity', $diskConsume)";
-        } else  { // UPDATE
+        if ($rows == 0) {
+            // INSERT
+            $sql = "INSERT INTO agoraportal_nodes_stats_month (clientcode, clientDNS, yearmonth, total, posts, userstotal, usersactive, lastactivity, diskConsume)
+                VALUES ('" . $school['code'] . "', '" . $school['dns'] . "', $yearmonth, $numAccessMonth, $numPostsMonth, " . $users['total'] . ", " . $users['active'] . ", "
+                . "'$lastActivity', $diskConsume)";
+        } else {
+            // UPDATE
             $sql = "UPDATE agoraportal_nodes_stats_month SET
                 total        = $numAccessMonth,
                 posts        = $numPostsMonth,
@@ -644,7 +653,8 @@ function process_nodes_stats($school, $year, $month, $day, $daysofmonth) {
  *
  * @return int if successful, boolean false otherwise
  */
-function getSchoolNodesStats_AccessDay($school, $year, $month, $day) {
+function getSchoolNodesStats_AccessDay($school, $year, $month, $day)
+{
 
     if (!($con = connect_nodes($school))) {
         cli_print_line('<br>No s\'ha pogut connectar a la base de dades de l\'espai Nodes del centre ' . $school['dns']);
@@ -672,8 +682,8 @@ function getSchoolNodesStats_AccessDay($school, $year, $month, $day) {
  *
  * @return int if successful, boolean false otherwise
  */
-function getSchoolNodesStats_AccessMonth($school, $year, $month, $daysofmonth) {
-
+function getSchoolNodesStats_AccessMonth($school, $year, $month, $daysofmonth)
+{
     if (!($con = connect_nodes($school))) {
         cli_print_line('<br>No s\'ha pogut connectar a la base de dades de l\'espai Nodes del centre ' . $school['dns']);
         return false;
@@ -700,8 +710,8 @@ function getSchoolNodesStats_AccessMonth($school, $year, $month, $daysofmonth) {
  *
  * @return int if successful, boolean false otherwise
  */
-function getSchoolNodesStats_PostsDay($school, $year, $month, $day) {
-
+function getSchoolNodesStats_PostsDay($school, $year, $month, $day)
+{
     if (!($con = connect_nodes($school))) {
         cli_print_line('<br>No s\'ha pogut connectar a la base de dades de l\'espai Nodes del centre ' . $school['dns']);
         return false;
@@ -728,8 +738,8 @@ function getSchoolNodesStats_PostsDay($school, $year, $month, $day) {
  *
  * @return int if successful, boolean false otherwise
  */
-function getSchoolNodesStats_PostsMonth($school, $year, $month, $daysofmonth) {
-
+function getSchoolNodesStats_PostsMonth($school, $year, $month, $daysofmonth)
+{
     if (!($con = connect_nodes($school))) {
         cli_print_line('<br>No s\'ha pogut connectar a la base de dades de l\'espai Nodes del centre ' . $school['dns']);
         return false;
@@ -761,14 +771,14 @@ function getSchoolNodesStats_PostsMonth($school, $year, $month, $daysofmonth) {
  *
  * @return array if successful, boolean false otherwise
  */
-function getSchoolNodesStats_Users($school, $year, $month, $day) {
-
+function getSchoolNodesStats_Users($school, $year, $month, $day)
+{
     if (!($con = connect_nodes($school))) {
         cli_print_line('<br>No s\'ha pogut connectar a la base de dades de l\'espai Nodes del centre ' . $school['dns']);
         return false;
     }
 
-    $users = array ('total' => 0, 'active' => 0, 'activelast30days' => 0, 'activelast90days' => 0);
+    $users = array('total' => 0, 'active' => 0, 'activelast30days' => 0, 'activelast90days' => 0);
 
     // Count all users in the table
     $sql = "SELECT count(ID) AS value FROM " . NODES_PREFIX . "users";
@@ -789,12 +799,12 @@ function getSchoolNodesStats_Users($school, $year, $month, $day) {
         $max_ts = $now;
     }
     $min = date('Y-m-d H:i:s', $max_ts - SECONDS_IN_30_DAYS);
-    $max = date ('Y-m-d H:i:s', $max_ts);
+    $max = date('Y-m-d H:i:s', $max_ts);
 
     $sql = "SELECT count(um.umeta_id) AS value FROM " . NODES_PREFIX . "users u "
-            . "LEFT JOIN " . NODES_PREFIX . "usermeta um ON um.user_id = u.ID "
-            . "WHERE u.user_status = 0 AND um.meta_key = 'last_activity' "
-            . "AND STR_TO_DATE(um.meta_value, '%Y-%m-%d %H:%i:%s') BETWEEN '$min' AND '$max'";
+        . "LEFT JOIN " . NODES_PREFIX . "usermeta um ON um.user_id = u.ID "
+        . "WHERE u.user_status = 0 AND um.meta_key = 'last_activity' "
+        . "AND STR_TO_DATE(um.meta_value, '%Y-%m-%d %H:%i:%s') BETWEEN '$min' AND '$max'";
     if (!$users['activelast30days'] = $con->get_field($sql, 'value')) {
         $users['activelast30days'] = 0;
     }
@@ -803,9 +813,9 @@ function getSchoolNodesStats_Users($school, $year, $month, $day) {
     $min = date('Y-m-d H:i:s', $max_ts - SECONDS_IN_90_DAYS);
 
     $sql = "SELECT count(um.umeta_id) AS value FROM " . NODES_PREFIX . "users u "
-            . "LEFT JOIN " . NODES_PREFIX . "usermeta um ON um.user_id = u.ID "
-            . "WHERE u.user_status = 0 AND um.meta_key = 'last_activity' "
-            . "AND STR_TO_DATE(um.meta_value, '%Y-%m-%d %H:%i:%s') BETWEEN '$min' AND '$max'";
+        . "LEFT JOIN " . NODES_PREFIX . "usermeta um ON um.user_id = u.ID "
+        . "WHERE u.user_status = 0 AND um.meta_key = 'last_activity' "
+        . "AND STR_TO_DATE(um.meta_value, '%Y-%m-%d %H:%i:%s') BETWEEN '$min' AND '$max'";
     if (!$users['activelast90days'] = $con->get_field($sql, 'value')) {
         $users['activelast90days'] = 0;
     }
@@ -825,8 +835,8 @@ function getSchoolNodesStats_Users($school, $year, $month, $day) {
  *
  * @return int if successful, boolean false otherwise
  */
-function getSchoolNodesStats_LastActivity($school, $year, $month, $day) {
-
+function getSchoolNodesStats_LastActivity($school, $year, $month, $day)
+{
     if (!($con = connect_nodes($school))) {
         cli_print_line('<br>No s\'ha pogut connectar a la base de dades de l\'espai Nodes del centre ' . $school['dns']);
         return false;
@@ -854,12 +864,13 @@ function getSchoolNodesStats_LastActivity($school, $year, $month, $day) {
  *
  * @return string     La quota utilitzada en KB
  */
-function getDiskConsume ($clientCode, $service) {
+function getDiskConsume($clientCode, $service)
+{
     $sql = 'SELECT cs.diskConsume
             FROM agoraportal_client_services AS cs
             LEFT JOIN agoraportal_clients c ON cs.clientId = c.clientId
             LEFT JOIN agoraportal_services s ON cs.serviceId = s.serviceId
-            WHERE c.clientCode=\''.$clientCode.'\' AND s.serviceName=\''.$service.'\'';
+            WHERE c.clientCode=\'' . $clientCode . '\' AND s.serviceName=\'' . $service . '\'';
 
     try {
         $statsCon = get_dbconnection('admin');
