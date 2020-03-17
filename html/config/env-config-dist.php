@@ -47,5 +47,8 @@ $agora['mail']['reply'] = 'notificacions@educaciodigital.cat';
 $agora['xtecadmin']['password'] = '6142bfd56a583d891f0b1dcdbb2a9ef8';
 $agora['opcache']['password'] = 'agora';
 
+$agora['xtecadmin']['password'] = '6142bfd56a583d891f0b1dcdbb2a9ef8';
+$agora['opcache']['password']   = 'agora';
+
 // Load vars common in all environments
 include_once $agora['server']['root'] . 'html/config/config.php';
