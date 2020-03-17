@@ -74,9 +74,6 @@
     define('SERVEI_EDUCATIU_ID', 5);
     define('PROJECTES_TYPE_ID', 12);
 
-    // Load restricted vars
-    include_once $agora['server']['root'] . 'html/config/config-restricted.php';
-
 /*
     // Codi dels talls de servei
     if (!strpos($_SERVER['REQUEST_URI'], "analytics1") &&

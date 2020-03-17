@@ -36,5 +36,8 @@ $agora['nodes']['username']    = 'root';          // Usuari/ària per accedir a 
 $agora['nodes']['userpwd']     = 'agora';         // Contrasenya de l'usuari/ària anterior
 $agora['nodes']['datadir']     = $agora['server']['datadir'] . 'wpdata/';  // Directori de dades d'usuari
 
+$agora['xtecadmin']['password'] = '6142bfd56a583d891f0b1dcdbb2a9ef8';
+$agora['opcache']['password']   = 'agora';
+
 // Load vars common in all environments
 include_once $agora['server']['root'].'html/config/config.php';
