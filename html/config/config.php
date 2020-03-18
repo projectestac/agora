@@ -11,7 +11,7 @@
     $agora['moodle2']['diskusagefile']     = 'diskUsageMdl2.txt';
     $agora['moodle2']['repository_files']  = '/repository/files/';                      // Folder for uploading big files
     $agora['moodle2']['userprefix']        = $agora['server']['userprefix'];            // All services need to have the same variable name
-    $agora['moodle2']['localmuc']          = $agora['server']['datadir'] . 'localmuc';  // MUC elements in web server (not shared)
+    $agora['moodle2']['localmuc']          = $agora['server']['localdatadir'] . 'localmuc';  // MUC elements in web server (not shared)
 
     // Params for Zikula (pending removal)
     $agora['intranet']['dbtype']           = 'mysql';
@@ -51,7 +51,7 @@
 
     // Database config info source
     $agora['dbsource']['defaulttype']      = 1; // 1.- allSchools.php  2.- Database
-    $agora['dbsource']['dir']              = $agora['server']['root'] . $agora['server']['datadir'] . 'syncdata/';
+    $agora['dbsource']['dir']              = $agora['server']['root'] . $agora['server']['localdatadir'] . 'syncdata/';
 
     // xtecadmin
     $agora['xtecadmin']['mail']            = 'agora@xtec.invalid';
