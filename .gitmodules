@@ -7,6 +7,3 @@
 [submodule "html/portal/modules/XtecMailer/includes/mailer"]
 	path = html/portal/modules/XtecMailer/includes/mailer
 	url = https://github.com/projectestac/mailer.git
-[submodule "html/testlib"]
-	path = html/testlib
-	url = https://github.com/projectestac/testlib_PHP
