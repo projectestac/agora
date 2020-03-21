@@ -92,11 +92,14 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
                 continue;
             }
         }
+
         // get client managers
         $managers = $client->get_managers();
+
         $notsolicitedServices = $client->get_servicestypes_to_request();
 
-        return $this->view->assign('services', $services)
+        return $this->view
+            ->assign('services', $services)
             ->assign('noclient', 0)
             ->assign('client', $client)
             ->assign('servicetypes', $servicetypes)

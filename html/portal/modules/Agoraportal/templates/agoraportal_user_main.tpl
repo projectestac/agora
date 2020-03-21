@@ -18,7 +18,7 @@
             {assign var="servicetype" value=$servicetypes[$serviceid]}
             {include file="agoraportal_user_serviceInfo.tpl"}
         {foreachelse}
-            {if $managers|@count gt 0}
+            {if $managers gt 0}
                 <div class="alert alert-info">
                     {gt text="No s'han trobat serveis."}
                     {if $accessLevel neq 'manager'}

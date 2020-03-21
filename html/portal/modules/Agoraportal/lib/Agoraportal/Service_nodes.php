@@ -108,7 +108,7 @@ class Service_nodes extends Service {
                 try {
                     $this->executeSQL($currentSQL, true);
                 } catch (Throwable $e) {
-                    return LogUtil::registerError(__f('L\'execució de l\'sql ha fallat: ' . $currentSQL . '. Error: ' . $e->getMessage()));
+                    return LogUtil::registerError(__('L\'execució de l\'sql ha fallat: ' . $currentSQL . '. Error: ' . $e->getMessage()));
                 }
 
                 // Reset temp variable to empty

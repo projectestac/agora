@@ -33,13 +33,13 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-4 control-label" for="dbHost">{gt text="Base de dades [opcional]"}:</label>
+                <label class="col-sm-4 control-label" for="dbHost">{gt text="Servidor de bases de dades"}:</label>
                 <div class="col-sm-8">
                     <input class="form-control" id="dbHost" type="text" name="dbHost" size="30" value="{$sdbHost}" />
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-4 control-label" for="template">{gt text="Plantilla de Nodes"}:</label>
+                <label class="col-sm-4 control-label" for="template">{gt text="Plantilla de Nodes (només per a altes de Nodes)"}:</label>
                 <div class="col-sm-8">
                     <select class="form-control" id="template" name="template">
                         <option value="0">{gt text="Tria una plantilla..."}</option>
@@ -53,7 +53,7 @@
                 <div class="col-md-offset-4 col-sm-8">
                     <label class="control-label" for="createClient">
                         <input id="createClient" type="checkbox" name="createClient" {if $createClient eq 1}checked{/if} value="1" />
-                        {gt text="Crea els clients que no existeixin"}
+                        {gt text="Crea els clients que no existeixin. Es creen clients genèrics, amb la forma formxxx"}
                     </label>
                 </div>
             </div>

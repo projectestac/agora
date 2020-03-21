@@ -78,14 +78,14 @@
                 <label class="col-sm-4 control-label" for="dbHost">{gt text="Servidor de base de dades"}:</label>
                 <div class="col-sm-8">
                     <input class="form-control" id="dbHost" type="text" name="dbHost" size="30" value="{$service->dbHost}" />
-                    <span style="font-style:italic; color:grey;">{gt text="Necessari per al MySQL (Nodes). No es fa servir a l'Oracle (Moodle)"}</span>
+                    <span style="font-style:italic; color:grey;">{gt text="Requerit en tots els casos"}</span>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-4 control-label" for="serviceDB">{gt text="Base de dades"}:</label>
                 <div class="col-sm-8">
                     <input class="form-control" id="serviceDB" type="text" name="serviceDB" size="30" value="{$service->serviceDB}" />
-                    <span style="font-style:italic; color:grey;">{gt text="Si està en blanc, es calcula automàticament. A Nodes només s'utilitza en el moment de l'activació."}</span>
+                    <span style="font-style:italic; color:grey;">{gt text="No es fa servir. El nom de la base de dades es construeix dinàmicament"}</span>
                 </div>
             </div>
             <div class="form-group">

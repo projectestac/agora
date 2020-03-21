@@ -99,17 +99,11 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             }
         }
 
+        $clientService->dbHost = $dbHost;
         $clientService->serviceDB = $serviceDB;
         $clientService->observations = $observations;
         $clientService->annotations = $annotations;
         $clientService->diskSpace = $diskSpace;
-
-        // If dbHost is not set, autofill it with a default value. This is a guess. dbHost should come from web form.
-        if ((is_null($dbHost) || empty($dbHost)) && (($serviceName == 'intranet') || ($serviceName == 'nodes'))) {
-            $clientService->dbHost = $agora['intranet']['host'];
-        } else {
-            $clientService->dbHost = $dbHost;
-        }
 
         // Create a var for admin password where to keep it in order to send it by e-mail
         $password = '';
@@ -2154,15 +2148,14 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
     /**
      * Creates services in batch mode
+     * @return string :     The edit form
+     * @author:     Toni Ginard
      * @author:     Pau Ferrer Ocaña (pferre22@xtec.cat)
-     * @param:      The list of services to create
-     * @return:     The edit form
      */
     public function createBatch() {
         $schoolCodes = FormUtil::getPassedValue('schoolCodes', null, 'POST');
         $service_sel = FormUtil::getPassedValue('service_sel', 5, 'POST');
         $dbHost = FormUtil::getPassedValue('dbHost', null, 'POST');
-        $serviceDB = FormUtil::getPassedValue('serviceDB', null, 'POST');
         $template = FormUtil::getPassedValue('template', null, 'POST');
         $createClient = FormUtil::getPassedValue('createClient', null, 'POST');
 
@@ -2173,7 +2166,6 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             ->assign('service_sel', $service_sel)
             ->assign('services', $services)
             ->assign('dbHost', $dbHost)
-            ->assign('serviceDB', $serviceDB)
             ->assign('template', $template)
             ->assign('createClient', $createClient)
             ->assign('templates', $templates)
@@ -2182,17 +2174,17 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
     /**
      * Creates services in batch mode
-     * @author:     Pau Ferrer Ocaña (pferre22@xtec.cat)
-     * @param:      The list of services to create
-     * @return:     The edit form
+     *
+     * @param :      The list of services to create
+     * @return string :     The edit form
+     * @throws Exception
+     * @author: Pau Ferrer Ocaña (pferre22@xtec.cat)
      */
     public function createBatch_exec($args) {
-        global $agora;
 
         $schoolCodes = FormUtil::getPassedValue('schoolCodes', null, 'POST');
         $service_sel = FormUtil::getPassedValue('service_sel', 0, 'POST');
         $dbHost = FormUtil::getPassedValue('dbHost', null, 'POST');
-        $serviceDB = FormUtil::getPassedValue('serviceDB', null, 'POST');
         $template = FormUtil::getPassedValue('template', null, 'POST');
         $createClient = FormUtil::getPassedValue('createClient', null, 'POST');
 
@@ -2220,15 +2212,11 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             return $this->createBatch($args);
         }
 
-        // Autofill dbHost var with default value. This is a guess. dbHost should come from web form.
-        if ((is_null($dbHost) || empty($dbHost)) && (($serviceName == 'intranet') || ($serviceName == 'nodes'))) {
-            $dbHost = $agora['intranet']['host'];
-        }
-
         $clientCodes = explode(',', $schoolCodes);
-        $results = array();
-        $success = array();
+        $results = [];
+        $success = [];
         $error = 0;
+
         foreach ($clientCodes as $code) {
             // Check code validity
             $clientCode = AgoraPortal_Util::checkCode($code);
@@ -2241,27 +2229,28 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             // Pas 1: Obtenir les dades del client (taula clients)
             $client = Client::get_by_code($clientCode);
             if (!$client && $createClient) {
-                $clientName = 'form'.substr($clientCode, -3); // formxxx (three numbers)
+                $clientName = 'form' . substr($clientCode, -3); // formxxx (three numbers)
 
-                $client_exists = Client::get_by_dns($clientName);
-                if ($client_exists) {
+                // Si el client ja existeix, mostra un error i continua amb el següent
+                if (Client::get_by_dns($clientName)) {
                     $results[$clientCode] = "El centre amb DNS <strong>$clientName</strong> ja existeix, no es pot crear el client";
                     $error++;
                     continue;
+                } else {
+                    $client = Client::create(array(
+                        'clientCode' => $clientCode,
+                        'clientName' => $clientName,
+                        'clientDNS' => $clientName,
+                        'clientAddress' => '',
+                        'clientCity' => '',
+                        'clientPC' => '',
+                        'clientState' => 1,
+                        'clientDescription' => 'Alta automàtica'
+                    ), false);
                 }
 
-                $client = Client::create(array(
-                    'clientCode' => $clientCode,
-                    'clientName' => $clientName,
-                    'clientDNS' => $clientName,
-                    'clientAddress' => '',
-                    'clientCity' => '',
-                    'clientPC' => '',
-                    'clientState' => 1,
-                    'clientDescription' => 'Alta automàtica'
-                    ), false);
                 if (!$client) {
-                    $results[$clientCode] = "El centre amb codi <strong>$clientCode</strong> no està donat d'alta. I la seva creació ha fallat.";
+                    $results[$clientCode] = "El centre amb codi <strong>$clientCode</strong> no està donat d'alta i la seva creació ha fallat";
                     $error++;
                     continue;
                 }
@@ -2273,7 +2262,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 continue;
             }
 
-            // Pas 2: Comprovar que el centre encara no té el servei
+            // Pas 2: Comprovar que el centre encara no té el servei (taula client_services)
             $service = Service::get_by_client_and_service($client->clientId, $serviceTypeId); // Should return false!
             if ($service) {
                 $results[$clientCode] = "El centre <strong>$client->clientName</strong> ja disposa del servei $serviceName. Per tant, no es crearà.";
@@ -2281,8 +2270,8 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 continue;
             }
 
-            // Pas 3: Crear el Servei
-            if (Service::get_by_client_and_service($client->clientId, $serviceTypeId)) {
+            // Pas 3: Crear el Servei (taula client_services)
+            if ($service) {
                 echo "El centre <strong>$client->clientDNS</strong> ja té el servei <strong>$serviceName</strong>";
                 $error++;
                 continue;
@@ -2299,7 +2288,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
             $service = Service::get_by_client_and_service($client->clientId, $serviceTypeId); // Get the object of the service created in step 3
             $service->dbHost = $dbHost;
-            $service->serviceDB = $serviceDB;
+            $service->serviceDB = '';
             $service->observations = 'Alta automàtica';
             $service->diskSpace = $servicetype->defaultDiskSpace;
             $service->save(); // Update values
@@ -2318,6 +2307,11 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
             $results[$clientCode] = "S'ha creat el servei per al centre <strong>$clientCode</strong> i password <strong>$password</strong>";
             $success[$clientCode] = true;
+
+            DBUtil::executeSQL(
+                "INSERT INTO agoraportal_enable_service_log (clientId, clientCode, serviceId, clientServiceId, password, clientDNS, timeCreated)
+                     VALUES ($service->clientId, '$clientCode', $service->serviceId, $service->clientServiceId, '$password', '$client->clientDNS', '$service->timeCreated')"
+            );
         }
 
         return $this->view->assign('schoolCodes', $schoolCodes)
@@ -2326,7 +2320,6 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             ->assign('success', $success)
             ->assign('error', $error)
             ->assign('dbHost', $dbHost)
-            ->assign('serviceDB', $serviceDB)
             ->assign('template', $template)
             ->assign('createClient', $createClient)
             ->fetch('agoraportal_admin_createBatch_exec.tpl');

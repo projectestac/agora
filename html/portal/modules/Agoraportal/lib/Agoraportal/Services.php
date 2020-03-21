@@ -672,14 +672,23 @@ class Service extends AgoraBase {
         }
 
         // Insert service in database
-        $item = array('serviceId' => $serviceId,
+        $item = [
+            'serviceId' => $serviceId,
             'contactName' => UserUtil::getVar('uname'),
             'contactProfile' => $contactProfile,
             'clientId' => $clientId,
             'state' => self::STATUS_TOREVISE,
+            'dbHost' => '',
             'activedId' => 0,
+            'serviceDB' => '',
+            'annotations' => '',
+            'description' => '',
+            'timeCreated' => '',
+            'timeEdited' => '',
+            'diskConsume' => 0,
             'timeRequested' => time(),
-            'observations' => $observations);
+            'observations' => $observations
+        ];
 
         if (!DBUtil::insertObject($item, self::TABLE, 'clientServiceId')) {
             return false;
@@ -763,6 +772,7 @@ class Service extends AgoraBase {
             }
         }
 
+        $this->activedId = $dbid;
         $this->state = self::STATUS_ENABLED;
         $this->timeCreated = time();
 

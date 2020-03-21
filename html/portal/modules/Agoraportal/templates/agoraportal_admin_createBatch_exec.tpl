@@ -11,7 +11,6 @@
         {$logo}<br />
         <strong>{gt text="Codis a crear:"}</strong> {$schoolCodes}<br/>
         <strong>{gt text="dbHost:"}</strong> {$dbHost}<br/>
-        <strong>{gt text="serviceDB:"}</strong> {$serviceDB}<br/>
         <strong>{gt text="Plantilla:"}</strong> {$template}<br/>
         <strong>{gt text="Crea els clients que no existeixin:"}</strong> {if $createClient eq 1}{gt text="Sí"}{else}{gt text="No"}{/if}<br />
     </div>
