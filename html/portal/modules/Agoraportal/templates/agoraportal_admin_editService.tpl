@@ -77,21 +77,21 @@
             <div class="form-group">
                 <label class="col-sm-4 control-label" for="dbHost">{gt text="Servidor de base de dades"}:</label>
                 <div class="col-sm-8">
-                    <input class="form-control" id="dbHost" type="text" name="dbHost" size="30" maxlength="30" value="{$service->dbHost}" />
+                    <input class="form-control" id="dbHost" type="text" name="dbHost" size="30" value="{$service->dbHost}" />
                     <span style="font-style:italic; color:grey;">{gt text="Necessari per al MySQL (Nodes). No es fa servir a l'Oracle (Moodle)"}</span>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-4 control-label" for="serviceDB">{gt text="Base de dades"}:</label>
                 <div class="col-sm-8">
-                    <input class="form-control" id="serviceDB" type="text" name="serviceDB" size="30" maxlength="30" value="{$service->serviceDB}" />
+                    <input class="form-control" id="serviceDB" type="text" name="serviceDB" size="30" value="{$service->serviceDB}" />
                     <span style="font-style:italic; color:grey;">{gt text="Si està en blanc, es calcula automàticament. A Nodes només s'utilitza en el moment de l'activació."}</span>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-4 control-label" for="diskSpace">{gt text="Espai de disc"}:</label>
                 <div class="col-sm-8">
-                    <input class="form-control" id="diskSpace" type="text" name="diskSpace" size="7" maxlength="5" value="{$service->diskSpace}" />
+                    <input class="form-control" id="diskSpace" type="text" name="diskSpace" size="7" value="{$service->diskSpace}" />
                 </div>
             </div>
             <div class="form-group">

@@ -24,7 +24,7 @@
     <div class="form-group">
         <label class="col-sm-4 control-label" for="dbHost">{gt text="Base de dades (per replace)"}:</label>
         <div class="col-sm-8">
-            <input class="form-control" id="dbHost" type="text" name="dbHost" size="30" maxlength="255"/>
+            <input class="form-control" id="dbHost" type="text" name="dbHost" size="30" />
         </div>
     </div>
 

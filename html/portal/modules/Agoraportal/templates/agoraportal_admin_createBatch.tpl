@@ -33,9 +33,9 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-4 control-label" for="dbHost">{gt text="Base de dades (només per intranet i nodes) [opcional]"}:</label>
+                <label class="col-sm-4 control-label" for="dbHost">{gt text="Base de dades [opcional]"}:</label>
                 <div class="col-sm-8">
-                    <input class="form-control" id="dbHost" type="text" name="dbHost" size="30" maxlength="30" value="{$sdbHost}" />
+                    <input class="form-control" id="dbHost" type="text" name="dbHost" size="30" value="{$sdbHost}" />
                 </div>
             </div>
             <div class="form-group">
