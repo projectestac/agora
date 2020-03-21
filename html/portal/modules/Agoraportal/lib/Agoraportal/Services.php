@@ -653,11 +653,14 @@ class Service extends AgoraBase {
 
     /**
      * Creates a new service with the needed data
-     * @param $serviceId ServiceType requested
-     * @param $clientId Client Requested
-     * @param $contactProfile Contact profile (from form)
-     * @param string $template In case of nodes, the name of the template
+     *
+     * @param        $serviceId      ServiceType requested
+     * @param        $clientId       Client Requested
+     * @param        $contactProfile Contact profile (from form)
+     * @param string $template       In case of nodes, the name of the template
+     *
      * @return bool
+     * @throws Exception
      */
     public static function request_service($serviceId, $clientId, $contactProfile, $template = '') {
         // Check for nodes
@@ -741,13 +744,14 @@ class Service extends AgoraBase {
 
         // Get the Id for the new service
         $dbid = $this->getDBId();
+
         if (!$dbid) {
             $this->activedId = $previous['activedId'];
             $this->save();
             return false;
         } else {
             // Get info of the service from its ID
-            $service = $this->get_servicetype();
+            $service = $this->get_servicetype(); // Service description
             $createDB = ModUtil::getVar('Agoraportal', 'createDB');
             $connects = $service->testConnection($this->dbHost, $this->serviceDB, $dbid, $createDB);
 
@@ -757,7 +761,6 @@ class Service extends AgoraBase {
                     . $dbid . ', dbHost: ' . $this->dbHost . ', serviceDB: ' . $this->serviceDB);
                 return false;
             }
-
         }
 
         $this->state = self::STATUS_ENABLED;
@@ -970,20 +973,12 @@ class Service extends AgoraBase {
      * @return bool|int
      */
     public function calcFreeDatabase() {
-        $serviceName = $this->get_servicetype_name();
 
-        // Moodle and moodle2 use the same activeId, so must be treated as one
-        if ($serviceName == 'moodle2') {
-            $databaseIds = Services::get_activeId_by_serviceid($this->serviceId);
-        } else {
-            // Get all client services (all states) of service 'nodes' and 'intranet'
-            $nodes = ServiceType::get_by_name('nodes');
-            $intranet = ServiceType::get_by_name('intranet');
-            $databaseIds = Services::get_activeId_by_serviceid(array($nodes->serviceId, $intranet->serviceId));
-        }
+        $databaseIds = Services::get_activeId_by_serviceid($this->serviceId);
 
         $i = 1;
         $free = false;
+
         // First, look for a free database (a gap in the list)
         foreach ($databaseIds as $activeId) {
             if ($activeId != $i) {

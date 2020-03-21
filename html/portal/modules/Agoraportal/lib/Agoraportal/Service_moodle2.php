@@ -6,8 +6,6 @@
  */
 class Service_moodle2 extends Service {
 
-    const NUM_DB_PER_INSTANCE = 200;
-
     /**
      * Performs the actions to replace DNS in database
      * @param $oldDNS
@@ -29,48 +27,12 @@ class Service_moodle2 extends Service {
     }
 
     /**
-     * Calculates the activedId and serviceDB free
+     * Get a free activedId
+     *
      * @return int activedId
      */
     protected function getDBId() {
-        $this->activedId = $this->calcFreeDatabase();
-
-        if (empty($this->serviceDB)) {
-            $this->serviceDB = $this->calcOracleInstance(); // calcOracleInstance() needs $this->activedId to be populated
-        }
-
-        if (empty($this->serviceDB)) {
-            return LogUtil::registerError('No s\'ha pogut calcular la instància de base de dades.');
-        }
-
-        return $this->activedId;
-    }
-
-    /**
-     * Calculate Oracle database instance for Moodle
-     *
-     * @author  Toni Ginard
-     * @param   int database number
-     * @return  string instance name
-     */
-    private function calcOracleInstance() {
-        global $agora;
-
-        $dbNumber = (int) $agora['moodle2']['dbnumber'];
-
-        // If $dbNumber is not set or it is an empty string, no offset is applied to $agora['moodle2']['database']
-        if (empty($dbNumber)) {
-            return $agora['moodle2']['database'];
-        }
-
-        // Users are distributed in blocks of NUM_DB_PER_INSTANCE schemas per instance
-        $DBId = $this->activedId;
-        $offset = floor($DBId / self::NUM_DB_PER_INSTANCE) + (($DBId % self::NUM_DB_PER_INSTANCE) == 0 ? ($dbNumber - 1) : $dbNumber);
-        if ($offset <= 0) {
-            return $agora['moodle2']['database'];
-        }
-
-        return $agora['moodle2']['database'] . $offset;
+        return $this->calcFreeDatabase();
     }
 
     /**
@@ -80,7 +42,7 @@ class Service_moodle2 extends Service {
      */
     protected function enable_service($password) {
         // Generate a password for Moodle admin user
-        $params = array();
+        $params = [];
         $params['password'] = md5($password);
 
         $client = $this->get_client();
@@ -91,12 +53,15 @@ class Service_moodle2 extends Service {
         $params['clientDNS'] = $client->clientDNS;
 
         $operation = $this->addOperation('script_enable_service', $params, 5);
+
         if (!$operation) {
             return LogUtil::registerError('No s\'ha pogut afegir la operació d\'activació del servei');
         }
+
         SessionUtil::setVar('execOper', $operation->id);
 
         LogUtil::registerStatus('S\'està activant el servei... si no s\'activa aneu a les cues');
+
         return true;
     }
 
