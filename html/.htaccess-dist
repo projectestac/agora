@@ -3,6 +3,9 @@ RewriteEngine on
 RewriteBase /
 
 # Health check
+RewriteRule ^([^/]*)/moodle/works\.php$ moodle2/works\.php [L]
+RewriteRule ^portal/works\.php$ portal/works\.php [L]
+RewriteRule ^([^/]*)/works\.php$ wordpress/works\.php [L]
 RewriteRule ^(works\.php|favicon\.ico)$ - [L]
 
 # Force https
