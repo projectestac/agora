@@ -536,6 +536,8 @@ class Service extends AgoraBase {
      */
     public function get_disk_percentage() {
         // diskSpace is in MB and diskConsume in KB
+        $this->diskSpace = (is_number($this->diskSpace)) ? $this->diskSpace : 0;
+
         return ($this->diskSpace > 0) ? round(($this->diskConsume * 100) / ($this->diskSpace * 1024), 2) : 0;
     }
 
