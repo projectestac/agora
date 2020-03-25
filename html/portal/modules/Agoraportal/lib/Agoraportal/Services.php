@@ -536,7 +536,7 @@ class Service extends AgoraBase {
      */
     public function get_disk_percentage() {
         // diskSpace is in MB and diskConsume in KB
-        $this->diskSpace = (is_number($this->diskSpace)) ? $this->diskSpace : 0;
+        $this->diskSpace = (is_numeric($this->diskSpace)) ? (int)$this->diskSpace : 0;
 
         return ($this->diskSpace > 0) ? round(($this->diskConsume * 100) / ($this->diskSpace * 1024), 2) : 0;
     }
@@ -546,7 +546,7 @@ class Service extends AgoraBase {
      * @return string
      */
     public function get_disk_alert_class() {
-        if ($this->diskSpace > 0) {
+        if ((int)$this->diskSpace > 0) {
 
             if (!$this->is_quota_exceeded()) {
                 return 'success';
@@ -988,11 +988,19 @@ class Service extends AgoraBase {
 
         $databaseIds = Services::get_activeId_by_serviceid($this->serviceId);
 
-        $i = 1;
+        // Temporary mega-quick super-ugly hack to activate Moodle services
+        $i = ($this->serviceId == 4) ? 1601 : 1;
+        // $i = 1
+        // End hack
         $free = false;
 
         // First, look for a free database (a gap in the list)
         foreach ($databaseIds as $activeId) {
+            // Temporary mega-quick super-ugly hack to activate Moodle services
+            if ($activeId < 1601) {
+                continue;
+            }
+            // End hack
             if ($activeId != $i) {
                 $free = $i;
                 break;
