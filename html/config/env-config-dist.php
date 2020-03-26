@@ -23,18 +23,25 @@ $agora['admin']['host'] = 'localhost';
 $agora['admin']['port'] = '3306';
 $agora['admin']['datadir'] = $agora['server']['datadir'] . 'portaldata/';
 
-// Schools Moodle 2 config info
+// Moodle database access info (Postgres)
 $agora['moodle2']['userpwd'] = 'agora'; // Contrasenya que tenen tots els esquemes
 $agora['moodle2']['datadir'] = $agora['server']['datadir'] . 'moodledata/';
 $agora['moodle2']['memcache_servers'] = '127.0.0.1';
 $agora['moodle2']['memcached_session_servers'] = '';
 $agora['moodle2']['redis_session_servers'] = '';
 
-// Schools WordPress database access info (MySQL)
+// WordPress database access info (MySQL)
 $agora['nodes']['username'] = 'root'; // Usuari per accedir a totes les bases de dades
 $agora['nodes']['userpwd'] = 'agora';
 $agora['nodes']['datadir'] = $agora['server']['datadir'] . 'wpdata/';
 
+// SMTP params
+$agora['mail']['server'] = '';
+$agora['mail']['username'] = '';
+$agora['mail']['userpwd'] = '';
+$agora['mail']['reply'] = 'notificacions@educaciodigital.cat';
+
+// Other passwords
 $agora['xtecadmin']['password'] = '6142bfd56a583d891f0b1dcdbb2a9ef8';
 $agora['opcache']['password'] = 'agora';
 
