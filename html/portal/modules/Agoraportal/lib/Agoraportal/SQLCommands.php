@@ -86,8 +86,7 @@ class SQLCommand extends AgoraBase {
      * @return false|SQLCommand
      */
     public static function create($row) {
-        if (!isset($row['serviceId']) || !isset($row['comand']) || !isset($row['description']) || !isset($row['type'])
-            || empty($row['serviceId']) || empty($row['comand']) || empty($row['description'])|| empty($row['description'])) {
+        if (!isset($row['serviceId']) || empty($row['type']) || empty($row['comand']) || empty($row['description'])) {
             return LogUtil::registerError('Falten dades del obligatòries del SQL. Reviseu les dades');
         }
 
