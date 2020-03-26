@@ -981,7 +981,7 @@ class Service extends AgoraBase {
     }
 
     /**
-     * CAlculates the following free database
+     * Calculates the following free database
      * @return bool|int
      */
     public function calcFreeDatabase() {
@@ -990,7 +990,7 @@ class Service extends AgoraBase {
 
         // Temporary mega-quick super-ugly hack to activate Moodle services
         $i = ($this->serviceId == 4) ? 1601 : 1;
-        // $i = 1
+        // $i = 1;
         // End hack
         $free = false;
 

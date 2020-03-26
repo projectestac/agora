@@ -2218,6 +2218,13 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $error = 0;
 
         foreach ($clientCodes as $code) {
+            // Undocumented feature: Added support for a80xxxxx|database name in code
+            if (strpos($code, '|')) {
+                $temp = explode('|', $code);
+                $code = $temp[0];
+                $dbHost = trim($temp[1]);
+            }
+
             // Check code validity
             $clientCode = AgoraPortal_Util::checkCode($code);
             if (!$clientCode) {
