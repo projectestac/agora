@@ -18,11 +18,11 @@
                 <legend>{gt text="Settings"}</legend>
                 <fieldset>
                 <div class="z-formrow">
-                    {if $check.config eq multisites}
+                    {if $check.config eq 'multisites'}
                         <p class="z-formnote">{gt text="Files system physical path"}: {gt text="Defined in multisites configuration"}{if $agora}{gt text=" and implemends agora functions"}{/if}.</p>
                     {else}
                         <p class="z-formnote">{gt text="Files system physical path"}: <b>{$check.folderPath}</b>.
-                        {if $check.config eq config_site}
+                        {if $check.config eq 'config_site'}
                             {gt text="Defined in config file."}</p>
                         {else}
                             {gt text="Default configuration."}</p>
