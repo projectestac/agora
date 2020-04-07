@@ -308,7 +308,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         // upload big file to service folder
         if ($file != null) {
             // send file to folder
-            $fileToMove = $agora['server']['ubr_upload'] . $file;
+            $fileToMove = $agora['server']['uploads'] . $file;
             $destination = $service->getDataDirectory() . $agora['moodle2']['repository_files'];
             if (!file_exists($fileToMove)) {
                 LogUtil::registerError($this->__('No s\'ha trobat el directori d\'origen'));

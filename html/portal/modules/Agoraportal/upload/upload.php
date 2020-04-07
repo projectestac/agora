@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 // usleep(5000);
 
 // Settings
-$targetDir = $agora['server']['ubr_upload'];
+$targetDir = $agora['server']['uploads'];
 $cleanupTargetDir = true; // Remove old files
 $maxFileAge = 60 * 3600; // Temp file age in seconds
 
