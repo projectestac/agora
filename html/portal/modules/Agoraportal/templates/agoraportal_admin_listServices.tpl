@@ -46,7 +46,8 @@
                     <option {if $stateFilter eq -2}selected{/if} value="-2">{gt text="Denegat"}</option>
                     <option {if $stateFilter eq -3}selected{/if} value="-3">{gt text="Donat de baixa"}</option>
                     <option {if $stateFilter eq -4}selected{/if} value="-4">{gt text="Desactivat"}</option>
-                    <option {if $service->state eq -5}selected{/if} value="-5">{gt text="Migració en curs"}</option>
+                    <option {if $stateFilter eq -5}selected{/if} value="-5">{gt text="Migració en curs"}</option>
+                    <option {if $stateFilter eq -6}selected{/if} value="-6">{gt text="Migrat"}</option>
                 </select>
             </div>
             <div class="form-group">

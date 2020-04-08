@@ -3,7 +3,6 @@
     <head>
         <title>Servei &Agrave;gora</title>
         <meta charset="utf-8">
-        <script type="text/javascript" src="portal/javascript/javascript.js"></script>
         <style>
             body {
                 line-height: normal;
@@ -70,6 +69,13 @@
                 <h1>SERVEI D'ÀGORA EN PROCÉS DE MIGRACIÓ</h1>
                 <p>Aquest espai web es troba temporalment fora de servei. En aquests moments s'estan realitzant tasques de traspàs de dades per transferir-lo a un nou servidor amb més capacitat.</p>
                 <p>Prova de nou l'accés: <a href="<?php echo $agora['server']['server'] . $agora['server']['base'] . $_GET['migrating'] . '/' . $_GET['s'] ?>"><?php echo $agora['server']['server'] . $agora['server']['base'] . $_GET['migrating'] . '/' . $_GET['s'] ?></a></p>
+                <br />
+                <p>Preguem disculpeu les molèsties</p>
+                <br />
+            <?php } elseif (isset($_GET['migrated'])) { ?>
+                <h1>SERVEI D'ÀGORA MIGRAT A EIX</h1>
+                <p>Aquest espai web ha canviat d'ubicació. L'URL nou és el següent:</p>
+                <p><a href="<?php echo 'https://educaciodigital.cat' . $agora['server']['base'] . $_GET['migrated'] . '/' . $_GET['s'] ?>"><?php echo 'https://educaciodigital.cat' . $agora['server']['base'] . $_GET['migrated'] . '/' . $_GET['s'] ?></a></p>
                 <br />
                 <p>Preguem disculpeu les molèsties</p>
                 <br />
