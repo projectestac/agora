@@ -495,11 +495,11 @@ function getSchoolInfo($service) {
  */
 function getSchoolFromDB($dns) {
 
-    $sql = "SELECT c.clientId, c.clientCode, c.typeId, c.URLType, c.URLHost, s.serviceName, cs.activedId, cs.serviceDB, cs.dbHost, cs.diskSpace, cs.diskConsume
+    $sql = "SELECT c.clientId, c.clientCode, c.typeId, c.URLType, c.URLHost, s.serviceName, cs.activedId, cs.state, cs.serviceDB, cs.dbHost, cs.diskSpace, cs.diskConsume
 			FROM agoraportal_client_services cs
 			LEFT JOIN agoraportal_clients c ON cs.clientId = c.clientId
 			LEFT JOIN agoraportal_services s ON cs.serviceId = s.serviceId
-			WHERE (cs.state = '1' OR cs.state = '-5') AND c.clientDNS = '$dns';";
+			WHERE (cs.state = '1' OR cs.state = '-5' OR cs.state = '-6') AND c.clientDNS = '$dns';";
 
     $results = get_rows_from_db($sql);
     $value = array();
@@ -532,6 +532,7 @@ function getSchoolFromDB($dns) {
             $value['dbhost_' . $serviceName] = $row->dbHost;
             $value['database_' . $serviceName] = $row->serviceDB;
             $value['diskPercent_' . $serviceName] = $diskPercent;
+            $value['state_' . $serviceName] = $row->state;
         }
     }
 
