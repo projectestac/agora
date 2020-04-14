@@ -288,6 +288,7 @@ class Service extends AgoraBase {
     const STATUS_DISABLED = -4;
     const STATUS_MIGRATING = -5;
     const STATUS_MIGRATED = -6;
+    const STATUS_SATURATED = -7;
 
     protected $clientServiceId; // Id
     protected $serviceId; // ServiceTypeId
@@ -732,6 +733,10 @@ class Service extends AgoraBase {
             case Service::STATUS_MIGRATED:
                 $this->state = $newState;
                 $this->add_log(ClientLog::CODE_MODIFY, 'S\'ha marcat el servei ' . $serviceName . ' com a migrat');
+                break;
+            case Service::STATUS_SATURATED:
+                $this->state = $newState;
+                $this->add_log(ClientLog::CODE_MODIFY, 'S\'ha marcat el servei ' . $serviceName . ' com a en saturació');
                 break;
         }
         return $return;
