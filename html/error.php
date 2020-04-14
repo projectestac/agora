@@ -79,6 +79,13 @@
                 <br />
                 <p>Preguem disculpeu les molèsties</p>
                 <br />
+            <?php } elseif (isset($_GET['saturated'])) { ?>
+                <h1>SATURACIÓ A ÀGORA</h1>
+                <p>En aquests moments els servidors estan rebent moltes visites. Per evitar la saturació de la plataforma s'hi està limitant l'accés. Si us plau torneu a provar d'entrar passats 15 minuts:</p>
+                <p><a href="<?php echo $agora['server']['server'] . $agora['server']['base'] . $_GET['saturated'] . '/' . $_GET['s'] ?>"><?php echo $agora['server']['server'] . $agora['server']['base'] . $_GET['saturated'] . '/' . $_GET['s'] ?></a></p>
+                <br />
+                <p>Preguem disculpeu les molèsties</p>
+                <br />
             <?php } else {
                 $dns = $_GET['dns'];
                 if (!isValidDNS($dns)) {

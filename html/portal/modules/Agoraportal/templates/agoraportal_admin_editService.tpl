@@ -43,6 +43,7 @@
                         <option {if $service->state eq -4}selected{/if} value="-4">{gt text="Desactivat"}</option>
                         <option {if $service->state eq -5}selected{/if} value="-5">{gt text="Migració en curs"}</option>
                         <option {if $service->state eq -6}selected{/if} value="-6">{gt text="Migrat"}</option>
+                        <option {if $service->state eq -7}selected{/if} value="-7">{gt text="Bloquejat per saturació"}</option>
                     </select>
                 </div>
             </div>
