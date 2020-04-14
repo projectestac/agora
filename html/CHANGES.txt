@@ -3,6 +3,21 @@ Release notes for Agora (https://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
+Changes 20.04.15
+---------------------------------------------------------------------------------------
+MOODLE
+- Geogebra: Fixed error when accessing to closed activities
+- Added support for new service state: saturated
+
+NODES
+- Added support for new service states: migrated and saturated
+
+PORTAL
+- Added support for new service state: saturated
+- Changed logo for Departament d'Educació
+- Fixed saving new SQL statements
+
+
 Changes 20.02.18
 ---------------------------------------------------------------------------------------
 GENERAL
