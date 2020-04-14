@@ -6,7 +6,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
     public function postInitialize() {
         // Don't require a logged admin at this level for updateDiskUse. The check will be done in the function.
-        if (!defined('CLI_SCRIPT') || ($this->view->func != 'updatediskuse')) {
+        if (!defined('CLI_SCRIPT') && (($this->view->func != 'updatediskuse') || ($this->view->func != 'setServicesOn') || ($this->view->func != 'setServicesOff'))) {
             AgoraPortal_Util::requireAdmin();
             $this->view->assign('isAdmin', true);
             $this->view->assign('accessLevel', 'admin');
@@ -1753,6 +1753,97 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             }
             echo "ok\n";
         }
+        return true;
+    }
+
+    /**
+     * Set the state of all active services (status 1) to 'saturated' (status -7)
+     *
+     * @return bool
+     * @throws Exception
+     */
+    public function setServicesOff() {
+        // Security check
+        if (!AgoraPortal_Util::isAdmin() && !defined('CLI_SCRIPT')) {
+            LogUtil::registerError($this->__('No teniu accés a executar aquesta funcionalitat'));
+            return System::redirect(ModUtil::url('Agoraportal', 'user', 'sitesList'));
+        }
+        if (!ModUtil::getVar('Agoraportal', 'allowServicesOff', true)) {
+            LogUtil::registerError($this->__('Aquesta funcionalitat està deshabilitada'));
+            return System::redirect(ModUtil::url('Agoraportal', 'user', 'sitesList'));
+        }
+
+        // Check if Mailer is active
+        $modid = ModUtil::getIdFromName('Mailer');
+        $modinfo = ModUtil::getInfo($modid);
+        $mailerAvailable = ($modinfo['state'] == 3) ? 1 : 0;
+
+        // E-mail addresses of agoraportal administrators
+        $adminemails = explode(',', ModUtil::getVar('Agoraportal', 'warningMailsTo'));
+
+        // Extremely horrible way of doing things, thanks to emergency situation
+        $sql = "UPDATE `agoraportal_client_services` SET `state` = '-7' WHERE `state` = '1'";
+        DBUtil::executeSQL($sql);
+
+        // Send warning message to configured recipients if Mailer is available
+        if ($mailerAvailable) {
+             ModUtil::apiFunc( 'Mailer', 'user', 'sendmessage', [
+                'toname' => $this->__( 'Agoraportal admin' ),
+                'toaddress' => $adminemails,
+                'subject' => $this->__('Desactivació de serveis'),
+                'body' => $this->__('S\'ha executat la desactivació de serveis. Hora d\'execució: ' . date("d-m-Y H:i:s")),
+                'html' => 1
+            ]);
+        }
+
+        echo "Serveis desactivats\n";
+
+        return true;
+    }
+
+    /**
+     * Set the state of all 'saturated' services (status -7) to active (status 1)
+     *
+     * @return bool
+     * @throws Exception
+     */
+    public function setServicesOn() {
+        // Security check
+        if (!AgoraPortal_Util::isAdmin() && !defined('CLI_SCRIPT')) {
+            LogUtil::registerError($this->__('No teniu accés a executar aquesta funcionalitat'));
+            return System::redirect(ModUtil::url('Agoraportal', 'user', 'sitesList'));
+        }
+
+        if (!ModUtil::getVar('Agoraportal', 'allowServicesOff', true)) {
+            LogUtil::registerError($this->__('Aquesta funcionalitat està deshabilitada'));
+            return System::redirect(ModUtil::url('Agoraportal', 'user', 'sitesList'));
+        }
+
+        // Check if Mailer is active
+        $modid = ModUtil::getIdFromName('Mailer');
+        $modinfo = ModUtil::getInfo($modid);
+        $mailerAvailable = ($modinfo['state'] == 3) ? 1 : 0;
+
+        // E-mail addresses of agoraportal administrators
+        $adminemails = explode(',', ModUtil::getVar('Agoraportal', 'warningMailsTo'));
+
+        // Extremely horrible way of doing things, thanks to emergency situation
+        $sql = "UPDATE `agoraportal_client_services` SET `state` = '1' WHERE `state` = '-7'";
+        DBUtil::executeSQL($sql);
+
+        // Send warning message to configured recipients if Mailer is available
+        if ($mailerAvailable) {
+             ModUtil::apiFunc( 'Mailer', 'user', 'sendmessage', [
+                'toname' => $this->__( 'Agoraportal admin' ),
+                'toaddress' => $adminemails,
+                'subject' => $this->__('Activació de serveis'),
+                'body' => $this->__('S\'ha executat l\'activació de serveis. Hora d\'execució: ' . date("d-m-Y H:i:s")),
+                'html' => 1
+            ]);
+        }
+
+        echo "Serveis activats\n";
+
         return true;
     }
 
