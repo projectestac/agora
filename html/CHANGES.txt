@@ -14,6 +14,7 @@ NODES
 
 PORTAL
 - Added support for new service state: saturated
+- Added functions to massively change status of services
 - Changed logo for Departament d'Educació
 - Fixed saving new SQL statements
 
