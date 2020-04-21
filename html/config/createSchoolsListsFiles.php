@@ -1,24 +1,22 @@
 <?php
 
 /**
- * Purpose of file: create 4 files containing URL used via cron. Two of these
- * files (updateMoodle2 and updateIntranet) are used when a major upgrade is
- * going to be done in software versions. The other two files (cronMoodle2 and
- * cronIntranet) must be recreated everyday to add and remove schools and are
- * used for maintenance in sites.
+ * Purpose of file: create 4 files containing URL used via cron. Two of these files (updateMoodle2 and updateNodes) are used
+ * when a major upgrade is going to be done in software versions. The other two files (cronMoodle2 and cronNodes) must be
+ * recreated periodically to add and remove schools and are used for maintenance in sites.
  *
- * @param update: if present, update files are created. Otherwise, cron files
- *                 are created.
- * @param num_exec: if present when creating updateMoodle file, repeats
- *                   standard URL for update. Default value is 1.
- * @param new_version: if present when creating updateMoodle file, adds a
- *                      special URL to update major version of moodle. Default
+ * @param update: if present, update files are created. Otherwise, cron files are created.
+ * @param num_exec: if present when creating updateMoodle file, repeats standard URL for update. Default value is 1.
+ * @param new_version: if present when creating updateMoodle file, adds a special URL to update major version of moodle. Default
  *                      value is false (don't add special URL).
+ * @param service: if present, instead of creating cron files, returns the contents of the cron file of the requested service
+ *
  */
 require_once('dblib-mysql.php');
 require_once('cronslib.php');
 
 $args = get_webargs();
+$getservice = $args['service'] ?? false;
 
 // Decide if creating cron files or update files
 if (isset($args['update'])) {
@@ -29,9 +27,8 @@ if (isset($args['update'])) {
     $numexec = (isset($args['num_exec']) && is_numeric($args['num_exec'])) ? $args['num_exec'] : 1;
 
     // $newversion: if present, an special URL is added to updateMoodle.txt
-    $newversion = (isset($args['new_version'])) ? true : false;
-    $onlyname = (isset($args['only_name'])) ? true : false;
-
+    $newversion = isset($args['new_version']);
+    $onlyname = isset($args['only_name']);
 
     /* MOODLE 2 update file */
     $schools = getServices(false, 'activedId', 'asc', 'moodle2', '1');
@@ -55,24 +52,6 @@ if (isset($args['update'])) {
     }
 
     saveVarToFile('updateMoodle2.txt', $schoolsvar);
-
-
-    /* ZIKULA update file */
-    $schools = getServices(false, 'activedId', 'asc', 'intranet', '1');
-
-    $schoolsvar = '';
-    if (is_array($schools)) {
-        foreach ($schools as $school) {
-            if ($onlyname) {
-                $schoolsvar .= $school['dns'] . "\n";
-            } else {
-                $schoolsvar .= $agora['server']['html'] . $school['dns'] . "/intranet/upgradeModules.php\n";
-            }
-        }
-    }
-
-    saveVarToFile('updateIntranet.txt', $schoolsvar);
-
 
     /* NODES update file */
     $schools = getServices(false, 'activedId', 'asc', 'nodes', '1');
@@ -99,11 +78,6 @@ if (isset($args['update'])) {
             'file' => 'cronMoodle2.txt',
         ),
         array(
-            'name' => 'intranet',
-            'url' => "/intranet/iwcron.php\n",
-            'file' => 'cronIntranet.txt',
-        ),
-        array(
             'name' => 'nodes',
             'url' => "/wp-cron.php\n",
             'file' => 'cronNodes.txt',
@@ -111,6 +85,11 @@ if (isset($args['update'])) {
     );
 
     foreach ($services as $service) {
+        // Only content of a given service is requested. Ignore the other
+        if($getservice && $service['name'] != $getservice){
+            continue;
+        };
+
         $schools = getServices(false, 'activedId', 'asc', $service['name'], '1');
 
         $schoolsvar = '';
@@ -132,7 +111,7 @@ if (isset($args['update'])) {
             }
         }
 
-        saveVarToFile($service['file'], $schoolsvar);
+        saveVarToFile($service['file'], $schoolsvar, $getservice);
     }
 }
 
@@ -141,20 +120,25 @@ if (isset($args['update'])) {
  *
  * @author Toni Ginard
  *
- * @param filename: path to file in filesystem
- * @param schoolsvar: data to save to file
+ * @param string filename: path to file in filesystem
+ * @param string schoolsvar: data to save to file
  *
  * @return boolean true if successful
  */
-function saveVarToFile($filename = null, $schoolsvar = '') {
+function saveVarToFile($filename = null, $schoolsvar = '', $getservice = false) {
 
     global $agora;
 
     $path = $agora['server']['root'] . $agora['server']['datadir'] . 'adminInfo/';
 
-    cli_print_line('<br />');
-    cli_print_line('<b>File name: '.$filename.'</b><br />');
-    cli_print_line(str_replace("\n", "\n<br />", $schoolsvar));
+    if ($getservice) {
+        echo $schoolsvar;
+        return true;
+    } else {
+        cli_print_line("<br />");
+        cli_print_line('<strong>File name: '.$filename.'</strong><br />');
+        cli_print_line(str_replace("\n", "\n<br />", $schoolsvar));
+    }
 
     if (!is_dir($path)) {
         // Create syncdir if it doesn't exist
