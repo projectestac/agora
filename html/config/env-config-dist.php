@@ -27,6 +27,7 @@ $agora['admin']['datadir'] = $agora['server']['datadir'] . 'portaldata/';
 $agora['moodle2']['userpwd'] = 'agora'; // Contrasenya que tenen tots els esquemes
 $agora['moodle2']['datadir'] = $agora['server']['datadir'] . 'moodledata/';
 $agora['moodle2']['memcache_servers'] = '127.0.0.1';
+$agora['moodle2']['redis_servers'] = '127.0.0.1';
 $agora['moodle2']['memcached_session_servers'] = '';
 $agora['moodle2']['redis_session_servers'] = '';
 

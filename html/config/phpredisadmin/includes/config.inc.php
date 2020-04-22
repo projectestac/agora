@@ -5,8 +5,8 @@ include_once dirname(dirname(dirname(__FILE__))) . '/env-config.php';
 $config = array(
   'servers' => array(
     array(
-      'name'   => 'Session', // Optional name.
-      'host'   => $agora['moodle2']['redis_session_servers'],
+      'name'   => 'Application', // Optional name.
+      'host'   => $agora['moodle2']['redis_servers'],
       'port'   => 6379,
       'filter' => '*',
       'scheme' => 'tcp', // Optional. Connection scheme. 'tcp' - for TCP connection, 'unix' - for connection by unix domain socket
@@ -16,6 +16,19 @@ $config = array(
       // Optional Redis authentication.
       //'auth' => 'redispasswordhere' // Warning: The password is sent in plain-text to the Redis server.
     ),
+
+      array(
+          'name'   => 'Session', // Optional name.
+          'host'   => $agora['moodle2']['memcached_session_servers'],
+          'port'   => 6379,
+          'filter' => '*',
+          'scheme' => 'tcp', // Optional. Connection scheme. 'tcp' - for TCP connection, 'unix' - for connection by unix domain socket
+          'path'   => '', // Optional. Path to unix domain socket. Uses only if 'scheme' => 'unix'. Example: '/var/run/redis/redis.sock'
+          'hide'   => false, // Optional. Override global setting. Hide empty databases in the database list.
+
+          // Optional Redis authentication.
+          //'auth' => 'redispasswordhere' // Warning: The password is sent in plain-text to the Redis server.
+      ),
 
     /*array(
       'host' => 'localhost',
