@@ -43,6 +43,7 @@
     }
 
     $agora['server']['html']               = $agora['server']['server'] . $agora['server']['base'];
+    $agora['server']['domain']             = explode('//', $agora['server']['server'])[1];
     $agora['server']['cookie']             = 'agoraSchool' . $agora['server']['enviroment'];
     $agora['server']['uploads']            = $agora['server']['root'] . $agora['server']['datadir'] . 'uploads/'; // Directori temporal per la pujada de fitxers grans. Després es mouran a cada usu.
 

@@ -438,6 +438,7 @@ function getSchoolInfo($service) {
     if (isServeiEducatiu() && isset($agora['server']['se-url'])) {
         $agora['server']['server'] = $agora['server']['se-url'];
         $agora['server']['html'] = $agora['server']['server'] . $agora['server']['base'];
+        $agora['server']['domain'] = explode('//', $agora['server']['server'])[1];
 
         // Check if the domain in the URL is the default for Serveis Educatius and redirect if not
         if (!defined('CLI_SCRIPT') && !is_in_domain($agora['server']['server'])) {
@@ -453,6 +454,7 @@ function getSchoolInfo($service) {
     if (isProjecte() && isset($agora['server']['projectes'])) {
         $agora['server']['server'] = $agora['server']['projectes'];
         $agora['server']['html'] = $agora['server']['server'] . $agora['server']['base'];
+        $agora['server']['domain'] = explode('//', $agora['server']['server'])[1];
 
         // Check if the domain in the URL is the default for Projectes and redirect if not
         if (!defined('CLI_SCRIPT') && !is_in_domain($agora['server']['server'])) {
@@ -468,6 +470,7 @@ function getSchoolInfo($service) {
     if (!empty($school_info['url_type']) && ($school_info['url_type'] == 'subdomain') && !empty($school_info['url_host'])) {
         $agora['server']['server'] = 'http://' . $school_info['url_host'];
         $agora['server']['html'] = 'http://' . $school_info['url_host'] . $agora['server']['base'];
+        $agora['server']['domain'] = explode('//', $agora['server']['server'])[1];
 
         // Check if the domain in the URL is the default for Serveis Educatius and redirect if not
         if (!defined('CLI_SCRIPT') && !is_in_domain($agora['server']['server'])) {
