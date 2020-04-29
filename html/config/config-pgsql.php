@@ -68,9 +68,9 @@
 
     $agora['iseoi'] = false;
 
-    $agora['recaptchapublickey'] = '6LddJgoTAAAAAFCT6LwNkKU2YR2qNMG7fQgIXse8';
-    $agora['recaptchaprivatekey'] = '6LddJgoTAAAAAKs-yBghGgTZmAB1oPLQlldWYKAh';
-    $agora['google_api_key'] = 'AIzaSyAxh4zWTv9TEdDcxec9L2I2BmaiqG_g44U'; // API key for Google Calendar
+    $agora['recaptchapublickey'] = '';
+    $agora['recaptchaprivatekey'] = '';
+    $agora['google_api_key'] = ''; // API key for Google Calendar
 
     define('SERVEI_EDUCATIU_ID', 5);
     define('PROJECTES_TYPE_ID', 12);

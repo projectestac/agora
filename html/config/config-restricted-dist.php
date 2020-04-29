@@ -1,5 +1,5 @@
 <?php
 
-$agora['xtecadmin']['password'] = '6142bfd56a583d891f0b1dcdbb2a9ef8';
+$agora['xtecadmin']['password'] = '';
 $agora['config']['xtecadmin']   = $agora['xtecadmin']['password']; // Deprecated
-$agora['opcache']['password']   = 'agora';
+$agora['opcache']['password']   = '';

@@ -16,7 +16,7 @@ $agora['server']['school_information'] = 'https://aplicacions.ensenyament.gencat
 
 // Admin database access info (MySQL)
 $agora['admin']['username']    = 'root';          // Nom d'usuari
-$agora['admin']['userpwd']     = 'agora';         // Contrasenya
+$agora['admin']['userpwd']     = '';         // Contrasenya
 $agora['admin']['database']    = 'adminagora';    // Base de dades
 $agora['admin']['host']        = 'localhost';     // Nom del servidor de bases de dades
 $agora['admin']['port']        = '3306';          // Port del servidor de bases de dades
@@ -25,7 +25,7 @@ $agora['admin']['datadir']     = $agora['server']['datadir'] . 'portaldata/'; //
 // Schools Moodle 2 config info
 $agora['moodle2']['dbhost']    = '';              // Not necessary for Oracle
 $agora['moodle2']['port']      = '';
-$agora['moodle2']['userpwd']   = 'agora';         // Contrasenya que tenen tots els esquemes
+$agora['moodle2']['userpwd']   = '';         // Contrasenya que tenen tots els esquemes
 $agora['moodle2']['database']  = 'XE';            // Base de dades (tal i com està definida al tnsnames) de l'esquema anterior (sense el número)
 $agora['moodle2']['dbnumber']  = '';              // Número de la primera base de dades de l'aplicació; a acceptació en blanc i a producció 3
 $agora['moodle2']['datadir']   = $agora['server']['datadir'] . 'moodledata/';  // Directori de dades d'usuari del moodle2
@@ -34,7 +34,7 @@ $agora['moodle2']['memcached_session_servers'] = '';
 
 // Schools WordPress database access info (MySQL)
 $agora['nodes']['username']    = 'root';          // Usuari/ària per accedir a les bases de dades
-$agora['nodes']['userpwd']     = 'agora';         // Contrasenya de l'usuari/ària anterior
+$agora['nodes']['userpwd']     = '';         // Contrasenya de l'usuari/ària anterior
 $agora['nodes']['datadir']     = $agora['server']['datadir'] . 'wpdata/';  // Directori de dades d'usuari
 
 // Load vars common in all environments
