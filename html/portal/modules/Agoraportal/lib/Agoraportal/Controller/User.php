@@ -252,6 +252,9 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         $by =  FormUtil::getPassedValue('search', null, 'GETPOST', FILTER_SANITIZE_STRING);
         $search =  FormUtil::getPassedValue('searchText', '', 'GETPOST', FILTER_SANITIZE_STRING);
 
+        // Security check: Allow only valid values to avoid SQL injection
+        $search = (!in_array($search, ['clientCode', 'clientName', 'clientCity'])) ? '' : $search;
+
         $clients = Clients::search_with_services_by($by, $search, $locationId, $typeId, $init, $rpp);
         $clientsNumber = Clients::count_with_services_by($by, $search, $locationId, $typeId);
 
