@@ -1775,8 +1775,8 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         // E-mail addresses of agoraportal administrators
         $adminemails = explode(',', ModUtil::getVar('Agoraportal', 'warningMailsTo'));
 
-        // Extremely horrible way of doing things, thanks to emergency situation
-        $sql = "UPDATE `agoraportal_client_services` SET `state` = '-7' WHERE `state` = '1'";
+        // Extremely horrible way of doing things, thanks to emergency situation (exceptions for aroga services)
+        $sql = "UPDATE `agoraportal_client_services` SET `state` = '-7' WHERE `state` = '1' AND `clientserviceid` <> 4858 AND `clientserviceid` <> 3237";
         DBUtil::executeSQL($sql);
 
         // Send warning message to configured recipients if Mailer is available
