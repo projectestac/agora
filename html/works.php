@@ -60,40 +60,44 @@ if ($isBigIP) {
 }
 
 // Connect to the first school of each server with nodes service to check that the MySQL servers are working
-foreach ($nodesToTest as $schoolid => $dbhost) {
-    if (!checkNodesDatabase(array('id' => $schoolid, 'dbhost' => $dbhost))) {
-        $isok = false;
-        $state .= '<br>El servidor MySQL "' . $dbhost . '" no funciona correctament.<br>';
-    } elseif ($isBigIP) {
-        $nodeok = true;
-        break;
-    }
-
-    // Check File systems for Nodes
-    $dirToCheck = $agora['server']['root'] . $agora['nodes']['datadir'] . $agora['nodes']['userprefix'] . $schoolid . '/';
-    if (!is_writable($dirToCheck)) {
-        $isok = false;
-        $state .= "<br>El directori de dades de <strong>Nodes</strong> ($dirToCheck), o bé no està muntat o bé no té permís d'escriptura.<br>";
-    }
-}
-
-if (($isBigIP && !$nodeok) || (!$isBigIP)) {
-    // Connect to the first school of each database instance to check that the Oracle databases (for Moodle) are working
-    foreach ($m2ToTest as $schoolid => $database) {
-        if (!checkMoodleDatabase(array('id' => $schoolid, 'database' => $database))) {
+if (is_array($nodesToTest)) {
+    foreach ($nodesToTest as $schoolid => $dbhost) {
+        if (!checkNodesDatabase(array('id' => $schoolid, 'dbhost' => $dbhost))) {
             $isok = false;
-            $state .= '<br>La instància Oracle "' . $database . '" no funciona correctament.<br>';
+            $state .= '<br>El servidor MySQL "' . $dbhost . '" no funciona correctament.<br>';
         } elseif ($isBigIP) {
             $nodeok = true;
             break;
         }
 
-        // Check File systems for Moodle
-        //$dirToCheck = $agora['server']['root'] . $agora['moodle2']['datadir'] . $agora['moodle2']['userprefix'] . $schoolid . '/';
-        $dirToCheck = $agora['server']['root'] . get_filepath_moodle($schoolid) . '/';
+        // Check File systems for Nodes
+        $dirToCheck = $agora['server']['root'] . $agora['nodes']['datadir'] . $agora['nodes']['userprefix'] . $schoolid . '/';
         if (!is_writable($dirToCheck)) {
             $isok = false;
-            $state .= "<br>El directori de dades de <strong>Moodle</strong> ($dirToCheck), o bé no està muntat o bé no té permís d'escriptura.<br>";
+            $state .= "<br>El directori de dades de <strong>Nodes</strong> ($dirToCheck), o bé no està muntat o bé no té permís d'escriptura.<br>";
+        }
+    }
+}
+
+if (($isBigIP && !$nodeok) || (!$isBigIP)) {
+    // Connect to the first school of each database instance to check that the Oracle databases (for Moodle) are working
+    if (is_array($m2ToTest)) {
+        foreach ($m2ToTest as $schoolid => $database) {
+            if (!checkMoodleDatabase(array('id' => $schoolid, 'database' => $database))) {
+                $isok = false;
+                $state .= '<br>La instància Oracle "' . $database . '" no funciona correctament.<br>';
+            } elseif ($isBigIP) {
+                $nodeok = true;
+                break;
+            }
+
+            // Check File systems for Moodle
+            //$dirToCheck = $agora['server']['root'] . $agora['moodle2']['datadir'] . $agora['moodle2']['userprefix'] . $schoolid . '/';
+            $dirToCheck = $agora['server']['root'] . get_filepath_moodle($schoolid) . '/';
+            if (!is_writable($dirToCheck)) {
+                $isok = false;
+                $state .= "<br>El directori de dades de <strong>Moodle</strong> ($dirToCheck), o bé no està muntat o bé no té permís d'escriptura.<br>";
+            }
         }
     }
 }
