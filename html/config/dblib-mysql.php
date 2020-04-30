@@ -632,7 +632,7 @@ function getDiskInfo($dns, $service) {
 
     $sql = 'SELECT s.serviceName, cs.diskSpace, cs.diskConsume
 			FROM agoraportal_clients c, agoraportal_client_services cs, agoraportal_services s
-			WHERE c.clientId = cs.clientId AND cs.serviceId = s.serviceId AND cs.state = "1"
+			WHERE c.clientId = cs.clientId AND cs.serviceId = s.serviceId AND (cs.state = "1" OR cs.state ="-7")
 			AND c.clientDNS = "' . $dns . '"';
 
     $results = get_rows_from_db($sql);
