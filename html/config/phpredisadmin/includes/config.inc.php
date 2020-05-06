@@ -19,7 +19,7 @@ $config = array(
 
       array(
           'name'   => 'Session', // Optional name.
-          'host'   => $agora['moodle2']['memcached_session_servers'],
+          'host'   => $agora['moodle2']['redis_session_servers'],
           'port'   => 6379,
           'filter' => '*',
           'scheme' => 'tcp', // Optional. Connection scheme. 'tcp' - for TCP connection, 'unix' - for connection by unix domain socket
