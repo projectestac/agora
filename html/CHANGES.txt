@@ -13,6 +13,7 @@ MOODLE
 - Message: Show old message UI and allow access to all messages
 - Show 'hidden' text next to hidden labels in courses
 - Coursequotas: Added disk usage of H5P libraries
+- Updated language packages
 
 NODES:
 - WSL: Allow login from Moodle in any domain
