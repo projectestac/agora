@@ -3,6 +3,30 @@ Release notes for Agora (https://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
+Changes 20.05.12
+---------------------------------------------------------------------------------------
+GENERAL
+- dblib: Get disk usage also for services in state 'saturation'
+- works: Ensure variables have correct data type
+
+MOODLE
+- Message: Show old message UI and allow access to all messages
+- Show 'hidden' text next to hidden labels in courses
+- Coursequotas: Added disk usage of H5P libraries
+
+NODES:
+- WSL: Allow login from Moodle in any domain
+- wordpress-telegram: Upgraded to version 2.1.15
+- add-to-any: Upgraded to version 1.7.40
+- email-subscribers: Upgraded to version 4.3.13
+- enllacos-educatius: Fixed checkboxes not showing checked after saving changes
+- Buddypress: Added href and target as allowed attributes
+
+PORTAL
+- Agoraportal: Added exception in massive service deactivation for monitor
+- Agoraportal: Allow only valid values to avoid SQL injection
+
+
 Changes 20.04.15
 ---------------------------------------------------------------------------------------
 MOODLE
