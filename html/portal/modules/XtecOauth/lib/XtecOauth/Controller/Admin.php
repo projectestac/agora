@@ -56,9 +56,8 @@ class XtecOauth_Controller_Admin extends Zikula_AbstractController
     {
         $xtecoauth_clientid = FormUtil::getPassedValue('xtecoauth_clientid', $args['xtecoauth_clientid'] ?? '', 'POST');
         $xtecoauth_clientsecret = FormUtil::getPassedValue('xtecoauth_clientsecret', $args['xtecoauth_clientsecret'] ?? '', 'POST');
-        $xtecoauth_authorizeurl = FormUtil::getPassedValue('xtecoauth_authorizeurl', $args['xtecoauth_authorizeurl'] ?? '', 'POST');
-        $xtecoauth_tokenurl = FormUtil::getPassedValue('xtecoauth_tokenurl', $args['xtecoauth_tokenurl'] ?? '', 'POST');
         $xtecoauth_apiurlbase = FormUtil::getPassedValue('xtecoauth_apiurlbase', $args['xtecoauth_apiurlbase'] ?? '', 'POST');
+        $xtecoauth_authorizedomain = FormUtil::getPassedValue('xtecoauth_authorizedomain', $args['xtecoauth_authorizedomain'] ?? '', 'POST');
 
         if (!SecurityUtil::checkPermission('XtecOauth::', '::', ACCESS_ADMIN)) {
             throw new Zikula_Exception_Forbidden();
@@ -71,9 +70,8 @@ class XtecOauth_Controller_Admin extends Zikula_AbstractController
         $this
             ->setVar('xtecoauth_clientid', $xtecoauth_clientid)
             ->setVar('xtecoauth_clientsecret', $xtecoauth_clientsecret)
-            ->setVar('xtecoauth_authorizeurl', $xtecoauth_authorizeurl)
-            ->setVar('xtecoauth_tokenurl', $xtecoauth_tokenurl)
-            ->setVar('xtecoauth_apiurlbase', $xtecoauth_apiurlbase);
+            ->setVar('xtecoauth_apiurlbase', $xtecoauth_apiurlbase)
+            ->setVar('xtecoauth_authorizedomain', $xtecoauth_authorizedomain);
 
         LogUtil::registerStatus($this->__('Done! Module configuration updated.'));
 
