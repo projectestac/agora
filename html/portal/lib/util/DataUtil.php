@@ -318,7 +318,12 @@ class DataUtil
             }
 
             // Encode email addresses
+            // XTEC ************ ELIMINAT - Removed bad coded email protection
+            // 2020.05.14 @aginard
+            /*
             $var = preg_replace($search, $replace, $var);
+            */
+            //************ FI
 
             // Fix html entities
             $var = htmlspecialchars($var);
