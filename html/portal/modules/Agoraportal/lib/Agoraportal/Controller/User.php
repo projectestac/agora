@@ -594,6 +594,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
                 'user_regdate' => DateUtil::buildDatetime(date("Y"), date("m"), date("d"), date("H"), date("i"), date("s")),
                 'approved_date' => DateUtil::buildDatetime(date("Y"), date("m"), date("d"), date("H"), date("i"), date("s")),
                 'pass' => '',
+                'passreminder' => '',
                 'activated' => 1,
                 'approved_by' => 2,
             );
