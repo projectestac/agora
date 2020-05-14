@@ -19,16 +19,12 @@
                     <input id="xtecoauth_clientsecret" type="text" name="xtecoauth_clientsecret" size="40" value="{$XtecOauth.xtecoauth_clientsecret}" />
                 </div>
                 <div class="z-formrow">
-                    <label for="xtecoauth_authorizeurl">{gt text="Authorize URL"}</label>
-                    <input id="xtecoauth_authorizeurl" type="text" name="xtecoauth_authorizeurl" size="40" value="{$XtecOauth.xtecoauth_authorizeurl}" />
-                </div>
-                <div class="z-formrow">
-                    <label for="xtecoauth_tokenurl">{gt text="Token URL"}</label>
-                    <input id="xtecoauth_tokenurl" type="text" name="xtecoauth_tokenurl" size="40" value="{$XtecOauth.xtecoauth_tokenurl}" />
-                </div>
-                <div class="z-formrow">
                     <label for="xtecoauth_apiurlbase">{gt text="API URL Base"}</label>
                     <input id="xtecoauth_apiurlbase" type="text" name="xtecoauth_apiurlbase" size="40" value="{$XtecOauth.xtecoauth_apiurlbase}" />
+                </div>
+                <div class="z-formrow">
+                    <label for="xtecoauth_authorizedomain">{gt text="Authorize Domain"}</label>
+                    <input id="xtecoauth_authorizedomain" type="text" name="xtecoauth_authorizedomain" size="40" value="{$XtecOauth.xtecoauth_authorizedomain}" />
                 </div>
             </fieldset>
 

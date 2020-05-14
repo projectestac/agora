@@ -15,12 +15,8 @@ class XtecOauth_Installer extends Zikula_AbstractInstaller
         $this
             ->setVar('xtecoauth_clientid', '')
             ->setVar('xtecoauth_clientsecret', '')
-            ->setVar('xtecoauth_authorizeurl', '')
-            ->setVar('xtecoauth_tokenurl', '')
-            ->setVar('xtecoauth_apiurlbase', '');
-
-        EventUtil::registerPersistentModuleHandler('XtecOauth', 'module.users.ui.login.succeeded', ['XtecOauth_Listeners', 'loginSuccessListener']);
-        EventUtil::registerPersistentModuleHandler('XtecOauth', 'module.users.ui.login.failed', ['XtecOauth_Listeners', 'tryXtecOauthListener']);
+            ->setVar('xtecoauth_apiurlbase', '')
+            ->setVar('xtecoauth_authorizedomain', '');
 
         return true;
     }
