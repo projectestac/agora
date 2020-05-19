@@ -25,7 +25,7 @@ fi
 
 if [[ $execmoodle == true ]]
 then
-gitcheckout "html/moodle2" "aws" "https://github.com/projectestac/agora_moodle2.git"
+gitcheckout "html/moodle2" "WIP-moodle-38" "https://github.com/projectestac/agora_moodle2.git"
 gitcheckout "html/moodle2/blocks/completion_progress" "master" "https://github.com/deraadt/moodle-block_completion_progress.git"
 gitcheckout "html/moodle2/blocks/courses_vicensvives" "master" "https://github.com/vicensvives/moodle-block_courses_vicensvives.git"
 gitcheckout "html/moodle2/blocks/licenses_vicensvives" "master" "https://github.com/vicensvives/moodle-block_licenses_vicensvives.git"
@@ -50,8 +50,8 @@ gitcheckout "html/moodle2/mod/geogebra" "master" "https://github.com/projectesta
 gitcheckout "html/moodle2/mod/hotpot" "master" "https://github.com/gbateson/moodle-mod_hotpot.git"
 gitcheckout "html/moodle2/mod/hvp" "stable" "https://github.com/h5p/h5p-moodle-plugin.git"
 gitcheckout "html/moodle2/mod/jclic" "master" "https://github.com/projectestac/moodle-mod_jclic.git"
-gitcheckout "html/moodle2/mod/journal" "MOODLE_36_STABLE" "https://github.com/elearningsoftware/moodle-mod_journal.git"
-gitcheckout "html/moodle2/mod/questionnaire" "MOODLE_36_STABLE" "https://github.com/PoetOS/moodle-mod_questionnaire.git"
+gitcheckout "html/moodle2/mod/journal" "master" "https://github.com/elearningsoftware/moodle-mod_journal.git"
+gitcheckout "html/moodle2/mod/questionnaire" "master" "https://github.com/PoetOS/moodle-mod_questionnaire.git"
 gitcheckout "html/moodle2/mod/qv" "master" "https://github.com/projectestac/moodle-mod_qv.git"
 gitcheckout "html/moodle2/question/format/hotpot" "master" "https://github.com/gbateson/moodle-qformat_hotpot.git"
 gitcheckout "html/moodle2/question/type/essaywiris" "stable" "https://github.com/wiris/moodle-qtype_essaywiris.git"
@@ -63,7 +63,7 @@ gitcheckout "html/moodle2/question/type/truefalsewiris" "stable" "https://github
 gitcheckout "html/moodle2/question/type/wq" "master" "https://github.com/wiris/moodle-qtype_wq.git"
 gitcheckout "html/moodle2/question/type/ordering" "master" "https://github.com/gbateson/moodle-qtype_ordering.git"
 gitcheckout "html/moodle2/report/coursequotas" "master" "https://github.com/projectestac/moodle-report_coursequotas.git"
-gitcheckout "html/moodle2/theme/xtec2" "master" "https://github.com/projectestac/moodle-theme_xtec2.git"
+gitcheckout "html/moodle2/theme/xtec2020" "master" "https://github.com/projectestac/moodle-theme_xtec2020.git"
 fi
 
 if [[ $execwordpress == true ]]
