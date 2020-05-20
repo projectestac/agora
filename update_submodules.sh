@@ -38,7 +38,7 @@ gitcheckout "html/moodle2/lib/editor/atto/plugins/cloze" "master" "https://githu
 gitcheckout "html/moodle2/lib/editor/atto/plugins/fontsize" "master" "https://github.com/andrewnicols/moodle-atto_fontsize.git"
 gitcheckout "html/moodle2/lib/editor/atto/plugins/fontfamily" "master" "https://github.com/projectestac/moodle-atto_fontfamily.git"
 gitcheckout "html/moodle2/lib/editor/atto/plugins/wiris" "stable" "https://github.com/wiris/moodle-atto_wiris.git"
-gitcheckout "html/moodle2/local/agora" "aws" "https://github.com/projectestac/moodle-local_agora.git"
+gitcheckout "html/moodle2/local/agora" "WIP-moodle-38" "https://github.com/projectestac/moodle-local_agora.git"
 gitcheckout "html/moodle2/local/agora/mailer" "master" "https://github.com/projectestac/mailer.git"
 gitcheckout "html/moodle2/local/alexandriaimporter" "master" "https://github.com/projectestac/moodle-local_alexandriaimporter.git"
 gitcheckout "html/moodle2/local/bigdata" "master" "https://github.com/projectestac/moodle-local_bigdata.git"
