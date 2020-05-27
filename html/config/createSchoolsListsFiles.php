@@ -17,6 +17,18 @@ require_once('cronslib.php');
 
 $args = get_webargs();
 $getservice = $args['service'] ?? false;
+$getlevel = strtolower($args['level'] ?? 'all');
+
+$levels = ['all', 'high', 'medium', 'low'];
+if (!in_array($getlevel, $levels)) {
+    $getlevel = 'all';
+}
+
+const ACCESS_THRESHOLD_HIGH = 500;
+const ACCESS_THRESHOLD_LOW = 20;
+
+$countdays = 3; // count 3 days before
+$startingday = 1; // starting 1 day before
 
 // Decide if creating cron files or update files
 if (isset($args['update'])) {
@@ -41,11 +53,11 @@ if (isset($args['update'])) {
             } else {
                 if ($newversion) {
                     $schoolsvar .= $agora['server']['html'] . $school['dns'] .
-                                   "/moodle/admin/index.php?confirmupgrade=1&confirmrelease=1&autopilot=1&confirmplugincheck=1&lang=ca&cache=0\n";
+                        "/moodle/admin/index.php?confirmupgrade=1&confirmrelease=1&autopilot=1&confirmplugincheck=1&lang=ca&cache=0\n";
                 }
                 for ($i = 0; $i < $numexec; $i++) {
                     $schoolsvar .= $agora['server']['html'] . $school['dns'] .
-                                   "/moodle/admin/index.php?lang=ca&autopilot=1\n";
+                        "/moodle/admin/index.php?lang=ca&autopilot=1\n";
                 }
             }
         }
@@ -71,7 +83,7 @@ if (isset($args['update'])) {
 
 } else {
 
-    $services = array (
+    $services = array(
         array(
             'name' => 'moodle2',
             'url' => "/moodle/admin/cron.php\n",
@@ -86,44 +98,81 @@ if (isset($args['update'])) {
 
     foreach ($services as $service) {
         // Only content of a given service is requested. Ignore the other
-        if($getservice && $service['name'] != $getservice){
+        if ($getservice && $service['name'] != $getservice) {
             continue;
         };
 
         $schools = getServices(false, 'activedId', 'asc', $service['name'], '1');
 
-        $schoolsvar = '';
+        $schoolsvarHigh = '';
+        $schoolsvarMedium = '';
+        $schoolsvarLow = '';
+        $schoolsvarAll = '';
 
         if (is_array($schools)) {
+
+            // Get statistics for all $service['name'] services (nodes, moodle2)
+            // 3 days count, starting 1 day ago
+            if ('moodle2' == $service['name']) {
+                $schoolsTotals = getServicesTotals(false, 'activedId', 'asc', $service['name'], '1', $countdays, $startingday);
+            }
+
             foreach ($schools as $school) {
                 // Select the server name according to the
+                $schoolsvartmp = '';
                 switch ($school['type']) {
                     case SERVEI_EDUCATIU_ID:
-                        $schoolsvar .= $agora['server']['se-url'] . $agora['server']['base'];
+                        $schoolsvartmp .= $agora['server']['se-url'] . $agora['server']['base'];
                         break;
                     case PROJECTES_TYPE_ID:
-                        $schoolsvar .= $agora['server']['projectes'] . $agora['server']['base'];
+                        $schoolsvartmp .= $agora['server']['projectes'] . $agora['server']['base'];
                         break;
                     default:
-                        $schoolsvar .= $agora['server']['server'] . $agora['server']['base'];
+                        $schoolsvartmp .= $agora['server']['server'] . $agora['server']['base'];
                 }
-                $schoolsvar .= $school['dns'] . $service['url'];
+                $schoolsvartmp .= $school['dns'] . $service['url'];
+
+                // Check if this school is in the array of the statistics and put in the high or the low list
+                if ('moodle2' == $service['name']) {
+                    if (isset($schoolsTotals[$school['code']]) && intval($schoolsTotals[$school['code']]['total']) >= ACCESS_THRESHOLD_HIGH) {
+                        $schoolsvarHigh .= $schoolsvartmp;
+                    } elseif (isset($schoolsTotals[$school['code']]) && intval($schoolsTotals[$school['code']]['total']) <= ACCESS_THRESHOLD_LOW) {
+                        $schoolsvarLow .= $schoolsvartmp;
+                    } else {
+                        $schoolsvarMedium .= $schoolsvartmp;
+                    }
+                }
+
+                // All schools
+                $schoolsvarAll .= $schoolsvartmp;
             }
         }
 
-        saveVarToFile($service['file'], $schoolsvar, $getservice);
+        if ('all' == $getlevel || 'moodle2' != $service['name']) {
+            saveVarToFile($service['file'], $schoolsvarAll, $getservice);
+        } elseif ('moodle2' == $service['name']) {
+            if ('all' == $getlevel || 'high' == $getlevel) {
+                saveVarToFile($service['file'] . '_high', $schoolsvarHigh, $getservice);
+            }
+            if ('all' == $getlevel || 'medium' == $getlevel) {
+                saveVarToFile($service['file'] . '_medium', $schoolsvarMedium, $getservice);
+            }
+            if ('all' == $getlevel || 'low' == $getlevel) {
+                saveVarToFile($service['file'] . '_low', $schoolsvarLow, $getservice);
+            }
+        }
     }
 }
 
 /**
  * Save content of var into a file
  *
- * @author Toni Ginard
- *
  * @param string filename: path to file in filesystem
  * @param string schoolsvar: data to save to file
  *
  * @return boolean true if successful
+ * @author Toni Ginard
+ *
  */
 function saveVarToFile($filename = null, $schoolsvar = '', $getservice = false) {
 
@@ -136,7 +185,7 @@ function saveVarToFile($filename = null, $schoolsvar = '', $getservice = false) 
         return true;
     } else {
         cli_print_line("<br />");
-        cli_print_line('<strong>File name: '.$filename.'</strong><br />');
+        cli_print_line('<strong>File name: ' . $filename . '</strong><br />');
         cli_print_line(str_replace("\n", "\n<br />", $schoolsvar));
     }
 
@@ -153,7 +202,8 @@ function saveVarToFile($filename = null, $schoolsvar = '', $getservice = false) 
         cli_print_line("Directory $path does not exist<br/>");
         return false;
     }
-    $filename = $path.$filename;
+
+    $filename = $path . $filename;
 
     // Open $filename in append mode
     if (!$handle = fopen($filename, 'w')) {
