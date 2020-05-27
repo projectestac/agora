@@ -78,6 +78,81 @@ function is_in_domain($domain) {
 }
 
 /**
+ * Get an array with all the services totals with optional date limits
+ * Returns an array with clientCode as key
+ *
+ * @param bool $codeletter : false means code will be 08000000
+ *                           true  means code will be a8000000
+ * @param string $order
+ * @param string $desc
+ * @param string $service
+ * @param string $state
+ * @param int $countdays
+ * @param int $startingday
+ * @return array|bool
+ */
+function getServicesTotals($codeletter = false, $order = 'clientDNS', $desc = 'asc', $service = 'all', $state = 'all', $countdays = 0, $startingday = 0) {
+
+    $values = $conditions = [];
+
+    if ($service != 'all') {
+        $conditions[] = "serviceName='$service'";
+    }
+
+    if ($state != 'all') {
+        if (is_array($state)) {
+            $conditions[] = "state IN ('" . implode("', '", $state) . "')";
+        } else {
+            $conditions[] = "state='$state'";
+        }
+    }
+
+    $countdays = intval($countdays);
+    $startingday = intval($startingday);
+
+    if ($countdays) {
+        $conditions[] = "makedate(year(now()), date_format(now(),'%j')-" . ($countdays + $startingday) . ")";
+        $conditions[] = "makedate(year(now()), date_format(now(),'%j')-" . $startingday . ")";
+    }
+
+    $where = (empty($conditions)) ? '' : 'WHERE ' . implode(' AND ', $conditions);
+
+    $sql = "
+    SELECT SUM(sd.total) as total, cs.activedId, c.clientCode
+            FROM agoraportal_client_services cs
+            LEFT JOIN agoraportal_clients c ON cs.clientID = c.clientID
+            LEFT JOIN agoraportal_clientType t ON c.typeId = t.typeID
+            LEFT JOIN agoraportal_services s ON s.serviceId = cs.serviceId
+            LEFT JOIN agoraportal_moodle2_stats_day sd ON c.clientCode = sd.clientcode
+            $where
+            group by cs.activedId, c.clientCode
+            ORDER BY $order $desc";
+
+    $results = get_rows_from_db($sql);
+    if (!$results) {
+        return false;
+    }
+
+    foreach ($results as $row) {
+
+        // Transform client code if required (a8000000 -> 08000000)
+        if (!$codeletter) {
+            $clientCode = transformClientCode($row->clientCode);
+        } else {
+            $clientCode = $row->clientCode;
+        }
+
+        $values[$clientCode] = [
+            'id' => $row->activedId,
+            'code' => $clientCode,
+            'total' => $row->total,
+        ];
+    }
+
+    return $values;
+}
+
+/**
  * Get an array with all the
  *
  * @param bool $codeletter: false means code will be 08000000
@@ -499,10 +574,10 @@ function getSchoolInfo($service) {
 function getSchoolFromDB($dns) {
 
     $sql = "SELECT c.clientId, c.clientCode, c.typeId, c.URLType, c.URLHost, s.serviceName, cs.activedId, cs.state, cs.serviceDB, cs.dbHost, cs.diskSpace, cs.diskConsume
-			FROM agoraportal_client_services cs
-			LEFT JOIN agoraportal_clients c ON cs.clientId = c.clientId
-			LEFT JOIN agoraportal_services s ON cs.serviceId = s.serviceId
-			WHERE (cs.state = '1' OR cs.state = '-5' OR cs.state = '-6' OR cs.state = '-7') AND c.clientDNS = '$dns';";
+            FROM agoraportal_client_services cs
+            LEFT JOIN agoraportal_clients c ON cs.clientId = c.clientId
+            LEFT JOIN agoraportal_services s ON cs.serviceId = s.serviceId
+            WHERE (cs.state = '1' OR cs.state = '-5' OR cs.state = '-6' OR cs.state = '-7') AND c.clientDNS = '$dns';";
 
     $results = get_rows_from_db($sql);
     $value = array();
@@ -634,9 +709,9 @@ function getDiskInfo($dns, $service) {
     }
 
     $sql = 'SELECT s.serviceName, cs.diskSpace, cs.diskConsume
-			FROM agoraportal_clients c, agoraportal_client_services cs, agoraportal_services s
-			WHERE c.clientId = cs.clientId AND cs.serviceId = s.serviceId AND (cs.state = "1" OR cs.state ="-7")
-			AND c.clientDNS = "' . $dns . '"';
+            FROM agoraportal_clients c, agoraportal_client_services cs, agoraportal_services s
+            WHERE c.clientId = cs.clientId AND cs.serviceId = s.serviceId AND (cs.state = "1" OR cs.state ="-7")
+            AND c.clientDNS = "' . $dns . '"';
 
     $results = get_rows_from_db($sql);
     if (!$results) {
