@@ -51,7 +51,7 @@ gitcheckout "html/moodle2/mod/hotpot" "master" "https://github.com/gbateson/mood
 gitcheckout "html/moodle2/mod/hvp" "stable" "https://github.com/h5p/h5p-moodle-plugin.git"
 gitcheckout "html/moodle2/mod/jclic" "master" "https://github.com/projectestac/moodle-mod_jclic.git"
 gitcheckout "html/moodle2/mod/journal" "master" "https://github.com/elearningsoftware/moodle-mod_journal.git"
-gitcheckout "html/moodle2/mod/questionnaire" "master" "https://github.com/PoetOS/moodle-mod_questionnaire.git"
+gitcheckout "html/moodle2/mod/questionnaire" "MOODLE_38_STABLE" "https://github.com/PoetOS/moodle-mod_questionnaire.git"
 gitcheckout "html/moodle2/mod/qv" "master" "https://github.com/projectestac/moodle-mod_qv.git"
 gitcheckout "html/moodle2/question/format/hotpot" "master" "https://github.com/gbateson/moodle-qformat_hotpot.git"
 gitcheckout "html/moodle2/question/type/essaywiris" "stable" "https://github.com/wiris/moodle-qtype_essaywiris.git"
