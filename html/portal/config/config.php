@@ -15,7 +15,7 @@ $ZConfig['System']['compat_layer']      = true;  // enable loading of compat lay
 $ZConfig['System']['system.chmod_dir']  = 0777;  // The default chmod for new directories created by Zikula.
 
 // XTEC Added
-$ZConfig['System']['pconnect'] = true;
+$ZConfig['System']['pconnect'] = false;
 
 // ----------------------------------------------------------------------
 // This is the definition for the default Zikula system database.
