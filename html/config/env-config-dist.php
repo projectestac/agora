@@ -4,9 +4,10 @@ global $agora;
 
 // Environment vars
 $agora['server']['root'] = dirname(dirname(dirname(__FILE__))) . '/'; // Directori base de la instal·lació d'Àgora ($BASE_AGORA)
-$agora['server']['server'] = 'https://agora-aws.xtec.cat'; // URL base del servidor
-$agora['server']['se-url'] = 'https://agora-aws-se.xtec.cat'; // URL base del servidor per Serveis Educatius
-$agora['server']['projectes'] = 'https://agora-aws-projectes.xtec.cat'; // URL base del servidor per Projectes
+$agora['server']['server'] = 'https://agora-aws.xtec.cat'; // URL base general
+$agora['server']['nodes'] = 'https://agora-aws.xtec.cat'; // URL base per als Nodes
+$agora['server']['se-url'] = 'https://agora-aws-se.xtec.cat'; // URL base per als Serveis Educatius
+$agora['server']['projectes'] = 'https://agora-aws-projectes.xtec.cat'; // URL base per als Projectes
 $agora['server']['base'] = '/'; // Context de l'aplicació (és a dir, el que cal escriure després del servidor per accedir a l'aplicació)
 $agora['server']['datadir'] = 'data/'; // Directori arrel de dades d'usuari (compartit entre servidors)
 $agora['server']['localdatadir'] = 'localdata/'; // Directori arrel de dades d'usuari locals (local a cada servidor)

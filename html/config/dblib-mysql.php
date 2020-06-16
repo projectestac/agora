@@ -541,6 +541,22 @@ function getSchoolInfo($service) {
         }
     }
 
+    // Nodes can have a different domain
+    if (($service == 'nodes') && isset($agora['server']['nodes'])) {
+        $agora['server']['server'] = $agora['server']['nodes'];
+        $agora['server']['html'] = $agora['server']['server'] . $agora['server']['base'];
+
+        // Check if the domain in the URL is the default for Nodes and redirect if not
+        if (!defined('CLI_SCRIPT') && !is_in_domain($agora['server']['nodes'])) {
+            // Remove base URL (directory) from REQUEST_URI, remove duplicated double slashes (//) and avoid creating more
+            $remove = rtrim($agora['server']['base'], '/');
+            $url = rtrim($agora['server']['html'], '/') . str_replace($remove, '', str_replace('//', '/', $_SERVER['REQUEST_URI']));
+            header('HTTP/1.1 301 Moved Permanently');
+            header('Location: ' . $url);
+            exit;
+        }
+    }
+
     // Change the URL for schools that use a subdomain instead of a standard URL
     if (!empty($school_info['url_type']) && ($school_info['url_type'] == 'subdomain') && !empty($school_info['url_host'])) {
         $agora['server']['server'] = 'http://' . $school_info['url_host'];
