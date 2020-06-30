@@ -542,12 +542,12 @@ function getSchoolInfo($service) {
     }
 
     // Nodes can have a different domain
-    if (($service == 'nodes') && isset($agora['server']['nodes'])) {
+    if (($service == 'nodes') && isset($agora['server']['nodes']) && !isServeiEducatiu() && !isProjecte()) {
         $agora['server']['server'] = $agora['server']['nodes'];
         $agora['server']['html'] = $agora['server']['server'] . $agora['server']['base'];
 
         // Check if the domain in the URL is the default for Nodes and redirect if not
-        if (!defined('CLI_SCRIPT') && !is_in_domain($agora['server']['nodes'])) {
+        if (!defined('CLI_SCRIPT') && !is_in_domain($agora['server']['server'])) {
             // Remove base URL (directory) from REQUEST_URI, remove duplicated double slashes (//) and avoid creating more
             $remove = rtrim($agora['server']['base'], '/');
             $url = rtrim($agora['server']['html'], '/') . str_replace($remove, '', str_replace('//', '/', $_SERVER['REQUEST_URI']));

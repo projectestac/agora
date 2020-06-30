@@ -10,8 +10,9 @@
  * @param new_version: if present when creating updateMoodle file, adds a special URL to update major version of moodle. Default
  *                      value is false (don't add special URL).
  * @param service: if present, instead of creating cron files, returns the contents of the cron file of the requested service
- *
+ * @param level: if present, filter the list of URL to include only the one that have the amount of activity set to that level
  */
+
 require_once('dblib-mysql.php');
 require_once('cronslib.php');
 
@@ -128,7 +129,11 @@ if (isset($args['update'])) {
                         $schoolsvartmp .= $agora['server']['projectes'] . $agora['server']['base'];
                         break;
                     default:
-                        $schoolsvartmp .= $agora['server']['server'] . $agora['server']['base'];
+                        if ('moodle2' == $service['name']) {
+                            $schoolsvartmp .= $agora['server']['server'] . $agora['server']['base'];
+                        } else {
+                            $schoolsvartmp .= $agora['server']['nodes'] . $agora['server']['base'];
+                        }
                 }
                 $schoolsvartmp .= $school['dns'] . $service['url'];
 
