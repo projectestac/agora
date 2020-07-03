@@ -2111,7 +2111,7 @@ CREATE TABLE `users` (
   `theme` varchar(255) NOT NULL DEFAULT '',
   `activated` smallint(6) NOT NULL DEFAULT '0',
   `lastlogin` datetime NOT NULL DEFAULT '1970-01-01 00:00:00',
-  `passreminder` varchar(255) NOT NULL,
+  `passreminder` varchar(255) NOT NULL DEFAULT '',
   `approved_date` datetime NOT NULL DEFAULT '1970-01-01 00:00:00',
   `approved_by` int(11) NOT NULL DEFAULT '0',
   `tz` varchar(30) NOT NULL DEFAULT '',
