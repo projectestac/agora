@@ -998,19 +998,11 @@ class Service extends AgoraBase {
 
         $databaseIds = Services::get_activeId_by_serviceid($this->serviceId);
 
-        // Temporary mega-quick super-ugly hack to activate Moodle services
-        $i = ($this->serviceId == 4) ? 1601 : 1;
-        // $i = 1;
-        // End hack
+        $i = 1;
         $free = false;
 
         // First, look for a free database (a gap in the list)
         foreach ($databaseIds as $activeId) {
-            // Temporary mega-quick super-ugly hack to activate Moodle services
-            if ($activeId < 1601) {
-                continue;
-            }
-            // End hack
             if ($activeId != $i) {
                 $free = $i;
                 break;

@@ -78,7 +78,7 @@ class Service_nodes extends Service {
         $origin_bd = $template->dbHost;
 
         $dbfile = $ZConfig['System']['datadir'] . '/nodes/master' . $shortcode . '.sql';
-        $datafile = $agora['server']['root'] . get_filepath_moodle(1) . '/repository/files/master' . $shortcode . '.zip';
+        $datafile = $ZConfig['System']['datadir'] . '/nodes/master' . $shortcode . '.zip';
 
         if (!file_exists($dbfile)) {
             LogUtil::registerError("No s'ha trobat el fitxer de base de dades $dbfile");
@@ -193,10 +193,10 @@ class Service_nodes extends Service {
         }
         $connect->set_charset('utf8');
 
-        $db = $agora['intranet']['userprefix'] . $dbid;
+        $db = $agora['nodes']['userprefix'] . $dbid;
         if (!$connect->select_db($db)) {
             if ($createDB) {
-                $sql = "CREATE DATABASE IF NOT EXISTS $db DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci";
+                $sql = "CREATE DATABASE IF NOT EXISTS $db DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_unicode_ci";
                 if (!$connect->query($sql)) {
                     LogUtil::registerError("No s'ha pogut crear la base de dades $db en el servidor $host amb l'usuari " . $username);
                     LogUtil::registerError("SQL que ha fallat: $sql");
