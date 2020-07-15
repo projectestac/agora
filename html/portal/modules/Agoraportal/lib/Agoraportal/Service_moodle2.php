@@ -41,11 +41,100 @@ class Service_moodle2 extends Service {
      * @return bool
      */
     protected function enable_service($password) {
-        // Generate a password for Moodle admin user
-        $params = [];
-        $params['password'] = md5($password);
 
         $client = $this->get_client();
+
+        /* TODO: Afegir suport per la creació al moment de les taules i els fitxers
+
+        global $agora, $ZConfig;
+
+        if (!$client->extraFunc) {
+            return LogUtil::registerError('Falta indicar la plantilla al camp <strong>Plantilla de Moodle</strong>');
+        }
+
+        // TODO: Definir un camp per contenir la plantilla a la taula client_services. De moment es fa una validació
+        //       del shortcode contra la llista de maquetes de Nodes
+        $shortcode = $client->extraFunc;
+        $template = ServiceTemplate::get_by_shortcode($shortcode);
+        if (!$template) {
+            return LogUtil::registerError("No s'ha trobat la plantilla indicada $shortcode");
+        }
+
+        $dbfile = $ZConfig['System']['datadir'] . '/moodle/mastermoodle' . $shortcode . '.sql';
+        $datafile = $ZConfig['System']['datadir'] . '/moodle/mastermoodle' . $shortcode . '.zip';
+
+        if (!file_exists($dbfile)) {
+            LogUtil::registerError("No s'ha trobat el fitxer de base de dades $dbfile");
+            return false;
+        }
+
+        if (!file_exists($datafile)) {
+            LogUtil::registerError("No s'ha trobat el fitxer de dades $datafile");
+            return false;
+        }
+
+        // Import DB
+        // Temporary variable, used to store current query
+        $currentSQL = '';
+        // Read in entire file
+        $lines = file($dbfile);
+        // Loop through each line
+        foreach ($lines as $line) {
+            // Skip it if it's a comment
+            if (substr($line, 0, 2) == '--' || substr($line, 0, 3) == '/*!' || substr($line, 0, 1) == '#' || $line == '') {
+                continue;
+            }
+            // Add this line to the current segment
+            $currentSQL .= $line;
+            // If it has a semicolon at the end, it's the end of the query
+            if ((substr(trim($line), -1, 1) == ';') || (trim($line) == '\.')) {
+                try {
+                    $this->executeSQL($currentSQL, true);
+                } catch (Throwable $e) {
+                    return LogUtil::registerError(__('L\'execució de l\'sql ha fallat: ' . $currentSQL . '. Error: ' . $e->getMessage()));
+                }
+
+                // Reset temp variable to empty
+                $currentSQL = '';
+            }
+        }
+
+        // Directory for the new site files
+        $dbUser = $agora['nodes']['userprefix'] . $this->activedId;
+        $targetDir = $agora['server']['root'] . $agora['moodle2']['datadir'] . $dbUser . '/';
+
+        // If the directory doesn't exists, create it
+        if (!file_exists($targetDir)) {
+            $newDir = mkdir($targetDir, 0777, true);
+            if ($newDir) {
+                LogUtil::registerStatus(__f("S'ha creat el directori %s", $targetDir));
+            } else {
+                LogUtil::registerError(__f("El directori %s no existia i no s'ha pogut crear", $targetDir));
+                return false;
+            }
+        }
+
+        // Uncompress the files
+        $zip = new ZipArchive();
+
+        $resource = $zip->open($datafile);
+        if (!$resource) {
+            LogUtil::registerError(__f("No s'ha pogut obrir el fitxer de base de %s", $datafile));
+            return false;
+        }
+
+        // Try to extract the file
+        if (!$zip->extractTo($targetDir)) {
+            LogUtil::registerError(__f("S'ha produït un error en descomprimir el fitxer %s al directori %s", array($datafile, $targetDir)));
+            $zip->close();
+            return false;
+        }
+
+        $zip->close();
+        */
+
+        $params = [];
+        $params['password'] = md5($password); // Generate a password for Moodle admin user
         $params['clientName'] = $client->clientName;
         $params['clientCode'] = $client->clientCode;
         $params['clientAddress'] = $client->clientAddress;
