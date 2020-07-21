@@ -44,8 +44,6 @@ class Service_moodle2 extends Service {
 
         $client = $this->get_client();
 
-        /* TODO: Afegir suport per la creació al moment de les taules i els fitxers
-
         global $agora, $ZConfig;
 
         if (!$client->extraFunc) {
@@ -86,8 +84,12 @@ class Service_moodle2 extends Service {
             }
             // Add this line to the current segment
             $currentSQL .= $line;
-            // If it has a semicolon at the end, it's the end of the query
-            if ((substr(trim($line), -1, 1) == ';') || (trim($line) == '\.')) {
+            // Detection of sentences: If is not an insert, if it has a semicolon at the end, it's the end of the query.
+            // If it is an insert, the end of the query is ');', but there is an exception for '});', which is the end
+            // of line in H5P definitions.
+            // Note: this script is not able to create the database. It must previously exist.
+            if ((substr($currentSQL, 0, 6) != 'INSERT') && (substr(trim($line), -1, 1) == ';')
+                || ((substr($currentSQL, 0, 6) == 'INSERT') && (substr(trim($line), -2, 2) == ');') && (substr(trim($line), -3, 3) != '});'))) {
                 try {
                     $this->executeSQL($currentSQL, true);
                 } catch (Throwable $e) {
@@ -131,7 +133,6 @@ class Service_moodle2 extends Service {
         }
 
         $zip->close();
-        */
 
         $params = [];
         $params['password'] = md5($password); // Generate a password for Moodle admin user
