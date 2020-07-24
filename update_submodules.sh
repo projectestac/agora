@@ -106,8 +106,7 @@ gitcheckout "html/wordpress/wp-content/plugins/disable-gutenberg" "master" "http
 gitcheckout "html/wordpress/wp-content/plugins/code-snippets" "master" "https://github.com/projectestac/wordpress-code-snippets.git"
 fi
 
-if [[ $execportal == true ]]
-then
-# Portal
-gitcheckout "html/portal/modules/XtecMailer/includes/mailer" "master" "https://github.com/projectestac/mailer.git"
-fi
+#if [[ $execportal == true ]]
+#then
+# Portal (No submodules currently)
+#fi

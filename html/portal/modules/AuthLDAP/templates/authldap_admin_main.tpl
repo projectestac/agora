@@ -1,1 +1,0 @@
-{modfunc modname=AuthLDAP type=admin func=modifyconfig}
