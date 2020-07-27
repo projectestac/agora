@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Temps de generació: 10-02-2020 a les 15:06:58
--- Versió del servidor: 5.7.29-0ubuntu0.18.04.1
--- Versió de PHP: 7.3.14-1+ubuntu18.04.1+deb.sury.org+1
+-- Temps de generació: 27-07-2020 a les 17:55:36
+-- Versió del servidor: 5.7.30-0ubuntu0.18.04.1
+-- Versió de PHP: 7.3.20-1+ubuntu18.04.1+deb.sury.org+1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -93,7 +93,8 @@ INSERT INTO `admin_module` (`amid`, `mid`, `cid`, `sortorder`) VALUES
 (85, 68, 2, 5),
 (86, 69, 2, 6),
 (87, 70, 2, 7),
-(88, 71, 2, 8);
+(88, 71, 2, 8),
+(89, 74, 2, 9);
 
 -- --------------------------------------------------------
 
@@ -128,7 +129,7 @@ CREATE TABLE `agoraportal_clients` (
 --
 
 INSERT INTO `agoraportal_clients` (`clientId`, `clientCode`, `clientDNS`, `clientOldDNS`, `URLType`, `URLHost`, `OldURLHost`, `clientName`, `clientAddress`, `clientCity`, `clientPC`, `clientCountry`, `clientDescription`, `clientState`, `locationId`, `typeId`, `noVisible`, `extraFunc`, `educat`) VALUES
-(1, 'a8000001', 'usu1', '', 'standard', '', '', 'Centre 1', 'Carrer sense número', 'Cruïlles, Monells i Sant Sadurní de l\'Heura', '00000', 'cat', '', 1, 3, 1, 0, 'pri', 1),
+(1, 'a8000001', 'usu1', '', 'standard', '', '', 'Centre 1', 'Carrer sense número', 'Cruïlles, Monells i Sant Sadurní de l''Heura', '00000', 'cat', '', 1, 3, 1, 0, 'pri', 1),
 (2, 'a8000002', 'usu2', '', 'standard', '', '', 'Centre 2', 'Carrer sense número', 'Valldeneu', '00000', 'cat', '', 1, 1, 2, 0, 'sec', 0),
 (3, 'a8000003', 'usu3', '', 'standard', '', '', 'Centre 3', 'Carrer sense número', 'Valldeneu', '00000', 'cat', '', 1, 5, 4, 0, 'cfa', 0),
 (4, 'a8000004', 'usu4', '', 'standard', '', '', 'Centre 4', 'Carrer sense número', 'Valldeneu', '00000', 'cat', '', 1, 6, 6, 0, 'eoi', 0),
@@ -158,9 +159,9 @@ INSERT INTO `agoraportal_clientType` (`typeId`, `typeName`) VALUES
 (1, 'Escola'),
 (2, 'Institut'),
 (3, 'Institut-Escola'),
-(4, 'Formació d\'adults'),
+(4, 'Formació d''adults'),
 (5, 'Servei educatiu'),
-(6, 'Escola Oficial d\'Idiomes'),
+(6, 'Escola Oficial d''Idiomes'),
 (7, 'Altres'),
 (8, 'CEE'),
 (9, 'Centre concertat'),
@@ -227,10 +228,10 @@ CREATE TABLE `agoraportal_client_services` (
 --
 
 INSERT INTO `agoraportal_client_services` (`clientServiceId`, `serviceId`, `clientId`, `serviceDB`, `description`, `state`, `activedId`, `contactName`, `contactProfile`, `timeCreated`, `observations`, `annotations`, `diskSpace`, `timeEdited`, `timeRequested`, `diskConsume`, `dbHost`) VALUES
-(6, 4, 3, 'XE', '', 1, 3, 'manager3', 'Directora', '1331127943', '', '', 5000, '1483960298', '1331127897', '89472', 'localhost'),
-(8, 4, 4, 'XE', '', 1, 4, 'manager4', 'Cap d\'estudis', '1331226348', '', '', 5000, '1483960426', '1331215250', '89472', 'localhost'),
-(50, 4, 1, 'XE', '', 1, 1, 'manager1', 'L\'artístac', '1342518349', '', '', 5000, '1483960253', '1342439879', '280140', 'localhost'),
-(53, 4, 2, 'XE', '', 1, 2, 'manager2', 'Coordinador/a d\'informàtica', '1356025656', '', '', 5000, '1483960281', '1356024781', '89472', 'localhost'),
+(6, 4, 3, '', '', 1, 3, 'manager3', 'Directora', '1331127943', '', '', 5000, '1483960298', '1331127897', '89472', 'localhost'),
+(8, 4, 4, '', '', 1, 4, 'manager4', 'Cap d''estudis', '1331226348', '', '', 5000, '1483960426', '1331215250', '89472', 'localhost'),
+(50, 4, 1, '', '', 1, 1, 'manager1', 'L''artístac', '1342518349', '', '', 5000, '1483960253', '1342439879', '280140', 'localhost'),
+(53, 4, 2, '', '', 1, 2, 'manager2', 'Coordinador/a d''informàtica', '1356025656', '', '', 5000, '1483960281', '1356024781', '89472', 'localhost'),
 (56, 5, 1, '', '', 1, 1, 'manager1', 'Tècnic TAC', '1417523584', 'Maqueta primària', '', 5000, '1483960287', '1417523396', '12440', 'localhost'),
 (57, 5, 2, '', '', 1, 2, 'manager2', 'Tècnic TAC', '1417523629', 'Maqueta secundària', '', 5000, '1483960396', '1417523441', '17228', 'localhost'),
 (58, 5, 3, '', '', 1, 3, 'manager3', 'Tècnic TAC', '1417523666', 'Maqueta adults', '', 5000, '1483960386', '1417523474', '19512', 'localhost'),
@@ -303,36 +304,6 @@ CREATE TABLE `agoraportal_intranet_stats_day` (
   `users` int(10) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Bolcant dades de la taula `agoraportal_intranet_stats_day`
---
-
-INSERT INTO `agoraportal_intranet_stats_day` (`clientcode`, `clientDNS`, `yearmonth`, `d1`, `d2`, `d3`, `d4`, `d5`, `d6`, `d7`, `d8`, `d9`, `d10`, `d11`, `d12`, `d13`, `d14`, `d15`, `d16`, `d17`, `d18`, `d19`, `d20`, `d21`, `d22`, `d23`, `d24`, `d25`, `d26`, `d27`, `d28`, `d29`, `d30`, `d31`, `total`, `users`) VALUES
-('a8000001', 'usu1', 201205, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11),
-('a8000002', 'usu2', 201205, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11),
-('a8000003', 'usu3', 201205, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11),
-('a8000004', 'usu4', 201205, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11),
-('a8000001', 'usu1', 201207, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11),
-('a8000002', 'usu2', 201207, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11),
-('a8000003', 'usu3', 201207, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11),
-('a8000004', 'usu4', 201207, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11),
-('a8000001', 'usu1', 201208, 0, 0, 0, 0, 0, 0, 0, 29, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 29, 11),
-('a8000002', 'usu2', 201208, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11),
-('a8000003', 'usu3', 201208, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11),
-('a8000004', 'usu4', 201208, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11),
-('a8000001', 'usu1', 201210, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 11),
-('a8000002', 'usu2', 201210, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11),
-('a8000003', 'usu3', 201210, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11),
-('a8000004', 'usu4', 201210, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11),
-('a8000001', 'usu1', 201209, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11),
-('a8000002', 'usu2', 201209, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11),
-('a8000003', 'usu3', 201209, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11),
-('a8000004', 'usu4', 201209, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11),
-('a8000001', 'usu1', 201412, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 11),
-('a8000002', 'usu2', 201412, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 11),
-('a8000003', 'usu3', 201412, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 11),
-('a8000004', 'usu4', 201412, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 11);
-
 -- --------------------------------------------------------
 
 --
@@ -352,12 +323,12 @@ INSERT INTO `agoraportal_location` (`locationId`, `locationName`) VALUES
 (1, 'Baix Llobregat'),
 (2, 'Barcelona Comarques'),
 (3, 'Catalunya Central'),
-(4, 'Consorci d\'Educació de Barcelona'),
+(4, 'Consorci d''Educació de Barcelona'),
 (5, 'Girona'),
 (6, 'Lleida'),
 (7, 'Maresme-Vallès Oriental'),
 (8, 'Tarragona'),
-(9, 'Terres de l\'Ebre'),
+(9, 'Terres de l''Ebre'),
 (10, 'Vallès Occidental');
 
 -- --------------------------------------------------------
@@ -529,103 +500,6 @@ CREATE TABLE `agoraportal_moodle_stats_day` (
   `usersactivelast30days` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Bolcant dades de la taula `agoraportal_moodle_stats_day`
---
-
-INSERT INTO `agoraportal_moodle_stats_day` (`clientcode`, `clientDNS`, `date`, `h0`, `h1`, `h2`, `h3`, `h4`, `h5`, `h6`, `h7`, `h8`, `h9`, `h10`, `h11`, `h12`, `h13`, `h14`, `h15`, `h16`, `h17`, `h18`, `h19`, `h20`, `h21`, `h22`, `h23`, `total`, `diskConsume`, `usersconfnodel`, `usersactive`, `usersactivelast90days`, `usersactivelast30days`) VALUES
-('a8000001', 'usu1', 20120515, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '0', 0, 0, 0, 0),
-('a8000002', 'usu2', 20120515, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '0', 0, 0, 0, 0),
-('a8000003', 'usu3', 20120515, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '0', 0, 0, 0, 0),
-('a8000004', 'usu4', 20120515, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '0', 0, 0, 0, 0),
-('a8000001', 'usu1', 20120531, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '0', 0, 0, 0, 0),
-('a8000002', 'usu2', 20120531, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '0', 0, 0, 0, 0),
-('a8000003', 'usu3', 20120531, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '0', 0, 0, 0, 0),
-('a8000004', 'usu4', 20120531, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '0', 0, 0, 0, 0),
-('a8000002', 'usu2', 20120709, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '4', 0, 0, 0, 0),
-('a8000003', 'usu3', 20120709, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '4', 0, 0, 0, 0),
-('a8000004', 'usu4', 20120709, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '4', 0, 0, 0, 0),
-('a8000001', 'usu1', 20120722, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, 0, 0),
-('a8000002', 'usu2', 20120722, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '4', 0, 0, 0, 0),
-('a8000003', 'usu3', 20120722, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '4', 0, 0, 0, 0),
-('a8000004', 'usu4', 20120722, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '4', 0, 0, 0, 0),
-('a8000001', 'usu1', 20120718, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '8208', 0, 0, 0, 0),
-('a8000002', 'usu2', 20120718, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '4', 0, 0, 0, 0),
-('a8000003', 'usu3', 20120718, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '4', 0, 0, 0, 0),
-('a8000004', 'usu4', 20120718, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '4', 0, 0, 0, 0),
-('a8000001', 'usu1', 20120808, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '19752', 0, 0, 0, 0),
-('a8000002', 'usu2', 20120808, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '68', 0, 0, 0, 0),
-('a8000003', 'usu3', 20120808, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '68', 0, 0, 0, 0),
-('a8000004', 'usu4', 20120808, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '72', 0, 0, 0, 0),
-('a8000001', 'usu1', 20121021, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '107860', 0, 0, 0, 0),
-('a8000002', 'usu2', 20121021, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '68', 0, 0, 0, 0),
-('a8000003', 'usu3', 20121021, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '68', 0, 0, 0, 0),
-('a8000004', 'usu4', 20121021, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '72', 0, 0, 0, 0),
-('a8000001', 'usu1', 20121001, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '107860', 0, 0, 0, 0),
-('a8000002', 'usu2', 20121001, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '68', 0, 0, 0, 0),
-('a8000003', 'usu3', 20121001, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '68', 0, 0, 0, 0),
-('a8000004', 'usu4', 20121001, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '72', 0, 0, 0, 0),
-('a8000001', 'usu1', 20121002, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, '107860', 0, 0, 0, 0),
-('a8000002', 'usu2', 20121002, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '68', 0, 0, 0, 0),
-('a8000003', 'usu3', 20121002, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, '68', 0, 0, 0, 0),
-('a8000004', 'usu4', 20121002, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, '72', 0, 0, 0, 0),
-('a8000001', 'usu1', 20121003, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '107860', 0, 0, 0, 0),
-('a8000002', 'usu2', 20121003, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '68', 0, 0, 0, 0),
-('a8000003', 'usu3', 20121003, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '68', 0, 0, 0, 0),
-('a8000004', 'usu4', 20121003, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '72', 0, 0, 0, 0),
-('a8000001', 'usu1', 20121004, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '107860', 0, 0, 0, 0),
-('a8000002', 'usu2', 20121004, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '68', 0, 0, 0, 0),
-('a8000003', 'usu3', 20121004, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '68', 0, 0, 0, 0),
-('a8000004', 'usu4', 20121004, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '72', 0, 0, 0, 0),
-('a8000001', 'usu1', 20121005, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '107860', 0, 0, 0, 0),
-('a8000002', 'usu2', 20121005, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '68', 0, 0, 0, 0),
-('a8000003', 'usu3', 20121005, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '68', 0, 0, 0, 0),
-('a8000004', 'usu4', 20121005, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '72', 0, 0, 0, 0),
-('a8000001', 'usu1', 20121006, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '107860', 0, 0, 0, 0),
-('a8000002', 'usu2', 20121006, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '68', 0, 0, 0, 0),
-('a8000003', 'usu3', 20121006, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '68', 0, 0, 0, 0),
-('a8000004', 'usu4', 20121006, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '72', 0, 0, 0, 0),
-('a8000001', 'usu1', 20121007, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '107860', 0, 0, 0, 0),
-('a8000002', 'usu2', 20121007, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '68', 0, 0, 0, 0),
-('a8000003', 'usu3', 20121007, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '68', 0, 0, 0, 0),
-('a8000004', 'usu4', 20121007, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '72', 0, 0, 0, 0),
-('a8000001', 'usu1', 20121008, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '107860', 0, 0, 0, 0),
-('a8000002', 'usu2', 20121008, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '68', 0, 0, 0, 0),
-('a8000003', 'usu3', 20121008, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '68', 0, 0, 0, 0),
-('a8000004', 'usu4', 20121008, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '72', 0, 0, 0, 0),
-('a8000001', 'usu1', 20121009, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '107860', 0, 0, 0, 0),
-('a8000002', 'usu2', 20121009, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '68', 0, 0, 0, 0),
-('a8000003', 'usu3', 20121009, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '68', 0, 0, 0, 0),
-('a8000004', 'usu4', 20121009, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '72', 0, 0, 0, 0),
-('a8000001', 'usu1', 20121010, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '107860', 0, 0, 0, 0),
-('a8000002', 'usu2', 20121010, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '68', 0, 0, 0, 0),
-('a8000003', 'usu3', 20121010, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '68', 0, 0, 0, 0),
-('a8000004', 'usu4', 20121010, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '72', 0, 0, 0, 0),
-('a8000001', 'usu1', 20121011, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '107860', 0, 0, 0, 0),
-('a8000002', 'usu2', 20121011, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '68', 0, 0, 0, 0),
-('a8000003', 'usu3', 20121011, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '68', 0, 0, 0, 0),
-('a8000004', 'usu4', 20121011, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '72', 0, 0, 0, 0),
-('a8000001', 'usu1', 20121012, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '107860', 0, 0, 0, 0),
-('a8000002', 'usu2', 20121012, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '68', 0, 0, 0, 0),
-('a8000003', 'usu3', 20121012, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '68', 0, 0, 0, 0),
-('a8000004', 'usu4', 20121012, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '72', 0, 0, 0, 0),
-('a8000001', 'usu1', 20121013, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '107860', 0, 0, 0, 0),
-('a8000002', 'usu2', 20121013, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '68', 0, 0, 0, 0),
-('a8000003', 'usu3', 20121013, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '68', 0, 0, 0, 0),
-('a8000004', 'usu4', 20121013, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '72', 0, 0, 0, 0),
-('a8000001', 'usu1', 20121014, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '107860', 0, 0, 0, 0),
-('a8000002', 'usu2', 20121014, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '68', 0, 0, 0, 0),
-('a8000003', 'usu3', 20121014, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '68', 0, 0, 0, 0),
-('a8000004', 'usu4', 20121014, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '72', 0, 0, 0, 0),
-('a8000001', 'usu1', 20121022, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '107860', 0, 0, 0, 0),
-('a8000002', 'usu2', 20121022, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '68', 0, 0, 0, 0),
-('a8000003', 'usu3', 20121022, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '68', 0, 0, 0, 0),
-('a8000004', 'usu4', 20121022, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '72', 0, 0, 0, 0),
-('a8000001', 'usu1', 20120916, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '107860', 0, 0, 0, 0),
-('a8000002', 'usu2', 20120916, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '68', 0, 0, 0, 0),
-('a8000003', 'usu3', 20120916, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '68', 0, 0, 0, 0),
-('a8000004', 'usu4', 20120916, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '72', 0, 0, 0, 0);
-
 -- --------------------------------------------------------
 
 --
@@ -647,32 +521,6 @@ CREATE TABLE `agoraportal_moodle_stats_month` (
   `usersactivelast30days` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Bolcant dades de la taula `agoraportal_moodle_stats_month`
---
-
-INSERT INTO `agoraportal_moodle_stats_month` (`clientcode`, `clientDNS`, `yearmonth`, `usersactive`, `courses`, `activities`, `lastaccess`, `lastaccess_date`, `lastaccess_user`, `total_access`, `diskConsume`, `usersactivelast30days`) VALUES
-('a8000001', 'usu1', 201205, 3, 2, 4, '1335286501', '24/04/2012 18:55:01', 'admin', 8, '0', 0),
-('a8000002', 'usu2', 201205, 2, 1, 0, '1331049388', '06/03/2012 16:56:28', 'admin', 0, '0', 0),
-('a8000003', 'usu3', 201205, 2, 1, 0, '1331049892', '06/03/2012 17:04:52', 'admin', 0, '0', 0),
-('a8000004', 'usu4', 201205, 3, 1, 0, '1331050682', '06/03/2012 17:18:02', 'admin', 0, '0', 0),
-('a8000002', 'usu2', 201207, 2, 1, 0, '1331049388', '06/03/2012 16:56:28', 'admin', 0, '4', 0),
-('a8000003', 'usu3', 201207, 2, 1, 0, '1341491586', '05/07/2012 14:33:06', 'admin', 2, '4', 0),
-('a8000004', 'usu4', 201207, 3, 1, 0, '1331050682', '06/03/2012 17:18:02', 'admin', 0, '4', 0),
-('a8000001', 'usu1', 201207, 3, 2, 5, '1342454881', '16/07/2012 18:08:01', 'admin', 29, '8208', 0),
-('a8000001', 'usu1', 201208, 3, 2, 5, '1343727085', '31/07/2012 11:31:25', 'admin', 0, '19752', 0),
-('a8000002', 'usu2', 201208, 2, 1, 0, '1331049388', '06/03/2012 16:56:28', 'admin', 0, '68', 0),
-('a8000003', 'usu3', 201208, 2, 1, 0, '1341491586', '05/07/2012 14:33:06', 'admin', 0, '68', 0),
-('a8000004', 'usu4', 201208, 3, 1, 0, '1331050682', '06/03/2012 17:18:02', 'admin', 0, '72', 0),
-('a8000001', 'usu1', 201210, 3, 2, 5, '1348848542', '28/09/2012 18:09:02', 'admin', 6, '107860', 0),
-('a8000002', 'usu2', 201210, 2, 1, 0, '1331049388', '06/03/2012 16:56:28', 'admin', 0, '68', 0),
-('a8000003', 'usu3', 201210, 2, 1, 0, '1341491586', '05/07/2012 14:33:06', 'admin', 1, '68', 0),
-('a8000004', 'usu4', 201210, 3, 1, 0, '1331050682', '06/03/2012 17:18:02', 'admin', 3, '72', 0),
-('a8000001', 'usu1', 201209, 3, 2, 5, '1348848542', '28/09/2012 18:09:02', 'admin', 6, '107860', 0),
-('a8000002', 'usu2', 201209, 2, 1, 0, '1331049388', '06/03/2012 16:56:28', 'admin', 0, '68', 0),
-('a8000003', 'usu3', 201209, 2, 1, 0, '1341491586', '05/07/2012 14:33:06', 'admin', 0, '68', 0),
-('a8000004', 'usu4', 201209, 3, 1, 0, '1331050682', '06/03/2012 17:18:02', 'admin', 0, '72', 0);
-
 -- --------------------------------------------------------
 
 --
@@ -691,32 +539,6 @@ CREATE TABLE `agoraportal_moodle_stats_week` (
   `lastaccess_user` varchar(50) DEFAULT '',
   `total_access` int(10) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Bolcant dades de la taula `agoraportal_moodle_stats_week`
---
-
-INSERT INTO `agoraportal_moodle_stats_week` (`clientcode`, `clientDNS`, `date`, `usersactive`, `courses`, `activities`, `lastaccess`, `lastaccess_date`, `lastaccess_user`, `total_access`) VALUES
-('a8000001', 'usu1', 20120716, 3, 2, 5, '1341491742', '05/07/2012 14:35:42', 'admin', 0),
-('a8000002', 'usu2', 20120716, 2, 1, 0, '1331049388', '06/03/2012 16:56:28', 'admin', 0),
-('a8000003', 'usu3', 20120716, 2, 1, 0, '1341491586', '05/07/2012 14:33:06', 'admin', 0),
-('a8000004', 'usu4', 20120716, 3, 1, 0, '1331050682', '06/03/2012 17:18:02', 'admin', 0),
-('a8000001', 'usu1', 20121015, 3, 2, 5, '1348848542', '28/09/2012 18:09:02', 'admin', 4),
-('a8000002', 'usu2', 20121015, 2, 1, 0, '1331049388', '06/03/2012 16:56:28', 'admin', 0),
-('a8000003', 'usu3', 20121015, 2, 1, 0, '1341491586', '05/07/2012 14:33:06', 'admin', 0),
-('a8000004', 'usu4', 20121015, 3, 1, 0, '1331050682', '06/03/2012 17:18:02', 'admin', 0),
-('a8000001', 'usu1', 20121001, 3, 2, 5, '1348848542', '28/09/2012 18:09:02', 'admin', 2),
-('a8000002', 'usu2', 20121001, 2, 1, 0, '1331049388', '06/03/2012 16:56:28', 'admin', 0),
-('a8000003', 'usu3', 20121001, 2, 1, 0, '1341491586', '05/07/2012 14:33:06', 'admin', 1),
-('a8000004', 'usu4', 20121001, 3, 1, 0, '1331050682', '06/03/2012 17:18:02', 'admin', 3),
-('a8000001', 'usu1', 20121008, 3, 2, 5, '1348848542', '28/09/2012 18:09:02', 'admin', 0),
-('a8000002', 'usu2', 20121008, 2, 1, 0, '1331049388', '06/03/2012 16:56:28', 'admin', 0),
-('a8000003', 'usu3', 20121008, 2, 1, 0, '1341491586', '05/07/2012 14:33:06', 'admin', 0),
-('a8000004', 'usu4', 20121008, 3, 1, 0, '1331050682', '06/03/2012 17:18:02', 'admin', 0),
-('a8000001', 'usu1', 20120910, 3, 2, 5, '1348848542', '28/09/2012 18:09:02', 'admin', 0),
-('a8000002', 'usu2', 20120910, 2, 1, 0, '1331049388', '06/03/2012 16:56:28', 'admin', 0),
-('a8000003', 'usu3', 20120910, 2, 1, 0, '1341491586', '05/07/2012 14:33:06', 'admin', 0),
-('a8000004', 'usu4', 20120910, 3, 1, 0, '1331050682', '06/03/2012 17:18:02', 'admin', 0);
 
 -- --------------------------------------------------------
 
@@ -737,7 +559,7 @@ CREATE TABLE `agoraportal_mysql_comands` (
 --
 
 INSERT INTO `agoraportal_mysql_comands` (`comandId`, `serviceId`, `comand`, `description`, `type`) VALUES
-(1, 5, 'UPDATE wp_users SET user_pass = MD5(\'agora\') WHERE user_login = \'admin\';', 'Canvia la contrasenya a l\'admin', 3);
+(1, 5, 'UPDATE wp_users SET user_pass = MD5(''agora'') WHERE user_login = ''admin'';', 'Canvia la contrasenya a l''admin', 3);
 
 -- --------------------------------------------------------
 
@@ -854,10 +676,10 @@ CREATE TABLE `agoraportal_requestTypes` (
 --
 
 INSERT INTO `agoraportal_requestTypes` (`requestTypeId`, `name`, `description`, `userCommentsText`) VALUES
-(1, 'Ampliació de quota', 'Si esteu exhaurint la quota podeu sol·licitar-ne l\'ampliació. L\'acceptació d\'aquesta ampliació està subjecta a les condicions d\'ús del servei i, en conseqüència, la seva sol·licitud no implica la seva concesió. Cada cas es valorarà individualment.', 'Indiqueu el motiu pel qual demaneu l\'ampliació'),
-(2, 'Restauració de la contrasenya de l\'usuari/ària admin', 'Si no recordeu la contrasenya de l\'administrador/a predeterminat del servei, podeu demanar el seu canvi.', 'Observacions (opcional)'),
+(1, 'Ampliació de quota', 'Si esteu exhaurint la quota podeu sol·licitar-ne l''ampliació. L''acceptació d''aquesta ampliació està subjecta a les condicions d''ús del servei i, en conseqüència, la seva sol·licitud no implica la seva concesió. Cada cas es valorarà individualment.', 'Indiqueu el motiu pel qual demaneu l''ampliació'),
+(2, 'Restauració de la contrasenya de l''usuari/ària admin', 'Si no recordeu la contrasenya de l''administrador/a predeterminat del servei, podeu demanar el seu canvi.', 'Observacions (opcional)'),
 (3, 'Baixa al servei', 'Els centres poden demanar que un servei determinat pugui ser donat de baixa', 'Indiqueu els motius pels quals sol·liciteu la baixa al servei'),
-(4, 'Activació de la importació massiva d\'usuaris', 'L\'activació de l\'extensió <em>Import users from CSV with meta</em> afegeix l\'opció <strong>Eines > Importa usuaris</strong> al Nodes, des d\'on es pot utilitzar un fitxer CSV per crear molts usuaris ràpidament.', 'Observacions (opcional)');
+(4, 'Activació de la importació massiva d''usuaris', 'L''activació de l''extensió <em>Import users from CSV with meta</em> afegeix l''opció <strong>Eines > Importa usuaris</strong> al Nodes, des d''on es pot utilitzar un fitxer CSV per crear molts usuaris ràpidament.', 'Observacions (opcional)');
 
 -- --------------------------------------------------------
 
@@ -905,9 +727,9 @@ CREATE TABLE `agoraportal_services` (
 
 INSERT INTO `agoraportal_services` (`serviceId`, `serviceName`, `URL`, `description`, `hasDB`, `defaultDiskSpace`, `allowedClients`) VALUES
 (1, 'intranet', 'intranet', 'Intranet i web de centre', 0, 0, 'cap'),
-(2, 'moodle', '', 'Antic Entorn Virtual d\'Aprenentatge. Servei eliminat', 0, 0, 'cap'),
+(2, 'moodle', '', 'Antic Entorn Virtual d''Aprenentatge. Servei eliminat', 0, 0, 'cap'),
 (3, 'marsupial', '', 'Integració dels materials de les editorials en el moodle. Servei eliminat', 0, 0, 'cap'),
-(4, 'moodle2', 'moodle', 'Entorn Virtual d\'Aprenentatge (Moodle 2)', 1, 5000, ''),
+(4, 'moodle2', 'moodle', 'Entorn Virtual d''Aprenentatge (Moodle 2)', 1, 5000, ''),
 (5, 'nodes', '', 'Web de centre fet amb WordPress', 1, 5000, '');
 
 -- --------------------------------------------------------
@@ -1500,27 +1322,25 @@ CREATE TABLE `modules` (
 
 INSERT INTO `modules` (`id`, `name`, `type`, `displayname`, `url`, `description`, `regid`, `directory`, `version`, `official`, `author`, `contact`, `admin_capable`, `user_capable`, `profile_capable`, `message_capable`, `state`, `credits`, `changelog`, `help`, `license`, `securityschema`, `capabilities`, `core_min`, `core_max`) VALUES
 (1, 'Extensions', 3, 'Mòduls', 'extensions', 'Gestioneu els vostres mòduls i connectors.', 0, 'Extensions', '3.7.10', 1, 'Jim McDonald, Mark West', 'http://www.zikula.org', 1, 0, 0, 0, 3, '', '', '', '', 'a:1:{s:12:\"Extensions::\";s:2:\"::\";}', 'a:1:{s:5:\"admin\";a:1:{s:7:\"version\";s:3:\"1.0\";}}', '', ''),
-(2, 'Theme', 3, 'Entorns visuals', 'entorn visual', 'Mòdul d\'entorns visuals per a la gestió de l\'aspecte del lloc, el renderitzat de les plantilles i la memòria cau.', 0, 'Theme', '3.4.2', 1, 'Mark West', 'http://www.markwest.me.uk/', 1, 1, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:7:\"Theme::\";s:12:\"Theme name::\";}', 'a:2:{s:5:\"admin\";a:1:{s:7:\"version\";s:3:\"1.0\";}s:4:\"user\";a:1:{s:7:\"version\";s:3:\"1.0\";}}', '', ''),
-(7, 'PageLock', 3, 'Gestor del bloqueig de pàgines', 'pagelock', 'Proporciona la capacitat de bloquejar pàgines quan s\'estan utilitzant.', 0, 'PageLock', '1.1.1', 1, 'Jorn Wildt', 'http://www.elfisk.dk', 0, 0, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/install.txt', 'pndocs/license.txt', 'a:1:{s:10:\"PageLock::\";s:2:\"::\";}', 'a:0:{}', '', ''),
+(2, 'Theme', 3, 'Entorns visuals', 'entorn visual', 'Mòdul d''entorns visuals per a la gestió de l''aspecte del lloc, el renderitzat de les plantilles i la memòria cau.', 0, 'Theme', '3.4.2', 1, 'Mark West', 'http://www.markwest.me.uk/', 1, 1, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:7:\"Theme::\";s:12:\"Theme name::\";}', 'a:2:{s:5:\"admin\";a:1:{s:7:\"version\";s:3:\"1.0\";}s:4:\"user\";a:1:{s:7:\"version\";s:3:\"1.0\";}}', '', ''),
+(7, 'PageLock', 3, 'Gestor del bloqueig de pàgines', 'pagelock', 'Proporciona la capacitat de bloquejar pàgines quan s''estan utilitzant.', 0, 'PageLock', '1.1.1', 1, 'Jorn Wildt', 'http://www.elfisk.dk', 0, 0, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/install.txt', 'pndocs/license.txt', 'a:1:{s:10:\"PageLock::\";s:2:\"::\";}', 'a:0:{}', '', ''),
 (11, 'Blocks', 3, 'Blocs', 'blocs', 'Administració dels blocs i la seva posició.', 0, 'Blocks', '3.8.2', 1, 'Jim McDonald, Mark West', 'http://www.mcdee.net/, http://www.markwest.me.uk/', 1, 1, 0, 0, 3, '', '', '', '', 'a:4:{s:8:\"Blocks::\";s:30:\"Block key:Block title:Block ID\";s:16:\"Blocks::position\";s:26:\"Position name::Position ID\";s:23:\"Menutree:menutreeblock:\";s:26:\"Block ID:Link Name:Link ID\";s:19:\"ExtendedMenublock::\";s:17:\"Block ID:Link ID:\";}', 'a:3:{s:15:\"hook_subscriber\";a:1:{s:7:\"enabled\";b:1;}s:5:\"admin\";a:1:{s:7:\"version\";s:3:\"1.0\";}s:4:\"user\";a:1:{s:7:\"version\";s:3:\"1.0\";}}', '', ''),
-(12, 'Groups', 3, 'Grups', 'grups', 'Mòdul d\'administració de grups d\'usuaris', 0, 'Groups', '2.3.2', 1, 'Mark West, Franky Chestnut, Michael Halbook', 'http://www.markwest.me.uk/, http://dev.pnconcept.com, http://www.halbrooktech.com', 1, 1, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:8:\"Groups::\";s:10:\"Group ID::\";}', 'a:2:{s:5:\"admin\";a:1:{s:7:\"version\";s:3:\"1.0\";}s:4:\"user\";a:1:{s:7:\"version\";s:3:\"1.0\";}}', '', ''),
+(12, 'Groups', 3, 'Grups', 'grups', 'Mòdul d''administració de grups d''usuaris', 0, 'Groups', '2.3.2', 1, 'Mark West, Franky Chestnut, Michael Halbook', 'http://www.markwest.me.uk/, http://dev.pnconcept.com, http://www.halbrooktech.com', 1, 1, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:8:\"Groups::\";s:10:\"Group ID::\";}', 'a:2:{s:5:\"admin\";a:1:{s:7:\"version\";s:3:\"1.0\";}s:4:\"user\";a:1:{s:7:\"version\";s:3:\"1.0\";}}', '', ''),
 (14, 'Users', 3, 'Usuaris', 'usuaris', 'Proporciona una interfície per configurar i administrar els comptes dels usuaris. Incorpora totes les funcionalitats necessàries, però pot treballar estretament amb el mòdul de perfil.', 0, 'Users', '2.2.0', 1, 'Xiaoyu Huang, Drak', 'class007@sina.com, drak@zikula.org', 1, 1, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:2:{s:7:\"Users::\";s:14:\"Uname::User ID\";s:16:\"Users::MailUsers\";s:2:\"::\";}', 'a:4:{s:14:\"authentication\";a:1:{s:7:\"version\";s:3:\"1.0\";}s:15:\"hook_subscriber\";a:1:{s:7:\"enabled\";b:1;}s:5:\"admin\";a:1:{s:7:\"version\";s:3:\"1.0\";}s:4:\"user\";a:1:{s:7:\"version\";s:3:\"1.0\";}}', '1.3.0', ''),
-(15, 'Permissions', 3, 'Permisos', 'permisos', 'Gestió dels permisos d\'usuari/ària.', 0, 'Permissions', '1.1.1', 1, 'Jim McDonald, M.Maes', 'http://www.mcdee.net/, http://www.mmaes.com', 1, 0, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/install.txt', 'pndocs/license.txt', 'a:1:{s:13:\"Permissions::\";s:2:\"::\";}', 'a:1:{s:5:\"admin\";a:1:{s:7:\"version\";s:3:\"1.0\";}}', '', ''),
+(15, 'Permissions', 3, 'Permisos', 'permisos', 'Gestió dels permisos d''usuari/ària.', 0, 'Permissions', '1.1.1', 1, 'Jim McDonald, M.Maes', 'http://www.mcdee.net/, http://www.mmaes.com', 1, 0, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/install.txt', 'pndocs/license.txt', 'a:1:{s:13:\"Permissions::\";s:2:\"::\";}', 'a:1:{s:5:\"admin\";a:1:{s:7:\"version\";s:3:\"1.0\";}}', '', ''),
 (16, 'SecurityCenter', 3, 'Seguretat', 'centredeseguretat', 'Administració i configuració de la seguretat del lloc.', 0, 'SecurityCenter', '1.4.4', 1, 'Mark West', 'http://www.markwest.me.uk', 1, 0, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:16:\"SecurityCenter::\";s:2:\"::\";}', 'a:1:{s:5:\"admin\";a:1:{s:7:\"version\";s:3:\"1.0\";}}', '', ''),
-(17, 'Mailer', 3, 'Mailer', 'mailer', 'El mòdul Mailer, proporciona un API de correu i l\'administració de la configuració del correu.', 0, 'Mailer', '1.3.2', 1, 'Mark West', 'http://www.markwest.me.uk/', 1, 0, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:8:\"Mailer::\";s:2:\"::\";}', 'a:1:{s:5:\"admin\";a:1:{s:7:\"version\";s:3:\"1.0\";}}', '', ''),
-(18, 'Admin', 3, 'Tauler d\'administració', 'adminpanel', 'Gestió del propi tauler d\'administració.', 0, 'Admin', '1.9.1', 1, 'Mark West', 'http://www.markwest.me.uk/', 1, 0, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:7:\"Admin::\";s:38:\"Admin Category name::Admin Category ID\";}', 'a:1:{s:5:\"admin\";a:1:{s:7:\"version\";s:3:\"1.0\";}}', '', ''),
-(19, 'Categories', 3, 'Categories', 'categories', 'Categoria d\'administració.', 0, 'Categories', '1.2.1', 1, 'Robert Gasch', 'rgasch@gmail.com', 1, 1, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:20:\"Categories::Category\";s:40:\"Category ID:Category Path:Category IPath\";}', 'a:2:{s:5:\"admin\";a:1:{s:7:\"version\";s:3:\"1.0\";}s:4:\"user\";a:1:{s:7:\"version\";s:3:\"1.0\";}}', '', ''),
-(21, 'Errors', 3, 'Errors', 'errors', 'Mòdul de visualització d\'errors.', 0, 'Errors', '1.1.1', 1, 'Brian Lindner <Furbo>', 'furbo@sigtauonline.com', 0, 1, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:8:\"Errors::\";s:2:\"::\";}', 'a:1:{s:4:\"user\";a:1:{s:7:\"version\";s:3:\"1.0\";}}', '', ''),
+(17, 'Mailer', 3, 'Mailer', 'mailer', 'El mòdul Mailer, proporciona un API de correu i l''administració de la configuració del correu.', 0, 'Mailer', '1.3.2', 1, 'Mark West', 'http://www.markwest.me.uk/', 1, 0, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:8:\"Mailer::\";s:2:\"::\";}', 'a:1:{s:5:\"admin\";a:1:{s:7:\"version\";s:3:\"1.0\";}}', '', ''),
+(18, 'Admin', 3, 'Tauler d''administració', 'adminpanel', 'Gestió del propi tauler d''administració.', 0, 'Admin', '1.9.1', 1, 'Mark West', 'http://www.markwest.me.uk/', 1, 0, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:7:\"Admin::\";s:38:\"Admin Category name::Admin Category ID\";}', 'a:1:{s:5:\"admin\";a:1:{s:7:\"version\";s:3:\"1.0\";}}', '', ''),
+(19, 'Categories', 3, 'Categories', 'categories', 'Categoria d''administració.', 0, 'Categories', '1.2.1', 1, 'Robert Gasch', 'rgasch@gmail.com', 1, 1, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:20:\"Categories::Category\";s:40:\"Category ID:Category Path:Category IPath\";}', 'a:2:{s:5:\"admin\";a:1:{s:7:\"version\";s:3:\"1.0\";}s:4:\"user\";a:1:{s:7:\"version\";s:3:\"1.0\";}}', '', ''),
+(21, 'Errors', 3, 'Errors', 'errors', 'Mòdul de visualització d''errors.', 0, 'Errors', '1.1.1', 1, 'Brian Lindner <Furbo>', 'furbo@sigtauonline.com', 0, 1, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:8:\"Errors::\";s:2:\"::\";}', 'a:1:{s:4:\"user\";a:1:{s:7:\"version\";s:3:\"1.0\";}}', '', ''),
 (22, 'Settings', 3, 'Paràmetres generals', 'Paràmetres', 'Interfície de configuració general del lloc.', 0, 'Settings', '2.9.7', 1, 'Simon Wunderlin', '', 1, 0, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:10:\"Settings::\";s:2:\"::\";}', 'a:1:{s:5:\"admin\";a:1:{s:7:\"version\";s:3:\"1.0\";}}', '', ''),
-(35, 'AuthLDAP', 2, 'AuthLDAP', 'AuthLDAP', 'Permet validar els centres per LDAP.', 0, 'AuthLDAP', '1.0.1', 1, 'Mike Goldfinger', 'MikeGoldfinger@linuxmail.org', 1, 0, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:10:\"AuthLDAP::\";s:2:\"::\";}', 'a:1:{s:5:\"admin\";a:1:{s:7:\"version\";s:3:\"1.0\";}}', '', ''),
-(64, 'Agoraportal', 2, 'Agoraportal', 'Agoraportal', 'Administració dels serveis d\'Àgora, petició d\'espais nous i gestió per part dels centres.', 0, 'Agoraportal', '3.0.1', 0, 'Agora Development Team', 'agora@xtec.cat', 1, 1, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:13:\"Agoraportal::\";s:2:\"::\";}', 'a:2:{s:5:\"admin\";a:1:{s:7:\"version\";s:3:\"1.0\";}s:4:\"user\";a:1:{s:7:\"version\";s:3:\"1.0\";}}', '', ''),
-(68, 'XtecMailer', 2, 'Mailer XTEC', 'XtecMailer', 'Amplia les funcionalitats del mòdul Mailer per poder enviar correu electrònic utilitzant el servei web de la XTEC', 0, 'XtecMailer', '1.0.0', 0, '', '', 0, 0, 0, 0, 3, '', '', '', '', 'a:1:{s:12:\"XtecMailer::\";s:2:\"::\";}', 'a:1:{s:5:\"admin\";a:1:{s:7:\"version\";s:3:\"1.0\";}}', '', ''),
+(64, 'Agoraportal', 2, 'Agoraportal', 'Agoraportal', 'Administració dels serveis d''Àgora, petició d''espais nous i gestió per part dels centres.', 0, 'Agoraportal', '3.0.1', 0, 'Agora Development Team', 'agora@xtec.cat', 1, 1, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:13:\"Agoraportal::\";s:2:\"::\";}', 'a:2:{s:5:\"admin\";a:1:{s:7:\"version\";s:3:\"1.0\";}s:4:\"user\";a:1:{s:7:\"version\";s:3:\"1.0\";}}', '', ''),
 (69, 'IWmain', 2, 'Intraweb', 'IWmain', 'Mòdul principal del mòduls Intraweb. Els mòduls Intraweb necessiten aquest mòdul per poder funcionar.', 0, 'IWmain', '3.0.0', 0, '', '', 0, 0, 0, 0, 3, '', '', '', '', 'a:1:{s:8:\"IWmain::\";s:2:\"::\";}', 'a:2:{s:5:\"admin\";a:1:{s:7:\"version\";s:3:\"1.0\";}s:4:\"user\";a:1:{s:7:\"version\";s:3:\"1.0\";}}', '', ''),
-(70, 'IWstats', 2, 'Estadístiques', 'IWstats', 'Mòdul d\'estadístiques.', 0, 'IWstats', '3.0.1', 0, '', '', 0, 0, 0, 0, 3, '', '', '', '', 'a:1:{s:9:\"IWstats::\";s:2:\"::\";}', 'a:1:{s:5:\"admin\";a:1:{s:7:\"version\";s:3:\"1.0\";}}', '', ''),
+(70, 'IWstats', 2, 'Estadístiques', 'IWstats', 'Mòdul d''estadístiques.', 0, 'IWstats', '3.0.1', 0, '', '', 0, 0, 0, 0, 3, '', '', '', '', 'a:1:{s:9:\"IWstats::\";s:2:\"::\";}', 'a:1:{s:5:\"admin\";a:1:{s:7:\"version\";s:3:\"1.0\";}}', '', ''),
 (71, 'Files', 2, 'Gestor de fitxers', 'fitxers', 'Gestió de fitxers per a llocs Zikula', 0, 'Files', '1.0.3', 0, '', '', 0, 0, 0, 0, 3, '', '', '', '', 'a:1:{s:7:\"Files::\";s:2:\"::\";}', 'a:2:{s:5:\"admin\";a:1:{s:7:\"version\";s:3:\"1.0\";}s:4:\"user\";a:1:{s:7:\"version\";s:3:\"1.0\";}}', '1.3.0', '1.3.99'),
-(72, 'Legal', 2, 'Legal info manager', 'legalmod', 'Provides an interface for managing the site\'s legal documents.', 0, 'Legal', '2.0.2', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', 'a:8:{s:7:\"Legal::\";s:2:\"::\";s:18:\"Legal::legalnotice\";s:2:\"::\";s:17:\"Legal::termsofuse\";s:2:\"::\";s:20:\"Legal::privacypolicy\";s:2:\"::\";s:16:\"Legal::agepolicy\";s:2:\"::\";s:29:\"Legal::accessibilitystatement\";s:2:\"::\";s:30:\"Legal::cancellationrightpolicy\";s:2:\"::\";s:22:\"Legal::tradeconditions\";s:2:\"::\";}', 'a:2:{s:5:\"admin\";a:1:{s:7:\"version\";s:3:\"1.0\";}s:4:\"user\";a:1:{s:7:\"version\";s:3:\"1.0\";}}', '1.3.0', '1.3.99'),
+(72, 'Legal', 2, 'Legal info manager', 'legalmod', 'Provides an interface for managing the site''s legal documents.', 0, 'Legal', '2.0.2', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', 'a:8:{s:7:\"Legal::\";s:2:\"::\";s:18:\"Legal::legalnotice\";s:2:\"::\";s:17:\"Legal::termsofuse\";s:2:\"::\";s:20:\"Legal::privacypolicy\";s:2:\"::\";s:16:\"Legal::agepolicy\";s:2:\"::\";s:29:\"Legal::accessibilitystatement\";s:2:\"::\";s:30:\"Legal::cancellationrightpolicy\";s:2:\"::\";s:22:\"Legal::tradeconditions\";s:2:\"::\";}', 'a:2:{s:5:\"admin\";a:1:{s:7:\"version\";s:3:\"1.0\";}s:4:\"user\";a:1:{s:7:\"version\";s:3:\"1.0\";}}', '1.3.0', '1.3.99'),
 (73, 'Search', 3, 'Motor de cerca', 'cerca', 'Paràmetres del cercador intern del lloc.', 0, 'Search', '1.5.2', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', 'a:1:{s:8:\"Search::\";s:13:\"Module name::\";}', 'a:2:{s:5:\"admin\";a:1:{s:7:\"version\";s:3:\"1.0\";}s:4:\"user\";a:1:{s:7:\"version\";s:3:\"1.0\";}}', '', ''),
-(74, 'XtecOauth', 2, 'XtecOauth', 'XtecOauth', 'Permet validar els usuaris a l\'oAuth de la XTEC (Google).', 0, 'XtecOauth', '1.0.0', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', 'a:1:{s:11:\"XtecOauth::\";s:2:\"::\";}', 'a:1:{s:5:\"admin\";a:1:{s:7:\"version\";s:3:\"1.0\";}}', '1.3.0', '1.3.99');
+(74, 'XtecOauth', 2, 'XtecOauth', 'XtecOauth', 'Permet validar els usuaris a l''oAuth de la XTEC (Google).', 0, 'XtecOauth', '1.0.0', 0, '', '', 0, 0, 0, 0, 3, '', '', '', '', 'a:1:{s:11:\"XtecOauth::\";s:2:\"::\";}', 'a:2:{s:5:\"admin\";a:1:{s:7:\"version\";s:3:\"1.0\";}s:4:\"user\";a:1:{s:7:\"version\";s:3:\"1.0\";}}', '1.3.0', '1.3.99');
 
 -- --------------------------------------------------------
 
@@ -1621,7 +1441,7 @@ INSERT INTO `module_vars` (`id`, `modname`, `name`, `value`) VALUES
 (64, 'Theme', 'cssjsminify', 'b:1;'),
 (65, 'Theme', 'cssjscombine_lifetime', 'i:3600;'),
 (66, 'ZConfig', 'debug', 's:1:\"0\";'),
-(67, 'ZConfig', 'sitename', 's:29:\"Gestió dels serveis d\'Àgora\";'),
+(67, 'ZConfig', 'sitename', 's:29:\"Gestió dels serveis d''Àgora\";'),
 (68, 'ZConfig', 'slogan', 's:0:\"\";'),
 (69, 'ZConfig', 'metakeywords', 's:30:\"agora, portal, gestor, serveis\";'),
 (70, 'ZConfig', 'startdate', 's:7:\"02/2010\";'),
@@ -1696,8 +1516,8 @@ INSERT INTO `module_vars` (`id`, `modname`, `name`, `value`) VALUES
 (144, 'ZConfig', 'filterpostvars', 's:1:\"1\";'),
 (145, 'ZConfig', 'filtercookievars', 's:1:\"1\";'),
 (146, 'ZConfig', 'outputfilter', 's:1:\"0\";'),
-(147, 'ZConfig', 'summarycontent', 's:1153:\"For the attention of %sitename% administration staff:\r\n\r\nOn %date% at %time%, Zikula detected that somebody tried to interact with the site in a way that may have been intended compromise its security. This is not necessarily the case: it could have been caused by work you were doing on the site, or may have been due to some other reason. In any case, it was detected and blocked. \r\n\r\nThe suspicious activity was recognised in \'%filename%\' at line %linenumber%.\r\n\r\nType: %type%. \r\n\r\nAdditional information: %additionalinfo%.\r\n\r\nBelow is logged information that may help you identify what happened and who was responsible.\r\n\r\n=====================================\r\nInformation about the user:\r\n=====================================\r\nUser name:  %username%\r\nUser\'s e-mail address: %useremail%\r\nUser\'s real name: %userrealname%\r\n\r\n=====================================\r\nIP numbers (if this was a cracker, the IP numbers may not be the true point of origin)\r\n=====================================\r\nIP according to HTTP_CLIENT_IP: %httpclientip%\r\nIP according to REMOTE_ADDR: %remoteaddr%\r\nIP according to GetHostByName($REMOTE_ADDR): %gethostbyremoteaddr%\";'),
-(148, 'ZConfig', 'fullcontent', 's:1334:\"=====================================\r\nInformation in the $_REQUEST array\r\n=====================================\r\n%requestarray%\r\n\r\n=====================================\r\nInformation in the $_GET array\r\n(variables that may have been in the URL string or in a \'GET\'-type form)\r\n=====================================\r\n%getarray%\r\n\r\n=====================================\r\nInformation in the $_POST array\r\n(visible and invisible form elements)\r\n=====================================\r\n%postarray%\r\n\r\n=====================================\r\nBrowser information\r\n=====================================\r\n%browserinfo%\r\n\r\n=====================================\r\nInformation in the $_SERVER array\r\n=====================================\r\n%serverarray%\r\n\r\n=====================================\r\nInformation in the $_ENV array\r\n=====================================\r\n%envarray%\r\n\r\n=====================================\r\nInformation in the $_COOKIE array\r\n=====================================\r\n%cookiearray%\r\n\r\n=====================================\r\nInformation in the $_FILES array\r\n=====================================\r\n%filearray%\r\n\r\n=====================================\r\nInformation in the $_SESSION array\r\n(session information -- variables starting with PNSV are Zikula session variables)\r\n=====================================\r\n%sessionarray%\";'),
+(147, 'ZConfig', 'summarycontent', 's:1153:\"For the attention of %sitename% administration staff:\r\n\r\nOn %date% at %time%, Zikula detected that somebody tried to interact with the site in a way that may have been intended compromise its security. This is not necessarily the case: it could have been caused by work you were doing on the site, or may have been due to some other reason. In any case, it was detected and blocked. \r\n\r\nThe suspicious activity was recognised in ''%filename%'' at line %linenumber%.\r\n\r\nType: %type%. \r\n\r\nAdditional information: %additionalinfo%.\r\n\r\nBelow is logged information that may help you identify what happened and who was responsible.\r\n\r\n=====================================\r\nInformation about the user:\r\n=====================================\r\nUser name:  %username%\r\nUser''s e-mail address: %useremail%\r\nUser''s real name: %userrealname%\r\n\r\n=====================================\r\nIP numbers (if this was a cracker, the IP numbers may not be the true point of origin)\r\n=====================================\r\nIP according to HTTP_CLIENT_IP: %httpclientip%\r\nIP according to REMOTE_ADDR: %remoteaddr%\r\nIP according to GetHostByName($REMOTE_ADDR): %gethostbyremoteaddr%\";'),
+(148, 'ZConfig', 'fullcontent', 's:1334:\"=====================================\r\nInformation in the $_REQUEST array\r\n=====================================\r\n%requestarray%\r\n\r\n=====================================\r\nInformation in the $_GET array\r\n(variables that may have been in the URL string or in a ''GET''-type form)\r\n=====================================\r\n%getarray%\r\n\r\n=====================================\r\nInformation in the $_POST array\r\n(visible and invisible form elements)\r\n=====================================\r\n%postarray%\r\n\r\n=====================================\r\nBrowser information\r\n=====================================\r\n%browserinfo%\r\n\r\n=====================================\r\nInformation in the $_SERVER array\r\n=====================================\r\n%serverarray%\r\n\r\n=====================================\r\nInformation in the $_ENV array\r\n=====================================\r\n%envarray%\r\n\r\n=====================================\r\nInformation in the $_COOKIE array\r\n=====================================\r\n%cookiearray%\r\n\r\n=====================================\r\nInformation in the $_FILES array\r\n=====================================\r\n%filearray%\r\n\r\n=====================================\r\nInformation in the $_SESSION array\r\n(session information -- variables starting with PNSV are Zikula session variables)\r\n=====================================\r\n%sessionarray%\";'),
 (149, 'ZConfig', 'usehtaccessbans', 's:1:\"0\";'),
 (150, 'ZConfig', 'extrapostprotection', 's:1:\"0\";'),
 (151, 'ZConfig', 'extragetprotection', 's:1:\"0\";'),
@@ -1737,15 +1557,6 @@ INSERT INTO `module_vars` (`id`, `modname`, `name`, `value`) VALUES
 (188, 'Mailer', 'smtppassword', 's:0:\"\";'),
 (196, 'ZConfig', 'log_last_rotate', 'i:1336499209;'),
 (205, 'AuthPN', 'authmodules', 's:6:\"AuthPN\";'),
-(258, 'AuthLDAP', 'authldap_serveradr', 's:13:\"ldap.xtec.cat\";'),
-(259, 'AuthLDAP', 'authldap_basedn', 's:23:\"ou=People,dc=xtec,dc=es\";'),
-(260, 'AuthLDAP', 'authldap_bindas', 's:0:\"\";'),
-(261, 'AuthLDAP', 'authldap_bindpass', 's:0:\"\";'),
-(262, 'AuthLDAP', 'authldap_searchdn', 's:13:\"dc=xtec,dc=es\";'),
-(263, 'AuthLDAP', 'authldap_searchattr', 's:3:\"uid\";'),
-(264, 'AuthLDAP', 'authldap_protocol', 's:1:\"3\";'),
-(265, 'AuthLDAP', 'authldap_pnldap', 's:2:\"pn\";'),
-(266, 'AuthLDAP', 'authldap_hash_method', 's:4:\"none\";'),
 (745, 'Agoraportal', 'siteBaseURL', 's:27:\"https://agora-aws.xtec.cat/\";'),
 (746, 'Agoraportal', 'tempFolder', 's:0:\"\";'),
 (747, 'Agoraportal', 'serveradr', 's:9:\"127.0.0.1\";'),
@@ -1785,7 +1596,7 @@ INSERT INTO `module_vars` (`id`, `modname`, `name`, `value`) VALUES
 (783, 'Theme', 'render_expose_template', 'b:0;'),
 (784, 'Theme', 'render_force_compile', 'b:1;'),
 (785, 'Theme', 'render_lifetime', 'i:3600;'),
-(786, 'ZConfig', 'defaultpagetitle', 's:29:\"Gestió dels serveis d\'Àgora\";'),
+(786, 'ZConfig', 'defaultpagetitle', 's:29:\"Gestió dels serveis d''Àgora\";'),
 (787, 'ZConfig', 'defaultmetadescription', 's:20:\"gestor serveis agora\";'),
 (788, 'ZConfig', 'useids', 'b:0;'),
 (789, 'ZConfig', 'idsmail', 'b:0;'),
@@ -1803,15 +1614,6 @@ INSERT INTO `module_vars` (`id`, `modname`, `name`, `value`) VALUES
 (801, 'SecurityCenter', 'htmlpurifierConfig', 's:3914:\"a:10:{s:4:\"Attr\";a:15:{s:14:\"AllowedClasses\";N;s:19:\"AllowedFrameTargets\";a:0:{}s:10:\"AllowedRel\";a:3:{s:8:\"nofollow\";b:1;s:11:\"imageviewer\";b:1;s:8:\"lightbox\";b:1;}s:10:\"AllowedRev\";a:0:{}s:13:\"ClassUseCDATA\";N;s:15:\"DefaultImageAlt\";N;s:19:\"DefaultInvalidImage\";s:0:\"\";s:22:\"DefaultInvalidImageAlt\";s:13:\"Invalid image\";s:14:\"DefaultTextDir\";s:3:\"ltr\";s:8:\"EnableID\";b:0;s:16:\"ForbiddenClasses\";a:0:{}s:11:\"IDBlacklist\";a:0:{}s:17:\"IDBlacklistRegexp\";N;s:8:\"IDPrefix\";s:0:\"\";s:13:\"IDPrefixLocal\";s:0:\"\";}s:10:\"AutoFormat\";a:10:{s:13:\"AutoParagraph\";b:0;s:6:\"Custom\";a:0:{}s:14:\"DisplayLinkURI\";b:0;s:7:\"Linkify\";b:0;s:22:\"PurifierLinkify.DocURL\";s:3:\"#%s\";s:15:\"PurifierLinkify\";b:0;s:33:\"RemoveEmpty.RemoveNbsp.Exceptions\";a:2:{s:2:\"td\";b:1;s:2:\"th\";b:1;}s:22:\"RemoveEmpty.RemoveNbsp\";b:0;s:11:\"RemoveEmpty\";b:0;s:28:\"RemoveSpansWithoutAttributes\";b:0;}s:3:\"CSS\";a:9:{s:14:\"AllowImportant\";b:0;s:11:\"AllowTricky\";b:0;s:12:\"AllowedFonts\";N;s:17:\"AllowedProperties\";N;s:13:\"DefinitionRev\";i:1;s:19:\"ForbiddenProperties\";a:0:{}s:12:\"MaxImgLength\";s:6:\"1200px\";s:11:\"Proprietary\";b:0;s:7:\"Trusted\";b:0;}s:5:\"Cache\";a:3:{s:14:\"DefinitionImpl\";s:10:\"Serializer\";s:14:\"SerializerPath\";N;s:21:\"SerializerPermissions\";i:493;}s:4:\"Core\";a:17:{s:17:\"AggressivelyFixLt\";b:1;s:13:\"CollectErrors\";b:0;s:13:\"ColorKeywords\";a:17:{s:6:\"maroon\";s:7:\"#800000\";s:3:\"red\";s:7:\"#FF0000\";s:6:\"orange\";s:7:\"#FFA500\";s:6:\"yellow\";s:7:\"#FFFF00\";s:5:\"olive\";s:7:\"#808000\";s:6:\"purple\";s:7:\"#800080\";s:7:\"fuchsia\";s:7:\"#FF00FF\";s:5:\"white\";s:7:\"#FFFFFF\";s:4:\"lime\";s:7:\"#00FF00\";s:5:\"green\";s:7:\"#008000\";s:4:\"navy\";s:7:\"#000080\";s:4:\"blue\";s:7:\"#0000FF\";s:4:\"aqua\";s:7:\"#00FFFF\";s:4:\"teal\";s:7:\"#008080\";s:5:\"black\";s:7:\"#000000\";s:6:\"silver\";s:7:\"#C0C0C0\";s:4:\"gray\";s:7:\"#808080\";}s:25:\"ConvertDocumentToFragment\";b:1;s:31:\"DirectLexLineNumberSyncInterval\";i:0;s:8:\"Encoding\";s:5:\"utf-8\";s:21:\"EscapeInvalidChildren\";b:0;s:17:\"EscapeInvalidTags\";b:0;s:24:\"EscapeNonASCIICharacters\";b:0;s:14:\"HiddenElements\";a:2:{s:6:\"script\";b:1;s:5:\"style\";b:1;}s:8:\"Language\";s:2:\"en\";s:9:\"LexerImpl\";N;s:19:\"MaintainLineNumbers\";N;s:17:\"NormalizeNewlines\";b:1;s:16:\"RemoveInvalidImg\";b:1;s:28:\"RemoveProcessingInstructions\";b:0;s:20:\"RemoveScriptContents\";N;}s:6:\"Filter\";a:6:{s:6:\"Custom\";a:0:{}s:27:\"ExtractStyleBlocks.Escaping\";b:1;s:24:\"ExtractStyleBlocks.Scope\";N;s:27:\"ExtractStyleBlocks.TidyImpl\";N;s:18:\"ExtractStyleBlocks\";b:0;s:7:\"YouTube\";b:0;}s:4:\"HTML\";a:26:{s:7:\"Allowed\";N;s:17:\"AllowedAttributes\";N;s:15:\"AllowedElements\";N;s:14:\"AllowedModules\";N;s:18:\"Attr.Name.UseCDATA\";b:0;s:12:\"BlockWrapper\";s:1:\"p\";s:11:\"CoreModules\";a:7:{s:9:\"Structure\";b:1;s:4:\"Text\";b:1;s:9:\"Hypertext\";b:1;s:4:\"List\";b:1;s:22:\"NonXMLCommonAttributes\";b:1;s:19:\"XMLCommonAttributes\";b:1;s:16:\"CommonAttributes\";b:1;}s:13:\"CustomDoctype\";N;s:12:\"DefinitionID\";N;s:13:\"DefinitionRev\";i:1;s:7:\"Doctype\";N;s:20:\"FlashAllowFullScreen\";b:0;s:19:\"ForbiddenAttributes\";a:0:{}s:17:\"ForbiddenElements\";a:0:{}s:12:\"MaxImgLength\";i:1200;s:8:\"Nofollow\";b:0;s:6:\"Parent\";s:3:\"div\";s:11:\"Proprietary\";b:0;s:9:\"SafeEmbed\";b:1;s:10:\"SafeObject\";b:1;s:6:\"Strict\";b:0;s:7:\"TidyAdd\";a:0:{}s:9:\"TidyLevel\";s:6:\"medium\";s:10:\"TidyRemove\";a:0:{}s:7:\"Trusted\";b:0;s:5:\"XHTML\";b:1;}s:6:\"Output\";a:6:{s:21:\"CommentScriptContents\";b:1;s:12:\"FixInnerHTML\";b:1;s:11:\"FlashCompat\";b:1;s:7:\"Newline\";N;s:8:\"SortAttr\";b:0;s:10:\"TidyFormat\";b:0;}s:4:\"Test\";a:1:{s:12:\"ForceNoIconv\";b:0;}s:3:\"URI\";a:16:{s:14:\"AllowedSchemes\";a:6:{s:4:\"http\";b:1;s:5:\"https\";b:1;s:6:\"mailto\";b:1;s:3:\"ftp\";b:1;s:4:\"nntp\";b:1;s:4:\"news\";b:1;}s:4:\"Base\";N;s:13:\"DefaultScheme\";s:4:\"http\";s:12:\"DefinitionID\";N;s:13:\"DefinitionRev\";i:1;s:7:\"Disable\";b:0;s:15:\"DisableExternal\";b:0;s:24:\"DisableExternalResources\";b:0;s:16:\"DisableResources\";b:0;s:4:\"Host\";N;s:13:\"HostBlacklist\";a:0:{}s:12:\"MakeAbsolute\";b:0;s:5:\"Munge\";N;s:14:\"MungeResources\";b:0;s:14:\"MungeSecretKey\";N;s:22:\"OverrideAllowedSchemes\";b:1;}}\";'),
 (802, 'ZConfig', 'sessioncsrftokenonetime', 'i:0;'),
 (803, '/EventHandlers', 'AuthLDAP', 'a:2:{i:0;a:3:{s:9:\"eventname\";s:31:\"module.users.ui.login.succeeded\";s:8:\"callable\";a:2:{i:0;s:18:\"AuthLDAP_Listeners\";i:1;s:20:\"loginSuccessListener\";}s:6:\"weight\";i:10;}i:1;a:3:{s:9:\"eventname\";s:28:\"module.users.ui.login.failed\";s:8:\"callable\";a:2:{i:0;s:18:\"AuthLDAP_Listeners\";i:1;s:19:\"tryAuthLDAPListener\";}s:6:\"weight\";i:10;}}'),
-(817, 'XtecMailer', 'enabled', 'i:1;'),
-(818, 'XtecMailer', 'idApp', 's:5:\"AGORA\";'),
-(819, 'XtecMailer', 'replyAddress', 's:14:\"agora@xtec.cat\";'),
-(820, 'XtecMailer', 'sender', 's:8:\"educacio\";'),
-(821, 'XtecMailer', 'environment', 's:5:\"LOCAL\";'),
-(822, 'XtecMailer', 'contenttype', 'i:2;'),
-(823, 'XtecMailer', 'log', 'i:0;'),
-(824, 'XtecMailer', 'debug', 'i:0;'),
-(825, 'XtecMailer', 'logpath', 's:0:\"\";'),
 (826, '/EventHandlers', 'XtecMailer', 'a:1:{i:0;a:3:{s:9:\"eventname\";s:29:\"module.mailer.api.sendmessage\";s:8:\"callable\";a:2:{i:0;s:20:\"XtecMailer_Listeners\";i:1;s:8:\"sendMail\";}s:6:\"weight\";i:10;}}'),
 (827, 'systemplugin.imagine', 'version', 's:5:\"1.0.0\";'),
 (828, 'systemplugin.imagine', 'thumb_dir', 's:20:\"systemplugin.imagine\";'),
@@ -1825,12 +1627,12 @@ INSERT INTO `module_vars` (`id`, `modname`, `name`, `value`) VALUES
 (836, 'IWmain', 'extensions', 's:35:\"odt|ods|odp|zip|pdf|doc|jpg|gif|txt\";'),
 (837, 'IWmain', 'maxsize', 's:7:\"1000000\";'),
 (838, 'IWmain', 'usersvarslife', 's:2:\"60\";'),
-(839, 'IWmain', 'cronHeaderText', 's:68:\"Text de l\'encapçalament dels missatges automàtics amb les novetats\";'),
+(839, 'IWmain', 'cronHeaderText', 's:68:\"Text de l''encapçalament dels missatges automàtics amb les novetats\";'),
 (840, 'IWmain', 'cronFooterText', 's:25:\"Text del peu del missatge\";'),
 (841, 'IWmain', 'showHideFiles', 's:1:\"0\";'),
 (842, 'IWmain', 'captchaPrivateCode', 's:0:\"\";'),
 (843, 'IWmain', 'captchaPublicCode', 's:0:\"\";'),
-(844, 'IWmain', 'URLBase', 's:26:\"http://agora/agora/portal/\";'),
+(844, 'IWmain', 'URLBase', 's:38:\"https://agora-virtual.xtec.cat/portal/\";'),
 (845, 'IWstats', 'skippedIps', 's:0:\"\";'),
 (846, 'IWstats', 'modulesSkipped', 's:0:\"\";'),
 (847, 'IWstats', 'deleteFromDays', 'i:90;'),
@@ -1840,7 +1642,7 @@ INSERT INTO `module_vars` (`id`, `modname`, `name`, `value`) VALUES
 (851, 'Files', 'allowedExtensions', 's:40:\"gif,png,jpg,jpeg,odt,doc,pdf,zip,txt,sql\";'),
 (852, 'Files', 'defaultQuota', 's:1:\"1\";'),
 (853, 'Files', 'groupsQuota', 's:55:\"a:1:{i:0;a:2:{s:3:\"gid\";s:1:\"2\";s:5:\"quota\";s:2:\"-1\";}}\";'),
-(854, 'Files', 'filesMaxSize', 's:8:\"10000000\";'),
+(854, 'Files', 'filesMaxSize', 's:9:\"250000000\";'),
 (855, 'Files', 'maxWidth', 's:3:\"250\";'),
 (856, 'Files', 'maxHeight', 's:3:\"250\";'),
 (857, 'Files', 'editableExtensions', 's:32:\"php,htm,html,htaccess,css,js,tpl\";'),
@@ -1852,7 +1654,11 @@ INSERT INTO `module_vars` (`id`, `modname`, `name`, `value`) VALUES
 (865, 'Files', 'scribite_v5', 's:1:\"1\";'),
 (866, 'Files', 'scribite_v4_name', 's:8:\"Scribite\";'),
 (867, 'Files', 'scribite_v5_name', 's:8:\"Scribite\";'),
-(868, 'ZConfig', 'pagetitle', 's:11:\"%pagetitle%\";');
+(868, 'ZConfig', 'pagetitle', 's:11:\"%pagetitle%\";'),
+(869, 'XtecOauth', 'xtecoauth_clientid', 's:0:\"\";'),
+(870, 'XtecOauth', 'xtecoauth_clientsecret', 's:0:\"\";'),
+(871, 'XtecOauth', 'xtecoauth_apiurlbase', 's:0:\"\";'),
+(872, 'XtecOauth', 'xtecoauth_authorizedomain', 's:0:\"\";');
 
 -- --------------------------------------------------------
 
@@ -2032,13 +1838,6 @@ CREATE TABLE `session_info` (
   `vars` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Bolcant dades de la taula `session_info`
---
-
-INSERT INTO `session_info` (`sessid`, `ipaddr`, `lastused`, `uid`, `remember`, `vars`) VALUES
-('r1hqoa1l7vcb32llr2c1hu7av1', 'b44aab0625ab749bf5a23cce99d45b6d', '2020-02-10 15:06:48', 2, 0, '/|a:7:{s:4:\"rand\";a:0:{}s:9:\"useragent\";s:40:\"1d62a92975b083876c74ae90b0cdfb9746de614f\";s:3:\"uid\";s:1:\"2\";s:7:\"_tokens\";a:2:{s:23:\"5e41637781eca9.79091454\";a:2:{s:5:\"token\";s:92:\"NWU0MTYzNzc4MWVjYTkuNzkwOTE0NTQ6MTdjMjdjOTMxY2E1ZTA5M2FjYWM4OThjODY5NjczODM6MTU4MTM0MzYwNw==\";s:9:\"timestamp\";i:1581343607;}s:23:\"5e41637823dfa1.63977480\";a:2:{s:5:\"token\";s:92:\"NWU0MTYzNzgyM2RmYTEuNjM5Nzc0ODA6ZmM5ZjQ4NWVlNjJmMmUwMzI1NjliMDFlYTcxNTJjMzE6MTU4MTM0MzYwOA==\";s:9:\"timestamp\";i:1581343608;}}s:5:\"state\";N;s:4:\"sort\";s:4:\"name\";s:7:\"sortdir\";s:3:\"ASC\";}_zikula_messages|a:1:{s:5:\"error\";a:0:{}}Zikula_Users|a:1:{s:21:\"authentication_method\";a:2:{s:7:\"modname\";s:5:\"Users\";s:6:\"method\";s:5:\"uname\";}}');
-
 -- --------------------------------------------------------
 
 --
@@ -2073,11 +1872,11 @@ CREATE TABLE `themes` (
 --
 
 INSERT INTO `themes` (`id`, `name`, `type`, `displayname`, `description`, `regid`, `directory`, `version`, `official`, `author`, `contact`, `admin`, `user`, `system`, `state`, `credits`, `changelog`, `help`, `license`, `xhtml`) VALUES
-(1, 'SeaBreeze', 3, 'SeaBreeze', 'L\'entorn visual SeaBreeze es va refer completament pel Zikula 1.0, amb nous colors i imatges.', 0, 'SeaBreeze', '3.2', 0, 'Carsten Volmer, Vanessa Haakenson, Mark West, Martin Andersen', '', 0, 1, 0, 1, '', '', '', '', 1),
+(1, 'SeaBreeze', 3, 'SeaBreeze', 'L''entorn visual SeaBreeze es va refer completament pel Zikula 1.0, amb nous colors i imatges.', 0, 'SeaBreeze', '3.2', 0, 'Carsten Volmer, Vanessa Haakenson, Mark West, Martin Andersen', '', 0, 1, 0, 1, '', '', '', '', 1),
 (2, 'RSS', 3, 'RSS', 'The RSS theme is an auxiliary theme designed specially for outputting pages as an RSS feed.', 0, 'RSS', '1.0', 0, 'Mark West', '', 0, 0, 1, 1, 'docs/credits.txt', 'docs/changelog.txt', 'docs/help.txt', 'docs/license.txt', 0),
 (4, 'Atom', 3, 'Àtom', 'Entorn visual auxiliar que genera pàgines en el format de sindicació Atom.', 0, 'Atom', '1.0', 0, 'Franz Skaaning', '', 0, 0, 1, 1, '', '', '', '', 0),
-(6, 'Printer', 3, 'Impressora', 'L\'entorn visual Printer és un entorn visual auxiliar dissenyat per mostrar les pàgines en un format adequat per a la impressió', 0, 'Printer', '2.0', 0, 'Mark West', '', 0, 0, 1, 1, '', '', '', '', 1),
-(8, 'Andreas08', 3, 'Andreas08', 'Based on the theme Andreas08 by Andreas Viklund and extended for Zikula with the CSS Framework \'fluid960gs\'.', 0, 'Andreas08', '2.0', 0, 'David Brucas, Mark West, Andreas Viklund', '', 1, 1, 0, 1, '', '', '', '', 1),
+(6, 'Printer', 3, 'Impressora', 'L''entorn visual Printer és un entorn visual auxiliar dissenyat per mostrar les pàgines en un format adequat per a la impressió', 0, 'Printer', '2.0', 0, 'Mark West', '', 0, 0, 1, 1, '', '', '', '', 1),
+(8, 'Andreas08', 3, 'Andreas08', 'Based on the theme Andreas08 by Andreas Viklund and extended for Zikula with the CSS Framework ''fluid960gs''.', 0, 'Andreas08', '2.0', 0, 'David Brucas, Mark West, Andreas Viklund', '', 1, 1, 0, 1, '', '', '', '', 1),
 (9, 'IWportal', 3, 'Portal theme', 'Theme developed by the Intraweb project staff for the Agora service', 0, 'IWportal', '1.0', 0, 'Albert Bachiller, Pau Ferrer', 'aginard@xtec.cat', 1, 1, 1, 1, '', '', '', 'GNU/GPL', 1),
 (10, 'Mobile', 3, 'Mobile', 'The mobile theme is an auxiliary theme designed specially for outputting pages in a mobile-friendly format.', 0, 'Mobile', '1.0', 0, '', '', 0, 0, 1, 1, '', '', '', '', 1);
 
@@ -2563,7 +2362,7 @@ ALTER TABLE `admin_category`
 -- AUTO_INCREMENT per la taula `admin_module`
 --
 ALTER TABLE `admin_module`
-  MODIFY `amid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
+  MODIFY `amid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 --
 -- AUTO_INCREMENT per la taula `agoraportal_clients`
 --
@@ -2743,12 +2542,12 @@ ALTER TABLE `modules`
 -- AUTO_INCREMENT per la taula `module_deps`
 --
 ALTER TABLE `module_deps`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT per la taula `module_vars`
 --
 ALTER TABLE `module_vars`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=869;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=873;
 --
 -- AUTO_INCREMENT per la taula `objectdata_attributes`
 --
