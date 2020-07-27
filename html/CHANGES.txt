@@ -3,6 +3,86 @@ Release notes for Agora (https://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
+Changes 20.07.27
+---------------------------------------------------------------------------------------
+GENERAL
+- Added support for per-service domain
+- createSchoolsListsFiles: Create three lists for Moodle crons based on usage level
+
+MOODLE
+- Upgraded Moodle from v3.6.7 to v3.8.4
+- Updated language packages
+- Removed theme xtec2
+- Added theme xtec2020
+- Removed module mailer (mail sender using apligest) and associated hacks in Moodle core
+- Upgraded all wiris plugins
+- Upgraded atto plugin Cloze
+- Fixed typo in local_oauth
+- Upgraded module choicegroup
+- Upgraded module Hot Potatoes
+- Upgraded module questionnaire
+- Upgraded module jclic
+- Upgraded block completion_progress
+- Course format Simple: Fixed edition of section name
+
+NODES
+- Upgraded WordPress to version 5.1.6
+- email-subscribers: Removed headers that causes e-mail to be blocked in AWS' SES
+- agora-functions: Added function to configure e-mail to use SMTP
+- Removed plugin buddypress-activity-plus
+- Removed plugin xtec-mail
+- Removed plugin xtec-ldap-login
+
+PORTAL
+- Set connections to postgres to non-persistent
+- Agoraportal: Modified script to activate instances to fit new infrastructure in the Cloud
+- Agoraportal: Increased maximum file size in big files upload to 500 MB
+- Removed module AuthLDAP
+- Removed module XtecMailer
+- Added module XtecOauth
+
+
+Changes 20.05.12
+---------------------------------------------------------------------------------------
+GENERAL
+- dblib: Get disk usage also for services in state 'saturation'
+- works: Ensure variables have correct data type
+
+MOODLE
+- Message: Show old message UI and allow access to all messages
+- Show 'hidden' text next to hidden labels in courses
+- Coursequotas: Added disk usage of H5P libraries
+- Updated language packages
+
+NODES:
+- WSL: Allow login from Moodle in any domain
+- wordpress-telegram: Upgraded to version 2.1.15
+- add-to-any: Upgraded to version 1.7.40
+- email-subscribers: Upgraded to version 4.3.13
+- enllacos-educatius: Fixed checkboxes not showing checked after saving changes
+- Buddypress: Added href and target as allowed attributes
+
+PORTAL
+- Agoraportal: Added exception in massive service deactivation for monitor
+- Agoraportal: Allow only valid values to avoid SQL injection in front page list
+
+
+Changes 20.04.15
+---------------------------------------------------------------------------------------
+MOODLE
+- Geogebra: Fixed error when accessing to closed activities
+- Added support for new service state: saturated
+
+NODES
+- Added support for new service states: migrated and saturated
+
+PORTAL
+- Added support for new service state: saturated
+- Added functions to massively change status of services
+- Changed logo for Departament d'Educació
+- Fixed saving new SQL statements
+
+
 Changes 20.02.18
 ---------------------------------------------------------------------------------------
 GENERAL
