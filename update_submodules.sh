@@ -25,7 +25,7 @@ fi
 
 if [[ $execmoodle == true ]]
 then
-gitcheckout "html/moodle2" "WIP-moodle-38" "https://github.com/projectestac/agora_moodle2.git"
+gitcheckout "html/moodle2" "aws" "https://github.com/projectestac/agora_moodle2.git"
 gitcheckout "html/moodle2/blocks/completion_progress" "master" "https://github.com/deraadt/moodle-block_completion_progress.git"
 gitcheckout "html/moodle2/blocks/courses_vicensvives" "master" "https://github.com/vicensvives/moodle-block_courses_vicensvives.git"
 gitcheckout "html/moodle2/blocks/licenses_vicensvives" "master" "https://github.com/vicensvives/moodle-block_licenses_vicensvives.git"
@@ -38,7 +38,7 @@ gitcheckout "html/moodle2/lib/editor/atto/plugins/cloze" "master" "https://githu
 gitcheckout "html/moodle2/lib/editor/atto/plugins/fontsize" "master" "https://github.com/andrewnicols/moodle-atto_fontsize.git"
 gitcheckout "html/moodle2/lib/editor/atto/plugins/fontfamily" "master" "https://github.com/projectestac/moodle-atto_fontfamily.git"
 gitcheckout "html/moodle2/lib/editor/atto/plugins/wiris" "stable" "https://github.com/wiris/moodle-atto_wiris.git"
-gitcheckout "html/moodle2/local/agora" "WIP-moodle-38" "https://github.com/projectestac/moodle-local_agora.git"
+gitcheckout "html/moodle2/local/agora" "aws" "https://github.com/projectestac/moodle-local_agora.git"
 gitcheckout "html/moodle2/local/alexandriaimporter" "master" "https://github.com/projectestac/moodle-local_alexandriaimporter.git"
 gitcheckout "html/moodle2/local/bigdata" "master" "https://github.com/projectestac/moodle-local_bigdata.git"
 gitcheckout "html/moodle2/local/clickedu" "MOODLE_36_STABLE" "https://github.com/clickedu/ClickeduMoodlePlugin.git"
