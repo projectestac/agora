@@ -3,6 +3,24 @@ Release notes for Agora (https://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
+Changes 20.08.03
+---------------------------------------------------------------------------------------
+MOODLE
+- Upgraded Moodle from v3.6.7 to v3.6.10
+- Upgraded all wiris plugins
+- Upgraded atto plugin Cloze
+- Fixed typo in local_oauth
+- Upgraded module choicegroup
+- Upgraded module Hot Potatoes
+- Upgraded module jclic
+- Upgraded block completion_progress
+- Course format Simple: Fixed edition of section name
+- Moved session timeout to database
+
+NODES
+- Upgraded WordPress to version 5.1.6
+
+
 Changes 20.05.12
 ---------------------------------------------------------------------------------------
 GENERAL
@@ -15,7 +33,7 @@ MOODLE
 - Coursequotas: Added disk usage of H5P libraries
 - Updated language packages
 
-NODES:
+NODES
 - WSL: Allow login from Moodle in any domain
 - wordpress-telegram: Upgraded to version 2.1.15
 - add-to-any: Upgraded to version 1.7.40
