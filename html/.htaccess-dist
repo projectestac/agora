@@ -22,16 +22,18 @@ RewriteRule ^(.*)$ $1/ [QSA,R=308,L]
 
 # Bare domain. Must change Rewrite Base in every environment
 RewriteCond %{HTTP_HOST} ^agora-aws\.xtec\.cat$ [OR,NC]
-RewriteCond %{HTTP_HOST} ^agora-aws-se\.xtec\.cat$ [OR,NC]
+RewriteCond %{HTTP_HOST} ^agora-aws-nodes\.xtec\.cat$ [OR,NC]
+RewriteCond %{HTTP_HOST} ^agora-aws-eoi\.xtec\.cat$ [OR,NC]
 RewriteCond %{HTTP_HOST} ^agora-aws-projectes\.xtec\.cat$ [OR,NC]
-RewriteCond %{HTTP_HOST} ^agora-aws-nodes\.xtec\.cat$ [NC]
+RewriteCond %{HTTP_HOST} ^agora-aws-se\.xtec\.cat$ [NC]
 RewriteRule ^$ index.php [L]
 
 # Allow access to directories without URL rewrite
 RewriteCond %{HTTP_HOST} ^agora-aws\.xtec\.cat$ [OR,NC]
-RewriteCond %{HTTP_HOST} ^agora-aws-se\.xtec\.cat$ [OR,NC]
+RewriteCond %{HTTP_HOST} ^agora-aws-nodes\.xtec\.cat$ [OR,NC]
+RewriteCond %{HTTP_HOST} ^agora-aws-eoi\.xtec\.cat$ [OR,NC]
 RewriteCond %{HTTP_HOST} ^agora-aws-projectes\.xtec\.cat$ [OR,NC]
-RewriteCond %{HTTP_HOST} ^agora-aws-nodes\.xtec\.cat$ [NC]
+RewriteCond %{HTTP_HOST} ^agora-aws-se\.xtec\.cat$ [NC]
 RewriteRule ^(portal(.*)|config(.*)|index\.php|error\.php|CHANGES\.txt|robots\.txt)$ - [L]
 
 # Block access to install.php
@@ -47,9 +49,10 @@ RewriteRule ^([^/]*)/moodle/([^?]*)?(.*)$ moodle2/$2?$3&ccentre=$1 [QSA,L]
 RewriteRule ^([^/]*)/intranet/(.*)$ $1/ [QSA,R=permanent,L]
 # Nodes
 RewriteCond %{HTTP_HOST} ^agora-aws\.xtec\.cat$ [OR,NC]
-RewriteCond %{HTTP_HOST} ^agora-aws-se\.xtec\.cat$ [OR,NC]
+RewriteCond %{HTTP_HOST} ^agora-aws-nodes\.xtec\.cat$ [OR,NC]
+RewriteCond %{HTTP_HOST} ^agora-aws-eoi\.xtec\.cat$ [OR,NC]
 RewriteCond %{HTTP_HOST} ^agora-aws-projectes\.xtec\.cat$ [OR,NC]
-RewriteCond %{HTTP_HOST} ^agora-aws-nodes\.xtec\.cat$ [NC]
+RewriteCond %{HTTP_HOST} ^agora-aws-se\.xtec\.cat$ [NC]
 # Only apply the rule if it is not an internal redirect
 RewriteCond %{ENV:REDIRECT_STATUS} !200
 RewriteRule ^([^/]*)/(.*)$ wordpress/$2?ccentre=$1 [QSA,L]

@@ -122,8 +122,11 @@ if (isset($args['update'])) {
                 // Select the server name according to the
                 $schoolsvartmp = '';
                 switch ($school['type']) {
-                    case SERVEI_EDUCATIU_ID:
+                    case SERVEIEDUCATIU_TYPE_ID:
                         $schoolsvartmp .= $agora['server']['se-url'] . $agora['server']['base'];
+                        break;
+                    case EOI_TYPE_ID:
+                        $schoolsvartmp .= $agora['server']['eoi'] . $agora['server']['base'];
                         break;
                     case PROJECTES_TYPE_ID:
                         $schoolsvartmp .= $agora['server']['projectes'] . $agora['server']['base'];

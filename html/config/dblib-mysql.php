@@ -49,7 +49,21 @@ function isServeiEducatiu() {
         getSchoolInfo('nodes');
     }
 
-    return (isset($school_info['type']) && $school_info['type'] == SERVEI_EDUCATIU_ID) ? true : false;
+    return (isset($school_info['type']) && $school_info['type'] == SERVEIEDUCATIU_TYPE_ID) ? true : false;
+}
+
+/**
+ * Check if the client is of type "EOI"
+ * @return bool
+ */
+function isEOI() {
+    global $school_info;
+
+    if (!$school_info) {
+        getSchoolInfo('nodes');
+    }
+
+    return (isset($school_info['type']) && $school_info['type'] == EOI_TYPE_ID) ? true : false;
 }
 
 /**
@@ -366,7 +380,6 @@ function getSchoolInfo($service) {
 
     // Cache level 2: Load file with connection info of all clients
     if (empty($school_info) && file_exists($agora['dbsource']['dir'] . 'allSchools.php')) {
-
         include_once($agora['dbsource']['dir'] . 'allSchools.php');
 
         if (isset($schools[$centre])) {
@@ -425,6 +438,8 @@ function getSchoolInfo($service) {
                 $newaddress = $agora['server']['se-url'] . $agora['server']['base'] . $newDNS . '/';
             } elseif (isProjecte() && isset($agora['server']['projectes'])) {
                 $newaddress = $agora['server']['projectes'] . $agora['server']['base'] . $newDNS . '/';
+            } elseif (isEOI() && isset($agora['server']['eoi'])) {
+                $newaddress = $agora['server']['eoi'] . $agora['server']['base'] . $newDNS . '/';
             } else {
                 $newaddress = $agora['server']['server'] . $agora['server']['base'] . $newDNS . '/';
             }
@@ -524,6 +539,21 @@ function getSchoolInfo($service) {
         }
     }
 
+    // Change default URL host for EOI
+    if (isEOI() && isset($agora['server']['eoi'])) {
+        $agora['server']['server'] = $agora['server']['eoi'];
+        $agora['server']['html'] = $agora['server']['server'] . $agora['server']['base'];
+
+        // Check if the domain in the URL is the default for Serveis Educatius and redirect if not
+        if (!defined('CLI_SCRIPT') && !is_in_domain($agora['server']['server'])) {
+            $remove = $agora['server']['base'];
+            $url = $agora['server']['html'] . str_replace($remove, '', $_SERVER['REQUEST_URI']);
+            header('HTTP/1.1 301 Moved Permanently');
+            header('Location: ' . $url);
+            exit;
+        }
+    }
+
     // Change default URL host for Projectes
     if (isProjecte() && isset($agora['server']['projectes'])) {
         $agora['server']['server'] = $agora['server']['projectes'];
@@ -540,7 +570,7 @@ function getSchoolInfo($service) {
     }
 
     // Nodes can have a different domain
-    if (($service == 'nodes') && isset($agora['server']['nodes']) && !isServeiEducatiu() && !isProjecte()) {
+    if (($service == 'nodes') && isset($agora['server']['nodes']) && !isServeiEducatiu() && !isProjecte() && !isEOI()) {
         $agora['server']['server'] = $agora['server']['nodes'];
         $agora['server']['html'] = $agora['server']['server'] . $agora['server']['base'];
 

@@ -63,7 +63,8 @@ define('WWWROOT', $agora['server']['server'] . $agora['server']['base']);
 $agora['iseoi'] = false;
 
 // Type Ids for secondary domains
-define('SERVEI_EDUCATIU_ID', 5);
+define('SERVEIEDUCATIU_TYPE_ID', 5);
+define('EOI_TYPE_ID', 6);
 define('PROJECTES_TYPE_ID', 12);
 
 /*
