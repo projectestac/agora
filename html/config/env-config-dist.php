@@ -18,14 +18,14 @@ $agora['server']['school_information'] = 'https://aplicacions.ensenyament.gencat
 
 // Admin database access info (MySQL)
 $agora['admin']['username'] = 'root';
-$agora['admin']['userpwd'] = 'agora';
+$agora['admin']['userpwd'] = '';
 $agora['admin']['database'] = 'adminagora';
 $agora['admin']['host'] = 'localhost';
 $agora['admin']['port'] = '3306';
 $agora['admin']['datadir'] = $agora['server']['datadir'] . 'portaldata/';
 
 // Moodle database access info (Postgres)
-$agora['moodle2']['userpwd'] = 'agora'; // Contrasenya que tenen tots els esquemes
+$agora['moodle2']['userpwd'] = '';
 $agora['moodle2']['datadir'] = $agora['server']['datadir'] . 'moodledata/';
 $agora['moodle2']['memcache_servers'] = '127.0.0.1';
 $agora['moodle2']['redis_servers'] = '127.0.0.1';
@@ -34,7 +34,7 @@ $agora['moodle2']['redis_session_servers'] = '';
 
 // WordPress database access info (MySQL)
 $agora['nodes']['username'] = 'root'; // Usuari per accedir a totes les bases de dades
-$agora['nodes']['userpwd'] = 'agora';
+$agora['nodes']['userpwd'] = '';
 $agora['nodes']['datadir'] = $agora['server']['datadir'] . 'wpdata/';
 
 // SMTP params
@@ -43,12 +43,13 @@ $agora['mail']['username'] = '';
 $agora['mail']['userpwd'] = '';
 $agora['mail']['reply'] = 'notificacions@educaciodigital.cat';
 
-// Other passwords
-$agora['xtecadmin']['password'] = '6142bfd56a583d891f0b1dcdbb2a9ef8';
-$agora['opcache']['password'] = 'agora';
+// Password to reset xtecadmin
+$agora['xtecadmin']['password'] = '';
 
-$agora['xtecadmin']['password'] = '6142bfd56a583d891f0b1dcdbb2a9ef8';
-$agora['opcache']['password']   = 'agora';
+// Google keys
+$agora['recaptchapublickey'] = '';
+$agora['recaptchaprivatekey'] = '';
+$agora['google_api_key'] = ''; // API key for Google Calendar
 
 // Load vars common in all environments
 include_once $agora['server']['root'] . 'html/config/config.php';
