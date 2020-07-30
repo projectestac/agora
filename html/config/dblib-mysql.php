@@ -493,6 +493,11 @@ function getSchoolInfo($service) {
         exit;
     }
 
+    // At this point, $school_info[] should contain connection data
+
+    // Check for type EOI to set proper flag
+    $agora['iseoi'] = isset($school_info['type']) && ($school_info['type'] == EOI_TYPE_ID);
+
     // Set cookie for future requests
     if (!empty($school_info['id_moodle2']) || !empty($school_info['id_intranet']) || !empty($school_info['id_nodes'])) {
 

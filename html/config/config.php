@@ -60,8 +60,6 @@ $agora['proxy']['pass'] = '';
 // Constants used elsewhere
 define('WWWROOT', $agora['server']['server'] . $agora['server']['base']);
 
-$agora['iseoi'] = false;
-
 // Type Ids for secondary domains
 define('SERVEIEDUCATIU_TYPE_ID', 5);
 define('EOI_TYPE_ID', 6);
