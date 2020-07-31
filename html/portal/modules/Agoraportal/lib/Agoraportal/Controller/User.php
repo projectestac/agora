@@ -56,7 +56,13 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         $agora = AgoraPortal_Util::getGlobalAgoraVars();
 
         $servicetypes = ServiceTypes::get_all();
-        $services = $client->get_all_services();
+
+        // Administrators can see all services, active or inactive. Other profiles can only see active services
+        if (AgoraPortal_Util::isAdmin()) {
+            $services = $client->get_all_services();
+        } else {
+            $services = $client->get_enabled_services();
+        }
 
         //Check if the client is pending of change his clientDNS
         //Only for site managers
