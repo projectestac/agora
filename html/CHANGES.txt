@@ -3,6 +3,12 @@ Release notes for Agora (https://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
+Changes in progress
+---------------------------------------------------------------------------------------
+PORTAL
+- Updated links using agora.xtec.cat to educaciodigital.cat in documentation and in information emails
+
+
 Changes 20.07.27
 ---------------------------------------------------------------------------------------
 GENERAL

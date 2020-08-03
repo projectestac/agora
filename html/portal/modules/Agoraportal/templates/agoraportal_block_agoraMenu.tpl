@@ -28,7 +28,7 @@
         </li>
     {/if}
     <li>
-        <a href="http://agora.xtec.cat/moodle/moodle/mod/page/view.php?id=1781" target="_blank">
+        <a href="https://educaciodigital.cat/moodle/moodle/mod/page/view.php?id=1781" target="_blank">
             {gt text="PMF"}
         </a>
     </li>

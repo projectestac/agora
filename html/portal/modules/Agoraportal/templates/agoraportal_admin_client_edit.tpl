@@ -23,10 +23,10 @@
         <label class="col-sm-4 control-label">{gt text="Tipus d'URL"}:</label>
         <div class="col-sm-8">
             <div class="">
-                <input id="standard" type="radio" name="URLType" value="standard" {if $client->URLType eq 'standard'}checked="checked"{/if} />&nbsp;<label for="standard">{gt text="Nom propi (http://agora.xtec.cat/nompropi/)"}</label>
+                <input id="standard" type="radio" name="URLType" value="standard" {if $client->URLType eq 'standard'}checked="checked"{/if} />&nbsp;<label for="standard">{gt text="Nom propi (https://educaciodigital.cat/nompropi/)"}</label>
             </div>
             <div class="">
-                <input id="subdomain" type="radio" name="URLType" value="subdomain" {if $client->URLType eq 'subdomain'}checked="checked"{/if} />&nbsp;<label for="subdomain">{gt text="Subdomini (http://nompropi.xtec.cat/)"}</label>
+                <input id="subdomain" type="radio" name="URLType" value="subdomain" {if $client->URLType eq 'subdomain'}checked="checked"{/if} />&nbsp;<label for="subdomain">{gt text="Subdomini (https://nompropi.xtec.cat/)"}</label>
             </div>
         </div>
     </div>

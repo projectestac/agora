@@ -72,7 +72,7 @@
         i respondre les qüestions que consideri oportunes.
     </p>
     <p>
-        Teniu a la vostra disposició una <a href="http://agora.xtec.cat/nodes/guia-rapida/">
+        Teniu a la vostra disposició una <a href="https://agora.xtec.cat/nodes/guia-rapida/">
         guia ràpida</a> sobre Nodes, on trobareu els primers passos a seguir 
         quan accediu per primer cop al vostre web de centre.
     </p>

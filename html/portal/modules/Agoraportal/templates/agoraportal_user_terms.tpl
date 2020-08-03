@@ -19,7 +19,7 @@
 <p>La direcció del centre educatiu podrà designar fins a 4 gestors, que seran els únics usuaris que podran sol·licitar i gestionar els serveis d'Àgora, com ara l'ampliació de quotes, l'enviament de fitxers grans o la designació d'altres gestors.</p>
 <p>L'administració de cada servei d'Àgora, des del tauler corresponent d'edició, facilitarà l'accés a d'altres usuaris de la comunitat educativa a qui es vulgui adreçar. És recomanable que aquests usuaris administradors tinguin, al seu torn, identificador XTEC. Caldrà que l'administrador s'identifiqui amb noms i cognoms i l'adreça de correu electrònic de la XTEC a l'apartat corresponent de cadascun d'aquests serveis.</p>
 <p>En el cas de l'alumnat convé adjudicar-los àlies com a nom d'usuari i que no es facin públiques cap mena de dades que en permetin la identificació o el contacte, <span style="color:#f00">si no es disposa de la corresponent autorització signada dels tutors legals</span>.</p>
-<p>Els centres docents accediran als diferents serveis Àgora per mitjà d'una adreça del tipus: http://agora.xtec.cat/nom_propi_centre/nom_servei. Per exemple, l'accés al Moodle seria: http://agora.xtec.cat/nom_propi_centre/moodle i d'una manera similar amb la resta d'aplicacions. A més, cada centre disposa d'una quota inicial de disc diferent per a cada servei, ampliable en cas que sigui justificat.</p>
+<p>Els centres docents accediran als diferents serveis Àgora per mitjà d'una adreça del tipus: https://educaciodigital.cat/nom_propi_centre/nom_servei. Per exemple, l'accés al Moodle seria: https://educaciodigital.cat/nom_propi_centre/moodle i d'una manera similar amb la resta d'aplicacions. A més, cada centre disposa d'una quota inicial de disc diferent per a cada servei, ampliable en cas que sigui justificat.</p>
 <p>Per activar els serveis d'Àgora cal que el centre o servei educatiu disposi d'un <strong>nom propi de centre</strong>. Els centres que no disposin de nom propi poden sol·licitar-lo a la secció d'Atenció a l'usuari de la XTEC.</p>
 
 <h2>4. Durada dels serveis</h2>
@@ -34,7 +34,7 @@
 <p>Al portal d'Àgora hi ha els fòrums "Àgora-Moodle" i "Àgora-Nodes" on es poden plantejar dubtes i propostes en relació amb el funcionament d'aquestes eines.</p>
 <p>El programari utilitzat per a oferir el servei s'anirà actualitzant regularment a mesura que es publiquin versions noves que en millorin la funcionalitat o la seguretat.</p>
 <p>Els connectors que incorpora el sistema són comuns a tots els usuaris. La instal·lació de connectors nous, filtres i altres components està condicionada a la seva llicència d'ús, qualitat tècnica, impacte en el rendiment dels servidors, funcionalitat relacionada amb l'activitat dels centres docents i garanties de continuïtat del desenvolupament.</p>
-<p>Des del portal Àgora (<a href="http://agora.xtec.cat/" target="_blank">http://agora.xtec.cat/</a>) s'informarà de les novetats relacionades amb el projecte (versions noves, notícies...).</p>
+<p>Des del portal Àgora (<a href="https://educaciodigital.cat/" target="_blank">https://educaciodigital.cat/</a>) s'informarà de les novetats relacionades amb el projecte (versions noves, notícies...).</p>
 
 <h2>7. Propietat intel·lectual</h2>
 <p>Els continguts publicats als serveis d'Àgora, incloent-hi els textos, imatges, so i qualsevol altre material, són propietat de l'usuari que els ha publicat o de les terceres persones que n'hagin autoritzat l'ús. L'autoria dels continguts s'ha de fer constar a les pàgines corresponents.</p>

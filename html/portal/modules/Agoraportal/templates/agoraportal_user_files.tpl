@@ -112,7 +112,7 @@
             <div class="alert alert-danger">
                 {gt text="Heu superat el límit de capacitat de pujada de fitxers al servidor.
                     Per poder pujar fitxers abans heu d'alliberar quota o obtenir-ne més.
-                    Podeu trobar més informació de com sol·licitar l'ampliació de la quota en aquesta <a href=\"http://agora.xtec.cat/moodle/moodle/mod/glossary/view.php?id=461&amp;mode=entry&amp;hook=561\">pregunta freqüent d'Àgora</a>."}
+                    Podeu trobar més informació de com sol·licitar l'ampliació de la quota en aquesta <a href=\"https://educaciodigital.cat/moodle/moodle/mod/glossary/view.php?id=461&amp;mode=entry&amp;hook=561\">pregunta freqüent d'Àgora</a>."}
             </div>
         {/if}
     {/if}
