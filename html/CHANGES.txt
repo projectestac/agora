@@ -3,8 +3,17 @@ Release notes for Agora (https://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
-Changes in progress
+Changes 20.09.02
 ---------------------------------------------------------------------------------------
+MOODLE
+- Upgraded block completion_progress
+- Upgraded module H5P
+- Theme xtec2020: Allow access to header menu to anonymous users
+- Theme xtec2020: Added support for multilevel custom menu
+- Theme xtec2020: Improved accessibility
+- Theme xtec2020: Fixed repeated button and javascript errors in question bank preview
+- Theme xtec2020: Allow removal of blocks Navigation and Settings
+
 PORTAL
 - Updated links using agora.xtec.cat to educaciodigital.cat in documentation and in information emails
 
