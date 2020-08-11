@@ -30,12 +30,13 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
      * @return:		The edit form
      */
     public function editService() {
+        global $agora;
         $clientServiceId = FormUtil::getPassedValue('clientServiceId', null, 'GET');
 
         $service = Service::get_by_id($clientServiceId);
         $client = $service->get_client();
         $servicetype = $service->get_servicetype();
-
+        
         if ($servicetype->serviceName == 'nodes') {
             $templates = ServiceTemplates::get_all();
             $this->view->assign('templates', $templates);
@@ -51,9 +52,16 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $service->annotations = preg_replace("[\n|\r|\n\r]", "", $service->annotations);
         $service->observations = preg_replace("[\n|\r|\n\r]", "", $service->observations);
 
+        if ($servicetype->serviceName == 'nodes') {
+            $dbservers = $agora['nodes']['dbservers'];
+        }else{
+            $dbservers = $agora['moodle2']['dbservers'];
+        }
+
         return $this->view->assign('mailer', $mailer)
                         ->assign('serviceName', $servicetype->serviceName)
                         ->assign('service', $service)
+                        ->assign('dbservers', $dbservers)
                         ->assign('client', $client)
                         ->fetch('agoraportal_admin_editService.tpl');
     }

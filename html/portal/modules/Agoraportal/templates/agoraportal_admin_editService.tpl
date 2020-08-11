@@ -79,7 +79,12 @@
             <div class="form-group">
                 <label class="col-sm-4 control-label" for="dbHost">{gt text="Servidor de base de dades"}:</label>
                 <div class="col-sm-8">
-                    <input class="form-control" id="dbHost" type="text" name="dbHost" size="30" value="{$service->dbHost}" />
+                    <select class="form-control" id="dbHost" name="dbHost">
+                        <option value="0">{gt text="Tria un servidor..."}</option>
+                        {foreach item=dbserver key=code from=$dbservers}
+                            <option {if $service->dbHost eq $dbserver}selected{/if} value="{$dbserver}">{$dbserver}</option>
+                        {/foreach}
+                    </select>
                     <span style="font-style:italic; color:grey;">{gt text="Requerit en tots els casos"}</span>
                 </div>
             </div>
