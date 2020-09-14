@@ -8,6 +8,11 @@ Changes 20.09.02
 MOODLE
 - Upgraded block completion_progress
 - Upgraded module H5P
+- Upgraded all components from Vicens Vives
+- Upgraded block completion_progress
+- Upgraded Wiris components: filter and atto plugin
+- Upgraded module journal
+- Geogebra: Improved literals
 - Theme xtec2020: Allow access to header menu to anonymous users
 - Theme xtec2020: Added support for multilevel custom menu
 - Theme xtec2020: Improved accessibility
