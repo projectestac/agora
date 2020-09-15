@@ -5,6 +5,9 @@ development home at https://github.com/projectestac/agora
 
 Changes 20.09.02
 ---------------------------------------------------------------------------------------
+GENERAL
+- Added gathering of unique user logins into Moodle
+
 MOODLE
 - Upgraded block completion_progress
 - Upgraded module H5P
