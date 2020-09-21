@@ -140,6 +140,22 @@ class ServiceType extends AgoraBase {
     }
 
     /**
+     * Returns the support URL of the
+     * @return bool|string
+     */
+    public function get_support_url() {
+        switch ($this->serviceName) {
+            case 'moodle2':
+                return 'https://educaciodigital.cat/moodle/moodle/mod/forum/view.php?id=181';
+            case 'nodes':
+                return 'https://educaciodigital.cat/moodle/moodle/mod/forum/view.php?id=1721';
+            case 'intranet':
+                return 'https://educaciodigital.cat/moodle/moodle/mod/forum/view.php?id=1161';
+        }
+        return false;
+    }
+
+    /**
      * Returns the Table prefix for the service
      * @return bool
      */
