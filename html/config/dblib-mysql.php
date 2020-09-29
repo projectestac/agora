@@ -551,8 +551,7 @@ function getSchoolInfo($service) {
 
         // Check if the domain in the URL is the default for Serveis Educatius and redirect if not
         if (!defined('CLI_SCRIPT') && !is_in_domain($agora['server']['server'])) {
-            $remove = $agora['server']['base'];
-            $url = $agora['server']['html'] . str_replace($remove, '', $_SERVER['REQUEST_URI']);
+            $url = rtrim($agora['server']['html'], '/') . $_SERVER['REQUEST_URI'];
             header('HTTP/1.1 301 Moved Permanently');
             header('Location: ' . $url);
             exit;
