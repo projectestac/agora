@@ -1,5 +1,2 @@
 # Update allSchools.php (site cache level 2), every ten minutes
 */10 * * * * www-data /dades/html/config/sync.sh
-
-# Empty MUC local cache, once a day
-0 0 * * * www-data rm -Rf /dades/localdata/localmuc/*
