@@ -3,6 +3,17 @@ Release notes for Agora (https://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
+Changes 20.10.02
+---------------------------------------------------------------------------------------
+GENERAL
+- Statistics: Added gathering of active courses in Moodle
+- Fixed domain redirection for EOI Moodle
+- Cron: Removed Moodle cron to force emptying of localcache once a day
+
+MOODLE
+- Updated language packages
+
+
 Changes 20.09.18
 ---------------------------------------------------------------------------------------
 GENERAL
@@ -18,7 +29,7 @@ PORTAL
 Changes 20.09.02
 ---------------------------------------------------------------------------------------
 GENERAL
-- Added gathering of unique user logins into Moodle
+- Statistics: Added gathering of unique user logins into Moodle
 
 MOODLE
 - Upgraded block completion_progress
