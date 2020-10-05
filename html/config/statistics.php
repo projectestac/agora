@@ -201,9 +201,8 @@ function process_moodle_stats($school, $year, $month, $day, $dayofweek, $daysofm
                 // INSERT
                 $sql = "INSERT INTO agoraportal_moodle2_stats_week (clientcode, clientDNS, date, usersactive, courses, coursesactive, activities, lastaccess, lastaccess_date, 
                                                                     lastaccess_user, total_access, userlogin)
-                        VALUES ('" . $school['code'] . "', '" . $school['dns'] . "', '$date', '" . $users['active'] . "', '$courses', '$activities', '" .
-                                $lastaccess['lastaccess'] . "', '" . $lastaccess['lastaccessdate'] . "', '" . $lastaccess['lastaccessuser'] .
-                                "', '$totalaccess', '$userlogin', '$coursesActive')";
+                        VALUES ('" . $school['code'] . "', '" . $school['dns'] . "', '$date', '" . $users['active'] . "', '$courses', '$coursesActive', '$activities', '" .
+                                $lastaccess['lastaccess'] . "', '" . $lastaccess['lastaccessdate'] . "', '" . $lastaccess['lastaccessuser'] . "', '$totalaccess', '$userlogin')";
             } else {
                 // UPDATE
                 $sql = "UPDATE agoraportal_moodle2_stats_week SET
