@@ -15,6 +15,15 @@
 include 'lib/bootstrap.php';
 $core->init();
 
+// XTEC ************ AFEGIT - Force portal only accessible through main domain
+// 2020.10.21 @aginard
+$length = strlen($_SERVER['HTTP_HOST']);
+$start = $length * -1; // negative
+if (substr($agora['server']['server'], $start) !== $_SERVER['HTTP_HOST']) {
+    header('Location: ' . $agora['server']['server'] . '/portal/');
+}
+//************ FI
+
 $core->getEventManager()->notify(new Zikula_Event('frontcontroller.predispatch'));
 
 // Get variables
