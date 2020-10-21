@@ -3,6 +3,27 @@ Release notes for Agora (https://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
+Changes 20.10.26
+---------------------------------------------------------------------------------------
+GENERAL
+- Statistics: Fixed gathering of Moodle week stats
+- Fixed domain redirection for domains serveiseducatius and projectes
+- Cron lists: Modified thresholds limits
+
+MOODLE
+- Add redirect using full URI for sites that have changed their domain
+- Removed is_portal. Added is_odissea and is_alexandria. Some clean up.
+- Unlock digestmailtime parameter
+- Unlock supportemail parameter
+- Updated language packages
+
+NODES
+- WSL: Updated information URLs
+
+PORTAL
+- Force portal only accessible through main domain
+
+
 Changes 20.10.02
 ---------------------------------------------------------------------------------------
 GENERAL
