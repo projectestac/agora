@@ -25,8 +25,8 @@ if (!in_array($getlevel, $levels)) {
     $getlevel = 'all';
 }
 
-const ACCESS_THRESHOLD_HIGH = 500;
-const ACCESS_THRESHOLD_LOW = 20;
+const ACCESS_THRESHOLD_HIGH = 3000;
+const ACCESS_THRESHOLD_LOW = 50;
 
 $countdays = 3; // count 3 days before
 $startingday = 1; // starting 1 day before
