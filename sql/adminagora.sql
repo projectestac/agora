@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Temps de generació: 27-07-2020 a les 17:55:36
--- Versió del servidor: 5.7.30-0ubuntu0.18.04.1
--- Versió de PHP: 7.3.20-1+ubuntu18.04.1+deb.sury.org+1
+-- Temps de generació: 04-11-2020 a les 12:37:30
+-- Versió del servidor: 5.7.32-0ubuntu0.18.04.1
+-- Versió de PHP: 7.3.24-3+ubuntu18.04.1+deb.sury.org+1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -413,8 +413,10 @@ CREATE TABLE `agoraportal_moodle2_stats_day` (
   `userstotal` int(11) DEFAULT '0',
   `usersnodelsus` int(11) DEFAULT '0',
   `usersactive` int(11) DEFAULT '0',
+  `userlogin` int(11) DEFAULT '0',
   `usersactivelast90days` int(11) DEFAULT '0',
   `usersactivelast30days` int(11) DEFAULT '0',
+  `coursesactive` int(11) DEFAULT '0',
   `diskConsume` varchar(15) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -429,7 +431,9 @@ CREATE TABLE `agoraportal_moodle2_stats_month` (
   `clientDNS` varchar(50) NOT NULL,
   `yearmonth` int(11) DEFAULT NULL,
   `usersactive` int(11) DEFAULT '0',
+  `userlogin` int(11) DEFAULT '0',
   `courses` int(11) DEFAULT '0',
+  `coursesactive` int(11) DEFAULT '0',
   `activities` int(11) DEFAULT '0',
   `lastaccess` varchar(50) DEFAULT NULL,
   `lastaccess_date` varchar(50) DEFAULT NULL,
@@ -450,7 +454,9 @@ CREATE TABLE `agoraportal_moodle2_stats_week` (
   `clientDNS` varchar(50) NOT NULL,
   `date` bigint(20) DEFAULT NULL,
   `usersactive` int(11) DEFAULT '0',
+  `userlogin` int(11) DEFAULT '0',
   `courses` int(11) DEFAULT '0',
+  `coursesactive` int(11) DEFAULT '0',
   `activities` int(11) DEFAULT '0',
   `lastaccess` varchar(50) DEFAULT NULL,
   `lastaccess_date` varchar(50) DEFAULT NULL,
