@@ -137,7 +137,7 @@ function getServicesTotals($codeletter = false, $order = 'clientDNS', $desc = 'a
             LEFT JOIN agoraportal_clients c ON cs.clientID = c.clientID
             LEFT JOIN agoraportal_clientType t ON c.typeId = t.typeID
             LEFT JOIN agoraportal_services s ON s.serviceId = cs.serviceId
-            LEFT JOIN agoraportal_moodle2_stats_day sd ON c.clientCode = sd.clientcode
+            LEFT JOIN agoraportal_" . $service . "_stats_day sd ON c.clientCode = sd.clientcode
             $where
             GROUP BY cs.activedId, c.clientCode
             ORDER BY $order $desc";
