@@ -10,11 +10,12 @@
  *                      update. Default value is 1.
  * @param new_version: Combined with param "update", if present when creating updateMoodle file, adds a special URL to
  *                      update major version of moodle. Default value is false (don't add special URL).
- * @param onlyname: Combined with param "update", lists only DNS names of services
+ * @param only_name: Combined with param "update", lists only DNS names of services
  * @param service: if present, instead of creating cron files in server, returns the contents of the cron file of the
  *                      requested service
  * @param level: if present, filter the list of URL to include only the one that have the amount of activity set to that
- *                      level. Supported values: 'all', 'high', 'medium', 'low'
+ *                      level. Supported values: 'all', 'level1', 'level2', 'level3', 'level4', 'level5'
+ * @param show_totals: if present, show the number of visits before the cron URL
  */
 
 require_once('dblib-mysql.php');
@@ -29,26 +30,29 @@ $newversion = isset($args['new_version']); // Just check existence
 $onlyname = isset($args['only_name']);  // Just check existence
 
 // Cron files params
+$getService = $args['service'] ?? false;
 $level = strtolower($args['level'] ?? 'all');
-$getservice = $args['service'] ?? false;
+$showTotals = isset($args['show_totals']);  // Just check existence
 
 // Ensure $level has an allowed value
-$allowed_levels = ['all', 'high', 'medium', 'low'];
+$allowed_levels = ['all', 'level1', 'level2', 'level3', 'level4', 'level5'];
 if (!in_array($level, $allowed_levels)) {
     $level = 'all';
 }
 
-// Ensure $level has an allowed value
+// Ensure $getService has an allowed value
 $allowed_services = ['moodle2', 'nodes'];
-if (!in_array($getservice, $allowed_services)) {
-    $getservice = '';
+if (!in_array($getService, $allowed_services)) {
+    $getService = '';
 }
 
-const ACCESS_THRESHOLD_HIGH = 3000;
-const ACCESS_THRESHOLD_LOW = 50;
+const ACCESS_THRESHOLD_L1 = 90000;
+const ACCESS_THRESHOLD_L2 = 10000;
+const ACCESS_THRESHOLD_L3 = 3000;
+const ACCESS_THRESHOLD_L4 = 30;
 
-$countdays = 3; // count 3 days before
-$startingday = 1; // starting 1 day before
+$countDays = 3; // count 3 days before
+$startingDay = 1; // starting 1 day before
 
 // Decide if creating cron files or "update" files
 if ($update) {
@@ -96,34 +100,34 @@ if ($update) {
     $services = [
         [
             'name' => 'moodle2',
-            'url' => "/moodle/admin/cron.php\n",
+            'url' => '/moodle/admin/cron.php?forcecron=1',
             'file' => 'cronMoodle2.txt',
         ],
         [
             'name' => 'nodes',
-            'url' => "/wp-cron.php\n",
+            'url' => '/wp-cron.php',
             'file' => 'cronNodes.txt',
         ],
     ];
 
     foreach ($services as $service) {
 
-        // Only content of a given service is requested. Ignore the other
-        if ($getservice && $service['name'] != $getservice) {
+        // Only content of a given service is requested. Ignore the rest
+        if ($service['name'] != $getService) {
             continue;
-        };
+        }
 
         $schools = getServices(true, 'activedId', 'asc', $service['name'], '1');
 
-        $servers = [];
+        $servers = []; // List of database servers (Array)
         $unorderedList = []; // Cron list as it comes from database (Array)
         $groupedList = []; // Cron list with items grouped by database server (Array)
-        $orderedList = ''; // Cron list with items ordered to separate Moodles in the same server (String)
+        $orderedList = ''; // Cron list with items ordered to separate Moodle instances in the same server (String)
 
         if (is_array($schools)) {
 
             // 3 days count, starting 1 day ago
-            $schoolsTotals = getServicesTotals(true, 'activedId', 'asc', $service['name'], '1', $countdays, $startingday);
+            $schoolsTotals = getServicesTotals(true, 'activedId', 'asc', $service['name'], '1', $countDays, $startingDay);
 
             foreach ($schools as $school) {
 
@@ -132,54 +136,83 @@ if ($update) {
                 }
 
                 $total = (isset($schoolsTotals[$school['code']]) && intval($schoolsTotals[$school['code']]['total'])) ? intval($schoolsTotals[$school['code']]['total']) : 0;
-
-                // Build the URL of the cron
-                $url = '';
-                switch ($school['type']) {
-                    case SERVEIEDUCATIU_TYPE_ID:
-                        $url .= $agora['server']['se-url'];
-                        break;
-                    case EOI_TYPE_ID:
-                        $url .= $agora['server']['eoi'];
-                        break;
-                    case PROJECTES_TYPE_ID:
-                        $url .= $agora['server']['projectes'];
-                        break;
-                    default:
-                        if ('moodle2' == $service['name']) {
-                            $url .= $agora['server']['server'];
-                        } else {
-                            $url .= $agora['server']['nodes'];
-                        }
-                }
-                $url .= $agora['server']['base'];
+                $baseURL = getInstanceBaseURL($service['name'], $school['type']);
 
                 // Add the client to the list if it fulfills the activity requirement
                 switch ($level) {
-                    case 'high':
-                        if ($total >= ACCESS_THRESHOLD_HIGH) {
+
+                    case 'level1':
+                        // Every 10 minutes
+                        if ($total >= ACCESS_THRESHOLD_L1) {
                             if (!in_array($school['dbhost'], $unorderedList)) {
-                                array_push($unorderedList, ['dns' => $url . $school['dns'] . $service['url'], 'dbhost' => $school['dbhost']]);
+                                array_push($unorderedList, [
+                                    'total' => $total,
+                                    'url' => $baseURL . $school['dns'] . $service['url'],
+                                    'dbhost' => $school['dbhost'],
+                                ]);
                             }
                         }
                         break;
-                    case 'medium':
-                        if (($total < ACCESS_THRESHOLD_HIGH) && ($total >= ACCESS_THRESHOLD_LOW)) {
+
+                    case 'level2':
+                        // Every 20 minutes
+                        if (($total < ACCESS_THRESHOLD_L1) && ($total >= ACCESS_THRESHOLD_L2)) {
                             if (!in_array($school['dbhost'], $unorderedList)) {
-                                array_push($unorderedList, ['dns' => $url . $school['dns'] . $service['url'], 'dbhost' => $school['dbhost']]);
+                                array_push($unorderedList, [
+                                    'total' => $total,
+                                    'url' => $baseURL . $school['dns'] . $service['url'],
+                                    'dbhost' => $school['dbhost'],
+                                ]);
                             }
                         }
                         break;
-                    case 'low':
-                        if ($total < ACCESS_THRESHOLD_LOW) {
+
+                    case 'level3':
+                        // Every 60 minutes
+                        if (($total < ACCESS_THRESHOLD_L2) && ($total >= ACCESS_THRESHOLD_L3)) {
                             if (!in_array($school['dbhost'], $unorderedList)) {
-                                array_push($unorderedList, ['dns' => $url . $school['dns'] . $service['url'], 'dbhost' => $school['dbhost']]);
+                                array_push($unorderedList, [
+                                    'total' => $total,
+                                    'url' => $baseURL . $school['dns'] . $service['url'],
+                                    'dbhost' => $school['dbhost'],
+                                ]);
                             }
                         }
                         break;
+
+                    case 'level4':
+                        // Three times a day
+                        if (($total < ACCESS_THRESHOLD_L3) && ($total >= ACCESS_THRESHOLD_L4)) {
+                            if (!in_array($school['dbhost'], $unorderedList)) {
+                                array_push($unorderedList, [
+                                    'total' => $total,
+                                    'url' => $baseURL . $school['dns'] . $service['url'],
+                                    'dbhost' => $school['dbhost'],
+                                ]);
+                            }
+                        }
+                        break;
+
+                    case 'level5':
+                        // Once a day
+                        if ($total < ACCESS_THRESHOLD_L4) {
+                            if (!in_array($school['dbhost'], $unorderedList)) {
+                                array_push($unorderedList, [
+                                    'total' => $total,
+                                    'url' => $baseURL . $school['dns'] . $service['url'],
+                                    'dbhost' => $school['dbhost'],
+                                ]);
+                            }
+                        }
+                        break;
+
                     case 'all':
                         if (!in_array($school['dbhost'], $unorderedList)) {
-                            array_push($unorderedList, ['dns' => $url . $school['dns'] . $service['url'], 'dbhost' => $school['dbhost']]);
+                            array_push($unorderedList, [
+                                'total' => $total,
+                                'url' => $baseURL . $school['dns'] . $service['url'],
+                                'dbhost' => $school['dbhost'],
+                            ]);
                         }
                         break;
                 }
@@ -190,9 +223,11 @@ if ($update) {
         // Group URL by database host
         foreach ($unorderedList as $item) {
             if (isset($groupedList[$item['dbhost']])) {
-                array_push($groupedList[$item['dbhost']], $item['dns']);
+                // Add item to array
+                array_push($groupedList[$item['dbhost']], ['url' => $item['url'], 'total' => $item['total']]);
             } else {
-                $groupedList[$item['dbhost']] = [$item['dns']];
+                // Create array and add item
+                $groupedList[$item['dbhost']] = [['url' => $item['url'], 'total' => $item['total']]];
             }
         }
 
@@ -200,14 +235,22 @@ if ($update) {
         while (!empty($groupedList)) {
             foreach ($servers as $server) {
                 if (!empty($groupedList[$server])) {
-                    $orderedList .= array_shift($groupedList[$server]);
+                    if ($showTotals) {
+                        // Show the number of visits plus the URL
+                        $item = array_shift($groupedList[$server]);
+                        $orderedList .= $item['total'] . ' ' . $item['url'] . "\n";
+                    } else {
+                        // Shown only the URL
+                        $orderedList .= array_shift($groupedList[$server])['url'] . "\n";
+                    }
                 } else {
+                    // Remove empty item
                     unset($groupedList[$server]);
                 }
             }
         }
 
-        if (empty($getservice)) {
+        if (empty($getService)) {
             saveVarToFile($service['file'], $orderedList, false);
         } else {
             saveVarToFile($service['file'], $orderedList, true);
@@ -218,14 +261,14 @@ if ($update) {
 /**
  * Save content of var into a file
  *
- * @param null $filename
+ * @param string $filename
  * @param string $schoolsVar
  * @param bool $screenOnly
  *
  * @return boolean true if successful
  * @author Toni Ginard
  */
-function saveVarToFile($filename = null, $schoolsVar = '', $screenOnly = false) {
+function saveVarToFile(string $filename, string $schoolsVar, $screenOnly = false) {
 
     global $agora;
 
@@ -233,7 +276,7 @@ function saveVarToFile($filename = null, $schoolsVar = '', $screenOnly = false) 
         echo $schoolsVar;
         return true;
     } else {
-        cli_print_line("<br />");
+        cli_print_line('<br />');
         cli_print_line('<strong>File name: ' . $filename . '</strong><br />');
         cli_print_line(str_replace("\n", "\n<br />", $schoolsVar));
     }
@@ -274,4 +317,42 @@ function saveVarToFile($filename = null, $schoolsVar = '', $screenOnly = false) 
     */
 
     return true;
+}
+
+/**
+ * Builds the base URL of the instance (https://domain/basedir/)
+ *
+ * @param $serviceName string (Possible values: 'moodle2' or 'nodes')
+ * @param $schoolType integer
+ *
+ * @return string
+ * @author Toni Ginard
+ */
+function getInstanceBaseURL(string $serviceName, int $schoolType) {
+
+    global $agora;
+
+    $url = '';
+
+    switch ($schoolType) {
+
+        case SERVEIEDUCATIU_TYPE_ID:
+            $url .= $agora['server']['se-url'];
+            break;
+
+        case EOI_TYPE_ID:
+            $url .= $agora['server']['eoi'];
+            break;
+
+        case PROJECTES_TYPE_ID:
+            $url .= $agora['server']['projectes'];
+            break;
+
+        default:
+            $url .= ('moodle2' == $serviceName) ? $agora['server']['server'] : $agora['server']['nodes'];
+    }
+
+    $url .= $agora['server']['base'];
+
+    return $url;
 }
