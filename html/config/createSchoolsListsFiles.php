@@ -46,10 +46,10 @@ if (!in_array($getService, $allowed_services)) {
     $getService = '';
 }
 
-const ACCESS_THRESHOLD_L1 = 90000;
-const ACCESS_THRESHOLD_L2 = 10000;
-const ACCESS_THRESHOLD_L3 = 3000;
-const ACCESS_THRESHOLD_L4 = 30;
+const ACCESS_THRESHOLD_L1 = 50000;
+const ACCESS_THRESHOLD_L2 = 5000;
+const ACCESS_THRESHOLD_L3 = 200;
+const ACCESS_THRESHOLD_L4 = 40;
 
 $countDays = 3; // count 3 days before
 $startingDay = 1; // starting 1 day before
@@ -100,7 +100,7 @@ if ($update) {
     $services = [
         [
             'name' => 'moodle2',
-            'url' => '/moodle/admin/cron.php?forcecron=1',
+            'url' => '/moodle/admin/cron.php',
             'file' => 'cronMoodle2.txt',
         ],
         [
@@ -127,7 +127,7 @@ if ($update) {
         if (is_array($schools)) {
 
             // 3 days count, starting 1 day ago
-            $schoolsTotals = getServicesTotals(true, 'activedId', 'asc', $service['name'], '1', $countDays, $startingDay);
+            $schoolsTotals = getServicesTotals(true, 'total', 'desc', $service['name'], '1', $countDays, $startingDay);
 
             foreach ($schools as $school) {
 
@@ -220,6 +220,17 @@ if ($update) {
 
         }
 
+        // Sort list by total: Most active first. This mitigates the 'tail effect' (several Moodle in the same server at the end of the list)
+        usort( $unorderedList, function($a, $b) {
+            if ($a['total'] > $b['total']) {
+                return -1;
+            } elseif ($a['total'] < $b['total']) {
+                return 1;
+            } else {
+                return 0;
+            }
+        });
+
         // Group URL by database host
         foreach ($unorderedList as $item) {
             if (isset($groupedList[$item['dbhost']])) {
@@ -238,7 +249,7 @@ if ($update) {
                     if ($showTotals) {
                         // Show the number of visits plus the URL
                         $item = array_shift($groupedList[$server]);
-                        $orderedList .= $item['total'] . ' ' . $item['url'] . "\n";
+                        $orderedList .= $item['total'] . ' ' . $item['url'] . ' ' . $server . "\n";
                     } else {
                         // Shown only the URL
                         $orderedList .= array_shift($groupedList[$server])['url'] . "\n";
