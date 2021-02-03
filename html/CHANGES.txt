@@ -4,6 +4,30 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
 
+Changes 21.02.09
+---------------------------------------------------------------------------------------
+MOODLE
+- Upgraded Moodle from v3.8.6 to v3.8.7
+- Updated language packages
+- Upgraded all wiris plugins
+- Upgraded block completion_progress
+- Upgraded atto plugin cloze
+- Upgraded module choicegroup
+- Theme xtec2020: Fixed preference of uploaded logo before default logo
+- Theme xtec2020: Internal improvements to code
+- rcontent: FIX user_picture object evaluation
+- Local Agora: Improvements to code quality. Added script to calculate course quotas
+- Alexandria importer: Fixed error in development mode. Removed reference to non-existing node
+- Coursequotas: Added tables to cache quota usage by course and category and load data from cache tables
+- Backported MDL-47750 to allow copy & paste images from clipboard to the atto editor
+
+NODES
+- Fixed codification of email subjects
+- email-subscribers: Upgraded to version 4.6.6
+- wordpress-social-login: Removed old duplicated translation file
+- wp-recaptcha: Fixed missing whitespace between HTML attributes
+
+
 Changes 20.12.10
 ---------------------------------------------------------------------------------------
 GENERAL
