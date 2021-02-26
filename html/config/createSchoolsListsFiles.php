@@ -46,10 +46,10 @@ if (!in_array($getService, $allowed_services)) {
     $getService = '';
 }
 
-const ACCESS_THRESHOLD_L1 = 50000;
-const ACCESS_THRESHOLD_L2 = 5000;
-const ACCESS_THRESHOLD_L3 = 200;
-const ACCESS_THRESHOLD_L4 = 40;
+const ACCESS_THRESHOLD_L1 = 40000;
+const ACCESS_THRESHOLD_L2 = 4000;
+const ACCESS_THRESHOLD_L3 = 180;
+const ACCESS_THRESHOLD_L4 = 30;
 
 $countDays = 3; // count 3 days before
 $startingDay = 1; // starting 1 day before
