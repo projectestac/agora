@@ -4,6 +4,21 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
 
+Changes 21.03.01
+---------------------------------------------------------------------------------------
+MOODLE
+- Updated language packages
+
+NODES
+- Allow xtecadmin change the active theme
+- Added theme Astra 3.0.3
+- Added plugin Astra Addon 3.0.1
+- Fixed codification of email subjects
+
+PORTAL
+- Added Ruffle files
+
+
 Changes 21.02.09
 ---------------------------------------------------------------------------------------
 MOODLE
