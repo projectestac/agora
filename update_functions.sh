@@ -90,10 +90,6 @@ function get_action {
     then
         echo 'Demanat actualitzar NOMES WORDPRESS'
         action=$tempaction
-    elif [[ $tempaction == 'onlyintraweb' ]]
-    then
-        echo 'Demanat actualitzar NOMES INTRAWEB'
-        action=$tempaction
     elif [[ $tempaction == 'onlyportal' ]]
     then
         echo 'Demanat actualitzar NOMES PORTAL'

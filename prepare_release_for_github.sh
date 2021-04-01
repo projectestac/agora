@@ -14,7 +14,6 @@ filename=$app"_v"$version
 cd /tmp
 git clone https://github.com/projectestac/$app.git
 cd $app
-git checkout -b aws origin/aws
 git submodule update --recursive --init
 
 find . -name '\.git*' -exec rm -rf {} \; 2>/dev/null
