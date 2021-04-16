@@ -7,18 +7,18 @@
 
 Àgora has also a management module called __Àgora Portal__, addressed to school admins and based on [Zikula](https://zikula.org)
 
-The service has currently about 1.500 instances of each platform running on an infrastructure that has only one software installation (replicated on several web servers behind a load balancer), shared by all schools. Each school has its own database and disk space for data storage, thus greatly simplifying the system maintenance while allowing to have its own independent platform.
+The service has currently about 2.400 instances of each platform running on an infrastructure that has only one software installation (replicated on several web servers behind a load balancer), shared by all schools. Each school has its own database and disk space for data storage, thus greatly simplifying the system maintenance while allowing to have its own independent platform.
 
 School admins have full permissions to publish, create and edit sections, classrooms or any other type of content. They can also manage user accounts and grant permissions to teachers, students and parents.
 
 ## Àgora Nodes
 
-The main components of the [Nodes](http://agora.xtec.cat/nodes) platform are:
+The main components of the [Nodes](https://agora.xtec.cat/nodes) platform are:
 
 - [WordPress](https://wordpress.org/), the world's most used Content Management System (CMS)
 - [BuddyPress](https://buddypress.org/) providing a school private social network, tools for team collaboration and document management.
 - A selection of [WordPress plugins](https://wordpress.org/plugins/), some of them adapted for specific requirements.
-- New plugins developed for Nodes, like a [booking system](http://agora.xtec.cat/moodle/moodle/mod/glossary/view.php?id=1741&mode=entry&hook=2601) for managing classrooms, equipment and other school facilities.
+- New plugins developed for Nodes, like a [booking system](https://educaciodigital.cat/moodle/moodle/mod/glossary/view.php?id=1741&mode=entry&hook=2601) for managing classrooms, equipment and other school facilities.
 - A specific WordPress responsive theme that gives a common visual look to all school sites, customizable with several color combinations and school logos.
 - A set of web templates, each one with a structure of pages, categories and layouts specially designed for primary, secondary, rural, adult and languages schools.
 
@@ -34,7 +34,7 @@ The open source Virtual Learning Environment [Moodle](https://moodle.org) has be
 - A huge collection of [Moodle plugins](https://moodle.org/plugins/) suitable for primary and secondary schools.
 - Some plugins specifically designed for other projects developed by our team, like [JClic](https://moodle.org/plugins/mod_jclic) or [Geogebra](https://moodle.org/plugins/mod_geogebra)
 - The [Marsupial](https://github.com/projectestac/marsupial) Moodle plugin, designed to facilitate the communication with digital textbooks provided by some publishing houses.
-- A direct connection with [Alexandria](https://github.com/projectestac/marsupial), the repository of Open Educational Resources ([OER](https://www.oercommons.org/)) created and shared by catalan teachers.
+- A direct connection with [Alexandria](https://github.com/projectestac/alexandria), the repository of Open Educational Resources ([OER](https://www.oercommons.org/)) created and shared by catalan teachers.
 - The Moodle course format _[Senzill per temes](http://ateneu.xtec.cat/wikiform/wikiexport/cmd/tac/moodle2/b3_cursos/format_senzill)_, especially indicated for primary schools and developed by the Ministry of Education of Andorra.
 
 
@@ -68,6 +68,7 @@ Developers:
 - Sara Arjona (sarjona@xtec.cat)
 - Salva Valldeoriola (svallde2@xtec.cat)
 - Xavier Meler (jmeler@xtec.cat)
+- Nacho Abejaro (iabejaro@xtec.cat)  
 - Víctor Saavedra (vsaavedr@xtec.cat)
 - Albert Pérez (aperez16@xtec.cat)
 - Jaume Miró (jmiro227@xtec.cat)
@@ -85,8 +86,8 @@ With the support of:
    
 AGORA uses code from the following projects:
 
-- Moodle: Learning Management System (http://moodle.org/)
-- Nodes: CMS for Education & Social Network based on Wordpress & BuddyPress (http://agora.xtec.cat/nodes)
+- Moodle: Learning Management System (https://moodle.org/)
+- Nodes: CMS for Education & Social Network based on Wordpress & BuddyPress (https://agora.xtec.cat/nodes)
 
 
 AGORA includes external resources like:
@@ -100,6 +101,5 @@ Special Thanks:
 - Catalan schools involved in the project
 - Albert Gasset
 - Govern d'Andorra 
-- UPCnet
+- UPCnet / IThinkUPC
 - Itteria
-
