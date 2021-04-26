@@ -43,6 +43,7 @@ gitcheckout "html/moodle2/local/alexandriaimporter" "master" "https://github.com
 gitcheckout "html/moodle2/local/bigdata" "master" "https://github.com/projectestac/moodle-local_bigdata.git"
 gitcheckout "html/moodle2/local/clickedu" "MOODLE_36_STABLE" "https://github.com/clickedu/ClickeduMoodlePlugin.git"
 gitcheckout "html/moodle2/local/oauth" "master" "https://github.com/projectestac/moodle-local_oauth.git"
+gitcheckout "html/moodle2/local/redislock" "MOODLE_38_STABLE" "https://github.com/open-lms-open-source/moodle-local_redislock.git"
 gitcheckout "html/moodle2/local/wsvicensvives" "master" "https://github.com/vicensvives/moodle-local_ws_vicensvives.git"
 gitcheckout "html/moodle2/mod/choicegroup" "master" "https://github.com/ndunand/moodle-mod_choicegroup.git"
 gitcheckout "html/moodle2/mod/geogebra" "master" "https://github.com/projectestac/moodle-mod_geogebra.git"
