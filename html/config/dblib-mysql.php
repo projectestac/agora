@@ -245,57 +245,6 @@ function getServices($codeletter = false, $order = 'clientDNS', $desc = 'asc', $
 }
 
 /**
- * Gets one Nodes or Moodle per database server. Returns the lowest ID.
- *
- * @author aginard
- *
- * @param string $service: the name of the service (nodes or moodle2)
- *
- * @return array list of schools
- */
-function getServicesToTest($service) {
-
-    $schools = array();
-    if ($service == 'nodes') {
-        // Get the list of Nodes to test
-        $sql = 'SELECT dbHost, min(activedId) as id
-                FROM `agoraportal_client_services` c
-                LEFT JOIN `agoraportal_services` s ON c.serviceId = s.serviceId
-                WHERE serviceName = \'' . $service . '\'
-                AND activedId !=0 AND c.state=1
-                GROUP BY dbHost';
-
-        $results = get_rows_from_db($sql);
-        if (!$results) {
-            return false;
-        }
-
-        foreach ($results as $row) {
-            $schools[$row->id] = $row->dbHost;
-        }
-    } else if ($service == 'moodle2') {
-        // Get the list of Moodles to test
-        $sql = 'SELECT dbHost, min(activedId) as id
-                FROM `agoraportal_client_services` c
-                LEFT JOIN `agoraportal_services` s ON c.serviceId = s.serviceId
-                WHERE serviceName = \'' . $service . '\'
-                AND activedId !=0 AND c.state=1
-                GROUP BY dbHost';
-
-        $results = get_rows_from_db($sql);
-        if (!$results) {
-            return false;
-        }
-
-        foreach ($results as $row) {
-            $schools[$row->id] = $row->dbHost;
-        }
-    }
-
-    return $schools;
-}
-
-/**
  * Populates global array school_info with the connection information of the school
  *
  * @param $service Name of the service (nodes, moodle2)
