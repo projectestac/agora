@@ -2,12 +2,13 @@
 
 require_once 'config/env-config.php';
 require_once 'config/dblib-mysql.php';
+require_once 'config/dbmanager.php';
 
 global $agora, $state, $preparedStmts;
 
 // Check if works.php is polled by BigIP because behavior will change
 $origen = $_GET['origen'] ?? '';
-$isBigIP = ($origen == 'bigip') ? true : false;
+$isBigIP = $origen == 'bigip';
 
 $state = '';
 $nodeok = false;

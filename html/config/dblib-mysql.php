@@ -131,6 +131,8 @@ function getServicesTotals($codeletter = false, $order = 'clientDNS', $desc = 'a
 
     $where = (empty($conditions)) ? '' : 'WHERE ' . implode(' AND ', $conditions);
 
+    require_once 'dbmanager.php';
+
     $sql = "
     SELECT SUM(sd.total) as total, cs.activedId, c.clientCode
             FROM agoraportal_client_services cs
@@ -195,6 +197,8 @@ function getServices($codeletter = false, $order = 'clientDNS', $desc = 'asc', $
     }
 
     $where = (empty($conditions)) ? '' : 'WHERE ' . implode(' AND ', $conditions);
+
+    require_once 'dbmanager.php';
 
     $sql = "SELECT cs.activedId, cs.serviceDB, cs.dbHost, cs.state, cs.diskSpace, cs.diskConsume, c.clientId, c.clientCode, c.clientDNS, c.clientOldDNS, c.URLType, c.URLHost, c.OldURLHost, c.typeId, s.serviceName
             FROM agoraportal_client_services cs
@@ -618,6 +622,8 @@ function getSchoolInfo($service) {
  */
 function getSchoolFromDB($dns) {
 
+    require_once 'dbmanager.php';
+
     $sql = "SELECT c.clientId, c.clientCode, c.typeId, c.URLType, c.URLHost, s.serviceName, cs.activedId, cs.state, cs.serviceDB, cs.dbHost, cs.diskSpace, cs.diskConsume
             FROM agoraportal_client_services cs
             LEFT JOIN agoraportal_clients c ON cs.clientId = c.clientId
@@ -753,6 +759,8 @@ function getDiskInfo($dns, $service) {
         return false;
     }
 
+    require_once 'dbmanager.php';
+
     $sql = 'SELECT s.serviceName, cs.diskSpace, cs.diskConsume
             FROM agoraportal_clients c, agoraportal_client_services cs, agoraportal_services s
             WHERE c.clientId = cs.clientId AND cs.serviceId = s.serviceId AND (cs.state = "1" OR cs.state ="-7")
@@ -797,6 +805,8 @@ function getDiskPercent($diskConsume, $diskSpace) {
  * @return boolean
  */
 function checkExtraFunc($clientCode) {
+
+    require_once 'dbmanager.php';
 
     $sql = 'SELECT extraFunc
             FROM `agoraportal_clients`
@@ -864,290 +874,4 @@ function transformClientCode($clientCode, $type = 'letter2num') {
         }
     }
     return $clientCode;
-}
-
-/************* NEW DB MANAGER **************/
-/**
- * Get a DB connection for the specified service
- *
- * @param string $service  accepted values: admin, nodes, moodle/moodle2
- * @param string $schoolid id of the school
- * @param string $host     host to connect
- *
- * @return mixed            created connection already connected
- * @throws Exception
- */
-function get_dbconnection($service, $schoolid = '', $host = '') {
-
-    require_once('env-config.php');
-    global $agora;
-
-    static $con = [];
-
-    if (empty($service)) {
-        return false;
-    }
-
-    if ($service == 'admin') {
-        $schoolid = 'admin';
-    } else if (empty($host)) {
-        return false;
-    }
-
-    if (empty($schoolid)) {
-        return false;
-    }
-
-    if (!isset($con[$service])) {
-        $con[$service] = [];
-    }
-
-    if (!isset($con[$service][$schoolid])) {
-
-        switch($service) {
-
-            case 'nodes':
-                $parts = explode(':', $host, 2);
-                $host = $parts[0];
-                $port = isset($parts[1]) ? $parts[1]: '';
-                $user = $agora['nodes']['username'];
-                $password = $agora['nodes']['userpwd'];
-                $database = $agora['nodes']['userprefix'] . $schoolid;
-                $con[$service][$schoolid] = new agora_dbmanager($host, $user, $password, $database, $port);
-                break;
-
-            case 'admin':
-                $schoolid = 'admin';
-                $host = $agora['admin']['host'];
-                $port = $agora['admin']['port'];
-                $user = $agora['admin']['username'];
-                $password = $agora['admin']['userpwd'];
-                $database = $agora['admin']['database'];
-                $con[$service][$schoolid] = new agora_dbmanager($host, $user, $password, $database, $port);
-                break;
-
-            case 'moodle':
-            case 'moodle2':
-                $parts = explode(':', $host, 2);
-                $host = $parts[0];
-                $port = isset($parts[1]) ? $parts[1]: $agora['moodle2']['port'];
-                $user = $agora['moodle2']['userprefix'] . $schoolid;
-                $database = $agora['moodle2']['userprefix'] . $schoolid;
-                $password = $agora['moodle2']['userpwd'];
-                $con[$service][$schoolid] = pg_connect("host=$host port=$port dbname=$database user=$user password=$password");
-                break;
-
-            default:
-                return false;
-        }
-    }
-
-    return $con[$service][$schoolid];
-}
-
-/**
- * New MYSQL Manager, contruction has to be done though get_dbconnection
- */
-class agora_dbmanager{
-
-    private $connection = false;
-    private $host, $user, $password, $database, $port;
-
-    public function __construct($host, $user, $password, $database, $port = false) {
-        if (empty($host)) {
-            $host = null; // localhost
-        }
-        $this->host = $host;
-        $this->user = $user;
-        $this->password = $password;
-        $this->database = $database;
-        $this->port = $port;
-        try {
-            $this->connect();
-        } catch (Exception $e) {
-            // throw new Exception($e->getMessage()); //DEBUG
-            throw new Exception('Cannot connect to ' . $database);
-        }
-    }
-
-    /**
-     * Connect to the DB
-     * @return void
-     * @throws Exception
-     */
-    private function connect() {
-        if ($this->connection) {
-            return;
-        }
-
-        if ($this->port) {
-            $this->connection = new mysqli($this->host, $this->user, $this->password, $this->database, $this->port);
-        } else {
-            $this->connection = new mysqli($this->host, $this->user, $this->password, $this->database);
-        }
-
-        if ($this->connection->connect_error) {
-            $error = $this->connection->connect_error;
-            $this->connection = false;
-            throw new Exception ($error);
-        }
-    }
-
-    /**
-     * Rows selected in an array of objects
-     * @param  string $sql to execute
-     * @return array  with the rows objects
-     */
-    public function get_rows($sql) {
-        $result = $this->execute_query($sql);
-        if (!$result) {
-            return false;
-        }
-
-        $results = array();
-        while ($obj = $result->fetch_object()) {
-            $results[] = $obj;
-        }
-        $result->close();
-
-        return $results;
-    }
-
-    /**
-     * Get a row in the database
-     * @param  string $sql to execute
-     * @return object row of false
-     */
-    public function get_row($sql) {
-        $rows = $this->get_rows($sql);
-        if ($rows && $data = array_shift($rows)) {
-            return $data;
-        }
-        return false;
-    }
-
-    /**
-     * Get a field in the database
-     * @param  string $sql to execute
-     * @param  string $fieldname to get
-     * @return mixed value of false
-     */
-    public function get_field($sql, $fieldname) {
-        $data = $this->get_row($sql);
-        if ($data && isset($data->$fieldname)) {
-            return $data->$fieldname;
-        }
-        return false;
-    }
-
-    /**
-     * Number of rows on the query
-     * @param  string $sql to execute
-     * @return int     Number of rows returned
-     */
-    public function count_rows($sql) {
-        $rows = $this->execute_query($sql);
-        if (!$rows) {
-            return false;
-        }
-        return $rows->num_rows;
-    }
-
-    /**
-     * Executes a raw query (for inserts and updates)
-     *
-     * @param  string $sql query
-     * @return mysqli_result with the return
-     * @throws Exception
-     */
-    public function execute_query($sql) {
-        try {
-            $this->connect();
-        } catch (Exception $e) {
-            return false;
-            throw new Exception ('Cannot connect to ' . $this->database);
-        }
-
-        if (!$result = $this->connection->query($sql)) {
-            return false;
-        }
-
-        return $result;
-    }
-
-    /**
-     * Get last error from db query
-     * @return string with error
-     */
-    public function get_error() {
-        return $this->connection->error;
-    }
-
-    /**
-     * Close DB connection
-     */
-    public function close() {
-        if ($this->connection) {
-            $this->connection->close();
-            $this->connection = false;
-        }
-    }
-}
-
-/************ SOME WRAPPINGS  ***********/
-/**
- * Get rows from Admin database
- * @param  string $sql to execute
- * @return array, false with the rows returned in objects
- */
-function get_rows_from_db($sql) {
-    try {
-        $db = get_dbconnection('admin');
-        $results = $db->get_rows($sql);
-        $db->close();
-        return $results;
-    } catch (Exception $e) {
-        return false;
-    }
-}
-
-/**
- * Open a connection to the specified Moodle instance and return it
- *
- * @param $school Array with the school information (id and database)
- *
- * @return Connection handler or FALSE on error.
- */
-function connect_moodle($school) {
-    try {
-        return get_dbconnection('moodle2', $school['id'], $school['dbhost']);
-    } catch (Exception $e) {
-        return false;
-    }
-}
-
-/**
- * Close specified Moodle connection
- *
- * @param con        The Moodle database connection
- *
- * @return boolean TRUE on success or FALSE on failure.
- */
-function disconnect_moodle($con) {
-    return pg_close($con);
-}
-
-/**
- * Open a connection to the specified Nodes database and return it
- *
- * @param school        Array with the school information (database)
- *
- * @return Connection handler
- */
-function connect_nodes($school) {
-    try {
-        return get_dbconnection('nodes', $school['id'], $school['dbhost']);
-    } catch (Exception $e) {
-        return false;
-    }
 }

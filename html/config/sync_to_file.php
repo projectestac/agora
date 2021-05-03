@@ -1,7 +1,8 @@
 <?php
 
-require_once('dblib-mysql.php');
-require_once('cronslib.php');
+require_once 'dblib-mysql.php';
+require_once 'dbmanager.php';
+require_once 'cronslib.php';
 
 // For command line invocation
 $args = get_webargs();
@@ -9,7 +10,7 @@ if (defined('CLI_SCRIPT')) {
     $args['force'] = true;
 }
 
-$debugenabled = isset($args['debug']) ? $args['debug'] : 'off';
+$debugenabled = $args['debug'] ?? 'off';
 
 define('DEBUG_ENABLED', $debugenabled);
 xtec_debug("DEBUG ENABLED: $debugenabled");

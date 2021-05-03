@@ -18,8 +18,9 @@
  * @param show_totals: if present, show the number of visits before the cron URL
  */
 
-require_once('dblib-mysql.php');
-require_once('cronslib.php');
+require_once 'dblib-mysql.php';
+require_once 'dbmanager.php';
+require_once 'cronslib.php';
 
 $args = get_webargs();
 

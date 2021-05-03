@@ -1,17 +1,18 @@
 <?php
 
-define('MOODLE2_PREFIX', 'm2');
-define('NODES_PREFIX', 'wp_');
+const MOODLE2_PREFIX = 'm2';
+const NODES_PREFIX = 'wp_';
 
-define('SECONDS_IN_A_WEEK', '604800');
-define('SECONDS_IN_AN_HOUR', '3600');
-define('SECONDS_IN_A_DAY', '86400');
-define('SECONDS_IN_90_DAYS', '7776000');
-define('SECONDS_IN_30_DAYS', '2592000');
+const SECONDS_IN_A_WEEK = '604800';
+const SECONDS_IN_AN_HOUR = '3600';
+const SECONDS_IN_A_DAY = '86400';
+const SECONDS_IN_90_DAYS = '7776000';
+const SECONDS_IN_30_DAYS = '2592000';
 
-require_once('env-config.php');
-require_once('dblib-mysql.php');
-require_once('cronslib.php');
+require_once 'env-config.php';
+require_once 'dblib-mysql.php';
+require_once 'dbmanager.php';
+require_once 'cronslib.php';
 
 $args = get_webargs();
 
