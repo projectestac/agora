@@ -92,7 +92,6 @@ if (($isBigIP && !$nodeok) || (!$isBigIP)) {
 
             // Check File systems for Moodle
             $dirToCheck = $agora['server']['root'] . $agora['moodle2']['datadir'] . $agora['moodle2']['userprefix'] . $schoolid . '/';
-            // $dirToCheck = $agora['server']['root'] . get_filepath_moodle($schoolid) . '/';
             if (!is_writable($dirToCheck)) {
                 $isok = false;
                 $state .= "<br>El directori de dades de <strong>Moodle</strong> ($dirToCheck), o bé no està muntat o bé no té permís d'escriptura.<br>";

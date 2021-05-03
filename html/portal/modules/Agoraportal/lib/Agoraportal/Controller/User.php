@@ -344,7 +344,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         // Read moodle2 repository folder
         if ($action == 'm2x') {
             $serviceName = $service->servicetype->serviceName;
-            $dataDir = $agora['server']['root'] . get_filepath_moodle($service->activedId);
+            $dataDir = $service->getDataDirectory();
             $folder = $dataDir . $agora[$serviceName]['repository_files'];
 
             if (is_dir($folder)) {

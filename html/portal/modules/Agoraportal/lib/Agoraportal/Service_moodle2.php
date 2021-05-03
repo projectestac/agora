@@ -297,8 +297,7 @@ class Service_moodle2 extends Service {
      */
     public function getDataDirectory() {
         $agora = AgoraPortal_Util::getGlobalAgoraVars();
-
-        return $agora['server']['root'] . get_filepath_moodle($this->activedId);
+        return $agora['server']['root'] . $agora['moodle2']['datadir'] . $agora['moodle2']['userprefix'] . $this->activedId;
     }
 
     /**
