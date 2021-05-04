@@ -300,7 +300,7 @@ function getSchoolInfo($service) {
         exit(0);
     }
 
-    // Cache level 1: If cookie is present load it and return
+    // Cache level 1: If cookie is present load it
     if (isset($_COOKIE[$agora['server']['cookie']])) {
         $cookie = $_COOKIE[$agora['server']['cookie']];
         if (isValidCookie($cookie)) {
@@ -351,11 +351,6 @@ function getSchoolInfo($service) {
     //  after the cache is checked to take into account the case of the recently activated services.
     if ($service == 'moodle2' && (!isset($school_info['id_moodle2']) || $school_info['id_moodle2'] == '')) {
         $school_info = array();
-    } elseif ($service == 'intranet' &&
-        (!isset($school_info['id_intranet']) || $school_info['id_intranet'] == '') &&
-        (!isset($school_info['id_nodes']) || $school_info['id_nodes'] == ''))
-    {
-        $school_info = array();
     } elseif ($service == 'nodes' && (!isset($school_info['id_nodes']) || $school_info['id_nodes'] == '')) {
         $school_info = array();
     }
@@ -367,17 +362,6 @@ function getSchoolInfo($service) {
         if (!empty($school_info)) {
             $school_info['source'] = 'DB';
         }
-    }
-
-    // Redirect old intranet URL to Nodes in case the client has a Nodes service
-    if ($service == 'intranet' &&
-        (isset($school_info['id_nodes']) && !empty($school_info['id_nodes'])) &&
-        (!isset($school_info['id_intranet']) || empty($school_info['id_intranet'])))
-    {
-        $newaddress = $agora['server']['html'] . $centre . '/';
-        header('HTTP/1.1 301 Moved Permanently');
-        header('Location: ' . $newaddress);
-        exit;
     }
 
     // If a new_dns param is present, redirect to the new DNS
@@ -396,13 +380,8 @@ function getSchoolInfo($service) {
             } else {
                 $newaddress = $agora['server']['server'] . $agora['server']['base'] . $newDNS . '/';
             }
-            switch ($service) {
-                case 'moodle2':
-                    $newaddress .= 'moodle/';
-                    break;
-                case 'intranet':
-                    $newaddress .= 'intranet/';
-                    break;
+            if ($service == 'moodle2') {
+                $newaddress .= 'moodle/';
             }
             header('HTTP/1.1 301 Moved Permanently');
             header('Location: ' . $newaddress);
@@ -413,20 +392,15 @@ function getSchoolInfo($service) {
     // If a new host is present, redirect to the new host
     if (!empty($school_info['new_url_host'])) {
 
-        $new_url_host = 'http://' . $school_info['new_url_host'];
+        $new_url_host = 'https://' . $school_info['new_url_host'];
 
         if (defined('CLI_SCRIPT')) {
             echo 'Center ' . $centre . ' has new host: ' . $new_url_host;
             echo "\nerror\n";
         } else {
             $new_url_host .= $agora['server']['base'];
-            switch ($service) {
-                case 'moodle2':
-                    $new_url_host .= 'moodle/';
-                    break;
-                case 'intranet':
-                    $new_url_host .= 'intranet/';
-                    break;
+            if ($service == 'moodle2') {
+                $new_url_host .= 'moodle/';
             }
             header('HTTP/1.1 301 Moved Permanently');
             header('Location: ' . $new_url_host);
@@ -448,11 +422,13 @@ function getSchoolInfo($service) {
 
     // At this point, $school_info[] should contain connection data
 
-    // Check for type EOI to set proper flag
+    // Check for special types to set proper flags
     $agora['iseoi'] = isset($school_info['type']) && ($school_info['type'] == EOI_TYPE_ID);
+    $agora['isServeiEducatiu'] = isset($school_info['type']) && ($school_info['type'] == SERVEIEDUCATIU_TYPE_ID);
+    $agora['isProjecte'] = isset($school_info['type']) && ($school_info['type'] == PROJECTES_TYPE_ID);
 
     // Set cookie for future requests
-    if (!empty($school_info['id_moodle2']) || !empty($school_info['id_intranet']) || !empty($school_info['id_nodes'])) {
+    if (!empty($school_info['id_moodle2']) || !empty($school_info['id_nodes'])) {
 
         $bodycookie = $centre
             . '__' . (isset($school_info['clientCode']) ? $school_info['clientCode'] : '')
@@ -483,7 +459,7 @@ function getSchoolInfo($service) {
     }
 
     // Change default URL host for Serveis Educatius
-    if (isServeiEducatiu() && isset($agora['server']['se-url'])) {
+    if ($agora['isServeiEducatiu'] && isset($agora['server']['se-url'])) {
         $agora['server']['server'] = $agora['server']['se-url'];
         $agora['server']['html'] = $agora['server']['server'] . $agora['server']['base'];
 
@@ -497,7 +473,7 @@ function getSchoolInfo($service) {
     }
 
     // Change default URL host for EOI
-    if (isEOI() && isset($agora['server']['eoi'])) {
+    if ($agora['iseoi'] && isset($agora['server']['eoi'])) {
         $agora['server']['server'] = $agora['server']['eoi'];
         $agora['server']['html'] = $agora['server']['server'] . $agora['server']['base'];
 
@@ -511,7 +487,7 @@ function getSchoolInfo($service) {
     }
 
     // Change default URL host for Projectes
-    if (isProjecte() && isset($agora['server']['projectes'])) {
+    if ($agora['isProjecte'] && isset($agora['server']['projectes'])) {
         $agora['server']['server'] = $agora['server']['projectes'];
         $agora['server']['html'] = $agora['server']['server'] . $agora['server']['base'];
 
@@ -525,7 +501,7 @@ function getSchoolInfo($service) {
     }
 
     // Nodes can have a different domain
-    if (($service == 'nodes') && isset($agora['server']['nodes']) && !isServeiEducatiu() && !isProjecte() && !isEOI()) {
+    if (($service == 'nodes') && isset($agora['server']['nodes']) && !$agora['isServeiEducatiu'] && !$agora['isProjecte'] && !$agora['iseoi']) {
         $agora['server']['server'] = $agora['server']['nodes'];
         $agora['server']['html'] = $agora['server']['server'] . $agora['server']['base'];
 
