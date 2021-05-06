@@ -59,6 +59,17 @@
             <input class="form-control" type="text" id="maxAbsFreeQuota" name="maxAbsFreeQuota" size="10" maxlength="50" value="{$maxAbsFreeQuota}" />
         </div>
     </div>
+
+    <div class="form-group">
+        <label class="col-sm-4 control-label" for="xtecadminPassword">{gt text="Contrasenya de l'usuari xtecadmin dels serveis"}</label>
+        <div class="col-sm-8">
+            <input class="form-control" type="text" id="xtecadminPassword" name="xtecadminPassword" size="10" maxlength="250" value="{$xtecadminPassword}" />
+            <div class="alert alert-info">
+                {gt text="Si la longitud del text introduït és de 32 caràcters, es desarà sense encriptar. En cas contrari, s'encriptarà en md5. En tot cas, s'actualitzarà el valor."}
+            </div>
+        </div>
+    </div>
+
     <div class="form-group">
         <label class="col-sm-4 control-label" for="createDB">{gt text="En fer una alta de Nodes, intenta crear la base de dades MySQL si no existeix"}</label>
         <div class="col-sm-8">

@@ -136,6 +136,7 @@ class Service_moodle2 extends Service {
 
         $params = [];
         $params['password'] = md5($password); // Generate a password for Moodle admin user
+        $params['xtecadminPassword'] = ModUtil::getVar('Agoraportal', 'xtecadminPassword', md5(AgoraPortal_Util::createRandomPass()));
         $params['clientName'] = $client->clientName;
         $params['clientCode'] = $client->clientCode;
         $params['clientAddress'] = $client->clientAddress;

@@ -151,6 +151,7 @@ class Service_nodes extends Service {
 
         $params = array();
         $params['password'] = md5($password); // Admin password in md5
+        $params['xtecadminPassword'] = ModUtil::getVar('Agoraportal', 'xtecadminPassword', md5(AgoraPortal_Util::createRandomPass()));
         $params['clientName'] = $client->clientName;
         $params['clientAddress'] = $client->clientAddress;
         $params['clientCity'] = $client->clientCity;

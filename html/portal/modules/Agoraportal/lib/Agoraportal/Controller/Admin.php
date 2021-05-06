@@ -637,6 +637,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                         ->assign('clientsMailThreshold', $this->getVar('clientsMailThreshold'))
                         ->assign('maxAbsFreeQuota', $this->getVar('maxAbsFreeQuota'))
                         ->assign('maxFreeQuotaForRequest', $this->getVar('maxFreeQuotaForRequest'))
+                        ->assign('xtecadminPassword', $this->getVar('xtecadminPassword'))
                         ->assign('services', $servicetypes)
                         ->assign('extras', $extraInfo)
                         ->assign('locations', $locations)
@@ -659,6 +660,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $clientsMailThreshold = FormUtil::getPassedValue('clientsMailThreshold', null, 'POST');
         $maxAbsFreeQuota = FormUtil::getPassedValue('maxAbsFreeQuota', null, 'POST');
         $maxFreeQuotaForRequest = FormUtil::getPassedValue('maxFreeQuotaForRequest', null, 'POST');
+        $xtecadminPassword = FormUtil::getPassedValue('xtecadminPassword', '', 'POST');
         $createDB = FormUtil::getPassedValue('createDB', false, 'POST');
 
         // Confirm authorisation code
@@ -667,6 +669,9 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         // Convert 'on' value of checkbox to boolean
         $createDB = ($createDB == 'on') ? true : false;
 
+        // Encrypt password if needed
+        $xtecadminPassword = (strlen($xtecadminPassword) == 32) ? $xtecadminPassword : md5($xtecadminPassword);
+
         $this->setVar('siteBaseURL', $siteBaseURL)
                 ->setVar('warningMailsTo', $warningMailsTo)
                 ->setVar('requestMailsTo', $requestMailsTo)
@@ -674,6 +679,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 ->setVar('clientsMailThreshold', $clientsMailThreshold)
                 ->setVar('maxAbsFreeQuota', $maxAbsFreeQuota)
                 ->setVar('maxFreeQuotaForRequest', $maxFreeQuotaForRequest)
+                ->setVar('xtecadminPassword', $xtecadminPassword)
                 ->setVar('createDB', $createDB);
 
         LogUtil::registerStatus($this->__('S\'ha modificat la configuració'));
