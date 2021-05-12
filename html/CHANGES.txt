@@ -4,6 +4,26 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
 
+Changes 21.05.20
+---------------------------------------------------------------------------------------
+GENERAL
+- Removed checkCookies.php, checkCrons.php
+- Separated dbmanager class from dblib-mysql.php
+- Removed old code in several scripts
+
+MOODLE
+- Upgraded module H5P to version 1.22.2
+- Upgraded report coursequotas (Improved performance)
+- Moved sessions from database to redis
+- Disabled cursors with hold
+- Local redislock: Added plugin
+- Local agora: Removed unused old scripts
+- Local agora: Added script to remove unused old directories in moodledata
+
+PORTAL
+- Added parameter for xtecadmin password
+
+
 Changes 21.03.01
 ---------------------------------------------------------------------------------------
 MOODLE
