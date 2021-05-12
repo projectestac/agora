@@ -72,7 +72,7 @@ fi
 if [[ $execwordpress == true ]]
 then
 # Wordpress
-gitcheckout "html/wordpress" "master" "https://github.com/projectestac/agora_nodes.git"
+gitcheckout "html/wordpress" "wip-57-rework" "https://github.com/projectestac/agora_nodes.git"
 gitcheckout "html/wordpress/wp-content/mu-plugins/common" "master" "https://github.com/projectestac/wordpress-mu-common.git"
 gitcheckout "html/wordpress/wp-content/plugins/add-to-any" "master" "https://github.com/projectestac/wordpress-add-to-any.git"
 gitcheckout "html/wordpress/wp-content/plugins/astra-addon" "master" "https://github.com/projectestac/wordpress-astra-addon.git"
