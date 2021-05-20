@@ -25,7 +25,7 @@ fi
 
 if [[ $execmoodle == true ]]
 then
-gitcheckout "html/moodle2" "master" "https://github.com/projectestac/agora_moodle2.git"
+gitcheckout "html/moodle2" "WIP-311-rework" "https://github.com/projectestac/agora_moodle2.git"
 gitcheckout "html/moodle2/blocks/completion_progress" "master" "https://github.com/deraadt/moodle-block_completion_progress.git"
 gitcheckout "html/moodle2/blocks/courses_vicensvives" "master" "https://github.com/vicensvives/moodle-block_courses_vicensvives.git"
 gitcheckout "html/moodle2/blocks/licenses_vicensvives" "master" "https://github.com/vicensvives/moodle-block_licenses_vicensvives.git"
@@ -40,10 +40,9 @@ gitcheckout "html/moodle2/lib/editor/atto/plugins/fontfamily" "master" "https://
 gitcheckout "html/moodle2/lib/editor/atto/plugins/wiris" "stable" "https://github.com/wiris/moodle-atto_wiris.git"
 gitcheckout "html/moodle2/local/agora" "master" "https://github.com/projectestac/moodle-local_agora.git"
 gitcheckout "html/moodle2/local/alexandriaimporter" "master" "https://github.com/projectestac/moodle-local_alexandriaimporter.git"
-gitcheckout "html/moodle2/local/bigdata" "master" "https://github.com/projectestac/moodle-local_bigdata.git"
 gitcheckout "html/moodle2/local/clickedu" "MOODLE_36_STABLE" "https://github.com/clickedu/ClickeduMoodlePlugin.git"
 gitcheckout "html/moodle2/local/oauth" "master" "https://github.com/projectestac/moodle-local_oauth.git"
-gitcheckout "html/moodle2/local/redislock" "MOODLE_38_STABLE" "https://github.com/open-lms-open-source/moodle-local_redislock.git"
+gitcheckout "html/moodle2/local/redislock" "MOODLE_39_STABLE" "https://github.com/open-lms-open-source/moodle-local_redislock.git"
 gitcheckout "html/moodle2/local/wsvicensvives" "master" "https://github.com/vicensvives/moodle-local_ws_vicensvives.git"
 gitcheckout "html/moodle2/mod/choicegroup" "master" "https://github.com/ndunand/moodle-mod_choicegroup.git"
 gitcheckout "html/moodle2/mod/geogebra" "master" "https://github.com/projectestac/moodle-mod_geogebra.git"
@@ -54,7 +53,7 @@ gitcheckout "html/moodle2/mod/hvp/library" "release" "https://github.com/h5p/h5p
 gitcheckout "html/moodle2/mod/hvp/reporting" "release" "https://github.com/h5p/h5p-php-report.git"
 gitcheckout "html/moodle2/mod/jclic" "master" "https://github.com/projectestac/moodle-mod_jclic.git"
 gitcheckout "html/moodle2/mod/journal" "master" "https://github.com/elearningsoftware/moodle-mod_journal.git"
-gitcheckout "html/moodle2/mod/questionnaire" "MOODLE_38_STABLE" "https://github.com/PoetOS/moodle-mod_questionnaire.git"
+gitcheckout "html/moodle2/mod/questionnaire" "MOODLE_310_STABLE" "https://github.com/PoetOS/moodle-mod_questionnaire.git"
 gitcheckout "html/moodle2/mod/qv" "master" "https://github.com/projectestac/moodle-mod_qv.git"
 gitcheckout "html/moodle2/question/format/hotpot" "master" "https://github.com/gbateson/moodle-qformat_hotpot.git"
 gitcheckout "html/moodle2/question/type/essaywiris" "stable" "https://github.com/wiris/moodle-qtype_essaywiris.git"
@@ -63,7 +62,7 @@ gitcheckout "html/moodle2/question/type/multianswerwiris" "stable" "https://gith
 gitcheckout "html/moodle2/question/type/multichoicewiris" "stable" "https://github.com/wiris/moodle-qtype_multichoicewiris.git"
 gitcheckout "html/moodle2/question/type/shortanswerwiris" "stable" "https://github.com/wiris/moodle-qtype_shortanswerwiris.git"
 gitcheckout "html/moodle2/question/type/truefalsewiris" "stable" "https://github.com/wiris/moodle-qtype_truefalsewiris.git"
-gitcheckout "html/moodle2/question/type/wq" "master" "https://github.com/wiris/moodle-qtype_wq.git"
+gitcheckout "html/moodle2/question/type/wq" "stable" "https://github.com/wiris/moodle-qtype_wq.git"
 gitcheckout "html/moodle2/question/type/ordering" "master" "https://github.com/gbateson/moodle-qtype_ordering.git"
 gitcheckout "html/moodle2/report/coursequotas" "master" "https://github.com/projectestac/moodle-report_coursequotas.git"
 gitcheckout "html/moodle2/theme/xtec2020" "master" "https://github.com/projectestac/moodle-theme_xtec2020.git"
