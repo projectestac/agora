@@ -64,7 +64,7 @@ gitcheckout "html/moodle2/question/type/multichoicewiris" "stable" "https://gith
 gitcheckout "html/moodle2/question/type/shortanswerwiris" "stable" "https://github.com/wiris/moodle-qtype_shortanswerwiris.git"
 gitcheckout "html/moodle2/question/type/truefalsewiris" "stable" "https://github.com/wiris/moodle-qtype_truefalsewiris.git"
 gitcheckout "html/moodle2/question/type/wq" "stable" "https://github.com/wiris/moodle-qtype_wq.git"
-gitcheckout "html/moodle2/question/type/ordering" "master" "https://github.com/gbateson/moodle-qtype_ordering.git"
+gitcheckout "html/moodle2/question/type/ordering" "master" "https://github.com/toniginard/moodle-qtype_ordering.git"
 gitcheckout "html/moodle2/report/coursequotas" "master" "https://github.com/projectestac/moodle-report_coursequotas.git"
 gitcheckout "html/moodle2/theme/xtec2020" "master" "https://github.com/projectestac/moodle-theme_xtec2020.git"
 fi
