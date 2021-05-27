@@ -39,7 +39,7 @@ gitcheckout "html/moodle2/lib/editor/atto/plugins/cloze" "master" "https://githu
 gitcheckout "html/moodle2/lib/editor/atto/plugins/fontsize" "master" "https://github.com/andrewnicols/moodle-atto_fontsize.git"
 gitcheckout "html/moodle2/lib/editor/atto/plugins/fontfamily" "master" "https://github.com/projectestac/moodle-atto_fontfamily.git"
 gitcheckout "html/moodle2/lib/editor/atto/plugins/wiris" "stable" "https://github.com/wiris/moodle-atto_wiris.git"
-gitcheckout "html/moodle2/local/agora" "master" "https://github.com/projectestac/moodle-local_agora.git"
+gitcheckout "html/moodle2/local/agora" "MUC-311" "https://github.com/projectestac/moodle-local_agora.git"
 gitcheckout "html/moodle2/local/alexandriaimporter" "master" "https://github.com/projectestac/moodle-local_alexandriaimporter.git"
 gitcheckout "html/moodle2/local/clickedu" "MOODLE_36_STABLE" "https://github.com/clickedu/ClickeduMoodlePlugin.git"
 gitcheckout "html/moodle2/local/oauth" "master" "https://github.com/projectestac/moodle-local_oauth.git"
@@ -66,7 +66,7 @@ gitcheckout "html/moodle2/question/type/truefalsewiris" "stable" "https://github
 gitcheckout "html/moodle2/question/type/wq" "stable" "https://github.com/wiris/moodle-qtype_wq.git"
 gitcheckout "html/moodle2/question/type/ordering" "master" "https://github.com/gbateson/moodle-qtype_ordering.git"
 gitcheckout "html/moodle2/report/coursequotas" "master" "https://github.com/projectestac/moodle-report_coursequotas.git"
-gitcheckout "html/moodle2/theme/xtec2020" "master" "https://github.com/projectestac/moodle-theme_xtec2020.git"
+gitcheckout "html/moodle2/theme/xtec2020" "WIP-moodle-311" "https://github.com/projectestac/moodle-theme_xtec2020.git"
 fi
 
 if [[ $execwordpress == true ]]
