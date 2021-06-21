@@ -4,6 +4,7 @@ html/config/env-config.php
 html/config/sync-config.sh
 html/config/.htaccess
 html/config/.htpasswd
+html/config/phpmyadmin
 .Trash*/*
 .buildpath
 .project
