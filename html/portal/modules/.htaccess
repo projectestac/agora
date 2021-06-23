@@ -2,8 +2,7 @@
 # Purpose of file: block web access to not allowed files
 #                  stored under the modules/ directory
 # ----------------------------------------------------------------------
-deny from all
+Require all denied
 <FilesMatch "\.(css|eot|gif|jpeg|jpg|js|pdf|png|svg|swf|ttf|woff)$">
-order allow,deny
-allow from all
-</filesmatch>
+    Require all granted
+</FilesMatch>

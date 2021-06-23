@@ -1,5 +1,5 @@
 # in case PHPIDS is placed in the web-root
-deny from all
+Require all denied
 
 # silence is golden
 php_flag display_errors off
