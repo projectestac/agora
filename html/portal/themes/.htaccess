@@ -2,8 +2,7 @@
 # Purpose of file: block web access to not allowed files
 #                  stored under the themes/ directory
 # ----------------------------------------------------------------------
-deny from all
+Require all denied
 <FilesMatch "\.(css|js|png|gif|jpg|ico|swf|flv|eot|woff|woff2|ttf|svg)$">
-order allow,deny
-allow from all
+    Require all granted
 </FilesMatch>
