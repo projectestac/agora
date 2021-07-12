@@ -4,6 +4,67 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
 
+Changes 21.07.14
+---------------------------------------------------------------------------------------
+MOODLE
+- Upgraded Moodle to version 3.11.1
+- Updated langpacks
+- Content bank: Restricted access to xtecadmin
+- H5P core: Allow access only to xtecadmin
+- H5P module: Upgraded to version 1.22.3
+- Block completion_progress: Upgraded version
+- Alexandria importer: Improved presentation
+- Choicegroup: Upgraded version
+- Clickedu: Upgraded version
+- Geogebra: Upgraded version
+- Jclic: Upgraded version
+- Questionnaire: Upgraded version
+- Upgraded all wiris plugins
+- Question type ordering: Upgraded version
+- Single task execution: Added param to identify Moodle instance in Agora
+- Cron: Removed minimum time between executions
+- Local Agora: Updated MUC for Moodle 3.11
+- Atto plugin cloze: Upgraded version
+- Theme xtec2020: Added compatibility with Moodle 3.11
+- Activate usage of X-SendFile
+
+NODES
+- Upgraded WordPress to version 5.7.2
+- Updated translations
+- add-to-any: Upgraded to version 1.7.44
+- bbpress: Upgraded to version 2.6.6
+- buddypress: Upgraded to version 7.3.0
+- buddypress-docs: Upgraded to version 2.1.5
+- buddypress-group-email-subscription: Upgraded to version 4.0.0
+- code-snippets: Upgraded to version 2.14.1
+- disable-gutenberg: Upgraded to version 2.4
+- email-subscribers: Upgraded to version 4.7.0
+- google-calendar-events to version: Upgraded 3.1.36
+- h5p: Upgraded to version 1.15.2
+- import-users-from-csv-with-meta: Upgraded to version 1.17.5
+- invite-anyone: Upgraded to version 1.4.2
+- pods: Upgraded to version 2.7.27
+- polylang: Upgraded to version 3.0.3
+- email-subscribers: Upgraded to version 4.7.0
+- table-of-contents-plus: Upgraded to version 2002
+- tabs-responsive: Upgraded to version 2.1.10
+- tinymce-advanced: Upgraded to version 5.6.0
+- widget-visibility-without-jetpack: Upgraded to version 1.5
+- wordpress-importer: Upgraded to version 0.7
+- wordpress-social-login: Upgraded to version 3.0.4
+- wordpress-telegram: Upgraded to version 3.1.0
+- astra theme: Upgraded to version 3.4.2
+- astra addon: Upgraded to version 3.4.1
+- mu-plugin 'common': Added changes for WordPress 5.7.x
+- gif-master: Added plugin
+- giphypress: Removed plugin
+- Theme reactor-primaria-1: Fixed customization of header font size
+- buddypress-like: Removed plugin
+
+PORTAL
+- Upgraded Ruffle
+
+
 Changes 21.05.20
 ---------------------------------------------------------------------------------------
 GENERAL
