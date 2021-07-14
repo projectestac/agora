@@ -3,6 +3,6 @@
 #                  stored under the modules/ directory
 # ----------------------------------------------------------------------
 Require all denied
-<FilesMatch "\.(css|eot|gif|jpeg|jpg|js|pdf|png|svg|swf|ttf|woff)$">
+<FilesMatch "\.(css|eot|gif|jpeg|jpg|js|pdf|png|svg|swf|ttf|woff)|upload\.php$">
     Require all granted
 </FilesMatch>
