@@ -3,6 +3,21 @@ Release notes for Agora (https://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
+Changes 21.09.02
+---------------------------------------------------------------------------------------
+MOODLE
+- Updated langpacks
+- Clickedu: Upgraded version
+- Coursequotas: Fixed variable name that caused incorrect course size values being saved in database
+- Vicens Vives: Upgraded all components
+
+NODES
+- buddypress-docs: Fixed verification issues with links using special chars
+- save_stats: Fixed error calculating date when site is configured using manual offsets
+- Fixed catalan translation in options-general.php
+- xtec-booking: Improved catalan translation
+- xtec-booking: Fixed display of events in day view
+
 
 Changes 21.07.14
 ---------------------------------------------------------------------------------------
