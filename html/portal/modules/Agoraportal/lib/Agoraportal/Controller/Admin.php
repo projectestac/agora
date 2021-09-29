@@ -2367,7 +2367,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             }
 
             // Pas 2: Comprovar que el centre encara no té el servei (taula client_services)
-            $service = Service::get_by_client_and_service($client->clientId, $serviceTypeId); // Should return false!
+            $service = Service::get_by_client_and_service($client->clientId, $serviceTypeId, Service::STATUS_ENABLED); // Should return false!
             if ($service) {
                 $results[$clientCode] = "El centre <strong>$client->clientName</strong> ja disposa del servei $serviceName. Per tant, no es crearà.";
                 $error++;
@@ -2385,17 +2385,20 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 continue;
             }
 
-            if ($serviceName == 'nodes') {
-                $client->set_extraFunc($template);
-                $client->save();
-            }
+            // Configura la plantilla (pri, sec...)
+            $client->set_extraFunc($template);
+            $client->save();
 
-            $service = Service::get_by_client_and_service($client->clientId, $serviceTypeId); // Get the object of the service created in step 3
+            // Get the object of the service created in step 3 (Service::request_service() creates the service in status "to revise")
+            $service = Service::get_by_client_and_service($client->clientId, $serviceTypeId, Service::STATUS_TOREVISE);
+
+            // Update values and save
             $service->dbHost = $dbHost;
             $service->serviceDB = '';
             $service->observations = 'Alta automàtica';
             $service->diskSpace = $servicetype->defaultDiskSpace;
-            $service->save(); // Update values
+            $service->timeCreated = time();
+            $service->save();
 
             // Pas 4: Activar el Servei
             try {
