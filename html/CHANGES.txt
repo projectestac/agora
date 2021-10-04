@@ -3,6 +3,37 @@ Release notes for Agora (https://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
+
+Changes 21.10.08
+---------------------------------------------------------------------------------------
+MOODLE
+- Upgraded Moodle to version 3.11.3+
+- Updated langpacks
+- assignfeedback_editpdf: Remove all fileareas of component assignfeedback_editpdf during course reset (MDL-69570)
+- Atto plugin cloze: Upgraded version
+- Choicegroup: Upgraded version
+- Clickedu: Upgraded version
+- Hot Potatoes: Upgraded module
+- migratehvp2h5p: Removed dependencies to allow mod_hvp reset
+- Ordering: Upgraded question type
+- Questionnaire: Upgraded module
+- Wiris: Upgraded all components to versions 7.27 / 4.3
+
+NODES
+- Upgraded WordPress to version 5.7.3
+- Updated translation of WordPress core
+- buddypress: Upgraded plugin to version 9.1.1
+- disable-gutenberg: Removed plugin
+- nodes-incidencies: Added plugin
+- nodes-inventari: Added plugin
+- tabs-responsive: Removed call to wp_reset_query() because it breaks the loading of posts in main page
+- tabs-responsive: Fixed button to insert shortcodes into posts not being generated
+- Added operation to flush rewrite rules
+
+PORTAL
+- Improved mass site creation
+
+
 Changes 21.09.02
 ---------------------------------------------------------------------------------------
 MOODLE
