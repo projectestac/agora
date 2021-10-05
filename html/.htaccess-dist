@@ -13,10 +13,11 @@ RewriteCond %{HTTP:X-Forwarded-Proto} !https
 RewriteCond %{HTTPS} off
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NE]
 
-# Add trailing slash if necessary: Not an extension (.php, .css, .js, ...), not a Moodle cache file, not a BuddyPress URL and does not end with a slash (/)
+# Add trailing slash if necessary: Not an extension (.php, .css, .js, ...), not a Moodle cache file, not a BuddyPress URL, not a WP-API call and does not end with a slash (/)
 RewriteCond %{REQUEST_URI} !\.([^/]*)$
 RewriteCond %{REQUEST_URI} !(.*)/moodle/(.*)\.([^/]*)/(.*)$
 RewriteCond %{REQUEST_URI} !(.*)/nodes/(.*)$
+RewriteCond %{REQUEST_URI} !(.*)/wp-json/(.*)$
 RewriteCond %{REQUEST_URI} !/$
 RewriteRule ^(.*)$ $1/ [QSA,R=308,L]
 
