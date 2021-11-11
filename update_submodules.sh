@@ -67,6 +67,7 @@ if [[ $execwordpress == true ]]; then
     gitcheckout "html/wordpress" "master" "https://github.com/projectestac/agora_nodes.git"
     gitcheckout "html/wordpress/wp-content/mu-plugins/common" "master" "https://github.com/projectestac/wordpress-mu-common.git"
     gitcheckout "html/wordpress/wp-content/plugins/add-to-any" "master" "https://github.com/projectestac/wordpress-add-to-any.git"
+    gitcheckout "html/wordpress/wp-content/plugins/advanced-nocaptcha-recaptcha" "master" "https://github.com/projectestac/wordpress-advanced-nocaptcha-recaptcha.git"
     gitcheckout "html/wordpress/wp-content/plugins/astra-addon" "master" "https://github.com/projectestac/wordpress-astra-addon.git"
     gitcheckout "html/wordpress/wp-content/plugins/author-category" "master" "https://github.com/projectestac/wordpress-author-category.git"
     gitcheckout "html/wordpress/wp-content/plugins/bbpress" "master" "https://github.com/projectestac/wordpress-bbpress.git"
