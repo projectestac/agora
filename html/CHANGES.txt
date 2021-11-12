@@ -4,6 +4,23 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
 
+Changes 21.11.15
+---------------------------------------------------------------------------------------
+MOODLE
+- Upgraded Moodle to version 3.11.4
+- Updated langpacks
+- Geogebra: Upgraded version
+- Hot Potatoes: Downgraded module
+- Wiris: Upgraded all components
+- Fixed import of broken multianswer questions (MDL-54724)
+
+NODES
+- Upgraded WordPress to version 5.7.4
+- advanced-nocaptcha-recaptcha: Added plugin
+- buddypress: Fixed posting in timeline
+- Added dashboard widgets for incidències and inventari
+
+
 Changes 21.10.08
 ---------------------------------------------------------------------------------------
 MOODLE
