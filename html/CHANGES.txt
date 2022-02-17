@@ -4,6 +4,29 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
 
+Changes 22.02.22
+---------------------------------------------------------------------------------------
+MOODLE
+- Upgraded Moodle to version 3.11.5+
+- Updated langpacks
+- Wiris: Upgraded all components
+- HVP: Upgraded module
+- GeoGebra: Upgraded module
+- Remove records in table assignfeedback_editpdf_rot during course reset (MDL-69570)
+- Allowed access to asynchronous backups to all Moodle administrators
+- LTI: Remove extra param added by mod_rewrite in .htaccess
+- Redis: Activated compression in MUC
+
+NODES
+- Upgraded WordPress to version 5.7.5
+- agora-functions.php: Disabled automatic thumbnail generation for images
+- tabs-responsive: Disable scrolling on tab change. Fixes error in option 'Tabs Description Animation'
+- enllacos-educatius: Added new URL for CESIRE
+- Themes XTEC: Added FSE logo and notice
+- options-reading: Fixed access to some options for xtecadmin
+- Theme reactor: Highlight current element in widget_nav_menu
+
+
 Changes 21.11.15
 ---------------------------------------------------------------------------------------
 MOODLE
