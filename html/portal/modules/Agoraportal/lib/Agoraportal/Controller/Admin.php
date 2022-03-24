@@ -2116,7 +2116,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             // Get params
             $params = array();
             foreach ($_POST as $key => $value) {
-                if (strpos($key,'parm_') === 0 && !empty($value)) {
+                if (strpos($key,'parm_') === 0 && (!empty($value) || $value === '0')) {
                     $key_ret = substr($key, 5);
                     $params[$key_ret] = FormUtil::getPassedValue($key, null, 'POST');
                 }
