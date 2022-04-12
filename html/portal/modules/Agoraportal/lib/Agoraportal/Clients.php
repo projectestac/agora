@@ -505,8 +505,8 @@ class Client extends AgoraBase {
 
     /**
      * Add a log to the client
-     * @param $actionCode, use ClientLogs constants
-     * @param $text of the action to be stored
+     * @param $actionCode int
+     * @param $text string The action to be stored
      * @return bool
      */
     public function add_log($actionCode, $text) {

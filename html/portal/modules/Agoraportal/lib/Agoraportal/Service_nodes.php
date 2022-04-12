@@ -8,18 +8,18 @@ class Service_nodes extends Service {
 
     /**
      * Performs the actions to replace DNS in database
-     * @param $oldDNS
-     * @param $newDNS
+     *
+     * @param $oldDNS string
+     * @param $newDNS string
      * @return Agora_Queues_Operation|false
      */
     public function replaceDNS($oldDNS, $newDNS) {
         global $agora;
 
-        $urlbase = $agora['server']['html'];
-        $urlbase = str_replace('http://', '://', $urlbase);
-        $urlbase = str_replace('https://', '://', $urlbase);
+        $urlbase = $agora['server']['nodes'] . $agora['server']['base'];
+        $urlbase = str_replace(['http://', 'https://'], '://', $urlbase);
 
-        $params = array();
+        $params = [];
         $params['origin_url'] = $urlbase . $oldDNS . '/';
 
         return Agora_Queues_Operation::add('script_replace_url', $this->clientId, $this->serviceId, $params, 0);
