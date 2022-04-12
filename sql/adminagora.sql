@@ -342,7 +342,7 @@ CREATE TABLE `agoraportal_logs` (
   `clientCode` varchar(15) NOT NULL,
   `uname` varchar(25) NOT NULL,
   `actionCode` tinyint(4) NOT NULL DEFAULT '0',
-  `action` varchar(255) NOT NULL,
+  `action` text NOT NULL,
   `time` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -649,8 +649,8 @@ CREATE TABLE `agoraportal_request` (
   `clientId` int(10) NOT NULL,
   `userId` int(10) NOT NULL,
   `userComments` text NOT NULL,
-  `adminComments` text NOT NULL,
-  `privateNotes` text NOT NULL,
+  `adminComments` text,
+  `privateNotes` text,
   `requestStateId` int(10) NOT NULL,
   `timeCreated` varchar(25) NOT NULL DEFAULT '',
   `timeClosed` varchar(25) NOT NULL DEFAULT ''
