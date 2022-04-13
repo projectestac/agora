@@ -12,9 +12,10 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
     }
 
     /**
-     * Redirect to the proper initial function
+     * Redirect to the proper initial function.
      *
      * @return boolean True if redirect successful, false otherwise.
+     * @throws Zikula_Exception_Forbidden
      */
     public function main() {
         // Security check
@@ -31,10 +32,11 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
     }
 
     /**
-     * show the services available for a client
-     * @author:	Albert Pérez Monfort (aperezm@xtec.cat)
-     * @param:	The client Code
-     * @return:	The list of available services
+     * Show the services available for a client.
+     *
+     * @return false|string The list of available services
+     * @throws Zikula_Exception_Forbidden
+     * @author: Albert Pérez Monfort (aperezm@xtec.cat)
      */
     public function myAgora() {
         AgoraPortal_Util::requireClient();
@@ -55,17 +57,14 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         // Load Àgora config (needed later)
         $agora = AgoraPortal_Util::getGlobalAgoraVars();
 
-        $servicetypes = ServiceTypes::get_all();
-
         // Administrators can see all services, active or inactive. Other profiles can only see active services
         if (AgoraPortal_Util::isAdmin()) {
-            $services = $client->get_all_services();
+            $clientServices = $client->get_all_services();
         } else {
-            $services = $client->get_enabled_services();
+            $clientServices = $client->get_enabled_services();
         }
 
-        //Check if the client is pending of change his clientDNS
-        //Only for site managers
+        // Check if the client is pending of change his clientDNS (Only for site managers).
         $newDNS = false;
         if (AgoraPortal_Util::isManager()) {
             $schooldata = getSchoolFromWS($clientCode);
@@ -77,25 +76,18 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
             } else {
                 // Assume there's info of the school
                 $school = explode('$$', $schooldata['message']);
-                $returnedDNS = (isset($school[1])) ? $school[1] : '';
+                $returnedDNS = $school[1] ?? '';
                 // Keyword equals to '0' means school exists and has no 'nom propi', so an error is shown
-                if ($returnedDNS == '0') {
+                if ($returnedDNS === '0') {
                     return LogUtil::registerError("No s'ha trobat el nom propi del centre. Cal disposar de nom propi per poder sol·licitar serveis d'Àgora");
                 }
 
-                if ($returnedDNS != $client->clientDNS) {
+                if ($returnedDNS !== $client->clientDNS) {
                     SessionUtil::setVar('changeDNS_clientCode', $clientCode);
                     SessionUtil::setVar('changeDNS_olddns', $client->clientDNS);
                     SessionUtil::setVar('changeDNS_newdns', $newDNS);
                     $newDNS = $returnedDNS;
                 }
-            }
-        }
-
-        foreach ($services as $key => $service) {
-            if (!isset($servicetypes[$key])) {
-                unset($services[$key]);
-                continue;
             }
         }
 
@@ -105,10 +97,9 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         $notsolicitedServices = $client->get_servicestypes_to_request();
 
         return $this->view
-            ->assign('services', $services)
+            ->assign('services', $clientServices)
             ->assign('noclient', 0)
             ->assign('client', $client)
-            ->assign('servicetypes', $servicetypes)
             ->assign('siteBaseURL', $agora['server']['server'] . $agora['server']['base'])
             ->assign('managers', count($managers))
             ->assign('newDNS', $newDNS)
@@ -641,10 +632,11 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
     }
 
     /**
-     * Show the client requests list
-     * @author      Aida Regi Cosculluela (aregi@xtec.cat)
-     * @param       Client code
-     * @return:     The client requests list
+     * Show the client requests list.
+     *
+     * @return bool|string The list of the client requests.
+     * @throws Zikula_Exception_Forbidden
+     * @author Aida Regi Cosculluela (aregi@xtec.cat)
      */
     public function requests() {
         if (!AgoraPortal_Util::isManager()) {
@@ -658,19 +650,19 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         // Get client info. If client code is empty, getClientCodeFromUser will use the manager's client code
         $clientCode = AgoraPortal_Util::getClientCodeFromUser($clientCode);
         $client = Client::get_by_code($clientCode);
-
-        $types = array();
-        $services = ServiceTypes::get_all();
-        foreach ($services as $service) {
-            $types[$service->serviceId] = RequestTypes::get_service_types($service->serviceId);
-        }
         $requests = Requests::get_client_requests($client->clientId);
         $enabledServices = $client->get_enabled_services();
 
+        $types = [];
+        foreach ($enabledServices as $enabledService) {
+            $types[$enabledService->servicetype->serviceId] = RequestTypes::get_service_types($enabledService->servicetype->serviceId);
+            $types[$enabledService->servicetype->serviceId]['serviceName'] = ucwords(ServiceType::get_by_id($enabledService->servicetype->serviceId)->serviceName);
+        }
+
         return $this->view->assign('client', $client)
-                        ->assign('services', $services)
                         ->assign('enabledservices', $enabledServices)
                         ->assign('requests', $requests)
+                        ->assign('services', $enabledServices)
                         ->assign('types', $types)
                         ->fetch('agoraportal_user_requests.tpl');
     }

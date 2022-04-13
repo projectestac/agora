@@ -12,13 +12,12 @@
                 <select class="form-control" id="requestFilter" name="requestFilter" onchange="showRequestMessage($('requestFilter').value, $('clientCode').value);">
                     <option value="0">{gt text="Tria una sol·licitud"}</option>
                     {foreach item=requesttypes key=serviceId from=$types}
-                        {if $enabledservices[$serviceId]}
-                            {assign var="servicetype" value=$services[$serviceId]}
-                            <optgroup label="{$servicetype->serviceName}">
-                            {foreach item=type from=$requesttypes}
+                        <optgroup label="{$requesttypes.serviceName}">
+                        {foreach item=type from=$requesttypes}
+                            {if $type->requestTypeId}
                                 <option value="{$serviceId}:{$type->requestTypeId}">{$type->name}</option>
-                            {/foreach}
-                        {/if}
+                            {/if}
+                        {/foreach}
                     {/foreach}
                 </select>
             </div>

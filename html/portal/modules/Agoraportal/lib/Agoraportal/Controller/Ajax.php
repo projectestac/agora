@@ -419,15 +419,14 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
     }
 
     /**
-     * Get HTML to be shown to user. It can be a message for the user or a part
-     *   of a form
-     *
-     * @author Toni Ginard
+     * Get HTML to be shown to user. It can be a message for the user or a part of a form
      *
      * @param int serviceId
      * @param int requestId
      * @param string clientCode
      *
+     * @throws Zikula_Exception_Forbidden
+     * @author Toni Ginard
      */
     public function getRequestMessage($args) {
         if (!AgoraPortal_Util::isUser()) {
@@ -453,7 +452,7 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         if ($requestTypeId == '1') {
             $client = Client::get_by_code($clientCode);
             // Get service data
-            $service = $client->get_service_by_id($serviceId);
+            $service = $client->get_service_by_id($serviceId, 1);
             // Check if quota usage exceeds disk request threshold
             $thresholdExceeded = $service->is_quota_exceeded();
 

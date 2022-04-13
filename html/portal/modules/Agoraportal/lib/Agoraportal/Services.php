@@ -26,13 +26,13 @@ class Services {
      * @param $clientId
      * @return array
      */
-    public static function get_enabled_client_services($clientId) {
+    public static function get_enabled_client_services($clientId): array {
         $where = "clientId = $clientId AND state = 1";
         $rows = DBUtil::selectObjectArray(Service::TABLE, $where, 'serviceId');
         $services = array();
         foreach ($rows as $key => $row) {
             $service = Service::get_subclass($row);
-            $services[$service->serviceId] = $service;
+            $services[$service->clientServiceId] = $service;
         }
         return $services;
     }
@@ -48,7 +48,7 @@ class Services {
         $services = array();
         foreach ($rows as $key => $row) {
             $service = Service::get_subclass($row);
-            $services[$service->serviceId] = $service;
+            $services[$service->clientServiceId] = $service;
         }
         return $services;
     }

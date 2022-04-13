@@ -486,11 +486,13 @@ class Client extends AgoraBase {
 
     /**
      * Get the related service by serviceId
+     *
      * @param $serviceId
+     * @param null $state
      * @return bool|Service
      */
-    public function get_service_by_id($serviceId) {
-        return Service::get_by_client_and_service($this->clientId, $serviceId);
+    public function get_service_by_id($serviceId, $state = null) {
+        return Service::get_by_client_and_service($this->clientId, $serviceId, $state);
     }
 
     /**

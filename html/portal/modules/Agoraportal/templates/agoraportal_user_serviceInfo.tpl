@@ -1,26 +1,26 @@
 <div class="panel panel-default">
     <div class="panel-heading row-fluid clearfix">
-        {$service->logo_with_link} <strong>{$servicetype->serviceName}</strong>: {$servicetype->description}
+        {$service->logo_with_link} <strong>{$service->serviceType->serviceName|ucwords}</strong>: {$service->serviceType->description}
         {if $isAdmin}
             <div class="pull-right">
                 <span class="btn-group" role="group">
                     {if $service->state eq 1 and $service->diskSpace > 0}
-                        <a target="_blank" class="btn btn-default" href="{modurl modname='Agoraportal' type='admin' func='listDataDirs' serviceName=$servicetype->serviceName activedId=$service->activedId}" title="{gt text="Ocupació dels fitxers"}">
+                        <a target="_blank" class="btn btn-default" href="{modurl modname='Agoraportal' type='admin' func='listDataDirs' serviceName=$service->serviceType->serviceName activedId=$service->activedId}" title="{gt text="Ocupació dels fitxers"}">
                             <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>
-                            <span class="sr-only"{gt text="Ocupació dels fitxers"}</span>
+                            <span class="sr-only">{gt text="Ocupació dels fitxers"}</span>
                         </a>
                         <a target="_blank" class="btn btn-default" href="{modurl modname='Agoraportal' type='user' func='recalcConsume' clientServiceId=$service->clientServiceId}" title="{gt text="Recalcula l'espai consumit"}">
                             <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span>
                             <span class="sr-only">{gt text="Recalcula l'espai consumit"}</span>
                         </a>
-                        {if $servicetype->serviceName eq 'moodle2'}
-                        <a target="_blank" class="btn btn-default" href="{modurl modname='Files' type='user' func='main' folder=$servicetype->serviceName|cat:'|'|cat:$client->clientDNS }" title="{gt text="Fitxers"}">
+                        {if $service->serviceType->serviceName eq 'moodle2'}
+                            <a target="_blank" class="btn btn-default" href="{modurl modname='Files' type='user' func='main' folder=$service->serviceType->serviceName|cat:'|'|cat:$client->clientDNS }" title="{gt text="Fitxers"}">
                                 <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
                                 <span class="sr-only">{gt text="Fitxers"}</span>
                             </a>
                         {/if}
                     {/if}
-                    {if $service->state eq 1 and $servicetype->serviceName neq 'nodes'}
+                    {if $service->state eq 1 and $service->serviceType->serviceName neq 'nodes'}
                         <a class="btn btn-default" href="{modurl modname='Agoraportal' type='admin' func='restoreXtecadmin' clientServiceId=$service->clientServiceId}" title="{gt text="Restaura l'usuari xtecadmin"}">
                             <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                             <span class="sr-only">{gt text="Restaura l'usuari xtecadmin"}</span>
@@ -77,10 +77,10 @@
         {/if}
     </div>
 
-    <div class="panel-body">
+    <div class="panel-body" {if $service->state neq 1}style="background-color: #fad0d0;" {/if}>
         <span><strong>{gt text="Ha fet la sol·licitud"}</strong>: {$service->contactName} ({$service->useremail})</span>
         <br />
-        <span></><strong>{gt text="Data de sol·licitud"}</strong>: {$service->timeRequested|dateformat:"%d/%m/%Y"}</span>
+        <span><strong>{gt text="Data de sol·licitud"}</strong>: {$service->timeRequested|dateformat:"%d/%m/%Y"}</span>
         <br />
 
         {if $isAdmin}
@@ -106,10 +106,10 @@
             <br />
             <span><strong>{gt text="URL"}</strong>: <a href="{$service->url}">{$service->url}</a></span>
             <br />
-            {if $isAdmin}
-                <span><strong>{gt text="ActivedId (usu)"}</strong>: {$service->activedId}</span>
-                <br />
-            {/if}
+        {/if}
+        {if $isAdmin}
+            <span><strong>{gt text="ActivedId (usu)"}</strong>: {$service->activedId}</span>
+            <br />
             {include file="agoraportal_user_service_disk_usage.tpl"}
         {/if}
     </div>

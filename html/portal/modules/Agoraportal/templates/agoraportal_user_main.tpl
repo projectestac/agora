@@ -15,7 +15,6 @@
         {/if}
 
         {foreach item=service key=serviceid from=$services}
-            {assign var="servicetype" value=$servicetypes[$serviceid]}
             {include file="agoraportal_user_serviceInfo.tpl"}
         {foreachelse}
             {if $managers gt 0}
@@ -35,12 +34,16 @@
             {foreach item=service from=$notsolicitedServices}
                 {assign var="serviceName" value=$service->serviceName}
                 <div style="margin-bottom: 10px;">
-                        <a class="btn btn-default" href="{modurl modname='Agoraportal' type='user' func='askServices' serviceId=$service->serviceId clientCode=$client->clientCode}" role="button" style="padding:10px; line-height:25px;">
-                            <div style="float:left; min-width:80px; margin-right: 3px;">
-                            <img src="modules/Agoraportal/images/{$serviceName}.gif" alt="{$serviceName|capitalize}" title="{$serviceName|capitalize}" style="height: initial; width: initial;"/></div>
-                            Sol·licita'l ara
+                        <a class="btn btn-default" href="{modurl modname='Agoraportal' type='user' func='askServices' serviceId=$service->serviceId clientCode=$client->clientCode}"
+                           role="button" style="padding:8px; line-height:25px;">
+                            <div style="float:left; min-width:60px; margin-right: 3px;">
+                                <img src="modules/Agoraportal/images/{$serviceName}.gif" alt="{$serviceName|capitalize}" title="{$serviceName|capitalize}" style="height: initial; width: initial;"/>
+                            </div>
+                            <div style="float:left; margin-right: 15px;">
+                                Sol·licita'l ara
+                            </div>
                         </a>
-                    <strong>{$serviceName|capitalize}</strong>: {$service->description}
+                    <strong>{$serviceName|ucwords}</strong>: {$service->description}
                 </div>
             {/foreach}
             </div>
@@ -51,8 +54,10 @@
             <form name="changeDNS" id="changeDNS" class="z-adminform" action="{modurl modname='Agoraportal' type='user' func='changeDNS'}" method="post">
                 <p>El nom propi del vostre centre ha canviat, però els serveis d'Àgora encara utilitzen el nom propi antic.
                 L'actual és <strong>{$client->clientDNS}</strong> i el nom nou és <strong>{$newDNS}</strong>.</p>
-                <p>No cal que feu el canvi de nom propi ara però, si el voleu fer, heu de tenir en compte que pot afectar a alguns enllaços interns, tant en el cas del Moodle com en el del Nodes, i no es pot desfer.
-                Un cop fet el canvi, si passats 30 minuts detecteu alguna anomalia us recomanem que contacteu amb l'equip d'Àgora, <a target="_blank" href="https://educaciodigital.cat/">via fòrum</a>, per tal de que corregim els enllaços.</p>
+                <p>No cal que feu el canvi de nom propi ara, però si el voleu fer, heu de tenir en compte que pot afectar a alguns enllaços interns,
+                    tant en el cas del Moodle com en el del Nodes, i no es pot desfer. Un cop fet el canvi, si passats 30 minuts detecteu alguna anomalia,
+                    us recomanem que contacteu amb l'equip d'Àgora, <a target="_blank" href="https://educaciodigital.cat/">via fòrum</a>, per tal que
+                    corregeixin els enllaços.</p>
                 <p>Voleu fer aquest canvi?</p>
                 <input type="hidden" name="clientCode" value="{$client->clientCode}" />
                 <input type="hidden" name="clientDNS" value="{$newDNS}" />
