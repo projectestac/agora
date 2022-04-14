@@ -638,6 +638,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                         ->assign('maxAbsFreeQuota', $this->getVar('maxAbsFreeQuota'))
                         ->assign('maxFreeQuotaForRequest', $this->getVar('maxFreeQuotaForRequest'))
                         ->assign('xtecadminPassword', $this->getVar('xtecadminPassword'))
+                        ->assign('maxUploadSize', $this->getVar('maxUploadSize'))
                         ->assign('services', $servicetypes)
                         ->assign('extras', $extraInfo)
                         ->assign('locations', $locations)
@@ -661,6 +662,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $maxAbsFreeQuota = FormUtil::getPassedValue('maxAbsFreeQuota', null, 'POST');
         $maxFreeQuotaForRequest = FormUtil::getPassedValue('maxFreeQuotaForRequest', null, 'POST');
         $xtecadminPassword = FormUtil::getPassedValue('xtecadminPassword', '', 'POST');
+        $maxUploadSize = FormUtil::getPassedValue('maxUploadSize', '', 'POST');
         $createDB = FormUtil::getPassedValue('createDB', false, 'POST');
 
         // Confirm authorisation code
@@ -680,6 +682,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 ->setVar('maxAbsFreeQuota', $maxAbsFreeQuota)
                 ->setVar('maxFreeQuotaForRequest', $maxFreeQuotaForRequest)
                 ->setVar('xtecadminPassword', $xtecadminPassword)
+                ->setVar('maxUploadSize', $maxUploadSize)
                 ->setVar('createDB', $createDB);
 
         LogUtil::registerStatus($this->__('S\'ha modificat la configuració'));

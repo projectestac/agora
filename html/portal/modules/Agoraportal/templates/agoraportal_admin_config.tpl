@@ -71,6 +71,16 @@
     </div>
 
     <div class="form-group">
+        <label class="col-sm-4 control-label" for="maxUploadSize">{gt text="Mida màxima dels fitxers que es poden pujar al Moodle des del portal"}</label>
+        <div class="col-sm-8">
+            <input class="form-control" type="text" id="maxUploadSize" name="maxUploadSize" size="5" maxlength="19" value="{$maxUploadSize}" />
+            <div class="alert alert-info">
+                {gt text="Aquesta mida màxima aplica a tots els usuaris que no són administradors. Els administradors poden pujar fitxers de qualsevol mida (en el text informatiu apareix un 0 que significa \"sense límit\")."}
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
         <label class="col-sm-4 control-label" for="createDB">{gt text="En fer una alta de Nodes, intenta crear la base de dades MySQL si no existeix"}</label>
         <div class="col-sm-8">
             <input type="checkbox" id="createDB" name="createDB" {if $createDB}checked="checked"{/if} />

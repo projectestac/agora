@@ -272,10 +272,11 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
     }
 
     /**
-     * upload big files to the server for moodle courses
-     * @author:	Albert Pérez Monfort (aperezm@xtec.cat)
-     * @param:	client code and file to upload
-     * @return:	redirect user to the upload form
+     * Upload big files to the server.
+     *
+     * @return bool|string Redirect user to the upload form
+     * @throws Zikula_Exception_Forbidden
+     * @author Albert Pérez Monfort (aperezm@xtec.cat)
      */
     public function files() {
         AgoraPortal_Util::requireManager();
@@ -287,12 +288,12 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         $clientCode = AgoraPortal_Util::getClientCodeFromUser($clientCode);
         $client = Client::get_by_code($clientCode);
 
-        //TODO: Now the only service that allow to update files is moodle2
-        // In the future other services will allow to update files.
+        // The only service that, currently, allows uploading files is moodle2. In the future, other services may allow this.
         $service = Service::get_by_client_and_servicename($client->clientId, 'moodle2', 1);
-        if(!$service) {
+        if (!$service) {
             return LogUtil::registerError($this->__('El centre no té el servei Moodle 2 activat'));
         }
+
         if ($service->diskSpace <= 0) {
             return LogUtil::registerError($this->__('No hi ha espai al disc'));
         }
@@ -306,7 +307,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         $agora = AgoraPortal_Util::getGlobalAgoraVars();
 
         // upload big file to service folder
-        if ($file != null) {
+        if ($file !== null) {
             // send file to folder
             $fileToMove = $agora['server']['uploads'] . $file;
             $destination = $service->getDataDirectory() . $agora['moodle2']['repository_files'];
@@ -333,35 +334,51 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         }
 
         // Read moodle2 repository folder
-        if ($action == 'm2x') {
+        if ($action === 'm2x') {
             $serviceName = $service->servicetype->serviceName;
             $dataDir = $service->getDataDirectory();
             $folder = $dataDir . $agora[$serviceName]['repository_files'];
 
             if (is_dir($folder)) {
-                $moodle2RepoFiles = array();
+                $moodle2RepoFiles = [];
                 $objects = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($folder), RecursiveIteratorIterator::SELF_FIRST);
+
                 foreach ($objects as $name => $object) {
-                    if (substr($name, -2) != '/.' && substr($name, -3) != '/..') {
+                    if (substr($name, -2) !== '/.' && substr($name, -3) !== '/..') {
                         $filename = DataUtil::formatForDisplay($name);
                         $basedir = substr($name, strlen($folder));
-                        $file_object = array('name' => DataUtil::formatForDisplay($basedir),
+                        $file_object = [
+                            'name' => DataUtil::formatForDisplay($basedir),
                             'filename' => DataUtil::formatForDisplay($filename),
                             'size' => round((filesize($filename) / 1024) / 1024, 2),
                             'type' => filetype($filename),
                             'time' => date("j F Y, H:i", filemtime($filename)),
-                        );
+                        ];
                         $moodle2RepoFiles[] = $file_object;
                     }
                 }
+
+                $view->assign('moodle2RepoFiles', $moodle2RepoFiles);
             } else {
                 LogUtil::registerError($this->__('No s\'ha trobat el directori utilitzat pel repositori del Moodle 2'));
             }
 
-            $view->assign('moodle2RepoFiles', $moodle2RepoFiles);
         }
 
-        return $view->fetch('agoraportal_user_files.tpl');
+        // Decide the maximum file size for the files uploaded from the portal.
+        if (AgoraPortal_Util::isAdmin()) {
+            $maxUploadSize = 0; // Unlimited.
+        } else {
+            $maxUploadSize = $this->getVar('maxUploadSize');
+            if (empty($maxUploadSize)) {
+                // If there is no value configured, use a safe default.
+                $maxUploadSize = 500;
+            }
+        }
+
+        return $view
+            ->assign('max_upload_size', $maxUploadSize)
+            ->fetch('agoraportal_user_files.tpl');
     }
 
     public function downloadFile() {

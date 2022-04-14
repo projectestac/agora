@@ -31,7 +31,7 @@
             <div class="alert alert-info">
                 <p>{gt text="Des d'aquí podeu afegir fitxers grans al vostre espai Moodle, tenint en compte les condicions següents:"}</p>
                 <ul>
-                    <li>{gt text="Només s'admeten fitxers comprimits en format ZIP i MBZ que tinguin una mida compresa entre 10 i 800 MB."}</li>
+                    <li>{gt text="Només s'admeten fitxers comprimits en format ZIP i MBZ que tinguin una mida compresa entre 10 i $max_upload_size MB."}</li>
                     <li>{gt text="Els fitxers de menys de 10 MB s'han de pujar des de l'espai web."}</li>
                     <li>{gt text="Mantingueu una còpia del fitxer en local fins que hàgiu comprovat que el fitxer s'ha enviat correctament."}</li>
                     <li>{gt text="Si en el repositori <strong>Fitxers</strong> n'hi ha un amb el mateix nom, serà sobreescrit."}</li>
@@ -51,7 +51,7 @@
                     silverlight_xap_url : false,
                     chunk_size: '1mb',
                     filters : {
-                        max_file_size : '800mb',
+                        max_file_size : '{{$max_upload_size}}mb',
                         mime_types: [
                             {title : "Arxius Zip", extensions : "zip,mbz"}
                         ]
