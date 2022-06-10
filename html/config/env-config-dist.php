@@ -38,6 +38,16 @@ $agora['nodes']['username'] = 'root'; // Usuari per accedir a totes les bases de
 $agora['nodes']['userpwd'] = '';
 $agora['nodes']['datadir'] = $agora['server']['datadir'] . 'wpdata/';
 
+// WordPress Authentication Unique Keys and Salts.
+$agora['nodes']['auth_key'] = 'g#N/2LMcmrPOV+}O]o^?5l+F';
+$agora['nodes']['secure_auth_key'] = 'g#N/2LMcmrPOV+}O]o^?5l+F';
+$agora['nodes']['logged_in_key'] = 'g#N/2LMcmrPOV+}O]o^?5l+F';
+$agora['nodes']['nonce_key'] = 'g#N/2LMcmrPOV+}O]o^?5l+F';
+$agora['nodes']['auth_salt'] = 'g#N/2LMcmrPOV+}O]o^?5l+F';
+$agora['nodes']['secure_auth_salt'] = 'g#N/2LMcmrPOV+}O]o^?5l+F';
+$agora['nodes']['logged_in_salt'] = 'g#N/2LMcmrPOV+}O]o^?5l+F';
+$agora['nodes']['nonce_salt'] = 'g#N/2LMcmrPOV+}O]o^?5l+F';
+
 // SMTP params
 $agora['mail']['server'] = '';
 $agora['mail']['username'] = '';
