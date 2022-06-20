@@ -8,7 +8,7 @@ global $agora, $state, $preparedStmts;
 
 // Check if works.php is polled by BigIP because behavior will change
 $origen = $_GET['origen'] ?? '';
-$isBigIP = $origen == 'bigip';
+$isBigIP = $origen === 'bigip';
 
 $state = '';
 $nodeok = false;
@@ -18,7 +18,7 @@ $preparedStmts = [];
 
 if ($isBigIP) {
     // Get info from allSchools.php file in web server
-    $allschools_file = $agora['dbsource']['dir'] . '/allSchools.php';
+    $allschools_file = $agora['cachecon']['dir'] . $agora['cachecon']['file'];
 
     if (!file_exists($allschools_file)) {
         echo 'KO: El fitxer ' . $allschools_file . ' no existeix';
@@ -27,10 +27,10 @@ if ($isBigIP) {
     require_once($allschools_file);
 
     foreach ($schools as $school) {
-        if (isset($school['dbhost_nodes']) && !in_array($school['dbhost_nodes'], $nodesToTest)) {
+        if (isset($school['dbhost_nodes']) && !in_array($school['dbhost_nodes'], $nodesToTest, true)) {
             $nodesToTest[$school['id_nodes']] = $school['dbhost_nodes'];
         }
-        if (isset($school['dbhost_moodle2']) && !in_array(strtoupper($school['dbhost_moodle2']), $m2ToTest)) {
+        if (isset($school['dbhost_moodle2']) && !in_array(strtoupper($school['dbhost_moodle2']), $m2ToTest, true)) {
             $m2ToTest[$school['id_moodle2']] = strtoupper($school['dbhost_moodle2']);
         }
     }
@@ -62,7 +62,7 @@ if ($isBigIP) {
 // Connect to the first school of each server with nodes service to check that the MySQL servers are working
 if (is_array($nodesToTest)) {
     foreach ($nodesToTest as $schoolid => $dbhost) {
-        if (!checkNodesDatabase(array('id' => $schoolid, 'dbhost' => $dbhost))) {
+        if (!checkNodesDatabase(['id' => $schoolid, 'dbhost' => $dbhost])) {
             $isok = false;
             $state .= '<br>El servidor MySQL "' . $dbhost . '" no funciona correctament.<br>';
         } elseif ($isBigIP) {
@@ -83,7 +83,7 @@ if (($isBigIP && !$nodeok) || (!$isBigIP)) {
     // Connect to the first school of each database instance to check that the Oracle databases (for Moodle) are working
     if (is_array($m2ToTest)) {
         foreach ($m2ToTest as $schoolid => $database) {
-            if (!checkMoodleDatabase(array('id' => $schoolid, 'dbhost' => $database))) {
+            if (!checkMoodleDatabase(['id' => $schoolid, 'dbhost' => $database])) {
                 $isok = false;
                 $state .= '<br>La instància Oracle "' . $database . '" no funciona correctament.<br>';
             } elseif ($isBigIP) {
@@ -138,15 +138,14 @@ function checkAdminDatabase()
 /**
  * To check if the specified Moodle database is working
  *
- * @param $school database school information for connecting
+ * @param Array $school Database school information for connecting
  *
  * @return Boolean True if the database is working; false otherwise.
  * @author Sara Arjona Tellez (sarjona@xtec.cat)
  * @author Toni Ginard
  *
  */
-function checkMoodleDatabase($school)
-{
+function checkMoodleDatabase(array $school): bool {
     global $agora, $state, $preparedStmts;
     $isok = false;
 
@@ -185,15 +184,14 @@ function checkMoodleDatabase($school)
 /**
  * To check if the specified Nodes database is working
  *
- * @param $school database school information for connecting
+ * @param Array $school Database school information for connecting
  *
  * @return Boolean True if the database is working; false otherwise.
  * @author Sara Arjona Tellez (sarjona@xtec.cat)
  * @author Toni Ginard
  *
  */
-function checkNodesDatabase($school)
-{
+function checkNodesDatabase(array $school): bool {
     global $agora, $state;
     $isok = false;
 
@@ -223,9 +221,9 @@ function checkNodesDatabase($school)
  *
  * @author aginard
  *
- * @param string $service: the name of the service (nodes or moodle2)
+ * @param string $service the name of the service (nodes or moodle2)
  *
- * @return array list of schools
+ * @return boolean|array list of schools
  */
 function getServicesToTest($service) {
 

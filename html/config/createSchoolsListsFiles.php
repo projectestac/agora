@@ -43,7 +43,7 @@ if (!in_array($level, $allowed_levels)) {
 
 // Ensure $getService has an allowed value
 $allowed_services = ['moodle2', 'nodes'];
-if (!in_array($getService, $allowed_services)) {
+if (!in_array($getService, $allowed_services, true)) {
     $getService = '';
 }
 
@@ -114,7 +114,7 @@ if ($update) {
     foreach ($services as $service) {
 
         // Only content of a given service is requested. Ignore the rest
-        if ($service['name'] != $getService) {
+        if ($service['name'] !== $getService) {
             continue;
         }
 
@@ -132,11 +132,11 @@ if ($update) {
 
             foreach ($schools as $school) {
 
-                if (!in_array($school['dbhost'], $servers)) {
-                    array_push($servers, $school['dbhost']);
+                if (!in_array($school['dbhost'], $servers, true)) {
+                    $servers[] = $school['dbhost'];
                 }
 
-                $total = (isset($schoolsTotals[$school['code']]) && intval($schoolsTotals[$school['code']]['total'])) ? intval($schoolsTotals[$school['code']]['total']) : 0;
+                $total = (isset($schoolsTotals[$school['code']]) && (int)$schoolsTotals[$school['code']]['total']) ? (int)$schoolsTotals[$school['code']]['total'] : 0;
                 $baseURL = getInstanceBaseURL($service['name'], $school['type']);
 
                 // Add the client to the list if it fulfills the activity requirement
@@ -144,76 +144,66 @@ if ($update) {
 
                     case 'level1':
                         // Every 10 minutes
-                        if ($total >= ACCESS_THRESHOLD_L1) {
-                            if (!in_array($school['dbhost'], $unorderedList)) {
-                                array_push($unorderedList, [
-                                    'total' => $total,
-                                    'url' => $baseURL . $school['dns'] . $service['url'],
-                                    'dbhost' => $school['dbhost'],
-                                ]);
-                            }
+                        if (($total >= ACCESS_THRESHOLD_L1) && !in_array($school['dbhost'], $unorderedList, true)) {
+                            $unorderedList[] = [
+                                'total' => $total,
+                                'url' => $baseURL . $school['dns'] . $service['url'],
+                                'dbhost' => $school['dbhost'],
+                            ];
                         }
                         break;
 
                     case 'level2':
                         // Every 20 minutes
-                        if (($total < ACCESS_THRESHOLD_L1) && ($total >= ACCESS_THRESHOLD_L2)) {
-                            if (!in_array($school['dbhost'], $unorderedList)) {
-                                array_push($unorderedList, [
-                                    'total' => $total,
-                                    'url' => $baseURL . $school['dns'] . $service['url'],
-                                    'dbhost' => $school['dbhost'],
-                                ]);
-                            }
+                        if (($total < ACCESS_THRESHOLD_L1) && ($total >= ACCESS_THRESHOLD_L2) && !in_array($school['dbhost'], $unorderedList, true)) {
+                            $unorderedList[] = [
+                                'total' => $total,
+                                'url' => $baseURL . $school['dns'] . $service['url'],
+                                'dbhost' => $school['dbhost'],
+                            ];
                         }
                         break;
 
                     case 'level3':
                         // Every 60 minutes
-                        if (($total < ACCESS_THRESHOLD_L2) && ($total >= ACCESS_THRESHOLD_L3)) {
-                            if (!in_array($school['dbhost'], $unorderedList)) {
-                                array_push($unorderedList, [
-                                    'total' => $total,
-                                    'url' => $baseURL . $school['dns'] . $service['url'],
-                                    'dbhost' => $school['dbhost'],
-                                ]);
-                            }
+                        if (($total < ACCESS_THRESHOLD_L2) && ($total >= ACCESS_THRESHOLD_L3) && !in_array($school['dbhost'], $unorderedList, true)) {
+                            $unorderedList[] = [
+                                'total' => $total,
+                                'url' => $baseURL . $school['dns'] . $service['url'],
+                                'dbhost' => $school['dbhost'],
+                            ];
                         }
                         break;
 
                     case 'level4':
                         // Three times a day
-                        if (($total < ACCESS_THRESHOLD_L3) && ($total >= ACCESS_THRESHOLD_L4)) {
-                            if (!in_array($school['dbhost'], $unorderedList)) {
-                                array_push($unorderedList, [
-                                    'total' => $total,
-                                    'url' => $baseURL . $school['dns'] . $service['url'],
-                                    'dbhost' => $school['dbhost'],
-                                ]);
-                            }
+                        if (($total < ACCESS_THRESHOLD_L3) && ($total >= ACCESS_THRESHOLD_L4) && !in_array($school['dbhost'], $unorderedList, true)) {
+                            $unorderedList[] = [
+                                'total' => $total,
+                                'url' => $baseURL . $school['dns'] . $service['url'],
+                                'dbhost' => $school['dbhost'],
+                            ];
                         }
                         break;
 
                     case 'level5':
                         // Once a day
-                        if ($total < ACCESS_THRESHOLD_L4) {
-                            if (!in_array($school['dbhost'], $unorderedList)) {
-                                array_push($unorderedList, [
-                                    'total' => $total,
-                                    'url' => $baseURL . $school['dns'] . $service['url'],
-                                    'dbhost' => $school['dbhost'],
-                                ]);
-                            }
+                        if (($total < ACCESS_THRESHOLD_L4) && !in_array($school['dbhost'], $unorderedList, true)) {
+                            $unorderedList[] = [
+                                'total' => $total,
+                                'url' => $baseURL . $school['dns'] . $service['url'],
+                                'dbhost' => $school['dbhost'],
+                            ];
                         }
                         break;
 
                     case 'all':
-                        if (!in_array($school['dbhost'], $unorderedList)) {
-                            array_push($unorderedList, [
+                        if (!in_array($school['dbhost'], $unorderedList, true)) {
+                            $unorderedList[] = [
                                 'total' => $total,
                                 'url' => $baseURL . $school['dns'] . $service['url'],
                                 'dbhost' => $school['dbhost'],
-                            ]);
+                            ];
                         }
                         break;
                 }
@@ -222,21 +212,23 @@ if ($update) {
         }
 
         // Sort list by total: Most active first. This mitigates the 'tail effect' (several Moodle in the same server at the end of the list)
-        usort( $unorderedList, function($a, $b) {
+        usort( $unorderedList, static function($a, $b) {
             if ($a['total'] > $b['total']) {
                 return -1;
-            } elseif ($a['total'] < $b['total']) {
-                return 1;
-            } else {
-                return 0;
             }
+
+            if ($a['total'] < $b['total']) {
+                return 1;
+            }
+
+            return 0;
         });
 
         // Group URL by database host
         foreach ($unorderedList as $item) {
             if (isset($groupedList[$item['dbhost']])) {
                 // Add item to array
-                array_push($groupedList[$item['dbhost']], ['url' => $item['url'], 'total' => $item['total']]);
+                $groupedList[$item['dbhost']][] = ['url' => $item['url'], 'total' => $item['total']];
             } else {
                 // Create array and add item
                 $groupedList[$item['dbhost']] = [['url' => $item['url'], 'total' => $item['total']]];
@@ -263,7 +255,7 @@ if ($update) {
         }
 
         if (empty($getService)) {
-            saveVarToFile($service['file'], $orderedList, false);
+            saveVarToFile($service['file'], $orderedList);
         } else {
             saveVarToFile($service['file'], $orderedList, true);
         }
@@ -280,53 +272,16 @@ if ($update) {
  * @return boolean true if successful
  * @author Toni Ginard
  */
-function saveVarToFile(string $filename, string $schoolsVar, $screenOnly = false) {
-
-    global $agora;
+function saveVarToFile(string $filename, string $schoolsVar, bool $screenOnly = false): bool {
 
     if ($screenOnly) {
         echo $schoolsVar;
         return true;
-    } else {
-        cli_print_line('<br />');
-        cli_print_line('<strong>File name: ' . $filename . '</strong><br />');
-        cli_print_line(str_replace("\n", "\n<br />", $schoolsVar));
     }
 
-    // Code commented because it is no longer used
-    /*
-    $path = $agora['server']['root'] . $agora['server']['datadir'] . 'adminInfo/';
-
-    if (!is_dir($path)) {
-        // Create syncdir if it doesn't exist
-        $old = umask(0);
-        if (@mkdir($path, 0777)) {
-            cli_print_line("$path directory created<br/>");
-        }
-        umask($old);
-    }
-
-    if (!is_dir($path)) {
-        cli_print_line("Directory $path does not exist<br/>");
-        return false;
-    }
-
-    $filename = $path . $filename;
-
-    // Open $filename in append mode
-    if (!$handle = fopen($filename, 'w')) {
-        cli_print_line("Cannot open file ($filename)<br />");
-        return false;
-    }
-
-    if (fwrite($handle, $schoolsVar) === false) {
-        cli_print_line("Cannot write to file ($filename)<br />");
-        fclose($handle);
-        return false;
-    }
-
-    fclose($handle);
-    */
+    cli_print_line('<br />');
+    cli_print_line('<strong>File name: ' . $filename . '</strong><br />');
+    cli_print_line(str_replace("\n", "\n<br />", $schoolsVar));
 
     return true;
 }
@@ -340,7 +295,7 @@ function saveVarToFile(string $filename, string $schoolsVar, $screenOnly = false
  * @return string
  * @author Toni Ginard
  */
-function getInstanceBaseURL(string $serviceName, int $schoolType) {
+function getInstanceBaseURL(string $serviceName, int $schoolType): string {
 
     global $agora;
 
@@ -361,7 +316,7 @@ function getInstanceBaseURL(string $serviceName, int $schoolType) {
             break;
 
         default:
-            $url .= ('moodle2' == $serviceName) ? $agora['server']['server'] : $agora['server']['nodes'];
+            $url .= ('moodle2' === $serviceName) ? $agora['server']['server'] : $agora['server']['nodes'];
     }
 
     $url .= $agora['server']['base'];

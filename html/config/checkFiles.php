@@ -51,7 +51,7 @@ foreach ($curlinfo as $key => $value) {
 }
 echo '</div>';
 
-$files[] = array('filename' => $agora['dbsource']['dir'] . 'allSchools.php', 'perms' => 0660, 'link' => false, 'message' => 'Error greu en informació d\'escoles', 'old' => 86400);
+$files[] = array('filename' => $agora['cachecon']['dir'] . $agora['cachecon']['file'], 'perms' => 0660, 'link' => false, 'message' => 'Error greu en informació d\'escoles', 'old' => 86400);
 $files[] = array('filename' => $agora['server']['root'] . 'html/.htaccess', 'perms' => 0640, 'link' => false, 'message' => 'Error de configuració general');
 $files[] = array('filename' => $agora['server']['root'] . 'html/config/env-config.php', 'perms' => 0640, 'link' => false, 'message' => 'Error de configuració general');
 $files[] = array('filename' => $agora['server']['root'] . 'html/config/config.php', 'perms' => 0640, 'link' => false, 'message' => 'Error de configuració general');

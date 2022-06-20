@@ -22,9 +22,9 @@ if (empty($services)) {
 }
 
 // Match info per schools
-$schools = array();
+$schools = [];
 foreach ($services as $school) {
-    $dns     = $school['dns'];
+    $dns = $school['dns'];
     $service = $school['service'];
 
     $schools[$dns]['clientCode'] = $school['code'];
@@ -32,11 +32,11 @@ foreach ($services as $school) {
     $schools[$dns]['url_type'] = $school['url_type'];
     $schools[$dns]['url_host'] = $school['url_host'];
 
-    $schools[$dns]['id_'.$service]          = $school['id'];
-    $schools[$dns]['dbhost_'.$service]      = $school['dbhost'];
-    $schools[$dns]['database_'.$service]    = $school['database'];
-    $schools[$dns]['diskPercent_'.$service] = $school['diskPercent'];
-    $schools[$dns]['state_'.$service]       = $school['state'];
+    $schools[$dns]['id_' . $service] = $school['id'];
+    $schools[$dns]['dbhost_' . $service] = $school['dbhost'];
+    $schools[$dns]['database_' . $service] = $school['database'];
+    $schools[$dns]['diskPercent_' . $service] = $school['diskPercent'];
+    $schools[$dns]['state_' . $service] = $school['state'];
 
     // Add an element: key = previous DNS, value = current DNS.
     if (!empty($school['old_dns'])) {
@@ -49,33 +49,31 @@ foreach ($services as $school) {
 }
 
 // Generate strings to write
-$schoolstr = '$schools = Array('."\n";
+$schoolstr = '$schools = [' . "\n";
 foreach ($schools as $dns => $school) {
-    $schoolstr .= "'$dns' => Array(\n";
+    $schoolstr .= "'$dns' => [\n";
     foreach ($school as $key => $value) {
         $schoolstr .= "'$key' => '$value',\n";
     }
-    $schoolstr .= "),\n";
+    $schoolstr .= "],\n";
 }
-$schoolstr .= ');';
-
-$filename   = 'allSchools.php';
+$schoolstr .= '];';
 
 // Show file in browser
 if (isset($args['print']) && $args['print']) {
-    echo '<h2>File: '.$filename.'</h2>';
-    echo '<pre>'.$schoolstr.'</pre>';
+    echo '<h2>File: ' . $agora['cachecon']['file'] . '</h2>';
+    echo '<pre>' . $schoolstr . '</pre>';
 }
 
 // If accessed from a browser and exists an special param, force synchronization
 if (isset($args['force']) && $args['force']) {
 
-    $path = $agora['dbsource']['dir'];
-    $tempfile = $path.$filename.'.tmp';
+    $path = $agora['cachecon']['dir'];
+    $tempfile = $path . $agora['cachecon']['file'] . '.tmp';
     if (!is_dir($path)) {
         // Create syncdir if it doesn't exist
         $old = umask(0);
-        if (mkdir($agora['dbsource']['dir'], 0777)) {
+        if (mkdir($agora['cachecon']['dir'], 0777)) {
             xtec_debug("$path directory created<br/>\n");
         }
         umask($old);
@@ -88,9 +86,10 @@ if (isset($args['force']) && $args['force']) {
     fwrite($fp, "<?php\n$schoolstr\n");
     fclose($fp);
 
-    $destfile = $path.$filename;
-    xtec_debug('Temp file: '.$tempfile);
-    xtec_debug('Written file: '.$destfile);
+    $destfile = $path . $agora['cachecon']['file'];
+    xtec_debug('Temp file: ' . $tempfile);
+    xtec_debug('Written file: ' . $destfile);
+
     $oldumask = umask(0);
     if (!rename($tempfile, $destfile)) {
         echo "Failed to rename $tempfile to $destfile\n";
