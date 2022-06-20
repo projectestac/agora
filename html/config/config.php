@@ -42,11 +42,11 @@ switch ($agora['server']['enviroment']) {
 }
 
 $agora['server']['html'] = $agora['server']['server'] . $agora['server']['base'];
-$agora['server']['cookie'] = 'agoraSchool' . $agora['server']['enviroment'];
 $agora['server']['uploads'] = $agora['server']['root'] . $agora['server']['datadir'] . 'uploads/'; // Temp directory for uploading big files. Files will be moved to each moodledata.
 
-// Directory for Database Connection Cache
-$agora['dbsource']['dir'] = $agora['server']['root'] . $agora['server']['localdatadir'] . 'syncdata/';
+// Database Connection Cache
+$agora['cachecon']['dir'] = $agora['server']['root'] . $agora['server']['localdatadir'] . 'syncdata/';
+$agora['cachecon']['file'] = 'allSchools.php';
 
 // xtecadmin email
 $agora['xtecadmin']['mail'] = 'agora@xtec.invalid';
@@ -61,31 +61,6 @@ $agora['proxy']['pass'] = '';
 define('WWWROOT', $agora['server']['server'] . $agora['server']['base']);
 
 // Type Ids for secondary domains
-define('SERVEIEDUCATIU_TYPE_ID', 5);
-define('EOI_TYPE_ID', 6);
-define('PROJECTES_TYPE_ID', 12);
-
-/*
-// Codi dels talls de servei
-if (!strpos($_SERVER['REQUEST_URI'], "analytics1") &&
-    !strpos($_SERVER['REQUEST_URI'], "analytics2") &&
-    !strpos($_SERVER['REQUEST_URI'], "analytics3") &&
-    !strpos($_SERVER['REQUEST_URI'], "aroga") &&
-    !strpos($_SERVER['REQUEST_URI'], "analytics4")) {
-
-    // Intervals de tall
-    $talls = array( array('inici' => strtotime("22 Jul 2013 9 hours"), 'final' => strtotime("22 Jul 2013 17 hours")),
-                    array('inici' => strtotime("23 Jul 2013 9 hours"), 'final' => strtotime("23 Jul 2013 17 hours")),
-                    array('inici' => strtotime("24 Jul 2013 9 hours"), 'final' => strtotime("24 Jul 2013 17 hours")) );
-
-    foreach ($talls as $tall) {
-
-        $ara = time();
-
-        // Es mira si el moment de carrega de la pagina esta dins d'algun interval de tall
-        if ($ara > $tall['inici'] && $ara < $tall['final']) {
-             header("Location: https://sites.google.com/a/xtec.cat/agora/anuncis/manteniment");
-       }
-    }
-}
-*/
+const SERVEIEDUCATIU_TYPE_ID = 5;
+const EOI_TYPE_ID = 6;
+const PROJECTES_TYPE_ID = 12;
