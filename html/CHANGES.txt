@@ -4,6 +4,51 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
 
+Changes 22.06.30
+---------------------------------------------------------------------------------------
+GENERAL
+- Removed usage of Àgora cookie
+- Config scripts: Minor improvements
+- update_submodules.sh: Updated repositories
+
+MOODLE
+- Upgraded Moodle to version 3.11.7+
+- Updated langpacks
+- Unlock coursebinenabled
+- attendance: Added module
+- completion_progress: Upgraded block
+- coursequotas: Minor improvements to the report
+- H5P core: Activated for all users
+- HVP: Upgraded module and blocked access to users
+- journal: Upgraded module
+- GeoGebra: Upgraded module
+- migratehvp2h5p: Opened access to site admins
+- questionnaire: Upgraded module
+- Theme xtec2020: Minor improvements
+- Wiris: Upgraded all components
+
+NODES
+- Upgraded WordPress to version 5.7.6
+- astra-addon: Upgraded plugin. Restricted access to projectes
+- astra-sites: Added plugin (only for projectes)
+- Carrusel: Several fixes
+- polylang: Upgraded plugin
+- tabs-responsive: Fixed loading of side menu in category pages
+- telegram: Upgraded plugin
+- Theme astra: Upgraded theme
+- wordpress-php-info: Removed plugin
+- wpforms-lite: Added plugin (only for projectes)
+- wp-recaptcha: Removed plugin
+- xtec-stats: Load javascript only in admin pages
+
+PORTAL
+- Agoraportal: Fixed values equal to zero in parameters of operations
+- Agoraportal: Fixed domain for Nodes when changing 'nom propi'. Other minor changes
+- Agoraportal: Fixed requests' incorrect access to inactive services
+- Agoraportal: List all services in my Agora for administrators
+- Agoraportal: Allow admins to upload files of any size. Make maximum file size to upload configurable
+
+
 Changes 22.02.22
 ---------------------------------------------------------------------------------------
 MOODLE
