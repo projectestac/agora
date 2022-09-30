@@ -4,6 +4,28 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
 
+Changes 22.10.04
+---------------------------------------------------------------------------------------
+MOODLE
+- Upgraded Moodle to version 3.11.10+
+- Updated langpacks
+- Attendance: Upgraded module
+- Choicegroup: Upgraded module
+- Google repository: Fix for error when accessing to files allocated in Google Drive
+- Hotpot: Upgraded module
+- Journal: Upgraded module
+- Ordering: Upgraded question type
+- Questionnaire: Upgraded module
+- Snap!: Added module
+- Wiris: Upgraded all components
+
+NODES
+- Upgraded WordPress to version 5.7.7
+- Fixed PHP warning when checking the list of plugins to exclude
+- widget-visibility-without-jetpack: Upgraded plugin
+- Theme reactor: Added missing apostrophe
+
+
 Changes 22.07.04
 ---------------------------------------------------------------------------------------
 MOODLE
