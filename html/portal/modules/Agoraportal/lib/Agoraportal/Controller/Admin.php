@@ -649,6 +649,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                         ->assign('requesttypes', $requesttypes)
                         ->assign('templates', $templates)
                         ->assign('createDB', $this->getVar('createDB'))
+                        ->assign('firstID', $this->getVar('firstID', 1))
                         ->fetch('agoraportal_admin_config.tpl');
     }
 
@@ -667,6 +668,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $xtecadminPassword = FormUtil::getPassedValue('xtecadminPassword', '', 'POST');
         $maxUploadSize = FormUtil::getPassedValue('maxUploadSize', '', 'POST');
         $createDB = FormUtil::getPassedValue('createDB', false, 'POST');
+        $firstID = FormUtil::getPassedValue('firstID', 1, 'POST');
 
         // Confirm authorisation code
         $this->checkCsrfToken();
@@ -686,7 +688,8 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 ->setVar('maxFreeQuotaForRequest', $maxFreeQuotaForRequest)
                 ->setVar('xtecadminPassword', $xtecadminPassword)
                 ->setVar('maxUploadSize', $maxUploadSize)
-                ->setVar('createDB', $createDB);
+                ->setVar('createDB', $createDB)
+                ->setVar('firstID', $firstID);
 
         LogUtil::registerStatus($this->__('S\'ha modificat la configuració'));
 

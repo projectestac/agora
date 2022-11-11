@@ -87,6 +87,16 @@
         </div>
     </div>
 
+    <div class="form-group">
+        <label class="col-sm-4 control-label" for="firstID">{gt text="Número de la base de dades més baixa que es pot crear (activedId)"}</label>
+        <div class="col-sm-8">
+            <input class="form-control" type="text" id="firstID" name="firstID" size="5" maxlength="19" value="{$firstID}" />
+            <div class="alert alert-info">
+                {gt text="Aquest paràmetre permet començar a assignar els \"usus\" a partir d'un valor determinat de manera que no s'omplin els buits a la seqüència de ID"}
+            </div>
+        </div>
+    </div>
+
     <div class="text-center">
         <button type="submit" class="btn btn-success" title={gt text="Modifica la configuració"}>
             <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> {gt text="Modifica la configuració"}

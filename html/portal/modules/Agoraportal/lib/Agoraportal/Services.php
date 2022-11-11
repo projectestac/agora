@@ -998,16 +998,24 @@ class Service extends AgoraBase {
 
         $databaseIds = Services::get_activeId_by_serviceid($this->serviceId);
 
-        $i = 1;
+        // Cast types to integer to avoid errors in later comparison.
+        $firstID = (int) ModUtil::getVar('Agoraportal', 'firstID', 1);
+
+        $i = $firstID;
         $free = false;
 
         // First, look for a free database (a gap in the list)
         foreach ($databaseIds as $activeId) {
-            if ($activeId != $i) {
-                $free = $i;
-                break;
+            $activeId = (int) $activeId;
+
+            // Discard activeId's that are lower than firstID.
+            if ($activeId >= $firstID) {
+                if ($activeId !== $i) {
+                    $free = $i;
+                    break;
+                }
+                $i++;
             }
-            $i++;
         }
 
         // No luck, so let's try the following ID
