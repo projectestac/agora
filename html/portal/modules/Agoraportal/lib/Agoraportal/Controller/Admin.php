@@ -1633,7 +1633,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $warningMsgTpl .= "<p>---<br />L'equip del projecte Àgora</p>";
         $warningMsgTpl .= "<p>P.D.: Aquest missatge s'envia automàticament. Si us plau, no el respongueu.</p>";
 
-        // Get available services with db flag set (currently: intranet, moodle2, nodes)
+        // Get available services with db flag set (currently: moodle2, nodes)
         $servicetypes = ServiceTypes::get_with_db();
 
         // Build array with info of the services to check and the path to its file

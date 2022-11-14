@@ -13,18 +13,15 @@ class Stats {
      */
     function getServiceStats($serviceid) {
         $servicetype = ServiceType::get_by_id($serviceid);
-        switch($servicetype->serviceName) {
-            case 'intranet':
-                return array('month' => 'Mensuals');
-                break;
+
+        switch ($servicetype->serviceName) {
             case 'moodle':
             case 'moodle2':
-                return array('day' => 'Diàries', 'week' => 'Setmanals', 'month' => 'Mensuals');
-                break;
+                return ['day' => 'Diàries', 'week' => 'Setmanals', 'month' => 'Mensuals'];
             case 'nodes':
-                return array('day' => 'Diàries', 'month' => 'Mensuals');
-                break;
+                return ['day' => 'Diàries', 'month' => 'Mensuals'];
         }
+
         return 'No hi ha estadístiques';
     }
 
@@ -103,7 +100,7 @@ class Stats {
         $start = date('Ymd', strtotime($start));
         $stop = date('Ymd', strtotime($stop));
 
-        if (($stat == 'month') || ($servicetype->serviceName == 'intranet')) {
+        if ($stat === 'month') {
             $start = substr($start, 0, 6);
             $stop = substr($stop, 0, 6);
             $datefield = 'yearmonth';

@@ -30,16 +30,6 @@ class Service_nodes extends Service {
      * @return int activedId
      */
     protected function getDBId() {
-        $twin = Service::get_by_client_and_servicename( $this->clientId, 'intranet' );
-
-        if ($twin && $twin->activedId > 0) {
-            $this->activedId = $twin->activedId;
-            $this->serviceDB = $twin->activedId;
-            $this->dbHost = $twin->dbHost;
-
-            return $this->activedId;
-        }
-
         if (!empty($this->serviceDB)) {
             if ( self::get_by_servicename_and_activeid('nodes', $this->serviceDB)) {
                 $this->activedId = $this->calcFreeDatabase();

@@ -29,43 +29,25 @@
     <p>
         Per resoldre qualsevol dubte o problema relacionat amb aquest servei, teniu 
         a la vostra disposició el <a href="{$servicetype->support_url}">fòrum 
-        d'Àgora-moodle</a>, a on hi podeu escriure preguntes, 
-        sol·licitar ajuda o plantejar suggeriments.
+        d'Àgora-moodle</a>, on podeu escriure preguntes, sol·licitar ajuda o plantejar suggeriments.
     </p>
     <p>
         Per resoldre dubtes sobre el funcionament general del Moodle us podeu 
         adreçar també als fòrums en català
-        de <a href="http://moodle.org/course/view.php?id=39">Moodle.org</a>.
+        de <a href="https://moodle.org/course/view.php?id=39">Moodle.org</a>.
     </p>
     <p>
         Teniu a la vostra disposició els  
-        <a href="http://ateneu.xtec.cat/wikiform/wikiexport/cmd/tac/moodle2/index">
+        <a href="https://ateneu.xtec.cat/wikiform/wikiexport/cmd/tac/moodle2/index">
         materials de suport als cursos telemàtics</a> sobre Moodle, 
         on trobareu un conjunt important d'informació sobre l'ús 
         d'aquesta plataforma d'aprenentatge.
-    </p>
-    {elseif $servicetype->serviceName eq 'intranet'}
-    <p>
-        Tal com s'especifica a les condicions d'ús del servei, 
-        recordeu que a la XTEC no hi ha cap figura destinada a solucionar les
-        qüestions plantejades en relació al funcionament de la 
-        intranet. Per tal de resoldre els dubtes relacionats amb aquest tema
-        podeu adreçar-vos als  <a href="{$servicetype->support_url}">fòrums 
-        del projecte Intraweb</a>. En aquest fòrum tothom pot preguntar 
-        i respondre les qüestions que consideri oportunes.
-    </p>
-    <p>
-        Teniu a la vostra disposició els materials del 
-        <a href="http://ateneu.xtec.cat/wikiform/wikiexport/cursos/gestio_centres/d134/index">curs
-        de formació sobre l'administració de la intranet</a> a on hi 
-        trobareu un conjunt important d'informació sobre l'ús 
-        d'aquesta plataforma.
     </p>
     {elseif $servicetype->serviceName eq 'nodes'}
     <p>
         Tal com s'especifica a les condicions d'ús del servei, 
         recordeu que a la XTEC no hi ha cap figura destinada a solucionar les
-        qüestions plantejades en relació al funcionament del 
+        qüestions plantejades amb relació al funcionament del 
         WordPress. Per tal de resoldre els dubtes relacionats amb aquest tema
         podeu adreçar-vos al <a href="{$servicetype->support_url}">
         fòrum del projecte Nodes</a>. En aquest fòrum tothom pot preguntar 
