@@ -4,6 +4,29 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
 
+Changes 22.11.15
+---------------------------------------------------------------------------------------
+MOODLE
+- Upgraded Moodle to version 3.11.11
+- Updated langpacks
+- oAuth2 client: Modified behavior for login to Azure AD via oAuth2
+- Attendance: Upgraded module
+- Choicegroup: Upgraded module
+- Clickedu: Upgraded module
+- Hotpot: Downgraded module
+- GeoGebra: Upgraded module
+- Wiris: Upgraded all components
+
+NODES
+- Upgraded WordPress to version 5.7.8
+- enllacos-educatius: Fixed URL for "La meva XTEC"
+
+PORTAL
+- Added universal Moodle callback URI for Àgora
+- Agoraportal: Added option to set a minimum activedId when activating sites
+- Agoraportal: Removed functions for massive activation and deactivation
+
+
 Changes 22.10.04
 ---------------------------------------------------------------------------------------
 MOODLE
