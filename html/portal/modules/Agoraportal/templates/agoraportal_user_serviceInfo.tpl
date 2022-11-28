@@ -110,6 +110,8 @@
         {if $isAdmin}
             <span><strong>{gt text="ActivedId (usu)"}</strong>: {$service->activedId}</span>
             <br />
+        {/if}
+        {if $isAdmin or $isManager}
             {include file="agoraportal_user_service_disk_usage.tpl"}
         {/if}
     </div>

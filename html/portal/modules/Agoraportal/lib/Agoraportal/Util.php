@@ -334,21 +334,22 @@ class AgoraPortal_Util {
      * @return bool|string
      */
     public static function getRole() {
-        if (AgoraPortal_Util::isAdmin()) {
+        if (self::isAdmin()) {
             return 'admin';
         }
 
-        if (AgoraPortal_Util::isManager()) {
+        if (self::isManager()) {
             return 'manager';
         }
 
-        if (AgoraPortal_Util::isClient()) {
+        if (self::isClient()) {
             return 'client';
         }
 
-        if (AgoraPortal_Util::isUser()) {
+        if (self::isUser()) {
             return 'user';
         }
+
         return false;
     }
 

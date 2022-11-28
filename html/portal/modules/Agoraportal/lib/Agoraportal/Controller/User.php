@@ -6,7 +6,9 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
 
     public function postInitialize() {
         $role = AgoraPortal_Util::getRole();
-        $this->view->assign('isAdmin', $role == 'admin');
+
+        $this->view->assign('isAdmin', $role === 'admin');
+        $this->view->assign('isManager', $role === 'manager');
         $this->view->assign('accessLevel', $role);
         $this->view->setCaching(false);
     }
