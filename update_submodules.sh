@@ -76,6 +76,7 @@ if [[ $execwordpress == true ]]; then
     gitcheckout "html/wordpress/wp-content/plugins/buddypress-group-email-subscription" "master" "https://github.com/projectestac/wordpress-buddypress-group-email-subscription.git"
     gitcheckout "html/wordpress/wp-content/plugins/code-snippets" "master" "https://github.com/projectestac/wordpress-code-snippets.git"
     gitcheckout "html/wordpress/wp-content/plugins/email-subscribers" "master" "https://github.com/projectestac/wordpress-email-subscribers.git"
+    gitcheckout "html/wordpress/wp-content/plugins/getwid" "master" "https://github.com/projectestac/wordpress-getwid.git"
     gitcheckout "html/wordpress/wp-content/plugins/gif-master" "master" "https://github.com/projectestac/wordpress-gif-master.git"
     gitcheckout "html/wordpress/wp-content/plugins/google-analyticator" "master" "https://github.com/projectestac/wordpress-google-analyticator.git"
     gitcheckout "html/wordpress/wp-content/plugins/google-calendar-events" "master" "https://github.com/projectestac/wordpress-gce.git"
