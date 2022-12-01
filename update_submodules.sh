@@ -68,6 +68,7 @@ if [[ $execwordpress == true ]]; then
     gitcheckout "html/wordpress/wp-content/plugins/add-to-any" "master" "https://github.com/projectestac/wordpress-add-to-any.git"
     gitcheckout "html/wordpress/wp-content/plugins/advanced-nocaptcha-recaptcha" "master" "https://github.com/projectestac/wordpress-advanced-nocaptcha-recaptcha.git"
     gitcheckout "html/wordpress/wp-content/plugins/astra-addon" "master" "https://github.com/projectestac/wordpress-astra-addon.git"
+    gitcheckout "html/wordpress/wp-content/plugins/astra-sites" "master" "https://github.com/projectestac/wordpress-astra-sites.git"
     gitcheckout "html/wordpress/wp-content/plugins/author-category" "master" "https://github.com/projectestac/wordpress-author-category.git"
     gitcheckout "html/wordpress/wp-content/plugins/bbpress" "master" "https://github.com/projectestac/wordpress-bbpress.git"
     gitcheckout "html/wordpress/wp-content/plugins/blogger-importer" "master" "https://github.com/projectestac/wordpress-blogger-importer.git"
