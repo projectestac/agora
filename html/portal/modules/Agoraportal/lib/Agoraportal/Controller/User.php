@@ -715,9 +715,33 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         }
 
         $service = Service::get_by_client_and_service($client->clientId, $serviceId);
-        if (!Request::add($service->serviceId, $service->clientId, $requestTypeId, $comments)) {
+        $request = Request::add($service->serviceId, $service->clientId, $requestTypeId, $comments);
+
+        if ($request === false) {
             LogUtil::registerError($this->__('No s\'ha pogut crear la sol·licitud'));
             return System::redirect(ModUtil::url('Agoraportal', 'user', 'requests', array('clientCode' => $clientCode)));
+        }
+
+        // Check if Mailer is active
+        $modid = ModUtil::getIdFromName('Mailer');
+        $modinfo = ModUtil::getInfo($modid);
+        $mailerAvailable = ((int)$modinfo['state'] === 3) ? 1 : 0;
+
+        if ($mailerAvailable) {
+            $recipients = explode(',', ModUtil::getVar('Agoraportal', 'requestMailsTo'));
+
+            $message = "<p>Benvolgut/da,</p><p>Aquest missatge és per informar-vos de què s'ha creat una nova sol·licitud 
+al portal d'Àgora. Hi podeu accedir directament des d'aquest enllaç:</p>
+<blockquote><a href='" . ModUtil::getVar('Agoraportal', 'siteBaseURL') . "portal/index.php?module=Agoraportal&type=admin&func=editRequest&requestId=" . $request->requestId . "'>" . 
+$service->servicetype->serviceName . ': ' . $type->name . "</a></blockquote>";
+
+            ModUtil::apiFunc('Mailer', 'user', 'sendmessage', [
+                'toname' => $this->__('Agoraportal admin'),
+                'toaddress' => $recipients,
+                'subject' => $this->__('Nova sol·licitud al portal d\'Àgora'),
+                'body' => $message,
+                'html' => 1,
+            ]);
         }
 
         LogUtil::registerStatus($this->__('La sol·licitud s\'ha creat correctament'));
