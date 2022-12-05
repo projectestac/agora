@@ -33,6 +33,16 @@
     </div>
 
     <div class="form-group">
+        <label class="col-sm-4 control-label" for="clientMailsCopyTo">{gt text="Adreces de correu on s'han d'enviar còpies dels missatges enviats als clients"}</label>
+        <div class="col-sm-8">
+            <textarea class="form-control" id="clientMailsCopyTo" name="clientMailsCopyTo" rows="3">{$clientMailsCopyTo}</textarea>
+            <div class="alert alert-info">
+                {gt text="Separeu la llista d'adreces per comes."}
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
         <label class="col-sm-4 control-label" for="diskRequestThreshold">{gt text="Ocupació a partir de la qual es pot demanar ampliació de quota (%)"}</label>
         <div class="col-sm-8">
             <input class="form-control" type="text" id="diskRequestThreshold" name="diskRequestThreshold" size="10" maxlength="50" value="{$diskRequestThreshold}" />

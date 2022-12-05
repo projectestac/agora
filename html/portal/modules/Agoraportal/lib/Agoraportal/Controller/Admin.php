@@ -636,6 +636,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         return $this->view->assign('siteBaseURL', $this->getVar('siteBaseURL'))
                         ->assign('warningMailsTo', $this->getVar('warningMailsTo'))
                         ->assign('requestMailsTo', $this->getVar('requestMailsTo'))
+                        ->assign('clientMailsCopyTo', $this->getVar('clientMailsCopyTo'))
                         ->assign('diskRequestThreshold', $this->getVar('diskRequestThreshold'))
                         ->assign('clientsMailThreshold', $this->getVar('clientsMailThreshold'))
                         ->assign('maxAbsFreeQuota', $this->getVar('maxAbsFreeQuota'))
@@ -661,6 +662,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $siteBaseURL = FormUtil::getPassedValue('siteBaseURL', null, 'POST');
         $warningMailsTo = FormUtil::getPassedValue('warningMailsTo', null, 'POST');
         $requestMailsTo = FormUtil::getPassedValue('requestMailsTo', null, 'POST');
+        $clientMailsCopyTo = FormUtil::getPassedValue('clientMailsCopyTo', null, 'POST');
         $diskRequestThreshold = FormUtil::getPassedValue('diskRequestThreshold', null, 'POST');
         $clientsMailThreshold = FormUtil::getPassedValue('clientsMailThreshold', null, 'POST');
         $maxAbsFreeQuota = FormUtil::getPassedValue('maxAbsFreeQuota', null, 'POST');
@@ -682,6 +684,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $this->setVar('siteBaseURL', $siteBaseURL)
                 ->setVar('warningMailsTo', $warningMailsTo)
                 ->setVar('requestMailsTo', $requestMailsTo)
+                ->setVar('clientMailsCopyTo', $clientMailsCopyTo)
                 ->setVar('diskRequestThreshold', $diskRequestThreshold)
                 ->setVar('clientsMailThreshold', $clientsMailThreshold)
                 ->setVar('maxAbsFreeQuota', $maxAbsFreeQuota)

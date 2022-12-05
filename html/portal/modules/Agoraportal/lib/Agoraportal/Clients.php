@@ -584,10 +584,13 @@ class Client extends AgoraBase {
             $who .= 'als gestors';
         }
 
-        $bccUsers = array();
-        if ($adminbcc) {
-            // BCC to site e-mail
-            $bccUsers[] = array('address' => System::getVar('adminmail'));
+        $bccUsers = [];
+        $clientMailsCopyTo = explode(',', ModUtil::getVar('Agoraportal', 'clientMailsCopyTo'));
+
+        if ($adminbcc && is_array($clientMailsCopyTo) && !empty($clientMailsCopyTo)) {
+            foreach ($clientMailsCopyTo as $address) {
+                $bccUsers[] = ['address' => trim($address)];
+            }
         }
 
         // Send the e-mail
