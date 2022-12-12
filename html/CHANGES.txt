@@ -4,6 +4,37 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
 
+Changes 22.12.13
+---------------------------------------------------------------------------------------
+MOODLE
+- Upgraded Moodle to version 3.11.11+
+- Updated langpacks
+- Attendance: Upgraded module
+- Choicegroup: Upgraded module
+- completion_progress: Upgraded block
+- local_agora: Added script to configure oAuth2 client for IDI
+- migratehvp2h5p: Upgraded tool
+- oAuth2 client: Fixed save of oAuth2 issuers when acceptrisk is checked
+- oAuth2 client: Ensure method get_issuer exists before calling it. Added exception for client for IDI
+- oAuth2 client: Only xtecadmin can configure oAuth2 client for IDI
+- Theme xtec2020: Fix for collapsible menu using custommenuitems
+- Wiris: Upgraded all components
+
+NODES
+- getwid: Added submodule. Only accessible for sites of type project
+- astra: Upgraded theme
+- astra-addon: Upgraded plugin
+- astra-sites: Upgraded plugin
+- pods: Upgraded plugin
+- wpforms-lite: Upgraded plugin
+
+PORTAL
+- Agoraportal: Added configuration option for admin e-mail related to clients
+- Agoraportal: Send email to admins on new request creation
+- Agoraportal: Removed remaining Intraweb code
+- Agoraportal: Fixed access to quota recalc by managers
+
+
 Changes 22.11.15
 ---------------------------------------------------------------------------------------
 MOODLE
