@@ -37,7 +37,7 @@ if [[ $execmoodle == true ]]; then
     gitcheckout "html/moodle2/local/alexandriaimporter" "master" "https://github.com/projectestac/moodle-local_alexandriaimporter.git"
     gitcheckout "html/moodle2/local/clickedu" "MOODLE_36_STABLE" "https://github.com/clickedu/ClickeduMoodlePlugin.git"
     gitcheckout "html/moodle2/local/oauth" "master" "https://github.com/projectestac/moodle-local_oauth.git"
-    gitcheckout "html/moodle2/local/redislock" "MOODLE_39_STABLE" "https://github.com/open-lms-open-source/moodle-local_redislock.git"
+    gitcheckout "html/moodle2/local/redislock" "master" "https://github.com/projectestac/moodle-local_redislock.git"
     gitcheckout "html/moodle2/local/wsvicensvives" "master" "https://github.com/vicensvives/moodle-local_ws_vicensvives.git"
     gitcheckout "html/moodle2/mod/assign/submission/snap" "main" "https://github.com/jguille2/moodle-assignsubmission_snap.git"
     gitcheckout "html/moodle2/mod/attendance" "MOODLE_311_STABLE" "https://github.com/danmarsden/moodle-mod_attendance.git"
