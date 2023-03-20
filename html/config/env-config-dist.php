@@ -28,10 +28,10 @@ $agora['admin']['datadir'] = $agora['server']['datadir'] . 'portaldata/';
 // Moodle database access info (Postgres)
 $agora['moodle2']['userpwd'] = '';
 $agora['moodle2']['datadir'] = $agora['server']['datadir'] . 'moodledata/';
-$agora['moodle2']['memcache_servers'] = '127.0.0.1';
+$agora['moodle2']['memcache_servers'] = '';
 $agora['moodle2']['redis_servers'] = '127.0.0.1';
 $agora['moodle2']['memcached_session_servers'] = '';
-$agora['moodle2']['redis_session_servers'] = '';
+$agora['moodle2']['redis_session_servers'] = '127.0.0.1';
 
 // WordPress database access info (MySQL)
 $agora['nodes']['username'] = 'root'; // Usuari per accedir a totes les bases de dades
