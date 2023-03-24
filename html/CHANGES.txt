@@ -4,6 +4,34 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
 
+Changes 23.03.27
+---------------------------------------------------------------------------------------
+GENERAL
+- update_submodules.sh: Updated repositories
+
+MOODLE
+- Upgraded Moodle to version 3.11.13+
+- Updated langpacks
+- Attendance: Upgraded module
+- Choicegroup: Upgraded module
+- GeoGebra: Upgraded module
+- Questionnaire: Upgraded module
+- Wiris: Upgraded all components
+- local_redislock: Added expiration to locks to automatically remove them in case the script doesn't finish correctly
+- H5P: Fix for visual editor doesn't open under certain conditions
+- local_agora: Added changes for IDI
+- Login via IDI. Added language string for user profile field schoolcode.
+- Login via IDI. Don't update the email every time the user logs in.
+- Login via IDI. Use a fake email based on UPN.
+- oAuth2 client: User can have no email in IDI. In that case, will use the UPN as an email.
+- oAuth2 client: Only allow to login to users whose school code in IDI matches the school code of the Moodle site.
+
+NODES
+- alumni-fp: Added plugin
+- Fixed general setting for post order. Removed dropdown menu for tags as it was never implemented.
+- Theme reactor: Fixed typo error in podcast icon
+
+
 Changes 22.12.13
 ---------------------------------------------------------------------------------------
 MOODLE
