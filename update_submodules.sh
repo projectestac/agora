@@ -84,6 +84,7 @@ if [[ $execwordpress == true ]]; then
     gitcheckout "html/wordpress/wp-content/plugins/h5p" "master" "https://github.com/projectestac/wordpress-h5p.git"
     gitcheckout "html/wordpress/wp-content/plugins/import-users-from-csv-with-meta" "master" "https://github.com/projectestac/wordpress-import-users-from-csv-with-meta.git"
     gitcheckout "html/wordpress/wp-content/plugins/invite-anyone" "master" "https://github.com/projectestac/wordpress-invite-anyone.git"
+    gitcheckout "html/wordpress/wp-content/plugins/nodes-editor-widget" "master" "https://github.com/projectestac/wordpress-dashboard-editor-widget.git"
     gitcheckout "html/wordpress/wp-content/plugins/nodes-incidencies" "master" "https://github.com/projectestac/wordpress-nodes-incidencies.git"
     gitcheckout "html/wordpress/wp-content/plugins/nodes-inventari" "master" "https://github.com/projectestac/wordpress-nodes-inventari.git"
     gitcheckout "html/wordpress/wp-content/plugins/pods" "master" "https://github.com/projectestac/wordpress-pods.git"
