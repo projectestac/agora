@@ -4,6 +4,28 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
 
+Changes 23.05.23
+---------------------------------------------------------------------------------------
+GENERAL
+- update_submodules.sh: Updated repositories
+
+MOODLE
+- Upgraded Moodle to version 3.11.14+
+- Updated langpacks
+- Journal: Upgraded module
+- Ordering: Upgraded question type
+- Snap: Upgraded module
+- Wiris: Upgraded all components
+
+NODES
+- Getwid module available for all sites
+- Getwid: Added catalan translation
+- agora-functions: Configured Gutenberg view options and disabled some blocks
+- alumni-fp: Updated plugin
+- nodes-editor-widget: Added submodule
+- Theme reactor: Added alt atribute in img tags
+
+
 Changes 23.03.27
 ---------------------------------------------------------------------------------------
 GENERAL
