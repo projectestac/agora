@@ -35,19 +35,19 @@ if [[ $execmoodle == true ]]; then
     gitcheckout "html/moodle2/lib/editor/atto/plugins/wiris" "stable" "https://github.com/wiris/moodle-atto_wiris.git"
     gitcheckout "html/moodle2/local/agora" "master" "https://github.com/projectestac/moodle-local_agora.git"
     gitcheckout "html/moodle2/local/alexandriaimporter" "master" "https://github.com/projectestac/moodle-local_alexandriaimporter.git"
-    gitcheckout "html/moodle2/local/clickedu" "MOODLE_36_STABLE" "https://github.com/clickedu/ClickeduMoodlePlugin.git"
+    gitcheckout "html/moodle2/local/clickedu" "MOODLE_40_STABLE" "https://github.com/clickedu/ClickeduMoodlePlugin.git"
     gitcheckout "html/moodle2/local/oauth" "master" "https://github.com/projectestac/moodle-local_oauth.git"
     gitcheckout "html/moodle2/local/redislock" "master" "https://github.com/projectestac/moodle-local_redislock.git"
     gitcheckout "html/moodle2/local/wsvicensvives" "master" "https://github.com/vicensvives/moodle-local_ws_vicensvives.git"
     gitcheckout "html/moodle2/mod/assign/submission/snap" "main" "https://github.com/jguille2/moodle-assignsubmission_snap.git"
-    gitcheckout "html/moodle2/mod/attendance" "MOODLE_311_STABLE" "https://github.com/danmarsden/moodle-mod_attendance.git"
+    gitcheckout "html/moodle2/mod/attendance" "MOODLE_401_STABLE" "https://github.com/danmarsden/moodle-mod_attendance.git"
     gitcheckout "html/moodle2/mod/choicegroup" "master" "https://github.com/ndunand/moodle-mod_choicegroup.git"
     gitcheckout "html/moodle2/mod/geogebra" "master" "https://github.com/projectestac/moodle-mod_geogebra.git"
     gitcheckout "html/moodle2/mod/hotpot" "master" "https://github.com/gbateson/moodle-mod_hotpot.git"
     gitcheckout "html/moodle2/mod/hvp" "master" "https://github.com/projectestac/moodle-hvp.git"
     gitcheckout "html/moodle2/mod/jclic" "master" "https://github.com/projectestac/moodle-mod_jclic.git"
     gitcheckout "html/moodle2/mod/journal" "master" "https://github.com/elearningsoftware/moodle-mod_journal.git"
-    gitcheckout "html/moodle2/mod/questionnaire" "MOODLE_311_STABLE" "https://github.com/PoetOS/moodle-mod_questionnaire.git"
+    gitcheckout "html/moodle2/mod/questionnaire" "MOODLE_400_STABLE" "https://github.com/PoetOS/moodle-mod_questionnaire.git"
     gitcheckout "html/moodle2/mod/qv" "master" "https://github.com/projectestac/moodle-mod_qv.git"
     gitcheckout "html/moodle2/question/format/hotpot" "master" "https://github.com/gbateson/moodle-qformat_hotpot.git"
     gitcheckout "html/moodle2/question/type/essaywiris" "main" "https://github.com/wiris/moodle-qtype_essaywiris.git"
@@ -59,7 +59,7 @@ if [[ $execmoodle == true ]]; then
     gitcheckout "html/moodle2/question/type/wq" "master" "https://github.com/projectestac/moodle-qtype_wq.git"
     gitcheckout "html/moodle2/question/type/ordering" "master" "https://github.com/gbateson/moodle-qtype_ordering.git"
     gitcheckout "html/moodle2/report/coursequotas" "master" "https://github.com/projectestac/moodle-report_coursequotas.git"
-    gitcheckout "html/moodle2/theme/xtec2020" "master" "https://github.com/projectestac/moodle-theme_xtec2020.git"
+    gitcheckout "html/moodle2/theme/xtecboost" "master" "https://github.com/projectestac/moodle-theme_xtecboost.git"
 fi
 
 if [[ $execwordpress == true ]]; then
@@ -103,7 +103,7 @@ if [[ $execwordpress == true ]]; then
     gitcheckout "html/wordpress/wp-includes/xtec" "master" "https://github.com/projectestac/wordpress-xtec.git"
 fi
 
-#if [[ $execportal == true ]]
-#then
-#    Portal (No submodules currently)
-#fi
+if [[ $execportal == true ]]
+then
+    gitcheckout "html/portal" "master" "https://github.com/projectestac/agora_portal.git"
+fi
