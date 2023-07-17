@@ -4,6 +4,40 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
 
+Changes 23.07.10
+---------------------------------------------------------------------------------------
+MOODLE
+- Upgraded Moodle to version 4.1.4+
+- Updated langpacks
+- Attendance: Upgraded module
+- Atto plugin cloze: Upgraded version
+- Choicegroup: Upgraded module
+- Clickedu: Upgraded module
+- Completion progress: Upgraded block
+- Coursequotas: Updated report
+- Course format type Simple: Upgraded for Moodle 4.x
+- jclic: Added monologo icon
+- Local Àgora: Upgraded cache definitions for Moodle 4.1.4
+- Local Àgora: Copy of settings from xtec2020
+- Questionnaire: Upgraded module
+- rcontent: Added monologo icon
+- TinyMCE Editor: Restricted access to uninstall and to record video
+- XTEC Boost: Added theme
+- Wiris: Upgraded all components
+
+NODES
+- Upgraded WordPress to version 5.7.9
+- astra: Upgraded theme
+- astra-addon: Upgraded plugin
+- BuddyPress: Upgraded plugin
+- email-subscribers: Upgraded plugin
+- XTEC lib: Compatibility with PHP 8.1
+- XTEC scripts: Compatibility with PHP 8.1 and improved code quality
+
+PORTAL
+- Added new portal based on Laravel
+
+
 Changes 23.05.23
 ---------------------------------------------------------------------------------------
 GENERAL
