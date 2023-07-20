@@ -20,7 +20,7 @@ $agora['server']['school_information'] = 'https://aplicacions.ensenyament.gencat
 // Admin database access info (MySQL)
 $agora['admin']['username'] = 'root';
 $agora['admin']['userpwd'] = '';
-$agora['admin']['database'] = 'adminagora';
+$agora['admin']['database'] = 'portal';
 $agora['admin']['host'] = 'localhost';
 $agora['admin']['port'] = '3306';
 $agora['admin']['datadir'] = $agora['server']['datadir'] . 'portaldata/';

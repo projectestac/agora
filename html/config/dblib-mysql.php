@@ -27,7 +27,7 @@ function is_in_domain(string $domain): bool {
 }
 
 /**
- * Set Àgora global variables for the URL domain. In case the user is 
+ * Set Àgora global variables for the URL domain. In case the user is
  * accessing to a wrong domain, do a redirect to the right domain.
  *
  * @param string $domain
@@ -62,20 +62,20 @@ function set_domain_and_redirect(string $domain) {
  * @param int $startingday
  * @return array|bool
  */
-function getServicesTotals(bool $codeletter = false, string $order = 'clientDNS', string $desc = 'asc',
-                           string $service = 'all', string $state = 'all', int $countdays = 0, int $startingday = 0) {
+function getServicesTotals(bool   $codeletter = false, string $order = 'dns', string $desc = 'asc',
+                           string $service = 'all', string $status = 'all', int $countdays = 0, int $startingday = 0) {
 
     $values = $conditions = [];
 
     if ($service !== 'all') {
-        $conditions[] = "serviceName='$service'";
+        $conditions[] = "s.name='$service'";
     }
 
-    if ($state !== 'all') {
-        if (is_array($state)) {
-            $conditions[] = "state IN ('" . implode("', '", $state) . "')";
+    if ($status !== 'all') {
+        if (is_array($status)) {
+            $conditions[] = "i.status IN ('" . implode("', '", $status) . "')";
         } else {
-            $conditions[] = "state='$state'";
+            $conditions[] = "i.status='$status'";
         }
     }
 
@@ -88,16 +88,22 @@ function getServicesTotals(bool $codeletter = false, string $order = 'clientDNS'
 
     require_once 'dbmanager.php';
 
-    $sql = "
-    SELECT SUM(sd.total) as total, cs.activedId, c.clientCode
-            FROM agoraportal_client_services cs
-            LEFT JOIN agoraportal_clients c ON cs.clientID = c.clientID
-            LEFT JOIN agoraportal_clientType t ON c.typeId = t.typeID
-            LEFT JOIN agoraportal_services s ON s.serviceId = cs.serviceId
-            LEFT JOIN agoraportal_" . $service . "_stats_day sd ON c.clientCode = sd.clientcode
-            $where
-            GROUP BY cs.activedId, c.clientCode
-            ORDER BY $order $desc";
+    if ($service === 'Moodle') {
+        $service = 'moodle2';
+    }
+    if ($service === 'Nodes') {
+        $service = 'nodes';
+    }
+
+    $sql = "SELECT SUM(sd.total) as total, i.db_id, c.code
+        FROM instances i
+        LEFT JOIN clients c ON i.client_id = c.id
+        LEFT JOIN client_types t ON c.type_id = t.id
+        LEFT JOIN services s ON s.id = i.service_id
+        LEFT JOIN adminagora.agoraportal_" . $service . "_stats_day sd ON c.code = sd.clientcode
+        $where
+        GROUP BY i.db_id, c.code
+        ORDER BY $order $desc";
 
     if (!$results = get_rows_from_db($sql)) {
         return false;
@@ -106,13 +112,13 @@ function getServicesTotals(bool $codeletter = false, string $order = 'clientDNS'
     foreach ($results as $row) {
         // Transform client code if required (a8000000 -> 08000000)
         if (!$codeletter) {
-            $clientCode = transformClientCode($row->clientCode);
+            $clientCode = transformClientCode($row->code);
         } else {
-            $clientCode = $row->clientCode;
+            $clientCode = $row->code;
         }
 
         $values[$clientCode] = [
-            'id' => $row->activedId,
+            'id' => $row->db_id,
             'code' => $clientCode,
             'total' => $row->total,
         ];
@@ -133,20 +139,20 @@ function getServicesTotals(bool $codeletter = false, string $order = 'clientDNS'
  *
  * @return array|bool
  */
-function getServices(bool $codeletter = false, string $order = 'clientDNS', string $desc = 'asc',
-                     string $service = 'all', $state = 'all') {
+function getServices(bool   $codeletter = false, string $order = 'clients.dns', string $desc = 'asc',
+                     string $service = 'all', $status = 'all') {
 
     $values = $conditions = [];
 
     if ($service !== 'all') {
-        $conditions[] = "serviceName='$service'";
+        $conditions[] = "s.name='$service'";
     }
 
-    if ($state !== 'all') {
-        if (is_array($state)) {
-            $conditions[] = "state IN ('" . implode("', '", $state) . "')";
+    if ($status !== 'all') {
+        if (is_array($status)) {
+            $conditions[] = "i.status IN ('" . implode("', '", $status) . "')";
         } else {
-            $conditions[] = "state='$state'";
+            $conditions[] = "i.status='$status'";
         }
     }
 
@@ -154,11 +160,11 @@ function getServices(bool $codeletter = false, string $order = 'clientDNS', stri
 
     require_once 'dbmanager.php';
 
-    $sql = "SELECT cs.activedId, cs.serviceDB, cs.dbHost, cs.state, cs.diskSpace, cs.diskConsume, c.clientId, c.clientCode, c.clientDNS, c.clientOldDNS, c.URLType, c.URLHost, c.OldURLHost, c.typeId, s.serviceName
-            FROM agoraportal_client_services cs
-            LEFT JOIN agoraportal_clients c ON cs.clientID = c.clientID
-            LEFT JOIN agoraportal_clientType t ON c.typeId = t.typeID
-            LEFT JOIN agoraportal_services s ON s.serviceId = cs.serviceId
+    $sql = "SELECT i.db_id, i.db_host, i.status, i.quota, i.used_quota, c.id, c.code, c.dns, c.old_dns, c.url_type, c.host, c.old_host, c.type_id, s.name
+            FROM instances i
+            LEFT JOIN clients c ON i.client_id = c.id
+            LEFT JOIN client_types t ON c.type_id = t.id
+            LEFT JOIN services s ON s.id = i.service_id
             $where
             ORDER BY $order $desc";
 
@@ -167,29 +173,28 @@ function getServices(bool $codeletter = false, string $order = 'clientDNS', stri
     }
 
     foreach ($results as $row) {
-        $diskPercent = getDiskPercent($row->diskConsume, $row->diskSpace);
+        $diskPercent = getDiskPercent($row->used_quota, $row->quota);
 
         // Transform client code if required (a8000000 -> 08000000)
         if (!$codeletter) {
-            $clientCode = transformClientCode($row->clientCode);
+            $clientCode = transformClientCode($row->code);
         } else {
-            $clientCode = $row->clientCode;
+            $clientCode = $row->code;
         }
 
         $values[] = [
-            'id' => $row->activedId,
-            'database' => $row->serviceDB,
-            'dbhost' => $row->dbHost,
-            'state' => $row->state,
+            'id' => $row->db_id,
+            'dbhost' => $row->db_host,
+            'state' => $row->status,
             'diskPercent' => $diskPercent,
             'code' => $clientCode,
-            'dns' => $row->clientDNS,
-            'old_dns' => $row->clientOldDNS,
-            'type' => $row->typeId,
-            'url_host' => $row->URLHost,
-            'old_url_host' => $row->OldURLHost,
-            'url_type' => $row->URLType,
-            'service' => $row->serviceName,
+            'dns' => $row->dns,
+            'old_dns' => $row->old_dns,
+            'type' => $row->type_id,
+            'url_host' => $row->host,
+            'old_url_host' => $row->old_host,
+            'url_type' => $row->url_type,
+            'service' => $row->name,
         ];
     }
 
@@ -232,7 +237,7 @@ function getSchoolInfo(string $service): string {
             echo 'Center ' . $centre . ' not found in URL';
             echo "\nerror\n";
         } else {
-            header('Location: ' . WWWROOT . 'error.php?s=' . $service . '&dns=' . $centre);
+            header('Location: ' . WWWROOT . 'error.php?s=' . mb_strtolower($service) . '&dns=' . $centre);
         }
         exit;
     }
@@ -243,7 +248,7 @@ function getSchoolInfo(string $service): string {
             echo 'DNS ' . $centre . ' not valid!';
             echo "\nerror\n";
         } else {
-            $service_dir = ( $service === 'nodes') ? 's=' : "s=$service";
+            $service_dir = ($service === 'Nodes') ? 's=' : 's=' . mb_strtolower($service);
             header('Location: ' . WWWROOT . 'error.php?' . $service_dir . '&dns=' . $centre);
         }
         exit;
@@ -267,9 +272,9 @@ function getSchoolInfo(string $service): string {
 
     // When loading only a specific service, empty the array if the school has not that service. This must be done
     //  after the cache is checked to take into account the case of the recently activated services.
-    if ($service === 'moodle2' && (!isset($school_info['id_moodle2']) || $school_info['id_moodle2'] === '')) {
+    if ($service === 'Moodle' && (!isset($school_info['id_moodle']) || $school_info['id_moodle'] === '')) {
         $school_info = [];
-    } elseif ($service === 'nodes' && (!isset($school_info['id_nodes']) || $school_info['id_nodes'] === '')) {
+    } elseif ($service === 'Nodes' && (!isset($school_info['id_nodes']) || $school_info['id_nodes'] === '')) {
         $school_info = [];
     }
 
@@ -303,7 +308,7 @@ function getSchoolInfo(string $service): string {
             } else {
                 $newaddress = $agora['server']['server'] . $agora['server']['base'] . $newDNS . '/';
             }
-            if ($service === 'moodle2') {
+            if ($service === 'Moodle') {
                 $newaddress .= 'moodle/';
             }
             header('HTTP/1.1 301 Moved Permanently');
@@ -320,7 +325,7 @@ function getSchoolInfo(string $service): string {
             echo "\nerror\n";
         } else {
             $new_url_host .= $agora['server']['base'];
-            if ($service === 'moodle2') {
+            if ($service === 'Moodle') {
                 $new_url_host .= 'moodle/';
             }
             header('HTTP/1.1 301 Moved Permanently');
@@ -330,12 +335,12 @@ function getSchoolInfo(string $service): string {
     }
 
     // At this point, if there is no school information, abort
-    if (empty($school_info['id_' . $service])) {
+    if (empty($school_info['id_' . strtolower($service)])) {
         if (defined('CLI_SCRIPT')) {
             echo 'Center ' . $centre . ' not found in database';
             echo "\nerror\n";
         } else {
-            $service_dir = ( $service === 'nodes') ? 's=' : "s=$service";
+            $service_dir = ($service === 'Nodes') ? 's=' : 's=' . strtolower($service);
             header('Location: ' . WWWROOT . 'error.php?' . $service_dir . '&dns=' . $centre);
         }
         exit;
@@ -359,7 +364,7 @@ function getSchoolInfo(string $service): string {
     }
 
     // Nodes can have a different domain (only for Nodes)
-    if (($service === 'nodes') && isset($agora['server']['nodes']) && !$agora['isServeiEducatiu'] && !$agora['isProjecte'] &&
+    if (($service === 'Nodes') && isset($agora['server']['nodes']) && !$agora['isServeiEducatiu'] && !$agora['isProjecte'] &&
         !$agora['iseoi']) {
         $agora['server']['server'] = $agora['server']['nodes'];
         $agora['server']['html'] = $agora['server']['server'] . $agora['server']['base'];
@@ -405,11 +410,11 @@ function getSchoolFromDB(string $dns): array {
 
     require_once 'dbmanager.php';
 
-    $sql = "SELECT c.clientId, c.clientCode, c.typeId, c.URLType, c.URLHost, s.serviceName, cs.activedId, cs.state, cs.serviceDB, cs.dbHost, cs.diskSpace, cs.diskConsume
-            FROM agoraportal_client_services cs
-            LEFT JOIN agoraportal_clients c ON cs.clientId = c.clientId
-            LEFT JOIN agoraportal_services s ON cs.serviceId = s.serviceId
-            WHERE (cs.state = '1' OR cs.state = '-5' OR cs.state = '-6' OR cs.state = '-7') AND c.clientDNS = '$dns';";
+    $sql = "SELECT c.id, c.code, c.type_id, c.url_type, c.host, s.name, i.db_id, i.status, i.db_host, i.quota, i.used_quota
+            FROM instances i
+            LEFT JOIN clients c ON i.client_id = c.id
+            LEFT JOIN services s ON i.service_id = s.id
+            WHERE (i.status = 'active' OR i.status = 'blocked') AND c.dns = '$dns';";
 
     $results = get_rows_from_db($sql);
     $value = [];
@@ -417,55 +422,54 @@ function getSchoolFromDB(string $dns): array {
     if ($results) {
         foreach ($results as $row) {
             // The following values are present in all rows. There's no need to override them.
-            if (empty($value['clientCode'])) {
+            if (empty($value['code'])) {
                 // Transform client code (a8000000 -> 08000000)
-                $value['clientCode'] = transformClientCode($row->clientCode);
+                $value['code'] = transformClientCode($row->code);
             }
 
             if (empty($value['type'])) {
-                $value['type'] = $row->typeId;
+                $value['type'] = $row->type_id;
             }
 
-            if (empty($value['URLType'])) {
-                $value['url_type'] = $row->URLType;
+            if (empty($value['url_type'])) {
+                $value['url_type'] = $row->url_type;
             }
 
-            if (empty($value['URLHost'])) {
-                $value['url_host'] = $row->URLHost;
+            if (empty($value['url_host'])) {
+                $value['url_host'] = $row->host;
             }
 
             // Now, the values that are different in every iteration
-            $diskPercent = getDiskPercent($row->diskConsume, $row->diskSpace);
-            $serviceName = $row->serviceName;
+            $diskPercent = getDiskPercent($row->used_quota, $row->quota);
+            $serviceName = mb_strtolower($row->name);
 
-            $value['id_' . $serviceName] = $row->activedId;
-            $value['dbhost_' . $serviceName] = $row->dbHost;
-            $value['database_' . $serviceName] = $row->serviceDB;
+            $value['id_' . $serviceName] = $row->db_id;
+            $value['dbhost_' . $serviceName] = $row->db_host;
             $value['diskPercent_' . $serviceName] = $diskPercent;
-            $value['state_' . $serviceName] = $row->state;
+            $value['state_' . $serviceName] = $row->status;
         }
     }
 
     // Get new DNS
-    $sql = "SELECT c.clientDNS
-            FROM agoraportal_clients c
-            WHERE c.clientState = '1' AND c.clientOldDNS = '$dns';";
+    $sql = "SELECT c.dns
+            FROM clients c
+            WHERE c.status = 'active' AND c.old_dns = '$dns';";
 
     $results = get_rows_from_db($sql);
     if ($results && $row = array_shift($results)) {
-        $value['new_dns'] = $row->clientDNS;
+        $value['new_dns'] = $row->dns;
     }
 
     // Get new domain
     if (isset($_SERVER['HTTP_HOST'])) {
         $http_host = $_SERVER['HTTP_HOST'];
-        $sql = "SELECT c.URLHost
-            FROM agoraportal_clients c
-            WHERE c.clientState = '1' AND c.OldURLHost = '$http_host';";
+        $sql = "SELECT c.host
+            FROM clients c
+            WHERE c.status = 'active' AND c.old_host = '$http_host';";
 
         $results = get_rows_from_db($sql);
         if ($results && $row = array_shift($results)) {
-            $value['new_url_host'] = $row->clientDNS;
+            $value['new_url_host'] = $row->dns;
         }
     }
 
@@ -476,10 +480,10 @@ function getSchoolFromDB(string $dns): array {
  * Get the string with School Information from Web Service.
  * Demo string: a8000001$$nompropi$$Nom del Centre$$c. Carrer, 18-24$$Valldeneu$$00000
  *
- * @author Toni Ginard
  * @param string $uname Codi de centre
  * @global array $agora
  * @return array
+ * @author Toni Ginard
  */
 function getSchoolFromWS(string $uname): array {
     global $agora;
@@ -540,10 +544,10 @@ function getDiskInfo(string $dns, string $service) {
 
     require_once 'dbmanager.php';
 
-    $sql = 'SELECT s.serviceName, cs.diskSpace, cs.diskConsume
-            FROM agoraportal_clients c, agoraportal_client_services cs, agoraportal_services s
-            WHERE c.clientId = cs.clientId AND cs.serviceId = s.serviceId AND (cs.state = "1" OR cs.state ="-7")
-            AND c.clientDNS = "' . $dns . '"';
+    $sql = 'SELECT s.name, i.quota, i.used_quota
+            FROM clients c, instances i, services s
+            WHERE c.id = i.client_id AND i.service_id = s.id AND (i.status = "active" OR i.status ="blocked")
+            AND c.dns = "' . $dns . '"';
 
     $results = get_rows_from_db($sql);
     if (!$results) {
@@ -552,9 +556,9 @@ function getDiskInfo(string $dns, string $service) {
 
     $value = [];
     foreach ($results as $row) {
-        if ($row->serviceName === $service) {
-            $value['diskConsume'] = $row->diskConsume;
-            $value['diskSpace'] = $row->diskSpace;
+        if ($row->name === $service) {
+            $value['used_quota'] = $row->used_quota;
+            $value['quota'] = $row->quota;
         }
     }
 
@@ -569,9 +573,9 @@ function getDiskInfo(string $dns, string $service) {
  *
  * @return int disk percentage (without decimals)
  */
-function getDiskPercent(int $diskConsume, int $diskSpace): int {
-    if ($diskSpace !== 0) {
-        return round((($diskConsume / 1024) / $diskSpace) * 100);
+function getDiskPercent(int $used_quota, int $quota): int {
+    if ($quota !== 0) {
+        return round(($used_quota / $quota) * 100);
     }
     return 0;
 }

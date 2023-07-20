@@ -12,14 +12,6 @@ $agora['moodle2']['repository_files'] = '/repository/files/'; // Folder for uplo
 $agora['moodle2']['userprefix'] = $agora['server']['userprefix']; // All services need to have the same variable name
 $agora['moodle2']['localmuc'] = $agora['server']['localdatadir'] . 'localmuc'; // MUC elements in web server (not shared)
 
-// Params for Zikula (pending removal)
-$agora['intranet']['dbtype'] = 'mysql';
-$agora['intranet']['adminuser'] = 'adminagora';
-$agora['intranet']['prefix'] = '';
-$agora['intranet']['diskusagefile'] = 'diskUsageZk.txt';
-$agora['intranet']['moodle_dbtype'] = 'oci8';
-$agora['intranet']['userprefix'] = $agora['server']['userprefix'];
-
 // Params for WordPress
 $agora['nodes']['dbtype'] = 'mysql';
 $agora['nodes']['prefix'] = 'wp';

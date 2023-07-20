@@ -59,7 +59,7 @@ $startingDay = 1; // starting 1 day before
 if ($update) {
 
     /* MOODLE 2 update file */
-    $schools = getServices(false, 'activedId', 'asc', 'moodle2', '1');
+    $schools = getServices(false, 'db_id', 'asc', 'Moodle', 'active');
 
     $schoolsvar = '';
     if (is_array($schools)) {
@@ -81,7 +81,7 @@ if ($update) {
     saveVarToFile('updateMoodle2.txt', $schoolsvar);
 
     /* NODES update file */
-    $schools = getServices(false, 'activedId', 'asc', 'nodes', '1');
+    $schools = getServices(false, 'db_id', 'asc', 'Nodes', 'active');
 
     $schoolsvar = '';
     if (is_array($schools)) {
@@ -118,7 +118,18 @@ if ($update) {
             continue;
         }
 
-        $schools = getServices(true, 'activedId', 'asc', $service['name'], '1');
+        switch ($service['name']) {
+            case 'moodle2':
+                $serviceName = 'Moodle';
+                break;
+            case 'nodes':
+                $serviceName = 'Nodes';
+                break;
+            default:
+                $serviceName = '';
+        }
+
+        $schools = getServices(true, 'db_id', 'asc', $serviceName, 'active');
 
         $servers = []; // List of database servers (Array)
         $unorderedList = []; // Cron list as it comes from database (Array)
@@ -128,7 +139,7 @@ if ($update) {
         if (is_array($schools)) {
 
             // 3 days count, starting 1 day ago
-            $schoolsTotals = getServicesTotals(true, 'total', 'desc', $service['name'], '1', $countDays, $startingDay);
+            $schoolsTotals = getServicesTotals(true, 'total', 'desc', $serviceName, 'active', $countDays, $startingDay);
 
             foreach ($schools as $school) {
 
@@ -137,7 +148,7 @@ if ($update) {
                 }
 
                 $total = (isset($schoolsTotals[$school['code']]) && (int)$schoolsTotals[$school['code']]['total']) ? (int)$schoolsTotals[$school['code']]['total'] : 0;
-                $baseURL = getInstanceBaseURL($service['name'], $school['type']);
+                $baseURL = getInstanceBaseURL($serviceName, $school['type']);
 
                 // Add the client to the list if it fulfills the activity requirement
                 switch ($level) {
@@ -235,7 +246,7 @@ if ($update) {
             }
         }
 
-        // Build an string with the cron URL ordered in order to distance cron executions in the same database server
+        // Build a string with the cron URL ordered in order to distance cron executions in the same database server
         while (!empty($groupedList)) {
             foreach ($servers as $server) {
                 if (!empty($groupedList[$server])) {
@@ -316,7 +327,7 @@ function getInstanceBaseURL(string $serviceName, int $schoolType): string {
             break;
 
         default:
-            $url .= ('moodle2' === $serviceName) ? $agora['server']['server'] : $agora['server']['nodes'];
+            $url .= ('Moodle' === $serviceName) ? $agora['server']['server'] : $agora['server']['nodes'];
     }
 
     $url .= $agora['server']['base'];
