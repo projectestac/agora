@@ -4,3 +4,6 @@
 [submodule "html/moodle2"]
 	path = html/moodle2
 	url = https://github.com/projectestac/agora_moodle2.git
+[submodule "html/portal"]
+	path = html/portal
+	url = https://github.com/projectestac/agora_portal.git
