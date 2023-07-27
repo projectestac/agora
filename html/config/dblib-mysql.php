@@ -100,7 +100,7 @@ function getServicesTotals(bool   $codeletter = false, string $order = 'dns', st
         LEFT JOIN clients c ON i.client_id = c.id
         LEFT JOIN client_types t ON c.type_id = t.id
         LEFT JOIN services s ON s.id = i.service_id
-        LEFT JOIN adminagora.agoraportal_" . $service . "_stats_day sd ON c.code = sd.clientcode
+        LEFT JOIN portal.agoraportal_" . $service . "_stats_day sd ON c.code = sd.clientcode
         $where
         GROUP BY i.db_id, c.code
         ORDER BY $order $desc";

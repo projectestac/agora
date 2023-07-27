@@ -117,12 +117,12 @@ function process_moodle_stats($school, $year, $month, $day, $dayofweek, $daysofm
     $coursesActive = getSchoolMoodleStats_ActiveCourses($con, $year, $month, $day, 1, MOODLE2_PREFIX);
 
     // Consulta que comprova si el registre del mes del centre ja existeix o no
-    $sql = "SELECT date FROM adminagora.agoraportal_moodle2_stats_day WHERE date='$date' AND clientcode='" . $school['code'] . "'";
+    $sql = "SELECT date FROM portal.agoraportal_moodle2_stats_day WHERE date='$date' AND clientcode='" . $school['code'] . "'";
     $rows = $statsCon->count_rows($sql);
     if ($rows !== false) {
         if ($rows == 0) {
             // INSERT
-            $sql = "INSERT INTO adminagora.agoraportal_moodle2_stats_day
+            $sql = "INSERT INTO portal.agoraportal_moodle2_stats_day
                 (clientcode, date, clientDNS, total, h0, h1, h2, h3, h4, h5 ,h6, h7, h8, h9, h10, h11, h12, h13, h14, h15, h16, h17, h18, h19, h20, h21, h22, h23,
                 userstotal, usersnodelsus, usersactive, usersactivelast90days, usersactivelast30days, diskConsume, userlogin, coursesactive)
                 VALUES ('" . $school['code'] . "', $date, '" . $school['dns'] . "', $total, $hours[0], $hours[1], $hours[2], $hours[3], $hours[4], $hours[5], 
@@ -131,7 +131,7 @@ function process_moodle_stats($school, $year, $month, $day, $dayofweek, $daysofm
                 ", " . $users['activelast90days'] . ", " . $users['activelast30days'] . ", '$diskConsume', '$userlogin', '$coursesActive')";
         } else {
             // UPDATE
-            $sql = "UPDATE adminagora.agoraportal_moodle2_stats_day SET
+            $sql = "UPDATE portal.agoraportal_moodle2_stats_day SET
                 total = $total,
                 h0 = $hours[0],
                 h1 = $hours[1],
@@ -193,19 +193,19 @@ function process_moodle_stats($school, $year, $month, $day, $dayofweek, $daysofm
 
         $date = date('Ymd', (mktime(00, 00, 00, $month, $day, $year) - 518400)); // 518400 = 6 dies
         // Comprova si el registre ja existeix
-        $sql = "SELECT date FROM adminagora.agoraportal_moodle2_stats_week WHERE date=$date AND clientcode='" . $school['code'] . "'";
+        $sql = "SELECT date FROM portal.agoraportal_moodle2_stats_week WHERE date=$date AND clientcode='" . $school['code'] . "'";
 
         $rows = $statsCon->count_rows($sql);
         if ($rows !== false) {
             if ($rows == 0) {
                 // INSERT
-                $sql = "INSERT INTO adminagora.agoraportal_moodle2_stats_week (clientcode, clientDNS, date, usersactive, courses, coursesactive, activities, lastaccess, lastaccess_date, 
+                $sql = "INSERT INTO portal.agoraportal_moodle2_stats_week (clientcode, clientDNS, date, usersactive, courses, coursesactive, activities, lastaccess, lastaccess_date, 
                                                                     lastaccess_user, total_access, userlogin)
                         VALUES ('" . $school['code'] . "', '" . $school['dns'] . "', '$date', '" . $users['active'] . "', '$courses', '$coursesActive', '$activities', '" .
                     $lastaccess['lastaccess'] . "', '" . $lastaccess['lastaccessdate'] . "', '" . $lastaccess['lastaccessuser'] . "', '$totalaccess', '$userlogin')";
             } else {
                 // UPDATE
-                $sql = "UPDATE adminagora.agoraportal_moodle2_stats_week SET
+                $sql = "UPDATE portal.agoraportal_moodle2_stats_week SET
                             clientcode      = '" . $school['code'] . "',
                             usersactive     = '" . $users['active'] . "',
                             courses         = '$courses',
@@ -237,20 +237,20 @@ function process_moodle_stats($school, $year, $month, $day, $dayofweek, $daysofm
     $totalaccess = getSchoolMoodleStats_TotalMonthAccess($con, $year, $month, $daysofmonth, MOODLE2_PREFIX);
     $userlogin = getSchoolMoodleStats_UserLogin($con, $year, $month, $day, 0, MOODLE2_PREFIX);
 
-    $sql = "SELECT yearmonth FROM adminagora.agoraportal_moodle2_stats_month WHERE yearmonth=$date AND clientcode='" . $school['code'] . "'";
+    $sql = "SELECT yearmonth FROM portal.agoraportal_moodle2_stats_month WHERE yearmonth=$date AND clientcode='" . $school['code'] . "'";
 
     $rows = $statsCon->count_rows($sql);
     if ($rows !== false) {
         if ($rows == 0) {
             // INSERT
-            $sql = "INSERT INTO adminagora.agoraportal_moodle2_stats_month (clientcode, yearmonth, clientDNS, usersactive, usersactivelast30days, courses, coursesactive, 
+            $sql = "INSERT INTO portal.agoraportal_moodle2_stats_month (clientcode, yearmonth, clientDNS, usersactive, usersactivelast30days, courses, coursesactive, 
                                                                  activities, lastaccess, lastaccess_date, lastaccess_user, total_access, diskConsume, userlogin)
                     VALUES ('" . $school['code'] . "', $date, '" . $school['dns'] . "', '" . $users['active'] . "', '" . $users['activelast30days'] .
                 "', '$courses', '$coursesActive', '$activities', '" . $lastaccess['lastaccess'] . "', '" . $lastaccess['lastaccessdate'] .
                 "', '" . $lastaccess['lastaccessuser'] . "', '$totalaccess', '$diskConsume', '$userlogin')";
         } else {
             // UPDATE
-            $sql = "UPDATE adminagora.agoraportal_moodle2_stats_month SET
+            $sql = "UPDATE portal.agoraportal_moodle2_stats_month SET
                 usersactive           = '" . $users['active'] . "',
                 usersactivelast30days = '" . $users['activelast30days'] . "',
                 courses               = '$courses',
@@ -668,18 +668,18 @@ function process_nodes_stats($school, $year, $month, $day, $daysofmonth) {
     $diskConsume = (int)getDiskConsume($school['code'], 'nodes');
 
     // Insert or update stats_day
-    $sql = "SELECT date FROM adminagora.agoraportal_nodes_stats_day WHERE date=$date AND clientcode='" . $school['code'] . "'";
+    $sql = "SELECT date FROM portal.agoraportal_nodes_stats_day WHERE date=$date AND clientcode='" . $school['code'] . "'";
 
     $rows = $statsCon->count_rows($sql);
     if ($rows !== false) {
         if ($rows == 0) {
             // INSERT
-            $sql = "INSERT INTO adminagora.agoraportal_nodes_stats_day (clientcode, clientDNS, date, total, posts, userstotal, usersactive, usersactivelast30days, usersactivelast90days, diskConsume)
+            $sql = "INSERT INTO portal.agoraportal_nodes_stats_day (clientcode, clientDNS, date, total, posts, userstotal, usersactive, usersactivelast30days, usersactivelast90days, diskConsume)
                 VALUES ('" . $school['code'] . "', '" . $school['dns'] . "', $date, $numAccessDay, $numPostsDay, " . $users['total'] . ", " . $users['active'] . ", "
                 . $users['activelast30days'] . ", " . $users['activelast90days'] . ", $diskConsume)";
         } else {
             // UPDATE
-            $sql = "UPDATE adminagora.agoraportal_nodes_stats_day SET
+            $sql = "UPDATE portal.agoraportal_nodes_stats_day SET
                 total                 = $numAccessDay,
                 posts                 = $numPostsDay,
                 userstotal            = " . $users['total'] . ",
@@ -697,18 +697,18 @@ function process_nodes_stats($school, $year, $month, $day, $daysofmonth) {
     cli_print_line('<p>' . $sql . '</p>');
 
     // Insert or update stats_month
-    $sql = "SELECT yearmonth FROM adminagora.agoraportal_nodes_stats_month WHERE yearmonth=$yearmonth AND clientcode='" . $school['code'] . "'";
+    $sql = "SELECT yearmonth FROM portal.agoraportal_nodes_stats_month WHERE yearmonth=$yearmonth AND clientcode='" . $school['code'] . "'";
 
     $rows = $statsCon->count_rows($sql);
     if ($rows !== false) {
         if ($rows == 0) {
             // INSERT
-            $sql = "INSERT INTO adminagora.agoraportal_nodes_stats_month (clientcode, clientDNS, yearmonth, total, posts, userstotal, usersactive, lastactivity, diskConsume)
+            $sql = "INSERT INTO portal.agoraportal_nodes_stats_month (clientcode, clientDNS, yearmonth, total, posts, userstotal, usersactive, lastactivity, diskConsume)
                 VALUES ('" . $school['code'] . "', '" . $school['dns'] . "', $yearmonth, $numAccessMonth, $numPostsMonth, " . $users['total'] . ", " . $users['active'] . ", "
                 . "'$lastActivity', $diskConsume)";
         } else {
             // UPDATE
-            $sql = "UPDATE adminagora.agoraportal_nodes_stats_month SET
+            $sql = "UPDATE portal.agoraportal_nodes_stats_month SET
                 total        = $numAccessMonth,
                 posts        = $numPostsMonth,
                 userstotal   = " . $users['total'] . ",
