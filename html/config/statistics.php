@@ -24,10 +24,10 @@ if (!empty($args['only'])) {
 } else {
     $doonly = false;
     if (isset($args['onlyMoodle'])) {
-        $doonly = 'moodle2';
+        $doonly = 'Moodle';
     }
     if (isset($args['onlyNodes'])) {
-        $doonly = 'nodes';
+        $doonly = 'Nodes';
     }
 }
 
@@ -49,7 +49,7 @@ global $prepared_stmts;
 $prepared_stmts = [];
 
 foreach ($services as $school) {
-    if (!empty($doonly) && ($doonly !== mb_strtolower($school['service']))) {
+    if (!empty($doonly) && ($doonly !== $school['service'])) {
         // Ignore the service
         continue;
     }
