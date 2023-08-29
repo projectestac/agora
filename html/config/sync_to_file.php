@@ -27,7 +27,7 @@ foreach ($services as $school) {
     $dns = $school['dns'];
     $service = mb_strtolower($school['service']);
 
-    $schools[$dns]['clientCode'] = $school['code'];
+    $schools[$dns]['code'] = $school['code'];
     $schools[$dns]['type'] = $school['type'];
     $schools[$dns]['url_type'] = $school['url_type'];
     $schools[$dns]['url_host'] = $school['url_host'];
