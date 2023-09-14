@@ -1,5 +1,0 @@
-# ----------------------------------------------------------------------
-# Purpose of file: block any web access to files stored under
-#                  the ztemp/ directory
-# ----------------------------------------------------------------------
-Require all denied

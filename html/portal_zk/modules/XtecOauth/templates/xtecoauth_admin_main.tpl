@@ -1,1 +1,0 @@
-{modfunc modname=XtecOauth type=admin func=modifyconfig}

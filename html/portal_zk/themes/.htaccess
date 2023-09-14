@@ -1,8 +1,0 @@
-# ----------------------------------------------------------------------
-# Purpose of file: block web access to not allowed files
-#                  stored under the themes/ directory
-# ----------------------------------------------------------------------
-Require all denied
-<FilesMatch "\.(css|js|png|gif|jpg|ico|swf|flv|eot|woff|woff2|ttf|svg)$">
-    Require all granted
-</FilesMatch>
