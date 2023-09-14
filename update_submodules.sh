@@ -47,7 +47,7 @@ if [[ $execmoodle == true ]]; then
     gitcheckout "html/moodle2/mod/hvp" "master" "https://github.com/projectestac/moodle-hvp.git"
     gitcheckout "html/moodle2/mod/jclic" "master" "https://github.com/projectestac/moodle-mod_jclic.git"
     gitcheckout "html/moodle2/mod/journal" "master" "https://github.com/elearningsoftware/moodle-mod_journal.git"
-    gitcheckout "html/moodle2/mod/questionnaire" "MOODLE_400_STABLE" "https://github.com/PoetOS/moodle-mod_questionnaire.git"
+    gitcheckout "html/moodle2/mod/questionnaire" "MOODLE_401_STABLE" "https://github.com/PoetOS/moodle-mod_questionnaire.git"
     gitcheckout "html/moodle2/mod/qv" "master" "https://github.com/projectestac/moodle-mod_qv.git"
     gitcheckout "html/moodle2/question/format/hotpot" "master" "https://github.com/gbateson/moodle-qformat_hotpot.git"
     gitcheckout "html/moodle2/question/type/essaywiris" "main" "https://github.com/wiris/moodle-qtype_essaywiris.git"
