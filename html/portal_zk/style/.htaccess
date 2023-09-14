@@ -1,8 +1,0 @@
-# ----------------------------------------------------------------------
-# Purpose of file: block any web access to files stored under
-#                  the style/ directory
-# ----------------------------------------------------------------------
-Require all denied
-<FilesMatch "\.(css)$">
-    Require all granted
-</FilesMatch>
