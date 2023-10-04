@@ -17,6 +17,7 @@ cd $app
 git submodule update --recursive --init
 
 find . -name '\.git*' -exec rm -rf {} \; 2>/dev/null
+rm -rf dump/
 
 echo "Comprimint $filename.tar.gz"
 tar cfzp ../$filename.tar.gz *
