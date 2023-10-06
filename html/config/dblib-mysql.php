@@ -477,50 +477,6 @@ function getSchoolFromDB(string $dns): array {
 }
 
 /**
- * Get the string with School Information from Web Service.
- * Demo string: a8000001$$nompropi$$Nom del Centre$$c. Carrer, 18-24$$Valldeneu$$00000
- *
- * @param string $uname Codi de centre
- * @global array $agora
- * @return array
- * @author Toni Ginard
- */
-function getSchoolFromWS(string $uname): array {
-    global $agora;
-
-    // Get school info
-    $unamenum = transformClientCode($uname, 'letter2num');
-    $url = $agora['server']['school_information'] . $unamenum;
-
-    $handle = curl_init();
-    curl_setopt($handle, CURLOPT_URL, $url);
-    curl_setopt($handle, CURLOPT_CONNECTTIMEOUT, 8);
-    curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);
-    $buffer = curl_exec($handle);
-    curl_close($handle);
-
-    // Get school Data
-    if (empty($buffer)) {
-        $results['error'] = 1;
-        $results['message'] = 'No s\'ha pogut obtenir automàticament la informació del centre.
-            Aquest error no és greu, però si persisteix durant dies, poseu-vos en contacte amb el SAU.';
-    } else {
-        $schooldata = utf8_encode($buffer);
-
-        // Additional check. This error should never happen.
-        if (strpos($schooldata, 'ERROR') !== false) {
-            $results['error'] = 1;
-            $results['message'] = "El codi de centre $unamenum no figura a la base de dades de centres de la XTEC. Poseu-vos en contacte amb el SAU.";
-        } else {
-            $results['error'] = 0;
-            $results['message'] = $schooldata;
-        }
-    }
-
-    return $results;
-}
-
-/**
  * Prints a message if DEBUG_ENABLED is on
  */
 function xtec_debug($string) {
