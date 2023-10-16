@@ -4,6 +4,33 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
 
+Changes 23.10.17
+---------------------------------------------------------------------------------------
+MOODLE
+- Upgraded Moodle to version 4.1.6
+- Updated langpacks
+- Question Type Numerical: Fixed PHP 8.x compatibility error
+- Wiris: Upgraded all components
+
+NODES
+- Upgraded WordPress to version 5.7.10
+
+PORTAL
+- Batch: Added instance creation
+- Batch: Created batch log table
+- Batch: Save passwords of new instances in database
+- Client: Added automatic creation of clients on login
+- Client: Added addition and edition of clients
+- Client: Added links to myAgora and added dates in client list
+- Instance: Improvements to instance activation and status changes
+- Jobs: Use nohup on CLI calls
+- Manager: Added addition or removal of permissions on designation
+- MyAgora: Files: Don't show an error when there is no active Moodle instance
+- Request: Improved request list and email sent on update
+- Queue: Added links to instances on pending list
+- Queue: Don't try to generate link to instances if they don't exist
+
+
 Changes 23.09.27
 ---------------------------------------------------------------------------------------
 MOODLE
