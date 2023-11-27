@@ -4,6 +4,39 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
 
+Changes 23.11.28
+---------------------------------------------------------------------------------------
+MOODLE
+- Upgraded Moodle to version 4.1.6+
+- Updated langpacks
+- Attendance: Upgraded module
+- Choicegroup: Upgraded module
+- Completion progress: Upgraded module
+- Wiris: Upgraded all components
+
+NODES
+- advanced-nocaptcha-recaptcha: Upgraded plugin
+- google-analyticator: Upgraded plugin
+- gtranslate: Added submodule
+- H5P: Upgraded plugin
+- H5P: Move menu in admin page to submenu in 'Options'
+- koko-analytics: Added submodule
+- Moved WP Telegram menu option to general options
+- email-subscribers: Upgraded plugin
+- email-subscribers: Fixed email confirmation not being sent
+
+PORTAL
+- Client: Don't create clients if they don't exist in WS
+- Client: Improved creation of clients
+- Login: Automatically add users to role 'user' on login
+- MyAgora: Added change of 'Nom propi'
+- MyAgora: Added links to instances in the list of instances
+- Manager: Don't allow clients to be managers
+- Manager: Implemented list of managers
+- Role: Implemented list of roles
+- User: Implemented list of users
+
+
 Changes 23.10.17
 ---------------------------------------------------------------------------------------
 MOODLE
