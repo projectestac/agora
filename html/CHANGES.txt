@@ -4,6 +4,33 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
 
+Changes 23.12.18
+---------------------------------------------------------------------------------------
+MOODLE
+- Updated langpacks
+- lesson: Fixed Matching questions does not match with expected response (MDL-79937)
+- Theme xtecboost: Fixed scroll in list of conversations
+
+NODES
+- Upgraded WordPress to version 6.3.2
+- Updated custom welcome panel
+- Updated translations for all languages (Catalan, Spanish, French, Euskara, Galician and Occitan)
+- gtranslate: Added catalan translation
+- bbpress: Upgraded plugin
+- email-subscribers: Removed style 'body {margin: 0;}' because moves home page content to the left
+- Pending Submission Notifications: Added an exception for post type 'calendar_booking'
+- Theme reactor: Removed some custom code for Internet Explorer
+- xtec-booking: Fixed PHP warnings
+
+PORTAL
+- Client: Added function to update clients information from an external table
+- ClientType: Added CRUD
+- Instance: Moved order logic to server side. Minor improvements
+- Location: Added CRUD
+- ModelType: Implemented List, Creation, Edition and Update
+- Request: Improved list of request and added link to instance on edit form
+
+
 Changes 23.11.28
 ---------------------------------------------------------------------------------------
 MOODLE
