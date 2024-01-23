@@ -7,7 +7,7 @@ $agora['moodle2']['dbtype'] = 'pgsql'; // oci (Oracle), mysql, pgsql
 $agora['moodle2']['prefix'] = 'm2'; // Moodle 2.x tables prefix (only 2 chars)
 $agora['moodle2']['port'] = '5432';
 $agora['moodle2']['username'] = $agora['server']['userprefix'];
-$agora['moodle2']['diskusagefile'] = 'diskUsageMdl2.txt';
+$agora['moodle2']['diskusagefile'] = 'quotaUsageMoodle.txt';
 $agora['moodle2']['repository_files'] = '/repository/files/'; // Folder for uploading big files in Moodle
 $agora['moodle2']['userprefix'] = $agora['server']['userprefix']; // All services need to have the same variable name
 $agora['moodle2']['localmuc'] = $agora['server']['localdatadir'] . 'localmuc'; // MUC elements in web server (not shared)
@@ -16,7 +16,7 @@ $agora['moodle2']['localmuc'] = $agora['server']['localdatadir'] . 'localmuc'; /
 $agora['nodes']['dbtype'] = 'mysql';
 $agora['nodes']['prefix'] = 'wp';
 $agora['nodes']['userprefix'] = $agora['server']['userprefix'];
-$agora['nodes']['diskusagefile'] = 'diskUsageWp.txt';
+$agora['nodes']['diskusagefile'] = 'quotaUsageNodes.txt';
 
 // General vars
 switch ($agora['server']['enviroment']) {
