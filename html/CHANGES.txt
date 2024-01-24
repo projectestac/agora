@@ -4,6 +4,29 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
 
+Changes 24.01.25
+---------------------------------------------------------------------------------------
+MOODLE
+- Upgraded Moodle to version 4.1.8+
+- Updated langpacks
+- GeoGebra: Upgraded module
+- langs: Removed limitation by code
+- Wiris: Upgraded all components
+
+NODES
+- agora-functions: Widgets: Use legacy widgets configuration
+- Cookies: Load and execute javascript to show a Cookie consent message
+- enllacos-educatius: Updated services to link
+- Menu Recursos TAC: Updated menu items
+- MU Common: Minor improvements
+- langs: Fixed language customization
+
+PORTAL
+- Home: Added public list of instances with search form
+- Quotas: Added info to instances list. Implemented update of quotas from file.
+- RequestType: Implemented CRUD. Minor improvements to ClientType
+
+
 Changes 23.12.18
 ---------------------------------------------------------------------------------------
 MOODLE
