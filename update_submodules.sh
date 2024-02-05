@@ -27,7 +27,7 @@ if [[ $execmoodle == true ]]; then
     gitcheckout "html/moodle2/blocks/rgrade" "master" "https://github.com/projectestac/Rgrade.git"
     gitcheckout "html/moodle2/course/format/simple" "master" "https://github.com/projectestac/moodle-format_simple.git"
     gitcheckout "html/moodle2/course/format/vv" "master" "https://github.com/vicensvives/moodle-format_vicensvives.git"
-    gitcheckout "html/moodle2/filter/wiris" "stable" "https://github.com/wiris/moodle-filter_wiris.git"
+    gitcheckout "html/moodle2/filter/wiris" "main" "https://github.com/wiris/moodle-filter_wiris.git"
     gitcheckout "html/moodle2/langpacks" "master" "https://github.com/projectestac/moodle-langpacks.git"
     gitcheckout "html/moodle2/lib/editor/atto/plugins/cloze" "master" "https://github.com/dthies/moodle-atto_cloze.git"
     gitcheckout "html/moodle2/lib/editor/atto/plugins/fontsize" "master" "https://github.com/andrewnicols/moodle-atto_fontsize.git"
