@@ -4,6 +4,51 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
 
+Changes 24.03.19
+---------------------------------------------------------------------------------------
+MOODLE
+- Upgraded Moodle to version 4.1.9+
+- Updated langpacks
+- Hot Potatoes: Upgraded module and question format
+- local_agora: Updated script to configure oAuth2 client for IDI
+- tool_oauth2: Fixed loading of form to create a custom service
+- Theme xtecboost: Reduced the size of the icons of the activities in the course view
+- Wiris: Upgraded all components
+
+NODES
+- Upgraded WordPress to version 6.3.3
+- blogger-importer: Upgraded plugin
+- media: Fixed error 403 Forbidden in search box in media list
+- nodes-editor-widget: Updated widget text
+- socialmedia: Upgraded to Font Awesome 6.5. Added more icons
+- Theme reactor: Upgraded Font Awesome to version 6.5
+- Theme reactor: Added rules for the Compatibility between the plugins getwid and tabs-responsive
+- widget-visibility-without-jetpack: Removed patches for buddypress
+- wordpress-importer: Upgraded plugin
+
+PORTAL
+- Clients: Fixed sorting in list of clients
+- Clients: Improved load speed in the list of clients in the front page
+- Clients: Moved search and order logic in list to server side
+- Config: Added check to disable email notification on quotas update
+- Config: Added param to disable the notification by email on quota update
+- Files: Implemented navigation, upload, download and deletion in portal data directory
+- Instances: Added colors to quota column
+- Instances: Allow edition of model type in Instance edit page
+- Location: Fixed ID for undefined location
+- MyAgora: Files: Fixed download and delete of files with special chars in their names
+- MyAgora: Files: Improved notification messages to users
+- MyAgora: Services: Added link to client edition for administrators
+- Managers: Changed order of columns in list
+- Managers: Moved search and order logic in list to server side
+- ModelType: Fixed validation of data from the edit form
+- Quotas: Implemented notifications by e-mail for the events related to quota updates
+- Quotas: Several fixes on quota update
+- Statistics: Added pages to view, filter, plot and download the Àgora stats tables.
+- Users: Moved search and order logic in list to server side
+- Util: Fixed error when user doesn't exist
+
+
 Changes 24.01.25
 ---------------------------------------------------------------------------------------
 MOODLE
