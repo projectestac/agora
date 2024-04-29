@@ -4,6 +4,29 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
 
+Changes 24.04.30
+---------------------------------------------------------------------------------------
+MOODLE
+- Upgraded Moodle to version 4.1.10
+- Updated langpacks
+- Course format simple: Show content of labels in non-editing view
+- coursequotas: Fixed lang string
+- Wiris: Upgraded all components
+
+NODES
+- Upgraded WordPress to version 6.3.4
+- buddypress: Removed dependency that prevented log in to appear when the plugin is disabled
+- enllacos-educatius: Moved images from theme reactor to plugin to remove dependency
+- nodes-editor-widget: tinymce-advanced: Remove hybrid_mode on block editor activation
+- slideshow: Disable the creation of new slideshows when using Gutenberg editor
+- super-emoji-plus: Removed plugin
+- tabs-responsive: Disable the creation of new tabs when using Gutenberg editor
+- Theme astra: Upgraded version
+
+PORTAL
+- Requests: Only allow to request increase of quota if the conditions are met
+
+
 Changes 24.03.19
 ---------------------------------------------------------------------------------------
 MOODLE
