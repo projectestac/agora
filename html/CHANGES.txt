@@ -4,6 +4,14 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
 
+Changes 24.05.10
+---------------------------------------------------------------------------------------
+NODES
+- astra-addon: Allow plugin in all instances
+- slideshow: Disable the creation of new slideshows when using Gutenberg editor
+- tabs-responsive: Disable the creation of new tabs when using Gutenberg editor
+
+
 Changes 24.04.30
 ---------------------------------------------------------------------------------------
 MOODLE
