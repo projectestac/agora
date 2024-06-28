@@ -4,6 +4,40 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
 
+Changes 24.07.01
+---------------------------------------------------------------------------------------
+MOODLE
+- Upgraded Moodle to version 4.1.11+
+- configurable_reports: Added block
+- jClic: Upgraded module
+- settings.php: Added parameters for block configurable_reports
+- Wiris: Upgraded all components
+
+NODES
+- Upgraded WordPress to version 6.5.5
+- Nodes 2: Added customization of theme Astra (theme astra-nodes)
+- langs: Partial update of translations
+- agora-functions: Added code to migrate from theme reactor to astra-nodes
+- Astra: Upgraded theme, added customizations for astra-nodes and removed ads
+- astra-addon: Removed advertisement messages
+- astra-sites: Removed admin notice
+- buddypress: Upgraded plugin
+- enllacos-educatius: Updated jClic URL
+- getwid: Upgraded plugin
+- getwid: Unregister new block type getwid/ai-text
+- google-analyticator: Removed plugin
+- google-calendar-events: Upgraded plugin
+- h5p: Upgraded plugin
+- nodes-theme-switcher: Added plugin
+- pods: Upgraded plugin
+- pojo-accessibility: Added plugin
+- tabs-responsive: Upgraded plugin
+- Theme reactor: Removed TinyMCE editor in buddypress
+
+PORTAL
+- Request: Only check active instances to decide if a manager can request a quota increase
+
+
 Changes 24.05.10
 ---------------------------------------------------------------------------------------
 NODES
