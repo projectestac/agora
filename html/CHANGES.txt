@@ -4,6 +4,34 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
 
+Changes 24.07.16
+---------------------------------------------------------------------------------------
+MOODLE
+- Updated langpacks
+
+NODES
+- agora-functions: buddypress-docs: Added patch to fix compatibility with Astra theme
+- agora-functions: Improved theme import to nodes-astra
+- agora-functions: Moved custom code to force frontpage page from reactor
+- astra-nodes: Improved CSS
+- astra-nodes: Improved migration of widgets
+- astra-nodes: Login screen: Copied from reactor
+- Gutenberg editor: Added restrictions to some functionalities
+- langs: Updated all translations
+- Pages: Improved side menu
+- add-to-any: Upgraded plugin
+- advanced-nocaptcha-recaptcha: Upgraded plugin
+- author-category: Fixed errors in PHP 8.1. Added support for Gutenberg
+- email-subscribers: Upgraded plugin
+- koko-analytics: Upgraded plugin
+- koko-analytics: Moved admin link from Dashboard to Options menu
+- nodes-theme-switcher: Upgraded plugin
+- pojo-accessibility: Removed advertisements
+- polylang: Upgraded plugin
+- wordpress-telegram: Upgraded plugin
+- XTEC lib: Added operation to change themes
+
+
 Changes 24.07.01
 ---------------------------------------------------------------------------------------
 MOODLE
