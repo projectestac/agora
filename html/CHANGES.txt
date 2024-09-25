@@ -4,6 +4,61 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
 
+Changes 24.09.26
+---------------------------------------------------------------------------------------
+MOODLE
+- Upgraded Moodle to version 4.1.13+
+- Updated langpacks
+- Attendance: Upgraded module
+- qtype_calculated: Fix for negative answers (MDL-76024)
+- Questionnaire: Upgraded module
+- settings: Added custom file types for python (used in assignments)
+- Wiris: Upgraded all components
+
+NODES
+- Nodes 2: Contact information: Show school code, email and phone only if they are set
+- Nodes 2: Contact information: Don't show fake school codes in site header
+- Nodes 2: Cards: Fixed broken image link when there is no image
+- Nodes 2: Cards: Default background colors set according to palette
+- Nodes 2: Hide button to change theme in customizer to all users except xtecadmin
+- Nodes 2: Header: Display logo using generated URL, not the ID. Improvements in the format
+- Nodes 2: Customizer: Improved layout selector
+- Nodes 2: Migration: Change admin_color in users metadata when switching themes
+- Nodes 2: Migration: Get the category id of the front page
+- Nodes 2: Migration: Updated migration parameters for Astra Nodes
+- Nodes 2: Remove metaboxes for Astra and custom posts in several post types, including new calendar page
+- Nodes 2: Extensions: Added custom page to access to the options of some extensions
+- Nodes 2: Customizer: Front page notice | Content: Added TinyMCE to textarea
+- Nodes 2: Front page slider: Render text and images only if they are set
+- Nodes 2: Accessibility menu hidden, except for xtecadmin
+- Nodes 2: Improvements to CSS
+- Nodes 2: Show categories and tags in single article view
+- Fix for error on logout caused by Apache after fixing CVE-2024-38474
+- Gutenberg: Added custom format and behavior for block 'Column'
+- langs: Updated translations for pods, astra-sites and wpforms-lite, google-analyticator,
+         table-of-contents-plus, add-to-any, code-snippets, import-users, accessibility and tinymce-advanced
+- astra-addon: Upgraded plugin
+- astra-sites: Upgraded plugin
+- buddypress: Added TinyMCE editor to activity post form
+- code-snippets: Upgraded plugin
+- google-calendar-events: Upgraded plugin
+- gtranslate: Hidden configuration to all users except xtecadmin
+- import-users-from-csv-with-meta: Upgraded plugin
+- koko-analytics: Removed time check for the cron
+- nodes-inventari: Removed style that blocks access to add-to-any on posts and pages
+- nodes-incidencies: Removed style that blocks access to add-to-any on posts and pages
+- pods: Upgraded plugin
+- table-of-contents-plus: Upgraded plugin
+- tinymce-advanced: Upgraded plugin
+- wptelegram: Upgraded plugin
+- wpforms-lite: Upgraded plugin
+- xtec-booking: Fixed implicit type conversion
+
+PORTAL
+- Instance: Fixed error when creating instance and the dump files are missing
+- ModelType: Fixed error when saving new model types
+
+
 Changes 24.07.16
 ---------------------------------------------------------------------------------------
 MOODLE
