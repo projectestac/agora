@@ -29,7 +29,7 @@ switch ($agora['server']['enviroment']) {
         break;
     case 'PRO':
     default:
-        $agora['server']['school_information'] = 'https://aplicacions.ensenyament.gencat.cat/pls/xtec/agora_dades_centre?p_codi_centre=';
+        $agora['server']['school_information'] = 'https://aplicacions.gestioeducativa.gencat.cat/ords/pls/xtec/agora_dades_centre?p_codi_centre=';
         break;
 }
 
