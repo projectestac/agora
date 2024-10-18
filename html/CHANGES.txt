@@ -4,6 +4,33 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
 
+Changes 24.10.22
+---------------------------------------------------------------------------------------
+GENERAL
+- config: Updated URL for WS
+- dump: Added model type for training
+- update_submodules.sh: Updated repositories
+
+MOODLE
+- Updated langpacks
+- Completion: Ignore pass/fail when only Require grade defined (MDL-75582)
+- multitopic: Added course format
+- tiles: Added course format
+
+NODES
+- Nodes 2: Changed images for card and notice demo
+- langs: Corrected some catalan strings
+- buddypress: Recovered TinyMCE in wall
+- google-calendar-events: Fixed bug due to old unnecessary patch
+- H5P: agora-functions: Fixed access to H5P activities
+- H5P: Fixed access to admin pages
+- script_replace_url: Added field for Nodes 2
+
+PORTAL
+- Helpers: Fix error when data received from WS is incorrect
+- Query: Added support for non-ASCII characters to batch queries
+
+
 Changes 24.09.26
 ---------------------------------------------------------------------------------------
 MOODLE
