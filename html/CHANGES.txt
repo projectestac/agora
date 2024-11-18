@@ -4,6 +4,48 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
 
+Changes 24.11.19
+---------------------------------------------------------------------------------------
+GENERAL
+- Minor updates to global configuration files
+- update_submodules.sh: Updated repositories
+
+MOODLE
+- Upgraded Moodle to version 4.1.14+
+- Updated langpacks
+- Alexandria importer: Updated plugin
+- Configurable reports: Upgraded block
+- Course quotas: Updated report
+- Font family: Upgraded atto plugin
+- Geogebra: Upgraded module
+- hvp: Upgraded module
+- Local Àgora: Updated cache definitions for Moodle 4.1.14
+- Migratehvp2h5p: Upgraded admin tool
+- Wiris: Upgraded all components
+
+NODES
+- Nodes 2: Added CSS styles
+- Nodes 2: Added link to cookies policy in footer
+- Nodes 2: Contacte: Removed target blank
+- Nodes 2: Fixed logo being lost the first time the changes in customizer are saved
+- Nodes 2: Front page notice: Block the size of the notice and restrict access to background color
+- Nodes 2: Header buttons: Fixed size increase when text is too long and removed lowercase being mandatory
+- agora-functions: Preserve HTML tags when sending e-mail
+- agora-functions: Updated language files
+- nodes-theme-switcher: Updated user messages and links
+- options-reading.php: Allow administrators to change frontpage page
+- pending-submission-notifications: Moved plugin logic to agora-functions
+- wordpress-social-login: Improved code of Moodle provider
+- XTEC lib: Added operation to register Astra Pro
+
+PORTAL
+- Config: Move from md5 to bcrypt as an encryption method for initial passwords
+- Instances: Added dropdown menus to filter by service and instance state in instance list
+- Instances: Fixed error message not being shown to users
+- Jobs: Add specific treatment for bcrypt passwords
+- Query: Added support for non-ASCII characters to batch queries (II)
+
+
 Changes 24.10.22
 ---------------------------------------------------------------------------------------
 GENERAL
