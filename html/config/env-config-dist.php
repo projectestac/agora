@@ -3,7 +3,7 @@
 global $agora;
 
 // Environment vars
-$agora['server']['root'] = dirname(dirname(dirname(__FILE__))) . '/'; // Directori base de la instal·lació d'Àgora ($BASE_AGORA)
+$agora['server']['root'] = dirname(__FILE__, 3) . '/'; // Directori base de la instal·lació d'Àgora ($BASE_AGORA)
 $agora['server']['server'] = 'https://agora-aws.xtec.cat'; // URL base general
 $agora['server']['nodes'] = 'https://agora-aws-nodes.xtec.cat'; // URL base per als Nodes
 $agora['server']['se-url'] = 'https://agora-aws-se.xtec.cat'; // URL base per als Serveis Educatius
@@ -14,8 +14,7 @@ $agora['server']['datadir'] = 'data/'; // Directori arrel de dades d'usuari (com
 $agora['server']['localdatadir'] = 'localdata/'; // Directori arrel de dades d'usuari locals (local a cada servidor)
 $agora['server']['temp'] = ''; // Ubicació alternativa pels directoris temporals del moodledata
 $agora['server']['userprefix'] = 'usu'; // Prefix dels esquemes dels usuaris de base de dades que s'han creat. Així, per exemple, si s'han creat usuaris de l'estil USUx (com ara USU1, USU2...), el prefix és USU.
-$agora['server']['enviroment'] = 'LOCAL'; // Entorn (INT, ACC, PRO, FRM)
-$agora['server']['school_information'] = 'https://aplicacions.ensenyament.gencat.cat/pls/xtec/agora_dades_centre?p_codi_centre=';
+$agora['server']['enviroment'] = 'LOCAL'; // Entorn (INT, PRE, PRO)
 
 // Admin database access info (MySQL)
 $agora['admin']['username'] = 'root';

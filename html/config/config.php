@@ -19,19 +19,10 @@ $agora['nodes']['userprefix'] = $agora['server']['userprefix'];
 $agora['nodes']['diskusagefile'] = 'quotaUsageNodes.txt';
 
 // General vars
-switch ($agora['server']['enviroment']) {
-    case 'INT':
-        $agora['server']['school_information'] = 'https://integracio.aplicacions.ensenyament.gencat.cat/pls/xtec/agora_dades_centre?p_codi_centre=';
-        break;
-    case 'ACC':
-    case 'PRE':
-        $agora['server']['school_information'] = 'https://preproduccio.aplicacions.ensenyament.gencat.cat/pls/xtec/agora_dades_centre?p_codi_centre=';
-        break;
-    case 'PRO':
-    default:
-        $agora['server']['school_information'] = 'https://aplicacions.gestioeducativa.gencat.cat/ords/pls/xtec/agora_dades_centre?p_codi_centre=';
-        break;
-}
+$agora['server']['school_information'] = match ($agora['server']['enviroment']) {
+    'INT', 'ACC', 'PRE' => 'https://preproduccio.aplicacions.ensenyament.gencat.cat/pls/xtec/agora_dades_centre?p_codi_centre=',
+    default => 'https://aplicacions.gestioeducativa.gencat.cat/ords/pls/xtec/agora_dades_centre?p_codi_centre=',
+};
 
 $agora['server']['html'] = $agora['server']['server'] . $agora['server']['base'];
 $agora['server']['uploads'] = $agora['server']['root'] . $agora['server']['datadir'] . 'uploads/'; // Temp directory for uploading big files. Files will be moved to each moodledata.
