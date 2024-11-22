@@ -5,29 +5,29 @@ function gitcheckout {
     branch=$2
     remote=$3
 
-    if [ ! "$(ls -A $dir)" ]; then
+    if [ ! "$(ls -A "$dir")" ]; then
         # Empty directory
         update_exec "git submodule sync --recursive"
         update_exec "git submodule update --init --recursive"
 
-        if [ ! "$(ls -A $dir)" ]; then
-            echo 'ERROR: el directori $dir no existeix o és buit'
-            exit -1
+        if [ ! "$(ls -A "$dir")" ]; then
+            echo "ERROR: el directori $dir no existeix o és buit"
+            exit 1
         fi
     fi
 
     echo "Entrant $dir BRANCH $branch REPO $remote ..."
-    pushd $dir > /dev/null
-    if [ ! -z "$remote" ]; then
+    pushd "$dir" > /dev/null || exit 1
+    if [ -n "$remote" ]; then
         update_exec "git remote set-url origin $remote"
         update_exec "git fetch"
     fi
 
     update_exec "git checkout $branch"
 
-    git_pull $branch
+    git_pull "$branch"
 
-    popd > /dev/null
+    popd > /dev/null || exit 1
     echo 'OK'
 }
 
@@ -43,7 +43,7 @@ function git_pull {
         update_exec "git reset --hard origin/$branch"
     fi
 
-    update_exec "git pull"
+    update_exec "git pull origin $branch --rebase"
 
     if [[ $action == 'stash' ]]
     then
@@ -63,7 +63,7 @@ function update_exec {
     if ! $1 > /dev/null
     then
         echo >&2 "ERROR: on $1"
-        exit -2
+        exit 2
     fi
 }
 
@@ -109,7 +109,7 @@ function pull_submodules {
         update_exec "git submodule sync"
     fi
 
-    ./update_submodules.sh $action
+    ./update_submodules.sh "$action"
 }
 
 function end_exec {

@@ -117,3 +117,5 @@ if [[ $execportal == true ]]
 then
     gitcheckout "html/portal" "master" "https://github.com/projectestac/agora_portal.git"
 fi
+
+end_exec

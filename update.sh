@@ -2,14 +2,12 @@
 #
 source "update_functions.sh"
 
-get_action $1
+# Check if the second parameter is defined, if not set it to "master"
+branch=${2:-master}
+
+get_action "$1"
 
 echo 'Pull inicial'
-git_pull master
-
+git_pull "$branch"
 pull_submodules
-
-echo "Garbage collecting..."
-git gc
-
-echo "That's all folks!"
+end_exec
