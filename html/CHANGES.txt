@@ -4,6 +4,54 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
 
+Changes 24.12.23
+---------------------------------------------------------------------------------------
+MOODLE
+- Upgraded Moodle to version 4.4.5+
+- Updated langpacks
+- attendance: Upgraded module
+- choicegroup: Upgraded module
+- GeoGebra: Upgraded module
+- jclic: Upgraded module
+- journal: Upgraded module
+- Local oauth: Updated plugin
+- Local Àgora: Updated plugin
+- questionnaire: Upgraded module
+- qv: Upgraded module
+- Vicens Vives: Upgraded all plugins
+- Completion progress: Upgraded block
+- rgrade: Updated block
+- cloze: Upgraded atto plugin
+- fontsize: Upgraded atto plugin
+- Cloze: Added tiny plugin
+- Fontcolor: Added tiny plugin
+- Fontfamily: Added tiny plugin
+- Fontsize: Added tiny plugin
+- Wiris: Added tiny plugin
+- multitopic: Upgraded course format
+- Simple: Upgraded course format
+- tiles: Upgraded course format
+- rcommon: Fixes and updates for Moodle 4.4
+- rcontent: Added monologo image and Added lang string
+- redislock: Upgraded local plugin
+- settings.php: Removed memcached configuration
+- xtec2020: Removed theme
+- xtecboost: Upgraded theme
+
+NODES
+- agora-functions: Show links to H5P to role author in custom extensions page
+- Customized wp_admin_bar for all roles
+- Menus: Mobile menu copies main menu
+
+PORTAL
+- Email: Updated URL in welcome message on instance activation
+- Operation: Added action to reprogram operation executions
+- Query: Order results in mass query execution and add links to instances
+- Query: Improvements to mass query execution
+- Queue: Fixed error on list of failed operations
+- Request: Added links to edit page
+
+
 Changes 24.11.19
 ---------------------------------------------------------------------------------------
 GENERAL
