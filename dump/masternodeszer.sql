@@ -4152,8 +4152,8 @@ CREATE TABLE IF NOT EXISTS `wp_users` (
 --
 
 INSERT INTO `wp_users` (`ID`, `user_login`, `user_pass`, `user_nicename`, `user_email`, `user_url`, `user_registered`, `user_activation_key`, `user_status`, `display_name`) VALUES
-(1, 'admin', '$P$BtmgAkbDLpTjboh0Zw.5p0AoPJXHL50', 'admin', 'a8000010@xtec.cat', '', '2014-09-12 09:43:38', '', 0, 'admin'),
-(2, 'xtecadmin', '$P$BiJDF27JojfnUeCnfkXQ8YYm.VR1R8/', 'xtecadmin', 'agora@xtec.invalid', '', '2014-09-12 09:45:10', '', 0, 'xtecadmin');
+(1, 'admin', '', 'admin', 'a8000010@xtec.cat', '', '2014-09-12 09:43:38', '', 0, 'admin'),
+(2, 'xtecadmin', '', 'xtecadmin', 'agora@xtec.invalid', '', '2014-09-12 09:45:10', '', 0, 'xtecadmin');
 
 -- --------------------------------------------------------
 
