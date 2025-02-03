@@ -4,6 +4,42 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
 
+Changes 25.02.04
+---------------------------------------------------------------------------------------
+MOODLE
+- Upgraded Moodle to version 4.4.5+
+- Updated langpacks
+- Completion: Ignore pass/fail when only Require grade defined (MDL-75582)
+- Question duplication: Partial reversion of MDL-77625
+- cloze: Upgraded tiny plugin
+- fontsize: Upgraded tiny plugin
+- Local Àgora: Added script to activate filter multilang and configure TinyMCE plugins
+- Theme xtecboost: Replaced twitter logo by X logo. Improved footer styles
+- Tiles: Upgraded course format
+- Wiris: Upgraded all components
+
+NODES
+- Nodes 2: Added link to log in in mobile view. Minor CSS improvements
+- Nodes 2: Allow all available widgets in footer
+- Nodes 2: Pages menu: Added padding to 4th, 5th and beyond level menus
+- langs: Updated non-customized translations
+- author-category: Added catalan translation
+- agora-functions: Customized WP admin bar menus
+- Menus: Fixed automatic menu configuration for mobile
+- email-subscribers: Upgraded plugin
+- extensions_widget_dashboard: Updated links to "More information"
+- getwid: Upgraded plugin
+- pending-submission-notifications: Removed plugin
+- Vanilla Astra: Only xtecadmin can set this option
+- wordpress-social-login: Updated link to documentation for Google SSO
+
+PORTAL
+- Instance: Changed CSS class for STATUS_WITHDRAWN
+- Instance: Updated link to Nodes quick guide in welcome e-mail
+- ModelTypeSeeder: Updated configuration data about some models
+- Selector: Fixed ajax searches by city
+
+
 Changes 24.12.23
 ---------------------------------------------------------------------------------------
 MOODLE
