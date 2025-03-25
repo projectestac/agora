@@ -4,6 +4,41 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
 
+Changes 25.03.25
+---------------------------------------------------------------------------------------
+MOODLE
+- Upgraded Moodle to version 4.4.7+
+- Updated langpacks
+- Local Àgora: Updated cache definitions
+- Questions: Added scripts to clean up duplicates
+- purgecategory: Added question bank plugin
+- questionbankoverview: Added report
+- settings.php: Unlocked enablestats and enableanalytics only for xtecadmin
+- Wiris: Upgraded all components
+
+NODES
+- langs: Removed file that caused the language buddypress to be shown in language list
+- Nodes 2: Fixed login logo not being shown
+- Nodes 2: Header: Carrusel: If the slide has no link, use a span instead of an anchor tag
+- Nodes 2: Header: Notice: If there is no link, use a span instead of an anchor tag
+- Nodes 2: Hide the Astra sections 'Disable Elements' and 'Advanced settings' for all users but xtecadmin
+- Nodes 2: Improvements to CSS of header buttons
+- Nodes 2: Migration: Activate and configurate the Blog Pro module of Astra theme
+- Nodes 2: Migration: Fixed page configurated in page_on_front
+- Nodes 2: Set consistent font sizes for HTML headers
+- H5P: Upgraded plugin
+- XTEC lib: astra_blog_pro: Added script to activate and configurate the Blog Pro module of Astra theme
+- XTEC lib: enable_service: Added support for Nodes 2. Removed old code
+
+PORTAL
+- Batch: Added massive change of state of instances
+- Client: Added fields address, city and postal code to CRUD
+- ModelTypeSeeder: Updated configuration data about masterpro model
+- Query: Improvements to mass query execution
+- Queue: Added "Execute now" feature to jobs in queue
+- Queue: Add priorities to job queue
+
+
 Changes 25.02.04
 ---------------------------------------------------------------------------------------
 MOODLE
