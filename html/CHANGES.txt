@@ -4,6 +4,55 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
 
+Changes 25.05.19
+---------------------------------------------------------------------------------------
+MOODLE
+- Revert "MDL-80848 mod_forum: to have id as the backup sorting condition"
+- rcontent: Added missing lang string
+
+NODES
+- Upgraded WordPress to version 6.7.2
+- langs: Updated all translations
+- Nodes 2: Front page slider: Copy the links of the slides to the divs that show the text over the slides
+- Nodes 2: Header: Buttons: Added option to show text smaller
+- Nodes 2: Improvements to the mobile view
+- Nodes 2: Post and page edit: Hide the Astra sections "Disable Elements" and "Advanced settings" for all users but xtecadmin
+- Nodes 2: Remove left margin in post title on single post view
+- Nodes 2: Widget Navigation Menu: Improved the CSS styles and behaviour
+- koko-analytics: Updated code to customize the plugin
+- pojo-accessibility: Moved options to custom plugins admin page
+- astra: Upgraded theme
+- astra-addon: Upgraded plugin
+- add-to-any: Upgraded plugin
+- blogger-importer: Upgraded plugin
+- bbpress: Upgraded plugin
+- bp-classic: Added plugin
+- buddypress: Upgraded plugin
+- buddypress-docs: Upgraded plugin
+- buddypress-group-email-subscription: Upgraded plugin
+- code-snippets: Upgraded plugin
+- email-subscribers: Upgraded plugin
+- gif-master: Upgraded plugin
+- google-calendar-events: Upgraded plugin
+- gtranslate: Upgraded plugin
+- import-users-from-csv-with-meta: Upgraded plugin
+- invite-anyone: Upgraded plugin
+- koko-analytics: Upgraded plugin
+- nodes-theme-switcher: GTranslate: Save and retrieve the configuration on theme change
+- pods: Upgraded plugin
+- polylang: Upgraded plugin
+- table-of-contents-plus: Upgraded plugin
+- tabs-responsive: Upgraded plugin
+- wordpress-telegram: Upgraded plugin
+
+PORTAL
+- Batch: Added AJAX search i query list
+- Jobs: Program operations on queue 'high'
+- Managers: Improvements to CRUDs
+- Roles: Improvements to CRUDs
+- Users: Improvements to CRUDs
+
+
 Changes 25.03.25
 ---------------------------------------------------------------------------------------
 MOODLE
