@@ -1,16 +1,16 @@
 <?php
 
 /**
- * Check if the specified DNS is valid to avoid security problems
+ * Check if the specified DNS is valid to avoid security issues.
+ * The conditions are that the DNS must be alphanumeric, can contain
+ * hyphens and underscores, must not exceed 30 characters and must
+ * not be empty.
  *
  * @param string $dns
  * @return boolean True if specified DNS is correct; false otherwise
  */
 function isValidDNS(string $dns): bool {
-    if (strlen($dns) > 30 || !preg_match("/^[a-z0-9-_]+$/", $dns)) {
-        return false;
-    }
-    return true;
+    return !(empty($dns) || strlen($dns) > 30 || !preg_match("/^[a-z0-9-_]+$/", $dns));
 }
 
 /**
@@ -236,7 +236,7 @@ function getSchoolInfo(string $service): string {
             echo 'Center ' . $centre . ' not found in URL';
             echo "\nerror\n";
         } else {
-            header('Location: ' . WWWROOT . 'error.php?s=' . mb_strtolower($service) . '&dns=' . $centre);
+            header('Location: ' . WWWROOT . 'error.php?s=' . $service . '&dns=' . $centre);
         }
         exit;
     }
@@ -247,8 +247,7 @@ function getSchoolInfo(string $service): string {
             echo 'DNS ' . $centre . ' not valid!';
             echo "\nerror\n";
         } else {
-            $service_dir = ($service === 'Nodes') ? 's=' : 's=' . mb_strtolower($service);
-            header('Location: ' . WWWROOT . 'error.php?' . $service_dir . '&dns=' . $centre);
+            header('Location: ' . WWWROOT . 'error.php?s=' . $service . '&dns=' . $centre);
         }
         exit;
     }
@@ -339,8 +338,7 @@ function getSchoolInfo(string $service): string {
             echo 'Center ' . $centre . ' not found in database';
             echo "\nerror\n";
         } else {
-            $service_dir = ($service === 'Nodes') ? 's=' : 's=' . strtolower($service);
-            header('Location: ' . WWWROOT . 'error.php?' . $service_dir . '&dns=' . $centre);
+            header('Location: ' . WWWROOT . 'error.php?s=' . $service . '&dns=' . $centre);
         }
         exit;
     }
@@ -574,4 +572,38 @@ function transformClientCode(string $clientCode, string $type = 'letter2num'): s
     }
 
     return $clientCode;
+}
+
+/**
+ * Retrieve the status message of an instance based on its DNS.
+ *
+ * @param string $dns
+ * @param string $service
+ * @return string|null Returns the status message of the instance or null if not found.
+ */
+function getInstanceStatus(string $dns, string $service): ?string {
+
+    // Consulta SQL para obtener el estado de la instancia
+    $sql = 'SELECT i.status FROM instances i
+            LEFT JOIN clients c ON i.client_id = c.id
+            LEFT JOIN services s ON i.service_id = s.id
+            WHERE c.dns = \'' . $dns . '\'
+                AND s.name = \'' . $service . '\'
+            LIMIT 1';
+
+    try {
+        require_once 'dbmanager.php';
+
+        $results = get_rows_from_db($sql);
+
+        if (!$results || empty($results[0]->status)) {
+            return null;
+        }
+
+        return $results[0]->status;
+
+    } catch (Exception $e) {
+        return null;
+    }
+
 }
