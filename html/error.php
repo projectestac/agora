@@ -1,115 +1,113 @@
+<?php
+// Carga los archivos de configuración y la biblioteca de la base de datos
+
+include 'config/env-config.php';
+include 'config/dblib-mysql.php';
+
+$instance_status_message = "Aquest espai es troba fora de servei"; // Mensaje por defecto
+
+// Verificación del parámetro 'dns'
+if (isset($_GET['dns']) && is_string($_GET['dns'])) {
+    $dns_param = $_GET['dns'];
+
+    if (isValidDNS($dns_param)) {
+        // El DNS es válido, procede con la consulta a la base de datos
+        // Asegúrate de que $DB sea una instancia de conexión a la base de datos inicializada por dblib-mysql.php
+        if (isset($DB) && $DB instanceof mysqli) {
+            // Prepara la consulta para obtener el estado de la instancia
+            // Es crucial usar consultas preparadas para evitar inyecciones SQL
+            $stmt = $DB->prepare("SELECT status FROM instances WHERE db_host = ?");
+            if ($stmt) {
+                $stmt->bind_param("s", $dns_param);
+                $stmt->execute();
+                $result = $stmt->get_result();
+
+                if ($result->num_rows > 0) {
+                    $row = $result->fetch_assoc();
+                    $status = $row['status'];
+
+                    switch ($status) {
+                        case 'pending':
+                            $instance_status_message = "Aquest espai està pendent d'activació";
+                            break;
+                        case 'inactive':
+                            $instance_status_message = "Aquest espai es troba, temporalment, fora de servei";
+                            break;
+                        case 'withdrawn':
+                            $instance_status_message = "Aquest espai ha estat donat de baixa";
+                            break;
+                        default:
+                            $instance_status_message = "Aquest espai es troba fora de servei";
+                            break;
+                    }
+                }
+                $stmt->close();
+            } else {
+                // Error al preparar la consulta
+                error_log("Failed to prepare statement for instance status query: " . $DB->error);
+            }
+        } else {
+            // La conexión a la base de datos no está disponible
+            error_log("Database connection not available in error.php.");
+        }
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="ca">
-    <head>
-        <title>Servei &Agrave;gora</title>
-        <meta charset="utf-8">
-        <style>
-            body {
-                line-height: normal;
-                background: #739cce;
-                color: black;
-                padding: 0;
-                font-family: Arial, Helvetica, Univers, Sans-serif, serif;
-                font-size: 10pt;
-                margin: 0;
-            }
-            a {
-                color: #739cce;
-            }
-            .wrapper {
-                width:610px;
-                margin: 0 auto;
-                background: white;
-            }
-            h1 {
-                text-align: center;
-                margin: 30px 10px;
-                font-size: 1.6em;
-            }
-            .content {
-                padding: 20px;
-            }
-            .center {
-                text-align:center;
-            }
-            .right{
-                padding: 15px;
-                margin-bottom:10px;
-                color:#000;
-                text-align: right;
-            }
-            .xtec_int{background: url("portal/images/importat/xtec_int.gif") #113b83;}
-            .bottom{background:  url("portal/images/importat/au_titol.gif") repeat-x ; padding:9px; }
-        </style>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error d'accés</title>
+    <style>
+        /* Estilos CSS minimalistas para la estructura sin la estética final */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            color: #333;
+        }
+        .container {
+            margin-top: 150px;
+            text-align: center;
+        }
+        h1 {
+            color: #d9534f; /* Color rojo para el error */
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        header, footer {
+            text-align: center;
+        }
+        header img,footer img {
+            margin: 8px 16px;
+        }
+        header {
+            border-bottom: 2px solid #FF494E;
+        }
+        footer {
+            border-top: 1px solid #FF494E;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <p><img src="portal/images/departament.png"><img src="portal/images/top_eix_color.png"></p>
+    </header>
 
-<?php
-    include 'config/env-config.php';
-    include 'config/dblib-mysql.php';
-    global $agora;
-?>
-    <body>
-        <div class="wrapper">
-            <div class="header imp">
-                <p class="xtec_int">&nbsp; </p>
-                <p class="bottom">&nbsp; </p>
-            </div>
-            <div class="content">
-            <?php if (isset($_GET['error'])) { ?>
-                <h1>SERVEI &Agrave;GORA NO DISPONIBLE</h1>
-                <p>El servei &Agrave;gora no està disponible en aquests moments. Estem treballant per solucionar els problemes 
-                    t&egrave;cnics com més aviat millor.</p>
-                <p>Disculpeu les mol&egrave;sties que aquesta aturada us pugui ocasionar.</p>
-            <?php } elseif (isset($_GET['newaddress'])) { ?>
-                <h1>CANVI D'ADREÇA D'AQUEST ESPAI</h1>
-                <p>L'espai al que esteu intentant accedir ha canviat d'adreça.</p>
-                <p>L'adreça nova &eacute;s:</p>
-                <p class="center"><a href="<?php echo $_GET['newaddress'] ?>"><?php echo $_GET['newaddress'] ?></a></p>
-                <br/>
-                <p>Per aquest motiu, és recomanable que, tan aviat com pugueu, actualitzeu l'enllaç i, en cas que sigueu 
-                    l'administrador us assegureu que no hi ha cap enllaç trencat.</p>
-            <?php } elseif (isset($_GET['migrating'])) { ?>
-                <h1>SERVEI D'ÀGORA EN PROCÉS DE MIGRACIÓ</h1>
-                <p>Aquest espai web es troba temporalment fora de servei. En aquests moments s'estan duent a terme tasques de 
-                    traspàs de dades per transferir-lo a un nou servidor amb més capacitat.</p>
-                <p>Prova de nou l'accés: <a href="<?php echo $agora['server']['server'] . $agora['server']['base'] . $_GET['migrating'] . '/' . $_GET['s'] ?>"><?php echo $agora['server']['server'] . $agora['server']['base'] . $_GET['migrating'] . '/' . $_GET['s'] ?></a></p>
-                <br />
-                <p>Preguem disculpeu les molèsties</p>
-                <br />
-            <?php } elseif (isset($_GET['migrated'])) { ?>
-                <h1>SERVEI D'ÀGORA MIGRAT A EIX</h1>
-                <p>Aquest espai web ha canviat d'ubicació. L'URL nou és el següent:</p>
-                <p><a href="<?php echo 'https://educaciodigital.cat' . $agora['server']['base'] . $_GET['migrated'] . '/' . $_GET['s'] ?>"><?php echo 'https://educaciodigital.cat' . $agora['server']['base'] . $_GET['migrated'] . '/' . $_GET['s'] ?></a></p>
-                <br />
-                <p>Preguem disculpeu les molèsties</p>
-                <br />
-            <?php } elseif (isset($_GET['saturated'])) { ?>
-                <h1>SATURACIÓ A ÀGORA</h1>
-                <p>En aquests moments els servidors estan rebent moltes visites. Per evitar la saturació de la plataforma s'hi 
-                    està limitant l'accés. Si us plau, torneu a provar d'entrar passats 15 minuts:</p>
-                <p><a href="<?php echo $agora['server']['server'] . $agora['server']['base'] . $_GET['saturated'] . '/' . $_GET['s'] ?>"><?php echo $agora['server']['server'] . $agora['server']['base'] . $_GET['saturated'] . '/' . $_GET['s'] ?></a></p>
-                <br />
-                <p>Preguem disculpeu les molèsties</p>
-                <br />
-            <?php } else {
-                $dns = $_GET['dns'];
-                if (!isValidDNS($dns)) {
-                    // El nom propi no és vàlid. No es pot mostrar per evitar problemes de XSS.
-                ?>
-                    <h1>URL D'ÀGORA NO VÀLID</h1>
-                    <p>L'URL que heu indicat no es correspon amb cap URL vàlid del servei Àgora de la XTEC. Si us plau, 
-                        reviseu-lo i torneu-ho a provar.</p>
-                <?php } else { ?>
-                    <h1>ACC&Eacute;S ERRONI A UN SERVEI D'&Agrave;GORA</h1>
-                    <p>No s'ha trobat l'espai al qual heu intentat accedir. Les causes m&eacute;s probables s&oacute;n que hàgiu 
-                        escrit l'adreça incorrecta a la finestra del navegador o que l'espai sol·licitat no estigui operatiu.</p>
-                    <p>L'adreça que heu escrit ha estat <strong><?php echo $agora['server']['server'] . $agora['server']['base'] . $dns . '/' . $_GET['s'] ?></strong></p>
-                    <p>Si no ho heu fet encara, podeu sol·licitar l'alta als serveis d'&Agrave;gora des d'<a href="<?php echo $agora['server']['server'] . $agora['server']['base'] ?>portal/">aquí</a>.</p>
-                    <div class="right">
-                        <a href="<?php echo $agora['server']['server'] . $agora['server']['base'] ?>moodle/moodle/mod/resource/view.php?id=661">Condicions d'&uacute;s</a>
-                    </div>
-            <?php } } ?>
-
+    <div class="container">
+        <h1>No s'ha pogut accedir a la pàgina sol·licitada</h1>
+        <p><?php echo htmlspecialchars($instance_status_message); ?></p>
         </div>
-    </body>
+
+    <footer>
+        <p><img src="portal/images/departament.png"><img src="portal/images/xtec.png"><img src="portal/images/top_eix_color.png"></p>
+    </footer>
+</body>
 </html>
