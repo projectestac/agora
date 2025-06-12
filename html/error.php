@@ -79,37 +79,52 @@ if (isset($_GET['dns']) && is_string($_GET['dns'])) {
     <title>Error d'accés</title>
     <style>
         /* Estilos CSS minimalistas para la estructura sin la estética final */
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
             color: #333;
+            display: flex;
+            flex-direction: column;
         }
-        .container {
-            margin-top: 150px;
+
+        header, footer {
             text-align: center;
         }
+
+        header img, footer img {
+            margin: 8px 16px;
+        }
+
+        header {
+            border-bottom: 2px solid #FF494E;
+        }
+
+        footer {
+            border-top: 1px solid #FF494E;
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+        }
+
         h1 {
             color: #d9534f; /* Color rojo para el error */
             margin-bottom: 20px;
         }
+
         p {
             font-size: 1.1em;
             line-height: 1.6;
-        }
-        header, footer {
-            text-align: center;
-        }
-        header img,footer img {
-            margin: 8px 16px;
-        }
-        header {
-            border-bottom: 2px solid #FF494E;
-        }
-        footer {
-            border-top: 1px solid #FF494E;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
         }
     </style>
 </head>
@@ -121,7 +136,7 @@ if (isset($_GET['dns']) && is_string($_GET['dns'])) {
     <div class="container">
         <h1>No s'ha pogut accedir a la pàgina sol·licitada</h1>
         <p><?php echo htmlspecialchars($instance_status_message); ?></p>
-        </div>
+    </div>
 
     <footer>
         <p><img src="portal/images/departament.png"><img src="portal/images/xtec.png"><img src="portal/images/top_eix_color.png"></p>
