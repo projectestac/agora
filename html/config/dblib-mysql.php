@@ -590,3 +590,37 @@ function transformClientCode(string $clientCode, string $type = 'letter2num'): s
 
     return $clientCode;
 }
+
+/**
+ * Recupera el mensaje de estado de una instancia a partir de su DNS.
+ *
+ * @param string $dns_param
+ * @return string|null Mensaje de estado o null si no se encuentra
+ */
+function getInstanceStatus(string $dns_param): ?string {
+    global $agora;
+
+    // Escapar el valor para evitar inyecciones SQL
+    $escaped_dns = addslashes($dns_param);
+
+    // Consulta SQL para obtener el estado de la instancia
+    $sql = "SELECT status FROM instances WHERE db_host = '$escaped_dns' LIMIT 1;";
+
+    try {
+        require_once 'dbmanager.php';
+
+        // Utiliza la función centralizada del proyecto para consultar la base de datos
+        $results = get_rows_from_db($sql);
+
+        if (!$results || empty($results[0]->status)) {
+            return null;
+        }
+
+        $status = $results[0]->status;
+
+        return $status;
+    } catch (Exception $e) {
+        error_log("Error al recuperar el estado de la instancia: " . $e->getMessage());
+        return null;
+    }
+}
