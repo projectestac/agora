@@ -14,6 +14,19 @@ function isValidDNS(string $dns): bool {
 }
 
 /**
+ * Check if the specified DNS is valid to avoid security problems
+ *
+ * This function verifies that the given string is a valid fully qualified domain name (FQDN)
+ * according to RFC 1035/1123. It ensures the domain is properly formatted and within length limits.
+ *
+ * @param string $fqdn The fully qualified domain name to validate
+ * @return bool True if the specified DNS is correct; false otherwise
+ */
+function isValidFQDN(string $fqdn): bool {
+    return preg_match('/^(?=.{1,253}$)(?:[a-z0-9](?:[a-z0-9\-]{0,61}[a-z0-9])?\.)+[a-z]{2,}$/i', $fqdn) === 1;
+}
+
+/**
  * Returns if the current URL is in the selected domain or not.
  *
  * @param string $domain Domain to compare

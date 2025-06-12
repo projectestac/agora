@@ -3,6 +3,7 @@
 
 include 'config/env-config.php';
 include 'config/dblib-mysql.php';
+global $agora;
 
 $instance_status_message = "Aquest espai es troba fora de servei"; // Mensaje por defecto
 
@@ -10,22 +11,33 @@ $instance_status_message = "Aquest espai es troba fora de servei"; // Mensaje po
 if (isset($_GET['dns']) && is_string($_GET['dns'])) {
     $dns_param = $_GET['dns'];
 
-    if (isValidDNS($dns_param)) {
+    if (isValidFQDN($dns_param)) {
         // El DNS es válido, procede con la consulta a la base de datos
         // Asegúrate de que $DB sea una instancia de conexión a la base de datos inicializada por dblib-mysql.php
-        if (isset($DB) && $DB instanceof mysqli) {
-            // Prepara la consulta para obtener el estado de la instancia
-            // Es crucial usar consultas preparadas para evitar inyecciones SQL
-            $stmt = $DB->prepare("SELECT status FROM instances WHERE db_host = ?");
-            if ($stmt) {
-                $stmt->bind_param("s", $dns_param);
-                $stmt->execute();
-                $result = $stmt->get_result();
 
-                if ($result->num_rows > 0) {
-                    $row = $result->fetch_assoc();
+        try {
+            // Conexión a la base de datos en modo procedural
+            $db = mysqli_connect(
+                $agora['admin']['host'],
+                $agora['admin']['username'],
+                $agora['admin']['userpwd'],
+                $agora['admin']['database'],
+                $agora['admin']['port']
+            );
+
+            if (!$db) {
+                // Error de conexión
+                error_log("La conexión a la base de datos ha fallado: " . mysqli_connect_error());
+            } else {
+                // Escapar el parámetro DNS para evitar inyecciones SQL
+                $escaped_dns = mysqli_real_escape_string($db, $dns_param);
+
+                // Consulta SQL para obtener el estado de la instancia
+                $sql = "SELECT status FROM instances WHERE db_host = '$escaped_dns';";
+                $result = mysqli_query($db, $sql);
+
+                if ($result && $row = mysqli_fetch_assoc($result)) {
                     $status = $row['status'];
-
                     switch ($status) {
                         case 'pending':
                             $instance_status_message = "Aquest espai està pendent d'activació";
@@ -41,15 +53,20 @@ if (isset($_GET['dns']) && is_string($_GET['dns'])) {
                             break;
                     }
                 }
-                $stmt->close();
-            } else {
-                // Error al preparar la consulta
-                error_log("Failed to prepare statement for instance status query: " . $DB->error);
+
+                // Liberar el resultado de la consulta si existe
+                if ($result) {
+                    mysqli_free_result($result);
+                }
+
+                // Cerrar la conexión a la base de datos
+                mysqli_close($db);
             }
-        } else {
-            // La conexión a la base de datos no está disponible
-            error_log("Database connection not available in error.php.");
+        } catch (Exception $e) {
+            // Error inesperado durante la conexión o la consulta
+            error_log("Error durante la conexión o la consulta: " . $e->getMessage());
         }
+
     }
 }
 
