@@ -36,6 +36,7 @@ if [[ $execmoodle == true ]]; then
     gitcheckout "html/moodle2/lib/editor/atto/plugins/fontsize" "main" "https://github.com/andrewnicols/moodle-atto_fontsize.git"
     gitcheckout "html/moodle2/lib/editor/atto/plugins/fontfamily" "master" "https://github.com/projectestac/moodle-atto_fontfamily.git"
     gitcheckout "html/moodle2/lib/editor/atto/plugins/wiris" "main" "https://github.com/wiris/moodle-atto_wiris.git"
+    gitcheckout "html/moodle2/lib/editor/tiny/plugins/c4l" "main" "https://github.com/reskit/moodle-tiny_c4l.git"
     gitcheckout "html/moodle2/lib/editor/tiny/plugins/cloze" "main" "https://github.com/srobotta/moodle-tiny_cloze.git"
     gitcheckout "html/moodle2/lib/editor/tiny/plugins/fontsize" "main" "https://github.com/mediamaisteri/moodle-tiny_fontsize.git"
     gitcheckout "html/moodle2/lib/editor/tiny/plugins/fontcolor" "main" "https://github.com/bfh/moodle-tiny_fontcolor.git"
@@ -66,6 +67,7 @@ if [[ $execmoodle == true ]]; then
     gitcheckout "html/moodle2/question/type/truefalsewiris" "main" "https://github.com/wiris/moodle-qtype_truefalsewiris.git"
     gitcheckout "html/moodle2/question/type/wq" "master" "https://github.com/projectestac/moodle-qtype_wq.git"
     gitcheckout "html/moodle2/report/coursequotas" "master" "https://github.com/projectestac/moodle-report_coursequotas.git"
+    gitcheckout "html/moodle2/theme/boost_union" "MOODLE_404_STABLE" "https://github.com/moodle-an-hochschulen/moodle-theme_boost_union.git"
     gitcheckout "html/moodle2/theme/xtecboost" "master" "https://github.com/projectestac/moodle-theme_xtecboost.git"
 fi
 
@@ -106,6 +108,7 @@ if [[ $execwordpress == true ]]; then
     gitcheckout "html/wordpress/wp-content/plugins/tabs-responsive" "master" "https://github.com/projectestac/tabs-responsive.git"
     gitcheckout "html/wordpress/wp-content/plugins/tinymce-advanced" "master" "https://github.com/projectestac/wordpress-tinymce-advanced.git"
     gitcheckout "html/wordpress/wp-content/plugins/widget-visibility-without-jetpack" "master" "https://github.com/projectestac/wordpress-widget-visibility-without-jetpack.git"
+    gitcheckout "html/wordpress/wp-content/plugins/advanced-custom-fields" "master" "https://github.com/projectestac/wordpress-advanced-custom-fields.git"
     gitcheckout "html/wordpress/wp-content/plugins/wordpress-importer" "master" "https://github.com/projectestac/wordpress-importer.git"
     gitcheckout "html/wordpress/wp-content/plugins/wordpress-social-login" "master" "https://github.com/projectestac/wordpress-social-login.git"
     gitcheckout "html/wordpress/wp-content/plugins/wordpress-telegram" "master" "https://github.com/projectestac/wordpress-telegram.git"
