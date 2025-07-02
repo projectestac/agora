@@ -33,7 +33,7 @@ function is_in_domain(string $domain): bool {
  * @param string $domain
  * @return void
  */
-function set_domain_and_redirect(string $domain) {
+function set_domain_and_redirect(string $domain): void {
     global $agora;
 
     $agora['server']['server'] = $domain;
@@ -57,7 +57,7 @@ function set_domain_and_redirect(string $domain) {
  * @param string $order
  * @param string $desc
  * @param string $service
- * @param string|array $state
+ * @param string $status
  * @param int $countdays
  * @param int $startingday
  * @return array|bool
@@ -135,12 +135,11 @@ function getServicesTotals(bool   $codeletter = false, string $order = 'dns', st
  * @param string $order
  * @param string $desc
  * @param string $service
- * @param string|array $state
- *
+ * @param array|string $status
  * @return array|bool
  */
 function getServices(bool   $codeletter = false, string $order = 'clients.dns', string $desc = 'asc',
-                     string $service = 'all', $status = 'all') {
+                     string $service = 'all', array|string $status = 'all') {
 
     $values = $conditions = [];
 
@@ -524,9 +523,8 @@ function getDiskInfo(string $dns, string $service) {
 /**
  * Calculate the used disk percentage.
  *
- * @param int $diskConsume
- * @param int $diskSpace
- *
+ * @param int $used_quota
+ * @param int $quota
  * @return int disk percentage (without decimals)
  */
 function getDiskPercent(int $used_quota, int $quota): int {
