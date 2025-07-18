@@ -67,7 +67,7 @@ if [[ $execmoodle == true ]]; then
     gitcheckout "html/moodle2/question/type/truefalsewiris" "main" "https://github.com/wiris/moodle-qtype_truefalsewiris.git"
     gitcheckout "html/moodle2/question/type/wq" "master" "https://github.com/projectestac/moodle-qtype_wq.git"
     gitcheckout "html/moodle2/report/coursequotas" "master" "https://github.com/projectestac/moodle-report_coursequotas.git"
-    gitcheckout "html/moodle2/theme/boost_union" "MOODLE_404_STABLE" "https://github.com/moodle-an-hochschulen/moodle-theme_boost_union.git"
+    gitcheckout "html/moodle2/theme/boost_union" "master" "https://github.com/projectestac/moodle-theme_boost_union.git"
     gitcheckout "html/moodle2/theme/xtecboost" "master" "https://github.com/projectestac/moodle-theme_xtecboost.git"
 fi
 
