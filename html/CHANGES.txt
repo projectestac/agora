@@ -4,6 +4,34 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
 
+Changes 25.10.07
+---------------------------------------------------------------------------------------
+MOODLE
+- Upgraded Moodle to version 4.4.11
+- Updated langpacks
+- Course search: Added filtering to param in course search to prevent abuse
+- settings: Added option for reports to user menu
+- webservices: Fixed enable and disable of protocols
+
+NODES
+- Upgraded WordPress to version 6.7.4
+- Astra: Show logo in mobile view
+- astra-addon: Improvements to catalan translation
+- astra-addon: Added catalan translation
+- Customizer: Added options to configure posts per page and others in categories
+- Customizer: Added parameters for front page slider. Limit text length on mobile view. Improved CSS
+- Customizer: Improved the management of links in the main page slider to open in a new tab according to the user's settings
+- langs: Getwid: Updated catalan translations
+
+PORTAL
+- Batch: Added ability to select clients from file
+- Query: Enhanced logic of mass query execution. Improved result display.
+- Query: Fixed copy of queries to execution field.
+- Query: Separated single and multi instance execution.
+- Stats: Added primary key to tables, performance improvements, added download of filtered tables, added command to remove temporary files
+- Improvements to general CSS. Added some rules
+
+
 Changes 25.07.21
 ---------------------------------------------------------------------------------------
 MOODLE
