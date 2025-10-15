@@ -54,6 +54,7 @@ if (is_string($dns) && is_string($service) && isValidDNS($dns) && in_array($serv
 
         header img, footer img {
             margin: 8px 16px;
+            height: 31px;
         }
 
         header {
@@ -88,7 +89,7 @@ if (is_string($dns) && is_string($service) && isValidDNS($dns) && in_array($serv
 <body>
     <header>
         <p>
-            <img src="portal/images/departament.png" alt="">
+            <img src="portal/images/logo_defp.png" alt="">
             <img src="portal/images/top_eix_color.png" alt="">
         </p>
     </header>
@@ -100,7 +101,7 @@ if (is_string($dns) && is_string($service) && isValidDNS($dns) && in_array($serv
 
     <footer>
         <p>
-            <img src="portal/images/departament.png" alt="">
+            <img src="portal/images/logo_defp.png" alt="">
             <img src="portal/images/xtec.png" alt="">
             <img src="portal/images/top_eix_color.png" alt="">
         </p>
