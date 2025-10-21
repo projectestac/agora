@@ -4,6 +4,37 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
 
+Changes 25.10.22
+---------------------------------------------------------------------------------------
+MOODLE
+- Updated langpacks
+- choicegroup: Updated module
+- Coderunner behaviour: Added submodule
+- Coderunner question type: Added submodule
+- completion_progress: Updated block
+- multitopic: Updated course format
+- tiny_fontcolor: Updated editor plugin
+- tiny_cloze: Updated editor plugin
+- Wiris: Updated all components
+- xtecboost: Updated logo of Departament d'Educació
+
+NODES
+- Astra: Fixed double logo when using vanilla Astra
+- Nodes 1: Updated logo of Departament d'Educació
+- Nodes 2: Updated logo of Departament d'Educació
+- Nodes 2: Customizer: Controls for slider in mobile view available for all admins
+- agora-functions: Fixed protection of removal of required pages
+- alumni-fp: Improvements to code quality
+- enllacos-educatius: Fixed PHP warnings
+- grup_classe: Improved loading of email subscribers form. Improvements to code quality
+- nodes-editor-widget: Added missing quotes in URL
+- socialmedia: Improvements to code quality
+- XTEC lib: Improved code quality. Refactored replace_email_subscribers
+
+PORTAL
+- Updated logo of Departament d'Educació
+
+
 Changes 25.10.07
 ---------------------------------------------------------------------------------------
 MOODLE
