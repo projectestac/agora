@@ -19,16 +19,16 @@ else
 fi
 
 if [[ $execmoodle == true ]]; then
-    gitcheckout "html/moodle2" "master" "https://github.com/projectestac/agora_moodle2.git"
+    gitcheckout "html/moodle2" "WIP-moodle-4.5" "https://github.com/projectestac/agora_moodle2.git"
     gitcheckout "html/moodle2/admin/tool/migratehvp2h5p" "master" "https://github.com/projectestac/moodle-tool_migratehvp2h5p.git"
     gitcheckout "html/moodle2/blocks/completion_progress" "master" "https://github.com/deraadt/moodle-block_completion_progress.git"
     gitcheckout "html/moodle2/blocks/configurable_reports" "MOODLE_4x_STABLE" "https://github.com/jleyva/moodle-block_configurablereports.git"
     gitcheckout "html/moodle2/blocks/courses_vicensvives" "master" "https://github.com/vicensvives/moodle-block_courses_vicensvives.git"
     gitcheckout "html/moodle2/blocks/licenses_vicensvives" "master" "https://github.com/vicensvives/moodle-block_licenses_vicensvives.git"
     gitcheckout "html/moodle2/blocks/rgrade" "master" "https://github.com/projectestac/Rgrade.git"
-    gitcheckout "html/moodle2/course/format/multitopic" "master" "https://github.com/james-cnz/moodle-format_multitopic.git"
+    gitcheckout "html/moodle2/course/format/multitopic" "MOODLE_400" "https://github.com/james-cnz/moodle-format_multitopic.git"
     gitcheckout "html/moodle2/course/format/simple" "master" "https://github.com/projectestac/moodle-format_simple.git"
-    gitcheckout "html/moodle2/course/format/tiles" "moodle44" "https://bitbucket.org/dw8/moodle-format_tiles.git"
+    gitcheckout "html/moodle2/course/format/tiles" "moodle45" "https://bitbucket.org/dw8/moodle-format_tiles.git"
     gitcheckout "html/moodle2/course/format/vv" "master" "https://github.com/vicensvives/moodle-format_vicensvives.git"
     gitcheckout "html/moodle2/filter/wiris" "main" "https://github.com/wiris/moodle-filter_wiris.git"
     gitcheckout "html/moodle2/langpacks" "master" "https://github.com/projectestac/moodle-langpacks.git"
@@ -49,7 +49,7 @@ if [[ $execmoodle == true ]]; then
     gitcheckout "html/moodle2/local/redislock" "master" "https://github.com/projectestac/moodle-local_redislock.git"
     gitcheckout "html/moodle2/local/wsvicensvives" "master" "https://github.com/vicensvives/moodle-local_ws_vicensvives.git"
     gitcheckout "html/moodle2/mod/assign/submission/snap" "main" "https://github.com/jguille2/moodle-assignsubmission_snap.git"
-    gitcheckout "html/moodle2/mod/attendance" "MOODLE_404_STABLE" "https://github.com/danmarsden/moodle-mod_attendance.git"
+    gitcheckout "html/moodle2/mod/attendance" "MOODLE_405_STABLE" "https://github.com/danmarsden/moodle-mod_attendance.git"
     gitcheckout "html/moodle2/mod/choicegroup" "master" "https://github.com/ndunand/moodle-mod_choicegroup.git"
     gitcheckout "html/moodle2/mod/geogebra" "master" "https://github.com/projectestac/moodle-mod_geogebra.git"
     gitcheckout "html/moodle2/mod/hotpot" "master" "https://github.com/gbateson/moodle-mod_hotpot.git"
