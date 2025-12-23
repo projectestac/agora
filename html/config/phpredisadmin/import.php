@@ -1,9 +1,7 @@
 <?php
 
 require_once 'includes/common.inc.php';
-
-
-
+global $redis, $config, $csrfToken, $server;
 
 // This mess could need some cleanup!
 if (isset($_POST['commands'])) {
@@ -92,6 +90,7 @@ require 'includes/header.inc.php';
 ?>
 <h2>Import</h2>
 <form action="<?php echo format_html(getRelativePath('import.php'))?>" method="post">
+<input type="hidden" name="csrf" value="<?php echo $csrfToken; ?>" />
 
 <p>
 <label for="commands">Commands:<br>
@@ -110,9 +109,7 @@ ZADD
 <textarea name="commands" id="commands" cols="80" rows="20"></textarea>
 </p>
 
-<p>
 <input type="submit" class="button" value="Import">
-</p>
 
 </form>
 <?php

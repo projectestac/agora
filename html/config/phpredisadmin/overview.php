@@ -1,9 +1,7 @@
 <?php
 
 require_once 'includes/common.inc.php';
-
-
-
+global $redis, $config, $csrfToken, $server;
 
 $info = array();
 
@@ -12,16 +10,24 @@ foreach ($config['servers'] as $i => $server) {
       $server['db'] = 0;
   }
 
-  // Setup a connection to Redis.
-  if(isset($server['scheme']) && $server['scheme'] === 'unix' && $server['path']) {
-    $redis = new Predis\Client(array('scheme' => 'unix', 'path' => $server['path']));
+
+  if (isset($config['login_as_acl_auth'])) {
+    // Currently only support one server at a time
+    if ($i > 0) {
+      break;
+    }
   } else {
-    $redis = !$server['port'] ? new Predis\Client($server['host']) : new Predis\Client('tcp://'.$server['host'].':'.$server['port']);
-  }
-  try {
-    $redis->connect();
-  } catch (Predis\CommunicationException $exception) {
-    $redis = false;
+    // Setup a connection to Redis.
+    if(isset($server['scheme']) && $server['scheme'] === 'unix' && $server['path']) {
+      $redis = new Predis\Client(array('scheme' => 'unix', 'path' => $server['path']));
+    } else {
+      $redis = !$server['port'] ? new Predis\Client($server['host']) : new Predis\Client('tcp://'.$server['host'].':'.$server['port']);
+    }
+    try {
+      $redis->connect();
+    } catch (Predis\CommunicationException $exception) {
+      $redis = false;
+    }
   }
 
   if(!$redis) {
@@ -40,6 +46,9 @@ foreach ($config['servers'] as $i => $server) {
 
       $info[$i]         = $redis->info();
       $info[$i]['size'] = $redis->dbSize();
+      if (isset($config['login_as_acl_auth'])) {
+        $info[$i]['username'] = $redis->acl->whoami();
+      }
 
       if (!isset($info[$i]['Server'])) {
         $info[$i]['Server'] = array(
@@ -85,6 +94,10 @@ require 'includes/header.inc.php';
 
   <tr><td><div>Uptime:</div></td><td><div><?php echo format_time($info[$i]['Server']['uptime_in_seconds'])?></div></td></tr>
 
+  <?php if(isset($info[$i]['username'])): ?>
+  <tr><td><div>Username:</div></td><td><div><?php echo ($info[$i]['username'])?></div></td></tr>
+  <?php endif ?>
+
   <tr><td><div>Last save:</div></td><td><div>
     <?php 
         if (isset($info[$i]['Persistence']['rdb_last_save_time'])) {
@@ -109,7 +122,7 @@ require 'includes/header.inc.php';
 </p>
 
 <p>
-<a href="http://redis.io/documentation" target="_blank">Redis Documentation</a>
+<a href="https://redis.io/documentation" target="_blank">Redis Documentation</a>
 </p>
 <?php
 

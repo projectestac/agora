@@ -4,6 +4,7 @@ $version = '1-1-1';
 
 header('Content-Type: text/html; charset=utf-8');
 header('Cache-Control: private');
+header('X-Frame-Options: sameorigin');
 
 ?><!DOCTYPE html>
 <html lang=en>
@@ -34,6 +35,10 @@ header('Cache-Control: private');
 <?php foreach ($page['js'] as $js) { ?>
 <script src="js/<?php echo $js; ?>.js?v<?=$version?>"></script>
 <?php } ?>
+
+<script>
+phpRedisAdmin_csrfToken = '<?php echo $csrfToken; ?>';
+</script>
 
 </head>
 <body>

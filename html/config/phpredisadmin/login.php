@@ -2,6 +2,7 @@
 define('LOGIN_PAGE', true);
 
 require_once 'includes/common.inc.php';
+global $redis, $config, $csrfToken, $server;
 
 $page['css'][] = 'login';
 
@@ -13,6 +14,7 @@ require 'includes/header.inc.php';
 <h1 class="logo">phpRedisAdmin</h1>
 
 <form class="form-signin" method="post" action="login.php">
+<input type="hidden" name="csrf" value="<?php echo $csrfToken; ?>" />
     <h2 class="form-signin-heading">Please log in</h2>
 
     <?php if (isset($_POST['username']) || isset($_POST['password'])): ?>
@@ -25,13 +27,13 @@ require 'includes/header.inc.php';
     <label for="inputUser" class="sr-only">Username</label>
     <input type="text" name="username" id="inputUser" class="form-control"
            placeholder="Username"
-           value="<?= isset($_POST['username']) ? $_POST['username'] : '' ?>"
+           value="<?= isset($_POST['username']) ? htmlentities($_POST['username'], defined('ENT_SUBSTITUTE') ? (ENT_QUOTES | ENT_SUBSTITUTE) : ENT_QUOTES, 'utf-8') : '' ?>"
            required <?= isset($_POST['username']) ? '' : 'autofocus' ?>>
 
     <label for="inputPassword" class="sr-only">Password</label>
     <input type="password" name="password" id="inputPassword" class="form-control"
            placeholder="Password"
-           required <?= isset($_POST['username']) ? 'autofocus' : '' ?>>
+           <?= isset($_POST['username']) ? 'autofocus' : '' ?>>
 
     <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
 </form>

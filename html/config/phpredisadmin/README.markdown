@@ -41,7 +41,7 @@ git clone https://github.com/nrk/predis.git vendor
 
 Docker Image
 ============
-A public [phpRedisAdmin Docker image](https://hub.docker.com/r/erikdubbelboer/phpredisadmin/) is available on Docker Hub [automatically built](https://docs.docker.com/docker-hub/builds/) from latest source.
+A public [phpRedisAdmin Docker image](https://hub.docker.com/r/erikdubbelboer/phpredisadmin/) is available on Docker Hub built from the latest tag.
 The file ```includes/config.environment.inc.php``` is used as the configuration file to allow environment variables to be used as configuration values.
 Example:
 ```
@@ -55,7 +55,10 @@ Environment variables summary
 * ``REDIS_1_HOST`` - define host of the Redis server
 * ``REDIS_1_NAME`` - define name of the Redis server
 * ``REDIS_1_PORT`` - define port of the Redis server
+* ``REDIS_1_SCHEME`` - define scheme of the Redis server (tcp or tls)
 * ``REDIS_1_AUTH`` - define password of the Redis server
+* ``REDIS_1_AUTH_FILE`` - define file containing the password of the Redis server
+* ``REDIS_1_DATABASES`` - You can modify you config to prevent phpRedisAdmin from using CONFIG command 
 * ``ADMIN_USER`` - define username for user-facing Basic Auth
 * ``ADMIN_PASS`` - define password for user-facing Basic Auth
 

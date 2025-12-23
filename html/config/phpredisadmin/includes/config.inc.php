@@ -1,6 +1,6 @@
 <?php
 
-include_once dirname(dirname(dirname(__FILE__))) . '/env-config.php';
+include_once dirname(__DIR__, 2) . '/env-config.php';
 
 $config = array(
   'servers' => array(

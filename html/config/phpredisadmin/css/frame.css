@@ -14,7 +14,6 @@ margin-left: -8em;
 }
 
 form .button {
-margin-left: -7em;
 }
 
 
@@ -51,5 +50,15 @@ margin-top: -4px;
 .server {
 float: left;
 margin: 1em;
+}
+
+
+.exception {
+border: 1px solid #ff0000;
+background-color: rgba(255, 0, 0, 0.2);
+color: #880000;
+padding: 10px;
+border-radius: 5px;
+margin: 20px;
 }
 

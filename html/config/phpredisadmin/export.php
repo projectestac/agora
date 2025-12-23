@@ -2,6 +2,7 @@
 
 require_once 'includes/common.inc.php';
 
+global $redis, $config, $csrfToken, $server;
 
 // Export to redis-cli commands
 function export_redis($key, $filter = false, $transform = false) {
@@ -15,7 +16,7 @@ function export_redis($key, $filter = false, $transform = false) {
     $outputKey = str_replace($filter, $transform, $key);
   else
     $outputKey = $key;
-  
+
   // String
   if ($type == 'string') {
     echo 'SET "',addslashes($outputKey),'" "',addslashes($redis->get($key)),'"',PHP_EOL;
@@ -124,7 +125,7 @@ if (isset($_POST['type'])) {
 
   // JSON
   if ($_POST['type'] == 'json') {
-    
+
     // Single key
     if (isset($_GET['key'])) {
       echo json_encode(export_json($_GET['key']));
@@ -137,13 +138,13 @@ if (isset($_POST['type'])) {
         // if we have a filter and no match, nothing to do
         if($filter !== false && stripos($key, $filter) === false)
           continue;
-        
+
         // we rename the keys as necessary
         if($filter !== false && $transform !== false)
           $outputKey = str_replace($filter, $transform, $key);
         else
           $outputKey = $key;
-        
+
         $vals[$outputKey] = export_json($key);
       }
 
@@ -165,7 +166,7 @@ if (isset($_POST['type'])) {
         // if we have a filter and no match, we skip
         if($filter !== false && stripos($key, $filter) === false)
           continue;
-        
+
         export_redis($key, $filter, $transform);
       }
     }
@@ -187,6 +188,7 @@ require 'includes/header.inc.php';
 <h2>Export <?php echo isset($_GET['key']) ? format_html($_GET['key']) : ''?></h2>
 
 <form action="<?php echo format_html(getRelativePath('export.php'))?>" method="post">
+<input type="hidden" name="csrf" value="<?php echo $csrfToken; ?>" />
 
 <p>
 <label for="type">Type:</label>
@@ -194,7 +196,7 @@ require 'includes/header.inc.php';
 <option value="redis" <?php echo (isset($_GET['type']) && ($_GET['type'] == 'redis')) ? 'selected="selected"' : ''?>>Redis</option>
 <option value="json"  <?php echo (isset($_GET['type']) && ($_GET['type'] == 'json' )) ? 'selected="selected"' : ''?>>JSON</option>
 </select>
-</p> 
+</p>
 
 <?php if (!isset($_GET['key'])): ?>
   <p>
@@ -208,9 +210,7 @@ require 'includes/header.inc.php';
   </p>
 <?php endif; ?>
 
-<p>
 <input type="submit" class="button" value="Export">
-</p>
 
 </form>
 <?php

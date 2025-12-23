@@ -1,9 +1,7 @@
 <?php
 
 require_once 'includes/common.inc.php';
-
-
-
+global $redis, $config, $csrfToken, $server;
 
 if (isset($_POST['old'], $_POST['key'])) {
   if (strlen($_POST['key']) > $config['maxkeylen']) {
@@ -36,6 +34,7 @@ require 'includes/header.inc.php';
 ?>
 <h2>Edit Name of <?php echo format_html($_GET['key'])?></h2>
 <form action="<?php echo format_html(getRelativePath('rename.php'))?>" method="post">
+<input type="hidden" name="csrf" value="<?php echo $csrfToken; ?>" />
 
 <input type="hidden" name="old" value="<?php echo format_html($_GET['key'])?>">
 
@@ -44,9 +43,7 @@ require 'includes/header.inc.php';
 <input type="text" name="key" id="key" size="30" <?php echo isset($_GET['key']) ? 'value="'.format_html($_GET['key']).'"' : ''?>>
 </p>
 
-<p>
 <input type="submit" class="button" value="Rename">
-</p>
 
 </form>
 <?php
