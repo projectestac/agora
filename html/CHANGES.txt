@@ -4,6 +4,38 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
 
+Changes 26.03.03
+---------------------------------------------------------------------------------------
+MOODLE
+- Upgraded Moodle to version 4.5.10+
+- Updated langpacks
+- Hidden some notification messages to regular admins
+- Choicegroup: Upgraded module
+- Coderunner: Upgraded question type
+- Course Format Simple: Fixed error when removing modules with custom image
+- Coursequotas: Added install script to add essencial var to config_plugins
+- Coursequotas: Fixed modified time not being shown in modal
+- Journal: Upgraded module
+- Purgecategory: Upgraded question bank plugin
+- Quota check: Added lang string diskquotaerror_no_html
+- Tiny C4L: Upgraded editor plugin
+- Wiris: Upgraded all components
+
+NODES
+- Enllaços educatius: Updated URL for Internet Segura
+- Nodes 2: Added custom behaviour for admin options of GTranslate
+- Nodes 2: Added filters to configure cache path in Astra theme
+- Nodes 2: Front page slider: Slides with just a check for a blank page, don't show up
+- Nodes 2: Header: Don't show contact link if it is not defined
+- Nodes 2: Header buttons: Only use anchor tag when there is a link defined
+- Nodes 2: Updated legal notice link
+- Theme Reactor: Updated legal notice link
+- XTEC Booking: Updated code to meet SonarQube standards. Also some clean up
+
+PORTAL
+- quota-report: Improved table styles in e-mail
+
+
 Changes 26.01.27
 ---------------------------------------------------------------------------------------
 MOODLE
