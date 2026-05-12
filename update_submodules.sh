@@ -49,7 +49,6 @@ if [[ $execmoodle == true ]]; then
     gitcheckout "html/moodle2/local/clickedu" "MOODLE_40_STABLE" "https://github.com/clickedu/ClickeduMoodlePlugin.git"
     gitcheckout "html/moodle2/local/customgradingform_renderer" "main" "https://github.com/ingrichardrangel/moodle-local_customgradingform_renderer.git"
     gitcheckout "html/moodle2/local/oauth" "master" "https://github.com/projectestac/moodle-local_oauth.git"
-    gitcheckout "html/moodle2/local/redislock" "master" "https://github.com/projectestac/moodle-local_redislock.git"
     gitcheckout "html/moodle2/local/wsvicensvives" "master" "https://github.com/vicensvives/moodle-local_ws_vicensvives.git"
     gitcheckout "html/moodle2/mod/assign/submission/snap" "main" "https://github.com/jguille2/moodle-assignsubmission_snap.git"
     gitcheckout "html/moodle2/mod/attendance" "MOODLE_405_STABLE" "https://github.com/danmarsden/moodle-mod_attendance.git"
