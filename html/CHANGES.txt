@@ -4,6 +4,49 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
 
+Changes 26.06.22
+---------------------------------------------------------------------------------------
+MOODLE
+- Upgraded Moodle to version 4.5.12
+- Updated langpacks
+- Atto cloze: Upgraded editor plugin
+- Tiny fontcolor: Upgraded editor plugin
+- Tiny cloze: Upgraded editor plugin
+- Tiny c4l: Upgraded editor plugin
+- Attendance: Upgraded module
+- Board: Added module
+- Coderunner: Upgrades question type and question behaviour
+- Import rubric & customgradingform: Added block
+- Configurable reports: Upgraded block
+- Completion progress: Upgraded block
+- Local redislock: Fix: Only set ttl in new locks
+- rcommon: Improved spinner in user check. Also minor improvements
+- xtecboost: Added support for color change in mobile app
+- Wiris: Upgraded all components
+- Don't increase the TTL for sessions of guest user to reduce data in redis
+- CORS: Added specific headers for additio
+
+NODES
+- Upgraded WordPress to version 6.7.5
+- Nodes 2: Added support for sticky posts
+- Nodes 2: Customizer: Front page notice: Added support for buttons of links in visual editor
+- Nodes 2: Customizer: Front page notice: Avoid visual editor change links
+- Nodes 2: Fixed incorrect filtering in posts
+- Nodes 2: Force activation of Gutenberg editor on change to Nodes 2
+- Nodes 2: Improved radius border in front page notice on small screens
+- Nodes 2: Removed restriction which prevented to configure lastest posts in home page
+- author-category: Full revamp of the code
+- enllacos-educatius: Changed epergam for Catàleg de biblioteca
+- gtranslate: Hide spinner when translation is in progress
+- wordpress-telegram: Upgraded plugin
+- XTEC lib: Removed no longer needed scripts
+
+PORTAL
+- Instance: Fixed dump of Moodle model database on instance activation
+- Util: Fixed encoding of text received via WS
+- Util: Set a flag to control if directories should be included in getFiles()
+
+
 Changes 26.03.03
 ---------------------------------------------------------------------------------------
 MOODLE
