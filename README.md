@@ -101,5 +101,5 @@ Special Thanks:
 - Catalan schools involved in the project
 - Albert Gasset
 - Govern d'Andorra 
-- UPCnet / IThinkUPC
+- UPCnet / ThinkUPC
 - Itteria
