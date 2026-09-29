@@ -4,6 +4,36 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
 
+Changes 26.09.29
+---------------------------------------------------------------------------------------
+MOODLE
+- Upgraded Moodle to version 4.5.14+
+- Updated langpacks
+- attendance: Upgraded module
+- board: Upgraded module
+- c4l: Upgraded editor plugin
+- completion_progress: Upgraded block
+- fontcolor: Upgraded editor plugin
+- GeoGebra: Upgraded module
+- importrubric: Upgraded block
+- journal: Upgraded module
+- OAuth: Upgraded local plugin
+- Wiris: Upgraded all question types
+
+NODES
+- Upgraded WordPress to version 6.7.8
+- Customizer: Categories: Allow only one column
+- H5P: Upgraded plugin
+- Langs: Updated translations for: Spanish, French, Galician and Basque
+
+PORTAL
+- Batch: Fixed error in selection with CSV due to hyphens in client names
+- Factories: Added definitions for testing
+- Instances: Make getInstances() more robust
+- MyAgora: Replaced floatval() by type cast
+- Unit Tests: Added ClientServicesTest and AdminInstanceTest
+
+
 Changes 26.06.22
 ---------------------------------------------------------------------------------------
 MOODLE
