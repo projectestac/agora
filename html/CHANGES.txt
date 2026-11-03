@@ -4,6 +4,25 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
 
+Changes 26.11.03
+---------------------------------------------------------------------------------------
+MOODLE
+- Upgraded Moodle to version 4.5.15+
+- Updated langpacks
+- local_agora: cli.php: Added parameter to list actions
+
+NODES
+- Upgraded WordPress to version 6.7.11
+- Nodes 2: Fixed sticky posts for anonymous users when bp-docs is active
+- agora-functions: Prevent unauthenticated user enumeration
+- code-snippets: Improved restriction of access to regular administrators
+- Menus: Move link to delete the menu far away from the Save menu button
+- XTEC lib: cli.php: Added parameter to list actions
+
+PORTAL
+- Operations: Recover list of actions locally instead of using curl
+
+
 Changes 26.09.29
 ---------------------------------------------------------------------------------------
 MOODLE
