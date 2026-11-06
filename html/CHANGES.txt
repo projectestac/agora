@@ -4,6 +4,15 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
 
+Changes 26.11.09
+---------------------------------------------------------------------------------------
+NODES
+- agora-functions & Nodes 2: Avoid loading files from CDN
+- xtec-booking: Fixed errors when checking the availability of resources
+- xtec-booking: Fixed day view hour offset
+- xtec-booking: Several improvements to code quality and security
+
+
 Changes 26.11.03
 ---------------------------------------------------------------------------------------
 MOODLE
