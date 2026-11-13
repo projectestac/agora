@@ -6,6 +6,26 @@ development home at https://github.com/projectestac/agora
 
 Changes 26.11.09
 ---------------------------------------------------------------------------------------
+MOODLE
+- Upgraded Moodle to version 4.5.16
+- Updated langpacks
+- Administration: Allow admin to manage users' tokens for web services
+- configurable_reports: Upgraded block
+- course_format_tiles: Fixed tiles images lost due to cache desync
+- qtype_geogebra: Added submodule
+
+NODES
+- bbpress-enable-tinymce-visual-tab: Removed plugin
+- buddypress-group-email-subscription: Removed plugin
+- invite-anyone: Removed plugin
+- nodes-incidencies: Upgraded plugin
+- nodes-inventari: Upgraded plugin
+- spindle-mp3-player: Added plugin
+- Theme reactor: Removed references to removed plugins
+
+
+Changes 26.11.09
+---------------------------------------------------------------------------------------
 NODES
 - agora-functions & Nodes 2: Avoid loading files from CDN
 - xtec-booking: Fixed errors when checking the availability of resources
